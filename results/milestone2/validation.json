@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": 805,
+  "cases": 5,
+  "designs": 15,
+  "quit_nodes": 4,
+  "scientific_event": {
+    "name": "restriction_adds_at_least_5_percent_of_baseline_total_to_illicit_volume",
+    "minimum_absolute_growth_fraction": 0.05,
+    "confidence": 0.9
+  },
+  "state_count_reference": 20480,
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "scope": "exact conditional finite calculation; transported model input; no empirical posterior, national funding or continuous-convergence claim"
+}

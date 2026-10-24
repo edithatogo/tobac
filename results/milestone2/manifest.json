@@ -1,0 +1,30 @@
+{
+  "schema": "tobac.run.v1",
+  "inputs": {
+    "src/tobac/integrations.py": "201a48c8d9ccfe29fe2522e384eeef64ffdf8537ce9626217d449992f356ced7",
+    "src/tobac/evidence.py": "1a95aa7e4b2ada166f730c1d61fc513bd6abfa7dff005564f37f03399d1ed7b0",
+    "src/tobac/retail_case.py": "97d97fd2be455d2fb9b4c8c1adcaa278727eb0d178fb6709d08c41acd6fae33d",
+    "src/tobac/regulation.py": "848f80237036eee127652476d34c5c041491c3fcbfb81d0df8c4a9712d5bacd0",
+    "src/tobac/information.py": "8fdad9c976c5756767572666c4955fc5c403a71aceab52f92ef4eda2456fd584",
+    "src/tobac/run.py": "9814401f296d6d0ed7a0875ddd8293ce722887677a5fccf03548625d931c2c50",
+    "src/tobac/__init__.py": "5231e2bcb53dbe67ebbefd2fca1b7f3e3f9ba12b797696a35a6dc2721d915a92",
+    "src/tobac/supply.py": "878cfeaa65064f0879d077fa87435d2180d49892220e596a562a21896c45b647",
+    "src/tobac/config_validation.py": "7f0faa808d1d10520591322365294cdaf29eb940e922a92f9e2aafca111e3114",
+    "src/tobac/m2.py": "fa46837e6ee95809950b7db21e54045b5be86b26c7d47f7433b6cdc8541fbf63",
+    "src/tobac/_core.py": "79b76cae4dae52d81a22a71595bdf05be1bc5b4e599a62f03a90a01f8f05e27c",
+    "configs/m2_retail.json": "925746a584e0f986e22b7848bd8fac50ae7fb6ae5e06a1cd8d4bad2742192b3f",
+    "configs/regulatory.json": "8fff72e501726af284d5b07bf61a40e803bb6fc41da767f49f77ecc7ec4eaaa7",
+    "evidence/m2/source_review.json": "42941c8fcd2aebfe7d17c429ffb41bcd6ebd4aa8960b1e61f8c6297c625d292f"
+  },
+  "outputs": {
+    "incremental_information.csv": "a1e79f38d8a9589e8dc11ed7ae6520b8ff70cecd994300bd2cf79b0ab69f87a8",
+    "conditioning_fixtures.json": "9b4efe4fb94e6a07a401e09688806962c042ab511eec8d75a22c9ee2e27c811f",
+    "reference_grouped_evppi.csv": "20f077cb38b55040dc313580e65ebf7b185edfc1230a1e496e6e17b40a02467a",
+    "report.md": "c56bcd0e4599cdab15a277ee827e07ce665d0c5fc875ec7cef690a2ae66f9ada",
+    "reference_scientific_learning.csv": "7ae3f9841e6796233da42c7ea647f53bf62a0e64aabbe789566708edb94427b8",
+    "grid_check.csv": "62ee4ab9786737c4ab1e2f78d88526a727fb5b1164488ebf59550e7a7bbbab1e",
+    "summary.csv": "cb0d1372173bc3d4a2dfa30a7fd07d8d5e15ad0391cb32a7cc1a5e8c4c67c5da",
+    "reference_study_value.csv": "d73ee447938ab87715caa5d5cb4cbd4e8bd27f4f539a6e6b4e0f8277e4ccc3ca",
+    "validation.json": "278c5ea41921f818610a3f3b543b6527e1f8efad36a3183fca18188d1fb906a4"
+  }
+}

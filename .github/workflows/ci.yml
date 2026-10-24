@@ -16,6 +16,8 @@ jobs:
       - run: python scripts/verify.py
       - run: OPENBLAS_NUM_THREADS=1 python -m tobac.run --out outputs/ci_full
       - run: python scripts/verify.py outputs/ci_full
+      - run: OPENBLAS_NUM_THREADS=1 python -m tobac.m2 --out outputs/ci_m2 --grid-check
+      - run: python scripts/verify.py outputs/ci_m2
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -35,6 +37,8 @@ jobs:
           echo '9c4379be86a96cc8dc266b4011a6f8fcee3cd00b1e9720a87981ed31e9e5bc36  /tmp/sourceright' | sha256sum -c -
           chmod +x /tmp/sourceright
       - run: PATH="/tmp:$PATH" python scripts/qualify_integrations.py --mode sourceright --out outputs/sourceright.json
+      - name: Validate additional source metadata
+        run: /tmp/sourceright validate-csl --json evidence/m2/references.csl.json > outputs/sourceright_m2.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:

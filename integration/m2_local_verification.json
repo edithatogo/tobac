@@ -1,0 +1,72 @@
+{
+  "schema": "tobac.local-qualification.v1",
+  "date": "2026-10-24",
+  "base_commit": "10b8c23b982381d30e24984d5f684d12e83871fc",
+  "tests": {
+    "passed": 101,
+    "skipped": 0,
+    "scope": "focused tobac package, not the full historical repository"
+  },
+  "m1": {
+    "passed": true,
+    "checks": 974,
+    "states": 4096,
+    "cases": 9,
+    "designs": 13,
+    "exact_oracle_error": 8.673617379884035e-19,
+    "mc_check_estimate": 0.004614039864943213,
+    "mc_check_se": 2.853489969292419e-05,
+    "exact_reference_evsi": 0.004650638006605108,
+    "method": "exact finite prior and coarsened outcomes; MC used only as independent check",
+    "scope": "conditional research; not current NZ posterior or policy recommendation",
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "m2a": {
+    "passed": true,
+    "checks": 805,
+    "cases": 5,
+    "designs": 15,
+    "quit_nodes": 4,
+    "scientific_event": {
+      "name": "restriction_adds_at_least_5_percent_of_baseline_total_to_illicit_volume",
+      "minimum_absolute_growth_fraction": 0.05,
+      "confidence": 0.9
+    },
+    "state_count_reference": 20480,
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scope": "exact conditional finite calculation; transported model input; no empirical posterior, national funding or continuous-convergence claim"
+  },
+  "inherited_core_definitions_unchanged": 9,
+  "original_m1_csvs_byte_identical": 8,
+  "installed_wheel_replay": {
+    "passed": true,
+    "version": "0.2.0",
+    "mode": "offline wheel with existing dependencies; not fresh index installation",
+    "checks": 63
+  },
+  "external": {
+    "sourceright": {
+      "tool": "sourceright",
+      "success": false,
+      "error": "FileNotFoundError('sourceright not installed')"
+    },
+    "voiage": {
+      "tool": "voiage",
+      "success": false,
+      "error": "ModuleNotFoundError(\"No module named 'voiage'\")"
+    },
+    "citeweft": "not executed",
+    "hosted_ci": "not yet verified for this source revision"
+  },
+  "scientific_scope": "conditional source-informed structural alternative; no fitted contemporary NZ posterior, raw local assay fit, human independent review or policy funding recommendation",
+  "fresh_extraction": {
+    "tests_passed": 101,
+    "skipped": 0,
+    "m1_and_m2_manifests_verified": true,
+    "scope": "fresh focused archive using existing environment; not isolated dependency reinstallation"
+  }
+}

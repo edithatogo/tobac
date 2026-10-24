@@ -1,0 +1,4 @@
+first,next,first_evsi,joint_evsi,expected_conditional_evsi,chain_error,initial_evpi,expected_remaining_evpi,scope
+legal_supply,anabasine,0.0,0.00033287254921324076,0.00033287254921324303,2.2768245622195593e-18,0.06181538352544022,0.061815383525440346,prospective sequence under the declared finite model
+calibration,anabasine,0.0,0.0,0.0,0.0,0.06181538352544022,0.06181538352543964,prospective sequence under the declared finite model
+policy_comparison,policy_lawful_comparison,0.0,0.02212332287028689,0.022123322870286864,2.42861286636753e-17,0.06181538352544022,0.061815383525440123,prospective sequence under the declared finite model

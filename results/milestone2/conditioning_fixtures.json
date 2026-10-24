@@ -1,0 +1,54 @@
+[
+  {
+    "synthetic_observation": 250.0,
+    "assumed_sd": 80.0,
+    "qualification": "synthetic fixture; NOT an empirical NZ update",
+    "posterior_mean_illicit_share": 0.21396153012351887,
+    "posterior_mean_diversion": 0.40000000000000063,
+    "prior_mean_diversion": 0.39999999999999697,
+    "realised_panel_evsi_after_D0": 0.0,
+    "remaining_evpi": 0.03520214545510413,
+    "predictive_probability_sum": 0.9999999999999997,
+    "receipt": {
+      "evidence_id": "synthetic-release-250.0",
+      "data_ids": [
+        "synthetic:250.0"
+      ],
+      "source_ids": [
+        "constructed_fixture_not_field_data"
+      ],
+      "likelihood_model": "synthetic Gaussian reporting error SD80",
+      "log_predictive_density": -6.185011721831547,
+      "effective_states": 9817.279370723665,
+      "transport_note": "",
+      "dependence_note": "one observation conditional on shared state",
+      "qualification": "metadata checked; scientific validity not certified"
+    }
+  },
+  {
+    "synthetic_observation": 500.0,
+    "assumed_sd": 80.0,
+    "qualification": "synthetic fixture; NOT an empirical NZ update",
+    "posterior_mean_illicit_share": 0.28300107056484713,
+    "posterior_mean_diversion": 0.4000000000000001,
+    "prior_mean_diversion": 0.39999999999999697,
+    "realised_panel_evsi_after_D0": 0.0037684390464622266,
+    "remaining_evpi": 0.09184713823836188,
+    "predictive_probability_sum": 1.0000000000000004,
+    "receipt": {
+      "evidence_id": "synthetic-release-500.0",
+      "data_ids": [
+        "synthetic:500.0"
+      ],
+      "source_ids": [
+        "constructed_fixture_not_field_data"
+      ],
+      "likelihood_model": "synthetic Gaussian reporting error SD80",
+      "log_predictive_density": -6.858699870937279,
+      "effective_states": 6065.622795264837,
+      "transport_note": "",
+      "dependence_note": "one observation conditional on shared state",
+      "qualification": "metadata checked; scientific validity not certified"
+    }
+  }
+]

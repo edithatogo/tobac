@@ -13,18 +13,13 @@ import numpy as np
 from tobac._core import DecisionProblem
 from tobac._core import Catchment, Exposure, BiomarkerParameters, predict_signals
 from .information import lognormal_bins, joint_likelihood
+from .config_validation import validate_config
 
 ACTIONS=('reference','retail_restriction','restriction_plus_support','expanded_cessation')
 
 
 def load_config(path: str | Path) -> dict:
-    c=json.loads(Path(path).read_text())
-    if c['schema']!='tobac.regulatory-milestone.v1':
-        raise ValueError('Unknown regulatory configuration schema')
-    ids=[a['id'] for a in c['axes']]
-    if len(ids)!=len(set(ids)) or any(len(a['values'])!=2 for a in c['axes']):
-        raise ValueError('Unique binary axes are required for this reference model')
-    return c
+    return validate_config(json.loads(Path(path).read_text()))
 
 
 def build_states(config: dict, scenario: dict | None=None, association: float=0.):
@@ -79,7 +74,7 @@ def grouped_labels(states,config,group):
     return list(zip(*(states[n].tolist() for n in ids),strict=True))
 
 
-def study_channels(s,c):
+def study_channels(s,c, *, policy_ratio=None):
     k=c['constants'];m=c['measurements'];n=len(s['tobacco'])
     catchment=Catchment(k['population'],k['population']*k['flow_l_per_person_day'])
     ana=np.empty(n);nic=np.empty(n);sales=np.empty(n)
@@ -90,7 +85,10 @@ def study_channels(s,c):
         pred=predict_signals(exposure,catchment,parameters)
         ana[j]=pred['anabasine_ng_l'];nic[j]=pred['nicotine_equivalent_ng_l']
         sales[j]=pred['recorded_legal_cigarettes_1000_day']*s['supply_ratio'][j]
-    ratio=policy_components(s,c)['total'][:,1]/s['tobacco']
+    ratio=(policy_components(s,c)['total'][:,1]/s['tobacco']
+           if policy_ratio is None else np.asarray(policy_ratio,dtype=float))
+    if ratio.shape != (n,) or not np.isfinite(ratio).all() or (ratio<=0).any():
+        raise ValueError('Supply a positive state-aligned counterfactual consumption ratio')
     highcrime=s['crime']==max(s['crime']);acc=m['harm_classification_accuracy']
     highother=s['other_nicotine']==max(s['other_nicotine'])
     harmpositive=np.where(highcrime,acc,1-acc)

@@ -1,0 +1,8 @@
+case,crime_weight,group,evppi
+source_shape_partial_replacement,1.0,market,0.0070203700190474665
+source_shape_partial_replacement,1.0,behaviour,0.030261153913296326
+source_shape_partial_replacement,1.0,criminal_harm,0.01945157206687536
+source_shape_partial_replacement,1.0,health_consequences,0.0
+source_shape_partial_replacement,1.0,implementation,0.02001689597470217
+source_shape_partial_replacement,1.0,measurement,0.0
+source_shape_partial_replacement,1.0,baseline_reachable,0.007020370019047473

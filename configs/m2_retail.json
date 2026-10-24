@@ -1,0 +1,17 @@
+{
+  "schema": "tobac.m2.retail.v1",
+  "base_config": "configs/regulatory.json",
+  "policy_contract": "docs/m2_retail_contract.md",
+  "source_id": "SHINE_RETAIL_TABLE2",
+  "source_beta": [23.4, 97.2],
+  "source_status": "published_model_input_not_observed_efficacy",
+  "crime_weights": [0.0, 1.0, 2.0],
+  "cases": [
+    {"id":"null_effect", "transport":0.0, "null_weight":1.0, "lawful_replacement":0.5},
+    {"id":"attenuated_transport", "transport":0.5, "null_weight":0.5, "lawful_replacement":0.5},
+    {"id":"source_shape_partial_replacement", "transport":1.0, "null_weight":0.2, "lawful_replacement":0.5},
+    {"id":"source_shape_no_replacement", "transport":1.0, "null_weight":0.2, "lawful_replacement":0.0},
+    {"id":"source_shape_full_replacement", "transport":1.0, "null_weight":0.2, "lawful_replacement":1.0}
+  ],
+  "scientific_status": "Source-informed structural scenarios; not a fitted NZ posterior or policy recommendation"
+}
