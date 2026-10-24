@@ -1,0 +1,16 @@
+{
+ "scope":"Targeted recheck, not a systematic review. Article entries list the lead author, not complete author lists. No new publisher PDFs saved. Bibliographic validation is not scientific applicability verification.",
+ "date":"2026-10-24",
+ "independent_human_verification":false,
+ "provider_backed_sourceright_verification":false,
+ "records":[
+  {"id":"fenwick2020","access":"PubMed abstract and metadata","supports":"Decision-dependent VOI framework","does_not_support":"Numerical NZ policy consequences","numeric_extraction_checked":false},
+  {"id":"rothery2020","access":"Official ISPOR description","supports":"Distinct EVPI, EVPPI, EVSI, ENBS","does_not_support":"Empirical qualification of this implementation","numeric_extraction_checked":false},
+  {"id":"zheng2023","access":"PubMed abstract and metadata","supports":"0.9 micrograms anabasine per cigarette point estimate","does_not_support":"The assumed +/-25% two-point spread or current NZ transfer","numeric_extraction_checked":true},
+  {"id":"wang2026","access":"PubMed abstract and metadata; previous full-text extraction inherited","supports":"Illicit inference combines WBE and supply; 0.74 recovery inherited from previous review","does_not_support":"Causal NZ policy effect or current NZ posterior","numeric_extraction_checked":false},
+  {"id":"phyo2025","access":"PubMed abstract and metadata","supports":"Consumption gaps depend on consumption and supply quality","does_not_support":"Negative true illicit consumption or precise current market share","numeric_extraction_checked":false},
+  {"id":"moh2023","access":"Official webpage","supports":"8.4% and 143 million cigarettes relate to 2022","does_not_support":"2026 observation or current operational law; discussed policies later repealed","numeric_extraction_checked":true},
+  {"id":"customs2024","access":"Official webpage","supports":"Some organised-crime involvement established by convictions","does_not_support":"Market prevalence, growth, regulatory causation, or marginal additional harm; page date is not inferred event date","numeric_extraction_checked":false},
+  {"id":"act2024","access":"Primary legislation HTML","supports":"Historical repeal context distinguishing specific regulatory provisions","does_not_support":"Endorsement or exact legal implementation of the model archetypes","numeric_extraction_checked":false}
+ ]
+}

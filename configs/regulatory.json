@@ -1,0 +1,233 @@
+{
+  "schema": "tobac.regulatory-milestone.v1",
+  "scope": "Conditional finite research model, not a calibrated national NZ forecast",
+  "reference_exposure": 1000.0,
+  "axes": [
+    {
+      "id": "tobacco",
+      "values": [
+        350,
+        850
+      ],
+      "unit": "cigarette_equivalents/1000_residents/day",
+      "group": "market",
+      "status": "analyst_assumption",
+      "rationale": "Broad illustrative current-consumption support; not fitted to NZ survey/WBE."
+    },
+    {
+      "id": "illicit",
+      "values": [
+        0.08,
+        0.32
+      ],
+      "unit": "fraction of total smoked consumption",
+      "group": "market",
+      "status": "analyst_assumption",
+      "rationale": "Two planning hypotheses, not a CI or pooled current estimate."
+    },
+    {
+      "id": "other_nicotine",
+      "values": [
+        500,
+        1800
+      ],
+      "unit": "mg/1000_residents/day",
+      "group": "market",
+      "status": "analyst_assumption",
+      "rationale": "Other nicotine exposure; not prevalence or exclusive vaping."
+    },
+    {
+      "id": "restriction",
+      "values": [
+        0.2,
+        0.55
+      ],
+      "unit": "fraction of lawful smoked demand displaced",
+      "group": "behaviour",
+      "status": "analyst_assumption",
+      "rationale": "Unknown effect of a specified retail-access restriction; not an estimate from baseline WBE."
+    },
+    {
+      "id": "diversion",
+      "values": [
+        0.0,
+        0.8
+      ],
+      "unit": "fraction of displaced lawful demand moving illicit",
+      "group": "behaviour",
+      "status": "analyst_assumption",
+      "rationale": "Causal switching uncertainty; baseline surveillance cannot directly identify it. The zero-effect hypothesis is explicitly retained."
+    },
+    {
+      "id": "cessation",
+      "values": [
+        0.05,
+        0.18
+      ],
+      "unit": "fractional reduction in all smoked consumption",
+      "group": "behaviour",
+      "status": "analyst_assumption",
+      "rationale": "Illustrative expanded-cessation programme response, not trial quit probabilities."
+    },
+    {
+      "id": "crime",
+      "values": [
+        0.0,
+        1.5
+      ],
+      "unit": "normalised external harm per illicit-volume unit",
+      "group": "criminal_harm",
+      "status": "analyst_assumption",
+      "rationale": "Unknown marginal criminal harm, not turnover or tax revenue; no illicit-equals-harm identity. The zero-effect hypothesis is explicitly retained."
+    },
+    {
+      "id": "health",
+      "values": [
+        0.75,
+        1.25
+      ],
+      "unit": "normalised health consequence per exposure unit",
+      "group": "health_consequences",
+      "status": "analyst_assumption",
+      "rationale": "Unknown consequence mapping; does not produce QALYs or deaths."
+    },
+    {
+      "id": "mitigation",
+      "values": [
+        0.15,
+        0.65
+      ],
+      "unit": "fraction of illicit smoking prevented net of substitution",
+      "group": "implementation",
+      "status": "analyst_assumption",
+      "rationale": "Net compound response to accompanying cessation and supply measures; assumed."
+    },
+    {
+      "id": "yield",
+      "values": [
+        0.675,
+        1.125
+      ],
+      "unit": "ug anabasine/cigarette",
+      "group": "measurement",
+      "status": "analyst_assumption",
+      "rationale": "Two-point +/-25% uncertainty around published 0.9; spread is analyst assumed."
+    },
+    {
+      "id": "supply_ratio",
+      "values": [
+        0.9,
+        1.1
+      ],
+      "unit": "recorded supply/recorded lawful consumption",
+      "group": "measurement",
+      "status": "analyst_assumption",
+      "rationale": "Stock and reporting discrepancy; not illicit share."
+    },
+    {
+      "id": "unrecorded_lawful",
+      "values": [
+        0.01,
+        0.06
+      ],
+      "unit": "fraction of total smoked consumption",
+      "group": "measurement",
+      "status": "analyst_assumption",
+      "rationale": "Duty-free/other lawful unrecorded share; must be separate from illicit."
+    }
+  ],
+  "constants": {
+    "flow_l_per_person_day": 200.0,
+    "population": 1000.0,
+    "nicotine_mg_per_cigarette": 0.9,
+    "nicotine_recovery": 0.74,
+    "anabasine_survival": 0.85
+  },
+  "policy_costs": {
+    "reference": 0.0,
+    "retail_restriction": 0.025,
+    "restriction_plus_support": 0.12,
+    "expanded_cessation": 0.04
+  },
+  "prior_scenarios": {
+    "balanced": {},
+    "low_market": {
+      "illicit": 0.2
+    },
+    "high_market": {
+      "illicit": 0.8
+    },
+    "low_diversion": {
+      "diversion": 0.2
+    },
+    "high_diversion": {
+      "diversion": 0.8
+    },
+    "low_criminal_harm": {
+      "crime": 0.2
+    },
+    "high_criminal_harm": {
+      "crime": 0.8
+    }
+  },
+  "dependence_scenarios": {
+    "independent": 0.0,
+    "positive_market_diversion": 0.7,
+    "negative_market_diversion": -0.7
+  },
+  "crime_weights": [
+    0.0,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "monetary_scales_nzd_per_unit": [
+    100000.0,
+    1000000.0,
+    10000000.0
+  ],
+  "conditional_study_cost_grid_nzd": [
+    0.0,
+    50000.0,
+    100000.0,
+    250000.0
+  ],
+  "scientific_event": {
+    "name": "restriction_adds_at_least_5_percent_of_baseline_total_to_illicit_volume",
+    "minimum_absolute_growth_fraction": 0.05,
+    "confidence": 0.9
+  },
+  "measurements": {
+    "anabasine_cuts_ng_l": [
+      2.0,
+      4.0
+    ],
+    "improved_anabasine_cuts_ng_l": [
+      0.5,
+      2.0,
+      4.0
+    ],
+    "nicotine_equivalent_cuts_ng_l": [
+      3000.0,
+      6500.0
+    ],
+    "legal_cuts_cigarettes_1000_day": [
+      300.0,
+      600.0
+    ],
+    "yield_cuts_ug_cigarette": [
+      0.8,
+      1.0
+    ],
+    "log_sd": 0.35,
+    "supply_log_sd": 0.2,
+    "calibration_log_sd": 0.1,
+    "policy_ratio_cuts": [
+      0.7,
+      0.9
+    ],
+    "policy_ratio_log_sd": 0.12,
+    "harm_classification_accuracy": 0.8
+  },
+  "measurement_status": "All cutpoints and performance are planning assumptions; these are coarsened reports, not actual procurement designs."
+}

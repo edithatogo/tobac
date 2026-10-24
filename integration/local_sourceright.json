@@ -1,0 +1,5 @@
+{
+  "tool": "sourceright",
+  "success": false,
+  "error": "FileNotFoundError('sourceright not installed')"
+}

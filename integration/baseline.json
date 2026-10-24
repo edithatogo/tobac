@@ -1,0 +1,63 @@
+{
+  "source_archive": "NZ_Wastewater_VOI_v2.3.2_DECISION_PROGRAMME_20261024.zip",
+  "archive_sha256": "743d55bdb51c5281b70c6211c2a05d69612fb377e2e110a00c87fb1d937eeed3",
+  "source_commit": "2dfe4b1",
+  "migration_scope": "Focused standalone regulatory milestone. Nine selected numerical/physical definitions extracted without body edits. Full original archive and optional consequence engines are preserved locally, not declared fully migrated to GitHub.",
+  "extracted_definitions": [
+    {
+      "name": "LibraryUnavailable",
+      "source_path": "src/anztobaccolab/voi.py",
+      "source_lines": [21, 22],
+      "sha256_of_extracted_source": "23426de7b1934c201ecb153b7766b8c362541df1c57a1079805854eacf9da4ea"
+    },
+    {
+      "name": "DecisionProblem",
+      "source_path": "src/anztobaccolab/voi.py",
+      "source_lines": [25, 51],
+      "sha256_of_extracted_source": "2fa593d21a7e11ad12d837be78a51b8ffb8ce601c2ba9c9f4c81c6e2929cf7e4"
+    },
+    {
+      "name": "exact_evpi",
+      "source_path": "src/anztobaccolab/voi.py",
+      "source_lines": [54, 71],
+      "sha256_of_extracted_source": "a18e9a64761760a60763c8198423f6d75d90c6e02ff8f9e266e91b701d08df10"
+    },
+    {
+      "name": "exact_partial_information",
+      "source_path": "src/anztobaccolab/voi.py",
+      "source_lines": [74, 94],
+      "sha256_of_extracted_source": "0415a5028e42c2b0c3311752b0d2194428e7381f0bc106be2e9d987e858a8440"
+    },
+    {
+      "name": "_finite",
+      "source_path": "src/anztobaccolab/surveillance.py",
+      "source_lines": [18, 23],
+      "sha256_of_extracted_source": "8aae3f3d9ca5aaaaae28537a14adea1bd224b8774a4d4c72a7428c27d810b512"
+    },
+    {
+      "name": "Catchment",
+      "source_path": "src/anztobaccolab/surveillance.py",
+      "source_lines": [26, 33],
+      "sha256_of_extracted_source": "c09705fb1a081bb09a51b825ca17c3ffe7bf99c31f375b423254ac577cad7067"
+    },
+    {
+      "name": "Exposure",
+      "source_path": "src/anztobaccolab/surveillance.py",
+      "source_lines": [36, 53],
+      "sha256_of_extracted_source": "0c951cedb5c94f9c00fe47c13daf80a8d50886ed49bcdc4d2b0fd2f1f74c9632"
+    },
+    {
+      "name": "BiomarkerParameters",
+      "source_path": "src/anztobaccolab/surveillance.py",
+      "source_lines": [56, 68],
+      "sha256_of_extracted_source": "f706d2b0159d773af89b1f5d76ab3310ebaee5a71115da54b1df0aa40b81db95"
+    },
+    {
+      "name": "predict_signals",
+      "source_path": "src/anztobaccolab/surveillance.py",
+      "source_lines": [71, 95],
+      "sha256_of_extracted_source": "289d446e1b5ccb5081711e5758e29988dbc108526cea3884deaf04a957a308a2"
+    }
+  ],
+  "published_core": "src/tobac/_core.py"
+}

@@ -1,0 +1,14 @@
+design,expected_probability_range,decision_agreement_probability,confident_agreement_probability,reference_distribution
+none,0.5999999999999994,0.0,0.0,common prior-predictive law; not each analysts own law
+nicotine,0.6000000000000042,0.0,0.0,common prior-predictive law; not each analysts own law
+anabasine,0.5999999999999999,0.15080013312565557,0.0,common prior-predictive law; not each analysts own law
+panel,0.6000000000000005,0.3214720373234774,0.0,common prior-predictive law; not each analysts own law
+supply,0.5999999999999994,0.0,0.0,common prior-predictive law; not each analysts own law
+panel_supply,0.5999999999999994,0.18872670142742703,0.0,common prior-predictive law; not each analysts own law
+better_quantification_supply,0.5999999999999995,0.1887267014274271,0.0,common prior-predictive law; not each analysts own law
+calibration_panel_supply,0.6000000000000002,0.19244378401736667,0.0,common prior-predictive law; not each analysts own law
+composition_panel_supply,0.5999999999999998,0.18883013830932063,0.0,common prior-predictive law; not each analysts own law
+causal_policy_study,0.3963400023775107,0.6394687303420581,0.24978153953554727,common prior-predictive law; not each analysts own law
+criminal_harm_study,0.5999999999999943,0.0,0.0,common prior-predictive law; not each analysts own law
+causal_and_harm,0.3963400023775059,0.6394687303420624,0.2497815395355498,common prior-predictive law; not each analysts own law
+linked_market_and_causal,0.3959631833588005,0.5793077381850638,0.24978153953554844,common prior-predictive law; not each analysts own law

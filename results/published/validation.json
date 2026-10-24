@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": 974,
+  "states": 4096,
+  "cases": 9,
+  "designs": 13,
+  "exact_oracle_error": 8.673617379884035e-19,
+  "mc_check_estimate": 0.004614039864943213,
+  "mc_check_se": 2.853489969292419e-05,
+  "exact_reference_evsi": 0.004650638006605108,
+  "method": "exact finite prior and coarsened outcomes; MC used only as independent check",
+  "scope": "conditional research; not current NZ posterior or policy recommendation",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0"
+}
