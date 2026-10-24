@@ -1,0 +1,9 @@
+target-version = "py312"
+line-length = 110
+[lint]
+select = ["ALL"]
+# Conflicting docstring conventions and formatter-compatible trailing commas.
+ignore = ["D203", "D213", "COM812"]
+[lint.per-file-ignores]
+# JSON interchange is dynamic; fixed Git argv is deliberately shell-free; readable CLI/errors.
+"**/context_bundle.py" = ["ANN401", "S603", "S607", "TRY003", "EM101", "EM102", "T201"]

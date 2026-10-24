@@ -1,0 +1,7 @@
+{
+  "include": ["../src", "../scripts"],
+  "typeCheckingMode": "strict",
+  "pythonVersion": "3.12",
+  "pythonPlatform": "All",
+  "failOnWarnings": true
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "profile": "review",
+  "max_bytes": 80000,
+  "paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md",
+    "conductor/tracks.md",
+    "docs/engineering/READINESS.md",
+    "integration/engineering_verification.json",
+    "tests/test_workstream_integration.py"
+  ],
+  "base_commit": null
+}

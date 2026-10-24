@@ -40,3 +40,16 @@ in this bounded check. Branch/readback and hosted status belong to the receipt o
 8. Resolve issue #4's hosted execution failures without weakening gates. Execute genuine Sourceright/CiteWeft/voiage and record precise scope. Current numerical parity is internal reference parity, not third-party qualification.
 
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
+
+## Library reuse and engineering harness — 24 October 2026
+**Status: local library/context components verified; online tooling and hosted qualification open.**
+Track: `conductor/tracks/engineering_hardening_20261024/`.
+Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
+Receipt: `integration/engineering_verification.json`.
+
+The Gaussian reporting density delegates to SciPy while physical/state/data contracts stay
+unchanged. New Nox/uv, schema-validated context profiles, secure bounded CI/deep/canary lanes,
+Renovate/pre-commit configuration and pinned Conductor gitlink are explicit engineering layers.
+A local source snapshot, not the complete live suite, was executed. Missing dependencies,
+locks, hosted runners, plugin activation and private-feature entitlements remain open. Do not
+turn configuration or a checksum into a claim of successful execution or scientific validity.

@@ -1,0 +1,23 @@
+minimum_pre_commit_version: '4.6.1'
+repos:
+  - repo: local
+    hooks:
+      - id: python-fatal-checks
+        name: Ruff fatal Python checks
+        entry: ruff check --isolated --select E9,F63,F7,F82
+        language: python
+        additional_dependencies: [ruff==0.16.8]
+        types: [python]
+      - id: context-harness-strict
+        name: Strict context-harness lint
+        entry: ruff check --config engineering/ruff.toml
+        language: python
+        additional_dependencies: [ruff==0.16.8]
+        files: ^scripts/context_bundle\.py$
+      - id: context-harness-types
+        name: Strict context-harness types
+        entry: basedpyright --project engineering/basedpyright.json
+        language: python
+        additional_dependencies: [basedpyright==1.39.9, jsonschema==4.26.0]
+        pass_filenames: false
+        files: ^(scripts/context_bundle\.py|engineering/)

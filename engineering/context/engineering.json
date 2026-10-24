@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "profile": "engineering",
+  "max_bytes": 80000,
+  "paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md",
+    "conductor/tracks.md",
+    "docs/engineering/READINESS.md",
+    "docs/engineering/LIBRARY_REUSE_REVIEW.md",
+    "pyproject.toml",
+    "noxfile.py"
+  ],
+  "base_commit": null
+}

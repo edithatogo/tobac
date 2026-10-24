@@ -6,7 +6,7 @@ Lawful unrecorded consumption is an ABSOLUTE amount in the same unit, not a shar
 """
 from __future__ import annotations
 import numpy as np
-from scipy.linalg import solve_triangular
+from scipy.stats import Covariance, multivariate_normal
 
 
 def expected_releases(total, illicit_share, lawful_unrecorded, stock_change=0.,
@@ -49,5 +49,9 @@ def release_loglikelihood(observed, expected, covariance) -> np.ndarray:
         chol = np.linalg.cholesky(cov)
     except np.linalg.LinAlgError as exc:
         raise ValueError('Positive definite reporting-error covariance required') from exc
-    z = solve_triangular(chol, (y-mu).T, lower=True)
-    return -.5*(len(y)*np.log(2*np.pi)+2*np.log(np.diag(chol)).sum()+(z*z).sum(axis=0))
+    # Preserve the original positive-definite contract, including very small
+    # positive eigenvalues; do not apply SciPy's default pseudo-inverse cutoff.
+    distribution_covariance = Covariance.from_cholesky(chol)
+    return np.atleast_1d(multivariate_normal.logpdf(
+        y - mu, mean=np.zeros(len(y)), cov=distribution_covariance,
+    ))

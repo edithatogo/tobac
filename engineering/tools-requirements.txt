@@ -1,0 +1,10 @@
+# Verified published versions on 2026-10-24; transitive hash lock is a separate gate.
+nox==2026.10.20
+ruff==0.16.8
+basedpyright==1.39.9
+pip-audit==2.10.1
+zizmor==1.31.1
+mutmut==3.7.0
+scalene==2.4.0
+pre-commit==4.6.1
+setuptools==82.0.1

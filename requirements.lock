@@ -9,3 +9,7 @@ Pygments==2.19.2
 # Longitudinal runners and tests; original regulatory pins above are unchanged.
 pandas==2.2.3
 matplotlib==3.10.8
+# Engineering contract/property tests, not scientific runtime dependencies.
+jsonschema==4.26.0
+PyYAML==6.0.3
+hypothesis==6.170.8

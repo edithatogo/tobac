@@ -11,3 +11,12 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+
+[project.optional-dependencies]
+longitudinal = ["pandas==2.2.3", "matplotlib==3.10.8"]
+engineering = ["jsonschema==4.26.0"]
+
+[tool.mutmut]
+source_paths = ["src/"]
+only_mutate = ["src/tobac/supply.py"]
+pytest_add_cli_args_test_selection = ["tests/test_workstream_integration.py", "tests/engineering/test_scipy_supply.py"]

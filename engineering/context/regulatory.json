@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "profile": "regulatory",
+  "max_bytes": 80000,
+  "paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md",
+    "conductor/tracks.md",
+    "docs/evidence_interface.md",
+    "docs/m2_retail_contract.md",
+    "src/tobac/evidence.py",
+    "src/tobac/supply.py"
+  ],
+  "base_commit": null
+}

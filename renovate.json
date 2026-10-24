@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
+  "automerge": false,
+  "minimumReleaseAge": "3 days",
+  "prConcurrentLimit": 3,
+  "packageRules": [
+    {"matchPackageNames": ["numpy", "scipy", "pandas", "matplotlib", "voiage"], "groupName": "scientific stack qualification", "automerge": false},
+    {"matchManagers": ["github-actions"], "groupName": "verified action pins", "automerge": false},
+    {"matchPackageNames": ["ruff", "basedpyright", "nox", "hypothesis", "pip-audit", "zizmor", "mutmut", "scalene"], "groupName": "engineering tools", "automerge": false}
+  ]
+}

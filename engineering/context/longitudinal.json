@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "profile": "longitudinal",
+  "max_bytes": 80000,
+  "paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md",
+    "conductor/tracks.md",
+    "docs/empirical_longitudinal/INTEGRATION.md",
+    "docs/empirical_longitudinal/METHODS_AND_ASSUMPTIONS_v2.9.0.md",
+    "src/tobac_supply/consumption_ledger.py",
+    "src/tobac_supply/empirical_longitudinal.py"
+  ],
+  "base_commit": null
+}

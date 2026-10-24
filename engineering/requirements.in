@@ -1,0 +1,3 @@
+-r ../requirements.lock
+-r test-requirements.txt
+-r tools-requirements.txt

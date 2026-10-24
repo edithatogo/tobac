@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-24",
+  "base_commit": "bb81a4bd596b2560a85e0cd10e9f9c8656408492",
+  "scope": "Hash-matched scoped snapshot, not a complete live checkout or whole regulatory/M3 rerun",
+  "tests": {
+    "passed": 228,
+    "failed": 0,
+    "skipped_modules": 1,
+    "skip": "Hypothesis unavailable locally; engineering CI imports it as a mandatory dependency",
+    "command": "OPENBLAS_NUM_THREADS=1 python -m pytest -q tests/engineering tests/supply_bridge tests/test_workstream_integration.py",
+    "breakdown": {
+      "inherited_longitudinal": 151,
+      "existing_cross_workstream": 26,
+      "new_executed": 51
+    }
+  },
+  "coverage": {
+    "scripts/context_bundle.py": {
+      "covered_lines": 77,
+      "num_statements": 78,
+      "percent_covered": 98.11320754716981,
+      "percent_covered_display": "98",
+      "missing_lines": 1,
+      "excluded_lines": 0,
+      "percent_statements_covered": 98.71794871794872,
+      "percent_statements_covered_display": "99",
+      "num_branches": 28,
+      "num_partial_branches": 1,
+      "covered_branches": 27,
+      "missing_branches": 1,
+      "percent_branches_covered": 96.42857142857143,
+      "percent_branches_covered_display": "96"
+    },
+    "src/tobac/supply.py": {
+      "covered_lines": 24,
+      "num_statements": 24,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": 0,
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 6,
+      "num_partial_branches": 0,
+      "covered_branches": 6,
+      "missing_branches": 0,
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    }
+  },
+  "coverage_scope": "Only scripts/context_bundle.py and src/tobac/supply.py; not whole-repository coverage",
+  "base_git_blobs_verified": {
+    "src/tobac/_core.py": "f373fe8adcf1e2d7485226f845d4c91b6e0cf931",
+    "src/tobac/information.py": "f849dab18993d71a0ec16036fbf7a4057e8f9837",
+    "src/tobac/evidence.py": "b572716b5d13cbeab0ed93144d919be3d365c687",
+    "tests/test_workstream_integration.py": "42cf6c7439acdde22aa7dd158e1d9236d04a923d",
+    "src/tobac_supply/consumption_ledger.py": "69b84ee58df22f2a70bda9de925862cc63acb63b",
+    "src/tobac_supply/empirical_longitudinal.py": "29624dd2067cfe55f525e9241b45e16ab57c44e3",
+    "src/tobac_supply/longitudinal.py": "ec91de6443fd7baad014af46cc6f8a767442b82c",
+    "src/tobac_supply/release_calibration.py": "8f33eddd99bbd105d6ed43a0bd6401a3b91e9ce2"
+  },
+  "adopted_libraries": [
+    "SciPy Covariance.from_cholesky and multivariate_normal.logpdf",
+    "jsonschema Draft202012Validator"
+  ],
+  "new_tooling_executed": false,
+  "configured_not_executed": [
+    "Nox",
+    "Ruff",
+    "BasedPyright",
+    "Hypothesis",
+    "mutmut",
+    "Scalene",
+    "zizmor",
+    "pip-audit",
+    "pre-commit",
+    "Renovate CLI",
+    "GitHub Actions matrix",
+    "official gh-actions-lock"
+  ],
+  "dependency_lock": {
+    "command": "uv pip compile engineering/requirements.in --universal --generate-hashes --output-file /mnt/data/tobac_engineering_candidate.lock --offline",
+    "uv_version": "0.10.0",
+    "exit_code": 1,
+    "result": "basedpyright not in cache; network disabled; no generated lockfile claimed"
+  },
+  "review": {
+    "kind": "same-assistant code/contract review and executable tests",
+    "independent_external_review": false,
+    "fixes": [
+      "Use actual isolated interpreter rather than optional session.python",
+      "Preserve small positive covariance acceptance with Cholesky-backed SciPy distribution",
+      "Normalise one-state/scalar logpdf to vector",
+      "Keep release candidate blocked without genuine hash lock",
+      "Separate source-byte budget from token budget and secret-scan claims"
+    ]
+  },
+  "conductor": {
+    "commit": "6e8f9a860bcdd6a2c423473c12e745200688c633",
+    "local_checkout_and_activation": false
+  },
+  "full_scientific_replay": false,
+  "empirical_funding_recommendation": false,
+  "environment": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.8",
+    "pytest": "9.0.2",
+    "jsonschema": "4.26.0",
+    "coverage": "7.13.3",
+    "python": "3.13.5"
+  }
+}
