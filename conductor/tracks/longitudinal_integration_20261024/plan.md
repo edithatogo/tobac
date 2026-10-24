@@ -7,7 +7,9 @@
 - [x] Compare generated files with predecessor: 42/43 exact, remaining diagnostic within 2.45e-15.
 - [x] Add data, methods, protocol, compact results and full-output CI workflow.
 - [x] Verify remote source and test content-tree hashes against tested local files.
-- [ ] Record final receiving commit and hosted execution status on issue #1.
+- [x] Publish implementation commit a71d803763638cd5ebed3e8ac17a45542a4a80fb to main with an expected-head check; re-read main to confirm.
+- [x] Inspect hosted longitudinal run 40064143521: failure before runner assignment, zero executed steps; no hosted pass claimed.
 
-The final issue comment is the publication receipt. Scientific calibration, automatic regulatory
-conditioning and third-party software qualification are not closed by this integration.
+Publication evidence: `integration/longitudinal_publication.json`; coordination is recorded
+on issue #1. Scientific calibration, automatic regulatory conditioning, hosted execution
+and third-party software qualification are not closed by source incorporation.
