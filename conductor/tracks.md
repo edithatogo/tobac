@@ -16,6 +16,19 @@ Track: `conductor/tracks/longitudinal_integration_20261024/`. Guide: `docs/empir
 
 Imported reported-release, temporal-covariance, conserving inventory and historical observation-scale ratio modules under `src/tobac_supply/`; 151 local tests passed. Two full runs regenerated 21 and 23 artifacts, each checked against six source hashes. The parallel `src/tobac/` implementation is preserved. Existing forecasting and fitted paths are not new observations and do not automatically update the regulatory prior. Final receiving commit and hosted status are recorded on issue #1.
 
+## Shared workstream synchronisation — 24 October 2026
+**Status: cross-interface regression checks complete; scientific conditioning remains open.**
+Guide: `docs/WORKSTREAM_SYNC.md`. Contributor instructions: `AGENTS.md`.
+Track: `conductor/tracks/workstream_sync_20261024/`. Receipt: `integration/workstream_sync_verification.json`.
+
+Added 26 tests exercising both real namespaces together, including the accounting sign
+translation, dated-period allocation, shared physical-state IDs, once-only underlying-data
+conditioning, correlated reporting errors and prospective information identities. These and
+151 imported tests passed (177 total). Two deliberate integration mutations were detected;
+original sources were restored and hash-verified. No scientific source, policy equation,
+prior or published result was changed. The entire regulatory suite was not freshly rerun
+in this bounded check. Branch/readback and hosted status belong to the receipt on issue #1.
+
 ## Open empirical and execution work
 1. Agree a prospective decision contrast and actual baseline retailer/catchment scope; the historical cap was not implemented.
 2. Qualify the semantic connection from the incorporated `tobac_supply` component to `tobac.evidence`; source receipt is distinct from valid regulatory-prior conditioning.

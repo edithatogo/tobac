@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-24",
+  "base_commit": "9fe24a514ae8b881ac414ed11d3ac27c79ea348d",
+  "scope": "151 imported longitudinal tests and 26 new tests exercising real regulatory and longitudinal interfaces together",
+  "passed": 177,
+  "failed": 0,
+  "skipped": 0,
+  "command": "PYTHONPATH=src OPENBLAS_NUM_THREADS=1 python -m pytest -q tests/supply_bridge tests/test_workstream_integration.py",
+  "base_source_git_blobs_verified": {
+    "src/tobac/__init__.py": "2f28ae76edbfba49838ae9e60c5731b4987551bc",
+    "src/tobac/_core.py": "f373fe8adcf1e2d7485226f845d4c91b6e0cf931",
+    "src/tobac/information.py": "f849dab18993d71a0ec16036fbf7a4057e8f9837",
+    "src/tobac/evidence.py": "b572716b5d13cbeab0ed93144d919be3d365c687",
+    "src/tobac/supply.py": "8452b72f435e805a0bac25ca1da33482c9b29b30",
+    "src/tobac_supply/__init__.py": "f63a7b604638d32d73140c09baec92772ecb6dc5",
+    "src/tobac_supply/consumption_ledger.py": "69b84ee58df22f2a70bda9de925862cc63acb63b",
+    "src/tobac_supply/empirical_longitudinal.py": "29624dd2067cfe55f525e9241b45e16ab57c44e3",
+    "src/tobac_supply/longitudinal.py": "ec91de6443fd7baad014af46cc6f8a767442b82c",
+    "src/tobac_supply/release_calibration.py": "8f33eddd99bbd105d6ed43a0bd6401a3b91e9ce2"
+  },
+  "imported_tests_tree": "23a648f1b8c0c232dbfa2ef03c0a83c35e684d7a",
+  "longitudinal_source_tree": "464cb77a89ccbcc6795e025f577389ad0449fd18",
+  "mutations_caught": [
+    "inverted regulatory stock_change sign",
+    "disabled reused-data guard"
+  ],
+  "mutated_sources_restored_and_hash_verified": true,
+  "new_cross_tests_sha256": "59e95d774d73d75c3679150935377db1caf5362b9fbdb33a009971f3ccc1fc2e",
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "whole_regulatory_suite_rerun_this_pass": false,
+  "full_scientific_rerun_this_pass": false,
+  "scientific_models_changed": false,
+  "source_data_changed": false,
+  "prior_conditioning_performed": false,
+  "empirical_funding_recommendation": false,
+  "hosted_ci": "not established by local tests; inspect the receiving commit Actions",
+  "publication_receipt": "issue #1; re-read refs after expected-head update"
+}

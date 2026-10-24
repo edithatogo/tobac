@@ -25,7 +25,11 @@ All amounts must use the same time, geography, population and physical unit:
 
 `release_loglikelihood` accepts an explicitly specified positive-definite covariance across jointly observed periods. The Gaussian reporting-error approximation is a modelling choice; precision is not inferred from the fact that releases are administrative records. Forecast paths are predictions, not independent evidence. A posterior exchange requires the original prior/likelihood and shared-data reconciliation, not silent multiplication by another posterior.
 
-## Parallel integration
-Issue #1 proposes `tobac_supply` on the separate longitudinal branch. At this inspection it still points to its initial commit; no completed supply module was received. These adapters are additive under `tobac`. No parallel namespace, branch or empirical series has been overwritten or merged. The intended handoff is dated observations plus a reviewable likelihood/transport/accounting contract, preserving shared draw/state and data identity.
+## Incorporated longitudinal workstream
+The longitudinal component is on main under `src/tobac_supply/` (implementation `a71d803`, publication receipt `9fe24a5`). Its sources, configurations, methods, runners and compact results were incorporated without replacing the regulatory implementation. See `docs/empirical_longitudinal/INTEGRATION.md`.
 
-The conditioning examples in M2a use synthetic observations of 250 and 500 with assumed SD 80. They are deliberately fixtures, not NZ observations or current illicit-market estimates.
+Both workstreams now follow `docs/WORKSTREAM_SYNC.md` and coordinate through issue #1. The shared regression suite is `tests/test_workstream_integration.py`; it exercises accounting translation, period alignment, state identity, duplicate-evidence rejection, correlated likelihoods and information identities across the real namespaces.
+
+Source incorporation and interface tests do not complete scientific conditioning. The intended empirical handoff remains dated original observations plus a reviewable likelihood/transport/accounting model. Product coverage and actual source dependencies need review beyond the fields validated by Scope. Generated historical posteriors and forecasts are not new observations, and no current regulatory prior is updated by the integration tests.
+
+The conditioning examples in M2a use synthetic observations of 250 and 500 with assumed SD 80. The cross-workstream tests likewise use explicitly constructed fixtures, not NZ observations or current illicit-market estimates.

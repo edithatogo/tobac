@@ -1,0 +1,14 @@
+{
+  "track_id": "workstream_sync_20261024",
+  "title": "Cross-workstream synchronisation and regression contracts",
+  "status": "interface_checks_complete_scientific_conditioning_open",
+  "base_commit": "9fe24a514ae8b881ac414ed11d3ac27c79ea348d",
+  "updated": "2026-10-24",
+  "coordination_issue": 1,
+  "shared_guide": "docs/WORKSTREAM_SYNC.md",
+  "tests": "tests/test_workstream_integration.py",
+  "verification": "integration/workstream_sync_verification.json",
+  "publication_receipt": "Final receiving commit and branch verification in issue #1",
+  "background_sync": false,
+  "empirical_current_nz_prior_conditioned": false
+}
