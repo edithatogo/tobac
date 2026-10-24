@@ -18,6 +18,9 @@ def write_csv(path, rows):
 
 def run(config_path, out, quick=False):
     c=load_config(config_path);out=Path(out)
+    root=Path.cwd().resolve()
+    config_relative=Path(config_path).resolve().relative_to(root)
+    confidence=c['scientific_event']['confidence']
     if out.exists() and any(out.iterdir()):raise FileExistsError('Use a new empty output directory')
     out.mkdir(parents=True,exist_ok=True)
     s,p0=build_states(c);d=policy_components(s,c);channels=study_channels(s,c);designs=studies(channels)
@@ -46,11 +49,11 @@ def run(config_path, out, quick=False):
                 partials.append(dict(base,parameter_group=group,evppi=pv[group],scope='exact EVPPI for declared finite variables, not estimated continuous EVPPI'))
             scores={}
             for design,l in designs.items():
-                r=evaluate(pr,l,targets if weight==1 else None,event=event)
+                r=evaluate(pr,l,targets if weight==1 else None,event=event,confidence=confidence)
                 scores[design]=r['evsi']
                 infos.append(dict(base,design=design,**{k:v for k,v in r.items() if k not in ('targets','method','value_unit')}))
                 if weight==1:
-                    rc=evaluate(pr,l,event=current_event)
+                    rc=evaluate(pr,l,event=current_event,confidence=confidence)
                     for target,v in r['targets'].items():science.append(dict(base,design=design,target=target,**v))
                     science.append(dict(base,design=design,target='current_illicit_volume_ge_150',resolution_probability=rc['resolution_probability'],prior_event_probability=rc['prior_event_probability'],event_brier_risk=rc['event_brier_risk']))
                     science.append(dict(base,design=design,target='policy_causes_material_absolute_illicit_growth',resolution_probability=r['resolution_probability'],prior_event_probability=r['prior_event_probability'],event_brier_risk=r['event_brier_risk']))
@@ -68,7 +71,7 @@ def run(config_path, out, quick=False):
     pr=make_problem(s,p0,c);priors=[build_states(c,{'diversion':q})[1] for q in (.2,.5,.8)]
     robust=[]
     for design,l in designs.items():
-        robust.append(dict(design=design,**same_data_robustness(pr.values,priors,p0,l,event)))
+        robust.append(dict(design=design,**same_data_robustness(pr.values,priors,p0,l,event,confidence=confidence)))
     oracle=scalar_oracle(pr,designs['panel_supply'])
     vector=evaluate(pr,designs['panel_supply'])['evsi']
     checks.append(abs(oracle-vector)<1e-12)
@@ -81,8 +84,11 @@ def run(config_path, out, quick=False):
     for f,rows in outputs.items():write_csv(out/f,rows)
     validation={'passed':bool(all(checks)),'checks':len(checks),'states':len(p0),'cases':len(cases),'designs':len(designs),'exact_oracle_error':abs(oracle-vector),'mc_check_estimate':float(mc.mean()),'mc_check_se':float(se),'exact_reference_evsi':vector,'method':'exact finite prior and coarsened outcomes; MC used only as independent check','scope':'conditional research; not current NZ posterior or policy recommendation','python':platform.python_version(),'numpy':np.__version__,'scipy':scipy.__version__}
     (out/'validation.json').write_text(json.dumps(validation,indent=2)+'\n')
-    root=Path(__file__).resolve().parents[2]
-    inputs={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for pattern in ('src/**/*.py','configs/*.json') for p in root.glob(pattern)}
+    # Hash the executed package, including installed-wheel invocations. Map it
+    # to project source paths so the verifier checks source/install parity.
+    package=Path(__file__).resolve().parent
+    inputs={str(Path('src/tobac')/p.relative_to(package)):hashlib.sha256(p.read_bytes()).hexdigest() for p in package.rglob('*.py')}
+    inputs[str(config_relative)]=hashlib.sha256(Path(config_path).read_bytes()).hexdigest()
     hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.iterdir()) if p.is_file()}
     (out/'manifest.json').write_text(json.dumps({'schema':'tobac.run.v1','inputs':inputs,'outputs':hashes},indent=2)+'\n')
     if not all(checks):raise ArithmeticError('A numerical invariant failed; inspect outputs')

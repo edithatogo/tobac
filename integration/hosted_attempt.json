@@ -1,0 +1,18 @@
+{
+ "checked_on":"2026-10-24",
+ "code_commit":"98ee9acbf62f3df7f81ffa20f6d1bfaf4a65cd91",
+ "workflow_run_id":40056832485,
+ "url":"https://github.com/edithatogo/tobac/actions/runs/40056832485",
+ "attempts_observed":2,
+ "conclusion":"failure_before_steps",
+ "numerical_job_executed":false,
+ "sourceright_executed":false,
+ "voiage_executed":false,
+ "runner_id_first_attempt":0,
+ "steps_first_attempt":[],
+ "second_attempt_jobs":[120761892738,120761892890,120761892913],
+ "logs":"First numerical log retrieval returned BlobNotFound. No job steps were returned on either attempt.",
+ "cause":"Not established by available connector output. Do not assert billing, permissions or code failure without the annotation.",
+ "local_qualification":"31 tests passed after two runner regression fixes; 974 full-run invariants passed. Offline wheel installation and installed CLI/hash verification passed using existing dependencies.",
+ "limits":"Hosted success, source verification and external-library execution are not claimed. A separate automatic dependency-graph job succeeded, but is not model CI."
+}
