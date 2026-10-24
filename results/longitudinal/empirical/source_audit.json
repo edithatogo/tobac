@@ -1,0 +1,18 @@
+{
+  "source_table_rows": 12,
+  "paired_fit_rows": 11,
+  "omitted_2012": "No 2011 cigarette-equivalent supply to align preceding survey half-year",
+  "source_2014_lower_count_arithmetic": {
+    "published": 2149262500,
+    "stated_smokers_times_intensity": 2144411500.0,
+    "difference": 4851000.0,
+    "action": "Preserved publication values; exclusion sensitivity run; no silent correction"
+  },
+  "upper_bounds_not_points": true,
+  "fixed_source_uplift_removed_before_fit": true,
+  "raw_paired_nz_assays_added": 0,
+  "published_monthly_supply_added": 0,
+  "current_tonne_series_used_as_cigarette_equivalents": false,
+  "duplicate_survey_gap_and_intensity_likelihoods": false,
+  "consumption_origin_identified": false
+}

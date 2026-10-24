@@ -6,3 +6,6 @@ iniconfig==2.3.0
 packaging==25.0
 pluggy==1.6.0
 Pygments==2.19.2
+# Longitudinal runners and tests; original regulatory pins above are unchanged.
+pandas==2.2.3
+matplotlib==3.10.8

@@ -1,0 +1,39 @@
+{
+  "version": "2.9.0",
+  "analysis_date": "2026-10-24",
+  "source": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+  "source_id": "parallel-S08",
+  "estimand": "historical_survey_reported_to_period_matched_recorded_lawful_supply_ratio",
+  "source_years": [2012, 2023],
+  "primary_years": [2013, 2023],
+  "primary_alignment": "nominal_survey_year",
+  "primary_centre": "geometric_interval_midpoint",
+  "source_uplift": 1.23,
+  "source_ci_level": 0.95,
+  "source_annual_days": 365,
+  "ryo_grams_per_equivalent": 0.7,
+  "raw_current_nz_paired_assays": 0,
+  "temporal": {
+    "level_mean": 0.0, "level_sd": 0.7, "slope_sd": 0.10,
+    "process_grid_min": 0.005, "process_grid_max": 0.35, "process_grid_points": 41,
+    "process_prior_scale": 0.10, "intensity_cv": 0.10, "alignment_cv": 0.05,
+    "residual_half_life_years": 0.0
+  },
+  "draws": 8192,
+  "seed": 20261024,
+  "external_uplift_medians": [1.0, 1.23, 1.5],
+  "shared_uplift_log_sd": [0.0, 0.20, 0.40],
+  "stock_days": [0, 30, 60],
+  "unrecorded_lawful_fractions_of_releases": [0.0, 0.02, 0.05],
+  "net_visitor_fraction_sensitivity": [-0.05, 0.0, 0.05],
+  "hindcast_start_year": 2017,
+  "forecast_to": 2026,
+  "assumptions": {
+    "source_interval_reconstruction": "The geometric midpoint and log SE are working approximations from source bounds, not reported point estimates or raw-data fit.",
+    "period_alignment": "Uniform daily allocation within each calendar year, annualised to source 365-day equivalents. Nominal survey periods do not assert exact participant dates.",
+    "calibration": "Source uplift is removed before fitting. Alternative uplifts and common errors map posterior paths; they are not learned from the same supply/survey source.",
+    "stocks": "Opening stocks at the first release rate; closing stocks at the current release rate. Explicit scenarios, no observed inventory.",
+    "origin": "No positive-part truncation, illegality probability, organised-crime harm, QALYs or funding recommendation is derived.",
+    "time": "Prospective ratios after 2023 are extrapolations; newer reported tonnes do not supply a compatible cigarette-equivalent denominator."
+  }
+}

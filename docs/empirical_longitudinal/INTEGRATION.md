@@ -1,0 +1,73 @@
+# Longitudinal component incorporated into tobac
+
+Dylan A Mordaunt | 24 October 2026 | Imported component version 2.9.0
+
+## What is incorporated
+The reported-release transition model (v2.8) and historical survey/supply ratio model (v2.9)
+are executable sibling modules under `src/tobac_supply/`. Existing `src/tobac/` regulatory
+M1/M2a code, assumptions, source records and results are preserved. This is a bounded source
+integration, not replacement of the live repository with the 74 MB predecessor archive.
+
+Included: four numerical/accounting modules, runners and integrity verifiers, historical
+input tables, declared configurations, methods, protocol amendment, 151 imported tests,
+source metadata and compact checked-in result tables. The runners regenerate all posterior
+paths, sensitivity tables, eight PNG/SVG figure pairs, captions and source/output manifests.
+Large path matrices and rendered figures are generated artifacts rather than duplicated
+Git history. The complete predecessor archive remains a separate conversation download.
+
+## Reproduce from a clean Python 3.12+ checkout
+
+```sh
+python -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.lock
+python -m pip install --no-deps .
+python -m pytest -q
+OPENBLAS_NUM_THREADS=1 python scripts/run_release_calibration.py --out outputs/my_releases
+python scripts/verify_release_calibration.py outputs/my_releases
+OPENBLAS_NUM_THREADS=1 python scripts/run_empirical_longitudinal.py --out outputs/my_empirical
+python scripts/verify_empirical_longitudinal.py outputs/my_empirical
+```
+
+Use new output directories; runners reject nonempty directories. A focused check is
+`python -m pytest -q tests/supply_bridge`. The longitudinal Actions workflow runs the same
+full analyses and uploads their complete outputs; a workflow definition is not a successful
+hosted run. Check Actions and issue #4 for actual runner availability.
+
+## Scientific boundary
+The 16 administrative tonne observations and 12 historical cigarette-equivalent records
+are distinct source series. No implicit tonne-to-stick conversion is allowed. Eleven
+nominal survey-period ratios are fitted because the first period lacks preceding supply.
+The count-bound midpoint is reconstructed; it is not a published central observation.
+Stocks, visitors, absent lawful channels, reporting factors and error assumptions remain
+explicit sensitivity inputs. A positive or negative discrepancy does not identify legality.
+
+No code in this import automatically updates the regulatory prior. A future connection to
+`src/tobac/evidence.py` must use underlying source identities, aligned Scope and shared state
+IDs, with scientifically reviewed transport and dependence. Posterior draws and forecasts
+must not be passed as new observations. Shared MOH/NZHS records must condition existing
+information once. Current paired assays, causal diversion/mitigation, criminal harms and
+NZ monetary funding conclusions remain unqualified.
+
+## Verification of this import
+The renamed package and relocated tests passed 151 local tests. Both full runners were
+executed with 8,192 paths (per model for releases); their six-source integrity checks passed
+for 21 empirical and 23 release artifacts. Of 43 comparable output files, 42 reproduced the
+predecessor bytes exactly. The remaining grid-convergence diagnostic differed only in its
+relative-difference rounding, maximum absolute difference 2.45e-15. All substantive summaries
+and rendered figures were byte-identical. Source hashes change with namespace/LF changes.
+
+This is a fresh check of the imported component, not a claim that the parallel regulatory
+suite or third-party integrations were freshly executed locally. Existing regulatory source
+and result trees are preserved by the Git base-tree operation. See the local receipt in
+`integration/longitudinal_local_verification.json` and the coordination record in issue #1.
+
+## Sources and methods
+- [Historical ratio methods](METHODS_AND_ASSUMPTIONS_v2.9.0.md)
+- [Reported-release methods](../calibration/METHODS_AND_ASSUMPTIONS_v2.8.0.md)
+- [Protocol amendment](../../protocols/NZ_Empirical_Longitudinal_Amendment_2026-10-24_v2.9.0.md)
+- [Compact results](../../results/longitudinal/)
+- [Source references](../../evidence/longitudinal/references.csl.json)
+
+No OSF registration, agency endorsement, newly commissioned study or current empirical
+funding recommendation is implied by repository publication.

@@ -1,0 +1,25 @@
+{
+  "source_id": "parallel-S08",
+  "doi": "10.1136/bmjph-2025-002853",
+  "pmcid": "PMC12410603",
+  "URL": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+  "title": "Trends in the illicit tobacco market in New Zealand: a consumption gap analysis",
+  "accessed": "2026-10-24",
+  "access_depth": "PubMed/PMC body segment 9000\u201326000, Tables 1\u20132 and methods",
+  "input_table": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+  "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+  "original_archive_input_sha256": "85351a735da2502a707fc00b6af04ad433efc54d3cb5b7d13144ed69e27a9c81",
+  "integration_transformation": "CRLF normalised to LF; numeric values, fields and source qualifications unchanged",
+  "observations": "12 historical annual summary pairs; 11 aligned periods fitted",
+  "scope": "daily smokers aged 15+ versus domestic plus duty-free factory-made and RYO reported supply",
+  "extraction_note_is_original_source_file": false,
+  "copyright": "Source article CC BY-NC 4.0; source numeric facts/short authored notes here, not a full source-article copy",
+  "limitations": [
+    "bounds are not raw observations or published means",
+    "count bounds omit intensity and systematic uncertainty",
+    "fixed uplift partly depends on original baseline supply/foreign-pack assumption",
+    "stock and tourism not observed",
+    "current national tonne series has unverified compatible conversion/basis",
+    "non-daily/under15 consumption not measured by primary series"
+  ]
+}

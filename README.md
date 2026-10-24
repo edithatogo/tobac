@@ -19,6 +19,30 @@ Read [M2a findings](results/milestone2/report.md), [the policy contract](docs/m2
 
 **Neither milestone is a fitted current NZ posterior, an observed regulatory effect, or a funding recommendation.** M2a's published prior component was itself constructed in another model, for a different retailer reduction. Costs, harm weights, source transport and study performance remain explicitly conditional. Synthetic conditioning fixtures are not NZ observations. No individual criminality or ethnicity is inferred from wastewater.
 
+## Incorporated longitudinal component: M2b
+
+The v2.8 reported-release and v2.9 historical survey/supply components now reside in
+[`src/tobac_supply/`](src/tobac_supply/), alongside the unchanged regulatory package.
+Read the [integration and reproduction guide](docs/empirical_longitudinal/INTEGRATION.md),
+[historical methods](docs/empirical_longitudinal/METHODS_AND_ASSUMPTIONS_v2.9.0.md),
+[compact results](results/longitudinal/) and [local verification receipt](integration/longitudinal_local_verification.json).
+
+The import has 151 locally passing component tests and two completed full reruns. It fits
+historical reported releases and observation-scale ratios, not a current illicit-market
+posterior. Its forecasts and posterior paths are not automatically inserted into the
+regulatory evidence interface. Shared underlying sources must condition existing evidence once.
+
+```sh
+OPENBLAS_NUM_THREADS=1 python scripts/run_release_calibration.py --out outputs/my_releases
+python scripts/verify_release_calibration.py outputs/my_releases
+OPENBLAS_NUM_THREADS=1 python scripts/run_empirical_longitudinal.py --out outputs/my_empirical
+python scripts/verify_empirical_longitudinal.py outputs/my_empirical
+```
+
+The commands regenerate all tables, joint paths and eight captioned PNG/SVG figure pairs.
+Compact result tables are checked in; larger generated artifacts are produced locally or by
+the separate longitudinal Actions workflow. Hosted success is not assumed.
+
 ## Reproduce
 
 ```sh
@@ -40,7 +64,7 @@ Use new output directories. M2a `--quick` selects one case/weight; `--quit-point
 
 [M1 findings](results/milestone1/report.md), [protocol](docs/protocol.md) and [next empirical milestone](docs/next_milestone.md) remain available. M1 evaluates 4,096 hypotheses, nine prior/dependence scenarios, four normative weights and thirteen study designs. The earlier cessation-allocation example is secondary. Nine inherited numerical/physical definitions remain unchanged; see [baseline provenance](integration/baseline.json).
 
-This focused repository is not a wholesale migration of the earlier 51 MB project archive or its Git history. Historical archives and optional health/fiscal engines remain preserved separately. The parallel `tobac_supply` proposal is coordinated in issue #1, not silently merged or replaced.
+This focused repository is not a wholesale migration of the earlier project archives or their Git history. Historical archives and optional health/fiscal engines remain preserved separately. The bounded `tobac_supply` source integration is coordinated in issue #1 and documented above; no parallel regulatory code was replaced.
 
 ## Execution boundaries
 

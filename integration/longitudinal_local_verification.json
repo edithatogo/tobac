@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-24",
+  "base_commit": "2126a8303e7e4d202cfccd21985250ef672e4c4e",
+  "source_archive": "tobac_v2.9.0_20261024_EMPIRICAL_LONGITUDINAL.zip",
+  "source_archive_sha256": "858fbdeebb5fd4ba8b224bc545c0283dda5a6138199959598eda943fbcf94473",
+  "tested_scope": "Imported tobac_supply package and runners; existing regulatory code not changed or claimed freshly retested",
+  "tests": {"passed": 151, "failed": 0, "command": "PYTHONPATH=src OPENBLAS_NUM_THREADS=1 python -m pytest -q tests/supply_bridge"},
+  "full_reruns": [
+    {"component": "empirical_longitudinal_v2.9.0", "draws": 8192, "source_hashes_verified": 6, "output_hashes_verified": 21},
+    {"component": "release_calibration_v2.8.0", "draws_per_model": 8192, "source_hashes_verified": 6, "output_hashes_verified": 23}
+  ],
+  "predecessor_output_comparison": {"compared": 43, "byte_identical": 42, "exception": "release grid_convergence.csv relative_difference rounding", "maximum_absolute_numeric_difference": 2.4500000247692274e-15},
+  "transformations": ["anztobaccolab namespace/source paths renamed to tobac_supply", "tests moved under tests/supply_bridge with ROOT parent adjusted", "CRLF input text normalised to LF", "source_record includes both original and imported CSV hashes"],
+  "environment": {"python": "3.13.5", "numpy": "2.3.5", "scipy": "1.17.0", "pandas": "2.2.3", "matplotlib": "3.10.8"},
+  "verified_remote_content_trees_before_commit": {"src/tobac_supply": "464cb77a89ccbcc6795e025f577389ad0449fd18", "tests/supply_bridge": "23a648f1b8c0c232dbfa2ef03c0a83c35e684d7a"},
+  "remote_ci": "check Actions for the resulting commit; no hosted pass claimed here",
+  "empirical_current_nz_funding_recommendation": false
+}

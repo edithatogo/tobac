@@ -10,9 +10,15 @@ Plan: `docs/plans/2026-10-24-m2-evidence-and-retail.md`. Contracts: `docs/m2_ret
 
 Implemented: observed-evidence identity/scope guards; finite posterior update; duplicate/forecast rejection; joint reporting-error supply bridge; published net-cessation structural alternative with null/transport cases; lawful replacement sensitivity; matched total/lawful causal report; exact incremental-information identities; config-domain checks; source-effect grid refinement; additive CI steps. Source parameter extraction is manually checked, not independently human-reviewed or approved by a citation tool.
 
+## M2b — Empirical longitudinal source integration
+**Status: bounded source component incorporated and locally rerun; empirical regulatory conditioning remains open.**
+Track: `conductor/tracks/longitudinal_integration_20261024/`. Guide: `docs/empirical_longitudinal/INTEGRATION.md`. Receipt: `integration/longitudinal_local_verification.json`. Compact results: `results/longitudinal/`.
+
+Imported reported-release, temporal-covariance, conserving inventory and historical observation-scale ratio modules under `src/tobac_supply/`; 151 local tests passed. Two full runs regenerated 21 and 23 artifacts, each checked against six source hashes. The parallel `src/tobac/` implementation is preserved. Existing forecasting and fitted paths are not new observations and do not automatically update the regulatory prior. Final receiving commit and hosted status are recorded on issue #1.
+
 ## Open empirical and execution work
 1. Agree a prospective decision contrast and actual baseline retailer/catchment scope; the historical cap was not implemented.
-2. Receive and reconcile the finished `tobac_supply` module on issue #1. At this inspection its branch remained at initial commit 4b36ea6; no unseen merge is claimed.
+2. Qualify the semantic connection from the incorporated `tobac_supply` component to `tobac.evidence`; source receipt is distinct from valid regulatory-prior conditioning.
 3. Assemble matched existing field and supply observations with stock/unrecorded supply, dated units, covariance and provenance; distinguish forecasts from evidence and condition D0 once.
 4. Qualify the transport of net cessation, legal-to-illicit switching, mitigation and lawful replacement with empirical data or documented elicitation.
 5. Identify incremental criminal harms separately from participation, revenue and fiscal transfers; retain null-effect scenarios.

@@ -1,0 +1,10 @@
+{
+  "track_id": "longitudinal_integration_20261024",
+  "title": "M2b empirical longitudinal source integration",
+  "status": "component_verified_publication_receipt_on_issue_1",
+  "created": "2026-10-24",
+  "updated": "2026-10-24",
+  "base_commit": "2126a8303e7e4d202cfccd21985250ef672e4c4e",
+  "evidence": ["docs/empirical_longitudinal/INTEGRATION.md", "integration/longitudinal_local_verification.json", "tests/supply_bridge", "results/longitudinal"],
+  "scope_boundary": "Historical observed-summary components only; no current joint WBE/origin/causal/funding posterior"
+}

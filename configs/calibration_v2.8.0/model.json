@@ -1,0 +1,28 @@
+{
+  "version": "2.8.0",
+  "analysis_date": "2026-10-24",
+  "estimand": "reported_lawful_smoked_tobacco_releases",
+  "country": "NZ",
+  "unit": "tonnes/year",
+  "source_table": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+  "source_completion": "data/calibration_20261024/raw/tobacco_returns_completion.txt",
+  "grid": {
+    "mu_min": -0.5, "mu_max": 0.25, "mu_points": 151,
+    "sigma_min": 0.005, "sigma_max": 0.30, "sigma_points": 60,
+    "mu_prior_mean": 0.0, "mu_prior_sd": 0.10, "sigma_prior_scale": 0.10
+  },
+  "windows": [null, 4, 8],
+  "hindcast_start": 2015,
+  "selection_end": 2022,
+  "reserved_diagnostic_years": [2023, 2024, 2025],
+  "forecast_horizons": [1, 2, 3, 4, 5],
+  "path_draws": 8192,
+  "seed": 20261024,
+  "prior_scale_sensitivity": [0.05, 0.10, 0.20],
+  "likelihood": "normal independent annual log increments conditional on constant mu/sigma",
+  "reported_values_treatment": "condition on published rounded totals; no fitted administrative-error model",
+  "selection_qualification": "Exploratory current-vintage split chosen after seeing full series, not preregistered or real-time validation",
+  "exclusions": ["cigars", "cigarillos", "heated_tobacco"],
+  "unresolved": ["domestic_duty_free_basis", "mass_conversion", "stocks", "catchment_consumption", "illicit_consumption"],
+  "funding_recommendation": false
+}

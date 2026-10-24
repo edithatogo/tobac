@@ -1,0 +1,32 @@
+Conversation-supplied TinyFish completion, received 24 October 2026.
+This is a saved transcription of the completion, NOT downloaded original HTML/Excel.
+Run: d26e9dec-6327-41f7-a08e-ff95cb3fee3a
+
+Series label: Total tobacco sold tonnes (excl. cigars/cigarillos)
+CSV data (years 2010–2025):
+Series Label,Year,Tonnes
+Total tobacco sold tonnes (excl. cigars/cigarillos),2010,2,293
+Total tobacco sold tonnes (excl. cigars/cigarillos),2011,2,102
+Total tobacco sold tonnes (excl. cigars/cigarillos),2012,2,046
+Total tobacco sold tonnes (excl. cigars/cigarillos),2013,1,905
+Total tobacco sold tonnes (excl. cigars/cigarillos),2014,1,857
+Total tobacco sold tonnes (excl. cigars/cigarillos),2015,1,788
+Total tobacco sold tonnes (excl. cigars/cigarillos),2016,1,768
+Total tobacco sold tonnes (excl. cigars/cigarillos),2017,1,687
+Total tobacco sold tonnes (excl. cigars/cigarillos),2018,1,618
+Total tobacco sold tonnes (excl. cigars/cigarillos),2019,1,492
+Total tobacco sold tonnes (excl. cigars/cigarillos),2020,1,429
+Total tobacco sold tonnes (excl. cigars/cigarillos),2021,1,426
+Total tobacco sold tonnes (excl. cigars/cigarillos),2022,1,249
+Total tobacco sold tonnes (excl. cigars/cigarillos),2023,1,052
+Total tobacco sold tonnes (excl. cigars/cigarillos),2024,968
+Total tobacco sold tonnes (excl. cigars/cigarillos),2025,755
+
+Source: Extracted from the "View as data table" view on the official Highcharts interactive chart
+(table id: highcharts-data-table-0) on the New Zealand Ministry of Health page.
+Original download URL identified, NOT read:
+https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx
+
+The extraction excludes cigars/cigarillos and heated tobacco and describes releases to the
+New Zealand retail market. No explicit conversion or domestic/duty-free basis was established.
+The completion's assertion that the chart mirrors the workbook was not independently verified.
