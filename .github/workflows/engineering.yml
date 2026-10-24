@@ -31,7 +31,8 @@ jobs:
           version: '0.13.5'
           python-version: ${{ matrix.python }}
           enable-cache: false
-      - run: uvx --from nox==2026.10.20 nox -s tests
+      - run: python -c "from pathlib import Path; Path('outputs/engineering').mkdir(parents=True, exist_ok=True)"
+      - run: uvx --python '${{ matrix.python }}' --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s tests
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
         with:
@@ -51,4 +52,12 @@ jobs:
           version: '0.13.5'
           python-version: '3.13'
           enable-cache: false
-      - run: uvx --from nox==2026.10.20 nox -s quality
+      - run: mkdir -p outputs/engineering
+      - run: uvx --python 3.13 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s quality
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: engineering-quality
+          path: outputs/engineering/
+          if-no-files-found: warn
+          retention-days: 14

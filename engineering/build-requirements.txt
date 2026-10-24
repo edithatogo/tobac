@@ -1,0 +1,2 @@
+# Explicit backend used with --no-build-isolation; unchanged from the existing tool pin.
+setuptools==82.0.1

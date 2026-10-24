@@ -1,13 +1,15 @@
 {
   "track_id": "engineering_hardening_20261024",
   "title": "Library reuse and qualified engineering harness",
-  "status": "local_components_verified_external_qualification_open",
+  "status": "implemented_with_followthrough_external_qualification_open",
   "base_commit": "bb81a4bd596b2560a85e0cd10e9f9c8656408492",
   "date": "2026-10-24",
   "evidence": [
     "docs/engineering/LIBRARY_REUSE_REVIEW.md",
     "docs/engineering/READINESS.md",
     "integration/engineering_verification.json",
+    "integration/engineering_followthrough.json",
+    "conductor/tracks/engineering_execution_20261024/plan.md",
     "tests/engineering"
   ]
 }
