@@ -1,4 +1,4 @@
-# Prior-work incorporation audit
+# Prior-work evidence preservation and incorporation audit
 
 Preserve selected useful archive-only evidence and assumptions in a versioned reference-only
 namespace. Inventory source hashes, rows, roles and references. Add omission/mutation checks

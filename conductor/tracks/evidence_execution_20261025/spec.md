@@ -1,4 +1,4 @@
-# Evidence execution integration
+# Executable integration of preserved evidence
 
 Connect restored historical material to shared verification without silently promoting it to
 current observations or scientific priors. Extend the existing qualification wrapper and reuse

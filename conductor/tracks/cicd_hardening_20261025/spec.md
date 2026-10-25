@@ -1,4 +1,4 @@
-# Bleeding-edge CI/CD, automation, quality and security lane
+# Advisory CI/CD, automation, quality and security lane
 
 Add an advisory tooling lane beside the frozen reference qualification lane. Ancillary tools
 (ruff-action, ty, pyrefly, j178/prek, gitleaks, zizmor-action, gh-action-pip-audit,

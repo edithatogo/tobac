@@ -10,10 +10,17 @@ Plan: `docs/plans/2026-10-24-m2-evidence-and-retail.md`. Contracts: `docs/m2_ret
 
 Implemented: observed-evidence identity/scope guards; finite posterior update; duplicate/forecast rejection; joint reporting-error supply bridge; published net-cessation structural alternative with null/transport cases; lawful replacement sensitivity; matched total/lawful causal report; exact incremental-information identities; config-domain checks; source-effect grid refinement; additive CI steps. Source parameter extraction is manually checked, not independently human-reviewed or approved by a citation tool.
 
-## M2b — Historical empirical longitudinal bridge
+## M2b empirical longitudinal source integration
 **Status: incorporated on main, reviewed and hosted-executed; current-NZ empirical qualification open.**
-Track: `conductor/archive/longitudinal_integration_20261024/`. Review receipt:
-`integration/m2b_review_20261025.json`. Results: `results/longitudinal/`.
+Track: `conductor/archive/longitudinal_integration_20261024/` (archived after incorporation).
+Evidence: `docs/empirical_longitudinal/INTEGRATION.md`, `integration/longitudinal_local_verification.json`,
+`integration/longitudinal_publication.json`, `integration/m2b_review_20261025.json`,
+`results/longitudinal/`.
+
+Imported the previously tested v2.8 reported-release and v2.9 historical consumption/supply
+modules under the `tobac_supply` namespace, with sources, config, reproduction commands, 151
+imported tests and compact results. Generated files matched the predecessor archive 42-of-43
+exactly, with the remaining diagnostic within 2.45e-15.
 
 A post-archive review found that the imported 151 component tests could not fail on the
 scientific core: deleting the `prior_kernel` slope term, removing the trapezoid prior edge
@@ -30,12 +37,17 @@ published result changed: the hosted artefacts reproduce `source_audit.json`,
 The current longitudinal workflow revision has now executed successfully on `main`
 (run 40180241081: 582 tests passed, both runners, both verifiers, all steps success). That
 closes the previous "no hosted pass" gate but not scientific validity. Still open:
-`strict_all`; CI does not diff regenerated tables against `results/longitudinal/`; the
-2021/2022 documented windows overlap by 62 and 31 days without a cross-period covariance;
-`SupplyBasis` carries no source IDs or observation dates; and the archived 42-of-43
-predecessor comparison and 499 full-suite count remain unverifiable local claims.
+`strict_all`; the 2021/2022 documented windows overlap by 62 and 31 days without a
+cross-period covariance; `SupplyBasis` carries no source IDs or observation dates; and the
+archived 42-of-43 predecessor comparison and 499 full-suite count remain unverifiable local
+claims. CI now diffs regenerated tables against `results/longitudinal/` (`56322e4`), which
+closes the previously listed regeneration-drift gap.
 
-## Shared workstream synchronisation — 24 October 2026
+Scope boundary: historical observed-summary components only. The release series and historical
+ratio are separate estimands, not a fused current NZ exposure/origin posterior. No current joint
+WBE/origin/causal/funding posterior, measured inventory or agency approval is claimed.
+
+## Cross-workstream synchronisation and regression contracts — 24 October 2026
 **Status: cross-interface regression checks complete; scientific conditioning remains open.**
 Guide: `docs/WORKSTREAM_SYNC.md`. Contributor instructions: `AGENTS.md`.
 Track: `conductor/tracks/workstream_sync_20261024/`. Receipt: `integration/workstream_sync_verification.json`.
@@ -66,7 +78,7 @@ status belong to the receipt on issue #1.
 
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
-## Library reuse and engineering harness — 24 October 2026
+## Library reuse and qualified engineering harness — 24 October 2026
 **Status: [~] locks promoted and locked-mode tests/replay/packaging green at 5ab361b; hosted matrix confirmation, strict_all, profiling and independent review remain open.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
 Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
@@ -84,14 +96,14 @@ is not green. The Windows leg failure was a CRLF checkout defect now fixed by `.
 Do not turn configuration or a checksum into a claim of successful execution or scientific
 validity; hosted confirmation and independent review are not obtained.
 
-## Engineering execution follow-through — 24 October 2026
+## Source-bound dependency and execution qualification — 24 October 2026
 **Status: implemented at 886fc08; genuine locks and external qualification remain open.**
 Track: `conductor/tracks/engineering_execution_20261024/`.
 Receipt: `integration/engineering_followthrough.json`; current instructions: `docs/engineering/READINESS.md`.
 This links the already published source-bound locks, portable/audit environment separation,
 read-only hosted diagnostic and strict internal release gates; it is not new execution evidence.
 
-## Incorporation and prior-work audit — 25 October 2026
+## Prior-work evidence preservation and incorporation audit — 25 October 2026
 **Status: selected reference snapshot verified; full archive migration and live empirical use are not claimed.**
 Track: `conductor/tracks/incorporation_audit_20261025/`.
 Index: `docs/INCORPORATION_STATUS.md`; manifest: `integration/prior_work_manifest.json`.
@@ -104,7 +116,7 @@ model inputs/results, dependencies and gates were unchanged by that audit. No co
 becomes a calibrated parameter, forecast a new observation, template a quotation, or old
 manuscript submission-ready. M3 incorporation now follows below.
 
-## M3 — research portfolios, implementation and staged decisions
+## M3 research portfolios, implementation and staged decisions
 **Status: conditional numerical implementation complete; actual Voiage and hosted qualification remain open.**
 Track: `conductor/tracks/research_m3_20261025/`.
 Contract: `docs/research/M3_CONTRACT.md`; results: `results/milestone3/report.md`.
@@ -122,7 +134,7 @@ preserved from base 5218d831. Nox and the separate genuine-library CI lane remai
 configuration is not successful execution. Receiving commit and hosted outcomes: issue #1/#4.
 
 
-## Evidence execution integration — 25 October 2026
+## Executable integration of preserved evidence — 25 October 2026
 **Status: shared preflight and all-collection validation wired; external/hosted qualification remains open.**
 Track: `conductor/tracks/evidence_execution_20261025/`.
 Guide: `docs/EVIDENCE_INTEGRATION.md`; local receipts: `integration/evidence_inventory_20261025.json`
@@ -140,7 +152,7 @@ M3 arrived concurrently at fa39fd36 and is preserved. The evidence gate also cov
 research_m3 Nox session; shared reproduction now includes the M3 runner once. These command
 contracts were locally retested; the M3 numerical results were not re-estimated in this pass.
 
-## Advisory CI/CD, automation and security lane — 25 October 2026
+## Advisory CI/CD, automation, quality and security lane — 25 October 2026
 **Status: track created; not implemented; hosted execution and entitlements open.**
 Track: `conductor/tracks/cicd_hardening_20261025/`.
 
