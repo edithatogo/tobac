@@ -15,7 +15,7 @@ paths, sensitivity tables, eight PNG/SVG figure pairs, captions and source/outpu
 Large path matrices and rendered figures are generated artifacts rather than duplicated
 Git history. The complete predecessor archive remains a separate conversation download.
 
-## Reproduce from a clean Python 3.12+ checkout
+## Reproduce from a clean Python 3.15.1 checkout
 
 ```sh
 python -m venv .venv

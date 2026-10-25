@@ -206,10 +206,15 @@ def test_nox_paths_run_evidence_gate_first_and_stop_on_failure(monkeypatch, name
     class Session:
         def run(self,*args,**kwargs):
             calls.append(args)
+            if args[:2] == ('python', '-c'):
+                return None
             raise CommandFailed('fixture inventory failure')
     with pytest.raises(CommandFailed):getattr(mod,name)(Session())
-    assert calls[0][:4]==('python','scripts/qualify_integrations.py','--mode','inventory')
-    assert calls[0][-1]==f'outputs/engineering/evidence-{name}.json'
+    inventory = [call for call in calls if call[:4] ==
+                 ('python','scripts/qualify_integrations.py','--mode','inventory')]
+    assert inventory[0][-1]==f'outputs/engineering/evidence-{name}.json'
+    if name == 'evidence':
+        assert calls[0][:2] == ('python', '-c')
 
 
 def test_scientific_workflows_gate_preservation_and_cover_every_citation_collection():

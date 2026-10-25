@@ -20,9 +20,9 @@ jobs:
       - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
         with:
           version: '0.13.5'
-          python-version: '3.13'
+          python-version: '3.15.1'
           enable-cache: false
-      - run: uvx --python 3.13 --from nox==2026.10.20 nox -s research_m3
+      - run: uvx --python 3.15.1 --from nox==2026.10.20 nox -s research_m3
       - run: python scripts/unpack_m3_results.py --out outputs/saved_m3
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
@@ -41,7 +41,7 @@ jobs:
       - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
         with:
           version: '0.13.5'
-          python-version: '3.13'
+          python-version: '3.15.1'
           enable-cache: false
       - name: Verify immutable Voiage release wheel
         run: |
@@ -50,7 +50,7 @@ jobs:
           echo '8eb3ba00ec24efcc2f8213141a0343456f28a4cfa8ae25ca9d5d19ad4effe119  outputs/voiage-release/voiage-2.2.0-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl' | sha256sum -c -
       - name: Isolated installed-release qualification, not a reference hash-lock claim
         run: |
-          uv venv --python 3.13 .venv-voiage
+          uv venv --python 3.15.1 .venv-voiage
           uv pip install --python .venv-voiage/bin/python outputs/voiage-release/*.whl
           uv pip check --python .venv-voiage/bin/python
           PYTHONPATH=src .venv-voiage/bin/python -m tobac.research.qualification --out outputs/m3_voiage.json

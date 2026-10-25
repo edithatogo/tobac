@@ -67,7 +67,7 @@ status belong to the receipt on issue #1.
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
 ## Library reuse and engineering harness — 24 October 2026
-**Status: [~] locks promoted and locked-mode tests/replay/packaging green at 5ab361b; hosted matrix confirmation, strict_all, profiling and independent review remain open.**
+**Status: [~] Python 3.15.1 migration and local qualification recorded at 59bb0e4; post-migration hosted matrix, Linux locked audit, strict_all and independent review remain open.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
 Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
 Receipt: `integration/engineering_verification.json`; execution receipts:
@@ -79,7 +79,7 @@ unchanged. New Nox/uv, schema-validated context profiles, secure bounded CI/deep
 Renovate/pre-commit configuration and pinned Conductor gitlink are explicit engineering layers.
 `uv pip sync --require-hashes` now drives `tests` (495 passed, 91% coverage), `reproduce` (five
 replays verified) and `package`, and the built wheel installs and imports. Mutation is executed
-and weak (61.7% killed); `strict_all` is measured at 4,168 ruff and 3,584 BasedPyright errors and
+and weak (61.7% killed); `strict_all` was measured pre-migration at 4,168 ruff and 3,584 BasedPyright errors and
 is not green. The Windows leg failure was a CRLF checkout defect now fixed by `.gitattributes`.
 Do not turn configuration or a checksum into a claim of successful execution or scientific
 validity; hosted confirmation and independent review are not obtained.

@@ -19,6 +19,7 @@ def environment(session, profile='runtime', require_lock=False):
     if profile == 'audit' and sys.platform != 'linux':
         session.error('Audit-tool profile is Linux-only; use runtime tests on other platforms')
     session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
     name = 'requirements.lock' if profile == 'runtime' else 'audit.lock'
     lock = ROOT / 'engineering' / name
     receipt = lock.with_suffix('.lock.json')
@@ -33,7 +34,7 @@ def environment(session, profile='runtime', require_lock=False):
         if not isinstance(python, str) or not python.strip():
             session.error('Could not resolve the isolated interpreter')
         if profile == 'audit':
-            session.run('python', '-c', 'import sys; assert sys.version_info[:2] == (3, 13)')
+            session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
         session.run('uv', 'pip', 'sync', '--python', python.strip(), '--require-hashes',
                     str(lock), external=True)
     else:
@@ -76,6 +77,7 @@ def audit_tools(session):
                 'NOT the Linux audit lock, hash-checked install or release qualification'
                 + ('' if audit_lock_present() else '; no audit lock is committed yet'))
     session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
     # The audit checks import the project and jsonschema, so the ordinary dependency set is
     # required too; installing only the tool pins leaves basedpyright unable to resolve imports.
     session.install('-r', 'requirements.lock', '-r', 'engineering/test-requirements.txt',
@@ -107,6 +109,7 @@ def verify_evidence(session, label):
 @nox.session
 def evidence(session):
     """Offline standard-library check; no package install or empirical conditioning."""
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
     verify_evidence(session, 'evidence')
 
 
@@ -176,6 +179,7 @@ def security(session):
 @nox.session
 def lock(session):
     """Produce review candidates, not automatic trusted locks or source commits."""
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
     for profile in ['runtime', 'audit']:
         session.run('python', 'scripts/lock_receipt.py', 'generate', '--profile', profile,
                     '--path', 'outputs/engineering/lock-candidate')
@@ -213,6 +217,7 @@ def profile(session):
 def canary(session):
     """Latest/pre-release source-only experiment; cannot qualify the reference environment."""
     session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONPATH='src')
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
     session.install('--pre', 'numpy', 'scipy', 'pandas', 'matplotlib', 'pytest',
                     'hypothesis', 'jsonschema', 'PyYAML')
     session.run('python', '-c', 'import hypothesis, jsonschema; print("canary dependencies loaded")')

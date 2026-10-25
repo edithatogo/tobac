@@ -29,7 +29,7 @@ then promote through a reviewed dependency change. A newer version is not itself
 - `engineering/requirements.in`: reference research, test and explicit local-build dependencies.
   The root `requirements.lock` remains a version list, not a transitive hash lock.
 - `engineering/audit.in`: adds the existing audit-tool pins. Its resolved lock is scoped to
-  Linux x86_64 and Python 3.13. Linux-oriented mutmut/Scalene are not Windows matrix dependencies.
+  Linux x86_64 and Python 3.15.1. Linux-oriented mutmut/Scalene are not Windows matrix dependencies.
 - `engineering/build-requirements.txt`: explicit setuptools pin. Local project installation
   uses `--no-deps --no-build-isolation`, so it cannot fetch an unreviewed build backend.
 
@@ -65,9 +65,9 @@ sessions explicitly report bootstrap mode. A partial/stale lock never permits fa
 ## 3. Execution and reports
 
 ```sh
-uvx --python 3.13 --from nox==2026.10.20 nox -s tests quality
-uvx --python 3.13 --from nox==2026.10.20 nox -s reproduce
-uvx --python 3.13 --from nox==2026.10.20 nox -s strict_all security
+uvx --python 3.15.1 --from nox==2026.10.20 nox -s tests quality
+uvx --python 3.15.1 --from nox==2026.10.20 nox -s reproduce
+uvx --python 3.15.1 --from nox==2026.10.20 nox -s strict_all security
 ```
 
 Tests require a genuine Hypothesis import before collection; absent property-test tooling
@@ -77,8 +77,9 @@ independently and produce an overall failure if either fails. Workflow and depen
 checks also both run, with no ignored advisories. Failed setup cannot be called an executed scan.
 
 CI preserves Nox JSON reports, JUnit, environment, coverage and available audit outputs on
-failure. The Linux/macOS/Windows matrix uses the portable profile. The Python 3.15/latest/pre-
-release canary remains source-only, requires its test dependencies and cannot promote itself.
+failure. Python 3.15.1 is the required runtime across development, build, tests and CI. The
+Linux/macOS/Windows matrix uses the portable profile. The latest/pre-release canary remains
+source-only, requires its test dependencies and cannot promote itself.
 Direct Actions remain full-SHA pinned, read-only, credential-free after checkout and bounded
 by concurrency, timeouts and retention. No pull_request_target or automatic scientific merging.
 Renovate's pending upgrades still require review; this change does not merge them.
@@ -138,7 +139,8 @@ advisories (0). With `TOBAC_REQUIRE_LOCK=1`, Nox ran `uv pip sync --require-hash
 `tests` 495 passed, 0 failed, 0 skipped, 91% coverage; `reproduce` verified all five replays
 (M1, M2 `--grid-check`, M3, release calibration, empirical longitudinal); `package` built the
 sdist and wheel under `--no-build-isolation`. The built wheel installed into a clean Python 3.13
-venv and imported `tobac`, `tobac_supply` and `tobac.research`. Bootstrap was not used.
+venv and imported `tobac`, `tobac_supply` and `tobac.research`. This is historical execution
+evidence; Python 3.15.1 qualification is recorded separately below. Bootstrap was not used.
 
 **The Linux-only audit guard was hiding real failures rather than a platform limit.** Ruff,
 BasedPyright, zizmor and pip-audit all run natively on macOS arm64; executing them found two
@@ -155,10 +157,10 @@ failed under `TOBAC_REQUIRE_LOCK=1` because the harness fixture inherited the re
 empty `ROOT`; `.github/workflows/release-candidate.yml` sets exactly that flag, so the release
 gate itself was broken. The fixture is now hermetic.
 
-**Mutation is executed but weak.** mutmut 3.7.0 ran natively on `src/tobac/supply.py`: 128
-mutants, 79 killed, 49 survived (61.7%). The session reports success because mutmut enforces no
-threshold; the survivor count is a coverage finding, not a pass. Scalene profiling remains
-unexecuted.
+**Mutation was executed but weak at the 25 October gap-closure pass.** mutmut 3.7.0 ran natively
+on `src/tobac/supply.py`: 128 mutants, 79 killed, 49 survived (61.7%). The session reports
+success because mutmut enforces no threshold; the survivor count is a coverage finding, not a
+pass. Scalene profiling was unexecuted at that pass; the 26 October profile is recorded below.
 
 **The Windows leg failure was a checkout defect, not a code defect.** Windows converted text to
 CRLF, so the recorded SHA-256 of `evidence/prior_work/v2.9.0/data/empirical_intake_20261024/
@@ -168,9 +170,39 @@ confirming the tree was already LF. Hosted confirmation is still required.
 
 See `integration/engineering_followthrough.json` for the earlier 24 October pass and its actual
 failed offline resolution attempt. Command-planning tests there use a labelled Nox test double;
-that limitation no longer applies to the sessions named above. No hosted success, signed release,
-strict-all pass, profiling result or empirical funding result is claimed. Earlier receipts remain
+that limitation no longer applies to the sessions named above. Hosted runs on the pre-migration
+base are historical and do not qualify Python 3.15.1. No post-migration hosted success, signed
+release, strict-all pass or empirical funding result is claimed. Earlier receipts remain
 historical evidence.
+
+## Python 3.15.1 qualification — 26 October 2026
+
+The repository now requires CPython 3.15.1 for active development, test, build, automation and CI
+paths. The source tree selects NumPy 2.5.4, SciPy 1.18.1, pandas 3.0.6 and Matplotlib 3.11.2;
+these replace pins that could not install on Python 3.15.1. Runtime and Linux x86_64 audit lock
+candidates were generated by uv 0.13.5, input-bound, hash-checked and installed for the runtime
+profile. The new audit lock resolves for Linux/Python 3.15 but was not installed or executed on
+Linux in this worktree.
+
+On a repository-local Nox environment running Python 3.15.1, `nox -s tests` passed **611 tests**
+at **90% coverage**. `nox -s reproduce` passed M1, M2 with grid check, M3, release calibration
+and empirical longitudinal verifiers; the four regenerated longitudinal tables matched their
+checked-in results within the existing tolerance. The locked internal package session built the
+sdist and wheel; the wheel installed into a clean 3.15.1 environment, passed `uv pip check` and
+imported all three public package namespaces. Native macOS arm64 Nox `quality` and `security`
+passed; pip-audit found no known vulnerabilities and zizmor reported no findings.
+
+The bounded Scalene 2.4.0 quick profile also completed on Python 3.15.1. Its local JSON artifact
+is 8,216,717 bytes, elapsed time 19.63 seconds, SHA-256
+`67f93dd57256d8e889d8bcfc5ff470deb6fe9ed8f57b53931f916e9fb2d8be26`; the runner reported 21
+artifacts, 6 source files and its historical-partial-fit scope. The artifact remains in ignored
+local outputs; its checksum and summary are retained here and in
+`integration/engineering_hardening_python315_20261026.json`.
+
+The whole-source `strict_all` remains red at **4,861 Ruff** and **2,235 BasedPyright** errors.
+The Linux hash-locked audit session, post-migration hosted matrix, attestations and independent
+review remain open. The official Actions transitive lock remains deferred because its generated
+form would replace 37 full-SHA action pins with mutable tags.
 
 Official documentation consulted:
 - https://docs.astral.sh/uv/pip/compile/

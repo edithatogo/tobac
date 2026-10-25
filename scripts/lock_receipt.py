@@ -151,10 +151,10 @@ def generate(root: Path, out: Path, profile: str) -> Path:
     command = [uv, '--no-config', 'pip', 'compile', str(root / source),
                '--generate-hashes', '--output-file', str(target)]
     if profile == 'runtime':
-        command += ['--universal', '--python-version', '3.12']
+        command += ['--universal', '--python-version', '3.15']
     else:
         # Audit utilities include Linux-specific tools; they are not a Windows test dependency.
-        command += ['--python-version', '3.13', '--python-platform', 'x86_64-unknown-linux-gnu']
+        command += ['--python-version', '3.15', '--python-platform', 'x86_64-unknown-linux-gnu']
     try:
         version = subprocess.run([uv, '--version'], check=True, text=True,
                                  capture_output=True, timeout=30).stdout.strip()

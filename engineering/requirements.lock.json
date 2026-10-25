@@ -10,19 +10,19 @@
     "engineering/requirements.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/lock-candidate-pr17/requirements.lock",
+    "outputs/engineering/lock-candidate-315/requirements.lock",
     "--universal",
     "--python-version",
-    "3.12"
+    "3.15"
   ],
   "resolver_exit_code": 0,
   "inputs": {
-    "pyproject.toml": "da071478a89acd3b1a7d8cea34ba033a0ae1cb410ae7c5c0a50cfc6666ec0fcc",
-    "requirements.lock": "b1c19ced176fdf953c758dee5843cb23781d3a64508de49c0683c739ca355847",
+    "pyproject.toml": "332298a6cef8b29343c93fe406e66ae8f2f86f64cb00bf51423a2d27bf03e46d",
+    "requirements.lock": "c588f37fa1d78fad9ce2020a6821e665cff6a215971ad3de707df2b08de667c9",
     "engineering/requirements.in": "1fd40586b025f1045792f8d505607b51995467ec036d9b233b8e9c2cd66ea287",
     "engineering/test-requirements.txt": "57f40259568e4553e40e89362357801da3986c231541d65957538e0c9a108fef",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68"
   },
-  "lock_sha256": "5411d8b2d07f2e78d592543656390bdca9e121ca8bb4bd4475fe5ff78ef9374a",
+  "lock_sha256": "df70625f6a4bf95134dc814bf98711db64b1d98f65e2adca4e50572d1ee36c12",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
