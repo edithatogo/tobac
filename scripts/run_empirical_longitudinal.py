@@ -118,7 +118,7 @@ def summarise_gap(name, frame, values, stock_days, unrecorded_fraction, visitor_
     return rows
 
 
-def plots(out,frames,primary,latent,contrasts,sensitivity):
+def plots(out,frames,latent,contrasts,base_uplift,base_shared):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -153,15 +153,15 @@ def plots(out,frames,primary,latent,contrasts,sensitivity):
     ax.set(xlabel='Year',ylabel='Survey-reported proxy / matched recorded supply',
            title='Historical observation-scale fit: no automatic inference of illegal origin')
     ax.grid(axis='y',alpha=.2);ax.legend(fontsize=8)
-    fig.text(.02,.015,'2024–2026 ratios are model extrapolations only; no compatible current volume is reported.',fontsize=8)
+    fig.text(.02,.015,f'{int(fc.year.min())}\u2013{int(fc.year.max())} ratios are model extrapolations only; no compatible current volume is reported.',fontsize=8)
     save(fig,'02_historical_ratio_posterior')
     fig,ax=plt.subplots(figsize=(9.5,5.3))
-    base=contrasts[contrasts.scenario=='uplift_1.23_shared_0.2']
+    base=contrasts[contrasts.scenario==f'uplift_{base_uplift:g}_shared_{base_shared:g}']
     ax.plot(base.year,base.signed_gap_median/1e6,'o-',label='Median signed discrepancy')
     ax.fill_between(base.year,base.signed_gap_lower95/1e6,base.signed_gap_upper95/1e6,alpha=.18,label='95% conditional interval')
     ax.axhline(0,linestyle=':')
     ax.set(xlabel='Survey-ending year',ylabel='Million cigarette equivalents / 365 days',
-           title='Conditional discrepancy, not illicit consumption: uplift 1.23; common log SD 0.20')
+           title=f'Conditional discrepancy, not illicit consumption: uplift {base_uplift:g}; common log SD {base_shared:.2f}')
     ax.grid(axis='y',alpha=.2);ax.legend(fontsize=8)
     fig.text(.02,.015,'Negative discrepancies are retained. Uplift and stock/channel corrections are not identified by these data.',fontsize=8)
     save(fig,'03_signed_discrepancy')
@@ -192,20 +192,24 @@ def run(out,root=ROOT,quick=False):
     out.mkdir(parents=True,exist_ok=True)
     config_path=root/'configs/empirical_longitudinal_v2.9.0/model.json'
     cfg=json.loads(config_path.read_text());c=cfg['temporal']
+    base_uplift=float(cfg['source_uplift'])
+    shared_sds=sorted(float(s) for s in cfg['shared_uplift_log_sd'])
+    base_shared=shared_sds[len(shared_sds)//2]  # central declared common-error scenario
     spec=TemporalSpec(level_mean=c['level_mean'],level_sd=c['level_sd'],slope_sd=c['slope_sd'],
         process_grid=tuple(np.geomspace(c['process_grid_min'],c['process_grid_max'],c['process_grid_points'])),
         process_prior_scale=c['process_prior_scale'],intensity_cv=c['intensity_cv'],alignment_cv=c['alignment_cv'],
         residual_half_life_years=c['residual_half_life_years'])
     table=source_table(root)
     alignments=['nominal_survey_year','calendar_replication','documented_collection_sensitivity']
-    frames={name:assembled_inputs(table,name) for name in alignments}
+    frames={name:assembled_inputs(table,name,cfg['primary_centre']) for name in alignments}
     pd.concat(frames.values(),ignore_index=True).to_csv(out/'aligned_observations.csv',index=False)
     primary=frames[cfg['primary_alignment']]
     fit=fit_frame(primary,spec)
-    query_times=np.r_[primary.time.to_numpy(),primary.time.iloc[-1]+np.arange(1,4)]
+    future_years=list(range(int(primary.year.iloc[-1])+1,int(cfg['forecast_to'])+1))
+    query_times=np.r_[primary.time.to_numpy(),primary.time.iloc[-1]+np.arange(1,len(future_years)+1)]
     summary=pd.DataFrame(summarise_temporal(fit,query_times))
-    summary.insert(0,'year',list(primary.year)+[2024,2025,2026])
-    summary['period_role']=['historical']*len(primary)+['extrapolation']*3
+    summary.insert(0,'year',list(primary.year)+future_years)
+    summary['period_role']=['historical']*len(primary)+['extrapolation']*len(future_years)
     summary.to_csv(out/'latent_ratio_summary.csv',index=False)
     n=512 if quick else cfg['draws']
     paths=sample_temporal(fit,primary.time.tolist(),n,cfg['seed'])
@@ -213,9 +217,15 @@ def run(out,root=ROOT,quick=False):
     pd.DataFrame({'annual_process_log_sd':spec.process_grid,'posterior_mass':fit.weights}).to_csv(out/'process_sd_posterior.csv',index=False)
     stock_rows=[];discrepancies=[]
     allreleases=table.legal_sales_cigarette_equivalent.to_numpy(float)
-    ledger_scenarios=[('no_adjustment',0,0.,0.),('stock30',30,0.,0.),('stock60',60,0.,0.),
-                      ('unrecorded2pct',0,.02,0.),('unrecorded5pct',0,.05,0.),
-                      ('visitor_minus5pct',0,0.,-.05),('visitor_plus5pct',0,0.,.05)]
+    # Scenario arms are declared in the config, not duplicated as literals, so an
+    # edited configuration cannot silently leave the runner on stale assumptions.
+    ledger_scenarios=[('no_adjustment',0,0.,0.)]
+    ledger_scenarios+=[(f'stock{days:g}',days,0.,0.)
+                       for days in cfg['stock_days'] if days]
+    ledger_scenarios+=[(f'unrecorded{fraction*100:g}pct',0,float(fraction),0.)
+                       for fraction in cfg['unrecorded_lawful_fractions_of_releases'] if fraction]
+    ledger_scenarios+=[(f'visitor_{"minus" if visitor<0 else "plus"}{abs(visitor)*100:g}pct',0,0.,float(visitor))
+                       for visitor in cfg['net_visitor_fraction_sensitivity'] if visitor]
     ledgers={}
     for name,days,unrecorded,visitor in ledger_scenarios:
         ledger=lawful_ledger(table.year.tolist(),allreleases,stock_scenario(allreleases,days),
@@ -229,7 +239,7 @@ def run(out,root=ROOT,quick=False):
                 lawful_consumption=ledger.consumption[j],unit='cigarette_equivalents/calendar_year',
                 evidence_status='published_release_plus_assumed_corrections'))
         if name!='no_adjustment':
-            mapped=map_discrepancy(paths,primary.matched_annual_release,aligned,1.23,.2,seed=cfg['seed']+1)
+            mapped=map_discrepancy(paths,primary.matched_annual_release,aligned,base_uplift,base_shared,seed=cfg['seed']+1)
             discrepancies.extend(summarise_gap(name,primary,mapped,days,unrecorded,visitor))
     for median in cfg['external_uplift_medians']:
         for sd in cfg['shared_uplift_log_sd']:
@@ -297,20 +307,20 @@ def run(out,root=ROOT,quick=False):
         funding_recommendation=False,source_positive_gap_is_illicit=False,
         reference_uplift_status='source scenario partly anchored to same baseline; not independent evidence',
         spec=asdict(spec)))
-    plots(out,frames,primary,summary,gaps,sensitivity)
-    (out/'FIGURE_CAPTIONS.md').write_text('''# Historical consumption bridge figures — 2.9.0
+    plots(out,frames,summary,gaps,base_uplift,base_shared)
+    (out/'FIGURE_CAPTIONS.md').write_text(f'''# Historical consumption bridge figures — 2.9.0
 
 All figures are generated from the checked-in source table and declared configuration.
 PNG and vector SVG versions are supplied. No panel contains newly observed current assays.
 
 1. **Historical source alignment.** Annual-equivalent lawful releases are allocated uniformly
 within calendar years to the nominal survey interval. Shading is the published count-bound
-range after removing the fixed 1.23 uplift, not complete consumption uncertainty. The dashed
+range after removing the fixed {base_uplift:g} uplift, not complete consumption uncertainty. The dashed
 centre is reconstructed from bounds; it is not an originally reported point estimate.
 2. **Observation-scale trajectory fit.** Posterior median and 95% latent intervals for the
-survey-reported / matched-supply ratio. 2024–2026 are unobserved extrapolations, not measurements
+survey-reported / matched-supply ratio. {future_years[0]}\u2013{future_years[-1]} are unobserved extrapolations, not measurements
 or a current consumption-volume estimate. Shared reporting bias is not identified by this fit.
-3. **Signed discrepancy.** Posterior mapping with median uplift 1.23 and one shared log-SD 0.20
+3. **Signed discrepancy.** Posterior mapping with median uplift {base_uplift:g} and one shared log-SD {base_shared:.2f}
 multiplier per path. No inventory/visitor correction in this figure. Negative values remain.
 This is not an illicit-market probability or a measured illegal volume.
 4. **Accounting and reporting sensitivity.** 2023 median and 95% conditional intervals under

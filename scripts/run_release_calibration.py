@@ -23,6 +23,11 @@ from tobac_supply.longitudinal import rolling_origin_forecasts
 WINDOWS={'all_changes':None,'recent_4_changes':4,'recent_8_changes':8}
 
 
+def window_names(specs):
+    """Map declared window specifications to the stable model names used in outputs."""
+    return {('all_changes' if spec is None else f'recent_{int(spec)}_changes'): spec for spec in specs}
+
+
 def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
@@ -56,9 +61,9 @@ def interval_score(observed,lower,upper,alpha):
     return float(upper-lower + (2/alpha)*(max(lower-observed,0)+max(observed-upper,0)))
 
 
-def hindcasts(years,values,grid,start_year,selection_end):
+def hindcasts(years,values,grid,start_year,selection_end,windows=None):
     rows=[]
-    for name,window in WINDOWS.items():
+    for name,window in (windows or WINDOWS).items():
         for index,year in enumerate(years):
             if year<start_year: continue
             posterior=fit_release_process(years,values,window=window,
@@ -157,6 +162,7 @@ def run(out,quick=False,draws=None,skip_figures=False):
         raise ValueError('A fresh, empty output directory is required')
     out.mkdir(parents=True,exist_ok=True)
     cfg=json.loads((ROOT/'configs/calibration_v2.8.0/model.json').read_text())
+    windows=window_names(cfg['windows'])
     grid=ReleaseGrid(**cfg['grid'])
     if quick: grid=replace(grid,mu_points=51,sigma_points=25)
     n=draws if draws is not None else (256 if quick else cfg['path_draws'])
@@ -167,7 +173,7 @@ def run(out,quick=False,draws=None,skip_figures=False):
                         'year_on_year_percent':np.r_[np.nan,100*(values[1:]/values[:-1]-1)],
                         'source_id':data.source_id,'unit':data.unit})
     clean.to_csv(out/'reported_release_series.csv',index=False,float_format='%.12g')
-    checks=hindcasts(years,values,grid,cfg['hindcast_start'],cfg['selection_end'])
+    checks=hindcasts(years,values,grid,cfg['hindcast_start'],cfg['selection_end'],windows)
     checkdf=pd.DataFrame(checks);checkdf.to_csv(out/'rolling_predictive_checks.csv',index=False,float_format='%.12g')
     score=(checkdf.groupby(['model','stage']).agg(n=('test_year','size'),
         mean_log_predictive_density=('log_predictive_density','mean'),
@@ -180,14 +186,14 @@ def run(out,quick=False,draws=None,skip_figures=False):
     save_json(out/'selection_receipt.json',dict(selected_for_display=selected,
         selection_years=[2015,2022],reserved_diagnostic_years=[2023,2024,2025],
         qualification=cfg['selection_qualification'],optimality_claim=False,
-        all_candidates_retained=list(WINDOWS)))
+        all_candidates_retained=list(windows)))
     references=[]
     for method,window in [('last',None),('loglinear',4)]:
         for row in rolling_origin_forecasts(years,values,min_train=5,window=window,method=method):
             references.append(row)
     pd.DataFrame(references).to_csv(out/'point_reference_hindcasts.csv',index=False,float_format='%.12g')
     forecasts=[];parameters=[];posterior_cells=[];sensitivity=[];convergence=[];path_stats=[]
-    for offset,(name,window) in enumerate(WINDOWS.items()):
+    for offset,(name,window) in enumerate(windows.items()):
         p=fit_release_process(years,values,window=window,grid=grid)
         summaries=forecast_summary(p,cfg['forecast_horizons'])
         forecasts.extend([dict(model=name,**r) for r in summaries])
