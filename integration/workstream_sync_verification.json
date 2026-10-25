@@ -38,5 +38,18 @@
   "prior_conditioning_performed": false,
   "empirical_funding_recommendation": false,
   "hosted_ci": "not established by local tests; inspect the receiving commit Actions",
-  "publication_receipt": "issue #1; re-read refs after expected-head update"
+  "publication_receipt": "issue #1; re-read refs after expected-head update",
+  "counts_recorded_at": {
+    "date": "2026-10-24",
+    "imported": 151,
+    "cross": 26,
+    "total": 177,
+    "note": "Dated historical record; tests/supply_bridge has since grown through the M2b review, release-diagnostic and CI-gate additions (262 collected at main 75871f1 on 2026-10-25)."
+  },
+  "mutated_sources_restored_blobs": {
+    "src/tobac/supply.py": "8452b72f435e805a0bac25ca1da33482c9b29b30",
+    "src/tobac/evidence.py": "b572716b5d13cbeab0ed93144d919be3d365c687",
+    "note": "These match the recorded base blobs and the blobs at implementation commit bb81a4b; restoration is therefore verifiable from the repository itself."
+  },
+  "review_receipt": "integration/workstream_sync_review_20261025.json"
 }

@@ -3,7 +3,13 @@
   "title": "Cross-workstream synchronisation and regression contracts",
   "status": "interface_checks_complete_scientific_conditioning_open",
   "base_commit": "9fe24a514ae8b881ac414ed11d3ac27c79ea348d",
-  "updated": "2026-10-24",
+  "updated": "2026-10-25",
+  "review": {
+    "date": "2026-10-25",
+    "receipt": "integration/workstream_sync_review_20261025.json",
+    "verdict": "0 critical, 0 high, 0 medium, 3 low",
+    "summary": "26 tests are genuinely sensitive (seven mutation probes, including the two claimed ones, are all caught); every receipt hash reproduces from the repository; scope disclaimers are accurate. Record-keeping Low findings fixed in the same change."
+  },
   "coordination_issue": 1,
   "shared_guide": "docs/WORKSTREAM_SYNC.md",
   "tests": "tests/test_workstream_integration.py",

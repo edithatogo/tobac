@@ -43,10 +43,16 @@ Track: `conductor/tracks/workstream_sync_20261024/`. Receipt: `integration/works
 Added 26 tests exercising both real namespaces together, including the accounting sign
 translation, dated-period allocation, shared physical-state IDs, once-only underlying-data
 conditioning, correlated reporting errors and prospective information identities. These and
-151 imported tests passed (177 total). Two deliberate integration mutations were detected;
-original sources were restored and hash-verified. No scientific source, policy equation,
-prior or published result was changed. The entire regulatory suite was not freshly rerun
-in this bounded check. Branch/readback and hosted status belong to the receipt on issue #1.
+151 imported tests passed (177 total) at the pass date of 2026-10-24; the supply_bridge
+suite has since grown through the M2b review, release-diagnostic and CI-gate additions
+(262 collected at main `75871f1`), so reproduce the count before relying on the older
+figure. Two deliberate integration mutations were detected; original sources were restored
+and hash-verified, with the restored blob hashes now recorded in the receipt. A follow-up
+review (25 October 2026) confirmed the suite remains sensitive to seven further mutation
+probes and that every receipt hash still reproduces: `integration/workstream_sync_review_20261025.json`.
+No scientific source, policy equation, prior or published result was changed. The entire
+regulatory suite was not freshly rerun in this bounded check. Branch/readback and hosted
+status belong to the receipt on issue #1.
 
 ## Open empirical and execution work
 1. Agree a prospective decision contrast and actual baseline retailer/catchment scope; the historical cap was not implemented.
