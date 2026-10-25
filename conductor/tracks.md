@@ -90,3 +90,22 @@ not fitted external outputs. Full/refinement tables and manifests are preserved 
 in a hashed bounded archive with an unpacker. Existing source/evidence/engineering files are
 preserved from base 5218d831. Nox and the separate genuine-library CI lane remain fail-closed;
 configuration is not successful execution. Receiving commit and hosted outcomes: issue #1/#4.
+
+
+## Evidence execution integration — 25 October 2026
+**Status: shared preflight and all-collection validation wired; external/hosted qualification remains open.**
+Track: `conductor/tracks/evidence_execution_20261025/`.
+Guide: `docs/EVIDENCE_INTEGRATION.md`; local receipts: `integration/evidence_inventory_20261025.json`
+and `integration/evidence_execution_verification_20261025.json`.
+
+The existing integration CLI now calls the preserved-byte verifier and inventories all four
+current bibliography collections. Nox tests/reproduction/packaging and the scientific workflows
+run the preflight. The genuine Sourceright route covers every collection, retaining all failures;
+its availability and scientific applicability are not inferred from an inventory pass.
+The 51-case equal-weight voiage probe now rejects nonfinite external values. M3-owned interfaces,
+models, priors, input data, reference records and published results are unchanged. No current
+empirical posterior, quote, full scientific replay or independent review is claimed by this pass.
+
+M3 arrived concurrently at fa39fd36 and is preserved. The evidence gate also covers its
+research_m3 Nox session; shared reproduction now includes the M3 runner once. These command
+contracts were locally retested; the M3 numerical results were not re-estimated in this pass.

@@ -1,0 +1,14 @@
+{
+  "track_id": "evidence_execution_20261025",
+  "title": "Executable integration of preserved evidence",
+  "date": "2026-10-25",
+  "base_commit": "5218d831f8b2452c7937da91ee00bf9b96183b2d",
+  "status": "scoped_tests_passed_external_qualification_open",
+  "evidence": [
+    "docs/EVIDENCE_INTEGRATION.md",
+    "integration/evidence_inventory_20261025.json",
+    "integration/evidence_execution_verification_20261025.json",
+    "tests/incorporation/test_evidence_execution.py"
+  ],
+  "receiving_base": "fa39fd36cd924d21128a154d19f86bf0cab95bd6"
+}

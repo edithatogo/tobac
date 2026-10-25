@@ -68,8 +68,21 @@ def run_all_checks(session, commands):
         session.error('Failed independent checks: ' + ', '.join(failed))
 
 
+def verify_evidence(session, label):
+    """Inventory and preserved-byte gate; not source applicability or CSL validation."""
+    session.run('python', 'scripts/qualify_integrations.py', '--mode', 'inventory',
+                '--out', f'outputs/engineering/evidence-{label}.json')
+
+
+@nox.session
+def evidence(session):
+    """Offline standard-library check; no package install or empirical conditioning."""
+    verify_evidence(session, 'evidence')
+
+
 @nox.session
 def tests(session):
+    verify_evidence(session, 'tests')
     environment(session)
     session.run('python', '-c', 'import hypothesis, jsonschema; print("required test libraries loaded")')
     session.run('python', '-m', 'coverage', 'run', '--branch', '--source=src', '-m', 'pytest',
@@ -99,9 +112,10 @@ def strict_all(session):
 
 @nox.session
 def reproduce(session):
+    verify_evidence(session, 'reproduce')
     environment(session)
     session.run('python', 'scripts/verify.py')
-    for module, destination in [('tobac.run', 'm1'), ('tobac.m2', 'm2')]:
+    for module, destination in [('tobac.run', 'm1'), ('tobac.m2', 'm2'), ('tobac.research.runner', 'm3')]:
         args = ['python', '-m', module, '--out', f'outputs/replay_{destination}']
         if module == 'tobac.m2':
             args.append('--grid-check')
@@ -133,6 +147,7 @@ def lock(session):
 @nox.session
 def package(session):
     """Build an internal candidate only after exact locked installation."""
+    verify_evidence(session, 'package')
     environment(session, require_lock=True)
     python = session.run('python', '-c', 'import sys;print(sys.executable)', silent=True)
     if not isinstance(python, str) or not python.strip():
@@ -168,6 +183,7 @@ def canary(session):
 @nox.session
 def research_m3(session):
     """M3 uses the existing reference environment and preserves its lock gates."""
+    verify_evidence(session, 'research_m3')
     environment(session)
     session.run('python', '-m', 'pytest', '-q', 'tests/m3', 'tests/test_workstream_integration.py')
     session.run('python', '-m', 'tobac.research.runner', '--out', 'outputs/replay_m3')

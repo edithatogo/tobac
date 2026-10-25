@@ -1,0 +1,110 @@
+{
+  "tool": "internal_evidence_inventory",
+  "success": true,
+  "preservation": {
+    "status": "pass",
+    "files": 19,
+    "csv_rows": 298,
+    "bibliography_records": 28,
+    "source_archive_checked": false,
+    "automatically_conditions_live_model": false,
+    "scope": "preservation_and_internal_linkage_not_scientific_validation"
+  },
+  "collections": [
+    {
+      "path": "evidence/longitudinal/references.csl.json",
+      "sha256": "cf853de82247abb8cc23c28cc6460f81ffe1bad069b7768b3d17f1f74849c9d3",
+      "records": 2,
+      "source_ids": [
+        "parallel-S08",
+        "long-nz-tobacco-tonnes-2025"
+      ],
+      "role": "active_bibliography_not_observations"
+    },
+    {
+      "path": "evidence/m2/references.csl.json",
+      "sha256": "ff5154f0a8c0cddc48bef7b9f62c7afc472fabc66e7c82ff4a4fd87ce3adfda7",
+      "records": 5,
+      "source_ids": [
+        "SHINE_RETAIL_TABLE2",
+        "PEARSON_2015",
+        "NZ_RETAIL_SCHEME_2023",
+        "NZ_RETAIL_REPEAL_2024",
+        "NZ_TOBACCO_RETURNS_2025"
+      ],
+      "role": "active_bibliography_not_observations"
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/references.csl.json",
+      "sha256": "f665a540e69bf8b041655aad57c1c851b266fb832e266fa9ebf83b0100f05c45",
+      "records": 28,
+      "source_ids": [
+        "empirical-vanwichelen-2026",
+        "empirical-walker-2012",
+        "empirical-walker-2015",
+        "empirical-walker-2020",
+        "est-auckland-mash",
+        "est-blakely-2015",
+        "est-gao-2018",
+        "est-gendall-2026",
+        "est-li-2017",
+        "est-marsh-2016",
+        "linked-serpa-2024",
+        "long-nz-hir-2024",
+        "long-nz-tobacco-tonnes-2025",
+        "long-nzhs-2021",
+        "long-nzhs-2022-corrected",
+        "long-nzhs-2022-original",
+        "long-nzhs-2024",
+        "long-nzhs-module-2015",
+        "long-nzhs-trends-2025",
+        "nz-key-results-2024-25",
+        "nz-oral-nicotine-overview",
+        "parallel-S01",
+        "parallel-S02",
+        "parallel-S03",
+        "parallel-S05",
+        "parallel-S06",
+        "parallel-S08",
+        "parallel-S13"
+      ],
+      "role": "preserved_reference_only"
+    },
+    {
+      "path": "evidence/references.csl.json",
+      "sha256": "eb09f4d9feb1219665ba8e67be7d2e3affc349f4c9f1f8052873ca1790bb4e24",
+      "records": 8,
+      "source_ids": [
+        "fenwick2020",
+        "rothery2020",
+        "zheng2023",
+        "wang2026",
+        "phyo2025",
+        "moh2023",
+        "customs2024",
+        "act2024"
+      ],
+      "role": "active_bibliography_not_observations"
+    }
+  ],
+  "collection_count": 4,
+  "record_occurrences": 43,
+  "distinct_literal_ids": 41,
+  "repeated_literal_ids": {
+    "long-nz-tobacco-tonnes-2025": [
+      "evidence/longitudinal/references.csl.json",
+      "evidence/prior_work/v2.9.0/references.csl.json"
+    ],
+    "parallel-S08": [
+      "evidence/longitudinal/references.csl.json",
+      "evidence/prior_work/v2.9.0/references.csl.json"
+    ]
+  },
+  "external_tool_executed": false,
+  "bibliographic_validation_performed": false,
+  "scientific_applicability_validated": false,
+  "live_model_conditioned": false,
+  "new_raw_assays": 0,
+  "supplier_quotes_received": 0,
+  "scope": "preserved_bytes_and_bibliography_inventory_not_independent_observations"
+}
