@@ -1,0 +1,220 @@
+{
+  "schema": "tobac.prior-work-incorporation.v1",
+  "date": "2026-10-25",
+  "base_commit": "886fc08929f8e4e7e34fb6443bbf81545e52c3db",
+  "archive": {
+    "filename": "tobac_v2.9.0_20261024_EMPIRICAL_LONGITUDINAL.zip",
+    "sha256": "858fbdeebb5fd4ba8b224bc545c0283dda5a6138199959598eda943fbcf94473",
+    "regular_non_git_entries": 1007
+  },
+  "scope": "selected historical evidence/assumptions/request templates, not a full archive migration",
+  "automatically_conditions_live_model": false,
+  "new_raw_assays": 0,
+  "supplier_quotes_received_by_this_import": 0,
+  "bibliographic_validation_performed": false,
+  "unmatched_source_tokens": [
+    "longitudinal_protocol",
+    "v2.6.0_parameter_estimates"
+  ],
+  "source_ids": [
+    "empirical-vanwichelen-2026",
+    "empirical-walker-2012",
+    "empirical-walker-2015",
+    "empirical-walker-2020",
+    "est-auckland-mash",
+    "est-blakely-2015",
+    "est-gao-2018",
+    "est-gendall-2026",
+    "est-li-2017",
+    "est-marsh-2016",
+    "linked-serpa-2024",
+    "long-nz-hir-2024",
+    "long-nz-tobacco-tonnes-2025",
+    "long-nzhs-2021",
+    "long-nzhs-2022-corrected",
+    "long-nzhs-2022-original",
+    "long-nzhs-2024",
+    "long-nzhs-module-2015",
+    "long-nzhs-trends-2025",
+    "nz-key-results-2024-25",
+    "nz-oral-nicotine-overview",
+    "parallel-S01",
+    "parallel-S02",
+    "parallel-S03",
+    "parallel-S05",
+    "parallel-S06",
+    "parallel-S08",
+    "parallel-S13"
+  ],
+  "files": [
+    {
+      "path": "evidence/prior_work/v2.9.0/data/empirical_intake_20261024/measurement_evidence.csv",
+      "archive_path": "tobac/data/empirical_intake_20261024/measurement_evidence.csv",
+      "archive_sha256": "a47dea2875e783c207403a5ab6a10f89bb718cc570c76a29c24e6d5be1befdfa",
+      "sha256": "144cded7b838487bf492496bd97936878689556a48d104c7bf95fa339514c73d",
+      "role": "historical_measurement_and_calibration_evidence",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 36
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/empirical_intake_20261024/cessation_trial_arms.csv",
+      "archive_path": "tobac/data/empirical_intake_20261024/cessation_trial_arms.csv",
+      "archive_sha256": "35c4041876fb6aff98cb63d12053fb7f83e6deb2164fcf478d5c3775b864a198",
+      "sha256": "52e9cca6e6457b6001dedec9336876cb8f015ad04253eb5c3a65960923c2ac04",
+      "role": "historical_trial_arms",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 3
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/empirical_intake_20261024/action_effect_components.csv",
+      "archive_path": "tobac/data/empirical_intake_20261024/action_effect_components.csv",
+      "archive_sha256": "5b98ca14f22d592ded4e60387a848c3d3e126d526c6af2e427986733231e2c78",
+      "sha256": "125dc513041f102065e01a67a9d85aa44df94d60bd3049887335e1d053aecf75",
+      "role": "historical_action_effect_components",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 5
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/empirical_intake_20261024/action_evidence_coverage.csv",
+      "archive_path": "tobac/data/empirical_intake_20261024/action_evidence_coverage.csv",
+      "archive_sha256": "d2f171ea35075235461489a47f9a9004fb392546b1644a60bc436f3816c56176",
+      "sha256": "17634aa1799e217689c86cd674ee82bd53c4025fc754013888558a5b5407d83c",
+      "role": "historical_action_evidence_gaps",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 23
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/parameter_estimates_v2.7.0.csv",
+      "archive_path": "tobac/data/longitudinal_20261024/parameter_estimates_v2.7.0.csv",
+      "archive_sha256": "f771d9554b1aee708917fb85a8ed2d4adcf86e76696ad4032c7afb163d77ce9e",
+      "sha256": "e5366806d524eb62586a892f4151f542a4a1e5ec235ba68ddca48018934c33e7",
+      "role": "mixed_evidence_and_analyst_assumptions",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 76
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/nzhs_published_anchors.csv",
+      "archive_path": "tobac/data/longitudinal_20261024/nzhs_published_anchors.csv",
+      "archive_sha256": "9690b74495854a4a4ea67baa959f7c0c34fdeca9adea8b175803b24029e74c0a",
+      "sha256": "7beb5c727cee3f64f39e4d45bcc7ecdef332bba511ff2cc46f17ee5082665d34",
+      "role": "historical_survey_versions_not_independent_duplicates",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 48
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/au_wbe_longitudinal_summary.csv",
+      "archive_path": "tobac/data/longitudinal_20261024/au_wbe_longitudinal_summary.csv",
+      "archive_sha256": "746e12c7fb6e266625d415da68ca7bcaea016a4248851d90b77aea4e7e2fd7d0",
+      "sha256": "b22cd8013cae4c6d967a4aa7243c3860dda57e4b357f2c2399253340267bdae6",
+      "role": "published_AU_summary_not_NZ_panel",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 6
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/au_wbe_published_endpoints.csv",
+      "archive_path": "tobac/data/longitudinal_20261024/au_wbe_published_endpoints.csv",
+      "archive_sha256": "1589e45f3822a07f0408d157c2016e3f89964941fac5b3942fd45328b2f3933f",
+      "sha256": "a17770e609a96aa8b923da456d8c1c5f4b4a6db168dc06b9cdfc588627c9fc7e",
+      "role": "published_model_derived_endpoints_not_raw_assays",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 6
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/time_assumption_register.csv",
+      "archive_path": "tobac/data/longitudinal_20261024/time_assumption_register.csv",
+      "archive_sha256": "fc3a64ba79d4db7d6ed17908b7b3071a7068cc287db5e2b07baa8cbb890b99bf",
+      "sha256": "58b4f783c02b4b6de53a5453d126485224a44c10eec45a4ef18a4510b78832cf",
+      "role": "declared_temporal_assumptions_not_fitted_errors",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 10
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/nz_historical_intensity_2012_2023.csv",
+      "archive_path": "tobac/data/longitudinal_20261024/nz_historical_intensity_2012_2023.csv",
+      "archive_sha256": "8f176fe9c017c6ae104bac32a33a3966b1b33a33fd03a256002d60d5612cfc54",
+      "sha256": "cb588ff94d193a3e778da09e6c5c76d40ef652416f608b59128a582ec2784049",
+      "role": "historical_shared_NZHS_source_not_independent_evidence",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 12
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/docs/decision_contracts/INFORMATION_PORTFOLIOS_v2.4.0.csv",
+      "archive_path": "tobac/docs/decision_contracts/INFORMATION_PORTFOLIOS_v2.4.0.csv",
+      "archive_sha256": "34e3b96387bcc6c056917277e85c9f5ec40bc3e8db3bf3e170289c3a6899cd38",
+      "sha256": "ac5a9f91a48661eb3594d2e41f13eb6fb6280b223550fde02568744a6e324ce6",
+      "role": "prior_candidate_studies_not_approved_designs",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 15
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/docs/decision_contracts/NZ_ACTION_CATALOGUE_v2.4.0.csv",
+      "archive_path": "tobac/docs/decision_contracts/NZ_ACTION_CATALOGUE_v2.4.0.csv",
+      "archive_sha256": "35c3733085a899d1e6e2dc31239372a01408a5cf82cc4ae36e72aca5e38f6d6a",
+      "sha256": "65830ca6835ded177c03b9613dc9e3a509d4ca16045cffe3e4ff1070b639500b",
+      "role": "prior_candidate_actions_not_live_M2_M3_contract",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 23
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/requests/empirical_20261024/assay_data_request_fields.csv",
+      "archive_path": "tobac/requests/empirical_20261024/assay_data_request_fields.csv",
+      "archive_sha256": "7d00fb40d5d17418cfe2ff3f17b4fa258a60b252d370296ec1281dad09eb93d9",
+      "sha256": "e0d903c18c39f1bb69cf9142375d36ca0bfe9eabc39d38895f9f9cc112711f2b",
+      "role": "request_template_not_received_data",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 13
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/requests/empirical_20261024/marginal_price_response_template.csv",
+      "archive_path": "tobac/requests/empirical_20261024/marginal_price_response_template.csv",
+      "archive_sha256": "d5294a1aba6dfe5b53c0197c1c2937170fad2501d760eec66ca5888208b6848f",
+      "sha256": "9ffaea9bc257d3c1b594d749881243336007ae91f30f78d3b767f666af7c3861",
+      "role": "request_template_not_supplier_prices",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 10
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/requests/empirical_20261024/operational_action_request_fields.csv",
+      "archive_path": "tobac/requests/empirical_20261024/operational_action_request_fields.csv",
+      "archive_sha256": "a867db21d77ee7ab4ee73a65b7e54fcfe62fbcf2423b55d9f8a5569ea964336b",
+      "sha256": "b1062c4521d382ece10c906848743b155b45e0136d15f97f08b8ddef1d2fa972",
+      "role": "request_template_not_observed_consequences",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 6
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/requests/empirical_20261024/supply_data_request_fields.csv",
+      "archive_path": "tobac/requests/empirical_20261024/supply_data_request_fields.csv",
+      "archive_sha256": "275985cd8fea7f1e95216d403d216b0c0561b2d76ec77a0ca945a03f759b2a61",
+      "sha256": "c3fabb3e1caec5e96c479d1e5517a4fb3a86db1e8d312953ffb285acd495279e",
+      "role": "request_template_not_received_supply",
+      "transformation": "CRLF_to_LF_only",
+      "rows": 6
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/requests/LONGITUDINAL_DATA_ADDENDUM_v2.7.0.md",
+      "archive_path": "tobac/requests/LONGITUDINAL_DATA_ADDENDUM_v2.7.0.md",
+      "archive_sha256": "95b92297b51f251873a18adcf2e0c2bd25d13a042e2713f1dcef9b77cbfd2e1d",
+      "sha256": "95b92297b51f251873a18adcf2e0c2bd25d13a042e2713f1dcef9b77cbfd2e1d",
+      "role": "historical_unsent_request_addendum",
+      "transformation": "none"
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/requests/empirical_20261024/R05_ASSAY_PERFORMANCE_ADDENDUM_v2.6.0.md",
+      "archive_path": "tobac/requests/empirical_20261024/R05_ASSAY_PERFORMANCE_ADDENDUM_v2.6.0.md",
+      "archive_sha256": "92ebf7c34c4e59cff318e124c185475b4822f215654f058a573779ebf2f68e9c",
+      "sha256": "92ebf7c34c4e59cff318e124c185475b4822f215654f058a573779ebf2f68e9c",
+      "role": "historical_unsent_assay_requirements",
+      "transformation": "none"
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/references.csl.json",
+      "archive_path": "tobac/references/canonical_sources_v2.9.0.csl.json",
+      "archive_sha256": "1ce55c72869e7fcfe029139d92fe5591a3a789417efa2e08956e35d7aea974e4",
+      "sha256": "e0651f908676bec3e8c6296cb02dc4c06738da14100699a6fc14a3be688d41b3",
+      "role": "inherited_bibliography_not_new_validation",
+      "transformation": "subset_by_source_ID_exact_record_objects_reformatted_canonical_doi",
+      "records": 28
+    }
+  ]
+}

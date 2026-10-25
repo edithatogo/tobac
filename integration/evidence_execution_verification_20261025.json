@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-25",
+  "base_commit": "5218d831f8b2452c7937da91ee00bf9b96183b2d",
+  "scope": "Hash-matched evidence/verification snapshot, not a complete checkout or full scientific replay",
+  "tests": {
+    "passed": 60,
+    "failed": 0,
+    "skipped": 0,
+    "inherited_preservation_cases": 21,
+    "new_integration_cases": 39,
+    "command": "python -m pytest -q tests/incorporation --junitxml=outputs/evidence-tests.xml"
+  },
+  "compilation": "passed",
+  "actual_inventory": {
+    "success": true,
+    "collection_count": 4,
+    "record_occurrences": 43,
+    "distinct_literal_ids": 41,
+    "external_tool_executed": false,
+    "scientific_applicability_validated": false,
+    "live_model_conditioned": false,
+    "receipt": "integration/evidence_inventory_20261025.json"
+  },
+  "actual_archive_check": {
+    "status": "pass",
+    "files": 19,
+    "csv_rows": 298,
+    "bibliography_records": 28,
+    "source_archive_checked": true,
+    "automatically_conditions_live_model": false,
+    "scope": "preservation_and_internal_linkage_not_scientific_validation"
+  },
+  "actual_external_attempts": {
+    "sourceright": {
+      "exit_code": 2,
+      "success": false,
+      "external_tool_executed": false,
+      "reason": "sourceright not installed"
+    },
+    "voiage": {
+      "exit_code": 2,
+      "success": false,
+      "reason": "ModuleNotFoundError: no installed voiage"
+    }
+  },
+  "execution_boundaries": {
+    "nox": "command planning and fail-stop wiring tested with labelled doubles, not installed Nox execution",
+    "sourceright": "command contract, failures, timeouts and mutation checks use doubles; real attempt unavailable",
+    "voiage": "51-case adapter and nonfinite guard checked with labelled API doubles; no installed-library parity claimed",
+    "context": "profile validated against existing JSON schema; no host activation or complete context build claimed",
+    "hosted_ci": "not qualified by local configuration checks",
+    "full_scientific_replay": false,
+    "independent_external_review": false
+  },
+  "models_priors_data_results_changed": false,
+  "empirical_NZ_funding_recommendation": false,
+  "base_blob_checks": {
+    "scripts/qualify_integrations.py": "a5f13a0766e3b42d4d03258e0cead86bcbe91151",
+    "scripts/verify_prior_work.py": "0bdf3b17870168c787a4682288dc045655c8b06f",
+    "noxfile.py": "de55bf4643b16a398b1ff6073fda9034dac88dca",
+    "integration/prior_work_manifest.json": "58ad07ec78b7cc996a90f54dafebfbd16fd94b00",
+    "evidence/references.csl.json": "aa1676af4cc4db641aa58d9fc297cbf38b2855ad",
+    "evidence/m2/references.csl.json": "ecffa6e817e15d7e853b9762255c7d1bd1a6518f",
+    "evidence/longitudinal/references.csl.json": "a4700c272527108768fdd77ec2d305a335edefb9",
+    "evidence/prior_work/v2.9.0/references.csl.json": "8f93d4437d306517f295a9d4c929ea8e20f57cc3",
+    "conductor/tracks.md": "744cc778d6284e5ce8fcc20298aba4da2eb9a004"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "pytest": "9.0.2",
+    "jsonschema": "4.26.0"
+  },
+  "payload_sha256": {
+    "scripts/qualify_integrations.py": "10c63a42cf72a8af44bd499eb1d08fed52e609b73cf2adbf73b2564e76c583b5",
+    "noxfile.py": "6a546f30b10534d4fc926d79ad5fcc233f1c139e9710112b7704cd23cfa3bd4f",
+    ".github/workflows/ci.yml": "8a3667df4d6ff41e8c0fc26e9d82a2c9f61a588f45ba3bed7b983078821427a3",
+    ".github/workflows/longitudinal.yml": "9b40bc46d71ab2ce36f8aa5e8c6561f3b5862caee67a9a57e7301270011066e3",
+    "engineering/context/evidence.json": "ccdc726ef4e8069fd61b9f3ee6c24a92fe598859acbe89358fabf36f3a88f9f6",
+    "tests/incorporation/test_evidence_execution.py": "0a2159516bc8d84381025a888d3bb0a6ea947bebc72fef88c1b887c04c050070",
+    "docs/EVIDENCE_INTEGRATION.md": "adc2d2d9f0aa378cc5d8a0de090993cf585a7b40b63c110adbe43219f8582580",
+    "docs/plans/2026-10-25-evidence-execution-integration.md": "37f831e2b52753af298353d7c542ac85cb22ac4c84614a3f3a7059d2efb36c50",
+    "conductor/tracks.md": "a062bcd0ca8c1b18e62e070b2aed36964073092993ef96658a13ea7854f1c5f7",
+    "conductor/tracks/evidence_execution_20261025/spec.md": "1ad692429353a64833dfb915161ad6fbeb34d2885f78218dcb7e1ee437d581b8",
+    "conductor/tracks/evidence_execution_20261025/plan.md": "c812709d50140be424bd425cb790f139522bc47b71cc3b73ca6f59e5386ad211",
+    "conductor/tracks/evidence_execution_20261025/metadata.json": "fc32e9baf9dd28ed8660ad9242f64cc73c21cd54f7bc62e9c32c12a9ff13e46c",
+    "integration/evidence_inventory_20261025.json": "cc88b79c8cb32f04984d6dbeb5fec3a3c09369134278d1ff44d1903b860cc09d",
+    "tests/incorporation/test_m3_execution_sync.py": "899fb75c3f63d735cab62745039288972d80d3c6b1d19fce5b594b288b43f478"
+  },
+  "receiving_base": "fa39fd36cd924d21128a154d19f86bf0cab95bd6",
+  "concurrent_reconciliation": {
+    "commit": "fa39fd36cd924d21128a154d19f86bf0cab95bd6",
+    "live_nox_blob_checked": "42561b8bec9feeedd72e03747fa5f0f69204f827",
+    "live_conductor_registry_blob_checked": "80c66e24e16827ad3e1615cc715c2dbb1b0911e1",
+    "preserved": "All M3 source/config/results/workflow/receipts inherited from receiving base",
+    "added_execution_connections": [
+      "research_m3 evidence preflight",
+      "M3 runner in shared reproduce"
+    ],
+    "fresh_m3_numerical_execution": false
+  }
+}

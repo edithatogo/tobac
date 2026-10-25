@@ -1,0 +1,103 @@
+{
+  "schema": "tobac.research-m3.v1",
+  "base_config": "configs/regulatory.json",
+  "retail_config": "configs/m2_retail.json",
+  "quit_points": 2,
+  "prior_high_illicit_probabilities": [
+    0.2,
+    0.5,
+    0.8
+  ],
+  "normative_crime_weights": [
+    0.0,
+    1.0,
+    2.0
+  ],
+  "direct_costs": {
+    "anabasine": 0.0002,
+    "anabasine_improved": 0.0005,
+    "nicotine": 0.0002,
+    "legal_supply": 0.0002,
+    "calibration": 0.0003,
+    "policy_comparison": 0.004,
+    "policy_lawful_comparison": 0.006,
+    "criminal_harm_research": 0.004
+  },
+  "shared_costs": {
+    "lab_setup": 0.0001,
+    "causal_protocol": 0.001
+  },
+  "cost_scope": "Illustrative normalised decision-unit costs, not NZD or laboratory quotations. Same decision scale as M2; no field-funding claim.",
+  "uptake_profiles": {
+    "immediate_complete": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "gradual": [
+      0.1,
+      0.3,
+      0.6,
+      0.8,
+      0.9
+    ],
+    "delayed": [
+      0,
+      0,
+      0.3,
+      0.6,
+      0.9
+    ],
+    "limited": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ]
+  },
+  "time_weights": [
+    0.2,
+    0.2,
+    0.2,
+    0.2,
+    0.2
+  ],
+  "time_scope": "Five equally weighted subperiods of the existing consequence horizon; no lifetime extension or double population scaling.",
+  "stage_timings": [
+    {
+      "name": "prompt",
+      "pilot_remaining": 0.95,
+      "followup_remaining": 0.8
+    },
+    {
+      "name": "slow",
+      "pilot_remaining": 0.8,
+      "followup_remaining": 0.4
+    }
+  ],
+  "stage_followup_cost_multipliers": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "structure_probability_grid": [
+    0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1
+  ],
+  "interpretation": "Model-probability grid is a conditional sensitivity curve without a selected distribution; robust envelopes do not average scenarios or assign probabilities to viewpoints.",
+  "status": "Conditional finite-method demonstration; preserves M2 source/estimand limits. No new empirical data assimilated.",
+  "implementation_reference_action": "reference",
+  "implementation_scope": "Unimplemented portions realise the declared reference policy. Uptake profiles are analyst scenarios, not fitted Innovate outputs."
+}

@@ -1,134 +1,220 @@
-"""Maintained Nox/uv harness; configurations are not evidence of execution."""
+"""Nox/uv execution with source-bound locks; configuration is not qualification."""
+import os
 from pathlib import Path
+import sys
 
 import nox
+from nox.command import CommandFailed
 
-nox.options.default_venv_backend = "uv"
-nox.options.sessions = ["tests", "quality"]
-OUT = Path("outputs/engineering")
+nox.options.default_venv_backend = 'uv'
+nox.options.sessions = ['tests', 'quality']
+ROOT = Path(__file__).resolve().parent
+OUT = Path('outputs/engineering')
 
 
-def environment(session):
-    """Keep published numerical pins; capture the actually installed environment."""
-    session.env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONHASHSEED="0")
-    if Path("engineering/requirements.lock").is_file():
-        session.install("--require-hashes", "-r", "engineering/requirements.lock")
+def environment(session, profile='runtime', require_lock=False):
+    """Exact sync when locked; explicit bootstrap only outside release qualification."""
+    if profile not in {'runtime', 'audit'}:
+        session.error('Unknown environment profile')
+    if profile == 'audit' and sys.platform != 'linux':
+        session.error('Audit-tool profile is Linux-only; use runtime tests on other platforms')
+    session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
+    name = 'requirements.lock' if profile == 'runtime' else 'audit.lock'
+    lock = ROOT / 'engineering' / name
+    receipt = lock.with_suffix('.lock.json')
+    mandatory = require_lock or os.environ.get('TOBAC_REQUIRE_LOCK') == '1'
+    # A partial or stale lock is an error, never permission to silently fall back.
+    if lock.exists() or receipt.exists() or mandatory:
+        if not lock.is_file() or not receipt.is_file():
+            session.error('Both generated lock and matching receipt are required')
+        session.run('python', 'scripts/lock_receipt.py', 'verify', '--profile', profile,
+                    '--path', f'engineering/{name}')
+        python = session.run('python', '-c', 'import sys;print(sys.executable)', silent=True)
+        if not isinstance(python, str) or not python.strip():
+            session.error('Could not resolve the isolated interpreter')
+        if profile == 'audit':
+            session.run('python', '-c', 'import sys; assert sys.version_info[:2] == (3, 13)')
+        session.run('uv', 'pip', 'sync', '--python', python.strip(), '--require-hashes',
+                    str(lock), external=True)
     else:
-        session.log("Reference pins only: transitive hash-lock qualification remains open")
-        session.install("-r", "requirements.lock", "-r", "engineering/test-requirements.txt")
-    session.install("--no-deps", "-e", ".")
+        session.log('BOOTSTRAP ONLY: transitive hash-lock qualification is not established')
+        requirements = ['-r', 'requirements.lock', '-r', 'engineering/test-requirements.txt',
+                        '-r', 'engineering/build-requirements.txt']
+        if profile == 'audit':
+            requirements += ['-r', 'engineering/tools-requirements.txt']
+        session.install(*requirements)
+    # Never invoke an isolated floating build backend or install extra tools after the lock.
+    session.install('--no-deps', '--no-build-isolation', '-e', '.')
     OUT.mkdir(parents=True, exist_ok=True)
-    python = session.run("python", "-c", "import sys;print(sys.executable)", silent=True)
+    python = session.run('python', '-c', 'import sys;print(sys.executable)', silent=True)
     if not isinstance(python, str) or not python.strip():
-        session.error("Could not resolve the isolated interpreter")
-    session.run("uv", "pip", "check", "--python", python.strip(), external=True)
+        session.error('Could not resolve the isolated interpreter')
+    session.run('uv', 'pip', 'check', '--python', python.strip(), external=True)
+    session.run('python', '-c', "import importlib.metadata as m,json,sys; from pathlib import Path; "
+                "Path('outputs/engineering/environment.json').write_text(json.dumps("
+                "{'python':sys.version,'distributions':sorted((d.metadata['Name'],d.version) "
+                "for d in m.distributions())},indent=2))")
+
+
+def audit_lock_present():
+    """True when a reviewed Linux audit lock is committed (then it must be honoured)."""
+    return (ROOT / 'engineering' / 'audit.lock').is_file()
+
+
+def audit_tools(session):
+    """Resolve audit tools for this host when the Linux audit lock is unusable.
+
+    The Linux profile stays authoritative wherever it can be installed. On other hosts the
+    reviewed tool pins are resolved natively so the same checks actually run, and the session
+    says plainly that this is not the locked release profile.
+    """
+    if sys.platform == 'linux':
+        return environment(session, profile='audit')
+    if os.environ.get('TOBAC_REQUIRE_LOCK') == '1':
+        session.error('Locked qualification requires the Linux audit lock; not available here')
+    session.log('NATIVE AUDIT: host-resolved tools from engineering/tools-requirements.txt; '
+                'NOT the Linux audit lock, hash-checked install or release qualification'
+                + ('' if audit_lock_present() else '; no audit lock is committed yet'))
+    session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
+    # The audit checks import the project and jsonschema, so the ordinary dependency set is
+    # required too; installing only the tool pins leaves basedpyright unable to resolve imports.
+    session.install('-r', 'requirements.lock', '-r', 'engineering/test-requirements.txt',
+                    '-r', 'engineering/build-requirements.txt',
+                    '-r', 'engineering/tools-requirements.txt')
+    session.install('--no-deps', '--no-build-isolation', '-e', '.')
+    OUT.mkdir(parents=True, exist_ok=True)
+    return None
+
+
+def run_all_checks(session, commands):
+    """Execute independent audits, preserving an overall failure if any command fails."""
+    failed = []
+    for command in commands:
+        try:
+            session.run(*command)
+        except CommandFailed:
+            failed.append(command[0])
+    if failed:
+        session.error('Failed independent checks: ' + ', '.join(failed))
+
+
+def verify_evidence(session, label):
+    """Inventory and preserved-byte gate; not source applicability or CSL validation."""
+    session.run('python', 'scripts/qualify_integrations.py', '--mode', 'inventory',
+                '--out', f'outputs/engineering/evidence-{label}.json')
+
+
+@nox.session
+def evidence(session):
+    """Offline standard-library check; no package install or empirical conditioning."""
+    verify_evidence(session, 'evidence')
 
 
 @nox.session
 def tests(session):
-    """Full suite, mandatory Hypothesis import, branch coverage and machine receipts."""
+    verify_evidence(session, 'tests')
     environment(session)
-    session.run("python", "-c", "import hypothesis, jsonschema; print('required test libraries loaded')")
-    session.run("python", "-m", "coverage", "run", "--branch", "--source=src", "-m", "pytest",
-                "-q", "--strict-markers", "--junitxml=outputs/engineering/junit.xml", *session.posargs)
-    session.run("python", "-m", "coverage", "json", "-o", "outputs/engineering/coverage.json")
-    session.run("python", "-m", "coverage", "report", "--fail-under=90")
-    session.run("python", "-c", "import importlib.metadata as m,json,sys; "
-                "from pathlib import Path; "
-                "Path('outputs/engineering/environment.json').write_text("
-                "json.dumps({'python':sys.version,'distributions':sorted("
-                "(d.metadata['Name'],d.version) for d in m.distributions())},indent=2))")
+    session.run('python', '-c', 'import hypothesis, jsonschema; print("required test libraries loaded")')
+    session.run('python', '-m', 'coverage', 'run', '--branch', '--source=src', '-m', 'pytest',
+                '-q', '--strict-markers', '--junitxml=outputs/engineering/junit.xml', *session.posargs)
+    session.run('python', '-m', 'coverage', 'json', '-o', 'outputs/engineering/coverage.json')
+    session.run('python', '-m', 'coverage', 'report', '--fail-under=90')
 
 
 @nox.session
 def quality(session):
-    """Strict new harness scope; fatal syntax/name rules cover all research code."""
-    environment(session)
-    session.install("ruff==0.16.8", "basedpyright==1.39.9")
-    session.run("ruff", "check", "--isolated", "--select", "E9,F63,F7,F82", "src", "scripts")
-    session.run("ruff", "check", "--config", "engineering/ruff.toml", "scripts/context_bundle.py")
-    session.run("basedpyright", "--project", "engineering/basedpyright.json")
+    audit_tools(session)
+    run_all_checks(session, [
+        ['ruff', 'check', '--isolated', '--select', 'E9,F63,F7,F82', 'src', 'scripts'],
+        ['ruff', 'check', '--config', 'engineering/ruff.toml', 'scripts/context_bundle.py'],
+        ['basedpyright', '--project', 'engineering/basedpyright.json'],
+    ])
 
 
 @nox.session
 def strict_all(session):
-    """Whole-repository strict debt audit; failures are visible, never auto-baselined."""
-    environment(session)
-    session.install("ruff==0.16.8", "basedpyright==1.39.9")
-    session.run("ruff", "check", "--select", "ALL", "src", "scripts")
-    session.run("basedpyright", "--project", "engineering/basedpyright-all.json")
+    audit_tools(session)
+    run_all_checks(session, [
+        ['ruff', 'check', '--select', 'ALL', 'src', 'scripts'],
+        ['basedpyright', '--project', 'engineering/basedpyright-all.json'],
+    ])
 
 
 @nox.session
 def reproduce(session):
-    """Preserve the existing full scientific runners and their own integrity checks."""
+    verify_evidence(session, 'reproduce')
     environment(session)
-    session.run("python", "scripts/verify.py")
-    for module, destination in [("tobac.run", "m1"), ("tobac.m2", "m2")]:
-        args = ["python", "-m", module, "--out", f"outputs/replay_{destination}"]
-        if module == "tobac.m2":
-            args.append("--grid-check")
+    session.run('python', 'scripts/verify.py')
+    for module, destination in [('tobac.run', 'm1'), ('tobac.m2', 'm2'), ('tobac.research.runner', 'm3')]:
+        args = ['python', '-m', module, '--out', f'outputs/replay_{destination}']
+        if module == 'tobac.m2':
+            args.append('--grid-check')
         session.run(*args)
-        session.run("python", "scripts/verify.py", f"outputs/replay_{destination}")
-    for stem in ["release_calibration", "empirical_longitudinal"]:
-        destination = f"outputs/replay_{stem}"
-        session.run("python", f"scripts/run_{stem}.py", "--out", destination)
-        session.run("python", f"scripts/verify_{stem}.py", destination)
+        session.run('python', 'scripts/verify.py', f'outputs/replay_{destination}')
+    for stem in ['release_calibration', 'empirical_longitudinal']:
+        destination = f'outputs/replay_{stem}'
+        session.run('python', f'scripts/run_{stem}.py', '--out', destination)
+        session.run('python', f'scripts/verify_{stem}.py', destination)
 
 
 @nox.session
 def security(session):
-    """Scan workflow security and resolved packages; no auto-fix or ignored advisories."""
-    environment(session)
-    session.install("pip-audit==2.10.1", "zizmor==1.31.1")
-    session.run("zizmor", "--offline", ".github/workflows")
-    session.run("pip-audit", "--skip-editable", "--format", "cyclonedx-json", "--output", str(OUT / "sbom.json"))
+    audit_tools(session)
+    run_all_checks(session, [
+        ['zizmor', '--offline', '.github/workflows'],
+        ['pip-audit', '--skip-editable', '--format', 'cyclonedx-json', '--output', str(OUT / 'sbom.json')],
+    ])
 
 
 @nox.session
 def lock(session):
-    """Resolve a real universal hash lock; no invented hashes or automatic publication."""
-    session.run("uv", "pip", "compile", "engineering/requirements.in", "--universal",
-                "--generate-hashes", "--python-version", "3.12", "--output-file", "engineering/requirements.lock", external=True)
+    """Produce review candidates, not automatic trusted locks or source commits."""
+    for profile in ['runtime', 'audit']:
+        session.run('python', 'scripts/lock_receipt.py', 'generate', '--profile', profile,
+                    '--path', 'outputs/engineering/lock-candidate')
 
 
 @nox.session
 def package(session):
-    """Internal release candidate only; fail closed without a generated hash lock."""
-    if not Path("engineering/requirements.lock").is_file():
-        session.error("Generate/review the hash lock with nox -s lock before release")
-    python = session.run("python", "-c", "import sys;print(sys.executable)", silent=True)
+    """Build an internal candidate only after exact locked installation."""
+    verify_evidence(session, 'package')
+    environment(session, require_lock=True)
+    python = session.run('python', '-c', 'import sys;print(sys.executable)', silent=True)
     if not isinstance(python, str) or not python.strip():
-        session.error("Could not resolve the isolated interpreter")
-    session.run("uv", "pip", "sync", "--python", python.strip(), "--require-hashes",
-                "engineering/requirements.lock", external=True)
-    session.run("uv", "build", "--python", python.strip(), "--no-build-isolation",
-                "--out-dir", "outputs/release-candidate", external=True)
+        session.error('Could not resolve the isolated interpreter')
+    session.run('uv', 'build', '--python', python.strip(), '--no-build-isolation',
+                '--out-dir', 'outputs/release-candidate', external=True)
 
 
 @nox.session
 def mutation(session):
-    """Focused mutation campaign using mutmut, not hand-edited production changes."""
-    environment(session)
-    session.install("mutmut==3.7.0")
-    session.run("mutmut", "run", "tobac.supply*")
-    session.run("mutmut", "results")
+    audit_tools(session)
+    session.run('mutmut', 'run', 'tobac.supply*')
+    session.run('mutmut', 'results')
 
 
 @nox.session
 def profile(session):
-    """Profile before selecting JAX/Rust acceleration; no AI optimisation service."""
-    environment(session)
-    session.install("scalene==2.4.0")
-    session.run("scalene", "--cpu-only", "--json", "--outfile", str(OUT / "scalene.json"),
-                "scripts/run_empirical_longitudinal.py", "--out", "outputs/profile_empirical", "--quick")
+    audit_tools(session)
+    session.run('scalene', '--cpu-only', '--json', '--outfile', str(OUT / 'scalene.json'),
+                'scripts/run_empirical_longitudinal.py', '--out', 'outputs/profile_empirical', '--quick')
 
 
 @nox.session
 def canary(session):
-    """Isolated latest/pre-release numerical ecosystem; never overwrite reference pins."""
-    session.env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONPATH="src")
-    session.install("--pre", "numpy", "scipy", "pandas", "matplotlib", "pytest",
-                    "hypothesis", "jsonschema", "PyYAML")
-    # Deliberately source-only: the installed research distribution pins the reference stack.
-    session.run("python", "-m", "pytest", "-q", "--strict-markers")
+    """Latest/pre-release source-only experiment; cannot qualify the reference environment."""
+    session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONPATH='src')
+    session.install('--pre', 'numpy', 'scipy', 'pandas', 'matplotlib', 'pytest',
+                    'hypothesis', 'jsonschema', 'PyYAML')
+    session.run('python', '-c', 'import hypothesis, jsonschema; print("canary dependencies loaded")')
+    session.run('python', '-m', 'pytest', '-q', '--strict-markers')
+
+
+@nox.session
+def research_m3(session):
+    """M3 uses the existing reference environment and preserves its lock gates."""
+    verify_evidence(session, 'research_m3')
+    environment(session)
+    session.run('python', '-m', 'pytest', '-q', 'tests/m3', 'tests/test_workstream_integration.py')
+    session.run('python', '-m', 'tobac.research.runner', '--out', 'outputs/replay_m3')
+    session.run('python', 'scripts/verify.py', 'outputs/replay_m3')

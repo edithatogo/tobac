@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-25",
+  "base_commit": "886fc08929f8e4e7e34fb6443bbf81545e52c3db",
+  "scope": "Historical reference preservation and internal integrity checks; not a full checkout or scientific replay",
+  "source_archive": {
+    "filename": "tobac_v2.9.0_20261024_EMPIRICAL_LONGITUDINAL.zip",
+    "sha256": "858fbdeebb5fd4ba8b224bc545c0283dda5a6138199959598eda943fbcf94473",
+    "regular_non_git_entries": 1007,
+    "checksum_and_selected_member_comparison": "passed"
+  },
+  "preserved": {
+    "files": 19,
+    "csv_rows": 298,
+    "bibliography_records": 28,
+    "rows_are_independent_empirical_observations": false,
+    "snapshot_git_tree": "69ba4384b2f5ae4e2592951c3364d1aaaa21fb09",
+    "remote_snapshot_tree_matches_local": true
+  },
+  "fresh_verification": {
+    "tests_passed": 21,
+    "tests_failed": 0,
+    "tests_skipped": 0,
+    "command": "python -m pytest -q tests/incorporation/test_prior_work.py",
+    "archive_check_command": "python scripts/verify_prior_work.py --archive /path/to/tobac_v2.9.0_20261024_EMPIRICAL_LONGITUDINAL.zip",
+    "compilation": "passed"
+  },
+  "not_claimed": [
+    "complete predecessor archive migration",
+    "current raw assay data",
+    "supplier quotations",
+    "new bibliography verification",
+    "new source-effect validation",
+    "whole-regulatory or cross-workstream suite rerun",
+    "hosted CI execution",
+    "dependency lock generation",
+    "M3 completion",
+    "empirical NZ funding recommendation"
+  ],
+  "unchanged_live_paths": [
+    "src/",
+    "data/",
+    "configs/",
+    "results/",
+    "engineering/",
+    "noxfile.py",
+    "pyproject.toml",
+    "requirements.lock",
+    ".github/workflows/",
+    "vendor/conductor"
+  ],
+  "M3_coordination": {
+    "acknowledgement_comment": 6382778234,
+    "receiving_base": "886fc08929f8e4e7e34fb6443bbf81545e52c3db",
+    "completion": "pending; no M3 merge inferred"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "pytest": "9.0.2"
+  },
+  "helper_git_blobs": {
+    "scripts/verify_prior_work.py": "0bdf3b17870168c787a4682288dc045655c8b06f",
+    "tests/incorporation/test_prior_work.py": "e5c7d16269157587c33a6d3addde5327f53bc2e6",
+    "integration/prior_work_manifest.json": "58ad07ec78b7cc996a90f54dafebfbd16fd94b00"
+  }
+}

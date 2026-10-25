@@ -1,3 +1,4 @@
+# Portable research/test/build environment. Audit-only packages are not matrix dependencies.
 -r ../requirements.lock
 -r test-requirements.txt
--r tools-requirements.txt
+-r build-requirements.txt

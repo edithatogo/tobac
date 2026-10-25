@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "profile": "evidence",
+  "max_bytes": 80000,
+  "paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md",
+    "docs/INCORPORATION_STATUS.md",
+    "docs/EVIDENCE_INTEGRATION.md",
+    "integration/prior_work_manifest.json",
+    "scripts/verify_prior_work.py",
+    "scripts/qualify_integrations.py",
+    "evidence/prior_work/v2.9.0/data/longitudinal_20261024/parameter_estimates_v2.7.0.csv"
+  ],
+  "base_commit": null
+}

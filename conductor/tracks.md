@@ -42,14 +42,75 @@ in this bounded check. Branch/readback and hosted status belong to the receipt o
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
 ## Library reuse and engineering harness — 24 October 2026
-**Status: local library/context components verified; online tooling and hosted qualification open.**
+**Status: [~] locks promoted and locked-mode tests/replay/packaging green at 5ab361b; hosted matrix confirmation, strict_all, profiling and independent review remain open.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
 Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
-Receipt: `integration/engineering_verification.json`.
+Receipt: `integration/engineering_verification.json`; execution receipts:
+`integration/engineering_hardening_execution_20261025.json` and
+`integration/engineering_hardening_gap_closure_20261025.json`.
 
 The Gaussian reporting density delegates to SciPy while physical/state/data contracts stay
 unchanged. New Nox/uv, schema-validated context profiles, secure bounded CI/deep/canary lanes,
 Renovate/pre-commit configuration and pinned Conductor gitlink are explicit engineering layers.
-A local source snapshot, not the complete live suite, was executed. Missing dependencies,
-locks, hosted runners, plugin activation and private-feature entitlements remain open. Do not
-turn configuration or a checksum into a claim of successful execution or scientific validity.
+`uv pip sync --require-hashes` now drives `tests` (495 passed, 91% coverage), `reproduce` (five
+replays verified) and `package`, and the built wheel installs and imports. Mutation is executed
+and weak (61.7% killed); `strict_all` is measured at 4,168 ruff and 3,584 BasedPyright errors and
+is not green. The Windows leg failure was a CRLF checkout defect now fixed by `.gitattributes`.
+Do not turn configuration or a checksum into a claim of successful execution or scientific
+validity; hosted confirmation and independent review are not obtained.
+
+## Engineering execution follow-through — 24 October 2026
+**Status: implemented at 886fc08; genuine locks and external qualification remain open.**
+Track: `conductor/tracks/engineering_execution_20261024/`.
+Receipt: `integration/engineering_followthrough.json`; current instructions: `docs/engineering/READINESS.md`.
+This links the already published source-bound locks, portable/audit environment separation,
+read-only hosted diagnostic and strict internal release gates; it is not new execution evidence.
+
+## Incorporation and prior-work audit — 25 October 2026
+**Status: selected reference snapshot verified; full archive migration and live empirical use are not claimed.**
+Track: `conductor/tracks/incorporation_audit_20261025/`.
+Index: `docs/INCORPORATION_STATUS.md`; manifest: `integration/prior_work_manifest.json`.
+Receipt: `integration/incorporation_verification_20261025.json`.
+
+Preserves 19 previously archive-only evidence/template files: 298 mixed-purpose CSV rows and
+28 inherited reference records. Twenty-one scoped preservation tests and actual source-archive
+comparison passed. The remote evidence subtree matches tested local bytes. Current code,
+model inputs/results, dependencies and gates were unchanged by that audit. No copied assumption
+becomes a calibrated parameter, forecast a new observation, template a quotation, or old
+manuscript submission-ready. M3 incorporation now follows below.
+
+## M3 — research portfolios, implementation and staged decisions
+**Status: conditional numerical implementation complete; actual Voiage and hosted qualification remain open.**
+Track: `conductor/tracks/research_m3_20261025/`.
+Contract: `docs/research/M3_CONTRACT.md`; results: `results/milestone3/report.md`.
+Receipt: `integration/m3_local_verification.json`; six-item status: `integration/m3_requirement_status.csv`.
+
+The additive `src/tobac/research` package implements weighted expected-value adaptation,
+structure-only EVPPI, complementary/dependent reports, shared assets, existing-data guards,
+unweighted scenario envelopes, state-action implementation and matched pilot/continue/stop.
+162 scoped tests and 2,105 full-run invariants passed; this is not the entire live suite.
+The mathematical weighted adapter is tested but the real Voiage 2.2.0 probe remains blocked.
+Innovate/Kairos are optional; uptake/delay materiality is demonstrated with declared scenarios,
+not fitted external outputs. Full/refinement tables and manifests are preserved as 24 files
+in a hashed bounded archive with an unpacker. Existing source/evidence/engineering files are
+preserved from base 5218d831. Nox and the separate genuine-library CI lane remain fail-closed;
+configuration is not successful execution. Receiving commit and hosted outcomes: issue #1/#4.
+
+
+## Evidence execution integration — 25 October 2026
+**Status: shared preflight and all-collection validation wired; external/hosted qualification remains open.**
+Track: `conductor/tracks/evidence_execution_20261025/`.
+Guide: `docs/EVIDENCE_INTEGRATION.md`; local receipts: `integration/evidence_inventory_20261025.json`
+and `integration/evidence_execution_verification_20261025.json`.
+
+The existing integration CLI now calls the preserved-byte verifier and inventories all four
+current bibliography collections. Nox tests/reproduction/packaging and the scientific workflows
+run the preflight. The genuine Sourceright route covers every collection, retaining all failures;
+its availability and scientific applicability are not inferred from an inventory pass.
+The 51-case equal-weight voiage probe now rejects nonfinite external values. M3-owned interfaces,
+models, priors, input data, reference records and published results are unchanged. No current
+empirical posterior, quote, full scientific replay or independent review is claimed by this pass.
+
+M3 arrived concurrently at fa39fd36 and is preserved. The evidence gate also covers its
+research_m3 Nox session; shared reproduction now includes the M3 runner once. These command
+contracts were locally retested; the M3 numerical results were not re-estimated in this pass.

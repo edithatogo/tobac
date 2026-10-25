@@ -1,11 +1,11 @@
 # Reference environment version lock; not a wheel-hash lock.
 numpy==2.3.5
 scipy==1.17.0
-pytest==9.0.2
+pytest==9.0.3
 iniconfig==2.3.0
-packaging==25.0
+packaging==26.3
 pluggy==1.6.0
-Pygments==2.19.2
+Pygments==2.20.0
 # Longitudinal runners and tests; original regulatory pins above are unchanged.
 pandas==2.2.3
 matplotlib==3.10.8
