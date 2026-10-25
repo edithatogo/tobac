@@ -1,0 +1,16 @@
+study_id,title,channels,design_rationale,sequential,marginal_cost_nzd_pv,cost_status,reporting_delay_days,sample_schedule,source_ids,empirical_precision_status
+S00,No additional research,,Existing information and same feasible actions,False,0.0,known_zero_incremental,0,,,not_fitted
+S01,Better lawful-consumption records,lawful_consumption,Matched period/catchment/product evidence with stocks and lawful unrecorded supply,False,,not_quoted,,,,not_fitted
+S02,Survey and product-mix enhancement,survey_product_mix,Independent age/use/product evidence; no direct linkage to identifiable individuals,False,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted
+S03,Anabasine only,anabasine,Tobacco-related exposure with yield and non-combustible cross-signal uncertainty,False,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted
+S04,Cotinine only,cotinine,Nicotine exposure across tobacco/vapes/NRT/pouches; not tobacco origin,False,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted
+S05,Cotinine plus 3-hydroxycotinine,cotinine;hydroxycotinine,"Correlated nicotine metabolites, shared dose/calibration, analyte fractions distinguished",False,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted
+S06,Anabasine plus cotinine,anabasine;cotinine,Primary two-analyte panel,False,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted
+S07,Three-analyte panel,anabasine;cotinine;hydroxycotinine,"Estimate incremental value of 3HC, not automatic inclusion",False,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted
+S08,Two-analyte panel plus lawful consumption,anabasine;cotinine;lawful_consumption,Joint inference; no biomarker of legal origin,False,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted
+S09,"Three-analyte panel, supply and survey",anabasine;cotinine;hydroxycotinine;lawful_consumption;survey_product_mix,"Combined exposure, supply and independent subgroup evidence",False,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted
+S10,Calibration research,calibration,"Yield, product background, sewer recovery and laboratory calibration designs",False,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted
+S11,Calibration plus panel and supply,calibration;anabasine;cotinine;lawful_consumption,Value complementary information jointly rather than summing EVSI,False,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted
+S12,Staged calibration then selected surveillance,calibration;conditional_surveillance,Stop/adapt/purchase second stage using existing sequential reference; site-time model remains open,True,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted
+S13,Causal policy-effect evidence,policy_response,"Independent designed evaluation/credible causal evidence, not learned from baseline assays",False,,not_quoted,,,,not_fitted
+S14,"Panel, supply and causal-effect evidence",anabasine;cotinine;lawful_consumption;policy_response,Joint action-relevant evidence; effect study feasibility and cost unresolved,False,,not_quoted,,,parallel-S01;parallel-S02;parallel-S03,not_fitted

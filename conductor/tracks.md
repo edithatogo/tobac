@@ -53,3 +53,23 @@ Renovate/pre-commit configuration and pinned Conductor gitlink are explicit engi
 A local source snapshot, not the complete live suite, was executed. Missing dependencies,
 locks, hosted runners, plugin activation and private-feature entitlements remain open. Do not
 turn configuration or a checksum into a claim of successful execution or scientific validity.
+
+## Engineering execution follow-through — 24 October 2026
+**Status: implemented at 886fc08; genuine locks and external qualification remain open.**
+Track: `conductor/tracks/engineering_execution_20261024/`.
+Receipt: `integration/engineering_followthrough.json`; current instructions: `docs/engineering/READINESS.md`.
+This links the already published source-bound locks, portable/audit environment separation,
+read-only hosted diagnostic and strict internal release gates; it is not new execution evidence.
+
+## Incorporation and prior-work audit — 25 October 2026
+**Status: selected reference snapshot verified; full archive migration and live empirical use are not claimed.**
+Track: `conductor/tracks/incorporation_audit_20261025/`.
+Index: `docs/INCORPORATION_STATUS.md`; manifest: `integration/prior_work_manifest.json`.
+Receipt: `integration/incorporation_verification_20261025.json`.
+
+Preserves 19 previously archive-only evidence/template files: 298 mixed-purpose CSV rows and
+28 inherited reference records. Twenty-one scoped preservation tests and actual source-archive
+comparison passed. The remote evidence subtree matches tested local bytes. Current code,
+model inputs/results, dependencies and gates are unchanged. M3 has acknowledged base 886fc08
+on issue #1 and remains independently in progress. No copied assumption becomes a calibrated
+parameter, forecast a new observation, template a quotation, or old manuscript submission-ready.

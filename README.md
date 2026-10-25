@@ -71,3 +71,23 @@ This focused repository is not a wholesale migration of the earlier project arch
 The executed numerical stack is NumPy/SciPy. Genuine Sourceright and voiage jobs remain mandatory separate checks with explicit receipts. Their workflow definitions are not successful execution or scientific claim validation. CiteWeft is not executed. Read [M2a execution status](integration/m2_local_verification.json), Actions and issue #4 before claiming hosted qualification. No workflow gate, private visibility or account setting was weakened to obtain a passing badge.
 
 Absolute illicit volume differs from share. Baseline observations do not identify future policy response or additional organised-crime harm. Health, criminal, resource and fiscal outputs remain separate, and information gain in nats is not money. Independent source-applicability review, a matched current NZ evidence model, qualified causal effects and governance remain open.
+
+## Incorporation audit and preserved prior work
+
+The [incorporation index](docs/INCORPORATION_STATUS.md) distinguishes active models,
+reference-only evidence, reproducible outputs, archive-only material and pending work.
+Nineteen selected earlier files are now preserved under [evidence/prior_work](evidence/prior_work/),
+with exact archive/member hashes and checks for omission, mutation and source-ID linkage.
+This includes measurement/calibration summaries, survey versions, planning cost/uncertainty
+inputs, candidate actions/studies and request templates. They do not automatically enter the
+current model and are not newly observed data or quoted prices.
+
+```sh
+python scripts/verify_prior_work.py
+python -m pytest -q tests/incorporation/test_prior_work.py
+```
+
+For maintained-library choices, source-bound dependency locks and execution qualification,
+use the [engineering readiness guide](docs/engineering/READINESS.md). The commands above
+without reviewed transitive locks are development bootstrap, not release qualification.
+M3 coordination continues through issue #1; unfinished work is not represented as merged.

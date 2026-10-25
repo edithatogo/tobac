@@ -1,0 +1,11 @@
+item_id,description,quantity_basis,volume_tiers,currency,unit_price,GST_basis,fixed_setup_cost,incremental_collection_cost,turnaround_days,valid_until,inclusions,exclusions,assay_performance,quote_status
+A1,Anabasine only,per_sample_or_batch_to_be_quoted,100;500;1000_if_feasible_not_ordered,NZD,,,,,,,,,,not_quoted
+A2,Cotinine only,per_sample_or_batch_to_be_quoted,100;500;1000_if_feasible_not_ordered,NZD,,,,,,,,,,not_quoted
+A3,Anabasine + cotinine,per_sample_or_batch_to_be_quoted,100;500;1000_if_feasible_not_ordered,NZD,,,,,,,,,,not_quoted
+A4,Anabasine + cotinine + 3HC,per_sample_or_batch_to_be_quoted,100;500;1000_if_feasible_not_ordered,NZD,,,,,,,,,,not_quoted
+C1,Method validation or calibration; itemise separately,per_sample_or_batch_to_be_quoted,100;500;1000_if_feasible_not_ordered,NZD,,,,,,,,,,not_quoted
+D1,Existing collection add-on,per_sample_or_batch_to_be_quoted,100;500;1000_if_feasible_not_ordered,NZD,,,,,,,,,,not_quoted
+D2,Suitable stored-sample reanalysis,per_sample_or_batch_to_be_quoted,100;500;1000_if_feasible_not_ordered,NZD,,,,,,,,,,not_quoted
+D3,New prospective collection and transport,per_sample_or_batch_to_be_quoted,100;500;1000_if_feasible_not_ordered,NZD,,,,,,,,,,not_quoted
+Q1,"Blanks, repeats, spikes and interlaboratory QA",per_sample_or_batch_to_be_quoted,100;500;1000_if_feasible_not_ordered,NZD,,,,,,,,,,not_quoted
+R1,"Data management, analysis and reporting",per_sample_or_batch_to_be_quoted,100;500;1000_if_feasible_not_ordered,NZD,,,,,,,,,,not_quoted

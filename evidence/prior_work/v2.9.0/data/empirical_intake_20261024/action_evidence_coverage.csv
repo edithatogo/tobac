@@ -1,0 +1,24 @@
+action_id,title,evidence_status,source_ids,national_effect_ready,cost_ready,remaining
+NZ00,Current settings and allocation,empirical_consequence_not_populated,,False,False,No intervention effect is inferred from surveillance.
+NZ01,Expanded cessation access and capacity,conditional_cessation_component_fit_only,empirical-walker-2020;empirical-walker-2012,False,False,"Incremental quits, reach, substitution, sustained abstinence and delivery costs."
+NZ02,Youth prevention and age-of-sale compliance,empirical_consequence_not_populated,,False,False,Youth initiation effects and costs; wastewater has no direct age label.
+NZ03,Risk-informed retail compliance,empirical_consequence_not_populated,,False,False,"Detection, displacement, compliance effects and enforcement harms."
+NZ04,Border and supply-chain integrity,empirical_consequence_not_populated,,False,False,"Effect on supply, price, displacement, resource costs and social harms."
+NZ05,"Combined cessation, prevention and integrity",empirical_consequence_not_populated,,False,False,"Interaction effects, duplication and displacement."
+NZ06,Retail licensing and density reduction,empirical_consequence_not_populated,,False,False,"Retail access effects, diversion and lawful/illicit substitution."
+NZ07,Very-low-nicotine smoked-tobacco standard,VLNC_component_boundary_only,empirical-walker-2015;empirical-walker-2012,False,False,"Product nicotine/emissions, consumption intensity, quitting, illicit substitution."
+NZ08,Birth-cohort sales restriction,empirical_consequence_not_populated,,False,False,"Age-cohort adherence, initiation and supply displacement."
+NZ09,Endgame package,empirical_consequence_not_populated,,False,False,"Joint causal effects, compliance, intensity, substitution and organised-market response."
+NZ10,Endgame with cessation and supply safeguards,empirical_consequence_not_populated,,False,False,Joint effects and costs; do not add standalone benefits.
+NZ11,Total commercial smoked-tobacco supply ban,empirical_consequence_not_populated,,False,False,"Enforcement, remaining lawful exceptions, illicit supply, substitution, cessation and criminal harms."
+NZ12,Total commercial ban with transition support,empirical_consequence_not_populated,,False,False,"Implementation, transition stocks, assistance, costs and adverse spillovers."
+NZ13,Excise freeze,empirical_consequence_not_populated,,False,False,"Pass-through, own/cross-price elasticities, affordability and illicit response."
+NZ14,Additional excise escalation,empirical_consequence_not_populated,,False,False,"Tax elasticities, illicit entry, revenue and household impacts."
+NZ15,Excise reduction,empirical_consequence_not_populated,,False,False,Smoking uptake/cessation and illicit-to-legal substitution are both uncertain.
+NZ16,Heated-tobacco tax parity,empirical_consequence_not_populated,,False,False,"HTP harm, cross-price substitution, consumption and retailer response."
+NZ17,Therapeutic-only vaping pathway,empirical_consequence_not_populated,,False,False,"Access, cessation, relapse, youth uptake and illicit-vape substitution."
+NZ18,Cessation-oriented vaping access with youth safeguards,empirical_consequence_not_populated,,False,False,Adult switching and youth uptake; harms not inferable from total nicotine alone.
+NZ19,Regulated oral-nicotine pathway,empirical_consequence_not_populated,,False,False,"Product uptake, displacement, youth access and risk evidence."
+NZ20,School buffers and youth retail safeguards,empirical_consequence_not_populated,,False,False,"Youth access and substitution, not attribution from catchment concentrations."
+NZ21,Risk-differentiated tax/access package,empirical_consequence_not_populated,,False,False,"Cross-product/channel demand, relative harms, interactions and equity."
+NZ22,Criminal-enterprise disruption package,empirical_consequence_not_populated,,False,False,"Criminal activity/displacement, victim harms and justice costs; illicit volume is not a crime-cost coefficient."
