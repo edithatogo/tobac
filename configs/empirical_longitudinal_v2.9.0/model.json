@@ -23,6 +23,7 @@
   "seed": 20261024,
   "external_uplift_medians": [1.0, 1.23, 1.5],
   "shared_uplift_log_sd": [0.0, 0.20, 0.40],
+  "base_shared_uplift_log_sd": 0.20,
   "stock_days": [0, 30, 60],
   "unrecorded_lawful_fractions_of_releases": [0.0, 0.02, 0.05],
   "net_visitor_fraction_sensitivity": [-0.05, 0.0, 0.05],

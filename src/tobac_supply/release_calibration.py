@@ -25,18 +25,20 @@ SERIES_LABEL = 'Total tobacco sold tonnes (excl. cigars/cigarillos)'
 
 def _float(value: Real, name: str, *, positive: bool = False) -> float:
     if isinstance(value, (bool, np.bool_)) or not isinstance(value, Real):
-        raise ValueError(f'{name} must be a finite real number')
+        raise ValueError(f'{name} must be a finite real number; got {value!r}')
     result = float(value)
     if not math.isfinite(result) or (positive and result <= 0):
-        raise ValueError(f'Invalid {name}')
+        requirement = '> 0 and finite' if positive else 'finite'
+        raise ValueError(f'{name} must be {requirement}; got {value!r}')
     return result
 
 
 def _int(value: Integral, name: str, minimum: int = 1, maximum: int | None = None) -> int:
+    permitted = f'[{minimum}, {maximum}]' if maximum is not None else f'>= {minimum}'
     if isinstance(value, (bool, np.bool_)) or not isinstance(value, Integral):
-        raise ValueError(f'{name} must be an integer')
+        raise ValueError(f'{name} must be an integer in {permitted}; got {value!r}')
     if value < minimum or (maximum is not None and value > maximum):
-        raise ValueError(f'{name} outside supported range')
+        raise ValueError(f'{name} must be an integer in {permitted}; got {value!r}')
     return int(value)
 
 
@@ -178,7 +180,9 @@ def fit_release_process(
     change = np.diff(np.log(y))
     if window is not None:
         change = change[-window:]
-    mu, sigma, prior = make_grid(grid or ReleaseGrid())
+    if grid is None:
+        grid = ReleaseGrid()
+    mu, sigma, prior = make_grid(grid)
     n = len(change)
     # Sufficient statistics avoid a potentially large observations-by-grid array.
     sse = np.sum((change-change.mean())**2)+n*(change.mean()-mu)**2

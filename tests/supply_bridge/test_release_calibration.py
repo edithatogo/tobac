@@ -1,15 +1,10 @@
 """Independent numerical and boundary checks for the release-only calibration."""
-import importlib.util
 from pathlib import Path
 
 import numpy as np
 import pytest
 from scipy.special import logsumexp
 from scipy.stats import norm
-
-
-def test_calibration_module_exists():
-    assert importlib.util.find_spec('tobac_supply.release_calibration') is not None
 
 
 def module():
@@ -39,6 +34,47 @@ def test_receipt_rejects_missing_duplicate_and_unknown_series():
     m = module(); row='Total tobacco sold tonnes (excl. cigars/cigarillos),2025,755'
     for text,years in [(row,[2024,2025]), (row+'\n'+row,[2025]), ('Other,2025,755',[2025])]:
         with pytest.raises(ValueError): m.parse_release_export(text,years)
+
+
+def trapezoid_gaussian_mass(nodes, mean, sd):
+    """1-D Gaussian mass per quadrature node, halving both outer intervals."""
+    spacing = nodes[1] - nodes[0]
+    weights = np.full(nodes.size, spacing)
+    weights[0] *= 0.5
+    weights[-1] *= 0.5
+    return weights * np.exp(-0.5 * ((nodes - mean) / sd) ** 2)
+
+
+def test_prior_grid_equals_independent_trapezoid_product():
+    m = module()
+    grid = m.ReleaseGrid(mu_points=5, sigma_points=4)
+    mu_nodes = np.linspace(grid.mu_min, grid.mu_max, grid.mu_points)
+    sigma_nodes = np.linspace(grid.sigma_min, grid.sigma_max, grid.sigma_points)
+    expected = np.outer(
+        trapezoid_gaussian_mass(mu_nodes, grid.mu_prior_mean, grid.mu_prior_sd),
+        trapezoid_gaussian_mass(sigma_nodes, 0.0, grid.sigma_prior_scale))
+    expected /= expected.sum()
+    mu, sigma, prior = m.make_grid(grid)
+    np.testing.assert_allclose(mu.reshape(5, 4), np.broadcast_to(mu_nodes[:, None], (5, 4)),
+                               rtol=0, atol=0)
+    np.testing.assert_allclose(sigma.reshape(5, 4), np.broadcast_to(sigma_nodes[None, :], (5, 4)),
+                               rtol=0, atol=0)
+    np.testing.assert_allclose(prior.reshape(5, 4), expected, rtol=1e-12, atol=0)
+    assert prior.sum() == pytest.approx(1.0, rel=0, abs=1e-12)
+    for i, j in [(2, 1), (1, 2), (0, 0), (0, 3), (4, 0), (4, 3)]:
+        assert prior.reshape(5, 4)[i, j] == pytest.approx(expected[i, j], rel=1e-12, abs=0)
+
+
+def test_prior_grid_edge_halving_is_material():
+    m = module()
+    grid = m.ReleaseGrid(mu_points=5, sigma_points=4)
+    values = m.make_grid(grid)[2].reshape(5, 4)
+    sigma_nodes = np.linspace(grid.sigma_min, grid.sigma_max, grid.sigma_points)
+    mu_nodes = np.linspace(grid.mu_min, grid.mu_max, grid.mu_points)
+    unhalved = np.outer(np.exp(-0.5 * (mu_nodes / grid.mu_prior_sd) ** 2),
+                        np.exp(-0.5 * (sigma_nodes / grid.sigma_prior_scale) ** 2))
+    unhalved /= unhalved.sum()
+    assert np.max(np.abs(values / unhalved - 1)) > 1e-3
 
 
 def test_prior_and_posterior_match_independent_likelihood():
@@ -136,11 +172,36 @@ def test_forecast_invalid_probability_value_and_posterior():
         with pytest.raises(ValueError): m.ReleasePosterior(np.array([0.]),np.array([.1]),weight,2025,755.,2022,4,4)
 
 
-def test_predictive_intervals_ordered_and_boundary_mass_bounded():
+def hand_built_posterior(mu, sigma, weights):
+    m = module()
+    return m.ReleasePosterior(np.asarray(mu, float), np.asarray(sigma, float),
+                              np.asarray(weights, float), 2025, 755., 2022, 4, 4)
+
+
+def test_boundary_mass_is_exact_on_hand_built_posteriors():
+    m = module()
+    all_edge = hand_built_posterior([-1., -1., 1., 1.], [.1, .2, .1, .2], [.1, .2, .3, .4])
+    assert m.boundary_mass(all_edge) == 1.0
+    interior_only = hand_built_posterior([-1., 0., 1.], [.1, .2, .3], [0., 1., 0.])
+    assert m.boundary_mass(interior_only) == 0.0
+    mixed = hand_built_posterior([-1., 0., 1.], [.1, .2, .3], [.25, .5, .25])
+    assert m.boundary_mass(mixed) == 0.5
+    corner_only = hand_built_posterior([-1., 0., 1.], [.1, .2, .3], [0., 0., 1.])
+    assert m.boundary_mass(corner_only) == 1.0
+
+
+def test_predictive_intervals_ordered_and_fitted_boundary_mass_small():
     m=module(); p=m.fit_release_process(YEARS,VALUES,window=4)
     for s in m.forecast_summary(p,[1,2,5]):
         assert 0<s['lower_95']<s['lower_80']<s['median']<s['upper_80']<s['upper_95']
-    assert 0<=m.boundary_mass(p)<=1
+    assert m.boundary_mass(p) < 0.05
+
+
+@pytest.mark.parametrize('grid', [0, 0.0, [], {}, '', False, ()])
+def test_non_grid_objects_are_not_replaced_by_the_default_grid(grid):
+    with pytest.raises(ValueError, match='ReleaseGrid'):
+        module().fit_release_process(YEARS, VALUES, grid=grid)
+
 
 
 def test_source_agrees_with_supplied_completion():

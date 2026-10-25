@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import platform
+import subprocess
 import sys
 from dataclasses import asdict, replace
 from pathlib import Path
@@ -40,6 +41,54 @@ def window_names(specs: list[int | None]) -> dict[str, int | None]:
     return {('all_changes' if spec is None else f'recent_{int(spec)}_changes'): spec for spec in specs}
 
 
+def configured_windows(cfg: dict[str, Any]) -> dict[str, int | None]:
+    """Return the model names for the declared windows, rejecting collapsed specs.
+
+    Args:
+      cfg: Calibration config holding a `windows` list of change counts or None.
+
+    Returns:
+      Model-name to window mapping, in declaration order.
+
+    Raises:
+      ValueError: If two declared specifications share one model name.
+    """
+    declared = cfg['windows']
+    named = window_names(declared)
+    if len(named) != len(declared):
+        raise ValueError(
+            f'Config declares {len(declared)} windows but {len(named)} distinct model '
+            f'names result from {declared!r}; window specifications must be distinct')
+    return named
+
+
+def stage_names(
+    start_year: int, selection_end: int, years: NDArray[np.int_],
+) -> tuple[str, str]:
+    """Return the exploratory and reserved labels implied by the split arguments."""
+    return (f'exploratory_selection_{start_year}_{selection_end}',
+            f'reserved_diagnostic_{selection_end+1}_{int(years[-1])}')
+
+
+def provenance() -> dict[str, Any]:
+    """Record the executed revision and command; unavailable git reports None/False."""
+    def git(*args: str) -> str | None:
+        try:
+            done = subprocess.run(['git', *args], cwd=ROOT, capture_output=True,
+                                  text=True, check=False)
+        except OSError:
+            return None
+        return done.stdout.strip() if done.returncode == 0 else None
+
+    commit = git('rev-parse', 'HEAD')
+    status = git('status', '--porcelain')
+    return {
+        'commit': commit,
+        'command': ' '.join(sys.argv),
+        'worktree_dirty': bool(status) if status is not None else False,
+    }
+
+
 def sha(path: Path | str) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
@@ -48,8 +97,25 @@ def save_json(path: Path | str, obj: dict[str, Any]) -> None:
     Path(path).write_text(json.dumps(obj, indent=2, allow_nan=False) + '\n', encoding='utf-8')
 
 
-def reconcile_sources(root: Path | str) -> dict[str, Any]:
+def reconcile_sources(root: Path | str, cfg: dict[str, Any]) -> dict[str, Any]:
+    """Reconcile the supplied completion against the accepted series, echoing cfg scope.
+
+    Args:
+      root: Repository root holding both the accepted series and the completion.
+      cfg: Executed calibration config; its exclusions and unresolved items are
+        carried into the receipt so the receipt cannot disagree with the config.
+
+    Returns:
+      Reconciliation receipt for `source_reconciliation.json`.
+
+    Raises:
+      ValueError: If the completion disagrees with the accepted series, or if the
+        config omits `exclusions` or `unresolved`.
+    """
     root = Path(root)
+    for key in ('exclusions', 'unresolved'):
+        if key not in cfg:
+            raise ValueError(f'Config must declare {key!r}; got keys {sorted(cfg)}')
     old = root / 'data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv'
     raw = root / 'data/calibration_20261024/raw/tobacco_returns_completion.txt'
     extracted = parse_release_export(raw.read_text(), range(2010, 2026))
@@ -68,13 +134,38 @@ def reconcile_sources(root: Path | str) -> dict[str, Any]:
         'workbook_independently_read': False,
         'source_kind': 'conversation-supplied browser numerical-table extraction',
         'source_run_id': 'd26e9dec-6327-41f7-a08e-ff95cb3fee3a',
-        'exclusions': ['cigars', 'cigarillos', 'heated_tobacco'],
-        'unresolved': ['mass_conversion', 'domestic_duty_free_basis'],
+        'exclusions': list(cfg['exclusions']),
+        'unresolved': list(cfg['unresolved']),
         'note': 'Separate from rejected NZHS extraction; no workbook equivalence claim',
     }
 
 
+def absolute_percentage_error(observed: float, predicted: float) -> float:
+    """Percent error of a point prediction against a reported positive level.
+
+    Args:
+      observed: Reported level; must be positive for the ratio to exist.
+      predicted: Point prediction on the same scale.
+
+    Returns:
+      Absolute percent error of `predicted` relative to `observed`.
+
+    Raises:
+      ValueError: If `observed` is not greater than zero (including NaN).
+    """
+    if not observed > 0:
+        raise ValueError(f'observed must be > 0 for MAPE; got {observed!r}')
+    return 100 * abs(predicted - observed) / observed
+
+
 def interval_score(observed: float, lower: float, upper: float, alpha: float) -> float:
+    """Weighted interval score; `alpha` is the nominal tail mass, strictly inside (0, 1).
+
+    Raises:
+      ValueError: If `alpha` is not strictly between zero and one.
+    """
+    if not 0 < alpha < 1:
+        raise ValueError(f'alpha must be in (0,1); got {alpha!r}')
     return float(upper - lower + (2 / alpha) * (max(lower - observed, 0) + max(observed - upper, 0)))
 
 
@@ -87,7 +178,8 @@ def hindcasts(
     windows: dict[str, int | None] | None = None,
 ) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
-    for name, window in (windows or WINDOWS).items():
+    exploratory, reserved = stage_names(start_year, selection_end, years)
+    for name, window in (WINDOWS if windows is None else windows).items():
         for index, year in enumerate(years):
             if year < start_year:
                 continue
@@ -102,12 +194,12 @@ def hindcasts(
                 test_year=int(year),
                 observed_tonnes=observed,
                 **{k: pred[k] for k in ('mean', 'median', 'lower_95', 'upper_95', 'lower_80', 'upper_80')},
-                absolute_percentage_error=100 * abs(pred['median'] - observed) / observed,
+                absolute_percentage_error=absolute_percentage_error(observed, pred['median']),
                 squared_error=(pred['median'] - observed) ** 2,
                 log_predictive_density=log_predictive_density(posterior, observed),
                 interval_score_95=interval_score(observed, pred['lower_95'], pred['upper_95'], .05),
                 covered_95=pred['lower_95'] <= observed <= pred['upper_95'],
-                stage=('exploratory_selection_2015_2022' if year <= selection_end else 'reserved_diagnostic_2023_2025'),
+                stage=(exploratory if year <= selection_end else reserved),
                 vintage='single_2026_release_retrospective_not_realtime',
             ))
     return rows
@@ -211,19 +303,21 @@ def run(
 ) -> dict[str, Any]:
     out = Path(out).resolve()
     if out.exists() and any(out.iterdir()):
-        raise ValueError('A fresh, empty output directory is required')
+        raise ValueError(f'Output directory must be empty: {out} already contains files; '
+                         'a fresh, unused directory is required')
     out.mkdir(parents=True, exist_ok=True)
     cfg = json.loads((ROOT / 'configs/calibration_v2.8.0/model.json').read_text())
-    windows = window_names(cfg['windows'])
+    windows = configured_windows(cfg)
     grid = ReleaseGrid(**cfg['grid'])
     if quick:
         grid = replace(grid, mu_points=51, sigma_points=25)
     n = draws if draws is not None else (256 if quick else cfg['path_draws'])
-    receipt = reconcile_sources(ROOT)
+    receipt = reconcile_sources(ROOT, cfg)
     save_json(out / 'source_reconciliation.json', receipt)
     data = pd.read_csv(ROOT / cfg['source_table'])
     years = data.year.to_numpy(dtype=int)
     values = data.value.to_numpy(dtype=float)
+    exploratory_stage, _ = stage_names(cfg['hindcast_start'], cfg['selection_end'], years)
     clean = pd.DataFrame({
         'year': years,
         'reported_tonnes': values.astype(int),
@@ -245,12 +339,13 @@ def run(
     ).reset_index())
     score['rmse_tonnes'] = np.sqrt(score.pop('mse'))
     score.to_csv(out / 'predictive_scores.csv', index=False, float_format='%.12g')
-    select = score[score.stage == 'exploratory_selection_2015_2022'].sort_values('mean_log_predictive_density', ascending=False)
+    select = score[score.stage == exploratory_stage].sort_values(
+        'mean_log_predictive_density', ascending=False)
     selected = str(select.iloc[0].model)
     save_json(out / 'selection_receipt.json', {
         'selected_for_display': selected,
-        'selection_years': [2015, 2022],
-        'reserved_diagnostic_years': [2023, 2024, 2025],
+        'selection_years': [cfg['hindcast_start'], cfg['selection_end']],
+        'reserved_diagnostic_years': list(cfg['reserved_diagnostic_years']),
         'qualification': cfg['selection_qualification'],
         'optimality_claim': False,
         'all_candidates_retained': list(windows),
@@ -325,9 +420,11 @@ def run(
     pd.DataFrame(path_stats).to_csv(out / 'monte_carlo_checks.csv', index=False, float_format='%.12g')
     save_json(out / 'fit_scope.json', {
         'status': 'partial_empirical_reported_release_calibration',
-        'country': 'NZ',
-        'observed_annual_levels': 16,
-        'observation_years': [2010, 2025],
+        'country': cfg['country'],
+        'version': cfg['version'],
+        'analysis_date': cfg['analysis_date'],
+        'observed_annual_levels': int(len(years)),
+        'observation_years': [int(years[0]), int(years[-1])],
         'fitted_likelihood': cfg['likelihood'],
         'grid_prior': asdict(grid),
         'reported_values_treatment': cfg['reported_values_treatment'],
@@ -353,10 +450,11 @@ def run(
         'src/tobac_supply/longitudinal.py',
     ]
     save_json(out / 'run_manifest.json', {
-        'version': '2.8.0',
-        'analysis_date': '2026-10-24',
+        'version': cfg['version'],
+        'analysis_date': cfg['analysis_date'],
         'status': 'partial_empirical_reported_release_calibration',
         'funding_recommendation': False,
+        **provenance(),
         'quick_mode': quick,
         'figures_generated': not skip_figures,
         'draws_per_model': n,

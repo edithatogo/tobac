@@ -58,17 +58,30 @@ def choose_vintage(records: Sequence[Mapping[str, Any]], as_of: str) -> list[dic
     cutoff = _date(as_of)
     selected: dict[tuple[str, str, str], dict[str, Any]] = {}
     units: dict[str, str] = {}
-    for source in records:
+    for position, source in enumerate(records):
         row = deepcopy(dict(source))
         try:
-            series, unit = str(row['series_id']), str(row['unit'])
+            raw_series, raw_unit = row['series_id'], row['unit']
+        except KeyError as exc:
+            raise ValueError(f"Missing vintage field: {exc}") from exc
+        # Validate identity before coercion: str(None)/str(nan) would otherwise
+        # become truthy labels and merge unrelated series.
+        for field, value in (('series_id', raw_series), ('unit', raw_unit)):
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(
+                    f"Invalid {field} in vintage row {position}: a non-empty "
+                    f"string is required, not {value!r}")
+        series, unit = raw_series.strip(), raw_unit.strip()
+        try:
             start, end = _date(row['period_start']), _date(row['period_end'])
             available = _date(row['available_on'])
             _number(row['value'], 'value')
         except KeyError as exc:
             raise ValueError(f"Missing vintage field: {exc}") from exc
-        if not series or not unit or end <= start:
-            raise ValueError("Empty series/unit or invalid observation period")
+        if end <= start:
+            raise ValueError(
+                f"Invalid observation period in vintage row {position}: "
+                f"period_end must be later than period_start")
         if series in units and units[series] != unit:
             raise ValueError(f"Incompatible unit in {series}")
         units[series] = unit
@@ -184,6 +197,15 @@ def rolling_origin_forecasts(
     This does not imply real-time vintage validation. With a latest-vintage input,
     it is a retrospective series check. No forecast interval or causal effect is
     estimated; the last-observation method provides a simple reference.
+
+    `window` counts the most recent training observations (rows), not calendar
+    years: with irregular spacing a window of w rows can span more than w years.
+    `min_train` likewise counts observations, so the first origin uses the first
+    `min_train` rows as training and the next row as the test observation.
+
+    `error` is `predicted - observed` (positive means over-prediction); it is NOT
+    the conventional forecast residual `observed - predicted`. The field name is
+    fixed because published CSV schemas depend on it.
     """
     x, y = _vector(years, 'years'), _vector(values, 'values')
     if len(x) != len(y) or np.any(np.diff(x) <= 0) or np.any(y <= 0):
@@ -194,6 +216,10 @@ def rolling_origin_forecasts(
         raise ValueError("window must be an integer of at least two")
     if method not in {'loglinear', 'last'}:
         raise ValueError("Unknown forecasting method")
+    if len(x) <= int(min_train):
+        raise ValueError(
+            f'min_train={int(min_train)} requires at least {int(min_train)+1} '
+            f'observations; got {len(x)}')
     result: list[dict[str, Any]] = []
     for i in range(int(min_train), len(x)):
         j = 0 if window is None else max(0, i-int(window))

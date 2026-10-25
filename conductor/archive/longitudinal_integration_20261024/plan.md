@@ -15,5 +15,9 @@ on issue #1. Scientific calibration, automatic regulatory conditioning, hosted e
 and third-party software qualification are not closed by source incorporation.
 
 ## Phase: Review Fixes
-- [x] Task: Apply review suggestions 0589587 (deletion 431be04); component outputs reproduced
-  byte-identical apart from the run-manifest self hash; 151 supply_bridge and 499 full-suite tests pass.
+- [x] Task: Apply review suggestions `0589587` (deletion `431be04`); on current `main` the
+  equivalent commit is `3ed3ea5` — the original pair is not reachable from `main` after a rebase.
+  Component outputs were compared with predecessor output and reported byte-identical apart from
+  the run-manifest self hash, and 151 supply_bridge and 499 full-suite tests were reported
+  passing in a local run; the full-suite count has no receipt retained in this repository and is
+  recorded here as a local claim, not a reproducible check.

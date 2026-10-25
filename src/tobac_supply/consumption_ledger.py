@@ -16,6 +16,7 @@ from numpy.typing import NDArray
 from tobac_supply.longitudinal import aggregate_uniform_years
 
 Array = NDArray[np.float64]
+YearsArray = NDArray[np.int64]
 
 
 def _scalar(value: Real, name: str, minimum: float = 0.) -> float:
@@ -33,7 +34,7 @@ def _array(values: Iterable[Real], name: str, length: int, signed: bool = False)
     except TypeError as exc:
         raise ValueError(f'{name} must be a sequence') from exc
     if len(a) != length:
-        raise ValueError(f'{name} needs {length} values')
+        raise ValueError(f'{name} needs {length} values, got {len(a)}')
     return a
 
 
@@ -58,7 +59,7 @@ class SupplyBasis:
 
 @dataclass(frozen=True)
 class LawfulLedger:
-    years: NDArray[np.int64]
+    years: YearsArray
     releases: Array
     stocks: Array
     unrecorded: Array
@@ -67,13 +68,21 @@ class LawfulLedger:
     consumption: Array
     basis: SupplyBasis
 
+    def __post_init__(self) -> None:
+        """Detach and freeze the arrays so a returned ledger cannot be mutated."""
+        for name in ('years', 'releases', 'stocks', 'unrecorded', 'net_visitors',
+                     'duty_free_addition', 'consumption'):
+            frozen = np.array(getattr(self, name), copy=True)
+            frozen.setflags(write=False)
+            object.__setattr__(self, name, frozen)
+
 
 def lawful_ledger(
     years: Iterable[int], releases: Iterable[Real], stocks: Iterable[Real], *,
     unrecorded: Iterable[Real] | None = None,
     net_visitors: Iterable[Real] | None = None,
     duty_free_addition: Iterable[Real] | None = None,
-    basis: SupplyBasis = SupplyBasis(),
+    basis: SupplyBasis,
 ) -> LawfulLedger:
     """Compute C_t = R_t + S_(t-1) - S_t + U_t + V_t + D_t.
 
@@ -81,6 +90,11 @@ def lawful_ledger(
     inflating every year's consumption. V is net lawful consumption in the target
     geography absent from releases (negative for lawful exports/outbound visitors).
     D must be zero when duty-free is already included in the release series.
+
+    `basis` is required with no default: it declares the unit, geography, product
+    coverage and duty-free treatment the caller has audited. There is no implicit
+    conversion, so a tonne- or stick-valued series is NOT detected here; the
+    caller must supply a series already on the declared basis.
     """
     yy = list(years)
     if not yy or any(isinstance(y, (bool, np.bool_)) or not isinstance(y, Integral)
@@ -99,8 +113,16 @@ def lawful_ledger(
     if basis.duty_free_included and np.any(d != 0):
         raise ValueError('Additional duty-free would double count this source')
     c = r + s[:-1] - s[1:] + u + v + d
-    if np.any(c < 0):
-        raise ValueError('Inputs imply negative lawful consumption')
+    negative = np.flatnonzero(c < 0)
+    if negative.size:
+        details = '; '.join(
+            f'negative lawful consumption in {int(y[i])} (index {int(i)}): '
+            f'R={r[i]:.6g}, S_prev-S={s[i]-s[i+1]:.6g}, U={u[i]:.6g}, '
+            f'V={v[i]:.6g}, D={d[i]:.6g}'
+            for i in negative)
+        raise ValueError(
+            f'{details}. The caller must supply a release/stock/adjustment set '
+            f'that does not imply negative consumption')
     if not np.isfinite(c).all():
         raise ValueError('Ledger overflow')
     return LawfulLedger(y, r, s, u, v, d, c, basis)
@@ -111,6 +133,12 @@ def stock_scenario(releases: Iterable[Real], days: Real) -> Array:
 
     A fixed days-of-supply scenario, not observed stocks. The source's 365-day
     cigarette-equivalent convention is retained for this scenario only.
+
+    `days` is the declared days-of-supply assumption, so `days=0` is the declared
+    "no stock adjustment" case: it returns an all-zero boundary array, which is a
+    scenario result and NOT an observed zero inventory. `annualised_supply`
+    deliberately spreads period totals by actual calendar-year length instead, so
+    the two day counts are not interchangeable.
     """
     r = list(releases)
     if not r:
@@ -123,8 +151,10 @@ def stock_scenario(releases: Iterable[Real], days: Real) -> Array:
 def annualised_supply(ledger: LawfulLedger, start: str, end: str) -> dict[str, Any]:
     """Period-average daily supply times 365, to match the paper's annual-equivalent unit.
 
-    Annual totals are spread uniformly within their calendar years. Actual
-    month-level consumption has NOT been observed. Leap years are respected.
+    Annual totals are spread uniformly within their calendar years, so the divisor
+    is the actual calendar-year length (366 in a leap year), unlike
+    `stock_scenario`, which deliberately keeps the source's fixed 365-day
+    convention. Actual month-level consumption has NOT been observed.
     """
     result = aggregate_uniform_years(
         dict(zip(ledger.years.tolist(), ledger.consumption.tolist())), start, end)
