@@ -3,9 +3,25 @@
   "title": "M2b empirical longitudinal source integration",
   "status": "incorporated_on_main_empirical_qualification_open",
   "created": "2026-10-24",
-  "updated": "2026-10-24",
+  "updated": "2026-10-25",
   "base_commit": "2126a8303e7e4d202cfccd21985250ef672e4c4e",
   "implementation_commit": "a71d803763638cd5ebed3e8ac17a45542a4a80fb",
-  "evidence": ["docs/empirical_longitudinal/INTEGRATION.md", "integration/longitudinal_local_verification.json", "integration/longitudinal_publication.json", "tests/supply_bridge", "results/longitudinal"],
+  "post_archive_review": {
+    "date": "2026-10-25",
+    "receipt": "integration/m2b_review_20261025.json",
+    "pull_request": 11,
+    "receiving_commit": "903ca35ef61aacb3eb0bd372d2eb138703650ba0",
+    "finding": "The 151 component tests could not fail on the scientific core; five probed mutations survived before the review.",
+    "resolution": "Independent numerical oracles, fail-closed configuration validation and fail-closed verifiers added; full suite 500 to 582; hosted workflow revision executed and passed at the receiving commit.",
+    "unchanged": "No scientific input, prior, likelihood, configuration value or published result was changed."
+  },
+  "evidence": [
+    "docs/empirical_longitudinal/INTEGRATION.md",
+    "integration/longitudinal_local_verification.json",
+    "integration/longitudinal_publication.json",
+    "integration/m2b_review_20261025.json",
+    "tests/supply_bridge",
+    "results/longitudinal"
+  ],
   "scope_boundary": "Historical observed-summary components only; no current joint WBE/origin/causal/funding posterior"
 }
