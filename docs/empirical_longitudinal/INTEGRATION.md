@@ -31,8 +31,9 @@ python scripts/verify_empirical_longitudinal.py outputs/my_empirical
 
 Use new output directories; runners reject nonempty directories. A focused check is
 `python -m pytest -q tests/supply_bridge`. The longitudinal Actions workflow runs the same
-full analyses and uploads their complete outputs; a workflow definition is not a successful
-hosted run. Check Actions and issue #4 for actual runner availability.
+full analyses and uploads their complete outputs. A workflow definition is not a successful
+hosted run; see "Hosted execution" below for the run that did complete, and issue #4 for
+current runner availability.
 
 ## Scientific boundary
 The 16 administrative tonne observations and 12 historical cigarette-equivalent records
@@ -71,6 +72,23 @@ This is a fresh check of the imported component, not a claim that the parallel r
 suite or third-party integrations were freshly executed locally. Existing regulatory source
 and result trees are preserved by the Git base-tree operation. See the local receipt in
 `integration/longitudinal_local_verification.json` and the coordination record in issue #1.
+
+### Hosted execution
+
+The current workflow revision has now executed on `main`. Push run 40180241081 at
+`903ca35` completed every step: the preserved-evidence inventory, `pytest` (**582 passed in
+48.69 s**), both full runners and both verifiers (`errors: []`). The regulatory, engineering
+and M3 push workflows on the same commit also succeeded. This supersedes the earlier attempt
+(run 40064143521, which failed before any step ran) and removes "no hosted pass" as an open
+gate; it does not establish scientific validity, external review or a current-NZ posterior.
+
+The uploaded artefact was then compared with the checked-in compact tables at that same
+commit: `source_audit.json`, `forecast_summary.csv` and `predictive_scores.csv` are
+byte-identical, and `latent_ratio_summary.csv` differs only in the last bits of
+`median_ratio` (maximum absolute difference 3.4e-13 on a 0.85-scale value, about 4e-13
+relative; every other column within 2e-15). That comparison was performed once for this
+review and is recorded in `integration/m2b_review_20261025.json`; it is not a CI gate, so
+the tables can still drift silently in future.
 
 ## Sources and methods
 - [Historical ratio methods](METHODS_AND_ASSUMPTIONS_v2.9.0.md)

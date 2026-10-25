@@ -1,0 +1,147 @@
+{
+  "schema": "tobac.review-qualification.v1",
+  "date": "2026-10-25",
+  "review_of_track": "longitudinal_integration_20261024",
+  "review_scope": "Validation, test and documentation defects in the archived M2b track; no scientific input, prior, likelihood, configuration value or published result changed",
+  "base_commit": "b47af430977f2a92cfa129b782e5dedeca0ba707",
+  "review_branch": "review/m2b-longitudinal",
+  "review_commits": [
+    "005364e4d156d31ba66745b1c992a3db5d77209e",
+    "3a02964cf426e10fec46a7e98b7a6870af137a35",
+    "ae6b66fad526b0620777cd3c9ff0f2dfa2174f45",
+    "d18db0e581a9c9857b942ca03360e3c218fbf4b1"
+  ],
+  "pull_request": 11,
+  "receiving_commit": "903ca35ef61aacb3eb0bd372d2eb138703650ba0",
+  "merge_tree_matches_reviewed_tree": true,
+  "finding": {
+    "summary": "The archived track's 151 component tests could not fail on the scientific core.",
+    "status": "reproduced_before_fixing",
+    "probes_that_survived_the_pre_review_suite": [
+      "delete the slope term from prior_kernel",
+      "remove the trapezoid half-cell edge weights in the process-grid prior",
+      "replace boundary_mass with a constant",
+      "swap the time_bridge process/slope variance split",
+      "change the stock_scenario convention from 365 to 300 days"
+    ],
+    "interpretation": "The archive reported correct publication facts, but its 'component outputs reproduced' evidence rested on tests that could not constrain the numbers."
+  },
+  "tests": {
+    "command": "TOBAC_REQUIRE_LOCK=1 python -m pytest -q --strict-markers",
+    "baseline": {
+      "commit": "b47af430977f2a92cfa129b782e5dedeca0ba707",
+      "passed": 500,
+      "note": "measured earlier in this review session before the fixes"
+    },
+    "after_fixes": {
+      "commit": "ae6b66fad526b0620777cd3c9ff0f2dfa2174f45",
+      "passed": 582,
+      "failed": 0,
+      "skipped": 0
+    },
+    "clean_worktree_at_receiving_commit": {
+      "commit": "903ca35ef61aacb3eb0bd372d2eb138703650ba0",
+      "passed": 582,
+      "failed": 0,
+      "skipped": 0,
+      "worktree_status": "clean"
+    },
+    "scope": "full repository suite, locally executed"
+  },
+  "quality": {
+    "command": "ruff check --isolated --select E9,F63,F7,F82 src scripts",
+    "result": "pass",
+    "strict_all": "not green and not claimed; 4,168 ruff --select ALL and 3,584 BasedPyright-all errors remain"
+  },
+  "numerical_reproduction": {
+    "method": "hosted artifact downloaded from the push run at the receiving commit and compared with the checked-in compact tables",
+    "artifact": "empirical-longitudinal-results (3,409,704 bytes)",
+    "empirical": {
+      "source_audit.json": "byte-identical",
+      "latent_ratio_summary.csv": {
+        "rows": 14,
+        "max_absolute_difference": 3.414e-13,
+        "max_relative_difference": 4.0e-13,
+        "largest_column": "median_ratio",
+        "interpretation": "last-bit libm/BLAS difference on exp(log) evaluation; every other column within 2e-15 absolute"
+      },
+      "verifier": "scripts/verify_empirical_longitudinal.py returned status=pass with errors=[]",
+      "artifacts": 21,
+      "sources": 6
+    },
+    "release": {
+      "forecast_summary.csv": "byte-identical",
+      "predictive_scores.csv": "byte-identical",
+      "verifier": "scripts/verify_release_calibration.py returned status=pass with errors=[]",
+      "artifacts": 23,
+      "sources": 6
+    }
+  },
+  "hosted": {
+    "pull_request_checks": {
+      "pull_request": 11,
+      "head": "d18db0e581a9c9857b942ca03360e3c218fbf4b1",
+      "checks_passed": 15,
+      "checks_failed": 0,
+      "lanes": [
+        "Tests macos-latest Python 3.13",
+        "Tests ubuntu-latest Python 3.12",
+        "Tests ubuntu-latest Python 3.13",
+        "Tests windows-latest Python 3.13",
+        "longitudinal",
+        "numerical",
+        "quality",
+        "sourceright",
+        "voiage-parity",
+        "voiage-released-parity"
+      ]
+    },
+    "main_push_runs_at_receiving_commit": [
+      {"run": 40180241081, "name": "Empirical longitudinal component", "conclusion": "success", "pytest_passed": 582, "pytest_seconds": 48.69},
+      {"run": 40180240962, "name": "Regulatory uncertainty milestone", "conclusion": "success"},
+      {"run": 40180240941, "name": "Engineering qualification", "conclusion": "success"},
+      {"run": 40180240979, "name": "M3 research methods", "conclusion": "success"}
+    ],
+    "current_workflow_revision_executed": true,
+    "executed_steps": [
+      "Inventory preserved evidence bytes and prior-work provenance",
+      "python -m pytest -q",
+      "python scripts/run_release_calibration.py --out outputs/longitudinal_releases",
+      "python scripts/verify_release_calibration.py outputs/longitudinal_releases",
+      "python scripts/run_empirical_longitudinal.py --out outputs/longitudinal_empirical",
+      "python scripts/verify_empirical_longitudinal.py outputs/longitudinal_empirical"
+    ],
+    "note": "The earlier hosted attempt at the archived track (run 40064143521) failed before any step ran. This receipt is the first hosted execution of the current workflow revision and it completed."
+  },
+  "mutation_probes_after_fixes": [
+    {"mutation": "delete the slope term from prior_kernel", "result": "3 failed", "module": "tobac_supply.empirical_longitudinal"},
+    {"mutation": "ignore level_mean in the residual", "result": "1 failed", "module": "tobac_supply.empirical_longitudinal"},
+    {"mutation": "drop the trapezoid half-cell edge weights (process-grid prior)", "result": "1 failed", "module": "tobac_supply.empirical_longitudinal"},
+    {"mutation": "remove the trapezoid edge halving (release prior grid)", "result": "2 failed", "module": "tobac_supply.release_calibration"},
+    {"mutation": "replace boundary_mass with a constant", "result": "2 failed", "module": "tobac_supply.release_calibration"},
+    {"mutation": "swap the time_bridge process/slope split", "result": "2 failed", "module": "tobac_supply.longitudinal"},
+    {"mutation": "change stock_scenario 365 to 300 days", "result": "1 failed", "module": "tobac_supply.consumption_ledger"},
+    {"mutation": "disable the min_train guard", "result": "3 failed", "module": "tobac_supply.longitudinal"}
+  ],
+  "interface_changes": [
+    "tobac_supply.consumption_ledger.lawful_ledger requires an explicit keyword-only basis: SupplyBasis. Every in-repo call site passes one; src/tobac does not consume the ledger.",
+    "tobac_supply.longitudinal.rolling_origin_forecasts raises when min_train >= len(x) instead of returning an empty list.",
+    "tobac_supply.release_calibration.fit_release_process raises for a falsy non-grid argument instead of substituting ReleaseGrid().",
+    "run_manifest.json for both runners gains commit, command and worktree_dirty.",
+    "source_reconciliation.json now reports the config's five unresolved items instead of two.",
+    "aligned_observations.csv gains period_origin and overlap_days_with_previous_period.",
+    "scripts/run_empirical_longitudinal.py assembled_inputs takes keyword-only alignment and centre."
+  ],
+  "open_gates_after_this_review": [
+    "strict_all (ruff --select ALL, BasedPyright strict over the tree) remains red.",
+    "CI regenerates the compact tables but does not diff them against results/longitudinal/; this receipt performed that comparison once by hand, it is not a gate.",
+    "The 2021 and 2022 documented windows overlap by 62 and 31 days; the overlap is recorded but no cross-period covariance is fitted.",
+    "SupplyBasis does not carry source IDs or observation dates, so duplicate conditioning of one MOH/NZHS source cannot be rejected at the ledger layer.",
+    "The archived track's 42-of-43 predecessor byte comparison and its 499 full-suite count still have no retained artefact; they are recorded as unverifiable local claims.",
+    "No independent scientific review, regulator approval or current-NZ posterior is claimed."
+  ],
+  "concurrency": {
+    "shared_checkout": true,
+    "note": "Another workstream was editing the same checkout throughout. Only explicit paths were staged and committed; their uncommitted type-annotation, packaging and lockfile edits were never staged, reverted or included in PR #11."
+  }
+}

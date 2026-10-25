@@ -10,6 +10,31 @@ Plan: `docs/plans/2026-10-24-m2-evidence-and-retail.md`. Contracts: `docs/m2_ret
 
 Implemented: observed-evidence identity/scope guards; finite posterior update; duplicate/forecast rejection; joint reporting-error supply bridge; published net-cessation structural alternative with null/transport cases; lawful replacement sensitivity; matched total/lawful causal report; exact incremental-information identities; config-domain checks; source-effect grid refinement; additive CI steps. Source parameter extraction is manually checked, not independently human-reviewed or approved by a citation tool.
 
+## M2b — Historical empirical longitudinal bridge
+**Status: incorporated on main, reviewed and hosted-executed; current-NZ empirical qualification open.**
+Track: `conductor/archive/longitudinal_integration_20261024/`. Review receipt:
+`integration/m2b_review_20261025.json`. Results: `results/longitudinal/`.
+
+A post-archive review found that the imported 151 component tests could not fail on the
+scientific core: deleting the `prior_kernel` slope term, removing the trapezoid prior edge
+weights, stubbing `boundary_mass`, swapping the `time_bridge` process/slope split and
+changing the 365-day stock convention all left the suite green. PR #11 (merged at
+`903ca35`) added independent numerical oracles, made configuration validation and both run
+verifiers fail closed, required an explicit audited `basis` for `lawful_ledger`, and
+corrected several docs/receipt claims that outran their retained evidence. The suite went
+from 500 to 582 tests. No scientific input, prior, likelihood, configuration value or
+published result changed: the hosted artefacts reproduce `source_audit.json`,
+`forecast_summary.csv` and `predictive_scores.csv` byte-identically and
+`latent_ratio_summary.csv` to about 4e-13 relative.
+
+The current longitudinal workflow revision has now executed successfully on `main`
+(run 40180241081: 582 tests passed, both runners, both verifiers, all steps success). That
+closes the previous "no hosted pass" gate but not scientific validity. Still open:
+`strict_all`; CI does not diff regenerated tables against `results/longitudinal/`; the
+2021/2022 documented windows overlap by 62 and 31 days without a cross-period covariance;
+`SupplyBasis` carries no source IDs or observation dates; and the archived 42-of-43
+predecessor comparison and 499 full-suite count remain unverifiable local claims.
+
 ## Shared workstream synchronisation — 24 October 2026
 **Status: cross-interface regression checks complete; scientific conditioning remains open.**
 Guide: `docs/WORKSTREAM_SYNC.md`. Contributor instructions: `AGENTS.md`.
