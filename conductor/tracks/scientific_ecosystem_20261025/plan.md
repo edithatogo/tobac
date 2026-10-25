@@ -7,7 +7,7 @@ Specification: [spec.md](spec.md). Ownership/tools: [decisions.md](decisions.md)
 Method: [project workflow](../../workflow.md). Tests for changed semantics precede code.
 All phases end with evidence review. Local review is not independent scientific review.
 
-## Phase A — Reconcile and register bounded work (R01–R10)
+## Phase A — Reconcile and register bounded work (R01–R11)
 
 - [ ] Task A1: Refresh main, issue #1, worktrees and owned paths; rebuild the bounded context receipt.
 - [ ] Task A2: Inventory existing sister clones within the requested bounded search, then verify repository remotes/default branches; clone only missing needed repositories.
@@ -21,20 +21,24 @@ All phases end with evidence review. Local review is not independent scientific 
   - [ ] Preserve the accepted specification and numbered tasks; assign one writer to each shared object.
 - [ ] Task A5: Phase verification and checkpoint: review ownership, duplicate search, dependency graph and exact base receipts under workflow.md.
 
-## Phase B — Baseline, runtime and contracts (R01–R04)
+## Phase B — Baseline, runtime and contracts (R01–R04, R11)
 
 - [ ] Task B1: Capture canonical verifier inputs/outputs and current artifact hashes in a complete checkout before changes.
 - [ ] Task B2: Write consumer-contract and independent-oracle tests for the approved public interfaces, including invalid/missing data and scientific invariants.
+  - [ ] Map current parameters, model definitions, calculation functions and execution/output owners before changing interfaces (R11).
+  - [ ] Write R11.1–R11.3 cases for validated parameter round-trips, invalid inputs, explicit defaults, scenario-order isolation, input immutability and calculations independent of I/O.
 - [ ] Task B3: Qualify repo-local Python 3.15.1 and the newest suitable dependencies in isolated environments, recording actual interpreter and package identities.
   - [ ] Resolve supported incompatibilities and integrate existing runtime PRs; record genuine blockers without downgrading or bypassing.
   - [ ] Align constraints, locks, active CI/helpers and Apache-2.0 metadata while preserving third-party rights and in-flight operations.
 - [ ] Task B4: Establish reproducible NumPy reference runs under the required runtime; preserve expected hashes and explain every mismatch before proceeding.
 - [ ] Task B5: Phase verification and checkpoint: run affected tests and tests/test_workstream_integration.py, then coherent full-suite/reproduction gates; retain failures and evidence.
 
-## Phase C — Upstream capability and structured interchange (R03, R06)
+## Phase C — Upstream capability and structured interchange (R03, R06, R11)
 
 - [ ] Task C1: Write producer and consumer acceptance cases against real installed upstream APIs before modifying them.
 - [ ] Task C2: Implement only missing reusable capabilities in their owning repos: VOI/cost interfaces, uptake/diffusion, extraction/citation provenance or generic simulation adapters.
+  - [ ] Separate scenario values, model definitions and execution settings through existing typed interfaces only where the mapping demonstrates a gap; preserve structural invariants and Rust-native ownership (R11).
+  - [ ] Demonstrate one bounded extension with compatibility/migration tests and unchanged reference scenarios (R11.4); do not create a generic framework.
 - [ ] Task C3: Write schema, no-coercion, ordering, null/NaN, lifetime, chunking and migration/rollback tests.
 - [ ] Task C4: Implement qualified Polars/Arrow/Patito/msgspec boundaries without replacing the shared evidence contract.
   - [ ] Verify buffer identity/lifetime/allocation for each zero-copy claim and distinguish logical versus raw-byte hashing.
@@ -54,10 +58,11 @@ All phases end with evidence review. Local review is not independent scientific 
   - [ ] Require cross-fitting, held-out error and decision-ranking/regret checks against exact cases before surrogate use.
 - [ ] Task D6: Phase verification and checkpoint: execute canonical reference reproduction, JAX parity and scientific invariants with actual performance receipts.
 
-## Phase E — Replay, clean packages and evidence/context (R05, R06, R09)
+## Phase E — Replay, clean packages and evidence/context (R05, R06, R09, R11)
 
 - [ ] Task E1: Write tests for receipt schema/version integrity, stale inputs/environments, interrupted runs and immutable prior receipts.
 - [ ] Task E2: Extend existing run metadata and checkpoint/recovery behavior where required; verify uninterrupted versus resumed results.
+  - [ ] Bind resolved parameter content, provenance, model/schema versions and execution identity into replay receipts; distinguish scenario, model and backend changes (R11.5).
 - [ ] Task E3: Build wheel/sdist with source overrides disabled and install outside the checkout; exercise real CLI/APIs, packaged data and dependency closure.
 - [ ] Task E4: Write context/acceptance tests for required-contract retrieval, source-hash and HEAD changes, incomplete evidence, ownership and untrusted source text.
 - [ ] Task E5: Extend existing bounded context and Conductor acceptance mapping to reject unsupported or stale completion claims.
@@ -84,11 +89,12 @@ All phases end with evidence review. Local review is not independent scientific 
 - [ ] Task G3: Record adopt/trial/defer decisions; upstream tracks require a concrete demonstrated gap and named consumer.
 - [ ] Task G4: Phase verification and checkpoint: review actual consumer evidence and rights boundaries; a justified defer can close an assessment but not an implementation claim.
 
-## Phase H — Integrated qualification and handoff (R01–R10)
+## Phase H — Integrated qualification and handoff (R01–R11)
 
 - [ ] Task H1: Execute affected upstream native suites and the complete tobac suite in a complete qualified checkout, including workstream integration and numerical reproductions.
   - [ ] Verify prior-work bytes, M1/M2/longitudinal/M3 canonical outputs, JAX tolerances and actual upstream execution.
   - [ ] Confirm exact CLI syntax from the implemented entrypoints; the original prompt's example commands are not assumed to exist unchanged.
+  - [ ] Map R11.1–R11.5 to executed acceptance evidence, including parameter round-trip, isolation, I/O independence, extension compatibility and replay traceability.
 - [ ] Task H2: Run final clean-package, coverage, security, recovery and performance gates without counting focused/cached tests as a full run.
   - [ ] Preserve per-environment pytest caches; use bounded selectors while editing and zero retries by default.
   - [ ] Restrict any retry to an identified transient read-only case; never retry native mutations or sends through the test runner.

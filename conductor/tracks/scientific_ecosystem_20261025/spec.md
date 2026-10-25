@@ -168,6 +168,49 @@ its policy domain as a runtime dependency. Reusable engineering improvements may
 proposed to the user's templates after qualification in real consumers; inspect their runtime,
 licences and ownership first. No universal template rollout is part of this work.
 
+### R11 — Parameter–model–execution separation
+
+Keep four explicit layers, extending existing contracts rather than building a generic framework:
+
+1. **Inputs and parameters:** typed, validated, versioned parameter sets for observations,
+   costs, assumptions and priors, retaining units, population/product/time scope, covariance,
+   source identities and provenance. Distinguish supplied assumptions from observations and
+   fitted values. Resolve defaults explicitly; reject unknown fields and incompatible domains.
+2. **Model definitions:** named/versioned equations, structures and decision rules, separate
+   from scenario values. Preserve scientifically justified structural constants and invariants;
+   do not turn every numeric literal into a configurable knob. Model changes require explicit
+   compatibility and scientific review, not merely a new configuration file.
+3. **Calculation functions:** explicit parameter/model inputs and returned results, with no
+   hidden mutable globals, file/network access or ambient configuration. Pass stochastic state
+   explicitly. Prevent mutation or aliasing of caller-owned parameter sets across runs.
+4. **Execution and output:** adapters own backend/device selection, scheduling, persistence,
+   receipts and reporting. Backend tuning stays separate from scientific assumptions; backend
+   selection must preserve the declared model and numerical contract.
+
+Acceptance IDs for future evidence mapping:
+
+- **R11.1:** Validate, save and reload a parameter set without losing values, units, covariance,
+  provenance or schema identity; reject invalid/missing inputs and unsupported schema versions.
+  Record explicit defaults and migration/rollback behavior; arbitrary executable configuration
+  is not a parameter serialization format.
+- **R11.2:** Run two scenarios through the same calculation functions, in either order and
+  repeatedly, without cross-run state leakage or input mutation. Explicit random streams and
+  frozen draws make stochastic comparisons meaningful.
+- **R11.3:** Test calculation functions independently of files, network, reporting and scheduling;
+  exercise backend adapters separately against the same model/parameter contract.
+- **R11.4:** Demonstrate a bounded additional parameter set and model extension using existing
+  interfaces, preserving unchanged scenarios' exact NumPy reference hashes and qualified
+  optional-backend tolerances. Unsupported combinations fail explicitly; compatibility shims
+  and schema evolution have named owners and retirement/rollback rules.
+- **R11.5:** Link results and replay receipts to resolved parameter-set content, model/schema
+  versions, assumptions, source provenance and execution identity. A scenario change must be
+  distinguishable from a model change and from a backend-only change.
+
+Reusable parameter/model interfaces belong in the producer repository when demonstrated by a
+consumer need; tobac retains domain-specific assumptions, evidence interpretation and decisions.
+Keep Rust-native cores and bindings intact. A new class hierarchy, plugin system or configuration
+language is not required to satisfy this separation.
+
 ## Out of scope and completion rule
 
 No empirical calibration, new observed-data claim, publication, deployment, new account or
