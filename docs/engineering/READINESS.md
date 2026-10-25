@@ -123,11 +123,30 @@ not automatically enabled or claimed. Preserve the M3-owned research namespace w
 
 ## 6. Current evidence
 
-See `integration/engineering_followthrough.json` for this pass's executed tests and actual failed
-network resolution attempt. Command-planning tests use a labelled Nox test double; they do not
-establish genuine Nox execution. No completed transitive lock, complete scientific replay,
-strict/static/security tool pass, hosted success, signed release or empirical funding result
-is claimed while those checks remain unexecuted. Earlier receipts remain historical evidence.
+`integration/engineering_hardening_execution_20261025.json` records the 25 October pass at
+`044c9951`, where the previously blocked gates were genuinely re-attempted on a network-enabled
+macOS checkout. Real Nox executed `tests` (495 passed, 0 failed/skipped, 91% coverage) and
+`reproduce` (M1, M2 `--grid-check`, M3 and longitudinal regenerated and verified). Genuine uv
+0.13.5 resolution produced receipt-verified `runtime` and `audit` candidates; the runtime lock
+installed under `--require-hashes` and the audit lock hash-checked for its Linux/3.13 target.
+
+Two results matter more than the passes. First, **the reviewed-lock gate did not clear**: pip-audit
+reported 7 advisories in 3 packages (pygments 2.19.2, pytest 9.0.2, setuptools 82.0.1), all test
+or build tooling with no scientific pin affected. The candidates therefore stay in
+`outputs/engineering/lock-candidate` and were not copied into `engineering/`; promotion needs a
+pin remediation reviewed as a normal dependency change. Second, every Nox session ran in explicit
+**bootstrap** mode, so `uv pip sync --require-hashes` was never exercised inside a session and
+transitive-lock qualification is still not claimed.
+
+`quality`, `strict_all`, `security`, `mutation` and `profile` remain unexecuted because the audit
+profile is Linux-only by design; `package` aborts on the missing reviewed lock. Hosted matrix,
+licensed attestations and independent review are unchanged open gates.
+
+See `integration/engineering_followthrough.json` for the earlier 24 October pass and its actual
+failed offline resolution attempt. Command-planning tests there use a labelled Nox test double;
+that limitation no longer applies to the sessions named above. No completed transitive lock,
+strict/static/security tool pass, hosted success, signed release or empirical funding result is
+claimed. Earlier receipts remain historical evidence.
 
 Official documentation consulted:
 - https://docs.astral.sh/uv/pip/compile/

@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-25",
+  "track": "engineering_hardening_20261024",
+  "base_commit": "044c9951fb35c1ca020416da587bfa04e01b2967",
+  "base_reconciliation": {
+    "local_before": "fa39fd36cd924d21128a154d19f86bf0cab95bd6",
+    "remote_main_at_start": "044c9951fb35c1ca020416da587bfa04e01b2967",
+    "operation": "git fetch origin --tags; git merge --ff-only origin/main",
+    "force_used": false,
+    "divergence": "local was 0 ahead / 1 behind; fast-forward only",
+    "dependency_inputs_changed_by_advance": false,
+    "dependency_inputs_checked": [
+      "pyproject.toml",
+      "requirements.lock",
+      "engineering/requirements.in",
+      "engineering/audit.in",
+      "engineering/test-requirements.txt",
+      "engineering/build-requirements.txt",
+      "engineering/tools-requirements.txt"
+    ],
+    "note": "noxfile.py DID change at 044c995: tests/reproduce/package/research_m3 now run scripts/qualify_integrations.py first, and reproduce gained tobac.research.runner. Re-read before execution; the added evidence gate was exercised by these runs."
+  },
+  "environment": {
+    "platform": "darwin (macOS), aarch64",
+    "uv": "0.13.5 (Homebrew 2026-10-22 aarch64-apple-darwin)",
+    "nox_bootstrap": "uvx --python 3.13 --from nox==2026.10.20 nox",
+    "session_python": "3.13.13",
+    "installed_distributions_in_session": 30,
+    "network": "available at execution time; pypi and api.github.com returned 200"
+  },
+  "executed": [
+    {
+      "command": "python3 scripts/lock_receipt.py generate --profile runtime --path outputs/engineering/lock-candidate",
+      "outcome": "success",
+      "resolver_exit_code": 0,
+      "result": "verified receipt, 5 input hashes",
+      "lock_sha256": "b04d9e153bd489de858e7c2bac5792813e5c64f2a82c9364fe3b89bf45db278b"
+    },
+    {
+      "command": "python3 scripts/lock_receipt.py generate --profile audit --path outputs/engineering/lock-candidate",
+      "outcome": "success",
+      "resolver_exit_code": 0,
+      "result": "verified receipt, 7 input hashes",
+      "lock_sha256": "3d662217b60d7f01d78d79b8560205931c1072b877abfd46a167dedf72fc4b5c"
+    },
+    {
+      "command": "uv pip sync --python <py3.12.13 venv> --require-hashes outputs/engineering/lock-candidate/requirements.lock",
+      "outcome": "success",
+      "result": "31 packages installed under full hash checking; numpy, scipy, pandas, hypothesis, jsonschema, yaml, coverage imported"
+    },
+    {
+      "command": "uv pip install --dry-run --require-hashes --python 3.13 --python-platform x86_64-unknown-linux-gnu -r outputs/engineering/lock-candidate/audit.lock",
+      "outcome": "success",
+      "result": "88 packages resolve and hash-check for the declared Linux x86_64 / CPython 3.13 target; not installed on this host"
+    },
+    {
+      "command": "uvx --python 3.13 pip-audit==2.10.1 -r outputs/engineering/lock-candidate/requirements.lock --no-deps",
+      "outcome": "advisories_found",
+      "result": "7 known vulnerabilities in 3 packages",
+      "advisories": [
+        {"package": "pygments", "version": "2.19.2", "id": "PYSEC-2026-2987", "fix": "2.20.0"},
+        {"package": "pytest", "version": "9.0.2", "id": "PYSEC-2026-1845", "fix": "9.0.3"},
+        {"package": "setuptools", "version": "82.0.1", "id": "PYSEC-2026-3447", "fix": "83.0.0"},
+        {"package": "setuptools", "version": "82.0.1", "id": "GHSA-xmj3-9gf7-h52w", "fix": "84.1.0"}
+      ],
+      "advisory_origin": "root requirements.lock (pytest==9.0.2, Pygments==2.19.2) and engineering/build-requirements.txt (setuptools==82.0.1)",
+      "scientific_pins_affected": false
+    },
+    {
+      "command": "uvx --python 3.13 --from nox==2026.10.20 nox -s tests",
+      "outcome": "success",
+      "result": "495 passed, 0 failed, 0 error, 0 skipped in 38.15s; coverage 91% (1638/1740 statements, threshold 90)",
+      "environment_mode": "bootstrap"
+    },
+    {
+      "command": "uvx --python 3.13 --from nox==2026.10.20 nox -s reproduce",
+      "outcome": "success",
+      "result": "M1, M2 (--grid-check), M3, release_calibration and empirical_longitudinal all regenerated into fresh outputs/replay_* and verified; 23 and 21 artifacts, 6 sources each",
+      "environment_mode": "bootstrap"
+    }
+  ],
+  "observed_fail_closed_behaviour": [
+    {
+      "command": "nox -s package",
+      "observed": "Session package aborted: Both generated lock and matching receipt are required.",
+      "cause": "engineering/requirements.lock absent; reviewed-lock gate not satisfied",
+      "classification": "expected gate, not a defect"
+    },
+    {
+      "command": "nox -s quality",
+      "observed": "Session quality aborted: Audit-tool profile is Linux-only; use runtime tests on other platforms.",
+      "cause": "noxfile.py rejects the audit profile when sys.platform != 'linux'",
+      "classification": "correct guard; session genuinely unexecutable on this host"
+    },
+    {
+      "command": "nox -s tests (second consecutive run, same outputs dir)",
+      "observed": "qualify_integrations.py: error: Refusing to overwrite a previous execution receipt",
+      "cause": "the 044c995 evidence gate treats a prior receipt as immutable",
+      "classification": "intentional non-idempotence; re-run requires clearing outputs/engineering/evidence-*.json",
+      "note": "Recorded as an observed operational constraint, not as a passing check."
+    }
+  ],
+  "lock_candidates": {
+    "directory": "outputs/engineering/lock-candidate",
+    "committed_to_engineering": false,
+    "reason_not_committed": "review found 7 advisories in 3 packages; promotion requires pin remediation and human review",
+    "files": {
+      "requirements.lock": "b04d9e153bd489de858e7c2bac5792813e5c64f2a82c9364fe3b89bf45db278b",
+      "requirements.lock.json": "d46dc3b02e0014456f41762247b4534093dca86c536514695137f508e116694f",
+      "audit.lock": "3d662217b60d7f01d78d79b8560205931c1072b877abfd46a167dedf72fc4b5c",
+      "audit.lock.json": "3c521dbe83eb9ba99108f40b64335a11944e57d681d752fe2567f75618a9e70b"
+    },
+    "runtime": {"packages": 31, "hash_lines": 998, "target": "universal, --python-version 3.12"},
+    "audit": {"packages": 88, "hash_lines": 1965, "target": "x86_64-unknown-linux-gnu, --python-version 3.13"}
+  },
+  "execution_boundaries": {
+    "nox": "genuinely executed (previously only a labelled test double)",
+    "nox_environment": "bootstrap profile; uv pip sync --require-hashes was NOT used inside the session, so this is not transitive-lock qualification",
+    "uv_resolution": "genuine online resolution succeeded; this supersedes the 2026-10-24 offline failure, which remains historical evidence",
+    "actions_transitive_lock": "not generated; official gh-actions-lock remains the documented route",
+    "ruff_basedpyright_mutation_security_profile": "not executed; audit profile is Linux-only and no Linux container/VM was started",
+    "hosted_matrix": "not executed",
+    "package_build": "not executed; aborted by the reviewed-lock gate",
+    "attestations_independent_review": "not obtained; no claim",
+    "scientific_replay": "executed locally on the bootstrap profile; integrity/verification only, no empirical conditioning"
+  },
+  "interface_changes": {
+    "src": "none",
+    "scientific_inputs_priors_results": "unchanged",
+    "m3_owned_paths": "unchanged",
+    "dependency_pins": "unchanged in this pass"
+  },
+  "review": "same-assistant execution and review; a generated receipt is not human approval, signed provenance or independent scientific review"
+}

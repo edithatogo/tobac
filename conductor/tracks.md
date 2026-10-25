@@ -42,10 +42,11 @@ in this bounded check. Branch/readback and hosted status belong to the receipt o
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
 ## Library reuse and engineering harness — 24 October 2026
-**Status: local library/context components verified; online tooling and hosted qualification open.**
+**Status: [~] real Nox execution and genuine lock resolution done at 044c995; advisory-cleared locks, Linux audit tools, hosted matrix and independent review remain open.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
 Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
-Receipt: `integration/engineering_verification.json`.
+Receipt: `integration/engineering_verification.json`; execution receipt:
+`integration/engineering_hardening_execution_20261025.json`.
 
 The Gaussian reporting density delegates to SciPy while physical/state/data contracts stay
 unchanged. New Nox/uv, schema-validated context profiles, secure bounded CI/deep/canary lanes,
