@@ -151,16 +151,27 @@ def stock_scenario(releases: Iterable[Real], days: Real) -> Array:
 def annualised_supply(ledger: LawfulLedger, start: str, end: str) -> dict[str, Any]:
     """Period-average daily supply times 365, to match the paper's annual-equivalent unit.
 
+    Two quantities in the ledger's declared basis are returned and must not be used
+    interchangeably: `allocated_total` is the window total in source annual units,
+    and `annualised_per_365_days` is that total rescaled to a 365-day year. For a
+    366-day window the rate is lower than the total.
+
     Annual totals are spread uniformly within their calendar years, so the divisor
     is the actual calendar-year length (366 in a leap year), unlike
     `stock_scenario`, which deliberately keeps the source's fixed 365-day
     convention. Actual month-level consumption has NOT been observed.
+
+    Raises:
+        ValueError: if the window covers no days, so no annualised rate is defined.
     """
     result = aggregate_uniform_years(
         dict(zip(ledger.years.tolist(), ledger.consumption.tolist())), start, end)
-    actual = float(result['value'])
-    result['period_total'] = actual
-    result['value'] = actual / result['covered_days'] * 365.
+    covered_days = result['covered_days']
+    if covered_days <= 0:
+        raise ValueError(
+            f'Window {start} to {end} covers {covered_days} days: an annualised '
+            f'per-365-day rate requires at least one covered day')
+    result['annualised_per_365_days'] = result['allocated_total'] / covered_days * 365.
     result['unit'] = 'cigarette_equivalents/365_day_equivalent'
     result['allocation_is_observed'] = False
     result['geography'] = ledger.basis.geography

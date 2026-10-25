@@ -159,6 +159,10 @@ def aggregate_uniform_years(
 ) -> dict[str, Any]:
     """Allocate annual totals to a half-open window, assuming uniform daily releases.
 
+    `allocated_total` is the window's share of the supplied annual totals and is in
+    the same unit as `annual_totals` (for example tonnes or cigarette equivalents).
+    It is NOT a per-day or per-365-day rate: convert explicitly with `covered_days`.
+
     This does not recover monthly observations. Leap-year denominators are exact;
     a year without a supplied total is an error, not an implicit zero.
     """
@@ -184,7 +188,8 @@ def aggregate_uniform_years(
         total += contribution
         components.append(dict(year=year, overlap_days=days, year_days=denominator,
                                contribution=contribution))
-    return dict(value=total, covered_days=(finish-begin).days, components=components,
+    return dict(allocated_total=total, covered_days=(finish-begin).days,
+                components=components,
                 status='uniform_within_year_allocation_assumption')
 
 

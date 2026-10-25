@@ -61,8 +61,41 @@ def test_annualised_period_alignment_leap_year(module):
                            basis=module.SupplyBasis())
     y=module.annualised_supply(x,'2023-07-01','2024-07-01')
     assert y['covered_days']==366
-    assert y['value']==pytest.approx((184+182*2)/366*365)
+    # Window total in source annual units: 365*184/365 + 732*182/366.
+    assert y['allocated_total']==pytest.approx(184+182*2)
+    assert y['annualised_per_365_days']==pytest.approx((184+182*2)/366*365)
     assert y['allocation_is_observed'] is False
+    assert 'value' not in y
+
+
+def test_period_total_and_rate_are_separate_keys(module):
+    x=module.lawful_ledger([2023,2024],[3650.,3660.],[0,0,0],
+                           basis=module.SupplyBasis())
+    y=module.annualised_supply(x,'2023-07-01','2024-07-01')
+    # Hand-computed daily contributions: 2023 gives 3650*184/365, 2024 3660*182/366.
+    assert y['allocated_total']==pytest.approx(3650*184/365+3660*182/366)
+    assert y['allocated_total']==3660.
+    assert y['annualised_per_365_days']==pytest.approx(y['allocated_total']/366*365)
+    assert y['annualised_per_365_days']==3650.
+    # The overloaded key is gone; the two quantities differ by 10 here.
+    assert 'value' not in y
+    assert y['allocated_total']-y['annualised_per_365_days']==pytest.approx(10.)
+    assert y['unit']=='cigarette_equivalents/365_day_equivalent'
+
+
+def test_zero_covered_days_raises_naming_window_and_days(module,monkeypatch):
+    # aggregate_uniform_years already rejects end<=start, so a zero-day window has
+    # to be simulated to check that annualised_supply refuses rather than dividing.
+    def stub(*args,**kwargs):
+        return {'allocated_total':0.,'covered_days':0,'components':[],
+                'status':'uniform_within_year_allocation_assumption'}
+    monkeypatch.setattr(module,'aggregate_uniform_years',stub)
+    x=module.lawful_ledger([2023],[100.],[0,0],basis=module.SupplyBasis())
+    with pytest.raises(ValueError) as excinfo:
+        module.annualised_supply(x,'2023-07-01','2023-07-01')
+    message=str(excinfo.value)
+    assert '2023-07-01 to 2023-07-01' in message
+    assert 'covers 0 days' in message
 
 
 def test_no_missing_year_imputation(module):
