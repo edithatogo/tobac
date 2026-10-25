@@ -1,0 +1,78 @@
+{
+  "scope": "planning registration only",
+  "runtime_or_numerical_tests_executed": false,
+  "results": [
+    {
+      "repository": "tobac",
+      "local_links_checked": 17,
+      "unique_unstarted_tasks": 44,
+      "metadata_hold": true,
+      "changes_limited_to_conductor": true,
+      "native_registry_check": null,
+      "issue_readback": {
+        "url": "https://github.com/edithatogo/tobac/issues/22",
+        "state": "OPEN"
+      },
+      "files": {
+        "conductor/tracks/scientific_ecosystem_20261025/decisions.md": "0612257ed58a0731d07964f478b1ec3464cae35d343f50c1ebb1b4d8630be37e",
+        "conductor/tracks/scientific_ecosystem_20261025/dependencies.json": "8c6d80f384b281e824ca1ff84e5d4a336bd417de408e1b0cc055c3a1017124bb",
+        "conductor/tracks/scientific_ecosystem_20261025/index.md": "d47e947a741fcb9b82af4a54cdc6abf22ca073c5455b5fd0b0371899aaa024cd",
+        "conductor/tracks/scientific_ecosystem_20261025/metadata.json": "44a4c8c8554721b7a7bf2a24d7fac9b8435dedcb6ba4da7682b7240b24481064",
+        "conductor/tracks/scientific_ecosystem_20261025/plan.md": "ae4c34c202229365999cb9bd869b9e8cc419fc3d02ff1a6117cf077c840c2ba3",
+        "conductor/tracks/scientific_ecosystem_20261025/registration.md": "7b0904c10db298c98b8a6e237f780e6d5abbc0916b9ebb01f51f19a74f74aa9a",
+        "conductor/tracks/scientific_ecosystem_20261025/spec.md": "95b85d9ffad8876b5c5a9943fecf055789a52d860d63dd8883b2a8c44bce04a8"
+      }
+    },
+    {
+      "repository": "voiage",
+      "local_links_checked": 8,
+      "unique_unstarted_tasks": 16,
+      "metadata_hold": true,
+      "changes_limited_to_conductor": true,
+      "native_registry_check": {
+        "command": [
+          ".venv-planning/bin/python",
+          "scripts/validate_conductor_github_cross_references.py"
+        ],
+        "exit_code": 0,
+        "output": "Conductor GitHub cross-references valid: /Users/doughnut/.codex/worktrees/ecosystem-planning/voiage/conductor/github-cross-references.json"
+      },
+      "issue_readback": {
+        "url": "https://github.com/edithatogo/voiage/issues/1193",
+        "state": "OPEN"
+      },
+      "files": {
+        "conductor/tracks/tobac_consumer_qualification_20261025/index.md": "f9a403afcbf22a862c1ce26b0738cc6144e1a5d06f3f814664af6643228ad126",
+        "conductor/tracks/tobac_consumer_qualification_20261025/metadata.json": "0dee1ee75101f0ee56a21579bb50eb377aa768b1c9fdfca8e8cf072d3e771ba8",
+        "conductor/tracks/tobac_consumer_qualification_20261025/plan.md": "414c41dacacccc9d5edee60b4f8a835b51ed16ad81ff5b52e80f5ace6122300c",
+        "conductor/tracks/tobac_consumer_qualification_20261025/spec.md": "cb5071120ed47518e946d590b789fb6b77764be1f4f6661f3789e6b544b4e7d7"
+      }
+    },
+    {
+      "repository": "innovate",
+      "local_links_checked": 8,
+      "unique_unstarted_tasks": 16,
+      "metadata_hold": true,
+      "changes_limited_to_conductor": true,
+      "native_registry_check": {
+        "command": [
+          ".venv-planning/bin/python",
+          "scripts/conductor_registry_hygiene.py",
+          "--json"
+        ],
+        "exit_code": 0,
+        "output": "{\n  \"active_root\": \"conductor/tracks\",\n  \"archive_root\": \"conductor/archive\",\n  \"missing_active_directories\": [],\n  \"missing_archive_directories\": [],\n  \"missing_links\": [],\n  \"orphan_archive_directories\": [],\n  \"registered_active_directories\": [\n    \"tobac_consumer_qualification_20261025\"\n  ],\n  \"registry\": \"conductor/tracks.md\",\n  \"schema_version\": 1,\n  \"stale_active_directories\": [],\n  \"summary\": {\n    \"active_directories\": 1,\n    \"missing_active_directories\": 0,\n    \"missing_archive_directories\": 0,\n    \"missing_links\": 0,\n    \"orphan_archive_directories\": 0,\n    \"registered_active_entries\": 1,\n    \"registry_entries\": 94,\n    \"stale_active_directories\": 0,\n    \"wrong_link_targets\": 0\n  },\n  \"wrong_link_targets\": []\n}"
+      },
+      "issue_readback": {
+        "url": "https://github.com/edithatogo/innovate/issues/546",
+        "state": "OPEN"
+      },
+      "files": {
+        "conductor/tracks/tobac_consumer_qualification_20261025/index.md": "bfe610ea3ce7b5138240e155805ff801c3b16bde2da4b385ae4b74a2747d4152",
+        "conductor/tracks/tobac_consumer_qualification_20261025/metadata.json": "cb444b62c27b6246d9010577ec1cedb24d8f62a653376abc9a2317ed9553b726",
+        "conductor/tracks/tobac_consumer_qualification_20261025/plan.md": "414c41dacacccc9d5edee60b4f8a835b51ed16ad81ff5b52e80f5ace6122300c",
+        "conductor/tracks/tobac_consumer_qualification_20261025/spec.md": "88037e0f505e8f17f648ae4d05aced711b1f2f951a3b944732e05c841bd759d6"
+      }
+    }
+  ]
+}
