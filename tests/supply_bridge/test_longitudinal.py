@@ -123,9 +123,25 @@ def test_bad_covariance_rejected():
 
 def test_annual_overlap_respects_leap_year():
     result=mod().aggregate_uniform_years({2023:365,2024:366},'2023-07-01','2024-07-01')
-    assert result['value']==366
+    # 2023: 365*184/365; 2024: 366*182/366.
+    assert result['allocated_total']==pytest.approx(184+182)
+    assert result['allocated_total']==366
     assert result['status']=='uniform_within_year_allocation_assumption'
     assert result['covered_days']==366
+    assert 'value' not in result
+
+
+def test_allocated_total_is_a_window_total_not_a_rate():
+    # Annual totals deliberately not equal to their year lengths, so the window
+    # total (3660) and a 365-day rate (3650) cannot coincide.
+    result=mod().aggregate_uniform_years({2023:3650.,2024:3660.},'2023-07-01','2024-07-01')
+    assert result['allocated_total']==pytest.approx(3650*184/365+3660*182/366)
+    assert result['allocated_total']==3660.
+    # Only the components carry the yearly denominators; the total is not a rate:
+    # reading 3660 as a daily figure would give the wrong 10/day.
+    assert result['allocated_total']/result['covered_days']==pytest.approx(10.)
+    assert [c['overlap_days'] for c in result['components']]==[184,182]
+    assert [c['year_days'] for c in result['components']]==[365,366]
 
 
 def test_missing_annual_supply_raises_not_zero_filled():

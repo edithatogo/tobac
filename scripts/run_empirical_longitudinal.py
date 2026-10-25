@@ -147,10 +147,10 @@ def assembled_inputs(
             source_upper_after_uplift=hi,
             source_uplift_removed=float(row.uplift_factor),
             reported_calendar_release=float(row.legal_sales_cigarette_equivalent),
-            matched_annual_release=aligned['value'],
+            matched_annual_release=aligned['annualised_per_365_days'],
             reconstruction_median=central,
             reconstruction_log_se=r['log_se'],
-                         log_reported_ratio=float(np.log(central/aligned['value'])),
+                         log_reported_ratio=float(np.log(central/aligned['annualised_per_365_days'])),
                          unit='cigarette_equivalents/365_day_equivalent',
                          monthly_releases_observed=False,published_central_estimate=False,
                          covariance_status='count_interval_approximation_plus_declared_extra_error',
@@ -424,7 +424,7 @@ def run(out,root=ROOT,quick=False):
         ledger=lawful_ledger(table.year.tolist(),allreleases,stock_scenario(allreleases,days),
                              unrecorded=unrecorded*allreleases,net_visitors=visitor*allreleases,
                              basis=SupplyBasis())
-        aligned=np.array([annualised_supply(ledger,r.period_start,r.period_end)['value'] for r in primary.itertuples()])
+        aligned=np.array([annualised_supply(ledger,r.period_start,r.period_end)['annualised_per_365_days'] for r in primary.itertuples()])
         ledgers[name]=aligned
         for j,y in enumerate(table.year):
             stock_rows.append(dict(scenario=name,year=int(y),release=ledger.releases[j],

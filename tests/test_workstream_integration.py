@@ -64,7 +64,8 @@ def test_period_allocation_matches_explicit_overlap_not_calendar_label():
                            basis=SupplyBasis())
     report = annualised_supply(ledger, '2023-07-01', '2024-07-01')
     assert report['covered_days'] == 366
-    assert report['value'] == pytest.approx((184+2*182)*365/366)
+    assert report['allocated_total'] == pytest.approx(184+2*182)
+    assert report['annualised_per_365_days'] == pytest.approx((184+2*182)*365/366)
     assert report['allocation_is_observed'] is False
     assert report['unit'] == 'cigarette_equivalents/365_day_equivalent'
 
