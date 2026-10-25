@@ -159,6 +159,9 @@ def reproduce(session):
         session.run('rm', '-rf', destination)
         session.run('python', f'scripts/run_{stem}.py', '--out', destination)
         session.run('python', f'scripts/verify_{stem}.py', destination)
+    session.run('python', 'scripts/check_longitudinal_results.py',
+                '--empirical', 'outputs/replay_empirical_longitudinal',
+                '--releases', 'outputs/replay_release_calibration')
 
 
 @nox.session
