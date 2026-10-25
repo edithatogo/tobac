@@ -9,15 +9,20 @@
 - [x] Attempt real dependency-lock generation; record the uncached/offline failure without a fake lock.
 - [x] Add reviewed context profiles, small agent skill, Conductor project context and pinned upstream gitlink definition.
 - [ ] Execute new Nox/Ruff/BasedPyright/Hypothesis/mutation/security/profile tooling in a capable environment.
-  - [x] Partial 2026-10-25 at 044c995: real Nox `tests` (495 passed, 91% coverage) and `reproduce`
-    (M1/M2/M3/longitudinal, all verifiers pass) executed on macOS in **bootstrap** mode.
-  - [ ] Ruff, BasedPyright, mutation, security and profile remain unexecuted: the `audit` profile is
-    Linux-only by design and no Linux container/VM was started.
+  - [x] 2026-10-25 at 044c995: real Nox `tests` (495 passed, 91% coverage) and `reproduce`
+    (M1/M2/M3/longitudinal, all verifiers pass) executed in **bootstrap** mode.
+  - [x] Ruff (both invocations), BasedPyright strict, zizmor and pip-audit executed and **green**
+    after fixing three real defects they exposed.
+  - [ ] Mutation (mutmut) and profiling (Scalene) not executed; tools installed natively only.
+  - [ ] The Nox `audit` profile itself remains unexecuted: it is Linux-gated to protect the
+    Linux-scoped lock install, so these checks ran natively on macOS rather than in that session.
 - [ ] Generate/review universal dependency and official Actions transitive locks.
   - [x] Universal `runtime` and `audit` candidates genuinely resolved by uv 0.13.5, receipt-verified,
-    hash-install proven for runtime and dry-run hash-checked for the Linux audit target.
-  - [ ] Review outcome is **not** a pass: pip-audit found 7 advisories in 3 packages (pygments 2.19.2,
-    pytest 9.0.2, setuptools 82.0.1). Candidates are deliberately not committed to `engineering/`.
+    runtime hash-install proven, audit hash-checked for the Linux target.
+  - [x] Review completed: 7 initial advisories remediated (pytest, Pygments, setuptools, virtualenv,
+    and packaging as the required cascade). Final candidates report **0 advisories**.
+  - [ ] Candidates are recorded in `outputs/engineering/lock-candidate` but deliberately **not**
+    copied into `engineering/`; promotion is an explicit human review action.
   - [ ] Official Actions transitive lock not generated.
 - [ ] Verify hosted matrix, full scientific replay, package install, licensed attestations and independent review.
   - [x] Full scientific replay executed locally on the bootstrap profile (verification/integrity only).

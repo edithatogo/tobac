@@ -44,7 +44,8 @@ def build(root: Path, config: dict[str, Any]) -> tuple[dict[str, Any], str]:
     """Create a complete profile or fail; a budget overrun never truncates evidence."""
     schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
     Draft202012Validator.check_schema(schema)
-    Draft202012Validator(schema).validate(config)
+    # jsonschema ships no type stubs, so its members are Unknown to strict type checking.
+    Draft202012Validator(schema).validate(config)  # pyright: ignore[reportUnknownMemberType]
     root = root.resolve()
     commit = _git(root, "rev-parse", "HEAD")
     base = config["base_commit"]
@@ -80,7 +81,7 @@ def build(root: Path, config: dict[str, Any]) -> tuple[dict[str, Any], str]:
 
 def verify(root: Path, manifest: dict[str, Any]) -> list[str]:
     """Reject stale checkout/content; callers still need reviews and secret scanning."""
-    errors = []
+    errors: list[str] = []
     if _git(root, "rev-parse", "HEAD") != manifest["commit"]:
         errors.append("commit changed")
     for item in manifest["files"]:

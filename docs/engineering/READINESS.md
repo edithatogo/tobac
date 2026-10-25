@@ -130,17 +130,25 @@ macOS checkout. Real Nox executed `tests` (495 passed, 0 failed/skipped, 91% cov
 0.13.5 resolution produced receipt-verified `runtime` and `audit` candidates; the runtime lock
 installed under `--require-hashes` and the audit lock hash-checked for its Linux/3.13 target.
 
-Two results matter more than the passes. First, **the reviewed-lock gate did not clear**: pip-audit
-reported 7 advisories in 3 packages (pygments 2.19.2, pytest 9.0.2, setuptools 82.0.1), all test
-or build tooling with no scientific pin affected. The candidates therefore stay in
-`outputs/engineering/lock-candidate` and were not copied into `engineering/`; promotion needs a
-pin remediation reviewed as a normal dependency change. Second, every Nox session ran in explicit
-**bootstrap** mode, so `uv pip sync --require-hashes` was never exercised inside a session and
-transitive-lock qualification is still not claimed.
+Two results matter more than the passes. First, **the Linux-only audit guard was hiding real
+failures rather than a platform limit**. Ruff, BasedPyright, zizmor and pip-audit all install and
+run natively on macOS arm64; executing them found two strict-lint errors, four strict-type errors
+and four `artipacked` findings that no session had ever reported. They are fixed and the checks
+are now green, but the guard itself is unchanged: it protects Linux-scoped lock installation, not
+tool capability, and this repository should add a separate non-Linux native audit lane rather than
+relax it.
 
-`quality`, `strict_all`, `security`, `mutation` and `profile` remain unexecuted because the audit
-profile is Linux-only by design; `package` aborts on the missing reviewed lock. Hosted matrix,
-licensed attestations and independent review are unchanged open gates.
+Second, **the reviewed-lock gate now clears on advisories but is still not promoted**. The first
+resolution produced 7 advisories in 3 packages. Review led to remediation of pytest, Pygments and
+setuptools, a new explicit `virtualenv` pin, and a `packaging` move from 25.0 to 26.3 that
+`virtualenv>=21.14.9` required. Both profiles now report zero advisories. The candidates remain in
+`outputs/engineering/lock-candidate` because copying them into `engineering/` is an explicit human
+review action, not an automated consequence of a clean scan.
+
+Every Nox session still ran in explicit **bootstrap** mode, so `uv pip sync --require-hashes` was
+never exercised inside a session and transitive-lock qualification is still not claimed. `package`
+aborts on the missing reviewed lock; mutmut and Scalene were installed but not executed; hosted
+matrix, licensed attestations and independent review are unchanged open gates.
 
 See `integration/engineering_followthrough.json` for the earlier 24 October pass and its actual
 failed offline resolution attempt. Command-planning tests there use a labelled Nox test double;

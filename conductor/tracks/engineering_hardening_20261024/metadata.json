@@ -1,7 +1,7 @@
 {
   "track_id": "engineering_hardening_20261024",
   "title": "Library reuse and qualified engineering harness",
-  "status": "nox_and_lock_resolution_executed_advisories_and_external_qualification_open",
+  "status": "nox_and_audit_tools_executed_locks_advisory_clean_promotion_and_external_qualification_open",
   "base_commit": "044c9951fb35c1ca020416da587bfa04e01b2967",
   "date": "2026-10-24",
   "updated": "2026-10-25",
@@ -17,7 +17,8 @@
   "latest_execution": {
     "nox_tests": "495 passed, 91% coverage, bootstrap profile",
     "nox_reproduce": "success, M1/M2/M3/longitudinal verified",
-    "lock_candidates": "outputs/engineering/lock-candidate (runtime + audit), not committed",
-    "open_findings": "7 advisories in 3 packages; audit profile Linux-only; hosted and review gates open"
+    "native_audit_tools": "ruff, basedpyright, zizmor, pip-audit green after fixing 3 real defects",
+    "lock_candidates": "outputs/engineering/lock-candidate (runtime + audit), 0 advisories, not promoted",
+    "open_findings": "audit profile still Linux-gated; mutation/profiling unexecuted; hosted and review gates open"
   }
 }

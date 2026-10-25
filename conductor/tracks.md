@@ -42,7 +42,7 @@ in this bounded check. Branch/readback and hosted status belong to the receipt o
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
 ## Library reuse and engineering harness — 24 October 2026
-**Status: [~] real Nox execution and genuine lock resolution done at 044c995; advisory-cleared locks, Linux audit tools, hosted matrix and independent review remain open.**
+**Status: [~] real Nox + native audit-tool execution green and lock candidates advisory-clean at 044c995; lock promotion, Linux audit profile, hosted matrix and independent review remain open.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
 Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
 Receipt: `integration/engineering_verification.json`; execution receipt:
