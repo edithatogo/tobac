@@ -42,17 +42,22 @@ in this bounded check. Branch/readback and hosted status belong to the receipt o
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
 ## Library reuse and engineering harness — 24 October 2026
-**Status: local library/context components verified; online tooling and hosted qualification open.**
+**Status: [~] locks promoted and locked-mode tests/replay/packaging green at 5ab361b; hosted matrix confirmation, strict_all, profiling and independent review remain open.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
 Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
-Receipt: `integration/engineering_verification.json`.
+Receipt: `integration/engineering_verification.json`; execution receipts:
+`integration/engineering_hardening_execution_20261025.json` and
+`integration/engineering_hardening_gap_closure_20261025.json`.
 
 The Gaussian reporting density delegates to SciPy while physical/state/data contracts stay
 unchanged. New Nox/uv, schema-validated context profiles, secure bounded CI/deep/canary lanes,
 Renovate/pre-commit configuration and pinned Conductor gitlink are explicit engineering layers.
-A local source snapshot, not the complete live suite, was executed. Missing dependencies,
-locks, hosted runners, plugin activation and private-feature entitlements remain open. Do not
-turn configuration or a checksum into a claim of successful execution or scientific validity.
+`uv pip sync --require-hashes` now drives `tests` (495 passed, 91% coverage), `reproduce` (five
+replays verified) and `package`, and the built wheel installs and imports. Mutation is executed
+and weak (61.7% killed); `strict_all` is measured at 4,168 ruff and 3,584 BasedPyright errors and
+is not green. The Windows leg failure was a CRLF checkout defect now fixed by `.gitattributes`.
+Do not turn configuration or a checksum into a claim of successful execution or scientific
+validity; hosted confirmation and independent review are not obtained.
 
 ## Engineering execution follow-through — 24 October 2026
 **Status: implemented at 886fc08; genuine locks and external qualification remain open.**

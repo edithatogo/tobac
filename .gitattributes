@@ -1,0 +1,9 @@
+# Normalise text to LF in the working tree on every platform.
+#
+# Hashed evidence, manifests and receipts record SHA-256 over exact bytes. Without this,
+# a Windows checkout converts text files to CRLF and every recorded hash mismatches
+# (observed as "Content hash mismatch" in the Windows hosted matrix leg).
+* text=auto eol=lf
+
+# Preserved source data and generated evidence are byte-stable inputs to hashing.
+evidence/** -text

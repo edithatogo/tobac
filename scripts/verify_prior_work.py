@@ -13,7 +13,9 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 PREFIX = 'evidence/prior_work/v2.9.0/'
 MANIFEST = 'integration/prior_work_manifest.json'
-TRANSFORMS = {'none', 'CRLF_to_LF_only', 'subset_by_source_ID_exact_record_objects_reformatted'}
+SUBSET = 'subset_by_source_ID_exact_record_objects_reformatted'
+SUBSET_CANONICAL_DOI = 'subset_by_source_ID_exact_record_objects_reformatted_canonical_doi'
+TRANSFORMS = {'none', 'CRLF_to_LF_only', SUBSET, SUBSET_CANONICAL_DOI}
 
 
 def sha(data: bytes) -> str:
@@ -123,10 +125,19 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict:
                 if sha(raw) != item['archive_sha256']:
                     raise ValueError('Source member hash differs')
                 copied = checked_file(root, item['path']).read_bytes()
-                if item['transformation'] == 'subset_by_source_ID_exact_record_objects_reformatted':
+                if item['transformation'] in {SUBSET, SUBSET_CANONICAL_DOI}:
                     original = read_json(raw.decode('utf-8'))
                     selected = {r['id']: r for r in original}
-                    if references != [selected[i] for i in sorted(ids)]:
+                    expected = [selected[i] for i in sorted(ids)]
+                    if item['transformation'] == SUBSET_CANONICAL_DOI:
+                        # Only the DOI may differ, and only by case: CSL validation requires the
+                        # canonical lower-case form, which is the same identifier (DOIs are
+                        # case-insensitive). Every other field must still equal the archive.
+                        if any(r.get('DOI') and r['DOI'] != r['DOI'].lower() for r in references):
+                            raise ValueError('Stored DOI is not canonical')
+                        expected = [dict(r, DOI=r['DOI'].lower()) if r.get('DOI') else r
+                                    for r in expected]
+                    if references != expected:
                         raise ValueError('Inherited reference records changed')
                 else:
                     expected = raw if item['transformation'] == 'none' else raw.replace(b'\r\n', b'\n')
