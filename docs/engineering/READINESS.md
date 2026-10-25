@@ -116,45 +116,61 @@ and byte-budget overflow fail instead of silently truncating. They are not a tok
 secret scanner or prompt-injection sandbox. No persistent background agent is created.
 
 Conductor is still a real pinned submodule, with separate project-owned context in conductor/.
-Checkout and host activation must be verified separately. Official gh-actions-lock remains the
-route for a future transitive action lock; no imitation lock was generated. Private-repository
-entitlements, attestations, branch rules and independent review remain explicit prerequisites,
-not automatically enabled or claimed. Preserve the M3-owned research namespace when synchronising.
+Checkout and host activation must be verified separately. Official `gh-actions-lock` was run on
+25 October 2026 and its output **rejected**: it wrote `.github/workflows/actions.lock` only by
+replacing all 37 full-SHA action pins with mutable tags, which contradicts the full-SHA posture
+this repository already enforces. No transitive action lock is adopted; choosing tag+lockfile
+pinning is a security-policy decision, not a mechanical fix. Private-repository entitlements,
+attestations, branch rules and independent review remain explicit prerequisites, not
+automatically enabled or claimed. Preserve the M3-owned research namespace when synchronising.
 
 ## 6. Current evidence
 
-`integration/engineering_hardening_execution_20261025.json` records the 25 October pass at
-`044c9951`, where the previously blocked gates were genuinely re-attempted on a network-enabled
-macOS checkout. Real Nox executed `tests` (495 passed, 0 failed/skipped, 91% coverage) and
-`reproduce` (M1, M2 `--grid-check`, M3 and longitudinal regenerated and verified). Genuine uv
-0.13.5 resolution produced receipt-verified `runtime` and `audit` candidates; the runtime lock
-installed under `--require-hashes` and the audit lock hash-checked for its Linux/3.13 target.
+`integration/engineering_hardening_execution_20261025.json` records the first 25 October pass at
+`044c9951`; `integration/engineering_hardening_gap_closure_20261025.json` records the second pass
+at `5ab361b`. Together they cover the following, all executed on a network-enabled macOS arm64
+checkout.
 
-Two results matter more than the passes. First, **the Linux-only audit guard was hiding real
-failures rather than a platform limit**. Ruff, BasedPyright, zizmor and pip-audit all install and
-run natively on macOS arm64; executing them found two strict-lint errors, four strict-type errors
-and four `artipacked` findings that no session had ever reported. They are fixed and the checks
-are now green, but the guard itself is unchanged: it protects Linux-scoped lock installation, not
-tool capability, and this repository should add a separate non-Linux native audit lane rather than
-relax it.
+**Locked qualification now exists.** Both reviewed profiles were promoted into `engineering/`
+after a review of versions, origins, licences (89 packages; no copyleft, unknown or proprietary
+licence; only MPL-2.0 `certifi`/`hypothesis` and dual-licensed `python-dateutil` need noting) and
+advisories (0). With `TOBAC_REQUIRE_LOCK=1`, Nox ran `uv pip sync --require-hashes` and then:
+`tests` 495 passed, 0 failed, 0 skipped, 91% coverage; `reproduce` verified all five replays
+(M1, M2 `--grid-check`, M3, release calibration, empirical longitudinal); `package` built the
+sdist and wheel under `--no-build-isolation`. The built wheel installed into a clean Python 3.13
+venv and imported `tobac`, `tobac_supply` and `tobac.research`. Bootstrap was not used.
 
-Second, **the reviewed-lock gate now clears on advisories but is still not promoted**. The first
-resolution produced 7 advisories in 3 packages. Review led to remediation of pytest, Pygments and
-setuptools, a new explicit `virtualenv` pin, and a `packaging` move from 25.0 to 26.3 that
-`virtualenv>=21.14.9` required. Both profiles now report zero advisories. The candidates remain in
-`outputs/engineering/lock-candidate` because copying them into `engineering/` is an explicit human
-review action, not an automated consequence of a clean scan.
+**The Linux-only audit guard was hiding real failures rather than a platform limit.** Ruff,
+BasedPyright, zizmor and pip-audit all run natively on macOS arm64; executing them found two
+strict-lint errors, four strict-type errors and four `artipacked` findings that no session had
+ever reported. They are fixed and `quality`/`security` are green. `noxfile.py` now routes audit
+sessions through `audit_tools()`: Linux keeps the locked audit profile as authoritative, other
+hosts resolve the same reviewed pins natively and log `NATIVE AUDIT ... NOT release
+qualification`. The guard in `environment()` is unchanged and still fails closed.
 
-Every Nox session still ran in explicit **bootstrap** mode, so `uv pip sync --require-hashes` was
-never exercised inside a session and transitive-lock qualification is still not claimed. `package`
-aborts on the missing reviewed lock; mutmut and Scalene were installed but not executed; hosted
-matrix, licensed attestations and independent review are unchanged open gates.
+**Two defects surfaced only because the gates actually ran.** First, `strict_all` has never been
+green: 4,168 ruff `--select ALL` errors and 3,584 BasedPyright-all errors across the whole source.
+That is measured, not fixed, and remains an open gate. Second, three engineering contract tests
+failed under `TOBAC_REQUIRE_LOCK=1` because the harness fixture inherited the release flag with an
+empty `ROOT`; `.github/workflows/release-candidate.yml` sets exactly that flag, so the release
+gate itself was broken. The fixture is now hermetic.
+
+**Mutation is executed but weak.** mutmut 3.7.0 ran natively on `src/tobac/supply.py`: 128
+mutants, 79 killed, 49 survived (61.7%). The session reports success because mutmut enforces no
+threshold; the survivor count is a coverage finding, not a pass. Scalene profiling remains
+unexecuted.
+
+**The Windows leg failure was a checkout defect, not a code defect.** Windows converted text to
+CRLF, so the recorded SHA-256 of `evidence/prior_work/v2.9.0/data/empirical_intake_20261024/
+measurement_evidence.csv` no longer matched (LF `144cded7…` vs CRLF `a47dea28…`). `.gitattributes`
+now sets `* text=auto eol=lf` and `evidence/** -text`; `git add --renormalize .` changed nothing,
+confirming the tree was already LF. Hosted confirmation is still required.
 
 See `integration/engineering_followthrough.json` for the earlier 24 October pass and its actual
 failed offline resolution attempt. Command-planning tests there use a labelled Nox test double;
-that limitation no longer applies to the sessions named above. No completed transitive lock,
-strict/static/security tool pass, hosted success, signed release or empirical funding result is
-claimed. Earlier receipts remain historical evidence.
+that limitation no longer applies to the sessions named above. No hosted success, signed release,
+strict-all pass, profiling result or empirical funding result is claimed. Earlier receipts remain
+historical evidence.
 
 Official documentation consulted:
 - https://docs.astral.sh/uv/pip/compile/

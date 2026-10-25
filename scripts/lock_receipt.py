@@ -111,6 +111,22 @@ def verify(root: Path, lock: Path, profile: str) -> dict[str, Any]:
             'qualification': 'byte/input consistency only; not approval, install success or signed provenance'}
 
 
+def recorded_command(command: list[str], root: Path) -> list[str]:
+    """Store repo-relative paths so the recorded provenance is reproducible on any checkout."""
+    resolved = root.resolve()
+    recorded = []
+    for item in command:
+        path = Path(item)
+        if path.is_absolute():
+            try:
+                recorded.append(path.resolve().relative_to(resolved).as_posix())
+                continue
+            except ValueError:
+                pass
+        recorded.append(item)
+    return recorded
+
+
 def generate(root: Path, out: Path, profile: str) -> Path:
     """Create a fresh candidate through real uv; a failed process cannot issue a receipt."""
     root = root.resolve()
@@ -148,7 +164,8 @@ def generate(root: Path, out: Path, profile: str) -> Path:
         if not target.is_file() or '--hash=sha256:' not in target.read_text(encoding='utf-8'):
             raise ValueError('uv did not produce a hashed lock')
         receipt = {'schema': 'tobac.lock-receipt.v1', 'profile': profile,
-                   'resolver': version, 'command': command, 'resolver_exit_code': 0,
+                   'resolver': version, 'command': recorded_command(command, root),
+                   'resolver_exit_code': 0,
                    'inputs': before, 'lock_sha256': digest(target),
                    'qualification': 'candidate; review before committing; not approval or signed provenance'}
         receipt_path.write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf-8')

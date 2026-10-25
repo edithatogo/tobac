@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-25",
+  "track": "engineering_hardening_20261024",
+  "pass": "gap closure",
+  "base_commit": "5ab361b10752665023a76760767e5d67d586b861",
+  "predecessor_receipt": "integration/engineering_hardening_execution_20261025.json",
+  "environment": {
+    "platform": "darwin (macOS), aarch64",
+    "uv": "0.13.5",
+    "nox": "2026.10.20 via uvx",
+    "session_python": "3.13.13",
+    "network": "available"
+  },
+  "closed_gaps": [
+    {
+      "gap": "audit sessions (quality, security, strict_all, mutation, profile) unexecutable off Linux",
+      "resolution": "noxfile.py gained audit_tools(): Linux keeps the locked audit profile as authoritative; other hosts resolve the same reviewed pins host-natively and log an explicit NATIVE AUDIT ... NOT release qualification banner. environment() keeps its original Linux-only guard, so a direct locked attempt still fails closed.",
+      "executed": [
+        {"session": "quality", "result": "success", "detail": "ruff E9/F63/F7/F82 pass; ruff strict config on context_bundle pass; basedpyright 0 errors, 0 warnings"},
+        {"session": "security", "result": "success", "detail": "zizmor no findings (13 suppressed); pip-audit no known vulnerabilities; cyclonedx SBOM written"}
+      ]
+    },
+    {
+      "gap": "lock candidates not promoted; every session ran bootstrap only",
+      "resolution": "Review completed and both profiles promoted to engineering/: requirements.lock + requirements.lock.json, audit.lock + audit.lock.json. Each auto-verifies (5 and 7 input hashes).",
+      "review_scope": {
+        "versions": "uv 0.13.5 resolution; 31 runtime / 88 audit packages",
+        "origins": "all resolved from the public PyPI index, hash-pinned",
+        "advisories": "0 known vulnerabilities in both profiles (pip-audit 2.10.1)",
+        "licences": "89 packages queried via PyPI metadata: MIT, Apache-2.0, BSD-2/3-Clause, PSF-2.0, MPL-2.0 (certifi, hypothesis), dual-licensed python-dateutil. No copyleft, unknown or proprietary licences.",
+        "reviewer": "same-assistant review; not independent human approval"
+      },
+      "locked_install_proof": [
+        {"session": "tests", "command_env": "TOBAC_REQUIRE_LOCK=1", "observed": "uv pip sync --require-hashes engineering/requirements.lock; scipy==1.17.0; 495 passed, 0 failed, 0 skipped, 91% coverage", "bootstrap_used": false},
+        {"session": "reproduce", "command_env": "TOBAC_REQUIRE_LOCK=1", "observed": "locked sync then M1, M2 --grid-check, M3, release_calibration and empirical_longitudinal all verified; artifacts 23 and 21", "bootstrap_used": false},
+        {"session": "package", "command_env": "TOBAC_REQUIRE_LOCK=1", "observed": "built tobac_regulatory_research-0.2.0.tar.gz and -py3-none-any.whl into outputs/release-candidate under --no-build-isolation", "bootstrap_used": false}
+      ],
+      "wheel_install_proof": "the built wheel installed into a clean Python 3.13 venv and imported tobac, tobac_supply and tobac.research, resolving numpy 2.3.5 and scipy 1.17.0"
+    },
+    {
+      "gap": "hosted Windows leg failing on engineering qualification",
+      "root_cause": "Not a code defect: Windows checkouts convert text to CRLF, so the SHA-256 recorded for evidence/prior_work/v2.9.0/data/empirical_intake_20261024/measurement_evidence.csv no longer matched (LF 144cded7..., CRLF a47dea28...). Observed in run 40173338144.",
+      "resolution": "Added .gitattributes: '* text=auto eol=lf' plus 'evidence/** -text' so hashed evidence is byte-exact and never converted. 'git add --renormalize .' changed no existing file, confirming the tree was already LF. Verified with git check-attr: evidence text=unset eol=lf; source text=auto eol=lf.",
+      "verification_status": "local attribute verification only; a hosted Windows run is required and is the next step"
+    },
+    {
+      "gap": "release gate test hermeticity defect, discovered only by actually running in locked mode",
+      "detail": "Three engineering contract tests assumed bootstrap, but the fixture's tmp_path ROOT has no lock files. Under TOBAC_REQUIRE_LOCK=1 -- which .github/workflows/release-candidate.yml sets at job level and uses to run the whole suite -- they fail with 'Both generated lock and matching receipt are required'. This was pre-existing, not introduced by audit_tools.",
+      "resolution": "the harness fixture now clears TOBAC_REQUIRE_LOCK; tests needing release mode set it explicitly",
+      "proven_by": "495 passed under TOBAC_REQUIRE_LOCK=1"
+    },
+    {
+      "gap": "mutation testing unexecuted",
+      "resolution": "mutmut 3.7.0 executed natively on src/tobac/supply.py",
+      "result": {"mutants": 128, "killed": 79, "survived": 49, "score_percent": 61.7},
+      "assessment": "the session passes because mutmut enforces no threshold; 49 survivors indicate weak test discrimination on tobac.supply and should not be read as adequate coverage"
+    }
+  ],
+  "newly_measured_but_open": [
+    {
+      "gate": "strict_all",
+      "measured": {"ruff_select_all_errors": 4168, "ruff_fixable": 2281, "basedpyright_all_errors": 3584, "basedpyright_all_warnings": 1},
+      "status": "OPEN",
+      "note": "whole-source strict lint/type audit has never been green; recorded as measured, not fixed. This is the gate .github/workflows/release-candidate.yml requires before packaging."
+    },
+    {
+      "gate": "profile (Scalene)",
+      "status": "OPEN",
+      "note": "tool available; no profiling run performed this pass"
+    },
+    {
+      "gate": "official Actions transitive lock",
+      "status": "OPEN - blocked on a policy decision, not on tooling",
+      "detail": "gh-actions-lock (github/gh-actions-lock) was installed and run. It produced .github/workflows/actions.lock, but achieved it by replacing all 37 immutable full-SHA action pins across 7 workflows with mutable tags (actions/checkout@v7.0.1 etc.). That contradicts the repository's stated posture that direct Actions remain full-SHA pinned, so every workflow edit and the lockfile were reverted.",
+      "decision_required": "adopt tag+lockfile pinning deliberately, or keep SHA pinning and treat the actions lock as unavailable"
+    },
+    {
+      "gate": "hosted matrix (all OS/Python legs) and licensed attestations, independent review",
+      "status": "OPEN"
+    }
+  ],
+  "operational_finding": {
+    "observation": "One locked test run failed with 'No module named scipy.optimize._linesearch' while the sync log recorded scipy==1.17.0; the venv held a partial mix (1.16.3 metadata, 10 .so files). A clean venv from the same lock resolved correctly (scipy 1.17.0, optimize imports fine), and a recreated .nox/tests then passed 495 tests.",
+    "cause": "corrupted shared .nox session venv, consistent with overlapping nox invocations in the same workspace",
+    "guidance": "run Nox sessions sequentially; a single session venv must not be driven by two concurrent invocations",
+    "not_a_lock_defect": true
+  },
+  "interface_changes": {
+    "noxfile": "audit_tools() helper; quality/strict_all/security/mutation/profile route through it. Linux behaviour unchanged.",
+    "tests": "tests/engineering/test_execution_contracts.py harness clears TOBAC_REQUIRE_LOCK",
+    "repository": ".gitattributes added (LF normalisation); .gitignore excludes .nox/, mutants/, .coverage*",
+    "artifacts": "engineering/requirements.lock{,.json} and engineering/audit.lock{,.json} now committed",
+    "scientific": "no change to src/ science, priors, inputs or published results"
+  },
+  "review": "same-assistant execution and review; not independent scientific review, signed provenance or licensed attestation"
+}

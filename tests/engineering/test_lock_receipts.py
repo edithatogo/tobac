@@ -136,6 +136,20 @@ def test_command_contract_uses_real_resolver_and_records_scope(tmp_path, monkeyp
     assert not (tmp_path/'engineering/requirements.lock.json').exists()
 
 
+def test_recorded_command_is_repo_relative(tmp_path, monkeypatch):
+    """A receipt must not embed the absolute path of the machine that resolved it."""
+    m = load(); inputs(tmp_path); monkeypatch.setattr(m.shutil, 'which', lambda _: '/bin/uv')
+    def simulated(command, **kwargs):
+        if '--version' in command: return subprocess.CompletedProcess(command, 0, 'uv fixture\n')
+        Path(command[command.index('--output-file')+1]).write_text('example==1 --hash=sha256:'+'a'*64+'\n')
+        return subprocess.CompletedProcess(command, 0)
+    monkeypatch.setattr(m.subprocess, 'run', simulated)
+    lock = m.generate(tmp_path, tmp_path/'outputs/candidate', 'runtime')
+    recorded = json.loads(lock.with_suffix('.lock.json').read_text())['command']
+    assert 'engineering/requirements.in' in recorded
+    assert not [item for item in recorded if str(tmp_path) in item]
+
+
 def test_duplicate_json_keys_rejected(tmp_path):
     m, lock=fixture(tmp_path)
     receipt=lock.with_suffix('.lock.json')

@@ -58,6 +58,17 @@ def test_missing_required_collection_fails(tmp_path, name):
     with pytest.raises(ValueError):load().inventory(root)
 
 
+@pytest.mark.parametrize('name', ['evidence/references.csl.json','evidence/m2/references.csl.json',
+    'evidence/longitudinal/references.csl.json','evidence/prior_work/v2.9.0/references.csl.json'])
+def test_stored_dois_are_canonical(name):
+    """Sourceright rejects non-canonical DOIs; check locally without the external binary."""
+    text=(ROOT/name).read_text(encoding='utf-8')
+    try:records=json.loads(text)
+    except json.JSONDecodeError:records=[json.loads(l) for l in text.splitlines() if l.strip()]
+    assert records
+    assert not [r['DOI'] for r in records if r.get('DOI') and r['DOI']!=r['DOI'].lower()]
+
+
 def test_changed_preserved_parameters_fail_before_any_tool(tmp_path, monkeypatch):
     root = snapshot(tmp_path)
     next((root/'evidence/prior_work').rglob('parameter_estimates*.csv')).write_text('changed')

@@ -23,6 +23,9 @@ def harness(monkeypatch,tmp_path):
     spec=importlib.util.spec_from_file_location('harness_under_test',path)
     m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
     monkeypatch.chdir(tmp_path);monkeypatch.setattr(m,'ROOT',tmp_path)
+    # The fixture uses an empty ROOT, so an inherited release-mode flag would turn every
+    # bootstrap expectation into a missing-lock error. Tests that need it set it explicitly.
+    monkeypatch.delenv('TOBAC_REQUIRE_LOCK',raising=False)
     monkeypatch.setattr(m,'sys',types.SimpleNamespace(platform='linux'))
     class Session:
         def __init__(self):self.env={};self.posargs=[];self.calls=[];self.fail=set()

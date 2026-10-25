@@ -1,0 +1,31 @@
+{
+  "schema": "tobac.lock-receipt.v1",
+  "profile": "audit",
+  "resolver": "uv 0.13.5 (Homebrew 2026-10-22 aarch64-apple-darwin)",
+  "command": [
+    "/Users/doughnut/.local/bin/uv",
+    "--no-config",
+    "pip",
+    "compile",
+    "engineering/audit.in",
+    "--generate-hashes",
+    "--output-file",
+    "outputs/engineering/lock-candidate/audit.lock",
+    "--python-version",
+    "3.13",
+    "--python-platform",
+    "x86_64-unknown-linux-gnu"
+  ],
+  "resolver_exit_code": 0,
+  "inputs": {
+    "pyproject.toml": "da071478a89acd3b1a7d8cea34ba033a0ae1cb410ae7c5c0a50cfc6666ec0fcc",
+    "requirements.lock": "b1c19ced176fdf953c758dee5843cb23781d3a64508de49c0683c739ca355847",
+    "engineering/requirements.in": "1fd40586b025f1045792f8d505607b51995467ec036d9b233b8e9c2cd66ea287",
+    "engineering/test-requirements.txt": "57f40259568e4553e40e89362357801da3986c231541d65957538e0c9a108fef",
+    "engineering/build-requirements.txt": "62e753342030863fd662855ff8938c8eaff78a9a0a7a94450c3f5848a5cc8d98",
+    "engineering/audit.in": "44cc43404b559ac717a67fd293cf6f7cd3a4d4feebe4cc47fb422db414807a32",
+    "engineering/tools-requirements.txt": "761cc24ec2bbd24b30eb84c887d983f122692a89785593613b35c3bef42deb75"
+  },
+  "lock_sha256": "d6da5e5af9e39f806ce11683700803842d5f573bc94cc5da5a07a9ae2dcfd161",
+  "qualification": "candidate; review before committing; not approval or signed provenance"
+}
