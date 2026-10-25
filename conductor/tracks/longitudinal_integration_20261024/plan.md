@@ -13,3 +13,7 @@
 Publication evidence: `integration/longitudinal_publication.json`; coordination is recorded
 on issue #1. Scientific calibration, automatic regulatory conditioning, hosted execution
 and third-party software qualification are not closed by source incorporation.
+
+## Phase: Review Fixes
+- [x] Task: Apply review suggestions 0589587 (deletion 431be04); component outputs reproduced
+  byte-identical apart from the run-manifest self hash; 151 supply_bridge and 499 full-suite tests pass.
