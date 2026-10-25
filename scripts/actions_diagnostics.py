@@ -7,17 +7,17 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
 import re
 import shutil
 import subprocess
+from pathlib import Path
 from typing import Any
 
 
 def validate_repository(repository: str) -> str:
-    if (not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9-]*/[A-Za-z0-9_.-]+', repository)
-            or repository.split('/')[-1] in {'.', '..'}):
-        raise ValueError('Use an owner/repository identifier')
+    if (not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9-]*/[A-Za-z0-9_.-]+", repository)
+            or repository.rsplit('/', maxsplit=1)[-1] in {'.', '..'}):
+        raise ValueError("Use an owner/repository identifier")
     return repository
 
 
@@ -81,7 +81,7 @@ def collect(repository: str, run_id: int) -> dict[str, Any]:
             continue
         try:
             pages = get_json(f'{prefix}/check-runs/{match[1]}/annotations?per_page=100', paginate=True)
-            annotations[str(job['id'])] = [dict(message=a.get('message'), level=a.get('annotation_level'))
+            annotations[str(job['id'])] = [{"message": a.get('message'), "level": a.get('annotation_level')}
                                            for page in pages for a in page]
         except (ValueError, OSError, subprocess.SubprocessError):
             errors.append({'job_id': job['id'], 'error': 'annotations_unavailable'})
