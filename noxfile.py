@@ -56,6 +56,36 @@ def environment(session, profile='runtime', require_lock=False):
                 "for d in m.distributions())},indent=2))")
 
 
+def audit_lock_present():
+    """True when a reviewed Linux audit lock is committed (then it must be honoured)."""
+    return (ROOT / 'engineering' / 'audit.lock').is_file()
+
+
+def audit_tools(session):
+    """Resolve audit tools for this host when the Linux audit lock is unusable.
+
+    The Linux profile stays authoritative wherever it can be installed. On other hosts the
+    reviewed tool pins are resolved natively so the same checks actually run, and the session
+    says plainly that this is not the locked release profile.
+    """
+    if sys.platform == 'linux':
+        return environment(session, profile='audit')
+    if os.environ.get('TOBAC_REQUIRE_LOCK') == '1':
+        session.error('Locked qualification requires the Linux audit lock; not available here')
+    session.log('NATIVE AUDIT: host-resolved tools from engineering/tools-requirements.txt; '
+                'NOT the Linux audit lock, hash-checked install or release qualification'
+                + ('' if audit_lock_present() else '; no audit lock is committed yet'))
+    session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
+    # The audit checks import the project and jsonschema, so the ordinary dependency set is
+    # required too; installing only the tool pins leaves basedpyright unable to resolve imports.
+    session.install('-r', 'requirements.lock', '-r', 'engineering/test-requirements.txt',
+                    '-r', 'engineering/build-requirements.txt',
+                    '-r', 'engineering/tools-requirements.txt')
+    session.install('--no-deps', '--no-build-isolation', '-e', '.')
+    OUT.mkdir(parents=True, exist_ok=True)
+    return None
+
+
 def run_all_checks(session, commands):
     """Execute independent audits, preserving an overall failure if any command fails."""
     failed = []
@@ -93,7 +123,7 @@ def tests(session):
 
 @nox.session
 def quality(session):
-    environment(session, profile='audit')
+    audit_tools(session)
     run_all_checks(session, [
         ['ruff', 'check', '--isolated', '--select', 'E9,F63,F7,F82', 'src', 'scripts'],
         ['ruff', 'check', '--config', 'engineering/ruff.toml', 'scripts/context_bundle.py'],
@@ -103,7 +133,7 @@ def quality(session):
 
 @nox.session
 def strict_all(session):
-    environment(session, profile='audit')
+    audit_tools(session)
     run_all_checks(session, [
         ['ruff', 'check', '--select', 'ALL', 'src', 'scripts'],
         ['basedpyright', '--project', 'engineering/basedpyright-all.json'],
@@ -129,7 +159,7 @@ def reproduce(session):
 
 @nox.session
 def security(session):
-    environment(session, profile='audit')
+    audit_tools(session)
     run_all_checks(session, [
         ['zizmor', '--offline', '.github/workflows'],
         ['pip-audit', '--skip-editable', '--format', 'cyclonedx-json', '--output', str(OUT / 'sbom.json')],
@@ -158,14 +188,14 @@ def package(session):
 
 @nox.session
 def mutation(session):
-    environment(session, profile='audit')
+    audit_tools(session)
     session.run('mutmut', 'run', 'tobac.supply*')
     session.run('mutmut', 'results')
 
 
 @nox.session
 def profile(session):
-    environment(session, profile='audit')
+    audit_tools(session)
     session.run('scalene', '--cpu-only', '--json', '--outfile', str(OUT / 'scalene.json'),
                 'scripts/run_empirical_longitudinal.py', '--out', 'outputs/profile_empirical', '--quick')
 
