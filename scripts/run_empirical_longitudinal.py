@@ -10,13 +10,14 @@ from pathlib import Path
 import platform
 import subprocess
 import sys
+from typing import Any
 
-ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'src'))
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
 import numpy as np
 import pandas as pd
 import scipy
-from scipy.special import ndtri
+# from scipy.special import ndtri  # unused
 
 from tobac_supply.consumption_ledger import (
     SupplyBasis, lawful_ledger, annualised_supply, stock_scenario,
@@ -27,24 +28,24 @@ from tobac_supply.empirical_longitudinal import (
 )
 
 
-def digest(path):
+def digest(path: str | Path) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def _git(*args):
+def _git(*args: str) -> str | None:
     """Best-effort provenance; absence is recorded as None rather than invented."""
     try:
-        result=subprocess.run(['git',*args],cwd=ROOT,capture_output=True,text=True,check=False)
+        result = subprocess.run(['git', *args], cwd=ROOT, capture_output=True, text=True, check=False)
     except OSError:
         return None
-    return result.stdout.strip() if result.returncode==0 else None
+    return result.stdout.strip() if result.returncode == 0 else None
 
 
-def save_json(path, data):
-    Path(path).write_text(json.dumps(data, indent=2, allow_nan=False)+'\n',encoding='utf-8')
+def save_json(path: str | Path, data: Any) -> None:
+    Path(path).write_text(json.dumps(data, indent=2, allow_nan=False) + '\n', encoding='utf-8')
 
 
-def source_table(root=ROOT):
+def source_table(root: Path = ROOT) -> pd.DataFrame:
     p=Path(root)/'data/empirical_intake_20261024/nz_historical_legal_supply.csv'
     table=pd.read_csv(p)
     if table.year.tolist()!=list(range(2012,2024)):
@@ -67,60 +68,88 @@ CENTRES=('geometric_interval_midpoint','arithmetic_interval_midpoint',
 DOCUMENTED_WINDOWS={2021:('2020-09-01','2021-09-01'),2022:('2021-07-01','2022-08-01')}
 
 
-def period(year, alignment):
-    if alignment=='calendar_replication':
-        return f'{year}-01-01',f'{year+1}-01-01'
-    if alignment=='documented_collection_sensitivity' and year in DOCUMENTED_WINDOWS:
+def period(year: int, alignment: str) -> tuple[str, str]:
+    if alignment == 'calendar_replication':
+        return f'{year}-01-01', f'{year+1}-01-01'
+    if alignment == 'documented_collection_sensitivity' and year in DOCUMENTED_WINDOWS:
         return DOCUMENTED_WINDOWS[year]
-    if alignment not in {'nominal_survey_year','documented_collection_sensitivity'}:
+    if alignment not in {'nominal_survey_year', 'documented_collection_sensitivity'}:
         raise ValueError(f'Unknown alignment {alignment!r}')
-    return f'{year-1}-07-01',f'{year}-07-01'
+    return f'{year-1}-07-01', f'{year}-07-01'
 
 
-def period_origin(year, alignment):
+def period_origin(year: int, alignment: str) -> str:
     """Label which pairing convention produced a row; the arm name alone is ambiguous."""
-    if alignment=='calendar_replication': return 'calendar_year'
-    if alignment=='documented_collection_sensitivity' and year in DOCUMENTED_WINDOWS:
+    if alignment == 'calendar_replication':
+        return 'calendar_year'
+    if alignment == 'documented_collection_sensitivity' and year in DOCUMENTED_WINDOWS:
         return 'documented_window'
     return 'nominal_july_june_fallback'
 
 
-def assembled_inputs(table, *, alignment, centre):
+def assembled_inputs(
+    table: pd.DataFrame, *, alignment: str, centre: str
+) -> list[dict[str, Any]]:
     """No synthetic rows: reconstruct each working summary from one published pair of limits.
 
     Both selectors are keyword-only and validated so an omitted argument cannot
     silently select a different scientific input.
     """
-    if alignment not in ALIGNMENTS: raise ValueError(f'Unknown alignment {alignment!r}')
-    if centre not in CENTRES: raise ValueError(f'Unknown centre {centre!r}')
-    ledger=lawful_ledger(table.year.tolist(),table.legal_sales_cigarette_equivalent.tolist(),
-                         np.zeros(len(table)+1),basis=SupplyBasis())
-    rows=[]
+    if alignment not in ALIGNMENTS:
+        raise ValueError(f'Unknown alignment {alignment!r}')
+    if centre not in CENTRES:
+        raise ValueError(f'Unknown centre {centre!r}')
+    ledger = lawful_ledger(
+        table.year.tolist(),
+        table.legal_sales_cigarette_equivalent.tolist(),
+        np.zeros(len(table) + 1),
+        basis=SupplyBasis(),
+    )
+    rows: list[dict[str, Any]] = []
+    previous_end: date | None = None
     for row in table.itertuples():
-        start,end=period(row.year,alignment)
+        start, end = period(row.year, alignment)
         # A period starting before the first release year has no annual total to
         # allocate. This only omits 2012 for windows that open in 2011; the
         # calendar replication of 2012 is fully supported and is retained.
-        if int(start[:4])<int(table.year.min()): continue
-        aligned=annualised_supply(ledger,start,end)
-        lo,hi=float(row.reported_lower_smoker_bound_consumption),float(row.reported_upper_smoker_bound_consumption)
-        r=reconstruct_interval(lo,hi,row.uplift_factor)
-        central=r['median_proxy']
-        if centre=='arithmetic_interval_midpoint': central=(lo+hi)/2/row.uplift_factor
-        elif centre=='published_upper_stress': central=hi/row.uplift_factor
-        elif centre=='published_lower_stress': central=lo/row.uplift_factor
-        a,b=date.fromisoformat(start),date.fromisoformat(end)
-        t=((a.toordinal()+b.toordinal())/2-date(2000,1,1).toordinal())/365.2425+2000
-        rows.append(dict(year=int(row.year),time=t,period_start=start,period_end=end,
-                         alignment=alignment,centre_method=centre,
-                         period_origin=period_origin(row.year,alignment),
-                         source_id=row.source_id,source_locator=row.source_locator,
-                         observation_id=f'Phyo2025_NZHS_MOH_{row.year}',
-                         source_lower_after_uplift=lo,source_upper_after_uplift=hi,
-                         source_uplift_removed=float(row.uplift_factor),
-                         reported_calendar_release=float(row.legal_sales_cigarette_equivalent),
-                         matched_annual_release=aligned['value'],
-                         reconstruction_median=central,reconstruction_log_se=r['log_se'],
+        if int(start[:4]) < int(table.year.min()):
+            continue
+        aligned = annualised_supply(ledger, start, end)
+        lo, hi = float(row.reported_lower_smoker_bound_consumption), float(row.reported_upper_smoker_bound_consumption)
+        r = reconstruct_interval(lo, hi, row.uplift_factor)
+        central = r['median_proxy']
+        if centre == 'arithmetic_interval_midpoint':
+            central = (lo + hi) / 2 / row.uplift_factor
+        elif centre == 'published_upper_stress':
+            central = hi / row.uplift_factor
+        elif centre == 'published_lower_stress':
+            central = lo / row.uplift_factor
+        a, b = date.fromisoformat(start), date.fromisoformat(end)
+        # Adjacent documented windows overlap, so their release denominators are
+        # mechanically dependent. Record the size of the reuse instead of letting
+        # the rows read as independent observations.
+        overlap = 0 if previous_end is None else max(0, (previous_end - a).days)
+        previous_end = b
+        t = ((a.toordinal() + b.toordinal()) / 2 - date(2000, 1, 1).toordinal()) / 365.2425 + 2000
+        rows.append(dict(
+            year=int(row.year),
+            time=t,
+            period_start=start,
+            period_end=end,
+            alignment=alignment,
+            centre_method=centre,
+            period_origin=period_origin(row.year, alignment),
+            overlap_days_with_previous_period=overlap,
+            source_id=row.source_id,
+            source_locator=row.source_locator,
+            observation_id=f'Phyo2025_NZHS_MOH_{row.year}',
+            source_lower_after_uplift=lo,
+            source_upper_after_uplift=hi,
+            source_uplift_removed=float(row.uplift_factor),
+            reported_calendar_release=float(row.legal_sales_cigarette_equivalent),
+            matched_annual_release=aligned['value'],
+            reconstruction_median=central,
+            reconstruction_log_se=r['log_se'],
                          log_reported_ratio=float(np.log(central/aligned['value'])),
                          unit='cigarette_equivalents/365_day_equivalent',
                          monthly_releases_observed=False,published_central_estimate=False,
@@ -460,6 +489,10 @@ def run(out,root=ROOT,quick=False):
     save_json(out/'source_audit.json',dict(
         source_table_rows=len(table),paired_fit_rows=len(primary),
         paired_fit_rows_by_alignment={name:len(frame) for name,frame in frames.items()},
+        period_overlap_days_by_alignment={
+            name:int(frame.overlap_days_with_previous_period.max()) for name,frame in frames.items()},
+        period_overlap_status='Overlapping periods reuse the same release tonnage; those rows are '
+                              'not independent and no cross-period error term is fitted.',
         omitted_2012='Only windows opening before 2012 are omitted: no 2011 cigarette-equivalent '
                      'supply exists to allocate. The calendar replication of 2012 is retained.',
         source_2014_lower_count_arithmetic=dict(published=published_lower,

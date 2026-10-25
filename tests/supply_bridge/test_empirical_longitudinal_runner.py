@@ -44,6 +44,19 @@ def test_period_origin_labels_the_actual_pairing_start():
     assert set(frame.period_origin)=={'documented_window','nominal_july_june_fallback'}
 
 
+def test_documented_window_overlap_is_recorded_not_hidden():
+    t=runner.source_table()
+    documented=runner.assembled_inputs(t,alignment='documented_collection_sensitivity',
+                                       centre='geometric_interval_midpoint')
+    overlap=dict(zip(documented.year,documented.overlap_days_with_previous_period))
+    assert overlap[2021]==0
+    assert overlap[2022]==62   # 2021-09-01 end vs 2021-07-01 start
+    assert overlap[2023]==31   # 2022-08-01 end vs 2022-07-01 start
+    for alignment in ('nominal_survey_year','calendar_replication'):
+        frame=runner.assembled_inputs(t,alignment=alignment,centre='geometric_interval_midpoint')
+        assert (frame.overlap_days_with_previous_period==0).all()
+
+
 def test_original_negative_source_gaps_preserved():
     t=runner.source_table()
     assert t[t.year==2023].reported_signed_gap.iloc[0]<0
