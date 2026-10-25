@@ -139,3 +139,12 @@ empirical posterior, quote, full scientific replay or independent review is clai
 M3 arrived concurrently at fa39fd36 and is preserved. The evidence gate also covers its
 research_m3 Nox session; shared reproduction now includes the M3 runner once. These command
 contracts were locally retested; the M3 numerical results were not re-estimated in this pass.
+
+## Archival source integration — 25 October 2026
+**Status: consumer bindings implemented; acquisition partial and publication pending.**
+Track: `conductor/tracks/archive_sources_20261025/`.
+Guide: `docs/ARCHIVAL_SOURCES.md`; immutable snapshot bindings: `integration/archive/`.
+Maps 43 CSL records and 18 CSV files (326 rows) into archive-govt-nz. Preserves source
+aliases, dependency groups, assumptions and extracted values. Original source bytes,
+metadata-only records, HTTP challenge pages and retrieval failures are distinct. No
+new likelihood, posterior or independent scientific qualification is claimed.
