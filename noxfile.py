@@ -153,6 +153,10 @@ def reproduce(session):
         session.run('python', 'scripts/verify.py', f'outputs/replay_{destination}')
     for stem in ['release_calibration', 'empirical_longitudinal']:
         destination = f'outputs/replay_{stem}'
+        # The runners refuse a non-empty output directory by design. This replay
+        # path is fixed, so clear only that path before regenerating it; a
+        # deliberate re-run must not require hand-deleting prior evidence.
+        session.run('rm', '-rf', destination)
         session.run('python', f'scripts/run_{stem}.py', '--out', destination)
         session.run('python', f'scripts/verify_{stem}.py', destination)
 
