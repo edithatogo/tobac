@@ -1,0 +1,68 @@
+{
+  "schema": "tobac.review-qualification.v1",
+  "date": "2026-10-25",
+  "review_of_track": "workstream_sync_20261024",
+  "review_scope": "Cross-workstream synchronisation and regression contracts: test adequacy, receipt integrity, claim discipline and plan compliance",
+  "receiving_main": "75871f1d152f05ec4a44e486e083bdc28fe11b17",
+  "verdict": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 3,
+    "conclusion": "Clean: the suite is genuinely sensitive, the receipt's hashes all reproduce, and the scope is honestly bounded. Only record-keeping Low findings."
+  },
+  "tests": {
+    "integration_file": "tests/test_workstream_integration.py",
+    "collected": 26,
+    "result": "26 passed at fd81646 (pre-#13 rename) and 26 passed at 75871f1 (after the value-key rename)"
+  },
+  "counts": {
+    "recorded_at_pass_20261024": {"imported": 151, "cross": 26, "total": 177},
+    "current_main_75871f1": {"supply_bridge_collected": 262, "integration": 26, "full_suite_collected": 611},
+    "note": "The 151/177 figures are a dated historical record; the suite has since grown by the M2b review, release-diagnostic and CI-gate test additions. Counts should be read with their date."
+  },
+  "cryptographic_claims_verified": [
+    {"claim": "base_source_git_blobs_verified (10 blobs)", "result": "all 10 match git show base:tests at 9fe24a51"},
+    {"claim": "imported_tests_tree 23a648f", "result": "equals rev-parse 9fe24a51:tests/supply_bridge"},
+    {"claim": "longitudinal_source_tree 464cb77", "result": "equals rev-parse 9fe24a51:src/tobac_supply"},
+    {"claim": "new_cross_tests_sha256 59e95d77...", "result": "equals sha256 of tests/test_workstream_integration.py at implementation commit bb81a4b (ancestor of main)"},
+    {"claim": "mutated_sources_restored_and_hash_verified", "result": "restoration proven by the implementation commit: supply.py blob 8452b72f and evidence.py blob b572716b at bb81a4b are byte-identical to the recorded base blobs"}
+  ],
+  "mutation_probes": [
+    {"mutation": "invert stock_change sign in expected_releases", "failures": 13},
+    {"mutation": "disable the reused-data guard", "failures": 1},
+    {"mutation": "ignore the reporting multiplier (bias)", "failures": 1},
+    {"mutation": "bypass the state-identity check in condition", "failures": 2},
+    {"mutation": "make continuous_correlation ignore the half-life", "failures": 1},
+    {"mutation": "break the chain-error identity sign in incremental_value", "failures": 1},
+    {"mutation": "allow any EvidencePacket role", "failures": 3},
+    {"note": "All probed mutations fail at least one of the 26 tests; the two mutations claimed by the track receipt are reproduced as caught."}
+  ],
+  "findings_low": [
+    {
+      "id": "WS-L1",
+      "summary": "tracks.md presents the 151/177 test counts in the present tense; a reader on current main will collect 262 supply_bridge and 611 total.",
+      "file": "conductor/tracks.md",
+      "fix": "Add the pass date and the current counts to the section."
+    },
+    {
+      "id": "WS-L2",
+      "summary": "mutated_sources_restored_and_hash_verified is a self-assertion; the verification hashes are derivable from the recorded base_commit but not stated inline. The blobs at the implementation commit prove the restoration.",
+      "file": "integration/workstream_sync_verification.json",
+      "fix": "Record the two post-restoration blob hashes in the receipt."
+    },
+    {
+      "id": "WS-L3",
+      "summary": "The review itself was unrecorded; this receipt is the fix.",
+      "file": "integration/workstream_sync_review_20261025.json"
+    }
+  ],
+  "explicitly_not_claimed": {
+    "whole_regulatory_suite_rerun_this_pass": false,
+    "hosted_ci": "not established by local tests",
+    "full_scientific_rerun_this_pass": false,
+    "empirical_funding_recommendation": false,
+    "prior_conditioning_performed": false,
+    "note": "All scope disclaimers in the receipt, track plan and docs/WORKSTREAM_SYNC.md were checked and are accurate."
+  }
+}
