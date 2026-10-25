@@ -211,7 +211,7 @@
       "path": "evidence/prior_work/v2.9.0/references.csl.json",
       "archive_path": "tobac/references/canonical_sources_v2.9.0.csl.json",
       "archive_sha256": "1ce55c72869e7fcfe029139d92fe5591a3a789417efa2e08956e35d7aea974e4",
-      "sha256": "f665a540e69bf8b041655aad57c1c851b266fb832e266fa9ebf83b0100f05c45",
+      "sha256": "e0651f908676bec3e8c6296cb02dc4c06738da14100699a6fc14a3be688d41b3",
       "role": "inherited_bibliography_not_new_validation",
       "transformation": "subset_by_source_ID_exact_record_objects_reformatted",
       "records": 28
