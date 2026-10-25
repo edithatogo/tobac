@@ -35,16 +35,16 @@ DESIGNS={
 def write_csv(path, rows):
     if not rows:return
     fields=list(dict.fromkeys(k for row in rows for k in row))
-    with Path(path).open('w',newline='') as f:
+    with Path(path).open('w',newline='',encoding='utf-8') as f:
         writer=csv.DictWriter(f,fieldnames=fields);writer.writeheader()
         writer.writerows({k:json.dumps(v,sort_keys=True) if isinstance(v,(dict,list,tuple)) else v for k,v in r.items()} for r in rows)
 
 
 def run(config_path, out, *, quick=False) -> dict:
-    root=Path.cwd().resolve();path=Path(config_path).resolve();cfg=json.loads(path.read_text())
+    root=Path.cwd().resolve();path=Path(config_path).resolve();cfg=json.loads(path.read_text(encoding='utf-8'))
     if cfg['schema']!='tobac.research-m3.v1':raise ValueError('Unknown M3 schema')
     base=load_config(root/cfg['base_config']);retail_path=root/cfg['retail_config']
-    rc=json.loads(retail_path.read_text());cases=rc['cases']
+    rc=json.loads(retail_path.read_text(encoding='utf-8'));cases=rc['cases']
     if quick:cases=[c for c in cases if c['id']=='source_shape_partial_replacement']
     priors=[.5] if quick else cfg['prior_high_illicit_probabilities']
     weights=[1.] if quick else cfg['normative_crime_weights']
@@ -154,11 +154,11 @@ def run(config_path, out, *, quick=False) -> dict:
                 'external_libraries_executed':False,
                 'value_scope':cfg['cost_scope'],'python':platform.python_version(),'numpy':np.__version__,'scipy':scipy.__version__,
                 'finite_model_scope':cfg['status']}
-    (dest/'validation.json').write_text(json.dumps(validation,indent=2)+'\n')
-    inputs={str(f.relative_to(root)):hashlib.sha256(f.read_bytes()).hexdigest() for f in (root/'src/tobac').rglob('*.py')}
-    for f in (path,root/cfg['base_config'],retail_path):inputs[str(f.relative_to(root))]=hashlib.sha256(f.read_bytes()).hexdigest()
+    (dest/'validation.json').write_text(json.dumps(validation,indent=2)+'\n',encoding='utf-8')
+    inputs={f.relative_to(root).as_posix():hashlib.sha256(f.read_bytes()).hexdigest() for f in (root/'src/tobac').rglob('*.py')}
+    for f in (path,root/cfg['base_config'],retail_path):inputs[f.relative_to(root).as_posix()]=hashlib.sha256(f.read_bytes()).hexdigest()
     outputs={f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in dest.iterdir() if f.is_file()}
-    (dest/'manifest.json').write_text(json.dumps({'schema':'tobac.run.v1','inputs':inputs,'outputs':outputs},indent=2)+'\n')
+    (dest/'manifest.json').write_text(json.dumps({'schema':'tobac.run.v1','inputs':inputs,'outputs':outputs},indent=2)+'\n',encoding='utf-8')
     if not all(checks):raise ArithmeticError('M3 exact invariants failed')
     return validation
 

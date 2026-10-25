@@ -17,11 +17,11 @@ from .run import write_csv
 
 
 def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
-    root=Path.cwd().resolve();path=Path(config_path).resolve();spec=json.loads(path.read_text())
+    root=Path.cwd().resolve();path=Path(config_path).resolve();spec=json.loads(path.read_text(encoding='utf-8'))
     if spec['schema']!='tobac.m2.retail.v1':raise ValueError('Unknown M2 schema')
     base=load_config(root/spec['base_config'])
     sourcepath=root/'evidence/m2/source_review.json'
-    source=json.loads(sourcepath.read_text())['sources'][0]
+    source=json.loads(sourcepath.read_text(encoding='utf-8'))['sources'][0]
     if spec['source_id']!=source['id'] or spec['source_beta']!=[source['finding']['alpha'],source['finding']['beta']]:
         raise ValueError('Source-prior values differ from the extracted parameter record')
     out=Path(out)
@@ -101,17 +101,17 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
     outputs={'summary.csv':summary,'grouped_evppi.csv':partial,'study_value.csv':rows,
              'scientific_learning.csv':learning,'incremental_information.csv':increments,'grid_check.csv':grid}
     for name,data in outputs.items():write_csv(out/name,data)
-    (out/'conditioning_fixtures.json').write_text(json.dumps(synthetic,indent=2)+'\n')
+    (out/'conditioning_fixtures.json').write_text(json.dumps(synthetic,indent=2)+'\n',encoding='utf-8')
     validation={'passed':bool(all(checks)),'checks':len(checks),'cases':len(cases),'designs':len(designs),
                 'quit_nodes':quit_points,'scientific_event':base['scientific_event'],'state_count_reference':len(p),'python':platform.python_version(),
                 'numpy':np.__version__,'scipy':scipy.__version__,
                 'scope':'exact conditional finite calculation; transported model input; no empirical posterior, national funding or continuous-convergence claim'}
-    (out/'validation.json').write_text(json.dumps(validation,indent=2)+'\n')
+    (out/'validation.json').write_text(json.dumps(validation,indent=2)+'\n',encoding='utf-8')
     package=Path(__file__).resolve().parent
     inputs={str(Path('src/tobac')/f.relative_to(package)):hashlib.sha256(f.read_bytes()).hexdigest() for f in package.glob('*.py')}
     for f in (path,root/spec['base_config'],sourcepath):inputs[str(f.relative_to(root))]=hashlib.sha256(f.read_bytes()).hexdigest()
     hashes={f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in out.iterdir() if f.is_file()}
-    (out/'manifest.json').write_text(json.dumps({'schema':'tobac.run.v1','inputs':inputs,'outputs':hashes},indent=2)+'\n')
+    (out/'manifest.json').write_text(json.dumps({'schema':'tobac.run.v1','inputs':inputs,'outputs':hashes},indent=2)+'\n',encoding='utf-8')
     if not all(checks):raise ArithmeticError('M2 invariant failed')
     return validation
 

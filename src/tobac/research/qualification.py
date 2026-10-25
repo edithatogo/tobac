@@ -34,7 +34,7 @@ def qualify(path) -> dict:
     except Exception as exc:
         receipt.update(error=repr(exc),status='failed' if receipt['installed_library_executed'] else 'blocked')
     destination.parent.mkdir(parents=True,exist_ok=True)
-    destination.write_text(json.dumps(receipt,indent=2,allow_nan=False)+'\n')
+    destination.write_text(json.dumps(receipt,indent=2,allow_nan=False)+'\n',encoding='utf-8')
     return receipt
 
 
