@@ -1,4 +1,6 @@
 """Fail-closed checks for the release-calibration integrity verifier."""
+import csv
+import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -10,7 +12,8 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 REQUIRED = ['forecast_summary.csv', 'predictive_scores.csv', 'rolling_predictive_checks.csv',
-            'posterior_parameter_summary.csv', 'source_reconciliation.json', 'fit_scope.json']
+            'posterior_parameter_summary.csv', 'source_reconciliation.json', 'fit_scope.json',
+            'grid_convergence.csv', 'monte_carlo_checks.csv']
 
 
 def load_verifier():
@@ -26,6 +29,32 @@ def edit_manifest(run, mutate):
     manifest = json.loads(path.read_text())
     mutate(manifest)
     path.write_text(json.dumps(manifest, indent=2))
+
+
+def rehash_artifact(run, name):
+    """Update the manifest digest so a data check, not the hash, is exercised."""
+    digest = hashlib.sha256((run/name).read_bytes()).hexdigest()
+
+    def mutate(manifest):
+        for item in manifest['files']:
+            if item['path'] == name:
+                item['sha256'] = digest
+    edit_manifest(run, mutate)
+
+
+def edit_csv(run, name, mutate):
+    """Rewrite one output CSV and its manifest digest."""
+    path = run/name
+    with path.open(newline='') as handle:
+        reader = csv.DictReader(handle)
+        fields = reader.fieldnames
+        rows = list(reader)
+    mutate(rows)
+    with path.open('w', newline='') as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+    rehash_artifact(run, name)
 
 
 @pytest.fixture(scope='module')
@@ -106,3 +135,88 @@ def test_fit_scope_funding_flag_is_checked(run_copy):
     result = load_verifier().verify(run_copy)
     assert result['status'] == 'fail'
     assert any('fit_scope' in e and 'funding' in e for e in result['errors'])
+
+
+def test_missing_grid_convergence_fails(run_copy):
+    (run_copy/'grid_convergence.csv').unlink()
+    edit_manifest(run_copy, lambda m: m.__setitem__(
+        'files', [f for f in m['files'] if f['path'] != 'grid_convergence.csv']))
+    result = load_verifier().verify(run_copy)
+    assert result['status'] == 'fail'
+    assert any('grid_convergence.csv' in e for e in result['errors'])
+
+
+def test_missing_monte_carlo_checks_fails(run_copy):
+    (run_copy/'monte_carlo_checks.csv').unlink()
+    edit_manifest(run_copy, lambda m: m.__setitem__(
+        'files', [f for f in m['files'] if f['path'] != 'monte_carlo_checks.csv']))
+    result = load_verifier().verify(run_copy)
+    assert result['status'] == 'fail'
+    assert any('monte_carlo_checks.csv' in e for e in result['errors'])
+
+
+def test_nonconverged_grid_names_model_horizon_and_measure(run_copy):
+    def mutate(rows):
+        row = next(r for r in rows if r['model'] == 'all_changes'
+                   and r['horizon'] == '1' and r['measure'] == 'mean')
+        row['relative_difference'] = '1.0'
+    edit_csv(run_copy, 'grid_convergence.csv', mutate)
+    result = load_verifier().verify(run_copy)
+    assert result['status'] == 'fail'
+    message = next(e for e in result['errors']
+                   if 'relative_difference' in e and 'exceeds' in e)
+    assert 'grid_convergence.csv' in message
+    assert "model='all_changes'" in message
+    assert 'horizon=1' in message
+    assert "measure='mean'" in message
+
+
+def test_dropped_grid_row_fails_the_row_count(run_copy):
+    edit_csv(run_copy, 'grid_convergence.csv', lambda rows: rows.pop())
+    result = load_verifier().verify(run_copy)
+    assert result['status'] == 'fail'
+    assert any('grid_convergence.csv' in e and 'rows; expected' in e
+               for e in result['errors'])
+
+
+def test_monte_carlo_mean_beyond_sigma_tolerance_fails(run_copy):
+    def mutate(rows):
+        row = rows[0]
+        row['simulation_mean'] = str(
+            float(row['analytic_mean']) - 100 * float(row['mcse_mean']))
+    edit_csv(run_copy, 'monte_carlo_checks.csv', mutate)
+    result = load_verifier().verify(run_copy)
+    assert result['status'] == 'fail'
+    message = next(e for e in result['errors'] if 'MCSE' in e)
+    assert 'analytic_mean=' in message and 'simulation_mean=' in message
+    assert 'mcse_mean=' in message and '100.0' in message
+    with (run_copy/'monte_carlo_checks.csv').open(newline='') as handle:
+        row = next(csv.DictReader(handle))
+    assert f"model={row['model']!r}" in message
+    assert f"year={int(row['year'])}" in message
+
+
+def test_zero_monte_carlo_mcse_fails(run_copy):
+    edit_csv(run_copy, 'monte_carlo_checks.csv',
+             lambda rows: rows[0].__setitem__('mcse_mean', '0'))
+    result = load_verifier().verify(run_copy)
+    assert result['status'] == 'fail'
+    assert any('mcse_mean' in e and '> 0' in e for e in result['errors'])
+
+
+def test_non_finite_monte_carlo_value_fails(run_copy):
+    edit_csv(run_copy, 'monte_carlo_checks.csv',
+             lambda rows: rows[0].__setitem__('simulation_mean', 'nan'))
+    result = load_verifier().verify(run_copy)
+    assert result['status'] == 'fail'
+    assert any('simulation_mean' in e and 'not finite' in e
+               for e in result['errors'])
+
+
+def test_non_finite_grid_difference_fails(run_copy):
+    edit_csv(run_copy, 'grid_convergence.csv',
+             lambda rows: rows[0].__setitem__('relative_difference', 'inf'))
+    result = load_verifier().verify(run_copy)
+    assert result['status'] == 'fail'
+    assert any('relative_difference' in e and 'not finite' in e
+               for e in result['errors'])
