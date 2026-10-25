@@ -1,7 +1,12 @@
 {
   "source_table_rows": 12,
   "paired_fit_rows": 11,
-  "omitted_2012": "No 2011 cigarette-equivalent supply to align preceding survey half-year",
+  "paired_fit_rows_by_alignment": {
+    "nominal_survey_year": 11,
+    "calendar_replication": 12,
+    "documented_collection_sensitivity": 11
+  },
+  "omitted_2012": "Only windows opening before 2012 are omitted: no 2011 cigarette-equivalent supply exists to allocate. The calendar replication of 2012 is retained.",
   "source_2014_lower_count_arithmetic": {
     "published": 2149262500,
     "stated_smokers_times_intensity": 2144411500.0,

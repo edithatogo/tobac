@@ -5,7 +5,8 @@
     "author": [{"literal": "Pyi Pyi Phyo"}, {"literal": "Christopher Bullen"}],
     "issued": {"date-parts": [[2025]]}, "accessed": {"date-parts": [[2026, 10, 24]]},
     "URL": "https://pubmed.ncbi.nlm.nih.gov/40919023/", "DOI": "10.1136/bmjph-2025-002853",
-    "container-title": "BMJ Public Health", "volume": "3", "page": "e002853", "PMID": "40919023"
+    "container-title": "BMJ Public Health", "volume": "3", "page": "e002853", "PMID": "40919023",
+    "PMCID": "PMC12410603"
   },
   {
     "id": "long-nz-tobacco-tonnes-2025", "type": "webpage",

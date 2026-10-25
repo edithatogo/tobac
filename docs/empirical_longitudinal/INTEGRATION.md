@@ -52,10 +52,20 @@ NZ monetary funding conclusions remain unqualified.
 ## Verification of this import
 The renamed package and relocated tests passed 151 local tests. Both full runners were
 executed with 8,192 paths (per model for releases); their six-source integrity checks passed
-for 21 empirical and 23 release artifacts. Of 43 comparable output files, 42 reproduced the
-predecessor bytes exactly. The remaining grid-convergence diagnostic differed only in its
-relative-difference rounding, maximum absolute difference 2.45e-15. All substantive summaries
-and rendered figures were byte-identical. Source hashes change with namespace/LF changes.
+for 21 empirical and 23 release artifacts. A local one-off comparison of generated output
+against the predecessor archive reported 42 of 43 comparable files as byte-identical, with a
+maximum absolute difference of 2.45e-15 on `release grid_convergence.csv`, attributed in the
+receipt to relative-difference rounding. That is a recorded result, not a reproducible check:
+the comparison table, the per-file hashes and the command were not retained, and the
+predecessor archive is not part of this repository, so the 42-of-43 count cannot be re-derived
+here. Source hashes change with namespace/LF changes.
+
+Known limitation. The runners were refactored after the receipt above was written (commit
+`b47af43`, type annotations), and the verification scripts hash the runner sources, so the
+retained local output directories no longer pass `scripts/verify_*.py` against current HEAD.
+The compact checked-in tables under `results/` were re-checked separately and were reported to
+agree to about 1e-15, but no command or receipt for that re-check is retained here. Treat the
+current-HEAD state of this section as a recorded limitation, not a passing check.
 
 This is a fresh check of the imported component, not a claim that the parallel regulatory
 suite or third-party integrations were freshly executed locally. Existing regulatory source

@@ -6,7 +6,10 @@ Author: Dylan A Mordaunt. Analysis date: 24 October 2026.
 The supplied successful browser completion concerns the *tobacco-release chart*, run
 `d26e9dec-6327-41f7-a08e-ff95cb3fee3a`. It is not the failed NZ Health Survey extraction.
 A saved transcription of that completion is in `data/calibration_20261024/raw/`.
-All 16 values agree with the accepted v2.7 series. They are the same observations and are
+All 16 transcribed 2010–2025 values equal the accepted v2.7 series exactly, with a difference of
+0 tonnes on all 16 rows. The full 16-value v2.7 series is not retained in this repository (a
+prior-work parameter file records the 2025 level of 755 tonnes only), so that comparison is
+recorded rather than re-runnable here. They are the same observations and are
 conditioned on once, not counted twice. Unquoted thousands commas are repaired only under
 an exact series-specific grammar; generic ambiguous CSV rows are rejected.
 

@@ -13,9 +13,11 @@ model or monetary funding recommendation.
 ## Sources and transformations
 The existing `data/empirical_intake_20261024/nz_historical_legal_supply.csv` records Tables 1–2
 of Phyo and Bullen (2025), *Trends in the illicit tobacco market in New Zealand: a consumption
-gap analysis*, DOI 10.1136/bmjph-2025-002853, PMCID PMC12410603. The source was re-read through
-the PubMed/PMC connector on 24 October 2026. This is a re-verification of the existing evidence,
-not another independent dataset. The PDF/workbook was not downloaded anew.
+gap analysis*, DOI 10.1136/bmjph-2025-002853, PMCID PMC12410603. On 24 October 2026 the
+identifiers and the 2012–2023 values were re-checked against the existing bibliography record;
+the provider record was not re-retrieved in this repository, and no connector receipt is held
+here. This is a restatement of the existing evidence, not another independent dataset. The
+PDF/workbook was not downloaded anew.
 
 The publication uses national annual cigarette-equivalent releases, including domestic and
 duty-free sales, and 0.7 g per RYO cigarette equivalent. Its demand-side upper/lower scenarios
@@ -25,8 +27,10 @@ a historical illicit/foreign-pack assumption and supply data. It cannot be enter
 an independently measured parameter. The related source consumption gaps, intensity series
 and NZHS percentages must not be added as independent likelihoods for the same observations.
 
-We preserve all 12 input years, 2012–2023, exactly. Primary alignment needs the previous year's
-supply, leaving 11 paired periods, 2013–2023. No 2011 cigarette-equivalent supply is invented.
+All 12 transcribed source rows, 2012–2023, are preserved unmodified. The period-matched fit does
+not use all 12: it uses 11 paired years per alignment, because 2012 has no preceding
+cigarette-equivalent supply year and is therefore excluded with that reason. No 2011
+cigarette-equivalent supply is invented.
 The 2010–2025 reported-tonne series remains in its existing fitted component and is NOT silently
 converted to sticks or appended as compatible paired consumption observations.
 
@@ -59,7 +63,12 @@ collection window. Leap-year allocation is exact. This does NOT recover monthly 
 
 A documented-window sensitivity uses September 2020–August 2021 and July 2021–July 2022 for the
 relevant survey collections, based on existing source-vintage notes. These are month-resolution
-bounds, not exact participant dates. Any overlapping collection and residual survey dependence
+bounds, not exact participant dates. The documented-window arm applies month-resolution windows
+only to the 2021 and 2022 survey collections; every other year in that arm falls back to the
+nominal July–June window and is labelled accordingly. Adjacent documented windows overlap — by
+62 days for 2021 to 2022 and by 31 days for 2022 to 2023 — so releases falling in an overlap are
+counted in both periods and those two rows are not independent; the fitted likelihood does not
+model this cross-period dependence. Any overlapping collection and residual survey dependence
 remain uncertainties; optional correlated error sensitivity is not a fitted correlation.
 
 ## Lawful consumption accounting

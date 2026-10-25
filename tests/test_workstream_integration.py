@@ -26,7 +26,8 @@ def test_accounting_roundtrip_uses_common_stock_and_flow_conventions(visitors, i
     releases = np.array([100., 90.])
     u = np.array([3., 5.])
     v = np.full(2, visitors)
-    ledger = lawful_ledger([2022, 2023], releases, stocks, unrecorded=u, net_visitors=v)
+    ledger = lawful_ledger([2022, 2023], releases, stocks, unrecorded=u, net_visitors=v,
+                           basis=SupplyBasis())
     # Hypothetical total and illicit share are supplied, not inferred from the ledger.
     total = ledger.consumption / (1-illicit_share)
     prediction = expected_releases(
@@ -45,11 +46,13 @@ def test_duty_free_absent_channel_translates_only_when_explicit():
                                    ledger.unrecorded+ledger.duty_free_addition)
     np.testing.assert_allclose(prediction, ledger.releases)
     with pytest.raises(ValueError, match='double count'):
-        lawful_ledger([2023], [100.], [0., 0.], duty_free_addition=[7.])
+        lawful_ledger([2023], [100.], [0., 0.], duty_free_addition=[7.],
+                      basis=SupplyBasis())
 
 
 def test_reporting_bias_is_not_a_second_physical_consumption_adjustment():
-    ledger = lawful_ledger([2023], [100.], [10., 5.], unrecorded=[2.])
+    ledger = lawful_ledger([2023], [100.], [10., 5.], unrecorded=[2.],
+                           basis=SupplyBasis())
     mean = expected_releases(ledger.consumption, 0., ledger.unrecorded,
                              stock_change=np.diff(ledger.stocks), reporting_multiplier=1.2)
     np.testing.assert_allclose(mean, [120.])
@@ -57,7 +60,8 @@ def test_reporting_bias_is_not_a_second_physical_consumption_adjustment():
 
 
 def test_period_allocation_matches_explicit_overlap_not_calendar_label():
-    ledger = lawful_ledger([2023, 2024], [365., 732.], [0., 0., 0.])
+    ledger = lawful_ledger([2023, 2024], [365., 732.], [0., 0., 0.],
+                           basis=SupplyBasis())
     report = annualised_supply(ledger, '2023-07-01', '2024-07-01')
     assert report['covered_days'] == 366
     assert report['value'] == pytest.approx((184+2*182)*365/366)
@@ -74,7 +78,7 @@ def fixture():
                   'cigarette_equivalents/calendar_year')
     values = np.array([[0., -1.], [0., 1.], [0., -1.], [0., 1.]])
     belief = Belief(DecisionProblem(values, ('retain', 'change'), 'test_units'), ids, scope)
-    observed = lawful_ledger([2023], [100.], [0., 0.]).releases
+    observed = lawful_ledger([2023], [100.], [0., 0.], basis=SupplyBasis()).releases
     expected = expected_releases(states['lawful_total'], 0., 0.)[:, None]
     logl = release_loglikelihood(observed, expected, [[100.]])
     packet = EvidencePacket('synthetic_release', ('test:MOH:2023',), ('test:sourceA',),

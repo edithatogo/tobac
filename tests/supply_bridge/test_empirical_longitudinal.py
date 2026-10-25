@@ -4,6 +4,7 @@ import math
 from dataclasses import replace
 import numpy as np
 import pytest
+from scipy.special import logsumexp
 from scipy.stats import multivariate_normal
 
 @pytest.fixture
@@ -140,6 +141,80 @@ def test_temporal_dependence_uses_elapsed_time(module):
     spec=module.TemporalSpec(alignment_cv=.15,residual_half_life_years=1.)
     c=module.observation_covariance(np.array([0.,1.,3.]),np.ones(3)*.1,spec)
     assert c[0,1]/c[0,2]==pytest.approx(4.)
+
+
+def _kernel(x,y,q,level_sd,slope_sd):
+    """Hand-written Cov[a+b*t+W_q(t), a+b*s+W_q(s)]; deliberately not production code."""
+    x,y=np.asarray(x,float),np.asarray(y,float)
+    return level_sd**2+slope_sd**2*np.outer(x,y)+q*q*np.minimum.outer(x,y)
+
+
+def test_prior_kernel_matches_hand_computed_covariance(module):
+    # Removing the slope term, the random-walk term, or the intercept leaves this wrong.
+    spec=module.TemporalSpec(level_sd=.5,slope_sd=.2)
+    actual=module.prior_kernel([0.,2.],[0.,2.],.1,spec)
+    expected=np.array([[.25,.25],[.25,.25+.04*4+.01*2]])
+    np.testing.assert_allclose(actual,expected,rtol=0,atol=1e-15)
+    # The slope contribution must be the full outer product, not a diagonal only.
+    assert actual[0,1]==pytest.approx(spec.level_sd**2)
+
+
+def test_prior_kernel_scales_with_process_sd_squared(module):
+    spec=module.TemporalSpec(level_sd=.5,slope_sd=.2)
+    a=module.prior_kernel([1.,3.],[1.,3.],.1,spec)
+    b=module.prior_kernel([1.,3.],[1.,3.],.2,spec)
+    np.testing.assert_allclose(b-a,.03*np.minimum.outer([1.,3.],[1.,3.]),atol=1e-15)
+
+
+def test_observation_covariance_matches_declared_terms(module):
+    times=np.array([0.,1.,2.]);se=np.array([.1,.2,.3])
+    spec=module.TemporalSpec(intensity_cv=.3,alignment_cv=.4,residual_half_life_years=0.)
+    expected=np.diag(se**2+math.log1p(.3**2))+math.log1p(.4**2)*np.eye(3)
+    np.testing.assert_allclose(module.observation_covariance(times,se,spec),expected,atol=1e-15)
+    correlated=module.TemporalSpec(intensity_cv=.3,alignment_cv=.4,residual_half_life_years=2.)
+    c=module.observation_covariance(times,se,correlated)
+    decay=math.log1p(.4**2)
+    assert c[0,1]==pytest.approx(decay*math.exp(-math.log(2)*1/2),rel=1e-14)
+    assert c[0,2]==pytest.approx(decay*math.exp(-math.log(2)*2/2),rel=1e-14)
+
+
+def test_evidence_uses_declared_level_mean(module):
+    spec=module.TemporalSpec(level_mean=.5,level_sd=.1,slope_sd=.01,process_grid=(.05,),
+                             intensity_cv=0,alignment_cv=0)
+    times=np.array([0.,1.]);y=np.array([.45,.55]);se=np.array([.05,.05])
+    fit=module.fit_temporal(times,y,se,spec)
+    cov=_kernel(times,times,.05,spec.level_sd,spec.slope_sd)+np.diag(se**2)
+    expected=multivariate_normal.logpdf(y,mean=[.5,.5],cov=cov)
+    assert fit.log_evidence==pytest.approx(expected,rel=1e-12)
+    posterior=module.posterior_components(fit,times)
+    expected_mean=.5+_kernel(times,times,.05,spec.level_sd,spec.slope_sd)@np.linalg.solve(
+        cov,y-np.array([.5,.5]))
+    np.testing.assert_allclose(posterior['means'][0],expected_mean,atol=1e-12)
+    # Ignoring level_mean would leave the posterior centred near zero instead of .5.
+    assert posterior['means'][0].mean()==pytest.approx(.5,abs=.02)
+    flat=module.fit_temporal(times,y,se,replace(spec,level_mean=0.))
+    assert flat.log_evidence<fit.log_evidence
+
+
+def test_grid_prior_weights_match_independent_computation(module):
+    q=np.array([.01,.1,.2]);times=np.array([0.,1.,2.]);y=np.array([-.2,-.1,-.15]);se=np.array([.1,.1,.1])
+    spec=module.TemporalSpec(level_sd=.5,slope_sd=.1,process_grid=tuple(q),process_prior_scale=.1,
+                             intensity_cv=0,alignment_cv=0)
+    fit=module.fit_temporal(times,y,se,spec)
+    cells=np.array([(q[1]-q[0])/2,(q[2]-q[0])/2,(q[2]-q[1])/2])
+    logprior=-.5*(q/.1)**2+np.log(cells);logprior-=logsumexp(logprior)
+    loglik=np.array([
+        multivariate_normal.logpdf(y,mean=np.zeros(3),cov=_kernel(times,times,sd,.5,.1)+np.diag(se**2))
+        for sd in q])
+    expected=np.exp(logprior+loglik-logsumexp(logprior+loglik))
+    np.testing.assert_allclose(fit.weights,expected,rtol=1e-12,atol=1e-15)
+
+
+def test_evidence_falls_for_an_implausible_observation(module):
+    spec=module.TemporalSpec(process_grid=(.05,),intensity_cv=0,alignment_cv=0)
+    near=module.fit_temporal([0.,1.],[-.1,-.1],[.1,.1],spec)
+    far=module.fit_temporal([0.,1.],[-.1,1.4],[.1,.1],spec)
+    assert far.log_evidence<near.log_evidence
 
 
 def test_single_future_density_matches_normal_component(module):
