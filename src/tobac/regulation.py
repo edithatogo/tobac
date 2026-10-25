@@ -19,7 +19,7 @@ ACTIONS=('reference','retail_restriction','restriction_plus_support','expanded_c
 
 
 def load_config(path: str | Path) -> dict:
-    return validate_config(json.loads(Path(path).read_text()))
+    return validate_config(json.loads(Path(path).read_text(encoding='utf-8')))
 
 
 def build_states(config: dict, scenario: dict | None=None, association: float=0.):

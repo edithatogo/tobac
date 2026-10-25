@@ -12,7 +12,7 @@ from .information import evaluate, scalar_oracle, same_data_robustness
 def write_csv(path, rows):
     if not rows:return
     keys=list(dict.fromkeys(k for row in rows for k in row))
-    with Path(path).open('w',newline='') as f:
+    with Path(path).open('w',newline='',encoding='utf-8') as f:
         w=csv.DictWriter(f,fieldnames=keys);w.writeheader();w.writerows(rows)
 
 
@@ -83,14 +83,14 @@ def run(config_path, out, quick=False):
     outputs={'decision_summary.csv':summaries,'grouped_evppi.csv':partials,'study_value.csv':infos,'scientific_learning.csv':science,'same_data_robustness.csv':robust,'consequence_ledgers.csv':ledgers,'conditional_price_frontier.csv':prices,'incremental_information.csv':incremental}
     for f,rows in outputs.items():write_csv(out/f,rows)
     validation={'passed':bool(all(checks)),'checks':len(checks),'states':len(p0),'cases':len(cases),'designs':len(designs),'exact_oracle_error':abs(oracle-vector),'mc_check_estimate':float(mc.mean()),'mc_check_se':float(se),'exact_reference_evsi':vector,'method':'exact finite prior and coarsened outcomes; MC used only as independent check','scope':'conditional research; not current NZ posterior or policy recommendation','python':platform.python_version(),'numpy':np.__version__,'scipy':scipy.__version__}
-    (out/'validation.json').write_text(json.dumps(validation,indent=2)+'\n')
+    (out/'validation.json').write_text(json.dumps(validation,indent=2)+'\n',encoding='utf-8')
     # Hash the executed package, including installed-wheel invocations. Map it
     # to project source paths so the verifier checks source/install parity.
     package=Path(__file__).resolve().parent
-    inputs={str(Path('src/tobac')/p.relative_to(package)):hashlib.sha256(p.read_bytes()).hexdigest() for p in package.rglob('*.py')}
-    inputs[str(config_relative)]=hashlib.sha256(Path(config_path).read_bytes()).hexdigest()
+    inputs={(Path('src/tobac')/p.relative_to(package)).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in package.rglob('*.py')}
+    inputs[config_relative.as_posix()]=hashlib.sha256(Path(config_path).read_bytes()).hexdigest()
     hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.iterdir()) if p.is_file()}
-    (out/'manifest.json').write_text(json.dumps({'schema':'tobac.run.v1','inputs':inputs,'outputs':hashes},indent=2)+'\n')
+    (out/'manifest.json').write_text(json.dumps({'schema':'tobac.run.v1','inputs':inputs,'outputs':hashes},indent=2)+'\n',encoding='utf-8')
     if not all(checks):raise ArithmeticError('A numerical invariant failed; inspect outputs')
     return validation
 
