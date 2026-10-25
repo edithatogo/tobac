@@ -1,0 +1,14 @@
+{
+  "all_invariants_passed": true,
+  "invariant_count": 2105,
+  "scenario_decisions": 45,
+  "designs": 12,
+  "reference_states": 12288,
+  "prior_structure_scenario_probabilities": "not supplied or averaged",
+  "external_libraries_executed": false,
+  "value_scope": "Illustrative normalised decision-unit costs, not NZD or laboratory quotations. Same decision scale as M2; no field-funding claim.",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "finite_model_scope": "Conditional finite-method demonstration; preserves M2 source/estimand limits. No new empirical data assimilated."
+}

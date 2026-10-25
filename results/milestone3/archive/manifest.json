@@ -1,0 +1,25 @@
+{
+  "schema": "tobac.m3.saved-runs.v1",
+  "archive_format": "concatenated parts form a tar.xz",
+  "archive_bytes": 22740,
+  "archive_sha256": "6249990f4b8c4e499c446966d693d5681bab9b7af64cd3df4b0078f8f0e5875f",
+  "file_count": 24,
+  "parts": [
+    {
+      "name": "part-001",
+      "size": 7575,
+      "sha256": "f4c9ef9334084a4197175a989fe833b1974b4faaf00434ebc8776cd06e1057d5"
+    },
+    {
+      "name": "part-002",
+      "size": 7575,
+      "sha256": "7d3dee34f92186be294435f4f09b465f504ea42eb7f6f3c5356f651afd913ae3"
+    },
+    {
+      "name": "part-003",
+      "size": 7590,
+      "sha256": "23abf6c6663da21511f8f4997daebbf3c1fb6a584b0e9b602222421f826b8f7d"
+    }
+  ],
+  "scope": "All original full and refinement CSV/JSON outputs including run input/output manifests; no current NZ observations"
+}

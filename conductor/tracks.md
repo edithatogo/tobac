@@ -70,6 +70,23 @@ Receipt: `integration/incorporation_verification_20261025.json`.
 Preserves 19 previously archive-only evidence/template files: 298 mixed-purpose CSV rows and
 28 inherited reference records. Twenty-one scoped preservation tests and actual source-archive
 comparison passed. The remote evidence subtree matches tested local bytes. Current code,
-model inputs/results, dependencies and gates are unchanged. M3 has acknowledged base 886fc08
-on issue #1 and remains independently in progress. No copied assumption becomes a calibrated
-parameter, forecast a new observation, template a quotation, or old manuscript submission-ready.
+model inputs/results, dependencies and gates were unchanged by that audit. No copied assumption
+becomes a calibrated parameter, forecast a new observation, template a quotation, or old
+manuscript submission-ready. M3 incorporation now follows below.
+
+## M3 — research portfolios, implementation and staged decisions
+**Status: conditional numerical implementation complete; actual Voiage and hosted qualification remain open.**
+Track: `conductor/tracks/research_m3_20261025/`.
+Contract: `docs/research/M3_CONTRACT.md`; results: `results/milestone3/report.md`.
+Receipt: `integration/m3_local_verification.json`; six-item status: `integration/m3_requirement_status.csv`.
+
+The additive `src/tobac/research` package implements weighted expected-value adaptation,
+structure-only EVPPI, complementary/dependent reports, shared assets, existing-data guards,
+unweighted scenario envelopes, state-action implementation and matched pilot/continue/stop.
+162 scoped tests and 2,105 full-run invariants passed; this is not the entire live suite.
+The mathematical weighted adapter is tested but the real Voiage 2.2.0 probe remains blocked.
+Innovate/Kairos are optional; uptake/delay materiality is demonstrated with declared scenarios,
+not fitted external outputs. Full/refinement tables and manifests are preserved as 24 files
+in a hashed bounded archive with an unpacker. Existing source/evidence/engineering files are
+preserved from base 5218d831. Nox and the separate genuine-library CI lane remain fail-closed;
+configuration is not successful execution. Receiving commit and hosted outcomes: issue #1/#4.

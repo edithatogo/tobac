@@ -1,0 +1,7 @@
+order,addition,status,evidence_or_boundary
+1,Weighted Voiage and structure-only EVPPI,partial,Mathematical weighted/partition parity and exact counterexample passed; actual Voiage execution blocked
+2,Joint-source portfolios and conditional calibration,implemented_conditional,"Shared data/assets, explicit joint distributions, complementary/redundant tests and signed ENBS"
+3,Robust prior and structural scenarios,implemented_conditional,45 scenario/weight decisions; no viewpoint probabilities; scenario regret and reversals
+4,Implementation-adjusted VOI,implemented_conditional,"State-action kernels and four-cell decomposition; scenario uptake, not empirical adoption"
+5,Pilot continue stop,implemented_conditional,Matched no-study/fixed/adaptive options; costs only when bought; static-world timing reference
+6,Innovate/Kairos materiality,materiality_demonstrated,Uptake and delay can reverse conditional study selection; packages remain optional and unexecuted

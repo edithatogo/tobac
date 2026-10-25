@@ -1,0 +1,11 @@
+{
+  "schema": "tobac.voiage-qualification.v1",
+  "expected_version": "2.2.0",
+  "success": false,
+  "installed_library_executed": false,
+  "python": "3.13.5",
+  "status": "blocked",
+  "checks": [],
+  "scope": "released EVPI on exact weighted and finite-partition transforms only; no generic EVSI or structural API certification",
+  "error": "PackageNotFoundError('voiage')"
+}

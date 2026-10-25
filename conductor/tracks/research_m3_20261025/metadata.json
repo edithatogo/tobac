@@ -1,0 +1,12 @@
+{
+  "track_id": "research_m3_20261025",
+  "status": "partial",
+  "description": "Six approved research-method additions; numerical implementation passed, actual external integration and full hosted qualification pending",
+  "base_commit": "886fc08929f8e4e7e34fb6443bbf81545e52c3db",
+  "receiving_base": "5218d831f8b2452c7937da91ee00bf9b96183b2d",
+  "owned_paths": [
+    "src/tobac/research",
+    "tests/m3"
+  ],
+  "source_date": "2026-10-25"
+}

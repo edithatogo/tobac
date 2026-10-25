@@ -163,3 +163,12 @@ def canary(session):
                     'hypothesis', 'jsonschema', 'PyYAML')
     session.run('python', '-c', 'import hypothesis, jsonschema; print("canary dependencies loaded")')
     session.run('python', '-m', 'pytest', '-q', '--strict-markers')
+
+
+@nox.session
+def research_m3(session):
+    """M3 uses the existing reference environment and preserves its lock gates."""
+    environment(session)
+    session.run('python', '-m', 'pytest', '-q', 'tests/m3', 'tests/test_workstream_integration.py')
+    session.run('python', '-m', 'tobac.research.runner', '--out', 'outputs/replay_m3')
+    session.run('python', 'scripts/verify.py', 'outputs/replay_m3')

@@ -4,7 +4,26 @@ NZ tobacco-regulation uncertainty and wastewater value-of-information research.
 
 **Primary sequence:** regulatory EVPI -> grouped EVPPI -> targeted scientific learning -> study EVSI -> conditional ENBS. Testing, alternative research and no additional study are all permissible conclusions.
 
-## Current milestone: M2a
+## Current milestone: M3 research methods
+
+The six approved additions are implemented under [`src/tobac/research`](src/tobac/research/): exact weighted Voiage adaptation and structure-only information; complementary information portfolios and shared costs; unweighted prior/structure robustness; implementation-adjusted decisions; and pilot/continue/stop with matched timing. Uptake and delay materiality is tested before requiring Innovate or Kairos.
+
+Read the [M3 findings](results/milestone3/report.md), [method contract](docs/research/M3_CONTRACT.md), [six-item status](integration/m3_requirement_status.csv) and [execution receipt](integration/m3_local_verification.json). **Actual installed Voiage qualification remains blocked.** Passing adapter mathematics is not a library execution receipt. Innovate and Kairos remain optional and unexecuted. All new cost/value calculations are conditional normalised units, not NZ procurement estimates.
+
+```sh
+nox -s research_m3
+# Or use the already-qualified reference environment:
+OPENBLAS_NUM_THREADS=1 python -m tobac.research.runner --out outputs/my_m3
+python scripts/verify.py outputs/my_m3
+# Restore all 24 saved full/refinement output files without re-estimation:
+python scripts/unpack_m3_results.py --out outputs/saved_m3
+python scripts/verify.py outputs/saved_m3/full
+python scripts/verify.py outputs/saved_m3/refined
+```
+
+The full saved CSV/JSON tables and input/output manifests are losslessly packed in `results/milestone3/archive/`; the bounded unpacker verifies hashes and refuses overwrite. The new Actions workflow separates numerical reproduction from genuine released-Voiage execution. Workflow configuration is not hosted success. M3 preserves all parallel longitudinal, engineering and prior-evidence files through the current main base.
+
+## Preserved milestone: M2a
 
 M1's broad regulatory screening is preserved. M2a adds:
 
@@ -17,7 +36,7 @@ M1's broad regulatory screening is preserved. M2a adds:
 
 Read [M2a findings](results/milestone2/report.md), [the policy contract](docs/m2_retail_contract.md), [the evidence interface](docs/evidence_interface.md), [source applicability](evidence/m2/source_review.json) and [task status](conductor/tracks.md).
 
-**Neither milestone is a fitted current NZ posterior, an observed regulatory effect, or a funding recommendation.** M2a's published prior component was itself constructed in another model, for a different retailer reduction. Costs, harm weights, source transport and study performance remain explicitly conditional. Synthetic conditioning fixtures are not NZ observations. No individual criminality or ethnicity is inferred from wastewater.
+**These milestones are not a fitted current NZ posterior, an observed regulatory effect, or a funding recommendation.** M2a's published prior component was itself constructed in another model, for a different retailer reduction. Costs, harm weights, source transport and study performance remain explicitly conditional. Synthetic conditioning fixtures are not NZ observations. No individual criminality or ethnicity is inferred from wastewater.
 
 ## Incorporated longitudinal component: M2b
 
@@ -68,14 +87,14 @@ This focused repository is not a wholesale migration of the earlier project arch
 
 ## Execution boundaries
 
-The executed numerical stack is NumPy/SciPy. Genuine Sourceright and voiage jobs remain mandatory separate checks with explicit receipts. Their workflow definitions are not successful execution or scientific claim validation. CiteWeft is not executed. Read [M2a execution status](integration/m2_local_verification.json), Actions and issue #4 before claiming hosted qualification. No workflow gate, private visibility or account setting was weakened to obtain a passing badge.
+The executed numerical stack is NumPy/SciPy. Genuine Sourceright and voiage jobs remain mandatory separate checks with explicit receipts. Their workflow definitions are not successful execution or scientific claim validation. CiteWeft is not executed. Read [M2a execution status](integration/m2_local_verification.json), [M3 execution status](integration/m3_local_verification.json), Actions and issue #4 before claiming hosted qualification. No workflow gate, private visibility or account setting was weakened to obtain a passing badge.
 
 Absolute illicit volume differs from share. Baseline observations do not identify future policy response or additional organised-crime harm. Health, criminal, resource and fiscal outputs remain separate, and information gain in nats is not money. Independent source-applicability review, a matched current NZ evidence model, qualified causal effects and governance remain open.
 
 ## Incorporation audit and preserved prior work
 
 The [incorporation index](docs/INCORPORATION_STATUS.md) distinguishes active models,
-reference-only evidence, reproducible outputs, archive-only material and pending work.
+reference-only evidence, reproducible outputs, archive-only material and work awaiting qualification.
 Nineteen selected earlier files are now preserved under [evidence/prior_work](evidence/prior_work/),
 with exact archive/member hashes and checks for omission, mutation and source-ID linkage.
 This includes measurement/calibration summaries, survey versions, planning cost/uncertainty
@@ -90,4 +109,4 @@ python -m pytest -q tests/incorporation/test_prior_work.py
 For maintained-library choices, source-bound dependency locks and execution qualification,
 use the [engineering readiness guide](docs/engineering/READINESS.md). The commands above
 without reviewed transitive locks are development bootstrap, not release qualification.
-M3 coordination continues through issue #1; unfinished work is not represented as merged.
+M3 receiving-commit coordination and precise execution scope are recorded through issue #1.

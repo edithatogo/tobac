@@ -1,0 +1,75 @@
+{
+  "schema": "tobac.m3.local-verification.v1",
+  "date": "2026-10-25",
+  "receiving_base": "5218d831f8b2452c7937da91ee00bf9b96183b2d",
+  "tests": {
+    "passed": 162,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "Available regulatory101 + cross-workstream26 + M3/preservation35; NOT complete live repository suite"
+  },
+  "full_run": {
+    "all_invariants_passed": true,
+    "invariant_count": 2105,
+    "scenario_decisions": 45,
+    "designs": 12,
+    "reference_states": 12288,
+    "prior_structure_scenario_probabilities": "not supplied or averaged",
+    "external_libraries_executed": false,
+    "value_scope": "Illustrative normalised decision-unit costs, not NZD or laboratory quotations. Same decision scale as M2; no field-funding claim.",
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "finite_model_scope": "Conditional finite-method demonstration; preserves M2 source/estimand limits. No new empirical data assimilated."
+  },
+  "refinement": {
+    "all_invariants_passed": true,
+    "invariant_count": 81,
+    "scenario_decisions": 1,
+    "designs": 12,
+    "reference_states": 20480,
+    "prior_structure_scenario_probabilities": "not supplied or averaged",
+    "external_libraries_executed": false,
+    "value_scope": "Illustrative normalised decision-unit costs, not NZD or laboratory quotations. Same decision scale as M2; no field-funding claim.",
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "finite_model_scope": "Conditional finite-method demonstration; preserves M2 source/estimand limits. No new empirical data assimilated."
+  },
+  "saved_output_files_restored_and_hash_verified": 24,
+  "unchanged_numerical_module_git_blobs": {
+    "src/tobac/__init__.py": "2f28ae76edbfba49838ae9e60c5731b4987551bc",
+    "src/tobac/retail_case.py": "e0e7b8dc9052ca7f06dd9b68f47cfe1f201fd458",
+    "src/tobac/information.py": "f849dab18993d71a0ec16036fbf7a4057e8f9837",
+    "src/tobac/regulation.py": "58eda9b53d2059b2e86e988e6276c52929f2e305",
+    "src/tobac/run.py": "5dfdfce2ca6ac2e00ce4f40542e7eea9cd7c6b8f",
+    "src/tobac/supply.py": "8d98625799c794351114712ccb951dc602418340",
+    "src/tobac/m2.py": "14c096813c172ab6fc9e51463f9ccd22653c5223",
+    "src/tobac/config_validation.py": "edf1706a5850e969dfc91070ae378d672f10c368",
+    "src/tobac/evidence.py": "b572716b5d13cbeab0ed93144d919be3d365c687",
+    "src/tobac/_core.py": "f373fe8adcf1e2d7485226f845d4c91b6e0cf931",
+    "src/tobac/integrations.py": "5efb67e58d7e2a39816d45732d258f7b95ea804c",
+    "src/tobac_supply/longitudinal.py": "ec91de6443fd7baad014af46cc6f8a767442b82c",
+    "src/tobac_supply/consumption_ledger.py": "69b84ee58df22f2a70bda9de925862cc63acb63b"
+  },
+  "actual_voiage": {
+    "schema": "tobac.voiage-qualification.v1",
+    "expected_version": "2.2.0",
+    "success": false,
+    "installed_library_executed": false,
+    "python": "3.13.5",
+    "status": "blocked",
+    "checks": [],
+    "scope": "released EVPI on exact weighted and finite-partition transforms only; no generic EVSI or structural API certification",
+    "error": "PackageNotFoundError('voiage')"
+  },
+  "external": {
+    "innovate": "not executed; optional",
+    "kairos": "not executed; optional",
+    "sourceright": "not executed",
+    "citeweft": "not executed",
+    "nox": "configured; not executed locally",
+    "hosted": "not yet verified for new commit"
+  },
+  "scientific_scope": "Conditional finite methods; illustrative normalised costs, no current NZ empirical update or funding result"
+}
