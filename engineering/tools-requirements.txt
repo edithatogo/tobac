@@ -8,4 +8,4 @@ zizmor==1.31.1
 mutmut==3.7.0
 scalene==2.4.0
 pre-commit==4.7.0
-setuptools==84.1.0
+setuptools==84.2.1
