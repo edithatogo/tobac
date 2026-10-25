@@ -24,7 +24,7 @@ jobs:
           enable-cache: false
       - run: uvx --python 3.13 --from nox==2026.10.20 nox -s research_m3
       - run: python scripts/unpack_m3_results.py --out outputs/saved_m3
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
           name: m3-numerical-receipts
@@ -54,7 +54,7 @@ jobs:
           uv pip install --python .venv-voiage/bin/python outputs/voiage-release/*.whl
           uv pip check --python .venv-voiage/bin/python
           PYTHONPATH=src .venv-voiage/bin/python -m tobac.research.qualification --out outputs/m3_voiage.json
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
           name: m3-actual-voiage-parity
