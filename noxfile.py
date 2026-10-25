@@ -196,8 +196,10 @@ def mutation(session):
 @nox.session
 def profile(session):
     audit_tools(session)
-    session.run('scalene', '--cpu-only', '--json', '--outfile', str(OUT / 'scalene.json'),
-                'scripts/run_empirical_longitudinal.py', '--out', 'outputs/profile_empirical', '--quick')
+    # Scalene 2.4 replaced the flat CLI with subcommands; program arguments must follow '---'.
+    session.run('scalene', 'run', '--cpu-only', '--outfile', str(OUT / 'scalene.json'),
+                'scripts/run_empirical_longitudinal.py', '---',
+                '--out', 'outputs/profile_empirical', '--quick')
 
 
 @nox.session
