@@ -139,3 +139,17 @@ empirical posterior, quote, full scientific replay or independent review is clai
 M3 arrived concurrently at fa39fd36 and is preserved. The evidence gate also covers its
 research_m3 Nox session; shared reproduction now includes the M3 runner once. These command
 contracts were locally retested; the M3 numerical results were not re-estimated in this pass.
+
+## Advisory CI/CD, automation and security lane — 25 October 2026
+**Status: track created; not implemented; hosted execution and entitlements open.**
+Track: `conductor/tracks/cicd_hardening_20261025/`.
+
+A bleeding-edge tooling lane is specified beside the frozen reference lane: setup-uv/uv,
+ruff-action, ty, pyrefly, basedpyright, j178/prek, gitleaks, harden-runner, zizmor-action,
+gh-action-pip-audit, attest-build-provenance and an ubuntu-24.04-arm diagnostic leg. Every
+lane job is non-required and report-only. The reference NumPy/SciPy pins, engineering locks
+and receipts, `strict_all` counts and all existing required Nox sessions are unchanged.
+`strict_all` remains measured-not-fixed at 4,168 ruff and 3,584 basedpyright-all errors, so no
+lane result is a gate. Attestation entitlements, runner-level egress blocking, arm64
+qualification and all hosted jobs remain open. Configuration is not execution.
+
