@@ -394,7 +394,86 @@
       "redistribution_authorized": false,
       "capture_scope": "source_page_or_article_html",
       "full_document_status": "not_yet_verified",
-      "archive_match_status": "no_verified_exact_object_match"
+      "archive_match_status": "no_verified_exact_object_match",
+      "assets": [
+        {
+          "url": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "kind": "xlsx",
+          "discovered_from": "data/calibration_20261024/raw/tobacco_returns_completion.txt",
+          "consumer_path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+          "consumer_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+          "expected_header": [
+            "Year",
+            "Total tobacco sold tonnes (excl. cigars/cigarillos)"
+          ],
+          "expected_rows": [
+            [
+              2010,
+              2293.0
+            ],
+            [
+              2011,
+              2102.0
+            ],
+            [
+              2012,
+              2046.0
+            ],
+            [
+              2013,
+              1905.0
+            ],
+            [
+              2014,
+              1857.0
+            ],
+            [
+              2015,
+              1788.0
+            ],
+            [
+              2016,
+              1768.0
+            ],
+            [
+              2017,
+              1687.0
+            ],
+            [
+              2018,
+              1618.0
+            ],
+            [
+              2019,
+              1492.0
+            ],
+            [
+              2020,
+              1429.0
+            ],
+            [
+              2021,
+              1426.0
+            ],
+            [
+              2022,
+              1249.0
+            ],
+            [
+              2023,
+              1052.0
+            ],
+            [
+              2024,
+              968.0
+            ],
+            [
+              2025,
+              755.0
+            ]
+          ]
+        }
+      ]
     },
     {
       "archive_id": "tobac-855a41ac092cdd0a",

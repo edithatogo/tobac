@@ -19,6 +19,11 @@
       "passed": 614,
       "seconds": 203.9,
       "log_sha256": "5a5132913f06bfb9870f38bd7653ae54e71559354df853de7b0f282d2e2825b0"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/engineering/test_archive_bindings.py tests/test_workstream_integration.py",
+      "passed": 30,
+      "scope": "final workbook and supporting-file additions"
     }
   ],
   "limits": [

@@ -10,4 +10,5 @@ Preserve other workstreams and scientific gates. Coordination: issue #1.
 - [x] Map preserved and active input CSVs without changing values or scientific status.
 - [x] Bind archive CAS/WARC fixity and explicit retrieval/identity outcomes.
 - [ ] Complete blocked original-source acquisitions and source-specific rights review.
-- [ ] Verify remote publication and record actual test scope.
+- [x] Publish draft consumer PR #21; 614 full tests and final 30 focused tests passed.
+- [ ] Complete companion archive publication and remote raw-object recovery.

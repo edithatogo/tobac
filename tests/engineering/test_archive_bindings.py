@@ -35,6 +35,8 @@ def test_input_hashes_rows_and_archive_targets():
             assert len(list(csv.DictReader(stream))) == row['rows']
         for ref in row['source_references']:
             assert ref['archive_id'] in identities or ref['status'] == 'unresolved_or_internal_reference'
+    for row in manifest['supporting_files']:
+        assert hashlib.sha256((ROOT / row['path']).read_bytes()).hexdigest() == row['sha256']
 
 
 def test_bindings_match_register_and_do_not_upgrade_evidence():
@@ -48,3 +50,16 @@ def test_bindings_match_register_and_do_not_upgrade_evidence():
     assert 'retrieval_failed' in statuses
     assert 'metadata_only' in statuses
     assert 'source_html_identity_observed' in statuses
+    assert 'source_workbook_values_matched' in statuses
+
+
+def test_original_workbook_reconciliation_is_bound_to_consumer_input():
+    receipt = json.loads((ARCHIVE / 'workbook-reconciliation.json').read_text())
+    source = ROOT / receipt['consumer_path']
+    assert hashlib.sha256(source.read_bytes()).hexdigest() == receipt['consumer_sha256']
+    assert receipt['matched_rows'] == 16
+    assert receipt['status'] == 'all_16_values_match_exactly'
+    bindings = json.loads((ARCHIVE / 'source-bindings.json').read_text())
+    assert any(c.get('sha256') == receipt['source_sha256']
+               and c['status'] == 'source_workbook_values_matched'
+               for r in bindings['sources'] for c in r['captures'])

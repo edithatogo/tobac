@@ -616,5 +616,17 @@
       "scientific_qualification": "unchanged"
     }
   ],
-  "qualification": "File fixity and exact source-ID mapping; values, units, covariance, assumptions and row-level scientific status remain authoritative in consumer files."
+  "qualification": "File fixity and exact source-ID mapping; values, units, covariance, assumptions and row-level scientific status remain authoritative in consumer files.",
+  "supporting_files": [
+    {
+      "path": "data/calibration_20261024/raw/tobacco_returns_completion.txt",
+      "sha256": "b1ead4c90cacda71b50e8ccfcbbda3e416ace9ffc64173848741d11b21e8bcb5",
+      "role": "agent_extraction_note_not_original_source"
+    },
+    {
+      "path": "data/empirical_longitudinal_20261024/source_record.json",
+      "sha256": "48368264e86ca0aeab7f329b4ec4aea419b6232c4711ad31f0770611081450b6",
+      "role": "agent_extraction_note_not_original_source"
+    }
+  ]
 }

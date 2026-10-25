@@ -35,3 +35,11 @@ The archive branch contains the source sets, source register, native capture rec
 postflight verifier and operational readback. Raw payloads are locally retained in the
 archive system; they have not been published to Hugging Face. Rights remain source
 specific. No model input, prior, likelihood, result or M3 interface changes here.
+
+The original Ministry of Health tobacco-volume XLSX was acquired directly from its
+published file URL after the landing-page challenge. Its header and all 16 annual
+values (2010–2025) match the existing CSV exactly. The additional
+`workbook-reconciliation.json` binds both files' hashes and this comparison. This
+closes the workbook-value check while retaining the existing conversion, duty-free
+and measurement qualifications. The two supporting JSON/text extraction notes are
+also hash-inventoried as agent records. They retain their original provenance role.

@@ -425,6 +425,15 @@
           "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
           "status": "retrieval_failed",
           "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
         }
       ],
       "redistribution_authorized": false
@@ -978,10 +987,11 @@
     }
   ],
   "qualification": "CAS/WARC fixity and identity screen only; not extraction, scientific, full-document or redistribution approval",
-  "register_sha256": "97000576130aaf2832bb656a1c088d99946936dacf96911f6d3c4e011efc2504",
+  "register_sha256": "9f18cf7767df2db7ba42437cea0b92f92db29d53bdc33865aa280a76ea491840",
   "capture_receipt_sha256": [
     "648e65e974de8d603fd94cd6ef9889c97293a7ac85428594747b54fc6466f410",
     "e402bdc96b0e24087c6be57acfde81019fa5a3dbc6f9caedd6295cc497f5cfb6",
-    "f32f71d3fc06bc518ebae3ea0f403987d8c54387bae5d8a8fd7f4ae5e60da0fe"
+    "f32f71d3fc06bc518ebae3ea0f403987d8c54387bae5d8a8fd7f4ae5e60da0fe",
+    "46227cfc16c508ac5a93e9ac1045c50590dbee8cc53508de4eac3109512a8821"
   ]
 }
