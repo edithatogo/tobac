@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import platform
 import subprocess
 import sys
@@ -34,6 +35,10 @@ WINDOWS: dict[str, int | None] = {
     'recent_4_changes': 4,
     'recent_8_changes': 8,
 }
+SELECTION_RULE = ('mean_log_predictive_density maximised over the exploratory '
+                  'stage; ties broken by row order')
+SELECTION_STATISTICS = ('mean_log_predictive_density', 'rmse_tonnes',
+                        'coverage_95', 'mean_interval_score_95')
 
 
 def window_names(specs: list[int | None]) -> dict[str, int | None]:
@@ -295,6 +300,49 @@ Source: data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv.
 ''')
 
 
+def selection_report(
+    select: pd.DataFrame, start_year: int, end_year: int,
+) -> dict[str, Any]:
+    """Summarise the exploratory ranking and the margin over the runner-up.
+
+    Args:
+      select: Exploratory-stage score rows sorted by descending
+        mean_log_predictive_density, with row order breaking ties.
+      start_year: First exploratory selection year.
+      end_year: Last exploratory selection year.
+
+    Returns:
+      Additive selection-receipt fields: the ranking, the margin over the
+      runner-up, an interpretation of that margin and the selection rule.
+
+    Raises:
+      ValueError: If a reported statistic is non-finite.
+    """
+    scores: list[dict[str, Any]] = []
+    for row in select.itertuples(index=False):
+        record: dict[str, Any] = {'model': str(row.model)}
+        for statistic in SELECTION_STATISTICS:
+            value = float(getattr(row, statistic))
+            if not math.isfinite(value):
+                raise ValueError(
+                    f'Non-finite {statistic} for model {row.model!r}: {value!r}; '
+                    'cannot report a selection margin')
+            record[statistic] = value
+        scores.append(record)
+    margin = None
+    if len(scores) > 1:
+        margin = (scores[0]['mean_log_predictive_density']
+                  - scores[1]['mean_log_predictive_density'])
+    return {
+        'selection_scores': scores,
+        'margin_over_runner_up': margin,
+        'margin_interpretation': (
+            f'Exploratory comparison on {start_year}-{end_year}, not a '
+            'model-selection result; a small margin does not distinguish models.'),
+        'selection_rule': SELECTION_RULE,
+    }
+
+
 def run(
     out: Path | str,
     quick: bool = False,
@@ -340,16 +388,19 @@ def run(
     score['rmse_tonnes'] = np.sqrt(score.pop('mse'))
     score.to_csv(out / 'predictive_scores.csv', index=False, float_format='%.12g')
     select = score[score.stage == exploratory_stage].sort_values(
-        'mean_log_predictive_density', ascending=False)
+        'mean_log_predictive_density', ascending=False, kind='stable')
     selected = str(select.iloc[0].model)
-    save_json(out / 'selection_receipt.json', {
+    receipt = {
         'selected_for_display': selected,
         'selection_years': [cfg['hindcast_start'], cfg['selection_end']],
         'reserved_diagnostic_years': list(cfg['reserved_diagnostic_years']),
         'qualification': cfg['selection_qualification'],
         'optimality_claim': False,
         'all_candidates_retained': list(windows),
-    })
+    }
+    receipt.update(selection_report(
+        select, cfg['hindcast_start'], cfg['selection_end']))
+    save_json(out / 'selection_receipt.json', receipt)
     references = [
     row
     for method, window in [('last', None), ('loglinear', 4)]

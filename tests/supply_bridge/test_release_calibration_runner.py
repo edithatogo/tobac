@@ -214,3 +214,65 @@ def test_duplicate_window_specs_are_rejected():
         load_runner().configured_windows({'windows':[4,4]})
     with pytest.raises(ValueError,match='3 windows but 2'):
         load_runner().configured_windows({'windows':[None,4,4]})
+
+
+def test_selection_receipt_reports_the_ranking_and_margin(cli_output):
+    selection=json.loads((cli_output/'selection_receipt.json').read_text())
+    scores=selection['selection_scores']
+    values=[s['mean_log_predictive_density'] for s in scores]
+    assert values==sorted(values,reverse=True)
+    assert {s['model'] for s in scores}==set(
+        pd.read_csv(cli_output/'forecast_summary.csv').model)
+    assert selection['margin_over_runner_up']==values[0]-values[1]
+    statistics={'model','mean_log_predictive_density','rmse_tonnes',
+                'coverage_95','mean_interval_score_95'}
+    assert all(set(s)==statistics for s in scores)
+
+
+def test_selection_scores_come_from_the_predictive_score_frame(cli_output):
+    selection=json.loads((cli_output/'selection_receipt.json').read_text())
+    score=pd.read_csv(cli_output/'predictive_scores.csv')
+    exploratory=score[score.stage.str.startswith('exploratory')].set_index('model')
+    for item in selection['selection_scores']:
+        row=exploratory.loc[item['model']]
+        for statistic in ('mean_log_predictive_density','rmse_tonnes',
+                          'coverage_95','mean_interval_score_95'):
+            # predictive_scores.csv is written with %.12g, so compare at that
+            # precision while the receipt keeps the unrounded value.
+            assert item[statistic]==pytest.approx(row[statistic],rel=1e-11)
+
+
+def test_selection_keys_do_not_change_the_selected_model(cli_output):
+    selection=json.loads((cli_output/'selection_receipt.json').read_text())
+    score=pd.read_csv(cli_output/'predictive_scores.csv')
+    exploratory=score[score.stage.str.startswith('exploratory')].sort_values(
+        'mean_log_predictive_density',ascending=False,kind='stable')
+    assert selection['selected_for_display']==exploratory.iloc[0].model
+    assert selection['selected_for_display']==selection['selection_scores'][0]['model']
+
+
+def test_selection_receipt_states_the_rule_and_margin_interpretation(cli_output):
+    selection=json.loads((cli_output/'selection_receipt.json').read_text())
+    assert selection['selection_rule']==load_runner().SELECTION_RULE
+    text=selection['margin_interpretation'].lower()
+    assert 'exploratory' in text and 'not a model-selection result' in text
+    assert 'small margin does not distinguish models' in text
+    assert str(selection['selection_years'][0]) in text
+    assert str(selection['selection_years'][1]) in text
+
+
+def test_selection_report_rejects_a_non_finite_statistic():
+    frame=pd.DataFrame([{
+        'model':'broken','mean_log_predictive_density':float('nan'),
+        'rmse_tonnes':1.0,'coverage_95':1.0,'mean_interval_score_95':1.0}])
+    with pytest.raises(ValueError,match='Non-finite mean_log_predictive_density'):
+        load_runner().selection_report(frame,2015,2022)
+
+
+def test_single_candidate_has_no_margin():
+    frame=pd.DataFrame([{
+        'model':'only','mean_log_predictive_density':-5.0,
+        'rmse_tonnes':1.0,'coverage_95':1.0,'mean_interval_score_95':1.0}])
+    report=load_runner().selection_report(frame,2015,2022)
+    assert report['margin_over_runner_up'] is None
+    assert [s['model'] for s in report['selection_scores']]==['only']
