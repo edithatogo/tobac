@@ -14,3 +14,16 @@ broader native archival lineage plan are outside this bounded consumer implement
 Executed local evidence: `integration/archive/handoff-verification_20261026.json`.
 
 PR #21 merged at `cf8295b5c1b649685ba78f4977ec7f1b5883d1a8` after 15/15 checks passed at `752436646da5a97f45bef38088f49ac4a2d39d2b`.
+
+## MOH workbook observation qualification — 26 October 2026
+
+- [x] Reverify original workbook/CAS/WARC bytes through the existing native producer.
+- [x] Reproduce all 16 year/value pairs against unchanged consumer CSV bytes.
+- [x] Record established 2025 scope and unresolved historical/channel/product/date definitions.
+- [x] Specify measurement/dependence requirements without inventing calibrated parameters.
+- [x] Regenerate a dated handoff report using locally verified objects; preserve older reports.
+- [x] Execute focused/full integration, strict and reproduction/package gates.
+- [ ] Publish the MOH qualification follow-up and verify exact-head hosted checks.
+
+The bounded pathway review does not qualify a regulatory likelihood or posterior. See
+`docs/MOH_OBSERVATION_PATHWAY.md` and the dated MOH qualification receipt.

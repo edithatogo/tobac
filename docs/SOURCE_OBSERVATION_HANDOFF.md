@@ -72,3 +72,7 @@ the broader native archival lineage plan or scientific ecosystem modernisation p
 second evidence engine and changes no source observations, numerical assumptions or results.
 Synthetic fixtures test rejection behavior and metadata compatibility only. Independent scientific
 endorsement, current-NZ calibration and policy conclusions remain unclaimed.
+
+The subsequent [MOH pathway qualification](MOH_OBSERVATION_PATHWAY.md) retains a new dated
+report using locally verified objects. The earlier report/proposal above remain unchanged
+historical snapshots. Native source/value verification does not waive the remaining scientific gaps.

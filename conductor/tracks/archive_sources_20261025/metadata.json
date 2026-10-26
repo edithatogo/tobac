@@ -20,5 +20,13 @@
     "merge_commit": "cf8295b5c1b649685ba78f4977ec7f1b5883d1a8",
     "qualified_pr_head": "752436646da5a97f45bef38088f49ac4a2d39d2b",
     "hosted_checks": "15/15 passed"
+  },
+  "moh_followup": {
+    "status": "local_qualification_complete_hosted_pending",
+    "guide": "docs/MOH_OBSERVATION_PATHWAY.md",
+    "specification": "integration/archive/moh-observation-specification.json",
+    "native_receipt": "integration/archive/moh-workbook-qualification_20261026.json",
+    "scientific_qualification": false,
+    "verification": "integration/archive/moh-pathway-verification_20261026.json"
   }
 }

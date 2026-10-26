@@ -1,0 +1,1705 @@
+{
+  "schema_version": "tobac.observation-handoff-report.v1",
+  "status": "blocked",
+  "automatically_conditions_live_model": false,
+  "scientific_qualification": false,
+  "target_scope": {
+    "geography": "NZ_national",
+    "population": "prospective retailer catchment population; selection unresolved",
+    "start": "2026-01-01",
+    "end": "2027-01-01",
+    "unit": "cigarette_equivalents/year"
+  },
+  "target_scope_status": "proposed",
+  "target_products": "factory_made_and_RYO_at_source_0.7g_convention",
+  "proposal_sha256": "c5a0d7afcb5a7aaef9ec140ff646458dc71370e5d02eef078dda8aec831f9931",
+  "binding_sha256": "5a384e0bc242740e13b7ce8bcb8b255440076de797b2e50398c986b63a433727",
+  "dependency_mapping_status": "explicit consumer declaration; not independently established",
+  "observations": [
+    {
+      "observation_id": "releases-2010",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2010,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2010-01-01",
+        "2011-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2010; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2010-01-01/2011-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2011",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2011,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2011-01-01",
+        "2012-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2011; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2011-01-01/2012-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2012",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2012,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2012-01-01",
+        "2013-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2012; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2012-01-01/2013-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2013",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2013,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2013-01-01",
+        "2014-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2013; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2013-01-01/2014-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2014",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2014,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2014-01-01",
+        "2015-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2014; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2014-01-01/2015-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2015",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2015,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2015-01-01",
+        "2016-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2015; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2015-01-01/2016-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2016",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2016,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2016-01-01",
+        "2017-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2016; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2016-01-01/2017-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2017",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2017,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2017-01-01",
+        "2018-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2017; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2017-01-01/2018-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2018",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2018,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2018-01-01",
+        "2019-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2018; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2018-01-01/2019-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2019",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2019,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2019-01-01",
+        "2020-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2019; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2019-01-01/2020-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2020",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2020,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2020-01-01",
+        "2021-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2020; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2020-01-01/2021-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2021",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2021,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2021-01-01",
+        "2022-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2021; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2021-01-01/2022-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2022",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2022,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2022-01-01",
+        "2023-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2022; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2022-01-01/2023-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2023",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2023,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2023-01-01",
+        "2024-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2023; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2023-01-01/2024-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2024",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2024,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2024-01-01",
+        "2025-01-01"
+      ],
+      "source_scope": null,
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2024; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2024-01-01/2025-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "source_scope_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "releases-2025",
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "input_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "observation_year": 2025,
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "period": [
+        "2025-01-01",
+        "2026-01-01"
+      ],
+      "source_scope": {
+        "geography": "NZ_national",
+        "population": "manufacturer/importer reported releases to NZ retail market; not resident consumption",
+        "start": "2025-01-01",
+        "end": "2026-01-01",
+        "unit": "tonnes/year"
+      },
+      "products": "reported_smoked_tobacco_mass_excluding_cigars_cigarillos; other product/channel definitions unresolved",
+      "source_locator": "highcharts-data-table-0; row 2025; Total tobacco sold tonnes (excl. cigars/cigarillos)",
+      "role": "observation",
+      "source_declared_role": "official_published_table_browser_extraction",
+      "source_limitations": "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "gaps": [
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status"
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2012",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2012,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2012-01-01",
+        "2013-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2012-01-01/2013-01-01",
+        "NZHS:2012-01-01/2013-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2013",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2013,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2013-01-01",
+        "2014-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2013-01-01/2014-01-01",
+        "NZHS:2013-01-01/2014-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2014",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2014,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2014-01-01",
+        "2015-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2014-01-01/2015-01-01",
+        "NZHS:2014-01-01/2015-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2015",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2015,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2015-01-01",
+        "2016-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2015-01-01/2016-01-01",
+        "NZHS:2015-01-01/2016-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2016",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2016,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2016-01-01",
+        "2017-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2016-01-01/2017-01-01",
+        "NZHS:2016-01-01/2017-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2017",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2017,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2017-01-01",
+        "2018-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2017-01-01/2018-01-01",
+        "NZHS:2017-01-01/2018-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2018",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2018,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2018-01-01",
+        "2019-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2018-01-01/2019-01-01",
+        "NZHS:2018-01-01/2019-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2019",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2019,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2019-01-01",
+        "2020-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2019-01-01/2020-01-01",
+        "NZHS:2019-01-01/2020-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2020",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2020,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2020-01-01",
+        "2021-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2020-01-01/2021-01-01",
+        "NZHS:2020-01-01/2021-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2021",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2021,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2021-01-01",
+        "2022-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2021-01-01/2022-01-01",
+        "NZHS:2021-01-01/2022-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2022",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2022,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2022-01-01",
+        "2023-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2022-01-01/2023-01-01",
+        "NZHS:2022-01-01/2023-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    },
+    {
+      "observation_id": "historical-2023",
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "input_sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "source_id": "parallel-S08",
+      "observation_year": 2023,
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "period": [
+        "2023-01-01",
+        "2024-01-01"
+      ],
+      "source_scope": null,
+      "products": null,
+      "source_locator": "Table 2",
+      "role": "summary",
+      "source_declared_role": "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share",
+      "source_limitations": "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts.",
+      "dependency_groups": [
+        "NZ_MOH_tobacco_returns",
+        "NZHS"
+      ],
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2023-01-01/2024-01-01",
+        "NZHS:2023-01-01/2024-01-01"
+      ],
+      "gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/"
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/"
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        }
+      ],
+      "metadata_compatible": false
+    }
+  ]
+}

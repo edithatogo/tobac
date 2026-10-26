@@ -1,0 +1,134 @@
+{
+  "schema": "tobac.moh-workbook-qualification.v1",
+  "verified_at": "2026-10-26T09:20:00.558111+00:00",
+  "status": "native_fixity_and_values_verified",
+  "original_capture_timestamp": null,
+  "capture_time_status": "unverified_missing_original_WARC_Date",
+  "source_url": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+  "source_sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+  "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+  "consumer_path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+  "consumer_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+  "matched_rows": [
+    {
+      "year": 2010,
+      "value_tonnes": "2293",
+      "period_start": "2010-01-01",
+      "period_end": "2011-01-01"
+    },
+    {
+      "year": 2011,
+      "value_tonnes": "2102",
+      "period_start": "2011-01-01",
+      "period_end": "2012-01-01"
+    },
+    {
+      "year": 2012,
+      "value_tonnes": "2046",
+      "period_start": "2012-01-01",
+      "period_end": "2013-01-01"
+    },
+    {
+      "year": 2013,
+      "value_tonnes": "1905",
+      "period_start": "2013-01-01",
+      "period_end": "2014-01-01"
+    },
+    {
+      "year": 2014,
+      "value_tonnes": "1857",
+      "period_start": "2014-01-01",
+      "period_end": "2015-01-01"
+    },
+    {
+      "year": 2015,
+      "value_tonnes": "1788",
+      "period_start": "2015-01-01",
+      "period_end": "2016-01-01"
+    },
+    {
+      "year": 2016,
+      "value_tonnes": "1768",
+      "period_start": "2016-01-01",
+      "period_end": "2017-01-01"
+    },
+    {
+      "year": 2017,
+      "value_tonnes": "1687",
+      "period_start": "2017-01-01",
+      "period_end": "2018-01-01"
+    },
+    {
+      "year": 2018,
+      "value_tonnes": "1618",
+      "period_start": "2018-01-01",
+      "period_end": "2019-01-01"
+    },
+    {
+      "year": 2019,
+      "value_tonnes": "1492",
+      "period_start": "2019-01-01",
+      "period_end": "2020-01-01"
+    },
+    {
+      "year": 2020,
+      "value_tonnes": "1429",
+      "period_start": "2020-01-01",
+      "period_end": "2021-01-01"
+    },
+    {
+      "year": 2021,
+      "value_tonnes": "1426",
+      "period_start": "2021-01-01",
+      "period_end": "2022-01-01"
+    },
+    {
+      "year": 2022,
+      "value_tonnes": "1249",
+      "period_start": "2022-01-01",
+      "period_end": "2023-01-01"
+    },
+    {
+      "year": 2023,
+      "value_tonnes": "1052",
+      "period_start": "2023-01-01",
+      "period_end": "2024-01-01"
+    },
+    {
+      "year": 2024,
+      "value_tonnes": "968",
+      "period_start": "2024-01-01",
+      "period_end": "2025-01-01"
+    },
+    {
+      "year": 2025,
+      "value_tonnes": "755",
+      "period_start": "2025-01-01",
+      "period_end": "2026-01-01"
+    }
+  ],
+  "producer_tool_sha256": "983c314558572ef1c88b424ca72f546674639ec494ee2409b8c1ee8efbebc0f4",
+  "producer_register_sha256": "9f18cf7767df2db7ba42437cea0b92f92db29d53bdc33865aa280a76ea491840",
+  "native_verifier_output_sha256": "226dd89646b54545ccb060040d5e439d1db03443e77576b824a504aae2345d1f",
+  "producer_environment": {
+    "python": [
+      3,
+      15,
+      1
+    ],
+    "packages": {
+      "openpyxl": "3.1.5",
+      "warcio": "1.8.1"
+    }
+  },
+  "checks": [
+    "CAS fixity",
+    "WARC fixity",
+    "WARC/CAS payload equality",
+    "request URL identity",
+    "native openpyxl workbook/header parity",
+    "all 16 consumer year/value pairs"
+  ],
+  "scientific_qualification": false,
+  "automatically_conditions_live_model": false
+}
