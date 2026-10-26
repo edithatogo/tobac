@@ -40,7 +40,7 @@ Remaining-time fractions apply to one fixed value horizon. This is a static-worl
 
 Uptake and reporting-delay scenarios materially change conditional funding results, so implementation trajectories and operational delay deserve investigation. They do not yet justify mandatory dependencies. Innovate could supply qualified uptake/substitution trajectories; Kairos could supply event/queue/delay distributions. Neither is executed or fitted by this module. Current equations are sufficient reference cases against which future adapters must show parity and incremental value.
 
-Any exported extension must retain scenario/draw IDs, timing, units, current-data IDs, provenance and whether uncertainty is empirical, elicited or assumed. Forecast paths are not new observations. No algorithm identifies legal origin, policy causality or ethnicity merely from wastewater. Governance, independent review, field calibration and matched causal comparisons remain external scientific requirements.
+Any exported extension must retain scenario/draw IDs, timing, units, current-data IDs, provenance and whether uncertainty is empirical, elicited or assumed. Forecast paths are not new observations. No algorithm identifies legal origin, policy causality or ethnicity merely from wastewater. Governance, field calibration and matched causal comparisons remain external scientific requirements; independent peer review is not a repository gate.
 
 ## Execution
 

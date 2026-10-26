@@ -1,12 +1,15 @@
-target-version = "py312"
+target-version = "py315"
 line-length = 110
 [lint]
 select = ["ALL"]
 # Conflicting docstring conventions and formatter-compatible trailing commas.
-ignore = ["D203", "D213", "COM812"]
+ignore = ["D203", "D213", "COM812", "CPY001"]
 [lint.per-file-ignores]
 # JSON interchange is dynamic; fixed Git argv is deliberately shell-free; readable CLI/errors.
-# Single-file CLI scripts are not packages and carry no copyright header by project convention.
+# Single-file CLI scripts remain standalone entry points.
 "**/context_bundle.py" = ["ANN401", "S603", "S607", "TRY003", "EM101", "EM102", "T201", "INP001", "CPY001"]
 # A single-file CLI pass/fail gate: prints its verdict and exits; no shebang install path.
 "**/check_mutation_score.py" = ["EXE001", "CPY001", "T201"]
+
+# These are direct CLI entry points, not installed Python packages.
+"**/scripts/*.py" = ["INP001"]

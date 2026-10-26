@@ -1,14 +1,14 @@
 # Reference environment version lock; not a wheel-hash lock.
-numpy==2.3.5
-scipy==1.17.0
+numpy==2.5.4
+scipy==1.18.1
 pytest==9.0.3
 iniconfig==2.3.0
 packaging==26.3
 pluggy==1.6.0
 Pygments==2.20.0
-# Longitudinal runners and tests; original regulatory pins above are unchanged.
-pandas==2.2.3
-matplotlib==3.10.8
+# Longitudinal runners and tests.
+pandas==3.0.6
+matplotlib==3.11.2
 # Engineering contract/property tests, not scientific runtime dependencies.
 jsonschema==4.26.0
 PyYAML==6.0.3

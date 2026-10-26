@@ -63,7 +63,21 @@ def test_newest_ecosystem_is_a_separate_canary_not_a_reference_overwrite():
     assert 'source-only' in code
     assert 'require-hashes' in code and '--no-build-isolation' in code
     config = tomllib.loads((ROOT / 'pyproject.toml').read_text())
-    assert config['project']['dependencies'] == ['numpy==2.3.5', 'scipy==1.17.0']
+    assert config['project']['requires-python'] == '>=3.15.1,<3.16'
+    assert config['project']['dependencies'] == ['numpy==2.5.4', 'scipy==1.18.1']
+    assert "sys.version_info[:3] == (3, 15, 1)" in code
+    strict = ast.parse(code)
+    strict_session = next(n for n in strict.body if isinstance(n, ast.FunctionDef) and n.name == 'strict_all')
+    strict_source = ast.unparse(strict_session)
+    assert "'engineering/ruff.toml'" in strict_source
+    lint = tomllib.loads((ROOT / 'engineering/ruff.toml').read_text())
+    assert lint['target-version'] == 'py315'
+    assert 'CPY001' in lint['lint']['ignore']
+    for profile in ['basedpyright.json', 'basedpyright-all.json']:
+        checker = json.loads((ROOT / 'engineering' / profile).read_text())
+        assert checker['pythonVersion'] == '3.15'
+    all_checker = json.loads((ROOT / 'engineering/basedpyright-all.json').read_text())
+    assert all_checker['extraPaths'] == ['../src', '../scripts']
 
 
 def test_renovate_does_not_automerge_scientific_changes():

@@ -7,3 +7,6 @@
 
 # Preserved source data and generated evidence are byte-stable inputs to hashing.
 evidence/** -text
+
+# Immutable extraction retains the original trailing blank line as byte evidence.
+evidence/core_extraction_20261024.py whitespace=-blank-at-eof

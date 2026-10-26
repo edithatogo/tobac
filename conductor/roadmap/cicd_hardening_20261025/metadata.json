@@ -1,7 +1,7 @@
 {
   "track_id": "cicd_hardening_20261025",
   "title": "Advisory CI/CD, automation, quality and security lane",
-  "status": "planned_advisory_lane_not_implemented",
+  "status": "deferred_to_roadmap",
   "base_commit": "4eae78aace5b3c5ab5b841f82cf0ccc625de4082",
   "authored_at_head": "ddcfbd9",
   "date": "2026-10-25",
@@ -24,17 +24,51 @@
     "renovate.json"
   ],
   "planned_actions": {
-    "step-security/harden-runner": {"tag": "v2.22.2", "commit": "dc2769abcc0fcfbadfc1df54081c1608579ef6b2", "policy": "egress audit; block not adopted"},
-    "astral-sh/ruff-action": {"tag": "v4.1.0", "commit": "278981a28ce3188b1e39527901f38254bf3aac89"},
-    "zizmorcore/zizmor-action": {"tag": "v0.8.0", "commit": "53290badfa369cb0bf7ad16342cb62c2fa47ac7b"},
-    "pypa/gh-action-pip-audit": {"tag": "v1.1.0", "commit": "1220774d901786e6f652ae159f7b6bc8fea6d266"},
-    "actions/attest-build-provenance": {"tag": "v4.2.2", "commit": "4d101475d8b20a2381f78447822ac1eab6504dd8", "trigger": "workflow_dispatch only"},
-    "j178/prek-action": {"tag": "v3.1.0", "commit": "44924fe9ef4a6f88253c4b6b1bf11c689d3ce53d"},
-    "j178/prek": {"tag": "v0.5.7", "commit": "8569a4ac59a79212fe152f3c815505775301ec1d"},
-    "astral-sh/ty": {"tag": "0.0.91", "invocation": "uvx ty; no official action found"},
-    "facebook/pyrefly": {"tag": "1.4.0", "invocation": "uvx pyrefly check; no official action found"},
-    "gitleaks/gitleaks": {"tag": "v8.30.1", "invocation": "CLI/action; local CLI is 8.30.1"},
-    "ubuntu-24.04-arm": {"role": "diagnostic leg; not reference qualification"}
+    "step-security/harden-runner": {
+      "tag": "v2.22.2",
+      "commit": "dc2769abcc0fcfbadfc1df54081c1608579ef6b2",
+      "policy": "egress audit; block not adopted"
+    },
+    "astral-sh/ruff-action": {
+      "tag": "v4.1.0",
+      "commit": "278981a28ce3188b1e39527901f38254bf3aac89"
+    },
+    "zizmorcore/zizmor-action": {
+      "tag": "v0.8.0",
+      "commit": "53290badfa369cb0bf7ad16342cb62c2fa47ac7b"
+    },
+    "pypa/gh-action-pip-audit": {
+      "tag": "v1.1.0",
+      "commit": "1220774d901786e6f652ae159f7b6bc8fea6d266"
+    },
+    "actions/attest-build-provenance": {
+      "tag": "v4.2.2",
+      "commit": "4d101475d8b20a2381f78447822ac1eab6504dd8",
+      "trigger": "workflow_dispatch only"
+    },
+    "j178/prek-action": {
+      "tag": "v3.1.0",
+      "commit": "44924fe9ef4a6f88253c4b6b1bf11c689d3ce53d"
+    },
+    "j178/prek": {
+      "tag": "v0.5.7",
+      "commit": "8569a4ac59a79212fe152f3c815505775301ec1d"
+    },
+    "astral-sh/ty": {
+      "tag": "0.0.91",
+      "invocation": "uvx ty; no official action found"
+    },
+    "facebook/pyrefly": {
+      "tag": "1.4.0",
+      "invocation": "uvx pyrefly check; no official action found"
+    },
+    "gitleaks/gitleaks": {
+      "tag": "v8.30.1",
+      "invocation": "CLI/action; local CLI is 8.30.1"
+    },
+    "ubuntu-24.04-arm": {
+      "role": "diagnostic leg; not reference qualification"
+    }
   },
   "open_gates": [
     "strict_all is not green: 4,168 ruff and 3,584 basedpyright-all errors at the original measurement; 4,861 ruff and 2,456 basedpyright on the 26 October 2026 macOS/Python 3.15 re-measurement",

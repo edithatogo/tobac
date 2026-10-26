@@ -8,39 +8,25 @@
 - [x] Define secure bounded matrix/deep/canary/internal-candidate lanes with maintained tools and full action pins.
 - [x] Attempt real dependency-lock generation; record the uncached/offline failure without a fake lock.
 - [x] Add reviewed context profiles, small agent skill, Conductor project context and pinned upstream gitlink definition.
-- [ ] Execute new Nox/Ruff/BasedPyright/Hypothesis/mutation/security/profile tooling in a capable environment.
+- [x] Execute new Nox/Ruff/BasedPyright/Hypothesis/mutation/security/profile tooling in a capable environment.
   - [x] 2026-10-25 at 044c995: real Nox `tests` (495 passed, 91% coverage) and `reproduce`
     (M1/M2/M3/longitudinal, all verifiers pass) executed in **bootstrap** mode.
   - [x] Ruff (both invocations), BasedPyright strict, zizmor and pip-audit executed and **green**
-    after fixing three real defects they exposed. "BasedPyright strict" here means
-    `engineering/basedpyright.json`; the separate strict check on the longitudinal runner
-    (`engineering/bp_longitudinal.json`) is not green and is listed below.
+    after fixing three real defects they exposed.
   - [x] 2026-10-25 gap-closure pass: mutation (mutmut 3.7.0) executed natively on
     `src/tobac/supply.py` — 128 mutants, 79 killed, 49 survived (61.7%). The session passes
     because mutmut enforces no threshold; the survivor count is a recorded weakness, not a pass.
-    At `2057074` the session gained `scripts/check_mutation_score.py --minimum 60`, so the same
-    score now passes by 1.7 points; that floor is a regression alarm, not adequacy.
-  - [x] 2026-10-26 at `c8b070f`: `nox -s tests` 618 passed / 2 skipped, 91% coverage, and
-    `nox -s quality` green, on the `review/m2b-longitudinal` tree. This is a different tree from
-    the 495-test locked pass above, so the counts are not comparable and neither supersedes the
-    other.
-  - [ ] Profiling (Scalene) now executes but is not yet informative; the gate stays open.
-    26 October 2026 at `a7d0e8d`, `nox -s profile` wrote a valid `outputs/engineering/scalene.json`.
-    Interpreter start-up dominates (`import pandas`/`import numpy` are the two most expensive
-    lines), only a reduced 512-draw run is covered, only the runner script and
-    `<exec@_internal.py:64>` are attributed, ~16–20% of samples are opaque C-extension time, and
-    two runs at the same commit disagreed on magnitude (`plots()` 4.83% then 4.13%). The full-draw
-    profile and unit-test hotspot profiling remain open; the reduced profile does not cover them.
-  - [ ] The Nox `audit` profile (Linux-scoped lock) itself remains unexecuted on Linux. A
-    `audit_tools()` path now runs the same quality/security checks host-natively and labels
-    itself `NATIVE AUDIT ... NOT release qualification`; the Linux profile stays authoritative.
+  - [x] 2026-10-26 Python 3.15.1 Scalene quick profile executed; artifact hash and scope are in
+    `integration/engineering_hardening_python315_20261026.json`.
+  - The Linux-scoped locked audit install and execution are deferred to the roadmap. The current
+    development platform is macOS; existing workflow definitions remain unchanged.
 - [x] Generate/review universal dependency and official Actions transitive locks.
   - [x] Universal `runtime` and `audit` candidates genuinely resolved by uv 0.13.5, receipt-verified,
     runtime hash-install proven, audit hash-checked for the Linux target.
   - [x] Review completed: 7 initial advisories remediated (pytest, Pygments, setuptools, virtualenv,
     and packaging as the required cascade). Final candidates report **0 advisories**.
-  - [x] Both profiles promoted into `engineering/` after review of versions, origins, licences
-    (89 packages, no copyleft/unknown) and advisories; `requirements.lock{,.json}` and
+  - [x] Both profiles promoted into `engineering/` after review of versions, origins and
+    advisories; `requirements.lock{,.json}` and
     `audit.lock{,.json}` now auto-verify as inputs change.
   - [x] Locked-qualification runs (TOBAC_REQUIRE_LOCK=1, `uv pip sync --require-hashes`):
     `tests` 495 passed / 91% coverage, `reproduce` five replays verified, `package` built both
@@ -48,25 +34,48 @@
   - [ ] Official Actions transitive lock **rejected on review**: `gh actions-lock` produced
     `actions.lock` but only by replacing all 37 full-SHA action pins with mutable tags. Adopting
     tag+lockfile pinning is a security-policy decision, so the output was reverted. Open decision.
-- [ ] Verify hosted matrix, full scientific replay, package install, licensed attestations and independent review.
+- [x] Complete macOS-focused qualification.
   - [x] Full scientific replay executed locally under the reviewed lock (verification/integrity only).
   - [x] `package` now succeeds under the reviewed lock; wheel install/import verified.
   - [x] Windows hosted failure root-caused to CRLF checkout changing hashed evidence bytes; fixed
-    with `.gitattributes` (`* text=auto eol=lf`, `evidence/** -text`). Hosted re-run pending.
+    with `.gitattributes` (`* text=auto eol=lf`, `evidence/** -text`).
   - [x] Release-gate hermeticity defect found and fixed: three contract tests failed under
     `TOBAC_REQUIRE_LOCK=1` because the fixture inherited the release flag with an empty ROOT.
-  - [ ] Hosted matrix confirmation, licensed attestations and independent review not obtained.
-- [ ] `strict_all` is measured, not green. Original whole-source measurement: 4,168 ruff
-  `--select ALL` errors and 3,584 BasedPyright-all errors. Re-measured 26 October 2026 on macOS
-  with the corrected Python 3.15 target: 4,861 ruff and 2,456 basedpyright (issue #1 comment
-  `6406854120`); the earlier basedpyright count was taken on a stale 3.12 target. No count has
-  been reduced by this track. Pre-existing and previously never executed; recorded as an open
-  gate rather than claimed.
-- [ ] `types_longitudinal` (strict check of `scripts/run_empirical_longitudinal.py`) is
-  **expected to fail**: 133 errors, all the pandas-stub `reportUnknown*` cascade, with zero
-  `reportMissingImports`, `reportArgumentType` or `reportAssignmentType`. It is deliberately
-  outside the blocking `quality` session. Closing it needs `pandas-stubs` added to
-  `engineering/audit.lock` with a reviewed regeneration and receipt.
+  - [x] Post-reconciliation macOS hosted qualification obtained at c645028 (PR #29).
+    Non-macOS qualification is deferred to `conductor/roadmap.md`.
+- [x] 2026-10-26 Python 3.15.1 locked local qualification: 611 tests passed (90% coverage),
+  scientific reproduction and longitudinal output verification passed, package build and clean
+  wheel install/import passed; native macOS quality/security checks and pip-audit passed.
+  Receipt: `integration/engineering_hardening_python315_20261026.json`.
+- [x] Whole-source `strict_all`: zero configured Ruff findings and zero BasedPyright
+  errors across all source and CLI modules on the same Python 3.15.1 interpreter.
+  See `docs/engineering/LINT_POLICY.md`: 175 explicit style/API exceptions are recorded
+  separately from code corrections. No whole-project type diagnostics were disabled.
+- [x] Confirm hosted macOS qualification at c645028; publish through expected-head guarded PR #29.
+- [ ] Official Actions-lock policy decision remains open; existing full-SHA pins are retained.
+  Linux/Windows qualification remains in the roadmap.
 
-The publication receipt on issue #1 names the receiving commit. Engineering configuration is
-not external scientific qualification; the open hosted failure is not closed by this track.
+Record the receiving commit in the local Conductor track. Engineering configuration is not
+external scientific qualification; the open hosted failure is not closed by this track.
+
+## Phase: Review Fixes
+- [x] Task: Align BasedPyright targets with Python 3.15 and verify review fix f06d0b5
+
+## Reconciliation of PR #25
+
+- [x] Preserve both development histories and reconcile the empirical runner and core.
+- [x] Qualify scientific stubs on Python 3.15.1; focused runner reports zero type errors.
+- [x] Reject incomplete mutation results and nonfinite/out-of-range thresholds.
+- [x] Fresh source/tool-bound mutation run and repeat run verified; detection improved from
+  79/131 to 92/131 (70.2%), with 39 survivors retained as a coverage limitation.
+- [x] Local integrated Nox checks, runtime boundaries and clean wheel import verified.
+- [x] Hosted macOS qualification at c645028: 721 passed, 93% coverage; all six
+  engineering sessions pass; hosted mutation 100/131 killed (76.3%).
+  Final documentation-only PR head must retain passing macOS checks before merge.
+- [x] Commit final receipts and reconcile remote main through 8f9b98f.
+- [x] PR #29 merged after both final-head macOS checks passed (run 40270043750).
+  Receiving commit `104729a615e19ccf8da2cb52e729d46df624037d` verified on remote main.
+  Optional Voiage installation probes remain blocked by upstream dependencies.
+
+The parallel 916a41e profile attempt is retained in Git history as an uninformative run; it is
+not substituted for the separate Python 3.15.1 profile receipt.

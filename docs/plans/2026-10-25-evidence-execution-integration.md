@@ -10,7 +10,7 @@ Design: extend the existing integration qualification CLI. Reuse the prior-work 
 - [x] Add a bounded evidence-context profile and documentation of the restored data's roles.
 - [x] Exercise actual copied source bytes and original archive; record missing tools honestly.
 - [x] Reconcile concurrent M3 Nox/Conductor additions; include M3 in shared reproduction and rerun 60 scoped tests.
-- [ ] Re-read current main/issue #1, publish guarded additive updates, verify hashes and receiving commit.
+- [ ] Re-read current main, publish guarded additive updates, verify hashes and receiving commit.
 
 Acceptance: every required bibliography is covered, future additional bibliography collections are discovered,
 missing/malformed/changed/symlinked input fails, all external attempts are recorded, and no inventory pass is

@@ -29,10 +29,11 @@ on the complete checkout; local interface tests are not a new funding analysis.
 
 ## Why the reference scientific pins are retained
 Latest software belongs in a separate compatibility lane before it becomes the reproducible
-scientific baseline. The reference NumPy 2.3.5/SciPy 1.17.0 pins are unchanged. Python 3.15 and
-new/pre-release numerical packages have a separate source-only scheduled canary. It cannot
-silently update reference results, lockfiles or published conclusions. An observed compatible
-release can be promoted in a reviewed change with output tolerances, platform logs and changelog.
+scientific baseline. The Python 3.15.1 reference stack uses NumPy 2.5.4, SciPy 1.18.1,
+pandas 3.0.6 and Matplotlib 3.11.2. Newer/pre-release numerical packages remain in a separate source-only
+scheduled canary. It cannot silently update reference results, lockfiles or published conclusions.
+An observed compatible release can be promoted in a reviewed change with output tolerances,
+platform logs and changelog.
 
 The present tools are verified candidate versions, not an assurance that every cached upstream
 page reflects the absolute latest patch. Use Renovate proposals, no automatic scientific merges.

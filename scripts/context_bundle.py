@@ -1,4 +1,5 @@
 """Build bounded, hash-bound local context; never fetch, execute or trust evidence text."""
+
 from __future__ import annotations
 
 import argparse
@@ -18,8 +19,11 @@ DENIED = {".git", ".ssh", ".netrc", ".pypirc", "id_rsa", "id_ed25519", "credenti
 def _git(root: Path, *args: str) -> str:
     """Run a fixed local Git operation without a shell or credentials in arguments."""
     result = subprocess.run(
-        ["git", "-C", str(root), *args], check=True, capture_output=True,
-        text=True, timeout=15,
+        ["git", "-C", str(root), *args],
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=15,
     )
     return result.stdout.strip()
 
@@ -27,8 +31,13 @@ def _git(root: Path, *args: str) -> str:
 def _path(root: Path, name: str) -> Path:
     """Accept only explicit local files; reject traversal, secret names and symlinks."""
     rel = Path(name)
-    if (rel.is_absolute() or ".." in rel.parts or "\\" in name or not rel.parts
-            or any(p in DENIED or p.startswith(".env") for p in rel.parts)):
+    if (
+        rel.is_absolute()
+        or ".." in rel.parts
+        or "\\" in name
+        or not rel.parts
+        or any(p in DENIED or p.startswith(".env") for p in rel.parts)
+    ):
         raise ValueError(f"Disallowed context path: {name}")
     current = root
     for part in rel.parts:
@@ -71,8 +80,12 @@ def build(root: Path, config: dict[str, Any]) -> tuple[dict[str, Any], str]:
     if _git(root, "rev-parse", "HEAD") != commit:
         raise ValueError("Checkout changed while building context")
     manifest = {
-        "schema_version": 1, "profile": config["profile"], "commit": commit,
-        "dirty": dirty, "source_bytes": total, "files": files,
+        "schema_version": 1,
+        "profile": config["profile"],
+        "commit": commit,
+        "dirty": dirty,
+        "source_bytes": total,
+        "files": files,
         "context_sha256": hashlib.sha256(text.encode()).hexdigest(),
         "qualification": "Source hashes and checkout identity; not scientific validity or secret scanning",
     }
@@ -103,8 +116,16 @@ def main() -> None:
     args.out.mkdir(parents=True)
     (args.out / "context.md").write_text(text, encoding="utf-8")
     (args.out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"profile": manifest["profile"], "files": len(manifest["files"]),
-                      "commit": manifest["commit"], "dirty": manifest["dirty"]}))
+    print(
+        json.dumps(
+            {
+                "profile": manifest["profile"],
+                "files": len(manifest["files"]),
+                "commit": manifest["commit"],
+                "dirty": manifest["dirty"],
+            }
+        )
+    )
 
 
 if __name__ == "__main__":

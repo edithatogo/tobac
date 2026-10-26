@@ -1,7 +1,7 @@
 # Verified published versions on 2026-10-24; transitive hash lock is a separate gate.
 nox==2026.10.20
 virtualenv==21.14.12  # transitive nox tool; pinned to clear CVE-2026-1137xx
-ruff==0.17.1
+ruff==0.17.2
 basedpyright==1.40.2
 pip-audit==2.10.1
 zizmor==1.31.1
@@ -9,3 +9,8 @@ mutmut==3.8.0
 scalene==2.4.0
 pre-commit==4.7.0
 setuptools==84.2.1
+
+# Qualified static interfaces; scientific runtime pins are unchanged.
+pandas-stubs==3.0.5.260914
+scipy-stubs==1.18.1.1
+types-jsonschema==4.26.0.20261006

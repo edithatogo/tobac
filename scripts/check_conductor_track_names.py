@@ -2,7 +2,7 @@
 """Check that every Conductor track carries one consistent name across layers.
 
 A track's canonical name is the ``title`` in its ``metadata.json``. The
-``spec.md`` H1, the ``plan.md`` H1 and the matching ``##`` heading (or a
+``spec.md`` H1 and the matching ``##`` heading (or a
 ``Track:`` pointer) in ``conductor/tracks.md`` must agree with it.
 
 Registry headings are matched to tracks by the folder path written in the
@@ -22,16 +22,18 @@ import re
 import sys
 from pathlib import Path
 
-TRACK_LINE = re.compile(r"^Track:\s*`conductor/(?:tracks|archive)/([A-Za-z0-9_]+)/`")
+TRACK_LINE = re.compile(r"^Track:\s*`conductor/(?:tracks|archive|roadmap)/([A-Za-z0-9_]+)/`")
 HEADING = re.compile(r"^##\s+(?P<text>.+?)\s*$")
 DATE_SUFFIX = re.compile(r"\s+[—-]\s+\d{1,2}\s+\w+\s+\d{4}\s*$")
 
 
 def read_h1(path: Path) -> str:
+    """Read the first level-one Markdown heading or reject a missing title."""
     for line in path.read_text(encoding="utf-8").splitlines():
         if line.startswith("# "):
             return line[2:].strip()
-    raise ValueError(f"{path}: no H1 heading")
+    msg = f"{path}: no H1 heading"
+    raise ValueError(msg)
 
 
 def registry_headings(repo: Path) -> tuple[dict[str, str], list[str]]:
@@ -42,7 +44,11 @@ def registry_headings(repo: Path) -> tuple[dict[str, str], list[str]]:
     """
     sections: list[tuple[str | None, str | None]] = []
     pending: str | None = None
-    for line in (repo / "conductor" / "tracks.md").read_text(encoding="utf-8").splitlines():
+    for line in (
+        (repo / "conductor" / "tracks.md").read_text(encoding="utf-8")
+        + "\n"
+        + (repo / "conductor" / "roadmap.md").read_text(encoding="utf-8")
+    ).splitlines():
         match = HEADING.match(line)
         if match:
             pending = match.group("text")
@@ -52,19 +58,24 @@ def registry_headings(repo: Path) -> tuple[dict[str, str], list[str]]:
         if track and sections and sections[-1][0] == pending:
             sections[-1] = (pending, track.group(1))
 
-    mapping = {tid: text for text, tid in sections if tid is not None}
-    unlinked = [text for text, tid in sections if tid is None]
+    mapping = {tid: text for text, tid in sections if tid is not None and text is not None}
+    unlinked = [text for text, tid in sections if tid is None and text is not None]
     return mapping, unlinked
 
 
-def main(argv: list[str]) -> int:
+def main(argv: list[str]) -> int:  # noqa: C901  # Keep ordered model validation and report assembly in one visible operation.
+    """Parse command-line options, execute the selected operation and report its result."""
     verbose = "--verbose" in argv
     repo = Path(__file__).resolve().parents[1]
     registry, unlinked = registry_headings(repo)
 
     failures: list[str] = []
     checked = 0
-    for base in (repo / "conductor" / "tracks", repo / "conductor" / "archive"):
+    for base in (
+        repo / "conductor" / "tracks",
+        repo / "conductor" / "archive",
+        repo / "conductor" / "roadmap",
+    ):
         for meta_path in sorted(base.glob("*/metadata.json")):
             folder = meta_path.parent.name
             meta = json.loads(meta_path.read_text(encoding="utf-8"))
@@ -96,12 +107,12 @@ def main(argv: list[str]) -> int:
             if problems:
                 failures.append(f"{folder}: " + "; ".join(problems))
             elif verbose:
-                print(f"ok  {folder}: {title}")
+                print(f"ok  {folder}: {title}")  # noqa: T201  # CLI emits the requested structured result on stdout.
 
     for line in failures:
-        print(f"FAIL {line}", file=sys.stderr)
+        print(f"FAIL {line}", file=sys.stderr)  # noqa: T201  # CLI emits the requested structured result on stdout.
 
-    print(
+    print(  # noqa: T201  # CLI emits the requested structured result on stdout.
         f"\n{checked - len(failures)}/{checked} tracks consistent; "
         f"{len(unlinked)} non-track registry heading(s): {', '.join(unlinked)}"
     )
