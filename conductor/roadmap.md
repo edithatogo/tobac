@@ -25,5 +25,17 @@ platform-specific verification.
 
 Track: `conductor/roadmap/cicd_hardening_20261025/`.
 
-Deferred until existing strict checks are reliable. The proposed Linux arm runner and
+Deferred pending separate maintainer prioritisation; the reference macOS strict checks
+are now qualified. The proposed Linux arm runner and
 additional automation tools are roadmap work; no job or entitlement is claimed as qualified.
+
+## Optional macOS hardening follow-ups
+
+These are improvements beyond the completed 26 October macOS acceptance scope, not
+open execution gates or automatic implementation authorisation:
+
+- Triage the 31 surviving supply mutants from the hosted 100/131 (76.3%) measurement;
+  distinguish equivalent mutations from worthwhile missing assertions.
+- Reconsider the 175 documented Ruff style/API exceptions where a change preserves
+  public interfaces, validation behavior and scientific meaning. They are not 175
+  behavioral defects claimed fixed.

@@ -1,0 +1,245 @@
+{
+  "schema": "tobac.engineering-macos-completion.v1",
+  "date": "2026-10-26",
+  "scope": "macOS Python 3.15.1 engineering hardening",
+  "status": "complete",
+  "qualified_base_commit": "f11d491a1925da73a2bf9de059a2b6bed8680030",
+  "base_hosted_run": "https://github.com/edithatogo/tobac/actions/runs/40277294992",
+  "base_test_result": {
+    "passed": 745,
+    "skipped": 4,
+    "coverage_percent": 93
+  },
+  "base_macos_sessions": [
+    "quality",
+    "strict_all",
+    "reproduce",
+    "package",
+    "security",
+    "mutation"
+  ],
+  "mutation": {
+    "killed": 100,
+    "total": 131,
+    "percent": 76.3,
+    "survivors": 31,
+    "blocking": false
+  },
+  "style_api_exceptions": {
+    "documented": 175,
+    "blocking": false,
+    "policy": "docs/engineering/LINT_POLICY.md"
+  },
+  "actions_policy": {
+    "owner_decision": "retain full-SHA pins; close rejected generated tag-based lock proposal",
+    "closed": "2026-10-26",
+    "external_reference_count": 40,
+    "all_full_sha": true,
+    "references": [
+      {
+        "workflow": ".github/workflows/engineering.yml",
+        "reference": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+      },
+      {
+        "workflow": ".github/workflows/engineering.yml",
+        "reference": "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
+      },
+      {
+        "workflow": ".github/workflows/engineering.yml",
+        "reference": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      },
+      {
+        "workflow": ".github/workflows/engineering.yml",
+        "reference": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+      },
+      {
+        "workflow": ".github/workflows/engineering.yml",
+        "reference": "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
+      },
+      {
+        "workflow": ".github/workflows/engineering.yml",
+        "reference": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      },
+      {
+        "workflow": ".github/workflows/engineering.yml",
+        "reference": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+      },
+      {
+        "workflow": ".github/workflows/engineering.yml",
+        "reference": "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
+      },
+      {
+        "workflow": ".github/workflows/engineering.yml",
+        "reference": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      },
+      {
+        "workflow": ".github/workflows/engineering-deep.yml",
+        "reference": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+      },
+      {
+        "workflow": ".github/workflows/engineering-deep.yml",
+        "reference": "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
+      },
+      {
+        "workflow": ".github/workflows/engineering-deep.yml",
+        "reference": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      },
+      {
+        "workflow": ".github/workflows/engineering-deep.yml",
+        "reference": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+      },
+      {
+        "workflow": ".github/workflows/engineering-deep.yml",
+        "reference": "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
+      },
+      {
+        "workflow": ".github/workflows/engineering-deep.yml",
+        "reference": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      },
+      {
+        "workflow": ".github/workflows/release-candidate.yml",
+        "reference": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+      },
+      {
+        "workflow": ".github/workflows/release-candidate.yml",
+        "reference": "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
+      },
+      {
+        "workflow": ".github/workflows/release-candidate.yml",
+        "reference": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      },
+      {
+        "workflow": ".github/workflows/release-candidate.yml",
+        "reference": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      },
+      {
+        "workflow": ".github/workflows/dependency-lock.yml",
+        "reference": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+      },
+      {
+        "workflow": ".github/workflows/dependency-lock.yml",
+        "reference": "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
+      },
+      {
+        "workflow": ".github/workflows/dependency-lock.yml",
+        "reference": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      },
+      {
+        "workflow": ".github/workflows/research-m3.yml",
+        "reference": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+      },
+      {
+        "workflow": ".github/workflows/research-m3.yml",
+        "reference": "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
+      },
+      {
+        "workflow": ".github/workflows/research-m3.yml",
+        "reference": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      },
+      {
+        "workflow": ".github/workflows/research-m3.yml",
+        "reference": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+      },
+      {
+        "workflow": ".github/workflows/research-m3.yml",
+        "reference": "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
+      },
+      {
+        "workflow": ".github/workflows/research-m3.yml",
+        "reference": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      },
+      {
+        "workflow": ".github/workflows/longitudinal.yml",
+        "reference": "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683"
+      },
+      {
+        "workflow": ".github/workflows/longitudinal.yml",
+        "reference": "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065"
+      },
+      {
+        "workflow": ".github/workflows/longitudinal.yml",
+        "reference": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+      },
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "reference": "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683"
+      },
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "reference": "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065"
+      },
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "reference": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+      },
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "reference": "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683"
+      },
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "reference": "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065"
+      },
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "reference": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+      },
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "reference": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+      },
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "reference": "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
+      },
+      {
+        "workflow": ".github/workflows/ci.yml",
+        "reference": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+      }
+    ],
+    "workflow_sha256": {
+      ".github/workflows/engineering.yml": "81ec2aaec4203edcfaea625955334559468b6a9e00436dd50ae3464798fb4d8e",
+      ".github/workflows/engineering-deep.yml": "6ba9e7edfd1fdd73f9e3f6fccdbff1eb9c06c5da294adafaaa3520e7cb4007c8",
+      ".github/workflows/release-candidate.yml": "4729680d8a0e1b6f0fa630b3bdf38c63f177e78ee70b12f0b6ca3623497ec020",
+      ".github/workflows/dependency-lock.yml": "ec791f63c52e4e648c5dc9b7ad8b412c4e89c59b866b616bf647869d37cee518",
+      ".github/workflows/research-m3.yml": "8b870a0c2f7c38c7a57013b36b9cd902edb49e2e1c65b97d90873618dc935f75",
+      ".github/workflows/longitudinal.yml": "bdb35d9ea2912d368accc5f701449711331dd9706945b8cbe67e678c34e3a7e8",
+      ".github/workflows/ci.yml": "cdc95ef73da28e1ea1ff57997d3fac4860da42e55f5f92ffffce6908a95d04ee"
+    },
+    "workflow_bytes_changed_by_closeout": false
+  },
+  "scope_limits": [
+    "Other platforms and advisory expansion remain in conductor/roadmap.md",
+    "No signed-release/attestation or external scientific/empirical qualification inferred"
+  ],
+  "related_receipts": [
+    "integration/engineering_reconciliation_20261026.json",
+    "integration/voiage_python315_compatibility_20261026.json",
+    "integration/dependency_graph_20261026.json"
+  ],
+  "closeout_checks": {
+    "current_head_hosted": "pending PR checks before merge",
+    "conductor_track_names": "9/9 consistent",
+    "metadata_and_evidence_links": "validated",
+    "focused_context_harness_tests": "26 passed",
+    "workflow_pins": "40/40 full SHA; generated lock absent",
+    "source_scope": "documentation/status only; code, workflows, tests, dependency inputs and locks unchanged"
+  },
+  "publication": {
+    "status": "pending guarded merge"
+  },
+  "base_artifacts": {
+    "outputs/engineering/closeout-base-tests.log": {
+      "sha256": "f6cd90eef3bb18d694d4db8ee0b598bd717404bb35b8e71f32c16101882c4a18",
+      "bytes": 37948
+    },
+    "outputs/engineering/closeout-base-engineering.log": {
+      "sha256": "6e054b4f4cff00728b190f2d0d3b152c8d5bb4ddf886cd2e4df28e4d98ba45cf",
+      "bytes": 115681
+    },
+    "outputs/engineering/closeout-base-jobs.json": {
+      "sha256": "b64b7726358fba51f47e304fe21a98621e47abbee225a3dc2fc7d914eb6ed165",
+      "bytes": 14786
+    }
+  }
+}

@@ -8,6 +8,26 @@ workflow definitions and checks remain intact; they may still execute, and their
 reported accurately. This scope change does not mark deferred checks as passed or remove them
 from repository protection settings.
 
+## Current macOS acceptance — complete, 26 October 2026
+
+The owner selected retaining full-SHA GitHub Actions pins and closing the rejected
+generated tag-based lock proposal. All 40 current external Action references use
+full commit SHAs; no generated Actions lock is adopted. No workflows, required
+checks, audit policies, dependency pins or security settings change in this close-out.
+
+At inspected base `f11d491`, hosted Python 3.15.1 qualification passed 745 tests with
+four optional-environment skips and 93% coverage. All macOS engineering sessions
+pass, including whole-source strict checks, reproduction, packaging, security and
+mutation. Mutation detects 100/131 (76.3%); 31 survivors and the 175 documented
+style/API exceptions are retained as non-blocking follow-ups. Bounded installed
+Voiage compatibility and native Dependency Graph repair are verified separately.
+
+Current receipt: `integration/engineering_macos_completion_20261026.json`. Both
+engineering tracks are complete for macOS; other platforms and advisory expansion
+remain in `conductor/roadmap.md`. The dated sections below preserve earlier failed
+and intermediate measurements; they do not reopen resolved macOS gates. Scientific
+calibration and external validity remain separate from software qualification.
+
 Dylan A Mordaunt | 24 October 2026
 
 This updates the engineering recommendations at main 711705c. Scientific inputs, models and
@@ -130,13 +150,15 @@ Conductor is still a real pinned submodule, with separate project-owned context 
 Checkout and host activation must be verified separately. Official `gh-actions-lock` was run on
 25 October 2026 and its output **rejected**: it wrote `.github/workflows/actions.lock` only by
 replacing all 37 full-SHA action pins with mutable tags, which contradicts the full-SHA posture
-this repository already enforces. No transitive action lock is adopted; choosing tag+lockfile
-pinning is a security-policy decision, not a mechanical fix. The repository currently has one
+this repository already enforces. No generated transitive action lock is adopted. The owner
+closed the decision on
+26 October: retain full-SHA references and reject the tag-based proposal. The repository
+currently has one
 collaborator (the owner), no branch protection or repository rulesets, and no required-review
 policy. No additional collaborator, reviewer or branch rule is needed for this project. Preserve
 the M3 research namespace when making shared changes.
 
-## 6. Current evidence
+## 6. Historical execution evidence
 
 `integration/engineering_hardening_execution_20261025.json` records the first 25 October pass at
 `044c9951`; `integration/engineering_hardening_gap_closure_20261025.json` records the second pass
@@ -185,7 +207,7 @@ base are historical and do not qualify Python 3.15.1. No post-migration hosted s
 release, strict-all pass or empirical funding result is claimed. Earlier receipts remain
 historical evidence.
 
-## Python 3.15.1 qualification — 26 October 2026
+## Historical Python 3.15.1 migration pass — 26 October 2026
 
 The repository now requires CPython 3.15.1 for active development, test, build, automation and CI
 paths. The source tree selects NumPy 2.5.4, SciPy 1.18.1, pandas 3.0.6 and Matplotlib 3.11.2;
@@ -209,13 +231,16 @@ artifacts, 6 source files and its historical-partial-fit scope. The artifact rem
 local outputs; its checksum and summary are retained here and in
 `integration/engineering_hardening_python315_20261026.json`.
 
-The whole-source `strict_all` remains red; its corrected Nox run reports 1,248 Ruff and 2,208
+At this historical migration pass, whole-source `strict_all` was red; its corrected Nox run
+reported 1,248 Ruff and 2,208
 BasedPyright errors. Direct JSON BasedPyright readback reports 2,052, so that discrepancy is
-recorded for follow-up in the active Conductor plan. Hosted macOS qualification, attestations and
-`strict_all` remain open. Independent review is not a repository gate.
+recorded for follow-up at that time. Hosted macOS and strict checks were subsequently
+qualified in the receipts below; this pass did not establish attestations. Independent review is
+not a repository gate.
 Linux hash-locked audit execution and non-macOS hosted matrix qualification are deferred to
-`conductor/roadmap.md`. The official Actions transitive lock remains deferred because its
-generated form would replace 37 full-SHA action pins with mutable tags.
+`conductor/roadmap.md`. The generated Actions-lock proposal was rejected because it replaced
+full-SHA pins
+with mutable tags; the owner has now closed that decision in favour of full-SHA pinning.
 
 Official documentation consulted:
 - https://docs.astral.sh/uv/pip/compile/
@@ -223,7 +248,7 @@ Official documentation consulted:
 - https://cli.github.com/manual/gh_api
 - https://docs.github.com/en/actions/how-tos/secure-your-work/lock-workflow-dependencies
 
-## PR #25 reconciliation — current local status
+## Historical PR #25 reconciliation passes — 26 October 2026
 
 The 916a41e parallel profile attempt was uninformative and is retained in history. It does
 not overwrite the Python 3.15.1 receipt above. The focused longitudinal checker now uses
@@ -250,8 +275,9 @@ literal bindings; tampering tests reject changed formulas, defaults, fields and 
 Reproductions write fresh directories and retain earlier receipts. PR #25 and subsequent main
 coverage/scientific-planning/incorporation-review changes are preserved. The scientific ecosystem
 track remains planning-only. Current execution details are in
-`integration/engineering_reconciliation_20261026.json`; hosted macOS checks remain pending until
-reported there. No optional Voiage runtime or new scientific calibration is claimed.
+`integration/engineering_reconciliation_20261026.json`; the pending hosted checks
+at that intermediate pass were subsequently reported successful there. No optional Voiage
+runtime or new scientific calibration is claimed.
 
 The subsequent main Ruff 0.17.2 update is retained and its native quality, strict_all and security
 sessions pass. The legacy hosted optional Voiage 2.1.0 probe fails installation on Python 3.15.1:
@@ -266,8 +292,9 @@ Hosted macOS qualification is now obtained at `c645028` in run `40269769566`: th
 quality/strict_all/reproduce/package/security/mutation all passed. Hosted mutation killed
 100/131 (76.3%), with 31 survivors; local 92/131 remains a separate observation. The final
 receipt-only update publishes through PR #29 after checking its current head. The receiving
-`main` ref and merge commit are readable from that PR. Optional Voiage probes remain blocked;
-this macOS qualification does not claim every hosted job passed.
+`main` ref and merge commit are readable from that PR. Voiage probes were still blocked at that
+intermediate pass; their later successful
+compatibility qualification is recorded below. This earlier receipt is not an all-jobs pass.
 
 ## Voiage dependency compatibility follow-up
 

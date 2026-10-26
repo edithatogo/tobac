@@ -62,35 +62,32 @@ status belong to the retained execution receipt.
 5. Identify incremental criminal harms separately from participation, revenue and fiscal transfers; retain null-effect scenarios.
 6. Validate near-limit anabasine performance, residual/serial dependence and prospective causal counterfactuals. Improve continuous support and held-out field prediction.
 7. Agree Maori governance/permissible use, equitable coverage and actual incremental programme costs.
-8. Resolve issue #4's hosted execution failures without weakening gates. Execute genuine Sourceright/CiteWeft/voiage and record precise scope. Current numerical parity is internal reference parity, not third-party qualification.
+8. Complete remaining external-tool/source-applicability qualification, including CiteWeft. The macOS engineering, Sourceright and bounded installed-Voiage execution checks now pass; those software receipts do not establish empirical or third-party scientific validity.
 
-Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
+Local and hosted software checks are recorded separately from independent scientific endorsement and external agency approval, which remain unclaimed. Receiving commits and actual run outcomes belong in Conductor and their execution receipts.
 
 ## Library reuse and qualified engineering harness
-**Status: [~] PR #25 reconciled; macOS Python 3.15.1 local tests, strict_all, reproduction, package, security and mutation pass. Hosted macOS checks pass at final PR head 1f6b375; PR #29 merged at 104729a. Other platforms remain in the roadmap.**
+**Status: [x] Complete for macOS Python 3.15.1 — 26 October 2026.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
-Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
-Receipt: `integration/engineering_verification.json`; execution receipts:
-`integration/engineering_hardening_execution_20261025.json` and
-`integration/engineering_hardening_gap_closure_20261025.json`.
+Current acceptance: `integration/engineering_macos_completion_20261026.json`.
+Guide: `docs/engineering/READINESS.md`; policy: `docs/engineering/LINT_POLICY.md`.
 
-The Gaussian reporting density delegates to SciPy while physical/state/data contracts stay
-unchanged. New Nox/uv, schema-validated context profiles, secure bounded CI/deep/canary lanes,
-Renovate/pre-commit configuration and pinned Conductor gitlink are explicit engineering layers.
-`uv pip sync --require-hashes` drives runtime sessions. Whole-source strict typing and configured
-Ruff now pass; 175 intentional style/API exceptions are documented separately in
-`docs/engineering/LINT_POLICY.md`. Fresh scoped mutation detection is 92/131 (70.2%), with
-39 surviving mutants remaining a coverage limitation. Original source bytes and numerical
-results remain independently checked. Current qualification receipt:
-`integration/engineering_reconciliation_20261026.json`. Hosted macOS tests and all six engineering sessions pass at c645028; Linux/Windows qualification is deferred to `conductor/roadmap.md`.
+The inspected base `f11d491` passed 745 tests with four optional-environment skips
+and 93% coverage; all macOS engineering sessions pass. Whole-source strict typing
+and configured Ruff pass. Hosted mutation detects 100/131 (76.3%); 31 survivors and
+175 documented style/API exceptions remain explicit non-blocking follow-ups.
+Voiage's bounded installed-library compatibility and native Dependency Graph repair
+are qualified in their separate receipts. Full-SHA Actions pinning is retained;
+the rejected generated tag-based lock proposal is closed by the owner's decision.
+Historical receipts remain intact. Other platforms and advisory work stay in the roadmap.
 
 ## Source-bound dependency and execution qualification
-**Status: macOS runtime-lock and whole-source strict qualification pass locally; hosted macOS checks pass at 1f6b375; PR #29 merged at 104729a. Linux audit execution and other platforms remain deferred.**
+**Status: [x] Complete for the macOS scope; non-macOS qualification remains deferred.**
 Track: `conductor/tracks/engineering_execution_20261024/`.
-Receipt: `integration/engineering_followthrough.json`; current instructions: `docs/engineering/READINESS.md`.
-This links the source-bound locks, portable/audit environment separation, read-only hosted
-diagnostic and strict internal release gates; current work is macOS-focused and this status is not
-new execution evidence.
+Acceptance: `integration/engineering_macos_completion_20261026.json`; earlier lock and
+execution receipts remain dated evidence. Runtime/Voiage locks are input-bound and
+hash-installed; native macOS audit-tool qualification is distinct from Linux audit
+lock execution. No external scientific or empirical validity is inferred.
 
 ## Prior-work evidence preservation and incorporation audit
 **Status: selected reference snapshot verified; full archive migration and live empirical use are not claimed.**

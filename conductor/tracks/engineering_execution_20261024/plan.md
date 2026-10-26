@@ -1,5 +1,8 @@
 # Implementation and evidence
 
+**Complete for the macOS Python 3.15.1 scope — 26 October 2026.**
+Current acceptance: `integration/engineering_macos_completion_20261026.json`.
+
 - [x] Inspect current main 711705c, engineering files and shared coordination issue.
 - [x] Reproduce unsupported annotation access and local network/tool constraints.
 - [x] Write failing tests for lock identity, resolver failure and execution contracts.
@@ -8,11 +11,11 @@
 - [x] Preserve failure evidence; independent checks retain overall failures.
 - [x] Add GET-only gh diagnostic with pagination and explicit missing-access state.
 - [x] Run scoped helpers/contracts and actual unsuccessful uv resolution; record limits.
-- [~] Complete source-bound lock qualification for the current macOS development target.
+- [x] Complete source-bound lock qualification for the current macOS development target.
   - [x] Runtime lock generated, reviewed, receipt-verified and hash-installed on macOS.
-  - [ ] Install and execute the Linux-scoped audit lock; deferred with Linux qualification in
-    `conductor/roadmap.md`.
-- [~] Complete remaining macOS engineering checks and preserve their actual outcomes.
+  - Linux-scoped audit execution remains an unclaimed, deferred roadmap item;
+    this completion applies to the macOS scope only.
+- [x] Complete remaining macOS engineering checks and preserve their actual outcomes.
   - [x] Scientific replay, package build/install, native quality/security tools, mutation and
     bounded profiling were executed on macOS; see the linked receipts and readiness record.
   - [x] Whole-source `strict_all` passes after PR #25 reconciliation; explicit style/API
@@ -24,3 +27,6 @@
 Publication receipt is the final receiving commit recorded in the local track. Local helper/command
 contracts do not count as Nox, whole-repository or third-party execution. Existing M3 work,
 scientific sources, payoff functions, posterior outputs and Conductor pin are preserved.
+
+The full-SHA Actions policy is retained. The tag-based generated lock was rejected and
+its decision is closed; no scanner, audit, failure policy or security setting changed.
