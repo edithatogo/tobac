@@ -1,7 +1,7 @@
 {
   "track_id": "archive_sources_20261025",
   "title": "Archival source integration",
-  "status": "local_software_qualification_complete_hosted_pending",
+  "status": "bounded_consumer_software_complete_scientific_qualification_open",
   "scope": "Bounded source-to-observation consumer validation; no conditioning",
   "updated": "2026-10-26",
   "base_commit": "d09c84d0cecf77e7ee1f42b36ed92a26928b24c7",
@@ -14,5 +14,11 @@
     "integration/archive/handoff-verification_20261026.json"
   ],
   "guide": "docs/SOURCE_OBSERVATION_HANDOFF.md",
-  "receiving_base": "12cf36c3f66d25708333527afb5cdbc8e1df0204"
+  "receiving_base": "12cf36c3f66d25708333527afb5cdbc8e1df0204",
+  "publication": {
+    "pull_request": 21,
+    "merge_commit": "cf8295b5c1b649685ba78f4977ec7f1b5883d1a8",
+    "qualified_pr_head": "752436646da5a97f45bef38088f49ac4a2d39d2b",
+    "hosted_checks": "15/15 passed"
+  }
 }

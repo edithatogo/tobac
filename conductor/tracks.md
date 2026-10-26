@@ -130,7 +130,7 @@ the local Conductor track and execution receipts.
 
 
 ## Executable integration of preserved evidence
-**Status: shared preflight and all-collection validation wired; external/hosted qualification remains open.**
+**Status: shared preflight and all-collection validation hosted-executed; scientific/source applicability remains open.**
 Track: `conductor/tracks/evidence_execution_20261025/`.
 Guide: `docs/EVIDENCE_INTEGRATION.md`; local receipts: `integration/evidence_inventory_20261025.json`
 and `integration/evidence_execution_verification_20261025.json`.
@@ -174,7 +174,7 @@ unchanged, and security settings/checks are preserved. Receipt:
 `integration/dependency_graph_20261026.json`; guide: `docs/engineering/DEPENDENCY_GRAPH.md`.
 
 ## Archival source integration — 25 October 2026
-**Status: consumer bindings reconciled; bounded observation handoff implemented, local software qualification passed; hosted pending.**
+**Status: consumer bindings reconciled; bounded consumer handoff hosted-qualified; scientific applicability open.**
 Track: `conductor/tracks/archive_sources_20261025/`.
 Guide: `docs/ARCHIVAL_SOURCES.md`; immutable snapshot bindings: `integration/archive/`.
 Maps 43 CSL records and 18 CSV files (326 rows) into archive-govt-nz. Preserves source
@@ -185,3 +185,6 @@ new likelihood, posterior or independent scientific qualification is claimed.
 The bounded source-to-observation report covers 28 rows and preserves shared-data, derived-role,
 scope, capture, product and model gaps. Guide: `docs/SOURCE_OBSERVATION_HANDOFF.md`.
 No likelihood, posterior or current-NZ empirical qualification is inferred.
+
+PR #21 merged at `cf8295b5c1b649685ba78f4977ec7f1b5883d1a8` after all 15 checks passed.
+Receipt: `integration/archive/handoff-verification_20261026.json`.

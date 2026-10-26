@@ -3,12 +3,17 @@
   "title": "Executable integration of preserved evidence",
   "date": "2026-10-25",
   "base_commit": "5218d831f8b2452c7937da91ee00bf9b96183b2d",
-  "status": "scoped_tests_passed_external_qualification_open",
+  "status": "software_execution_qualified_source_applicability_open",
   "evidence": [
     "docs/EVIDENCE_INTEGRATION.md",
     "integration/evidence_inventory_20261025.json",
     "integration/evidence_execution_verification_20261025.json",
     "tests/incorporation/test_evidence_execution.py"
   ],
-  "receiving_base": "fa39fd36cd924d21128a154d19f86bf0cab95bd6"
+  "receiving_base": "fa39fd36cd924d21128a154d19f86bf0cab95bd6",
+  "publication_readback": {
+    "implementation_commit": "044c995",
+    "verified_ancestor_of_main": "cf8295b5c1b649685ba78f4977ec7f1b5883d1a8",
+    "current_execution_receipt": "integration/archive/handoff-verification_20261026.json"
+  }
 }

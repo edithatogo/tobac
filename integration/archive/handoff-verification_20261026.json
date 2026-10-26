@@ -16,7 +16,87 @@
     "package": "Nox package wheel/sdist build passed; not a new clean-install qualification",
     "nox_source_handoff": "passed on final schema; 28 rows blocked as expected",
     "conductor_track_names": "10/10 consistent",
-    "hosted": "First PR head passed macOS tests and other checks except Windows inventory path separators; corrected to POSIX serialization; final head checks pending.",
+    "hosted": {
+      "status": "success",
+      "head_commit": "752436646da5a97f45bef38088f49ac4a2d39d2b",
+      "checks": [
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295466231/job/121480341411",
+          "name": "Tests macos-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295466282/job/121480341324",
+          "name": "longitudinal",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295466276/job/121480341170",
+          "name": "voiage-parity",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295466418/job/121480342008",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295466231/job/121480341266",
+          "name": "macOS Python 3.15.1 qualification",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295466231/job/121480340985",
+          "name": "Tests windows-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295466418/job/121480342419",
+          "name": "voiage-released-parity",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295466276/job/121480341308",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295466276/job/121480341378",
+          "name": "sourceright",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295466231/job/121480341357",
+          "name": "quality",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295466231/job/121480341338",
+          "name": "Tests ubuntu-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295458811/job/121480316045",
+          "name": "longitudinal",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295458789/job/121480315543",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295458789/job/121480315711",
+          "name": "sourceright",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40295458789/job/121480316116",
+          "name": "voiage-parity",
+          "state": "SUCCESS"
+        }
+      ]
+    },
     "path_fix": "64 focused tests pass after the path fix; generated real-data report byte-identical"
   },
   "report_status": "blocked",
@@ -61,5 +141,16 @@
     "head": "f76c9421f3de5e9bbd23ff0ebab5ca740d0a8bc5",
     "error": "Windows path separators caused false incomplete inventory; fixed scanner and inherited test serialization",
     "log_sha256": "7dea8fb6a18befde6ff8930ad6cec70737a93873e2be64a5aaa7aeb1e9875617"
+  },
+  "publication": {
+    "status": "merged",
+    "pull_request": "https://github.com/edithatogo/tobac/pull/21",
+    "merge_commit": "cf8295b5c1b649685ba78f4977ec7f1b5883d1a8",
+    "receiving_ref": "refs/heads/main",
+    "post_merge_checks": "Receiving-head checks verified separately after this publication receipt is committed."
+  },
+  "preserved_evidence_publication_readback": {
+    "commit": "044c9951fb35c1ca020416da587bfa04e01b2967",
+    "ancestor_of_receiving_main": true
   }
 }

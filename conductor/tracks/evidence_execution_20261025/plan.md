@@ -7,7 +7,11 @@
 - [x] Execute 60 scoped checks and the actual snapshot/archive comparison.
 - [x] Record unsuccessful real Sourceright/voiage attempts; no invented external success.
 - [x] Preserve concurrently published M3 and extend shared reproduction with its runner.
-- [ ] Re-read main, publish with expected-head checks and record the receiving commit locally.
+- [x] Verify preserved implementation `044c995` is on receiving main and record the publication readback.
 
 The local publication receipt closes the last step. External libraries, hosted CI,
 full scientific replay and empirical applicability remain independent open requirements.
+
+26 October readback: `044c995` is an ancestor of receiving main `cf8295b5c1b649685ba78f4977ec7f1b5883d1a8`.
+Current execution/publication evidence: `integration/archive/handoff-verification_20261026.json`;
+15/15 current PR checks pass. Original receipt hashes remain dated evidence.
