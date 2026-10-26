@@ -8,7 +8,7 @@ NZ tobacco-regulation uncertainty and wastewater value-of-information research.
 
 The six approved additions are implemented under [`src/tobac/research`](src/tobac/research/): exact weighted Voiage adaptation and structure-only information; complementary information portfolios and shared costs; unweighted prior/structure robustness; implementation-adjusted decisions; and pilot/continue/stop with matched timing. Uptake and delay materiality is tested before requiring Innovate or Kairos.
 
-Read the [M3 findings](results/milestone3/report.md), [method contract](docs/research/M3_CONTRACT.md), [six-item status](integration/m3_requirement_status.csv) and [execution receipt](integration/m3_local_verification.json). **Actual installed Voiage qualification remains blocked.** Passing adapter mathematics is not a library execution receipt. Innovate and Kairos remain optional and unexecuted. All new cost/value calculations are conditional normalised units, not NZ procurement estimates.
+Read the [M3 findings](results/milestone3/report.md), [method contract](docs/research/M3_CONTRACT.md), [six-item status](integration/m3_requirement_status.csv) and [execution receipt](integration/m3_local_verification.json). **Bounded installed Voiage qualification now passes on Python 3.15.1** for the source-built `2.2.0+tobac3151.1` candidate: equal/weighted EVPI and finite partitions, not generic EVSI or structural API certification. See the [compatibility receipt](integration/voiage_python315_compatibility_20261026.json). Innovate and Kairos remain optional and unexecuted. All new cost/value calculations are conditional normalised units, not NZ procurement estimates.
 
 ```sh
 nox -s research_m3
@@ -110,3 +110,9 @@ For maintained-library choices, source-bound dependency locks and execution qual
 use the [engineering readiness guide](docs/engineering/READINESS.md). The commands above
 without reviewed transitive locks are development bootstrap, not release qualification.
 M3 receiving-commit coordination and precise execution scope are recorded through issue #1.
+
+The macOS Python 3.15.1 engineering hardening scope is complete. Full-SHA Action
+pins are retained; the rejected tag-based lock proposal is closed. Current scope,
+verification and non-blocking follow-ups are recorded in the
+[completion receipt](integration/engineering_macos_completion_20261026.json) and
+[Conductor registry](conductor/tracks.md). Other platforms remain in the roadmap.

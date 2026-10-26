@@ -1,5 +1,10 @@
 # Plan and status
 
+**Complete for macOS / Python 3.15.1 — 26 October 2026.**
+Full-SHA Actions pinning is retained; the generated tag-based lock proposal is closed
+as rejected. Current acceptance: `integration/engineering_macos_completion_20261026.json`.
+Non-macOS qualification and optional improvements remain in `conductor/roadmap.md`.
+
 - [x] Inspect live main, shared contracts, dependency manifests, workflows and #1/#4.
 - [x] Review adopted/deferred existing-library alternatives and document semantic boundaries.
 - [x] Write failing backend requirement test; implement SciPy replacement; preserve tiny-SPD shape/domain semantics.
@@ -31,9 +36,10 @@
   - [x] Locked-qualification runs (TOBAC_REQUIRE_LOCK=1, `uv pip sync --require-hashes`):
     `tests` 495 passed / 91% coverage, `reproduce` five replays verified, `package` built both
     distributions, and the wheel installed and imported in a clean venv.
-  - [ ] Official Actions transitive lock **rejected on review**: `gh actions-lock` produced
-    `actions.lock` but only by replacing all 37 full-SHA action pins with mutable tags. Adopting
-    tag+lockfile pinning is a security-policy decision, so the output was reverted. Open decision.
+  - [x] Close the rejected generated Actions-lock proposal. The 25 October trial replaced
+    37 full-SHA pins with mutable tags; that output was reverted. On 26 October the owner
+    explicitly selected retaining full-SHA pins. The current audit finds all 40 external
+    references pinned to full commit SHAs, with no generated Actions lock adopted.
 - [x] Complete macOS-focused qualification.
   - [x] Full scientific replay executed locally under the reviewed lock (verification/integrity only).
   - [x] `package` now succeeds under the reviewed lock; wheel install/import verified.
@@ -52,11 +58,11 @@
   See `docs/engineering/LINT_POLICY.md`: 175 explicit style/API exceptions are recorded
   separately from code corrections. No whole-project type diagnostics were disabled.
 - [x] Confirm hosted macOS qualification at c645028; publish through expected-head guarded PR #29.
-- [ ] Official Actions-lock policy decision remains open; existing full-SHA pins are retained.
+- [x] Actions-lock policy decision closed: retain full-SHA pins; reject the tag-based proposal.
   Linux/Windows qualification remains in the roadmap.
 
-Record the receiving commit in the local Conductor track. Engineering configuration is not
-external scientific qualification; the open hosted failure is not closed by this track.
+Receiving commits and actual hosted results are retained below and in the completion receipt.
+Completed software qualification is not external scientific or empirical qualification.
 
 ## Phase: Review Fixes
 - [x] Task: Align BasedPyright targets with Python 3.15 and verify review fix f06d0b5
@@ -75,7 +81,8 @@ external scientific qualification; the open hosted failure is not closed by this
 - [x] Commit final receipts and reconcile remote main through 8f9b98f.
 - [x] PR #29 merged after both final-head macOS checks passed (run 40270043750).
   Receiving commit `104729a615e19ccf8da2cb52e729d46df624037d` verified on remote main.
-  Optional Voiage installation probes remain blocked by upstream dependencies.
+  The Voiage install blocker at that historical pass was resolved by the bounded
+  compatibility qualification recorded below; it is not a current open gate.
 
 The parallel 916a41e profile attempt is retained in Git history as an uninformative run; it is
 not substituted for the separate Python 3.15.1 profile receipt.
@@ -100,3 +107,14 @@ not substituted for the separate Python 3.15.1 profile receipt.
   run `40275206942` passed; native SBOM readback grew from 27 to 42 package identifiers
   with every previous entry retained. Security settings were read back unchanged.
   Keep all audits, checks and repository security settings intact.
+
+## macOS close-out
+
+- [x] Retain full-SHA Action references and close the rejected generated-lock proposal.
+- [x] Refresh both engineering tracks from inspected hosted evidence, preserving dated receipts.
+- [x] Record non-blocking mutation/style limitations and defer other platforms to the roadmap.
+
+The latest inspected base `f11d491` passed 745 tests with four optional-environment skips
+and 93% coverage. Hosted mutation killed 100/131 (76.3%); 31 survivors remain an optional
+coverage improvement. The 175 documented style/API exceptions remain explicit policy choices.
+This close-out changes documentation and status only; current-head PR checks precede merge.
