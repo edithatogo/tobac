@@ -39,7 +39,7 @@ All phases end with evidence review. Local review is not independent scientific 
 - [x] Task C2: Implement only missing reusable capabilities in their owning repos: VOI/cost interfaces, uptake/diffusion, extraction/citation provenance or generic simulation adapters.
   - [x] Separate scenario values, model definitions and execution settings through existing typed interfaces only where the mapping demonstrates a gap; preserve structural invariants and Rust-native ownership (R11).
   - [x] Demonstrate one bounded extension with compatibility/migration tests and unchanged reference scenarios (R11.4); do not create a generic framework.
-- [ ] Task C3: Write schema, no-coercion, ordering, null/NaN, lifetime, chunking and migration/rollback tests.
+- [~] Task C3: Write schema, no-coercion, ordering, null/NaN, lifetime, chunking and migration/rollback tests.
 - [ ] Task C4: Implement qualified Polars/Arrow/Patito/msgspec boundaries without replacing the shared evidence contract.
   - [ ] Verify buffer identity/lifetime/allocation for each zero-copy claim and distinguish logical versus raw-byte hashing.
 - [x] Task C5: Wire exact upstream artifacts or editable development sources into tobac with explicit versions and independent package boundaries.
@@ -146,3 +146,7 @@ The remaining C3/C4/C6 producer-interchange items stay unchecked. They must not 
 PR #44 merged at `0940c595ce06f4142467de3f687dea881dae8ea2` after 15 successful PR checks and two expected trusted-write skips. Native default-branch snapshot `114186314` returned SUCCESS; 113 submitted PURLs appear in the 123-PURL native export, with every previous PURL retained. Receipt: `integration/ecosystem/dependency-submission_20261026.json`.
 
 - [ ] External service gate: managed root Dependabot parser Python 3.15 support (upstream issue 16524). The supported submission route is qualified; the failed managed run is not hidden or called successful.
+
+## Implementation resume — 26 October 2026
+
+Implement domain-owned transport against the currently qualified producer and installed artifacts. The original specification does not require Voiage 3.0.0; its separate future migration in PR #41 is preserved. Full metadata, covariance provenance, timestamp/null, ordering, chunking, schema evolution and ownership tests precede implementation. No prior, observation or published numerical result changes.
