@@ -172,3 +172,12 @@ PR #35 merged at `666dd8c` after all 15 PR checks passed. Managed graph run
 without losing any existing entry. Python remains 3.15.1, all dependency pins are
 unchanged, and security settings/checks are preserved. Receipt:
 `integration/dependency_graph_20261026.json`; guide: `docs/engineering/DEPENDENCY_GRAPH.md`.
+
+## Archival source integration — 25 October 2026
+**Status: consumer bindings implemented; acquisition partial and publication pending.**
+Track: `conductor/tracks/archive_sources_20261025/`.
+Guide: `docs/ARCHIVAL_SOURCES.md`; immutable snapshot bindings: `integration/archive/`.
+Maps 43 CSL records and 18 CSV files (326 rows) into archive-govt-nz. Preserves source
+aliases, dependency groups, assumptions and extracted values. Original source bytes,
+metadata-only records, HTTP challenge pages and retrieval failures are distinct. No
+new likelihood, posterior or independent scientific qualification is claimed.
