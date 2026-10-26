@@ -155,10 +155,10 @@ failed under `TOBAC_REQUIRE_LOCK=1` because the harness fixture inherited the re
 empty `ROOT`; `.github/workflows/release-candidate.yml` sets exactly that flag, so the release
 gate itself was broken. The fixture is now hermetic.
 
-**Mutation is executed but weak.** mutmut 3.7.0 ran natively on `src/tobac/supply.py`: 128
-mutants, 79 killed, 49 survived (61.7%). The session reports success because mutmut enforces no
-threshold; the survivor count is a coverage finding, not a pass. Scalene profiling remains
-unexecuted.
+**Mutation is executed but weak.** mutmut ran natively on `src/tobac/supply.py`: 128 mutants, 79
+killed, 49 survived (61.7%). The session reports success because mutmut enforces no threshold; the
+survivor count is a coverage finding, not a pass. The pinned tool is 3.8.0; the 3.7.0 invocation
+recorded in the earlier pass is historical evidence. Scalene profiling remains unexecuted.
 
 **The Windows leg failure was a checkout defect, not a code defect.** Windows converted text to
 CRLF, so the recorded SHA-256 of `evidence/prior_work/v2.9.0/data/empirical_intake_20261024/
@@ -171,6 +171,47 @@ failed offline resolution attempt. Command-planning tests there use a labelled N
 that limitation no longer applies to the sessions named above. No hosted success, signed release,
 strict-all pass, profiling result or empirical funding result is claimed. Earlier receipts remain
 historical evidence.
+
+**The hosted `quality` leg was failing on a checker that was never actually checking the file.** The
+`review/m2b-longitudinal` rebase fixed the declared venv in `engineering/bp_longitudinal.json`, but
+pyright resolves an interpreter by precedence and `venv`/`venvPath` did not take effect as declared.
+Two consequences, both measured: (1) with no interpreter pinned, pandas ships **no** type stubs, so
+`read_csv` is untyped, every DataFrame value collapses to `Unknown`, and `--select ALL` strict mode
+reports 154 `reportUnknown*`/stub errors on one file as a cascade — that is the hosted failure; (2)
+with the config's own interpreter resolution absent, basedpyright was resolving `include` relative to
+the config file and reporting `File or directory ".../scripts/run_empirical_longitudinal.py" does not
+exist` while still printing `0 errors`. The earlier local `0 errors` was therefore **vacuous** — it
+described a check that had not analysed the runner. The config now uses an `executionEnvironments`
+entry with `extraPaths` pointing at `.nox/quality/lib/python3.13/site-packages`, which resolves
+imports under any ambient interpreter, including the inactive-venv case Nox actually creates. Real
+defects fixed: `table['source_id']`/`source_locator` and `primary['period_start']`/`period_end` are
+now read through the checked `DataFrame` instead of `itertuples` attribute access; `source_id` and
+`source_locator` are unchanged in the emitted `aligned_observations.csv` (verified in a fresh run), and
+the `<column> = <index>` pattern keeps every value identical. Verified: 152 → 139 remaining errors,
+all `reportUnknown*` attributable to pandas having no stubs, with **zero** `reportMissingImports`.
+
+**The 139 residual errors are recorded, not silenced.** Strict type checking of the runner is
+`quality`'s actual gate, and it is **not green**: 139 errors remain, every one of them the
+pandas-stub gap above. They are left failing rather than suppressed with a blanket config ignore, so
+the count stays visible. Closing them means adding `pandas-stubs` to the lock, which is a
+dependency-review decision, not a `type: ignore` sweep.
+
+**The member-versus-new-option bug is fixed and cross-checked, not asserted.** Verifying
+`scripts/check_mutation_score.py` against mutmut 3.8.0 showed its table declared exit code `-24` as
+`killed` (63 surviving mutants were miscounted as kills) while omitting `36`/`24`/`152`/`255`
+(timeout), `37`, `-11` and `-9` (segfault). The table is now generated against mutmut's own
+`status_by_exit_code`; codes agree exactly, `KILLED_STATUSES` stays `{"killed"}`, and a synthetic
+probe confirmed each of the ten status classes is classified as mutmut classifies it. The `-24`
+asymmetry (mutmut labels `-24` and `+24` both "timeout" although `+24` is SIGXCPU) is mirrored and
+noted rather than silently corrected. If mutmut adds statuses, `suspicious` is the safe default and
+is already recorded as such.
+
+**Two checks that passed vacuously or by omission are now enforced.** `noxfile.py` installs
+`engineering/tools-requirements.txt` with `-U`, because without it pip reported "Requirement already
+satisfied" and a stale local basedpyright 1.39.9 passed against a 1.40.2 pin — a version-dependent
+false green. The runner is also now held to `ruff --select E4,E7,E9,F,B`, which immediately found 12
+real unused-import/multiple-statement findings in `strict_all`'s blind spot; it previously carried no
+ruff gate at all. Hosted confirmation of the `quality` leg is still required.
 
 Official documentation consulted:
 - https://docs.astral.sh/uv/pip/compile/

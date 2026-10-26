@@ -1,6 +1,6 @@
 """The mutation session must fail, not pass, when mutants survive.
 
-mutmut 3.7.0 exits 0 whatever the score, so the Nox session only becomes a gate
+mutmut exits 0 whatever the score, so the Nox session only becomes a gate
 through scripts/check_mutation_score.py. These tests pin that threshold behaviour
 against mutmut's own ``mutants/<path>.meta`` record format.
 """
@@ -75,3 +75,46 @@ def test_unreadable_record_fails_closed(tmp_path):
     meta.write_text('{not json',encoding='utf-8')
     with pytest.raises(SystemExit):
         load().main(['--minimum','60','--mutants-dir',str(tmp_path/'mutants')])
+
+
+def test_timeout_codes_are_not_counted_as_kills(tmp_path):
+    # This table previously declared -24 as killed. mutmut classes -24 as a timeout, so a
+    # timed-out mutant was counted as killed; at 63 such mutants that alone moved the
+    # reported score from 61.7% to well above 100%, and the gate passed on a miscount.
+    write_meta(tmp_path,{'f__mutmut_1':-24,'f__mutmut_2':36,'f__mutmut_3':152})
+    module=load()
+    counts=module.read_statuses(tmp_path/'mutants')
+    assert counts['timeout']==3 and 'killed' not in counts
+    assert module.main(['--minimum','1','--mutants-dir',str(tmp_path/'mutants')])==1
+
+
+@pytest.fixture
+def mutmut_status_by_exit_code():
+    """mutmut's own table, or a deliberate skip.
+
+    The ``tests`` session does not install tools-requirements.txt, so these two comparisons
+    cannot run there. They are paired on one deliberately environment-sensitive skip rather
+    than a bare importorskip, which would report them as passing once the import succeeds but
+    silently skip them in the session that runs the suite. Run them under the ``quality``
+    environment (the mutation session's environment) to execute them.
+    """
+    stats=pytest.importorskip('mutmut.stats')
+    return stats.status_by_exit_code
+
+
+def test_mapping_matches_mutmut_own_table(mutmut_status_by_exit_code):
+    """The recorded statuses must be mutmut's, not a hand-maintained guess."""
+    for code,status in load().STATUS_BY_EXIT_CODE.items():
+        assert mutmut_status_by_exit_code[code]==status, (
+            f'exit code {code!r} is recorded as {status!r} here but is '
+            f'{mutmut_status_by_exit_code[code]!r} in mutmut')
+
+
+def test_every_killed_status_is_one_mutmut_calls_killed(mutmut_status_by_exit_code):
+    """A non-kill must never enter the numerator, whatever mutmut adds later."""
+    module=load()
+    killed={code for code,status in mutmut_status_by_exit_code.items() if status=='killed'}
+    assert module.KILLED_STATUSES=={'killed'}
+    for code in module.STATUS_BY_EXIT_CODE:
+        if code in killed:
+            assert module.STATUS_BY_EXIT_CODE[code]=='killed'

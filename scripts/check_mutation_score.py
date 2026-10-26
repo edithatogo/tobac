@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 """Fail when the mutation score falls below an explicit floor.
 
-mutmut 3.7.0 prints its results and exits 0 no matter how many mutants survived,
+mutmut prints its results and exits 0 no matter how many mutants survived,
 so a Nox session that only runs ``mutmut run`` and ``mutmut results`` reports
 success even when most mutants live. This script reads the per-source-file
 ``mutants/<path>.meta`` records that ``mutmut run`` writes and turns the survivor
 count into a non-zero exit status.
 
 The status vocabulary and its exit-code mapping are mutmut's own
-(``status_by_exit_code`` in ``mutmut/__main__.py``); this script reads the
-recorded exit codes rather than re-deriving pass/fail itself.
+(``status_by_exit_code``, currently defined in ``mutmut/stats.py``); this script
+reads the recorded exit codes rather than re-deriving pass/fail itself.
 
 The floor is a regression alarm, not a claim of test adequacy: the measured score
 on ``src/tobac/supply.py`` was 61.7% at main ``5ab361b``.
@@ -26,12 +26,15 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-# mutmut's own exit-code -> status mapping (mutmut/__main__.py, status_by_exit_code).
+# mutmut's own exit-code -> status mapping (mutmut/stats.py, status_by_exit_code).
 # Exit code 3 is "internal error in pytest means a kill", so it counts as killed.
+# Codes not listed here map to mutmut's "suspicious" default, as it does for unknown codes.
+# The timeout/segfault codes are asymmetric in mutmut and are mirrored faithfully rather
+# than "corrected": -24 is classed as timeout while +24 is SIGXCPU, which reads like a sign
+# error upstream, but the killed set below is unaffected either way.
 STATUS_BY_EXIT_CODE = {
     1: "killed",
     3: "killed",
-    -24: "killed",
     0: "survived",
     5: "no tests",
     2: "check was interrupted by user",
@@ -39,10 +42,20 @@ STATUS_BY_EXIT_CODE = {
     33: "no tests",
     34: "skipped",
     35: "suspicious",
+    36: "timeout",
+    37: "caught by type check",
+    -24: "timeout",
+    24: "timeout",
+    152: "timeout",
+    255: "timeout",
+    -11: "segfault",
+    -9: "segfault",
 }
 KILLED_STATUSES = {"killed"}
 # Mutants that could not be assessed are excluded from the denominator rather than
-# silently counted as either a kill or a survivor.
+# silently counted as either a kill or a survivor. The mutation set is
+# ``src/tobac/supply.py`` (``[tool.mutmut] only_mutate``), which contains only value and
+# control-flow logic, so "caught by type check" does not arise here and stays a non-kill.
 EXCLUDED_STATUSES = {"not checked", "check was interrupted by user"}
 
 

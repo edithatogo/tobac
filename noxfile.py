@@ -15,12 +15,14 @@ OUT = Path('outputs/engineering')
 MUTATION_MINIMUM_PERCENT = '60'
 
 
-def environment(session, profile='runtime', require_lock=False):
+def environment(session, profile='runtime', require_lock=False, python_version=None):
     """Exact sync when locked; explicit bootstrap only outside release qualification."""
     if profile not in {'runtime', 'audit'}:
         session.error('Unknown environment profile')
     if profile == 'audit' and sys.platform != 'linux':
         session.error('Audit-tool profile is Linux-only; use runtime tests on other platforms')
+    if python_version is not None:
+        session.env['VIRTUALENV_PYTHON'] = python_version
     session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
     name = 'requirements.lock' if profile == 'runtime' else 'audit.lock'
     lock = ROOT / 'engineering' / name
@@ -72,7 +74,11 @@ def audit_tools(session):
     says plainly that this is not the locked release profile.
     """
     if sys.platform == 'linux':
-        return environment(session, profile='audit')
+        # Pin the interpreter alongside the tool versions so the audit environment is the same
+        # one the lock was reviewed against. The pandas resolution that the longitudinal
+        # type-check config depends on is handled by that config's own extraPaths, not here.
+        environment(session, profile='audit', python_version='3.13')
+        return None
     if os.environ.get('TOBAC_REQUIRE_LOCK') == '1':
         session.error('Locked qualification requires the Linux audit lock; not available here')
     session.log('NATIVE AUDIT: host-resolved tools from engineering/tools-requirements.txt; '
@@ -82,8 +88,12 @@ def audit_tools(session):
     # The audit checks import the project and jsonschema, so the ordinary dependency set is
     # required too; installing only the tool pins leaves basedpyright unable to resolve imports.
     session.install('-r', 'requirements.lock', '-r', 'engineering/test-requirements.txt',
-                    '-r', 'engineering/build-requirements.txt',
-                    '-r', 'engineering/tools-requirements.txt')
+                    '-r', 'engineering/build-requirements.txt')
+    # -U is load-bearing: the pins below must override any older copy already present in
+    # the session venv. Without it pip reports "Requirement already satisfied" and silently
+    # keeps the stale version, so a local run can pass or fail on a different checker than
+    # the Linux audit lock runs.
+    session.install('-U', '-r', 'engineering/tools-requirements.txt')
     session.install('--no-deps', '--no-build-isolation', '-e', '.')
     OUT.mkdir(parents=True, exist_ok=True)
     return None

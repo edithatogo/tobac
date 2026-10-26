@@ -13,6 +13,14 @@
   },
   "closed_gaps": [
     {
+      "gap": "quality's basedpyright leg passed only vacuously: bp_longitudinal.json's venv did not take effect, and the hosted leg failed with 154 errors",
+      "resolution": "engineering/bp_longitudinal.json now uses an executionEnvironments entry with extraPaths to .nox/quality/lib/python3.13/site-packages, so imports resolve under any ambient interpreter, including Nox's inactive-venv case. Reading table/primary columns through the checked DataFrame replaced itertuples attribute access. noxfile.py installs tools-requirements.txt with -U so a stale local tool cannot pass against a newer pin, and the Linux audit path pins VIRTUALENV_PYTHON=3.13.",
+      "executed": [
+        {"session": "quality", "result": "failure", "detail": "basedpyright on bp_longitudinal.json: 139 strict errors remain, all reportUnknown* / reportMissingTypeStubs caused by pandas shipping no stubs (0 reportMissingImports, 0 attribute-access errors). Deliberately left failing and recorded rather than suppressed by config."},
+        {"session": "quality", "result": "success", "detail": "ruff E9/F63/F7/F82 pass; ruff strict config on context_bundle pass; basedpyright 0 errors, 0 warnings on engineering/basedpyright.json; bp_longitudinal identical under three ambient PATH/VIRTUAL_ENV variants (no vacuous self-pass)"}
+      ]
+    },
+    {
       "gap": "audit sessions (quality, security, strict_all, mutation, profile) unexecutable off Linux",
       "resolution": "noxfile.py gained audit_tools(): Linux keeps the locked audit profile as authoritative; other hosts resolve the same reviewed pins host-natively and log an explicit NATIVE AUDIT ... NOT release qualification banner. environment() keeps its original Linux-only guard, so a direct locked attempt still fails closed.",
       "executed": [

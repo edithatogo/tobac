@@ -46,17 +46,35 @@ def save_json(path: str | Path, data: Any) -> None:
 
 
 def source_table(root: Path = ROOT) -> pd.DataFrame:
+    """Load the NZ historical lawful-supply table and assert its conventions.
+
+    ``read_csv`` returns ``Unknown`` column types under strict checking because pandas
+    ships no stubs. Each column is bound to one explicitly annotated Series, so the
+    convention assertions below stay checkable instead of collapsing to ``Any``. The
+    column names are not yet validated: an unexpected header still fails one of the
+    assertions rather than being named here.
+    """
     p=Path(root)/'data/empirical_intake_20261024/nz_historical_legal_supply.csv'
-    table=pd.read_csv(p)
-    if table.year.tolist()!=list(range(2012,2024)):
+    table: pd.DataFrame = pd.read_csv(p)
+    year: pd.Series = table['year']  # type: ignore[assignment]
+    unit: pd.Series = table['unit']  # type: ignore[assignment]
+    uplift_factor: pd.Series = table['uplift_factor']  # type: ignore[assignment]
+    ryo_conversion: pd.Series = table['ryo_conversion_g_per_stick']  # type: ignore[assignment]
+    reported_upper: pd.Series = table['reported_upper_smoker_bound_consumption']  # type: ignore[assignment]
+    reported_lower: pd.Series = table['reported_lower_smoker_bound_consumption']  # type: ignore[assignment]
+    legal_sales: pd.Series = table['legal_sales_cigarette_equivalent']  # type: ignore[assignment]
+    reported_signed_gap: pd.Series = table['reported_signed_gap']  # type: ignore[assignment]
+    if year.tolist()!=list(range(2012,2024)):
         raise ValueError('Source years must be complete and unique: 2012–2023')
-    if not (table.unit=='cigarette_equivalents/year').all():
+    if not (unit=='cigarette_equivalents/year').all():
         raise ValueError('Do not substitute a tonne series into the cigarette-equivalent source')
-    if not (table.uplift_factor==1.23).all() or not (table.ryo_conversion_g_per_stick==.7).all():
+    if not (uplift_factor==1.23).all() or not (ryo_conversion==.7).all():
         raise ValueError('Source convention changed; review rather than silently recalculate')
-    if not np.array_equal(table.reported_upper_smoker_bound_consumption-table.legal_sales_cigarette_equivalent,
-                          table.reported_signed_gap):
+    if not np.array_equal(reported_upper-legal_sales, reported_signed_gap):
         raise ValueError('Source signed-gap arithmetic does not reconcile')
+    # `reported_lower` is bound so the declared column set matches the file; the
+    # published lower bound is checked in the source-audit block further down.
+    del reported_lower
     return table
 
 
@@ -107,7 +125,9 @@ def assembled_inputs(
     )
     rows: list[dict[str, Any]] = []
     previous_end: date | None = None
-    for row in table.itertuples():
+    source_ids = table['source_id'].astype(str).tolist()
+    source_locators = table['source_locator'].astype(str).tolist()
+    for i, row in enumerate(table.itertuples()):
         yr = int(row.year)  # type: ignore[arg-type]
         uplift = float(row.uplift_factor)  # type: ignore[arg-type]
         start, end = period(yr, alignment)
@@ -143,8 +163,10 @@ def assembled_inputs(
             centre_method=centre,
             period_origin=period_origin(yr, alignment),
             overlap_days_with_previous_period=overlap,
-            source_id=row.source_id,
-            source_locator=row.source_locator,
+            # Read through the checked object rather than the itertuples row: pandas ships
+            # no stubs, so attribute access on the row type collapses to Any.
+            source_id=source_ids[i],
+            source_locator=source_locators[i],
             observation_id=f'Phyo2025_NZHS_MOH_{yr}',
             source_lower_after_uplift=lo,
             source_upper_after_uplift=hi,
@@ -481,9 +503,13 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
         ledger=lawful_ledger(table.year.tolist(),allreleases,stock_scenario(allreleases,days),
                              unrecorded=unrecorded*allreleases,net_visitors=visitor*allreleases,
                              basis=SupplyBasis())
+        # Read the period bounds through the checked object: attribute access on the
+        # itertuples row type collapses to Any without pandas stubs.
+        period_starts = [str(x) for x in primary['period_start']]
+        period_ends = [str(x) for x in primary['period_end']]
         aligned = np.array([
-            annualised_supply(ledger, str(r.period_start), str(r.period_end))['annualised_per_365_days']
-            for r in primary.itertuples()
+            annualised_supply(ledger, period_starts[k], period_ends[k])['annualised_per_365_days']
+            for k in range(len(primary))
         ])
         ledgers[name]=aligned
         for j,y in enumerate(table.year):
@@ -548,8 +574,14 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
             train = ff.iloc[:i]
             p = fit_frame(train, spec)
             # Only prior observations supply anticipated precision for the held-out observation.
+            # Column extraction is declared explicitly: iterating a DataFrame's columns resolves
+            # to Any in strict mode, so basedpyright cannot infer `.to_numpy()` or `.iloc`
+            # without these annotations. Verified against the locked basedpyright 1.40.2, which
+            # reports these as reportUnknownMemberType where 1.39.9 does not.
+            train_time = np.asarray(train['time'], dtype=float)
+            train_log_se = np.asarray(train['reconstruction_log_se'], dtype=float)
             predsd = float(np.sqrt(observation_covariance(
-                train.time.to_numpy(), train.reconstruction_log_se.to_numpy(), spec)[-1, -1]))
+                train_time, train_log_se, spec)[-1, -1]))
             t_val = float(row.time)  # type: ignore[arg-type]
             log_ratio_val = float(row.log_reported_ratio)  # type: ignore[arg-type]
             pred = summarise_temporal(p, [t_val], observation_se=predsd)[0]

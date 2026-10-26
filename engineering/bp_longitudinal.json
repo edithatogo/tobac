@@ -4,6 +4,13 @@
   "pythonVersion": "3.13",
   "pythonPlatform": "All",
   "failOnWarnings": true,
-  "venvPath": "../.nox",
-  "venv": "quality"
+  "executionEnvironments": [
+    {
+      "root": "..",
+      "extraPaths": [
+        "../src",
+        "../.nox/quality/lib/python3.13/site-packages"
+      ]
+    }
+  ]
 }
