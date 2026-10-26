@@ -1,0 +1,59 @@
+{
+  "track_id": "archive_sources_20261025",
+  "title": "Archival source integration",
+  "status": "bounded_consumer_software_complete_scientific_qualification_open",
+  "scope": "Bounded source-to-observation consumer validation; no conditioning",
+  "updated": "2026-10-26",
+  "base_commit": "d09c84d0cecf77e7ee1f42b36ed92a26928b24c7",
+  "reconciled_pull_request": 21,
+  "scientific_qualification": false,
+  "broader_lineage_implementation": false,
+  "evidence": [
+    "integration/archive/source-bindings.json",
+    "integration/archive/observation-handoff.json",
+    "integration/archive/handoff-verification_20261026.json"
+  ],
+  "guide": "docs/SOURCE_OBSERVATION_HANDOFF.md",
+  "receiving_base": "12cf36c3f66d25708333527afb5cdbc8e1df0204",
+  "publication": {
+    "pull_request": 21,
+    "merge_commit": "cf8295b5c1b649685ba78f4977ec7f1b5883d1a8",
+    "qualified_pr_head": "752436646da5a97f45bef38088f49ac4a2d39d2b",
+    "hosted_checks": "15/15 passed"
+  },
+  "moh_followup": {
+    "status": "bounded_pathway_review_complete_scientific_qualification_open",
+    "guide": "docs/MOH_OBSERVATION_PATHWAY.md",
+    "specification": "integration/archive/moh-observation-specification.json",
+    "native_receipt": "integration/archive/moh-workbook-qualification_20261026.json",
+    "scientific_qualification": false,
+    "verification": "integration/archive/moh-pathway-verification_20261026.json",
+    "publication": {
+      "pull_request": 40,
+      "merge_commit": "160c0a5c53e440d9345ad51efc7dca2a7611bf6c",
+      "qualified_head": "94228c62622dff8a226d251309bfba1293a72e36",
+      "hosted_checks": "15/15 passed"
+    }
+  },
+  "product_reconciliation": {
+    "status": "bounded_reconciliation_complete_national_source_qualification_open",
+    "guide": "docs/2025_PRODUCT_RECONCILIATION.md",
+    "report": "integration/reconciliation_2025/generated/report.json",
+    "national_aggregation_qualified": false,
+    "source_conflicts": [
+      "BAT RYO document year",
+      "R&S King packet/carton quantities",
+      "unreported channels and physical mass conversion"
+    ],
+    "verification": "integration/reconciliation_2025/verification_20261026.json",
+    "publication": {
+      "pull_request": 42,
+      "qualified_head": "2861511ee1141bcfff39c902b4a9405d1cc26326",
+      "merge_commit": "e543029e2f1f973562519c01b47ff3d06f257079",
+      "hosted_checks": "15/15 passed"
+    }
+  },
+  "archived_at": "2026-10-26",
+  "archive_scope": "Completed bounded macOS/software scope; empirical and source gates remain in conductor/research-gates.md",
+  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md"
+}

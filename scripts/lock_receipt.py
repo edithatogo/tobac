@@ -28,6 +28,7 @@ PROFILES = {
     "runtime": ("engineering/requirements.in", "requirements.lock"),
     "audit": ("engineering/audit.in", "audit.lock"),
     "voiage": ("engineering/voiage.in", "voiage.lock"),
+    "ecosystem": ("engineering/ecosystem.in", "ecosystem.lock"),
 }
 
 
@@ -208,7 +209,7 @@ def generate(root: Path, out: Path, profile: str) -> Path:
         "--output-file",
         str(target),
     ]
-    if profile == "runtime":
+    if profile in {"runtime", "ecosystem"}:
         command += ["--universal", "--python-version", "3.15"]
     else:
         # Audit utilities include Linux-specific tools; they are not a Windows test dependency.

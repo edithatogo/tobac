@@ -55,6 +55,8 @@ def build(root: Path, config: dict[str, Any]) -> tuple[dict[str, Any], str]:
     # jsonschema ships no type stubs, so its members are Unknown to strict type checking.
     Draft202012Validator.check_schema(schema)  # pyright: ignore[reportUnknownMemberType]
     Draft202012Validator(schema).validate(config)  # pyright: ignore[reportUnknownMemberType]
+    if not set(config.get("required_paths", [])) <= set(config["paths"]):
+        raise ValueError("Context is missing required contracts")
     root = root.resolve()
     commit = _git(root, "rev-parse", "HEAD")
     base = config["base_commit"]

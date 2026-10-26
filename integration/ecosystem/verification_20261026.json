@@ -1,0 +1,69 @@
+{
+  "schema": "tobac.ecosystem-verification.v1",
+  "date": "2026-10-26",
+  "base_commit": "fa0665f8e2409eec5e1f8e2bb25fc3644ffedd2f",
+  "platform": "macOS arm64",
+  "python": "3.15.1",
+  "local": {
+    "full_suite": "835 passed, 4 capability skips, 92% branch-inclusive coverage before final archive/proof/extension tests",
+    "final_affected": "65 post-review affected/workstream tests passed, followed by final strict checks; hosted full suite pending",
+    "strict": "configured ALL Ruff and BasedPyright zero findings",
+    "reproduction": "Nox reproduce passed: M1/M2 grid/M3/release/empirical runners and verifiers plus longitudinal comparison",
+    "clean_package": "no-sources wheel/sdist reconstruction, installed API and actual quick M1 CLI passed",
+    "security": "required Nox security passed; zizmor 14 existing suppressions; pip-audit/SBOM completed",
+    "secret_scan": "gitleaks 8.30.1 dir src/scripts/engineering/.github each exit 0 with redacted reports",
+    "mutation": "gremlins 1.12.2 68/68 detected, 0 errors/timeouts; independent from historical mutmut denominator",
+    "citeweft_native": "21 Rust tests passed at fb48944c89c00d365745a3610225d3a0ebcb0103; isolated target; no producer edits",
+    "optional_tools": "ty 0.0.92 and pyrefly 1.4.0 passed with qualified imports; prek 0.5.7 actual hooks passed; remain advisory"
+  },
+  "failure_history": [
+    "Initial regression cases failed before implementation",
+    "First clean-package import-location assertion failed on macOS path aliases, corrected and rerun",
+    "Mutation statement coverage contaminated branch coverage; isolated per-run storage added",
+    "Disk exhaustion interrupted security/package installation; disposable task artifacts removed and actual checks rerun",
+    "Nested parameter and security proof validation tightened during review"
+  ],
+  "hosted": {
+    "status": "pending"
+  },
+  "scientific_qualification": false,
+  "reference_scientific_values_changed": false,
+  "archived_tracks": 7,
+  "remaining_gates": [
+    "Full producer metadata/timestamp/nullable/migration contract; Voiage 3.0.0 not published",
+    "macOS hosted audit/attestation and downstream verification pending",
+    "Non-macOS ARM diagnostics deferred to roadmap"
+  ],
+  "logs_sha256": {
+    "contracts-red.log": "156b0a09e0d66d529a45a5188bd2b14f90a7535b5544ceef4e597167535c3cf2",
+    "security-red.log": "f93bc08d6ba992bcb6307fd9708585c796fe0a86385aebbc79e74b37561cdf13",
+    "archive-red.log": "d5355770c67d766d1d69fba90592fe40c7a7440fb47f951f13beba20373791c0",
+    "final-checks.log": "c345c59649ade14f16fdc8afefcd76f747f3bfca5a183fa4a00fb7d66616fa36",
+    "milestone.log": "35382c0ecb4ba8ce55657672790d8d3b303d084c5192ac5293eb145e8a15e626",
+    "review-focused.log": "f495b4985a0047a40ce3b88b2eaeeaeb668bc7b115c1f7abe3ff5881de93ab60",
+    "final-review-focused.log": "e1c3d004b67e532b05e2518bbbdb9e30d92be9e605c0dc6865cf1ddcd7340eb6",
+    "post-review-tests.log": "3cc0df008b3a73fed04a4fa8bd42a51565ca0011b95a3b7b022ea427c10c35bb",
+    "types-final.log": "e88dd5e22152f446701a5a954b4952f024f34c06b5eec53fb3f23563c453cc0d",
+    "review-ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "recovery-reviewed.log": "c633d48527f0373828f35b84ede217d3a90673739a0c17c657e892e39a4ac534",
+    "gremlins-final.log": "474993e4684ca0cdce1a3d7454eead35862530752c3cdfa6faa6a5052038ed33",
+    "prek-final.log": "e13daa4ab5d24b833b4a4c75dda244b81c36e2e4780c2791a9f3b241c06beed3",
+    "pyrefly-fixed.log": "05d3adb250ea5d9900fd29288c6bfc6d7b9b2734aca99f5e4a115c28729dee3d",
+    "ty-installed.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "zizmor-final.log": "59382cbab64465b8daa79c56d8f7838d159f18a3c7a887082311b7ec7f878eb7"
+  },
+  "source_sha256": {
+    "src/tobac/backend.py": "5039bcfe4c890c76cf78f259848f80e4b971ca2c1222df5769c59e667034cc16",
+    "src/tobac/parameters.py": "4bd24a90b831372b8a90aa4ed6011a684d480d8f5ef72552f523387e8bf52168",
+    "src/tobac/replay.py": "80fd7281581c854704e7551502ed6e3bc90f847847a1af32c4d493b2a37ed704",
+    "scripts/qualify_ecosystem.py": "4cf06d244fcc270f30cfbe1fbc0b31f52b7198ecd29196831ea38355cd2347bd",
+    "scripts/qualify_clean_package.py": "2a3b4ad818bd8c64e044988e76ed77815220ab0bdea2a77345f2693937c9b890",
+    "scripts/qualify_recovery.py": "7309a47cb8919da934588ba07761b16de3b6928f365ea19fcae4c08434f55f57",
+    "scripts/check_security_findings.py": "3af2669649aa55610bb7f6962d87b41fb5b392cc3e1bff87894223068bb744bc",
+    "scripts/context_bundle.py": "df3010aca94a6bf6297800671b05412f5385e3ce92f9e4d9ffbef4158b0c4a12",
+    "scripts/check_conductor_track_names.py": "c6e6f8b634cfd323533560db5dc73432959792d95a7234f0b38a5f50b7941368",
+    "scripts/lock_receipt.py": "134693e1938eac19dc52b78f8e5e4a20874ea785ee727045dbf89eec1c35b1cf",
+    "noxfile.py": "27eb93d7dd732d0cc1559b73ad272416b10a5b65b6d34d3ece805c9c25cfe831",
+    ".github/workflows/engineering.yml": "90c8cba790264a491f51ba29e1882434545658ac9f8f35d88af6e69bd336a817"
+  }
+}

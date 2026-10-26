@@ -1,0 +1,13 @@
+-r voiage.in
+
+# Optional bounded qualification, separate from the scientific reference lock.
+jax==0.12.0.1
+jaxlib==0.12.0.1
+polars==1.44.2
+pyarrow==26.0.0
+patito==0.8.6
+msgspec==0.22.0
+ty==0.0.92
+pyrefly==1.4.0
+prek==0.5.7
+pytest-gremlins==1.12.2

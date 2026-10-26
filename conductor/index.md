@@ -15,6 +15,8 @@
 
 -   [Tracks Registry](./tracks.md)
 -   [Track folders](./tracks/)
+-   [Completed tracks](./archive/index.md)
+-   [Open research gates](./research-gates.md)
 -   [Roadmap](./roadmap.md)
 
 ## Capabilities

@@ -121,6 +121,9 @@ def evidence(session):
 @nox.session(python='3.15.1')
 def tests(session):
     verify_evidence(session, 'tests')
+    coverage_root = OUT / 'coverage-data'
+    coverage_root.mkdir(parents=True, exist_ok=True)
+    session.env['COVERAGE_FILE'] = str((ROOT / coverage_root / uuid4().hex).resolve())
     environment(session)
     session.run('python', '-c', 'import hypothesis, jsonschema; print("required test libraries loaded")')
     session.run('python', '-m', 'coverage', 'run', '--branch', '--source=src', '-m', 'pytest',
@@ -190,6 +193,7 @@ def reproduce(session):
 @nox.session(python='3.15.1')
 def security(session):
     audit_tools(session)
+    session.run('python', 'scripts/check_security_findings.py')
     run_all_checks(session, [
         ['zizmor', '--offline', '.github/workflows'],
         ['pip-audit', '--skip-editable', '--format', 'cyclonedx-json', '--output', str(OUT / 'sbom.json')],
@@ -214,7 +218,7 @@ def package(session):
     python = session.run('python', '-c', 'import sys;print(sys.executable)', silent=True)
     if not isinstance(python, str) or not python.strip():
         session.error('Could not resolve the isolated interpreter')
-    session.run('uv', 'build', '--python', python.strip(), '--no-build-isolation',
+    session.run('uv', 'build', '--no-sources', '--python', python.strip(), '--no-build-isolation',
                 '--out-dir', 'outputs/release-candidate', external=True)
 
 
@@ -341,3 +345,44 @@ def product_reconciliation(session):
     environment(session)
     session.run('python', 'scripts/reconcile_products_2025.py', '--out',
                 'outputs/engineering/product-reconciliation', *session.posargs)
+
+
+@nox.session(python='3.15.1')
+def clean_package(session):
+    """Real artifact execution outside source and sibling checkouts."""
+    environment(session, require_lock=True)
+    destination = str(OUT / 'clean-package' / uuid4().hex)
+    session.run('python', 'scripts/qualify_clean_package.py', '--out', destination)
+
+
+@nox.session(python='3.15.1')
+def ecosystem(session):
+    """Optional native probe with a hash-bound, already qualified macOS Voiage wheel."""
+    import hashlib
+    import json
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
+    if len(session.posargs) != 1:
+        session.error('Supply the qualified macOS Voiage compatibility wheel path')
+    wheel = Path(session.posargs[0]).resolve()
+    expected = json.loads((ROOT / 'integration/voiage_python315_compatibility_20261026.json').read_text())['build']['wheel_sha256']
+    if not wheel.is_file() or hashlib.sha256(wheel.read_bytes()).hexdigest() != expected:
+        session.error('Voiage wheel differs from the qualified artifact')
+    session.run('python', 'scripts/lock_receipt.py', 'verify', '--profile', 'ecosystem',
+                '--path', 'engineering/ecosystem.lock')
+    python = str(Path(session.bin).resolve() / 'python')
+    session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
+    session.run('uv', 'pip', 'sync', '--python', python, '--require-hashes',
+                'engineering/ecosystem.lock', external=True)
+    session.install('--no-deps', '--no-build-isolation', '-e', '.')
+    session.run('uv', 'pip', 'install', '--python', python, '--no-index', str(wheel), external=True)
+    session.run('uv', 'pip', 'check', '--python', python, external=True)
+    destination = str(OUT / 'ecosystem' / ('native-' + uuid4().hex + '.json'))
+    session.run('python', 'scripts/qualify_ecosystem.py', '--out', destination)
+
+
+@nox.session(python='3.15.1')
+def recovery(session):
+    """Actual runner interruption/resume and immutable-receipt comparison."""
+    environment(session)
+    session.run('python', 'scripts/qualify_recovery.py', '--out',
+                str(OUT / 'recovery' / uuid4().hex))

@@ -1,5 +1,5 @@
 order,addition,status,evidence_or_boundary
-1,Weighted Voiage and structure-only EVPPI,partial,Mathematical weighted/partition parity and exact counterexample passed; actual Voiage execution blocked
+1,Weighted Voiage and structure-only EVPPI,bounded_installed_qualification_passed,Actual source-built Voiage 2.2.0+tobac3151.1 weighted/finite-partition execution passed; integration/voiage_python315_compatibility_20261026.json. Generic EVSI/structural APIs remain unqualified.
 2,Joint-source portfolios and conditional calibration,implemented_conditional,"Shared data/assets, explicit joint distributions, complementary/redundant tests and signed ENBS"
 3,Robust prior and structural scenarios,implemented_conditional,45 scenario/weight decisions; no viewpoint probabilities; scenario regret and reversals
 4,Implementation-adjusted VOI,implemented_conditional,"State-action kernels and four-cell decomposition; scenario uptake, not empirical adoption"

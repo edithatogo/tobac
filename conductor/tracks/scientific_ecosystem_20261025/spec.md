@@ -1,6 +1,6 @@
 # Scientific ecosystem modernisation
 
-Status: approved and registered; implementation NOT authorised.
+Status: autonomous macOS implementation and review authorised on 26 October 2026.
 Date: 25 October 2026 (Australia/Brisbane).
 Type: architecture refactor. Primary beneficiary: tobac.
 Planning base: `59bb0e4ebaf1881158849df1702a1d3101aad58f`.
@@ -12,13 +12,13 @@ maintainability through qualified libraries and engineering controls. Reusable c
 in their owning repository; tobac owns its domain decisions, integration and end-to-end proof.
 The five original sister-repository scopes are candidates, not mandatory rewrites. Register
 upstream tracks only when inspection establishes a needed capability and its proper owner.
-Reuse matching tracks/issues before creating new ones. This registration changes planning records only. It does not change scientific inputs,
-implement libraries, publish packages or qualify scientific conclusions.
+Reuse matching tracks/issues before creating new ones. The original registration changed planning records only. The owner authorised implementation,
+review, fixes and archival on 26 October 2026. Scientific qualification remains separate.
 
 The user accepted the architecture-refactor direction, the upstream ownership rule, the
 expanded tool assessment and the additional recommendations. This specification incorporates
-those choices. The user approved the plan on 25 October 2026 for registration only,
-explicitly excluding implementation. This overrides any automatic workflow progression.
+those choices. The original 25 October registration-only hold is historical and was superseded by the owner’s
+26 October autonomous implementation instruction. Non-macOS development remains deferred.
 
 ## Existing work and coordination
 

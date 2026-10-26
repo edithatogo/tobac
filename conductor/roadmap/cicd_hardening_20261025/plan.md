@@ -14,7 +14,11 @@
 - [ ] Execute what the local host supports; record unexecuted jobs explicitly.
 - [ ] Publish with an expected-head check, then verify the receiving commit on issue #1.
 
-strict_all (4,168 ruff, 3,584 basedpyright-all errors at the original measurement; 4,861 and
-2,456 at the 26 October 2026 macOS/Python 3.15 re-measurement) remains measured-not-fixed. Attestation
+Historical strict_all measurements are preserved in earlier commits. Current macOS
+strict_all passes; those old findings are not current unresolved defects. Attestation
 entitlements, harden-runner egress blocking, the arm64 leg and all hosted jobs remain open until
 an actual run is recorded.
+
+26 October reconciliation: PR #20 is closed; current macOS reference gates and the
+bounded ecosystem tool/provenance work supersede overlapping proposed tasks. The
+non-macOS ARM lane remains deferred. Issue #1 posting is historical, not a gate.

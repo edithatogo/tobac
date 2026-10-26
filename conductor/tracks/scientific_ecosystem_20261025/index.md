@@ -1,8 +1,7 @@
 # Scientific ecosystem modernisation
 
-**Approved and registered; implementation NOT authorised.**
-The user approved registration on 25 October 2026 and explicitly said not to implement.
-Do not auto-start this track, dependency tasks, migrations or workflow changes.
+**Implementation and review in progress; authorised 26 October 2026.**
+Current dispositions and remaining external gates are in the plan.
 
 - [Specification](spec.md)
 - [Approved plan](plan.md)

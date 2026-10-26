@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "implementation_authorized": false,
-  "qualification": "planning and routing only; existing status labels are not fresh runtime evidence",
+  "implementation_authorized": true,
+  "qualification": "Current bounded consumer execution is in integration/ecosystem/verification_20261026.json; historical upstream registrations do not establish current producer execution",
   "dependencies": [
     {
       "repository": "voiage",

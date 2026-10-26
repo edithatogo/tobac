@@ -4,16 +4,23 @@
   "type": "refactor",
   "status": "in_progress",
   "created_at": "2026-10-25T12:24:37.028925+00:00",
-  "updated_at": "2026-10-25T12:24:37.028925+00:00",
+  "updated_at": "2026-10-26",
   "description": "Scientific ecosystem modernisation",
   "base_commit": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
   "approval_scope": "Autonomous macOS implementation, review, fixes and archival authorised 26 October 2026",
   "implementation_authorized": true,
-  "implementation_state": "reconciling_current_main",
+  "implementation_state": "local_verified_hosted_and_producer_contract_gates_open",
   "github_issue": "https://github.com/edithatogo/tobac/issues/22",
   "github_cross_reference": {
     "issue": "https://github.com/edithatogo/tobac/issues/22"
   },
   "master_issue": "https://github.com/edithatogo/tobac/issues/22",
-  "implementation_base": "fa0665f8e2409eec5e1f8e2bb25fc3644ffedd2f"
+  "implementation_base": "fa0665f8e2409eec5e1f8e2bb25fc3644ffedd2f",
+  "verification": "integration/ecosystem/verification_20261026.json",
+  "review": "docs/reviews/2026-10-26-conductor-autonomous.md",
+  "remaining_gates": [
+    "Full producer metadata/timestamp/nullable interchange and migration qualification; Voiage 3.0.0 unpublished",
+    "Hosted macOS package audit/provenance and downstream verification pending",
+    "Non-macOS ARM lane deferred to roadmap"
+  ]
 }

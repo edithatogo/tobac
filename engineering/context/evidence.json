@@ -12,5 +12,9 @@
     "scripts/qualify_integrations.py",
     "evidence/prior_work/v2.9.0/data/longitudinal_20261024/parameter_estimates_v2.7.0.csv"
   ],
-  "base_commit": null
+  "base_commit": null,
+  "required_paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md"
+  ]
 }
