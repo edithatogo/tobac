@@ -182,6 +182,10 @@ completed track is awaiting archival; the seven prior archives remain preserved.
 Current-main reconciliation also retains pandas 3.1.0, Pygments 2.21.0 and pytest
 9.1.1 from PRs #36/#45/#46. The combined pandas/Pygments checkout passed the full
 880-test/92% suite, strict checks, reproduction, clean-package and security gates.
-A final full suite runs with pytest 9.1.1, and hosted checks qualify the final PR
-head. The root managed parser still fails on Python 3.15 (run 40325526891);
+The final full suite with pytest 9.1.1 also passed: 880 tests, five real capability
+skips, 92% coverage. Native producer/workstream/M3 tests passed 97/97 with the
+final locks. Hosted checks must qualify the final PR head before merge. The root managed parser still fails on Python 3.15 (run 40325526891);
 engineering-directory graph run 40326897087 passed but does not close that root gate.
+
+Publication: PR #47. All local implementation, review and reconciliation evidence
+is recorded above; exact-head hosted results are required before guarded merge.

@@ -33,5 +33,11 @@
   "dependency_submission_receipt": "integration/ecosystem/dependency-submission_20261026.json",
   "resume_base": "a6296d422a4c5270828cbec2b398a7eb131d7818",
   "interchange_verification": "integration/ecosystem/interchange_20261026.json",
-  "interchange_review": "docs/reviews/2026-10-26-evidence-interchange.md"
+  "interchange_review": "docs/reviews/2026-10-26-evidence-interchange.md",
+  "interchange_publication": {
+    "pull_request": 47,
+    "url": "https://github.com/edithatogo/tobac/pull/47",
+    "local_qualification": "880 passed, 5 skips, 92% coverage; 97 native tests passed; strict/reproduction/security/clean package passed",
+    "hosted": "pending exact-head qualification before guarded merge"
+  }
 }

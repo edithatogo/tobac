@@ -28,8 +28,8 @@
       "chunked.arrow": "6c8d59a7ab2584c188a0729832f97f880795cbabfa21e8f2f4c7ae410518e985"
     },
     "float64_view": {
-      "source_address": 534973459056,
-      "view_address": 534973459056,
+      "source_address": 527054629200,
+      "view_address": 527054629200,
       "arrow_pool_before": 192,
       "arrow_pool_after": 2256,
       "survives_source_gc": true,
@@ -72,7 +72,9 @@
     "interchange-native-final.log": "53b0ee76f8d782d4f903c345e54181fdb458cfae2b9b24178d8967464dc6ef15",
     "interchange-strict-final.log": "56882e01cb80173ef053c4096e4ee43e3123a15f5c0a06715f96988d48fbd91c",
     "interchange-security-final.log": "6b83060f1659d3f92583371456eca6d4db0ea663e96ac04f07ccba79646080df",
-    "interchange-milestone.log": "4e8f9e5adf1e972c2cfb1d7e590e8f502b5d9ef1523dff995c0f316a875a8887"
+    "interchange-milestone.log": "4e8f9e5adf1e972c2cfb1d7e590e8f502b5d9ef1523dff995c0f316a875a8887",
+    "interchange-pytest911-final.log": "2a5ef31ef86d0696244d925d3de0cff67f0141461f5da4fcbbfe098fa4781643",
+    "interchange-native-pytest911-final.log": "2460f351be9464aabf894ac623fa082910b7a11c99c5c0c9f9bb9df25dde9d7a"
   },
   "producer": {
     "source": "7af563c8cb373057d30662650b3f332f39e05b83",
@@ -86,7 +88,7 @@
     "last_root_managed_failure": 40325526891,
     "engineering_directory_success_not_root_acceptance": 40326897087
   },
-  "limits": "Software qualification against current Voiage, not empirical calibration or Voiage 3.0 acceptance. Hosted checks pending publication.",
+  "limits": "Software qualification against current Voiage, not empirical calibration or Voiage 3.0 acceptance. Exact-head hosted checks required before merge; receiving-ref readback follows publication.",
   "reconciliation_commit": "f3d8cfcbb1bf6a600c83ddeb7957a5ec77b0b5dc",
   "retained_maintenance": {
     "pandas": "3.1.0",
@@ -98,6 +100,16 @@
   "reconciled_milestone": {
     "log_sha256": "4ff6ca898417df57bc3df55f07bcef957a36fc8e5128966671e1d463e188322d",
     "result": "tests, strict_all, reproduce, clean_package, security passed; pandas 3.1.0/Pygments 2.21.0",
-    "final_pytest911_full_suite": "running before publication; exact-head hosted qualification required"
+    "final_pytest911_full_suite": "passed: 880 tests, 5 real capability skips, 92% branch coverage"
+  },
+  "native_environment": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0",
+    "pytest": "9.1.1",
+    "pygments": "2.21.0",
+    "pluggy": "1.7.0",
+    "iniconfig": "2.3.1",
+    "pydantic": "2.14.1"
   }
 }
