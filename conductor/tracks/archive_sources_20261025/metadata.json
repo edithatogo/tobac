@@ -22,11 +22,17 @@
     "hosted_checks": "15/15 passed"
   },
   "moh_followup": {
-    "status": "local_qualification_complete_hosted_pending",
+    "status": "bounded_pathway_review_complete_scientific_qualification_open",
     "guide": "docs/MOH_OBSERVATION_PATHWAY.md",
     "specification": "integration/archive/moh-observation-specification.json",
     "native_receipt": "integration/archive/moh-workbook-qualification_20261026.json",
     "scientific_qualification": false,
-    "verification": "integration/archive/moh-pathway-verification_20261026.json"
+    "verification": "integration/archive/moh-pathway-verification_20261026.json",
+    "publication": {
+      "pull_request": 40,
+      "merge_commit": "160c0a5c53e440d9345ad51efc7dca2a7611bf6c",
+      "qualified_head": "94228c62622dff8a226d251309bfba1293a72e36",
+      "hosted_checks": "15/15 passed"
+    }
   }
 }

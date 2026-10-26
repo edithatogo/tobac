@@ -23,7 +23,9 @@ PR #21 merged at `cf8295b5c1b649685ba78f4977ec7f1b5883d1a8` after 15/15 checks p
 - [x] Specify measurement/dependence requirements without inventing calibrated parameters.
 - [x] Regenerate a dated handoff report using locally verified objects; preserve older reports.
 - [x] Execute focused/full integration, strict and reproduction/package gates.
-- [ ] Publish the MOH qualification follow-up and verify exact-head hosted checks.
+- [x] Publish the MOH qualification follow-up and verify exact-head hosted checks.
 
 The bounded pathway review does not qualify a regulatory likelihood or posterior. See
 `docs/MOH_OBSERVATION_PATHWAY.md` and the dated MOH qualification receipt.
+
+MOH follow-up PR #40 merged at `160c0a5c53e440d9345ad51efc7dca2a7611bf6c` after 15/15 hosted checks passed.

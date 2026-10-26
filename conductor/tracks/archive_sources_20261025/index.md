@@ -17,3 +17,7 @@ Current implementation: [plan](plan.md), [metadata](metadata.json),
 [consumer guide](../../../docs/SOURCE_OBSERVATION_HANDOFF.md).
 
 PR #21 receiving commit: `cf8295b5c1b649685ba78f4977ec7f1b5883d1a8`; all 15 PR checks passed.
+
+MOH pathway review complete: native CAS/WARC and 16 values reverified; PR #40 merged
+at `160c0a5c53e440d9345ad51efc7dca2a7611bf6c` with all 15 PR checks passing. Scientific qualification
+remains open; see `../../../docs/MOH_OBSERVATION_PATHWAY.md`.

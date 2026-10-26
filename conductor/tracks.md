@@ -198,3 +198,6 @@ time, historical definitions, aggregate duty-free/product coverage, conversion, 
 measurement/covariance and the target catchment/transport remain open. No prior is updated.
 Guide: `docs/MOH_OBSERVATION_PATHWAY.md`; specification and execution receipts are under
 `integration/archive/moh-*`. Companion archive PR #776 publication/recovery remains separate.
+
+MOH follow-up PR #40 merged at `160c0a5c53e440d9345ad51efc7dca2a7611bf6c` after 15/15 hosted checks passed.
+Receipt: `integration/archive/moh-pathway-verification_20261026.json`.

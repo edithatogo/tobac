@@ -14,7 +14,88 @@
     "reproduction": "M1/M2 grid/M3/release/empirical runners and verifiers plus longitudinal comparison passed",
     "package": "wheel/sdist build passed; no new clean-install qualification claimed",
     "conductor": "10/10 names consistent",
-    "hosted": "pending exact-head PR checks"
+    "hosted": {
+      "status": "success",
+      "qualified_head": "94228c62622dff8a226d251309bfba1293a72e36",
+      "checks": [
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299778540/job/121494526863",
+          "name": "Tests macos-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299770500/job/121494501069",
+          "name": "longitudinal",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299778544/job/121494526803",
+          "name": "voiage-released-parity",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299778540/job/121494526552",
+          "name": "macOS Python 3.15.1 qualification",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299778544/job/121494526461",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299778527/job/121494526738",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299778540/job/121494526992",
+          "name": "Tests ubuntu-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299778540/job/121494526969",
+          "name": "Tests windows-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299778540/job/121494526885",
+          "name": "quality",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299778605/job/121494527739",
+          "name": "longitudinal",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299778527/job/121494526727",
+          "name": "sourceright",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299778527/job/121494526313",
+          "name": "voiage-parity",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299770507/job/121494501167",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299770507/job/121494501502",
+          "name": "sourceright",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40299770507/job/121494501419",
+          "name": "voiage-parity",
+          "state": "SUCCESS"
+        }
+      ],
+      "scope": "consumer protocol/software and existing computational checks; local canonical source execution remains separately evidenced"
+    }
   },
   "closed_local_gaps": [
     "16 workbook/CAS/WARC source fixity and request identity",
@@ -64,5 +145,11 @@
       "sha256": "d9b169e04f32aac2aa5f249acbd413beff58827a911f93d485a44d2b776469ea",
       "bytes": 3171
     }
+  },
+  "publication": {
+    "pull_request": 40,
+    "merge_commit": "160c0a5c53e440d9345ad51efc7dca2a7611bf6c",
+    "receiving_ref": "refs/heads/main",
+    "post_merge_verification": "receiving head checks verified separately after this receipt commit"
   }
 }
