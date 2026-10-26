@@ -34,8 +34,12 @@ additional automation tools are roadmap work; no job or entitlement is claimed a
 These are improvements beyond the completed 26 October macOS acceptance scope, not
 open execution gates or automatic implementation authorisation:
 
-- Triage the 31 surviving supply mutants from the hosted 100/131 (76.3%) measurement;
+- Triage the 29 surviving supply mutants from PR #43's hosted 102/131 (77.9%) measurement;
   distinguish equivalent mutations from worthwhile missing assertions.
 - Reconsider the 175 documented Ruff style/API exceptions where a change preserves
   public interfaces, validation behavior and scientific meaning. They are not 175
   behavioral defects claimed fixed.
+
+The earlier 100/131 measurement remains dated evidence. The separate bounded gremlins
+campaign detected 68/68; its denominator does not replace mutmut. F6's non-macOS ARM
+diagnostic execution remains deferred here; it is not an unchecked current macOS task.

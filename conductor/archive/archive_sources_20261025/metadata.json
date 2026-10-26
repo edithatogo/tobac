@@ -1,7 +1,7 @@
 {
   "track_id": "archive_sources_20261025",
   "title": "Archival source integration",
-  "status": "bounded_consumer_software_complete_scientific_qualification_open",
+  "status": "archived_bounded_software_complete",
   "scope": "Bounded source-to-observation consumer validation; no conditioning",
   "updated": "2026-10-26",
   "base_commit": "d09c84d0cecf77e7ee1f42b36ed92a26928b24c7",
@@ -55,5 +55,6 @@
   },
   "archived_at": "2026-10-26",
   "archive_scope": "Completed bounded macOS/software scope; empirical and source gates remain in conductor/research-gates.md",
-  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md"
+  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md",
+  "status_before_archive": "bounded_consumer_software_complete_scientific_qualification_open"
 }

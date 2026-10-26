@@ -3,7 +3,7 @@
   "title": "Executable integration of preserved evidence",
   "date": "2026-10-25",
   "base_commit": "5218d831f8b2452c7937da91ee00bf9b96183b2d",
-  "status": "software_execution_qualified_source_applicability_open",
+  "status": "archived_bounded_software_complete",
   "evidence": [
     "docs/EVIDENCE_INTEGRATION.md",
     "integration/evidence_inventory_20261025.json",
@@ -18,5 +18,6 @@
   },
   "archived_at": "2026-10-26",
   "archive_scope": "Completed bounded macOS/software scope; empirical and source gates remain in conductor/research-gates.md",
-  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md"
+  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md",
+  "status_before_archive": "software_execution_qualified_source_applicability_open"
 }

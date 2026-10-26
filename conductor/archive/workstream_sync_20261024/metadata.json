@@ -1,7 +1,7 @@
 {
   "track_id": "workstream_sync_20261024",
   "title": "Cross-workstream synchronisation and regression contracts",
-  "status": "interface_checks_complete_scientific_conditioning_open",
+  "status": "archived_bounded_software_complete",
   "base_commit": "9fe24a514ae8b881ac414ed11d3ac27c79ea348d",
   "updated": "2026-10-25",
   "review": {
@@ -19,5 +19,6 @@
   "empirical_current_nz_prior_conditioned": false,
   "archived_at": "2026-10-26",
   "archive_scope": "Completed bounded macOS/software scope; empirical and source gates remain in conductor/research-gates.md",
-  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md"
+  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md",
+  "status_before_archive": "interface_checks_complete_scientific_conditioning_open"
 }

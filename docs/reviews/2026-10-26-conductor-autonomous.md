@@ -10,7 +10,7 @@ The bounded macOS changes preserve reference scientific inputs and reuse the exi
 - [x] **Style Compliance**: Pass - configured Ruff and strict BasedPyright pass; existing style/API exceptions remain explicit.
 - [x] **New Tests**: Yes - parameter identity, scenario isolation, recovery, context requirements, security dispositions, archive registration and accounting boundaries.
 - [x] **Test Coverage**: Partial - full reference suite/branch coverage and separate native optional-library execution; these establish bounded software evidence.
-- [x] **Test Results**: Passed - current executed scopes belong to integration/ecosystem/verification_20261026.json; hosted checks remain pending until read back.
+- [x] **Test Results**: Passed - current executed scopes belong to integration/ecosystem/verification_20261026.json; PR #43 final-code checks and the trusted six-job dispatch passed; four signed subjects were verified downstream.
 
 ## Findings
 

@@ -1,7 +1,7 @@
 {
   "track_id": "engineering_hardening_20261024",
   "title": "Library reuse and qualified engineering harness",
-  "status": "complete",
+  "status": "archived_bounded_software_complete",
   "base_commit": "044c9951fb35c1ca020416da587bfa04e01b2967",
   "date": "2026-10-24",
   "updated": "2026-10-26",
@@ -79,5 +79,6 @@
   },
   "archived_at": "2026-10-26",
   "archive_scope": "Completed bounded macOS/software scope; empirical and source gates remain in conductor/research-gates.md",
-  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md"
+  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md",
+  "status_before_archive": "complete"
 }

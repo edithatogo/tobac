@@ -25,14 +25,107 @@
     "Native artifact readback found uv-generated hidden .gitignore in the digest manifest, while upload excludes hidden build metadata; restrict subjects to wheel/sdist/audit SBOM and rerun hosted proof"
   ],
   "hosted": {
-    "status": "pending"
+    "status": "passed",
+    "pull_request": 43,
+    "qualified_head": "3c0129a5eea94ac33b4cd23f7625dcb6abe25cac",
+    "merge_commit": "a9e247416fe71932118ca92b1b04e93cb8e42267",
+    "pr_checks": "15 successful; one expected PR-boundary skip",
+    "trusted_dispatch_run": 40315911202,
+    "trusted_dispatch_checks": "6/6 successful",
+    "downstream_attestation_verification": "4/4 signed subjects verified with exact source commit/ref/workflow and self-hosted runners denied",
+    "checks": [
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918077/job/121548361226",
+        "name": "voiage-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918120/job/121548361065",
+        "name": "macOS Python 3.15.1 qualification",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918120/job/121548360863",
+        "name": "Tests macos-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918228/job/121548361631",
+        "name": "voiage-released-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918077/job/121548361049",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918348/job/121548361599",
+        "name": "longitudinal",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918120/job/121548361350",
+        "name": "Tests windows-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918120/job/121548361167",
+        "name": "quality",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918228/job/121548361344",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918077/job/121548360570",
+        "name": "sourceright",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918120/job/121548361118",
+        "name": "Tests ubuntu-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315918120/job/121548363033",
+        "name": "macOS package provenance",
+        "state": "SKIPPED"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315909754/job/121548333431",
+        "name": "voiage-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315909754/job/121548333298",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315909754/job/121548333671",
+        "name": "sourceright",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40315909763/job/121548333044",
+        "name": "longitudinal",
+        "state": "SUCCESS"
+      }
+    ],
+    "full_macos_tests": "838 passed, 4 capability skips, 92% branch-inclusive coverage",
+    "mutation": "102/131 killed (77.9%); 29 survivors retained as explicit debt",
+    "artifact_receipt": "integration/ecosystem/hosted-artifacts_20261026.json",
+    "audit": "Supported macOS public/community audit executed; paid raw-event upload skipped by provider; no egress-blocking claim",
+    "final_main_evidence": "Exact receiving-head runs and PR #43 publication readback; follow-up documentation commits receive their own hosted runs"
   },
   "scientific_qualification": false,
   "reference_scientific_values_changed": false,
   "archived_tracks": 7,
   "remaining_gates": [
     "Full producer metadata/timestamp/nullable/migration contract; Voiage 3.0.0 not published",
-    "macOS hosted audit/attestation and downstream verification pending",
     "Non-macOS ARM diagnostics deferred to roadmap"
   ],
   "logs_sha256": {
@@ -66,5 +159,14 @@
     "scripts/lock_receipt.py": "134693e1938eac19dc52b78f8e5e4a20874ea785ee727045dbf89eec1c35b1cf",
     "noxfile.py": "27eb93d7dd732d0cc1559b73ad272416b10a5b65b6d34d3ece805c9c25cfe831",
     ".github/workflows/engineering.yml": "6b3c736d53d3df2e7cfefe778c5987144cf09bf0f5bd81411ae10fbc983b7ee2"
+  },
+  "publication": {
+    "pull_request": 43,
+    "qualified_head": "3c0129a5eea94ac33b4cd23f7625dcb6abe25cac",
+    "merge_commit": "a9e247416fe71932118ca92b1b04e93cb8e42267",
+    "pr_checks": "15 successful; one expected PR-boundary skip",
+    "trusted_dispatch_run": 40315911202,
+    "trusted_dispatch_checks": "6/6 successful",
+    "downstream_attestation_verification": "4/4 signed subjects verified with exact source commit/ref/workflow and self-hosted runners denied"
   }
 }

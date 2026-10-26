@@ -8,7 +8,8 @@ Track: `conductor/tracks/scientific_ecosystem_20261025/`.
 The macOS implementation adds parameter serialization, stage-bound replay/recovery,
 required-context guards, clean installed-package qualification, explicit Voiage/JAX EVPI,
 native interchange/tool probes, mutation boundary assertions and security/provenance gates.
-Current phase-by-phase dispositions and unresolved producer contracts are in the plan.
+PR #43 is merged and the macOS implementation/review and native provenance gates pass.
+Only C3/C4/C6 full producer-interchange qualification remains open; see the plan.
 Review: `docs/reviews/2026-10-26-conductor-autonomous.md`.
 Execution: `integration/ecosystem/verification_20261026.json`.
 

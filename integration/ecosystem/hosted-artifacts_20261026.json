@@ -1,0 +1,113 @@
+{
+  "schema": "tobac.hosted-artifact-verification.v1",
+  "run_id": 40315911202,
+  "source_head": "3c0129a5eea94ac33b4cd23f7625dcb6abe25cac",
+  "repository": "edithatogo/tobac",
+  "signer_workflow": ".github/workflows/engineering.yml",
+  "expected_ref": "refs/heads/codex/complete-conductor-macos-20261026",
+  "self_hosted_denied": true,
+  "subjects": [
+    {
+      "subject": "artifact-sbom.json",
+      "sha256": "01473d97c3031a4f10c283e57f0300287952e29365da6ccf66ccad0baba84278",
+      "command": [
+        "gh",
+        "attestation",
+        "verify",
+        "outputs/engineering/ecosystem/hosted-fixed-artifacts/release-candidate/artifact-sbom.json",
+        "--repo",
+        "edithatogo/tobac",
+        "--signer-workflow",
+        "edithatogo/tobac/.github/workflows/engineering.yml",
+        "--source-ref",
+        "refs/heads/codex/complete-conductor-macos-20261026",
+        "--source-digest",
+        "3c0129a5eea94ac33b4cd23f7625dcb6abe25cac",
+        "--deny-self-hosted-runners",
+        "--format",
+        "json"
+      ],
+      "exit": 0,
+      "verification_json_sha256": "835e43576b0007448d9c3f2d69aec1dd38d4c6bff2a2520f0f79d10d871b7c6f"
+    },
+    {
+      "subject": "sbom.json",
+      "sha256": "bb2811571710f97e1a4357a381a8f097f27b5ef21dcc6c0cd8673b3ae936fb09",
+      "command": [
+        "gh",
+        "attestation",
+        "verify",
+        "outputs/engineering/ecosystem/hosted-fixed-artifacts/release-candidate/sbom.json",
+        "--repo",
+        "edithatogo/tobac",
+        "--signer-workflow",
+        "edithatogo/tobac/.github/workflows/engineering.yml",
+        "--source-ref",
+        "refs/heads/codex/complete-conductor-macos-20261026",
+        "--source-digest",
+        "3c0129a5eea94ac33b4cd23f7625dcb6abe25cac",
+        "--deny-self-hosted-runners",
+        "--format",
+        "json"
+      ],
+      "exit": 0,
+      "verification_json_sha256": "835e43576b0007448d9c3f2d69aec1dd38d4c6bff2a2520f0f79d10d871b7c6f"
+    },
+    {
+      "subject": "tobac_regulatory_research-0.2.0-py3-none-any.whl",
+      "sha256": "16261f1df61dbb0ffa6c48d4e7eda22ed97678d509b6d67a458e2ae8f54283e2",
+      "command": [
+        "gh",
+        "attestation",
+        "verify",
+        "outputs/engineering/ecosystem/hosted-fixed-artifacts/release-candidate/tobac_regulatory_research-0.2.0-py3-none-any.whl",
+        "--repo",
+        "edithatogo/tobac",
+        "--signer-workflow",
+        "edithatogo/tobac/.github/workflows/engineering.yml",
+        "--source-ref",
+        "refs/heads/codex/complete-conductor-macos-20261026",
+        "--source-digest",
+        "3c0129a5eea94ac33b4cd23f7625dcb6abe25cac",
+        "--deny-self-hosted-runners",
+        "--format",
+        "json"
+      ],
+      "exit": 0,
+      "verification_json_sha256": "835e43576b0007448d9c3f2d69aec1dd38d4c6bff2a2520f0f79d10d871b7c6f"
+    },
+    {
+      "subject": "tobac_regulatory_research-0.2.0.tar.gz",
+      "sha256": "9faa8108ad08b1be7b4f01137731ed86314ae50acc34371cddcf74e48f8d2d49",
+      "command": [
+        "gh",
+        "attestation",
+        "verify",
+        "outputs/engineering/ecosystem/hosted-fixed-artifacts/release-candidate/tobac_regulatory_research-0.2.0.tar.gz",
+        "--repo",
+        "edithatogo/tobac",
+        "--signer-workflow",
+        "edithatogo/tobac/.github/workflows/engineering.yml",
+        "--source-ref",
+        "refs/heads/codex/complete-conductor-macos-20261026",
+        "--source-digest",
+        "3c0129a5eea94ac33b4cd23f7625dcb6abe25cac",
+        "--deny-self-hosted-runners",
+        "--format",
+        "json"
+      ],
+      "exit": 0,
+      "verification_json_sha256": "835e43576b0007448d9c3f2d69aec1dd38d4c6bff2a2520f0f79d10d871b7c6f"
+    }
+  ],
+  "artifact_sBOM_binding": {
+    "schema": "tobac.artifact-sbom.v1",
+    "scope": "actual audited build/tool environment; not runtime-only dependency inference",
+    "sha256": {
+      "sbom.json": "bb2811571710f97e1a4357a381a8f097f27b5ef21dcc6c0cd8673b3ae936fb09",
+      "tobac_regulatory_research-0.2.0-py3-none-any.whl": "16261f1df61dbb0ffa6c48d4e7eda22ed97678d509b6d67a458e2ae8f54283e2",
+      "tobac_regulatory_research-0.2.0.tar.gz": "9faa8108ad08b1be7b4f01137731ed86314ae50acc34371cddcf74e48f8d2d49"
+    }
+  },
+  "scope": "native GitHub attestation identity/source/subject verification and exact package/SBOM byte readback; no SLSA level or empirical qualification"
+}

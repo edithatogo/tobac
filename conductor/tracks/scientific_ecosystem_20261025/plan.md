@@ -74,11 +74,11 @@ All phases end with evidence review. Local review is not independent scientific 
 - [x] Task F2: Compare ty/pyrefly/BasedPyright diagnostics and prek hooks; retain explicit dispositions and current required checks.
 - [x] Task F3: Write or select meaningful scientific mutation cases, prove imported code identity, and compare pytest-gremlins with existing mutation checks.
 - [x] Task F4: Extend supported pinned actions, environment/cache controls, least privilege and source-bound locks through Nox/uv.
-- [~] Task F5: Implement the security findings lifecycle, artifact-linked SBOM and downstream attestation verification.
-  - [~] Retain owner, component, rationale, remediation proof and expiring exceptions; do not hide unresolved findings.
-  - [~] Qualify harden-runner audit and supported egress policy without changing account entitlements.
-- [ ] Task F6: Execute the ARM diagnostic lane and preserve separate architecture/numerical qualification results.
-- [~] Task F7: Phase verification and checkpoint: inspect actual hosted job logs/artifacts, prove attestation verification, and promote only qualified checks; record unresolved debt.
+- [x] Task F5: Implement the security findings lifecycle, artifact-linked SBOM and downstream attestation verification.
+  - [x] Retain owner, component, rationale, remediation proof and expiring exceptions; do not hide unresolved findings.
+  - [x] Qualify harden-runner audit and supported egress policy without changing account entitlements.
+Deferred to conductor/roadmap.md: F6 — ARM diagnostics are outside current macOS development; no execution claimed.
+- [x] Task F7: Phase verification and checkpoint: inspect actual hosted job logs/artifacts, prove attestation verification, and promote only qualified checks; record unresolved debt.
 
 ## Phase G — Optional evidence integrations (R10)
 
@@ -98,9 +98,9 @@ All phases end with evidence review. Local review is not independent scientific 
 - [x] Task H2: Run final clean-package, coverage, security, recovery and performance gates without counting focused/cached tests as a full run.
   - [x] Preserve per-environment pytest caches; use bounded selectors while editing and zero retries by default.
   - [x] Restrict any retry to an identified transient read-only case; never retry native mutations or sends through the test runner.
-- [~] Task H3: Review final diffs and scientific assumptions, reconcile current main/issue #1, and publish only within authorised scope using guarded expected-head checks.
-- [~] Task H4: Verify remote refs/files and hosted outcomes; post receiving commits, actual test scopes, interface changes and open gaps on #1.
-- [~] Task H5: Phase verification and checkpoint: deliver repository paths, issue URLs, track paths, artifact identities and verification status; distinguish local, hosted, upstream and scientific acceptance.
+- [x] Task H3: Review final diffs and scientific assumptions, reconcile current main/issue #1, and publish only within authorised scope using guarded expected-head checks.
+- [x] Task H4: Verify remote refs/files and hosted outcomes; post receiving commits, actual test scopes, interface changes and open gaps on #1.
+- [x] Task H5: Phase verification and checkpoint: deliver repository paths, issue URLs, track paths, artifact identities and verification status; distinguish local, hosted, upstream and scientific acceptance.
 
 ## Review and sequencing
 
@@ -132,3 +132,9 @@ Scientific gaps remain in conductor/research-gates.md; no data or empirical para
 
 Review: docs/reviews/2026-10-26-conductor-autonomous.md. Fixed coverage-store contamination,
 recovery log reuse, nested unknown parameters, archive registry validation and macOS path aliasing.
+
+## Publication and native close-out
+
+PR #43 merged at `a9e247416fe71932118ca92b1b04e93cb8e42267` after 15 successful checks and one expected PR-only provenance skip. Trusted dispatch `40315911202` passed all six engineering jobs, including audit/provenance. All four signed subjects passed exact-source/ref/workflow downstream verification. Hosted macOS: 838 passed, four capability skips, 92% coverage; mutmut 102/131 killed. No SLSA level or empirical qualification is inferred.
+
+The remaining C3/C4/C6 producer-interchange items stay unchecked. They must not be archived as complete while the full metadata/nullable/timestamp/migration contract and future Voiage producer remain unqualified. Final receiving-ref checks are read back on GitHub and linked from PR #43.

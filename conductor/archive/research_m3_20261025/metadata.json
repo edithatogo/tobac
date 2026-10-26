@@ -1,7 +1,7 @@
 {
   "track_id": "research_m3_20261025",
   "title": "M3 research portfolios, implementation and staged decisions",
-  "status": "partial",
+  "status": "archived_bounded_software_complete",
   "description": "Numerical implementation and bounded installed Voiage EVPI/finite-partition qualification pass; no generic EVSI, structural API or empirical qualification claim",
   "base_commit": "886fc08929f8e4e7e34fb6443bbf81545e52c3db",
   "receiving_base": "5218d831f8b2452c7937da91ee00bf9b96183b2d",
@@ -17,5 +17,6 @@
   },
   "archived_at": "2026-10-26",
   "archive_scope": "Completed bounded macOS/software scope; empirical and source gates remain in conductor/research-gates.md",
-  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md"
+  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md",
+  "status_before_archive": "partial"
 }
