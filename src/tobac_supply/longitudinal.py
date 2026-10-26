@@ -3,12 +3,13 @@
 Dates use half-open intervals. Correlation concerns the stationary random component,
 not the common calibration error. All planning variances must be supplied explicitly.
 """
+
 from __future__ import annotations
 
+import math
 from collections.abc import Iterable, Mapping, Sequence
 from copy import deepcopy
 from datetime import date
-import math
 from numbers import Integral, Real
 from typing import Any
 
@@ -61,27 +62,29 @@ def choose_vintage(records: Sequence[Mapping[str, Any]], as_of: str) -> list[dic
     for position, source in enumerate(records):
         row = deepcopy(dict(source))
         try:
-            raw_series, raw_unit = row['series_id'], row['unit']
+            raw_series, raw_unit = row["series_id"], row["unit"]
         except KeyError as exc:
             raise ValueError(f"Missing vintage field: {exc}") from exc
         # Validate identity before coercion: str(None)/str(nan) would otherwise
         # become truthy labels and merge unrelated series.
-        for field, value in (('series_id', raw_series), ('unit', raw_unit)):
+        for field, value in (("series_id", raw_series), ("unit", raw_unit)):
             if not isinstance(value, str) or not value.strip():
                 raise ValueError(
                     f"Invalid {field} in vintage row {position}: a non-empty "
-                    f"string is required, not {value!r}")
+                    f"string is required, not {value!r}"
+                )
         series, unit = raw_series.strip(), raw_unit.strip()
         try:
-            start, end = _date(row['period_start']), _date(row['period_end'])
-            available = _date(row['available_on'])
-            _number(row['value'], 'value')
+            start, end = _date(row["period_start"]), _date(row["period_end"])
+            available = _date(row["available_on"])
+            _number(row["value"], "value")
         except KeyError as exc:
             raise ValueError(f"Missing vintage field: {exc}") from exc
         if end <= start:
             raise ValueError(
                 f"Invalid observation period in vintage row {position}: "
-                f"period_end must be later than period_start")
+                f"period_end must be later than period_start"
+            )
         if series in units and units[series] != unit:
             raise ValueError(f"Incompatible unit in {series}")
         units[series] = unit
@@ -89,10 +92,10 @@ def choose_vintage(records: Sequence[Mapping[str, Any]], as_of: str) -> list[dic
             continue
         key = series, start.isoformat(), end.isoformat()
         previous = selected.get(key)
-        if previous is None or available > _date(previous['available_on']):
+        if previous is None or available > _date(previous["available_on"]):
             selected[key] = row
-        elif available == _date(previous['available_on']):
-            if row['value'] != previous['value']:
+        elif available == _date(previous["available_on"]):
+            if row["value"] != previous["value"]:
                 raise ValueError(f"Conflicting estimates for same vintage: {key}")
     return [selected[k] for k in sorted(selected)]
 
@@ -103,8 +106,8 @@ def continuous_correlation(days: Iterable[Real], half_life_days: Real) -> NDArra
     With zero half-life, distinct days are independent but duplicate-day samples
     still share the same daily state. Laboratory replicate errors belong elsewhere.
     """
-    t = _vector(days, 'days')
-    half = _number(half_life_days, 'half_life_days', 0)
+    t = _vector(days, "days")
+    half = _number(half_life_days, "half_life_days", 0)
     distance = np.abs(t[:, None] - t[None, :])
     if half == 0:
         return (distance == 0).astype(np.float64)
@@ -122,8 +125,11 @@ def effective_sample_size(days: Iterable[Real], half_life_days: Real) -> float:
 
 
 def log_observation_covariance(
-    days: Iterable[Real], daily_cv: Real, analytic_cv: Real,
-    shared_cv: Real, half_life_days: Real,
+    days: Iterable[Real],
+    daily_cv: Real,
+    analytic_cv: Real,
+    shared_cv: Real,
+    half_life_days: Real,
 ) -> NDArray[np.float64]:
     """Covariance for lognormal random-day, technical and shared-error components.
 
@@ -131,19 +137,20 @@ def log_observation_covariance(
     containing the same flow/population/analytical errors. Shared calibration is
     constant across the supplied observations; batch changes need another block.
     """
-    d = _number(daily_cv, 'daily_cv', 0)
-    a = _number(analytic_cv, 'analytic_cv', 0)
-    s = _number(shared_cv, 'shared_cv', 0)
+    d = _number(daily_cv, "daily_cv", 0)
+    a = _number(analytic_cv, "analytic_cv", 0)
+    s = _number(shared_cv, "shared_cv", 0)
     correlation = continuous_correlation(days, half_life_days)
     n = len(correlation)
-    return (math.log1p(d*d) * correlation + math.log1p(a*a) * np.eye(n)
-            + math.log1p(s*s) * np.ones((n, n)))
+    return (
+        math.log1p(d * d) * correlation + math.log1p(a * a) * np.eye(n) + math.log1p(s * s) * np.ones((n, n))
+    )
 
 
 def contrast_log_se(covariance: NDArray[np.float64], weights: Iterable[Real]) -> float:
     """Standard error of a fixed linear contrast on the log scale."""
     c = np.asarray(covariance, dtype=np.float64)
-    w = _vector(weights, 'weights')
+    w = _vector(weights, "weights")
     if c.shape != (w.size, w.size) or not np.isfinite(c).all():
         raise ValueError("Invalid covariance dimensions or entries")
     if not np.allclose(c, c.T, atol=1e-12, rtol=1e-12):
@@ -155,7 +162,9 @@ def contrast_log_se(covariance: NDArray[np.float64], weights: Iterable[Real]) ->
 
 
 def aggregate_uniform_years(
-    annual_totals: Mapping[int, Real], start: str, end: str,
+    annual_totals: Mapping[int, Real],
+    start: str,
+    end: str,
 ) -> dict[str, Any]:
     """Allocate annual totals to a half-open window, assuming uniform daily releases.
 
@@ -173,29 +182,36 @@ def aggregate_uniform_years(
     for year, value in annual_totals.items():
         if isinstance(year, bool) or not isinstance(year, Integral) or not 1 <= year <= 9998:
             raise ValueError("Invalid annual year")
-        clean[int(year)] = _number(value, 'annual total', 0)
+        clean[int(year)] = _number(value, "annual total", 0)
     total = 0.0
     components: list[dict[str, Any]] = []
     for year in range(begin.year, finish.year + 1):
-        left, right = max(begin, date(year, 1, 1)), min(finish, date(year+1, 1, 1))
-        days = (right-left).days
+        left, right = max(begin, date(year, 1, 1)), min(finish, date(year + 1, 1, 1))
+        days = (right - left).days
         if days <= 0:
             continue
         if year not in clean:
             raise ValueError(f"Missing annual total for {year}")
-        denominator = (date(year+1, 1, 1)-date(year, 1, 1)).days
+        denominator = (date(year + 1, 1, 1) - date(year, 1, 1)).days
         contribution = clean[year] * days / denominator
         total += contribution
-        components.append(dict(year=year, overlap_days=days, year_days=denominator,
-                               contribution=contribution))
-    return dict(allocated_total=total, covered_days=(finish-begin).days,
-                components=components,
-                status='uniform_within_year_allocation_assumption')
+        components.append(
+            dict(year=year, overlap_days=days, year_days=denominator, contribution=contribution)
+        )
+    return dict(
+        allocated_total=total,
+        covered_days=(finish - begin).days,
+        components=components,
+        status="uniform_within_year_allocation_assumption",
+    )
 
 
 def rolling_origin_forecasts(
-    years: Iterable[Real], values: Iterable[Real], min_train: int = 4,
-    window: int | None = None, method: str = 'loglinear',
+    years: Iterable[Real],
+    values: Iterable[Real],
+    min_train: int = 4,
+    window: int | None = None,
+    method: str = "loglinear",
 ) -> list[dict[str, Any]]:
     """Expanding/rolling descriptive hindcasts with held-out future observations.
 
@@ -212,41 +228,54 @@ def rolling_origin_forecasts(
     the conventional forecast residual `observed - predicted`. The field name is
     fixed because published CSV schemas depend on it.
     """
-    x, y = _vector(years, 'years'), _vector(values, 'values')
+    x, y = _vector(years, "years"), _vector(values, "values")
     if len(x) != len(y) or np.any(np.diff(x) <= 0) or np.any(y <= 0):
         raise ValueError("Years must increase and positive values must align")
     if isinstance(min_train, bool) or not isinstance(min_train, Integral) or min_train < 2:
         raise ValueError("min_train must be an integer of at least two")
     if window is not None and (isinstance(window, bool) or not isinstance(window, Integral) or window < 2):
         raise ValueError("window must be an integer of at least two")
-    if method not in {'loglinear', 'last'}:
+    if method not in {"loglinear", "last"}:
         raise ValueError("Unknown forecasting method")
     if len(x) <= int(min_train):
         raise ValueError(
-            f'min_train={int(min_train)} requires at least {int(min_train)+1} '
-            f'observations; got {len(x)}')
+            f"min_train={int(min_train)} requires at least {int(min_train) + 1} observations; got {len(x)}"
+        )
     result: list[dict[str, Any]] = []
     for i in range(int(min_train), len(x)):
-        j = 0 if window is None else max(0, i-int(window))
+        j = 0 if window is None else max(0, i - int(window))
         tx, ty = x[j:i], y[j:i]
-        if method == 'last':
+        if method == "last":
             predicted = float(ty[-1])
         else:
-            slope, intercept = np.polyfit(tx-tx[0], np.log(ty), 1)
-            predicted = math.exp(float(intercept+slope*(x[i]-tx[0])))
+            slope, intercept = np.polyfit(tx - tx[0], np.log(ty), 1)
+            predicted = math.exp(float(intercept + slope * (x[i] - tx[0])))
         observed = float(y[i])
-        result.append(dict(train_start=float(tx[0]), train_end=float(tx[-1]),
-                           train_n=len(tx), test_year=float(x[i]), observed=observed,
-                           predicted=predicted, error=predicted-observed,
-                           absolute_percentage_error=100*abs(predicted-observed)/observed,
-                           method=method, window=window,
-                           status='retrospective_current_vintage_hindcast'))
+        result.append(
+            dict(
+                train_start=float(tx[0]),
+                train_end=float(tx[-1]),
+                train_n=len(tx),
+                test_year=float(x[i]),
+                observed=observed,
+                predicted=predicted,
+                error=predicted - observed,
+                absolute_percentage_error=100 * abs(predicted - observed) / observed,
+                method=method,
+                window=window,
+                status="retrospective_current_vintage_hindcast",
+            )
+        )
     return result
 
 
 def time_bridge(
-    anchor_mean: Real, elapsed_years: Real, reference_horizon: Real,
-    reference_common_cv: Real, relative_cv: Real, drift_fraction: Real,
+    anchor_mean: Real,
+    elapsed_years: Real,
+    reference_horizon: Real,
+    reference_common_cv: Real,
+    relative_cv: Real,
+    drift_fraction: Real,
     mean_log_slope: Real = 0,
 ) -> dict[str, Any]:
     """Time-index a declared planning distribution; not an empirical posterior.
@@ -256,27 +285,31 @@ def time_bridge(
     variance remains at t=0. These are marginals, not independent longitudinal
     samples: use joint state/covariance modelling for repeated-decision VOI.
     """
-    mean = _number(anchor_mean, 'anchor_mean', 0)
-    t = _number(elapsed_years, 'elapsed_years', 0)
-    horizon = _number(reference_horizon, 'reference_horizon', 0)
-    common = _number(reference_common_cv, 'reference_common_cv', 0)
-    relative = _number(relative_cv, 'relative_cv', 0)
-    fraction = _number(drift_fraction, 'drift_fraction', 0)
-    slope = _number(mean_log_slope, 'mean_log_slope')
+    mean = _number(anchor_mean, "anchor_mean", 0)
+    t = _number(elapsed_years, "elapsed_years", 0)
+    horizon = _number(reference_horizon, "reference_horizon", 0)
+    common = _number(reference_common_cv, "reference_common_cv", 0)
+    relative = _number(relative_cv, "relative_cv", 0)
+    fraction = _number(drift_fraction, "drift_fraction", 0)
+    slope = _number(mean_log_slope, "mean_log_slope")
     if mean == 0 or horizon == 0 or fraction > 1:
         raise ValueError("Positive anchor/horizon and drift fraction in [0,1] required")
-    variance_ref = math.log1p(common*common)
-    process_variance_per_year = (1-fraction)*variance_ref/horizon
-    slope_variance = fraction*variance_ref/horizon**2
-    common_variance = process_variance_per_year*t + slope_variance*t*t
-    variance = common_variance + math.log1p(relative*relative)
-    mean *= math.exp(slope*t)
-    log_location = math.log(mean)-variance/2
+    variance_ref = math.log1p(common * common)
+    process_variance_per_year = (1 - fraction) * variance_ref / horizon
+    slope_variance = fraction * variance_ref / horizon**2
+    common_variance = process_variance_per_year * t + slope_variance * t * t
+    variance = common_variance + math.log1p(relative * relative)
+    mean *= math.exp(slope * t)
+    log_location = math.log(mean) - variance / 2
     sd = math.sqrt(variance)
-    return dict(mean=mean, median=math.exp(log_location),
-                lower95=math.exp(log_location+float(ndtri(.025))*sd),
-                upper95=math.exp(log_location+float(ndtri(.975))*sd),
-                log_variance=variance, common_log_variance=common_variance,
-                process_variance_per_year=process_variance_per_year,
-                slope_variance=slope_variance,
-                status='time_indexed_planning_distribution_not_fitted')
+    return dict(
+        mean=mean,
+        median=math.exp(log_location),
+        lower95=math.exp(log_location + float(ndtri(0.025)) * sd),
+        upper95=math.exp(log_location + float(ndtri(0.975)) * sd),
+        log_variance=variance,
+        common_log_variance=common_variance,
+        process_variance_per_year=process_variance_per_year,
+        slope_variance=slope_variance,
+        status="time_indexed_planning_distribution_not_fitted",
+    )

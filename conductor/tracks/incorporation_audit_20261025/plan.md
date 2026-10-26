@@ -7,7 +7,7 @@
 - [x] Run 21 scoped tests, the actual archive comparison and compilation checks.
 - [x] Match uploaded snapshot content to the tested local subtree.
 - [x] Document current, prior-reference, generated, archive-only and pending work separately.
-- [ ] Confirm final receiving commit on main and post the publication receipt on issue #1.
+- [ ] Confirm final receiving commit on main and record the publication receipt in Conductor.
 
 The final issue comment records guarded publication. Full archive migration, scientific
 replay, M3 implementation and external execution are not closed by these preservation checks.

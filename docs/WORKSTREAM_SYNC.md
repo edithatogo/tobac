@@ -1,24 +1,21 @@
-# Shared workstream synchronisation
+# Scientific interface and integration checks
 
-Canonical repository: `edithatogo/tobac`, branch `main`. Coordination: issue #1.
-This document is an integration contract, not a scientific endorsement or an automated
+This document records the integration contract between regulatory and longitudinal components
+in this single-developer repository. It is not a scientific endorsement or an automated
 background synchronisation service.
 
 ## One source of truth
 
-Both workstreams use the current main commit, not separate conversation archives.
+Use the current repository sources, not separate conversation archives.
 `src/tobac/` owns the regulatory decision model, finite-state evidence conditioning and VOI.
 `src/tobac_supply/` owns the reported-release and historical observation-scale components.
 Shared handoff: `tobac.evidence.Scope`, `EvidencePacket`, `state_identifiers` and `condition`.
 There is no second independent VOI engine or automatic import of a fitted supply posterior.
 
-Before work: read main, issue #1 and `conductor/tracks.md`; record the exact base commit and
-intended file scope on issue #1. Before publishing: re-read main and the thread, incorporate
-concurrent changes, and rerun affected tests. Publish with an expected-head comparison and
-without force. Verify the receiving ref and files, then post the commit and actual test scope.
-Never reset another workstream to an older ZIP. Do not merge a dependency-update branch merely
-to make all branch pointers equal. Divergent branches require a reviewed reconciliation;
-ancestor-only longitudinal branch pointers may be fast-forwarded with expected-head checks.
+Before changes, read `AGENTS.md`, this contract and `conductor/tracks.md`. Before publishing,
+re-read current `main`, preserve existing changes, rerun affected tests and use an expected-head
+comparison without force. Verify the receiving ref and files. Historical issue #1 notes are
+provenance; no coordination comment or independent review is required.
 
 ## Accounting translation tested across namespaces
 
@@ -80,4 +77,4 @@ A local component receipt does not prove hosted CI, optional-library execution o
 scientific validity. Preserve and investigate failures rather than weakening gates.
 
 Execution receipt: `integration/workstream_sync_verification.json`.
-Publication commit and any concurrent-work acknowledgement: issue #1.
+Record the publication commit and verification scope in the relevant Conductor track.

@@ -1,10 +1,10 @@
 {
   "track_id": "engineering_hardening_20261024",
   "title": "Library reuse and qualified engineering harness",
-  "status": "nox_and_audit_tools_executed_locks_advisory_clean_promotion_and_external_qualification_open",
+  "status": "macos_python3151_local_qualification_recorded_hosted_macos_and_strict_all_open_other_platforms_deferred",
   "base_commit": "044c9951fb35c1ca020416da587bfa04e01b2967",
   "date": "2026-10-24",
-  "updated": "2026-10-25",
+  "updated": "2026-10-26",
   "evidence": [
     "docs/engineering/LIBRARY_REUSE_REVIEW.md",
     "docs/engineering/READINESS.md",
@@ -19,6 +19,6 @@
     "nox_reproduce": "success, M1/M2/M3/longitudinal verified",
     "native_audit_tools": "ruff, basedpyright, zizmor, pip-audit green after fixing 3 real defects",
     "lock_candidates": "outputs/engineering/lock-candidate (runtime + audit), 0 advisories, not promoted",
-    "open_findings": "audit profile still Linux-gated; mutation/profiling unexecuted; hosted and review gates open"
+    "open_findings": "hosted macOS and strict_all remain open; independent review is not required for this single-developer repository; Linux and other non-macOS qualification are deferred to the roadmap"
   }
 }

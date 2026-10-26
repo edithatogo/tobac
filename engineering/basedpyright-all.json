@@ -3,5 +3,6 @@
   "typeCheckingMode": "strict",
   "pythonVersion": "3.15",
   "pythonPlatform": "All",
+  "extraPaths": ["../src"],
   "failOnWarnings": true
 }

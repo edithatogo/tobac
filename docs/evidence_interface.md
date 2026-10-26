@@ -28,7 +28,7 @@ All amounts must use the same time, geography, population and physical unit:
 ## Incorporated longitudinal workstream
 The longitudinal component is on main under `src/tobac_supply/` (implementation `a71d803`, publication receipt `9fe24a5`). Its sources, configurations, methods, runners and compact results were incorporated without replacing the regulatory implementation. See `docs/empirical_longitudinal/INTEGRATION.md`.
 
-Both workstreams now follow `docs/WORKSTREAM_SYNC.md` and coordinate through issue #1. The shared regression suite is `tests/test_workstream_integration.py`; it exercises accounting translation, period alignment, state identity, duplicate-evidence rejection, correlated likelihoods and information identities across the real namespaces.
+The regulatory and longitudinal components follow the shared contract in `docs/WORKSTREAM_SYNC.md`. The regression suite is `tests/test_workstream_integration.py`; it exercises accounting translation, period alignment, state identity, duplicate-evidence rejection, correlated likelihoods and information identities across the real namespaces.
 
 Source incorporation and interface tests do not complete scientific conditioning. The intended empirical handoff remains dated original observations plus a reviewable likelihood/transport/accounting model. Product coverage and actual source dependencies need review beyond the fields validated by Scope. Generated historical posteriors and forecasts are not new observations, and no current regulatory prior is updated by the integration tests.
 

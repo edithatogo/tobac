@@ -15,6 +15,7 @@
 
 -   [Tracks Registry](./tracks.md)
 -   [Track folders](./tracks/)
+-   [Roadmap](./roadmap.md)
 
 ## Capabilities
 

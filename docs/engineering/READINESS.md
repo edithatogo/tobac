@@ -1,10 +1,19 @@
 # Engineering execution, dependency locks and qualification
 
+## Current development platform
+
+Current engineering development is focused on macOS. Linux, Windows and other non-macOS
+qualification work is deferred to [`conductor/roadmap.md`](../../conductor/roadmap.md). Existing
+workflow definitions and checks remain intact; they may still execute, and their results must be
+reported accurately. This scope change does not mark deferred checks as passed or remove them
+from repository protection settings.
+
 Dylan A Mordaunt | 24 October 2026
 
 This updates the engineering recommendations at main 711705c. Scientific inputs, models and
 published results are unchanged. Implementation, local contract tests, actual tool execution,
-hosted execution, independent review and scientific validity are separate states.
+hosted execution and scientific validity are separate states. This single-developer repository
+does not require independent review as an engineering gate.
 
 ## 1. Existing-library policy
 Use the maintained stack before another custom engine. SciPy owns the production Gaussian
@@ -20,7 +29,7 @@ Pint/Pandera/Pydantic do not establish the scientific compatibility of dates, pr
 source identities or populations. Rust acceleration requires a measured bottleneck and parity.
 The detailed decision record remains in LIBRARY_REUSE_REVIEW.md.
 
-For every proposed swap: record the old/new interface, scientific invariants, licence and version,
+For every proposed swap: record the old/new interface, scientific invariants and version,
 benchmark representative inputs, test domain edges and independent parity, rerun affected models,
 then promote through a reviewed dependency change. A newer version is not itself an improvement.
 
@@ -44,7 +53,7 @@ Alternatively dispatch **Reviewable dependency-lock candidates**. Its two jobs r
 independently with uv and upload successful candidates; they never commit, merge or publish.
 A resolver failure removes partial lock/receipt files. Existing files are never overwritten.
 
-Review versions, platform markers, package origins/licences and advisories. Copy the reviewed
+Review versions, platform markers, package origins and advisories. Copy the reviewed
 candidate pairs into `engineering/`: `requirements.lock` with `requirements.lock.json`, and
 `audit.lock` with `audit.lock.json`. Commit them through normal review. The JSON files bind
 exact dependency-input and lock bytes to the resolver command and version. They are neither
@@ -111,7 +120,7 @@ Do not weaken checks, make the repository public, or use a self-hosted runner to
 
 ## 5. Context and coordination
 
-AGENTS.md, WORKSTREAM_SYNC.md, Conductor and issue #1 remain authoritative. Context bundles bind
+AGENTS.md, WORKSTREAM_SYNC.md and Conductor remain authoritative. Context bundles bind
 explicit role profiles to source hashes and Git state; stale/missing/traversing/symlinked inputs
 and byte-budget overflow fail instead of silently truncating. They are not a token optimiser,
 secret scanner or prompt-injection sandbox. No persistent background agent is created.
@@ -121,9 +130,10 @@ Checkout and host activation must be verified separately. Official `gh-actions-l
 25 October 2026 and its output **rejected**: it wrote `.github/workflows/actions.lock` only by
 replacing all 37 full-SHA action pins with mutable tags, which contradicts the full-SHA posture
 this repository already enforces. No transitive action lock is adopted; choosing tag+lockfile
-pinning is a security-policy decision, not a mechanical fix. Private-repository entitlements,
-attestations, branch rules and independent review remain explicit prerequisites, not
-automatically enabled or claimed. Preserve the M3-owned research namespace when synchronising.
+pinning is a security-policy decision, not a mechanical fix. The repository currently has one
+collaborator (the owner), no branch protection or repository rulesets, and no required-review
+policy. No additional collaborator, reviewer or branch rule is needed for this project. Preserve
+the M3 research namespace when making shared changes.
 
 ## 6. Current evidence
 
@@ -133,9 +143,8 @@ at `5ab361b`. Together they cover the following, all executed on a network-enabl
 checkout.
 
 **Locked qualification now exists.** Both reviewed profiles were promoted into `engineering/`
-after a review of versions, origins, licences (89 packages; no copyleft, unknown or proprietary
-licence; only MPL-2.0 `certifi`/`hypothesis` and dual-licensed `python-dateutil` need noting) and
-advisories (0). With `TOBAC_REQUIRE_LOCK=1`, Nox ran `uv pip sync --require-hashes` and then:
+after a review of versions, origins and advisories (0). With `TOBAC_REQUIRE_LOCK=1`, Nox ran
+`uv pip sync --require-hashes` and then:
 `tests` 495 passed, 0 failed, 0 skipped, 91% coverage; `reproduce` verified all five replays
 (M1, M2 `--grid-check`, M3, release calibration, empirical longitudinal); `package` built the
 sdist and wheel under `--no-build-isolation`. The built wheel installed into a clean Python 3.13
@@ -199,10 +208,13 @@ artifacts, 6 source files and its historical-partial-fit scope. The artifact rem
 local outputs; its checksum and summary are retained here and in
 `integration/engineering_hardening_python315_20261026.json`.
 
-The whole-source `strict_all` remains red at **4,861 Ruff** and **2,235 BasedPyright** errors.
-The Linux hash-locked audit session, post-migration hosted matrix, attestations and independent
-review remain open. The official Actions transitive lock remains deferred because its generated
-form would replace 37 full-SHA action pins with mutable tags.
+The whole-source `strict_all` remains red; its corrected Nox run reports 1,248 Ruff and 2,208
+BasedPyright errors. Direct JSON BasedPyright readback reports 2,052, so that discrepancy is
+recorded for follow-up in the active Conductor plan. Hosted macOS qualification, attestations and
+`strict_all` remain open. Independent review is not a repository gate.
+Linux hash-locked audit execution and non-macOS hosted matrix qualification are deferred to
+`conductor/roadmap.md`. The official Actions transitive lock remains deferred because its
+generated form would replace 37 full-SHA action pins with mutable tags.
 
 Official documentation consulted:
 - https://docs.astral.sh/uv/pip/compile/

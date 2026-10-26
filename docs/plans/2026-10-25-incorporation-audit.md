@@ -9,7 +9,7 @@ Architecture: copy selected tables/templates into evidence/prior_work/v2.9.0 wit
 - [x] Select reference-only imports; preserve fields and numerical values; normalise CRLF only.
 - [x] Test integrity validator before implementation; reject omissions, mutations, unsafe paths and false current-data claims.
 - [x] Validate real payload and stage additive entries.
-- [ ] Publish with expected-head check; confirm receiving commit on issue #1.
+- [ ] Publish with expected-head check; record the receiving commit in Conductor.
 - [ ] Verify remote tree hashes and coordinate receiving commit.
 
 No scientific rerun or current empirical recommendation is created by copying evidence. M3, dependency locks, hosted execution, obsolete manuscripts and bulk legacy code have separate statuses.

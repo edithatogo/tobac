@@ -4,12 +4,16 @@ Bodies are unchanged; imports/package namespace are made standalone. See
 integration/baseline.json for source archive, commit and per-function hashes.
 Optional historical health/fiscal engines remain in the preserved full archive.
 """
+
 from __future__ import annotations
-from dataclasses import dataclass
+
 import math
+from collections.abc import Sequence
+from dataclasses import dataclass
 from numbers import Real
-from typing import Sequence
+
 import numpy as np
+
 
 class LibraryUnavailable(RuntimeError):
     """The requested external backend could not be loaded; no silent fallback."""
@@ -31,8 +35,17 @@ class DecisionProblem:
             raise ValueError("Action names must be unique and match value columns")
         if not isinstance(self.value_unit, str) or not self.value_unit.strip():
             raise ValueError("Declare a value unit")
-        weights = np.ones(values.shape[0]) if self.prior_weights is None else np.array(self.prior_weights, dtype=float, copy=True)
-        if weights.shape != (values.shape[0],) or not np.isfinite(weights).all() or (weights < 0).any() or not weights.sum() > 0:
+        weights = (
+            np.ones(values.shape[0])
+            if self.prior_weights is None
+            else np.array(self.prior_weights, dtype=float, copy=True)
+        )
+        if (
+            weights.shape != (values.shape[0],)
+            or not np.isfinite(weights).all()
+            or (weights < 0).any()
+            or not weights.sum() > 0
+        ):
             raise ValueError("Prior weights must be nonnegative, finite and have positive mass")
         if not math.isfinite(float(weights.sum())):
             raise ValueError("Weight sum overflow")
@@ -48,20 +61,23 @@ def exact_evpi(problem: DecisionProblem, backend: str = "reference") -> float:
     """Exact EVPI under the finite joint prior; values are already population-scaled."""
     if backend == "voiage":
         if not np.allclose(problem.prior_weights, 1 / len(problem.prior_weights), rtol=0, atol=1e-14):
-            raise ValueError("This voiage adapter supports equally weighted states only; no implicit resampling")
+            raise ValueError(
+                "This voiage adapter supports equally weighted states only; no implicit resampling"
+            )
         from .integrations import voiage_evpi
+
         try:
             return voiage_evpi(problem.values, list(problem.action_names))
         except (ImportError, OSError) as error:
-            raise LibraryUnavailable("voiage could not be imported; install a compatible released build") from error
+            raise LibraryUnavailable(
+                "voiage could not be imported; install a compatible released build"
+            ) from error
     if backend != "reference":
         raise ValueError(f"Unknown backend {backend!r}")
     current_action = int(np.argmax(problem.prior_weights @ problem.values))
     # Algebraically identical expected regret avoids cancellation of nearly
     # equal large totals. This is not clipping a negative estimate to zero.
-    return float(problem.prior_weights @ (
-        np.max(problem.values, axis=1) - problem.values[:, current_action]
-    ))
+    return float(problem.prior_weights @ (np.max(problem.values, axis=1) - problem.values[:, current_action]))
 
 
 def exact_partial_information(problem: DecisionProblem, group_labels: Sequence[object]) -> float:
@@ -87,8 +103,9 @@ def exact_partial_information(problem: DecisionProblem, group_labels: Sequence[o
     return math.fsum(gains)
 
 
-def _finite(value: float, name: str, lower: float = 0.0, upper: float | None = None,
-            positive: bool = False) -> None:
+def _finite(
+    value: float, name: str, lower: float = 0.0, upper: float | None = None, positive: bool = False
+) -> None:
     if isinstance(value, bool) or not isinstance(value, Real) or not math.isfinite(value):
         raise ValueError(f"{name} must be a finite number")
     if (value <= lower if positive else value < lower) or (upper is not None and value > upper):
@@ -115,8 +132,11 @@ class Exposure:
     other_nicotine_anabasine_ratio_ug_per_mg: float = 0.0
 
     def __post_init__(self) -> None:
-        for name in ("smoked_cigarettes_per_1000_day", "other_nicotine_mg_per1000_day",
-                     "other_nicotine_anabasine_ratio_ug_per_mg"):
+        for name in (
+            "smoked_cigarettes_per_1000_day",
+            "other_nicotine_mg_per1000_day",
+            "other_nicotine_anabasine_ratio_ug_per_mg",
+        ):
             _finite(getattr(self, name), name)
         _finite(self.nicotine_dose_mg_per_cigarette, "nicotine dose", positive=True)
         _finite(self.illicit_share, "illicit_share", upper=1.0)
@@ -140,8 +160,9 @@ class BiomarkerParameters:
             _finite(getattr(self, name), name, upper=1.0, positive=True)
 
 
-def predict_signals(exposure: Exposure, catchment: Catchment,
-                    parameters: BiomarkerParameters) -> dict[str, float]:
+def predict_signals(
+    exposure: Exposure, catchment: Catchment, parameters: BiomarkerParameters
+) -> dict[str, float]:
     """Predict biomarker concentrations and recorded lawful consumption.
 
     Predicting wastewater depends on total exposure, not illicit share. The
@@ -151,19 +172,26 @@ def predict_signals(exposure: Exposure, catchment: Catchment,
     """
     scale = catchment.population / 1000.0
     e, p = exposure, parameters
-    anabasine_ug_day = scale * (
-        e.smoked_cigarettes_per_1000_day * p.anabasine_ug_per_cigarette
-        + e.other_nicotine_mg_per1000_day * e.other_nicotine_anabasine_ratio_ug_per_mg
-    ) * p.anabasine_survival
-    nicotine_mg_day = scale * (
-        e.smoked_cigarettes_per_1000_day * e.nicotine_dose_mg_per_cigarette
-        + e.other_nicotine_mg_per1000_day
-    ) * p.nicotine_excretion_fraction * p.nicotine_survival
+    anabasine_ug_day = (
+        scale
+        * (
+            e.smoked_cigarettes_per_1000_day * p.anabasine_ug_per_cigarette
+            + e.other_nicotine_mg_per1000_day * e.other_nicotine_anabasine_ratio_ug_per_mg
+        )
+        * p.anabasine_survival
+    )
+    nicotine_mg_day = (
+        scale
+        * (
+            e.smoked_cigarettes_per_1000_day * e.nicotine_dose_mg_per_cigarette
+            + e.other_nicotine_mg_per1000_day
+        )
+        * p.nicotine_excretion_fraction
+        * p.nicotine_survival
+    )
     return {
         "anabasine_ng_l": anabasine_ug_day * 1000.0 / catchment.flow_l_day,
         "nicotine_equivalent_ng_l": nicotine_mg_day * 1_000_000.0 / catchment.flow_l_day,
         "recorded_legal_cigarettes_1000_day": e.smoked_cigarettes_per_1000_day
         * (1.0 - e.illicit_share - e.unrecorded_legal_share),
     }
-
-

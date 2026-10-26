@@ -37,12 +37,6 @@
         "zizmor": "1.31.1",
         "pip-audit": "2.10.1"
       }
-    },
-    "licenses": {
-      "numpy": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
-      "scipy": "BSD License; bundled components retain their own notices",
-      "pandas": "BSD 3-Clause License",
-      "matplotlib": "Python Software Foundation License"
     }
   },
   "execution": {

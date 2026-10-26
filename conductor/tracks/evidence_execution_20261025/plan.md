@@ -7,7 +7,7 @@
 - [x] Execute 60 scoped checks and the actual snapshot/archive comparison.
 - [x] Record unsuccessful real Sourceright/voiage attempts; no invented external success.
 - [x] Preserve concurrently published M3 and extend shared reproduction with its runner.
-- [ ] Re-read main/issue #1, publish with expected-head checks and confirm receiving commit.
+- [ ] Re-read main, publish with expected-head checks and record the receiving commit locally.
 
-The final issue #1 publication receipt closes the last step. External libraries, hosted CI,
+The local publication receipt closes the last step. External libraries, hosted CI,
 full scientific replay and empirical applicability remain independent open requirements.

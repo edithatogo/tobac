@@ -52,7 +52,7 @@ review (25 October 2026) confirmed the suite remains sensitive to seven further 
 probes and that every receipt hash still reproduces: `integration/workstream_sync_review_20261025.json`.
 No scientific source, policy equation, prior or published result was changed. The entire
 regulatory suite was not freshly rerun in this bounded check. Branch/readback and hosted
-status belong to the receipt on issue #1.
+status belong to the retained execution receipt.
 
 ## Open empirical and execution work
 1. Agree a prospective decision contrast and actual baseline retailer/catchment scope; the historical cap was not implemented.
@@ -67,7 +67,7 @@ status belong to the receipt on issue #1.
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
 ## Library reuse and engineering harness — 24 October 2026
-**Status: [~] Python 3.15.1 migration and local qualification recorded at 59bb0e4; post-migration hosted matrix, Linux locked audit, strict_all and independent review remain open.**
+**Status: [~] macOS Python 3.15.1 local qualification recorded at 59bb0e4; hosted macOS and strict_all remain open. Linux/Windows and other non-macOS qualification moved to the roadmap.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
 Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
 Receipt: `integration/engineering_verification.json`; execution receipts:
@@ -79,17 +79,19 @@ unchanged. New Nox/uv, schema-validated context profiles, secure bounded CI/deep
 Renovate/pre-commit configuration and pinned Conductor gitlink are explicit engineering layers.
 `uv pip sync --require-hashes` now drives `tests` (495 passed, 91% coverage), `reproduce` (five
 replays verified) and `package`, and the built wheel installs and imports. Mutation is executed
-and weak (61.7% killed); `strict_all` was measured pre-migration at 4,168 ruff and 3,584 BasedPyright errors and
+and weak (61.7% killed); `strict_all` was measured at 4,861 Ruff and 2,235 BasedPyright errors and
 is not green. The Windows leg failure was a CRLF checkout defect now fixed by `.gitattributes`.
-Do not turn configuration or a checksum into a claim of successful execution or scientific
-validity; hosted confirmation and independent review are not obtained.
+Current development targets macOS; other platform qualification is deferred to
+`conductor/roadmap.md`. Do not turn configuration or a checksum into a claim of successful
+execution or scientific validity; hosted macOS confirmation is not obtained.
 
 ## Engineering execution follow-through — 24 October 2026
-**Status: implemented at 886fc08; genuine locks and external qualification remain open.**
+**Status: macOS runtime-lock qualification recorded; hosted macOS and strict_all remain open. Linux audit execution and other non-macOS qualification are deferred to the roadmap.**
 Track: `conductor/tracks/engineering_execution_20261024/`.
 Receipt: `integration/engineering_followthrough.json`; current instructions: `docs/engineering/READINESS.md`.
-This links the already published source-bound locks, portable/audit environment separation,
-read-only hosted diagnostic and strict internal release gates; it is not new execution evidence.
+This links the source-bound locks, portable/audit environment separation, read-only hosted
+diagnostic and strict internal release gates; current work is macOS-focused and this status is not
+new execution evidence.
 
 ## Incorporation and prior-work audit — 25 October 2026
 **Status: selected reference snapshot verified; full archive migration and live empirical use are not claimed.**
@@ -119,7 +121,8 @@ Innovate/Kairos are optional; uptake/delay materiality is demonstrated with decl
 not fitted external outputs. Full/refinement tables and manifests are preserved as 24 files
 in a hashed bounded archive with an unpacker. Existing source/evidence/engineering files are
 preserved from base 5218d831. Nox and the separate genuine-library CI lane remain fail-closed;
-configuration is not successful execution. Receiving commit and hosted outcomes: issue #1/#4.
+configuration is not successful execution. Receiving commit and hosted outcomes are recorded in
+the local Conductor track and execution receipts.
 
 
 ## Evidence execution integration — 25 October 2026
@@ -134,7 +137,7 @@ run the preflight. The genuine Sourceright route covers every collection, retain
 its availability and scientific applicability are not inferred from an inventory pass.
 The 51-case equal-weight voiage probe now rejects nonfinite external values. M3-owned interfaces,
 models, priors, input data, reference records and published results are unchanged. No current
-empirical posterior, quote, full scientific replay or independent review is claimed by this pass.
+empirical posterior, quote, full scientific replay or third-party validation is claimed by this pass.
 
 M3 arrived concurrently at fa39fd36 and is preserved. The evidence gate also covers its
 research_m3 Nox session; shared reproduction now includes the M3 runner once. These command

@@ -138,7 +138,7 @@ def quality(session):
 def strict_all(session):
     audit_tools(session)
     run_all_checks(session, [
-        ['ruff', 'check', '--select', 'ALL', 'src', 'scripts'],
+        ['ruff', 'check', '--config', 'engineering/ruff.toml', 'src', 'scripts'],
         ['basedpyright', '--project', 'engineering/basedpyright-all.json'],
     ])
 

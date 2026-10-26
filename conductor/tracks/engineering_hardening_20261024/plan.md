@@ -18,16 +18,15 @@
     because mutmut enforces no threshold; the survivor count is a recorded weakness, not a pass.
   - [x] 2026-10-26 Python 3.15.1 Scalene quick profile executed; artifact hash and scope are in
     `integration/engineering_hardening_python315_20261026.json`.
-  - [ ] The Nox `audit` profile (Linux-scoped lock) itself remains unexecuted on Linux. A
-    `audit_tools()` path now runs the same quality/security checks host-natively and labels
-    itself `NATIVE AUDIT ... NOT release qualification`; the Linux profile stays authoritative.
+  - The Linux-scoped locked audit install and execution are deferred to the roadmap. The current
+    development platform is macOS; existing workflow definitions remain unchanged.
 - [x] Generate/review universal dependency and official Actions transitive locks.
   - [x] Universal `runtime` and `audit` candidates genuinely resolved by uv 0.13.5, receipt-verified,
     runtime hash-install proven, audit hash-checked for the Linux target.
   - [x] Review completed: 7 initial advisories remediated (pytest, Pygments, setuptools, virtualenv,
     and packaging as the required cascade). Final candidates report **0 advisories**.
-  - [x] Both profiles promoted into `engineering/` after review of versions, origins, licences
-    (89 packages, no copyleft/unknown) and advisories; `requirements.lock{,.json}` and
+  - [x] Both profiles promoted into `engineering/` after review of versions, origins and
+    advisories; `requirements.lock{,.json}` and
     `audit.lock{,.json}` now auto-verify as inputs change.
   - [x] Locked-qualification runs (TOBAC_REQUIRE_LOCK=1, `uv pip sync --require-hashes`):
     `tests` 495 passed / 91% coverage, `reproduce` five replays verified, `package` built both
@@ -35,27 +34,29 @@
   - [ ] Official Actions transitive lock **rejected on review**: `gh actions-lock` produced
     `actions.lock` but only by replacing all 37 full-SHA action pins with mutable tags. Adopting
     tag+lockfile pinning is a security-policy decision, so the output was reverted. Open decision.
-- [~] Verify hosted matrix, full scientific replay, package install, licensed attestations and independent review.
+- [~] Complete macOS-focused qualification.
   - [x] Full scientific replay executed locally under the reviewed lock (verification/integrity only).
   - [x] `package` now succeeds under the reviewed lock; wheel install/import verified.
   - [x] Windows hosted failure root-caused to CRLF checkout changing hashed evidence bytes; fixed
-    with `.gitattributes` (`* text=auto eol=lf`, `evidence/** -text`). Hosted re-run pending.
+    with `.gitattributes` (`* text=auto eol=lf`, `evidence/** -text`).
   - [x] Release-gate hermeticity defect found and fixed: three contract tests failed under
     `TOBAC_REQUIRE_LOCK=1` because the fixture inherited the release flag with an empty ROOT.
-  - [ ] Hosted matrix confirmation, licensed attestations and independent review not obtained.
+  - [ ] Post-migration hosted macOS qualification is not obtained.
+    Non-macOS qualification is deferred to `conductor/roadmap.md`.
 - [x] 2026-10-26 Python 3.15.1 locked local qualification: 611 tests passed (90% coverage),
   scientific reproduction and longitudinal output verification passed, package build and clean
   wheel install/import passed; native macOS quality/security checks and pip-audit passed.
   Receipt: `integration/engineering_hardening_python315_20261026.json`.
-- [ ] Remaining Python 3.15.1 gates: post-migration hosted matrix, Linux execution of the locked
-  audit profile, licensed attestations, independent review, and the open official Actions-lock
-  security-policy decision.
-- [ ] `strict_all` is measured, not green: 4,861 ruff `--select ALL` errors and 2,235
-  BasedPyright-all errors across the whole source. Pre-existing and previously never executed;
-  recorded as an open gate rather than claimed (26 October Python 3.15.1 measurement).
+- [ ] Remaining macOS-focused Python 3.15.1 gates: hosted macOS qualification, `strict_all`,
+  and the open official Actions-lock security-policy decision.
+  Linux/Windows and other non-macOS qualification is deferred to the roadmap.
+- [ ] `strict_all` is not green: the corrected Nox session uses the repository Ruff config and
+  Python 3.15 target. Its 26 October rerun reports 1,248 Ruff and 2,208 BasedPyright errors.
+  Direct JSON BasedPyright readback reports 2,052; reconcile this output-count discrepancy while
+  continuing the fixes. The original 4,861/2,235 count used the wrong Ruff config/Python target.
 
-The publication receipt on issue #1 names the receiving commit. Engineering configuration is
-not external scientific qualification; the open hosted failure is not closed by this track.
+Record the receiving commit in the local Conductor track. Engineering configuration is not
+external scientific qualification; the open hosted failure is not closed by this track.
 
 ## Phase: Review Fixes
 - [x] Task: Align BasedPyright targets with Python 3.15 and verify review fix f06d0b5

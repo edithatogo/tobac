@@ -68,7 +68,7 @@ active code unless separately reviewed and mapped.
 Actual executed tests, archive checks, missing-library attempts and scope limitations are in
 `integration/evidence_execution_verification_20261025.json`. The inventory receipt is in
 `integration/evidence_inventory_20261025.json`. These are local scoped evidence; hosted success,
-full scientific replay, genuine third-party validation and independent review remain separate.
+full scientific replay and genuine third-party validation remain separate.
 
 ## Concurrent M3 reconciliation
 M3 arrived on main during this pass at fa39fd36cd924d21128a154d19f86bf0cab95bd6. Its source,

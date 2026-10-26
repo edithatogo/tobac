@@ -1,7 +1,8 @@
 {
   "track_id": "engineering_execution_20261024",
   "title": "Source-bound dependency and execution qualification",
-  "status": "implemented_scoped_tests_passed_external_execution_open",
+  "status": "macos_local_qualification_recorded_hosted_macos_and_strict_all_open_other_platforms_deferred",
+  "updated": "2026-10-26",
   "base_commit": "711705cb49b98ed24f66d29240d7cd7bc9c100e1",
   "date": "2026-10-24",
   "evidence": [
