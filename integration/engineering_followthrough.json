@@ -103,5 +103,9 @@
     "tests/engineering/test_actions_diagnostics.py": "920f0c4ff48e52d09ca18a4478d6f59d6c87d467e4d408fbcea216e190e03304",
     "tests/engineering/test_execution_contracts.py": "da2b975b100abd48aa6ee9ee0ef8247dfcce23540df281d70c11b574acbfb401",
     "tests/engineering/test_lock_receipts.py": "eee6a1a55444416cc71786c689aee85864012908f43f4acafc1887c08332accc"
+  },
+  "review_annotation_20261026": {
+    "payload_commit": "886fc08929f8e4e7e34fb6443bbf81545e52c3db",
+    "base_vs_payload_note": "The recorded payload_sha256 values exist at 886fc08-c392355, not at the recorded base_commit 711705c (engineering.yml/deep/release-candidate were edited after that base and dependency-lock.yml appears only later). payload_commit names the tree the hashes describe."
   }
 }

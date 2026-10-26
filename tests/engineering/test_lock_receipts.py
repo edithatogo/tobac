@@ -222,6 +222,23 @@ def test_unhashed_resolver_output_cannot_get_receipt(tmp_path,monkeypatch):
     assert not list((tmp_path/'candidate').iterdir())
 
 
+@pytest.mark.parametrize('profile', ['runtime', 'audit'])
+def test_verify_rejects_an_unhashed_candidate_with_a_matching_receipt(tmp_path, profile):
+    # The generate path refuses unhashed resolver output (above); the verify path
+    # must enforce the same trust boundary. A lock whose lines carry no
+    # --hash=sha256: fragment must fail even when a receipt is present and
+    # byte-consistent, so a manually-edited candidate cannot be promoted as
+    # locked by a self-consistent receipt.
+    m, lock = fixture(tmp_path, profile)
+    lock.write_text(lock.read_text().replace(' --hash=sha256:', ''))
+    receipt_path = lock.with_suffix('.lock.json')
+    receipt = json.loads(receipt_path.read_text())
+    receipt['lock_sha256'] = m.digest(lock)
+    receipt_path.write_text(json.dumps(receipt))
+    with pytest.raises(ValueError, match='unhashed'):
+        m.verify(tmp_path, lock, profile)
+
+
 def test_cli_verify_uses_real_byte_checks(tmp_path,monkeypatch,capsys):
     import sys
     m,path=fixture(tmp_path)
