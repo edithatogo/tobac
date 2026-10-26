@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "track": "engineering_hardening_20261024",
+  "date": "2026-10-26",
+  "base_commit": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
+  "scope": "Python 3.15.1 runtime alignment, dependency compatibility, bounded profile and locked local qualification",
+  "runtime": {
+    "required": "3.15.1",
+    "observed": "3.15.1",
+    "project_requires_python": ">=3.15.1,<3.16",
+    "repository_local_interpreter": ".nox session environments"
+  },
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "matplotlib": "3.11.2",
+    "resolver": "uv 0.13.5",
+    "runtime_lock": {
+      "status": "generated_reviewed_hash_installed",
+      "sha256": "df70625f6a4bf95134dc814bf98711db64b1d98f65e2adca4e50572d1ee36c12",
+      "resolved_packages": 29,
+      "installed_packages": 28,
+      "source_bound_receipt_verified": true,
+      "uv_pip_check": "passed"
+    },
+    "linux_audit_lock": {
+      "target": "x86_64-unknown-linux-gnu, Python 3.15",
+      "status": "resolved_receipt_verified_not_installed",
+      "sha256": "5242fc503acfa6a4e08b0ac4545c9a684baf7de9df01ee8388f9fdbd455ba3ad",
+      "resolved_packages": 86,
+      "key_tools": {
+        "scalene": "2.4.0",
+        "mutmut": "3.8.0",
+        "ruff": "0.17.1",
+        "basedpyright": "1.40.2",
+        "zizmor": "1.31.1",
+        "pip-audit": "2.10.1"
+      }
+    }
+  },
+  "execution": {
+    "nox_tests": {
+      "command": "uvx --python 3.15.1 --from nox==2026.10.20 nox -s tests",
+      "status": "passed",
+      "passed": 611,
+      "failed": 0,
+      "skipped": 0,
+      "coverage_percent": 90
+    },
+    "harness_contract_after_final_nox_guards": {
+      "command": "/tmp/tobac-runtime-315-current/bin/python -m pytest -q --strict-markers tests/engineering/test_harness_contract.py",
+      "status": "passed",
+      "passed": 8,
+      "failed": 0
+    },
+    "nox_reproduce": {
+      "command": "uvx --python 3.15.1 --from nox==2026.10.20 nox -s reproduce",
+      "status": "passed",
+      "runs": [
+        "M1: 974 invariants, 4096 states",
+        "M2: 805 checks, grid-check enabled",
+        "M3: 2105 invariants",
+        "release calibration: verifier passed, no funding recommendation",
+        "empirical longitudinal: verifier passed, historical partial-bridge scope"
+      ],
+      "longitudinal_table_comparison": "passed for all four tables at existing tolerance"
+    },
+    "scalene_profile": {
+      "command": "uvx --python 3.15.1 --from nox==2026.10.20 nox -s profile",
+      "status": "passed_on_macos_arm64_native_audit_tools",
+      "python": "3.15.1",
+      "elapsed_time_seconds": 19.633962154388428,
+      "artifact_bytes": 8216717,
+      "artifact_sha256": "67f93dd57256d8e889d8bcfc5ff470deb6fe9ed8f57b53931f916e9fb2d8be26",
+      "runner_status": "historical_partial_empirical_bridge_not_current_illicit_or_funding_fit",
+      "artifact_storage": "ignored local outputs; summary and hash retained here"
+    },
+    "nox_package": {
+      "command": "uvx --python 3.15.1 --from nox==2026.10.20 nox -s package",
+      "status": "passed",
+      "outputs": [
+        "tobac_regulatory_research-0.2.0.tar.gz",
+        "tobac_regulatory_research-0.2.0-py3-none-any.whl"
+      ],
+      "clean_python_3151_wheel_install": "passed",
+      "uv_pip_check": "passed",
+      "imports": ["tobac", "tobac_supply", "tobac.research"]
+    },
+    "quality": {
+      "command": "uvx --python 3.15.1 --from nox==2026.10.20 nox -s quality",
+      "status": "passed",
+      "host": "macos arm64; native resolved tool pins, not Linux locked audit qualification"
+    },
+    "security": {
+      "command": "uvx --python 3.15.1 --from nox==2026.10.20 nox -s security",
+      "status": "passed",
+      "host": "macos arm64; native resolved tool pins, not Linux locked audit qualification",
+      "zizmor": "passed, no findings",
+      "pip_audit": "passed, no known vulnerabilities"
+    },
+    "strict_all": {
+      "command": "uvx --python 3.15.1 --from nox==2026.10.20 nox -s strict_all",
+      "status": "failed_as_open_gate",
+      "ruff_errors": 4861,
+      "basedpyright_errors": 2235
+    }
+  },
+  "remaining_gates": {
+    "linux_locked_audit_execution": "not executed; Docker daemon was unavailable and Colima was stopped",
+    "post_migration_hosted_matrix": "not executed; current hosted success on base 59bb0e4 used the pre-migration Python 3.12/3.13 matrix",
+    "strict_all": "not green",
+    "actions_transitive_lock": "deferred; generated proposal replaced 37 full-SHA pins with mutable tags",
+    "attestation_and_independent_review": "not obtained",
+    "scientific_or_external_acceptance": "not claimed"
+  }
+}

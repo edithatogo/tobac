@@ -15,7 +15,7 @@ paths, sensitivity tables, eight PNG/SVG figure pairs, captions and source/outpu
 Large path matrices and rendered figures are generated artifacts rather than duplicated
 Git history. The complete predecessor archive remains a separate conversation download.
 
-## Reproduce from a clean Python 3.12+ checkout
+## Reproduce from a clean Python 3.15.1 checkout
 
 ```sh
 python -m venv .venv
@@ -71,7 +71,7 @@ current-HEAD state of this section as a recorded limitation, not a passing check
 This is a fresh check of the imported component, not a claim that the parallel regulatory
 suite or third-party integrations were freshly executed locally. Existing regulatory source
 and result trees are preserved by the Git base-tree operation. See the local receipt in
-`integration/longitudinal_local_verification.json` and the coordination record in issue #1.
+`integration/longitudinal_local_verification.json` and historical issue #1 notes.
 
 ### Hosted execution
 

@@ -8,10 +8,19 @@
 - [x] Preserve failure evidence; independent checks retain overall failures.
 - [x] Add GET-only gh diagnostic with pagination and explicit missing-access state.
 - [x] Run scoped helpers/contracts and actual unsuccessful uv resolution; record limits.
-- [ ] Generate/review/install genuine transitive locks in a network-enabled environment.
-- [ ] Execute complete scientific replay, strict audits, security, mutation and platform matrix.
-- [ ] Resolve hosted runner failure from actual annotations without weakening gates.
+- [~] Complete source-bound lock qualification for the current macOS development target.
+  - [x] Runtime lock generated, reviewed, receipt-verified and hash-installed on macOS.
+  - [ ] Install and execute the Linux-scoped audit lock; deferred with Linux qualification in
+    `conductor/roadmap.md`.
+- [~] Complete remaining macOS engineering checks and preserve their actual outcomes.
+  - [x] Scientific replay, package build/install, native quality/security tools, mutation and
+    bounded profiling were executed on macOS; see the linked receipts and readiness record.
+  - [x] Whole-source `strict_all` passes after PR #25 reconciliation; explicit style/API
+    exceptions and optional-library static contracts are documented in LINT_POLICY.md.
+  - Non-macOS platform-matrix qualification is deferred to `conductor/roadmap.md`.
+- [x] Confirm hosted macOS tests and engineering sessions at c645028 (PR #29); diagnose any failure
+  without weakening gates. Non-macOS hosted-runner diagnosis is deferred to the roadmap.
 
-Publication receipt is the final receiving commit and issue #1 comment. Local helper/command
+Publication receipt is the final receiving commit recorded in the local track. Local helper/command
 contracts do not count as Nox, whole-repository or third-party execution. Existing M3 work,
 scientific sources, payoff functions, posterior outputs and Conductor pin are preserved.

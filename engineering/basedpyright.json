@@ -1,9 +1,14 @@
 {
-  "include": ["../scripts/context_bundle.py"],
+  "include": [
+    "../scripts/context_bundle.py"
+  ],
   "typeCheckingMode": "strict",
-  "pythonVersion": "3.12",
+  "pythonVersion": "3.15",
   "pythonPlatform": "All",
   "failOnWarnings": true,
-  "venvPath": "../.nox",
-  "venv": "quality"
+  "extraPaths": [
+    "../src",
+    "../scripts"
+  ],
+  "stubPath": "typings"
 }

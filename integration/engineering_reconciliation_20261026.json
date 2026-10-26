@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "tested_commit": "725c201851614c20b8247cbf18566ed063dc8dd1",
+  "reconciled_pr": {
+    "number": 25,
+    "merged_commit": "d85e8617a5e87042e4bbcd841278ca75cb6171d3"
+  },
+  "reconciled_main": "8f9b98f8d7169cf9d93b0dec7e2218a05f1dca9c",
+  "host": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "python": "3.15.1 (main, Oct 21 2026, 17:39:16) [Clang 23.1.3 ]",
+  "python_executable": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/.nox/quality/bin/python",
+  "full_suite": {
+    "passed": 721,
+    "skipped": 2,
+    "coverage_percent": 93,
+    "coverage_floor": 90,
+    "skips": "mutmut mapping tests require audit tool environment; all 83 targeted mutation gate/supply tests passed in .nox/mutation"
+  },
+  "static": {
+    "ruff": "zero configured findings",
+    "basedpyright": "0 errors, 0 warnings, 0 notes",
+    "scope": "all active src and scripts modules",
+    "ruff_style_api_exceptions": 175,
+    "policy": "docs/engineering/LINT_POLICY.md",
+    "whole_project_type_suppressions_added": false
+  },
+  "mutation": {
+    "scope": "src/tobac/supply.py",
+    "mutmut": "3.8.0",
+    "killed": 92,
+    "total": 131,
+    "survived": 39,
+    "percent": 70.2,
+    "floor": 60,
+    "fresh_repeat_verified": true,
+    "limitation": "39 survivors remain; threshold is a regression alarm, not complete mutation coverage",
+    "first_repeat_failure": "metadata-only invalidation caused mutmut mtime cache to skip regeneration; now remove both selected generated source and metadata"
+  },
+  "core_preservation": {
+    "original_snapshot": "evidence/core_extraction_20261024.py",
+    "original_manifest_unchanged": true,
+    "maintenance_contract": "integration/core_maintenance_20261026.json",
+    "tamper_tests": 7
+  },
+  "clean_wheel": {
+    "python": "3.15.1",
+    "uv_pip_check": "passed",
+    "working_directory": "/private/tmp",
+    "imports": [
+      "tobac",
+      "tobac_supply",
+      "tobac.research"
+    ],
+    "origin": "clean environment site-packages outside checkout"
+  },
+  "scientific_boundary": "Static optional Voiage contract and labelled protocol-double tests do not qualify the actual optional library. No calibration or empirical claim added.",
+  "hosted_macos": {
+    "status": "success",
+    "qualified_head": "c645028383163aa069937d34e14f8661374b608a",
+    "run": "https://github.com/edithatogo/tobac/actions/runs/40269769566",
+    "full_suite": {
+      "passed": 721,
+      "skipped": 2,
+      "coverage_percent": 93,
+      "job_id": 121399850018
+    },
+    "engineering_job": {
+      "status": "success",
+      "job_id": 121399849969,
+      "sessions": [
+        "quality",
+        "strict_all",
+        "reproduce",
+        "package",
+        "security",
+        "mutation"
+      ]
+    },
+    "mutation": {
+      "killed": 100,
+      "total": 131,
+      "survived": 31,
+      "percent": 76.3,
+      "note": "Hosted and local mutation results are retained separately; no assumption that survivor sets are identical."
+    }
+  },
+  "non_macos": "qualification deferred to conductor/roadmap.md",
+  "artifacts": {
+    "outputs/engineering/final-local-checks.log": {
+      "sha256": "a382e0e0c187416842b70348b41dc63ecf41a333ce80f97f31d76ced039bd4d9",
+      "bytes": 66107
+    },
+    "outputs/engineering/coverage.json": {
+      "sha256": "11b70adbbef56b266a6270f04f7cfe030b69eb7195e7d27f14bdd42690e4cd25",
+      "bytes": 170685
+    },
+    "outputs/engineering/mutation-input.json": {
+      "sha256": "a1916dc6078efbdeb9583ddcebb2479b3ab1f77ffe8a984e76017b21e35a6a63",
+      "bytes": 177
+    },
+    "engineering/requirements.lock": {
+      "sha256": "d116401ed3d8d92f1d5f3da130beac6a991d5ed31058fd5c4e0847617e84c20c",
+      "bytes": 89659
+    },
+    "engineering/requirements.lock.json": {
+      "sha256": "1b18533fddc1aca2d990ea63a74e1a29df3f4e85327718112d75b25cfcb7397a",
+      "bytes": 1172
+    },
+    "engineering/audit.lock": {
+      "sha256": "10f51816f70c150f3bba7d872d012d710189bdfa21f54b7637978a2405e3feb5",
+      "bytes": 175022
+    },
+    "engineering/audit.lock.json": {
+      "sha256": "19e3ed72e0da8237afdf98462a20fc5b69d85757b9ee274958de2d80bcf17717",
+      "bytes": 1400
+    },
+    "outputs/engineering/final-local-nox-report.json": {
+      "sha256": "c7fd4481dd7caf267171b40ea41d6f61c91a10c4218ee01108280364925fa739",
+      "bytes": 1733
+    },
+    "outputs/release-candidate/tobac_regulatory_research-0.2.0-py3-none-any.whl": {
+      "sha256": "8823ed5c6b88a3e02ca3330fb99aeacb6c60bf5b2582af0c8129377784a5a433",
+      "bytes": 70048
+    },
+    "outputs/release-candidate/tobac_regulatory_research-0.2.0.tar.gz": {
+      "sha256": "8e20fd9b359e1e72fc3fa9b82e5f9e874022b9ee1c266fea72217b6ec0fc45de",
+      "bytes": 67731
+    },
+    "outputs/engineering/ruff-update-checks.log": {
+      "sha256": "4a03384ecd6900cb0c3ba540ede4fd9044817ad18a967069c3bee996fbc79ecf",
+      "bytes": 3110
+    },
+    "outputs/engineering/ruff-update-nox-report.json": {
+      "sha256": "248f9b6247c8d63d31f6c89c2ed8b93801cf4960dceeafd7da24c6301e2ac31e",
+      "bytes": 770
+    },
+    "outputs/engineering/hosted-macos-tests.log": {
+      "sha256": "bb93c312eeeccd3289af887bafcdc090ba3dfed0ca320cab9b9f94c50efb92ec",
+      "bytes": 37653
+    },
+    "outputs/engineering/hosted-macos-qualification.log": {
+      "sha256": "02360a8f612838aab22474d9adf5ba6147792192707c2ff82f0e4a8cea3d6f89",
+      "bytes": 115381
+    }
+  },
+  "nox_sessions": {
+    "tests": "success",
+    "quality": "success",
+    "strict_all": "success",
+    "reproduce": "success",
+    "package": "success",
+    "security": "success",
+    "mutation": "success"
+  },
+  "ruff_update": {
+    "version": "0.17.2",
+    "quality": "pass",
+    "strict_all": "pass",
+    "security": "pass",
+    "report": "outputs/engineering/ruff-update-nox-report.json"
+  },
+  "optional_voiage_blocker": {
+    "status": "blocked",
+    "hosted_job": "https://github.com/edithatogo/tobac/actions/runs/40269498914/job/121399024010",
+    "voiage_2_1_0": "requires SciPy <1.17; Python 3.15.1 installation fails",
+    "released_2_2_0": "same incompatible SciPy <1.17 and pandas <3 pins; pyarrow25.0.1 has no cp315 wheels; local isolated install failed without changing reference environment",
+    "macos_wheel_sha256": "c7c26afe72de58c02a49f0b734fa0f69adf4c8c073a59b71ea888feaa77e1056",
+    "action": "retain failing optional-library probes and separate scientific gate; no dependency bypass, downgrade, false success or continue-on-error"
+  },
+  "publication": {
+    "pull_request": "https://github.com/edithatogo/tobac/pull/29",
+    "receiving_ref": "refs/heads/main",
+    "method": "expected-head guarded merge after current-head macOS checks"
+  }
+}

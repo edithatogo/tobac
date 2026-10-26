@@ -14,7 +14,7 @@ def harness(monkeypatch,tmp_path):
     path=ROOT/'noxfile.py'
     assert path.is_file(), 'Nox follow-through file missing'
     nox=types.ModuleType('nox');nox.options=types.SimpleNamespace()
-    nox.session=lambda f:f
+    nox.session=lambda f=None, **kwargs: f if f is not None else (lambda fn: fn)
     command=types.ModuleType('nox.command')
     class CommandFailed(Exception):pass
     command.CommandFailed=CommandFailed
@@ -28,7 +28,7 @@ def harness(monkeypatch,tmp_path):
     monkeypatch.delenv('TOBAC_REQUIRE_LOCK',raising=False)
     monkeypatch.setattr(m,'sys',types.SimpleNamespace(platform='linux'))
     class Session:
-        def __init__(self):self.env={};self.posargs=[];self.calls=[];self.fail=set()
+        def __init__(self):self.env={};self.posargs=[];self.calls=[];self.fail=set();self.bin='/fixture/bin'
         def install(self,*args,**kwargs):self.calls.append(('install',args))
         def log(self,*args):pass
         def error(self,message):raise RuntimeError(message)

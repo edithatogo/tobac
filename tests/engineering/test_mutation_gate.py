@@ -60,14 +60,14 @@ def test_missing_results_fail_rather_than_pass(tmp_path):
     assert load().main(['--minimum','1','--mutants-dir',str(tmp_path/'mutants')])==1
 
 
-def test_unassessable_mutants_leave_the_denominator(tmp_path):
+def test_unassessable_mutants_fail_the_gate(tmp_path):
     # Interrupted and never-checked mutants say nothing about test strength, so they must
     # not be scored as survivors.
     write_meta(tmp_path,{'f__mutmut_1':1,'f__mutmut_2':2,'f__mutmut_3':None})
     module=load()
     counts=module.read_statuses(tmp_path/'mutants')
     assert counts['killed']==1 and counts['not checked']==1
-    assert module.main(['--minimum','100','--mutants-dir',str(tmp_path/'mutants')])==0
+    assert module.main(['--minimum','100','--mutants-dir',str(tmp_path/'mutants')])==1
 
 
 def test_unreadable_record_fails_closed(tmp_path):
@@ -118,3 +118,58 @@ def test_every_killed_status_is_one_mutmut_calls_killed(mutmut_status_by_exit_co
     for code in module.STATUS_BY_EXIT_CODE:
         if code in killed:
             assert module.STATUS_BY_EXIT_CODE[code]=='killed'
+
+
+@pytest.mark.parametrize("minimum", ["nan", "inf", "-1", "101"])
+def test_invalid_threshold_rejected(tmp_path, minimum):
+    write_meta(tmp_path, {"killed": 1, "survived": 0})
+    with pytest.raises(SystemExit):
+        load().main(["--minimum", minimum, "--mutants-dir", str(tmp_path / "mutants")])
+
+
+def test_pending_mutants_cannot_make_one_kill_a_complete_pass(tmp_path):
+    write_meta(tmp_path, {"killed": 1, **{f"pending{i}": None for i in range(99)}})
+    assert load().main(["--minimum", "60", "--mutants-dir", str(tmp_path / "mutants")]) == 1
+
+
+@pytest.mark.parametrize("change", ["source", "tool", "stale"])
+def test_receipt_rejects_changed_or_stale_results(tmp_path, monkeypatch, change):
+    monkeypatch.chdir(tmp_path)
+    source = Path("src/tobac/supply.py")
+    source.parent.mkdir(parents=True)
+    source.write_text("original source")
+    module = load()
+    version = ["qualified"]
+    monkeypatch.setattr(module.importlib.metadata, "version", lambda name: version[0])
+    receipt = Path("receipt.json")
+    assert module.main(["--prepare", "--receipt", str(receipt)]) == 0
+    meta = write_meta(tmp_path, {"killed": 1})
+    if change == "source":
+        source.write_text("changed source")
+    elif change == "tool":
+        version[0] = "different"
+    else:
+        import os
+        os.utime(meta, ns=(1, 1))
+    assert module.main(["--minimum", "60", "--receipt", str(receipt)]) == 1
+
+
+def test_prepare_removes_only_selected_cached_metadata(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    source = Path("src/tobac/supply.py")
+    source.parent.mkdir(parents=True)
+    source.write_text("source")
+    module = load()
+    monkeypatch.setattr(module.importlib.metadata, "version", lambda name: "qualified")
+    selected = write_meta(tmp_path, {"killed": 1})
+    other = selected.with_name("other.py.meta")
+    other.write_text("preserve unrelated result")
+    generated = selected.with_suffix("")
+    generated.write_text("cached generated mutants")
+    assert module.main(["--prepare", "--receipt", "receipt.json"]) == 0
+    assert not selected.exists()
+    assert not generated.exists()
+    assert other.read_text() == "preserve unrelated result"
+    assert module.main(["--minimum", "60", "--receipt", "receipt.json"]) == 1
+    write_meta(tmp_path, {"killed": 1})
+    assert module.main(["--minimum", "60", "--receipt", "receipt.json"]) == 0

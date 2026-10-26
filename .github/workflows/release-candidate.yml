@@ -20,7 +20,7 @@ jobs:
       - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
         with:
           version: '0.13.5'
-          python-version: '3.13'
+          python-version: '3.15.1'
           enable-cache: false
       - name: Require committed source-bound dependency locks
         run: |
@@ -32,7 +32,7 @@ jobs:
           echo "SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)" >> "$GITHUB_ENV"
           mkdir -p outputs/engineering
       - name: Qualify locked candidate
-        run: uvx --python 3.13 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s tests quality strict_all security reproduce package
+        run: uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s tests quality strict_all security reproduce package
       - name: Preserve qualification evidence even on failure
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
