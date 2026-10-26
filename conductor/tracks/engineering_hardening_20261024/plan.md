@@ -86,4 +86,6 @@ not substituted for the separate Python 3.15.1 profile receipt.
   preserve implementation, native code and upstream licence. No dependency bypass.
 - [x] Qualify resolver consistency, installed equal/weighted/partition EVPI and Arrow round trips.
 - [x] Replace both incompatible hosted install routes with the same qualified source build.
-- [ ] Run affected/full/macOS checks, merge and verify remaining hosted jobs.
+- [x] Affected/full/macOS checks pass; all 15 hosted PR #33 checks pass.
+  Verified receiving commit `f06eed630a8832174328a0472bdcaf55c98a4af9` on main.
+  Receipt: `integration/voiage_python315_compatibility_20261026.json`.

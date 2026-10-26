@@ -275,3 +275,8 @@ source build, with normal dependency resolution and a separate input-bound hash 
 Both installed-library probes and Arrow/native checks pass locally on Python 3.15.1.
 See `VOIAGE_PYTHON315.md` and `integration/voiage_python315_compatibility_20261026.json`
 for scope and current hosted outcomes. The reference scientific pins are unchanged.
+
+Voiage follow-up completed through PR #33 at `f06eed6`: all 15 hosted checks pass
+on its exact qualified head, including both formerly failing installed-library
+jobs. Python remains 3.15.1. The compatibility receipt records receiving commit,
+source/patch/wheel identity and actual hosted equal/weighted/native/Arrow scope.
