@@ -10,7 +10,7 @@ import math
 from dataclasses import dataclass
 from numbers import Integral, Real
 from typing import Any, cast
-lazy from collections.abc import Iterable
+from collections.abc import Iterable
 
 import numpy as np
 from numpy.typing import NDArray
