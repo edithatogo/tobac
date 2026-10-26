@@ -1,0 +1,9 @@
+{
+  "include": ["../scripts/run_empirical_longitudinal.py"],
+  "typeCheckingMode": "strict",
+  "pythonVersion": "3.13",
+  "pythonPlatform": "All",
+  "failOnWarnings": true,
+  "venvPath": "../.nox",
+  "venv": "quality"
+}

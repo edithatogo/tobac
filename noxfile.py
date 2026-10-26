@@ -128,6 +128,7 @@ def quality(session):
         ['ruff', 'check', '--isolated', '--select', 'E9,F63,F7,F82', 'src', 'scripts'],
         ['ruff', 'check', '--config', 'engineering/ruff.toml', 'scripts/context_bundle.py'],
         ['basedpyright', '--project', 'engineering/basedpyright.json'],
+        ['basedpyright', '--project', 'engineering/bp_longitudinal.json'],
     ])
 
 
