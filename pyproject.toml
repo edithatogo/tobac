@@ -15,7 +15,7 @@ pythonpath = ["src"]
 testpaths = ["tests"]
 
 [project.optional-dependencies]
-longitudinal = ["pandas==3.0.6", "matplotlib==3.11.2"]
+longitudinal = ["pandas==3.1.0", "matplotlib==3.11.2"]
 engineering = ["jsonschema==4.26.0"]
 
 [tool.mutmut]
