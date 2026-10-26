@@ -141,8 +141,26 @@ def quality(session):
         ['ruff', 'check', '--isolated', '--select', 'E9,F63,F7,F82', 'src', 'scripts'],
         ['ruff', 'check', '--config', 'engineering/ruff.toml', 'scripts/context_bundle.py'],
         ['basedpyright', '--project', 'engineering/basedpyright.json'],
-        ['basedpyright', '--project', 'engineering/bp_longitudinal.json'],
     ])
+
+
+@nox.session
+def types_longitudinal(session):
+    """Strict type check of the longitudinal runner; NOT part of `quality` yet.
+
+    This cannot pass as configured: pandas ships no ``py.typed`` stubs, so every
+    DataFrame value is ``Unknown`` and strict mode reports ~133 cascading
+    ``reportUnknown*`` errors on real, correct code. It was briefly wired into
+    ``quality`` and made that session unachievable; gating on it would either block
+    every change or push an ignore sweep over genuine findings.
+
+    It stays a separate, runnable session rather than a silent pass. Closing it needs
+    ``pandas-stubs`` in ``engineering/audit.lock`` — a reviewed lock regeneration and
+    receipt, which is an open release-qualification gate, not a mechanical edit. Until
+    then this session is expected to fail and must not be reported as green.
+    """
+    audit_tools(session)
+    session.run('basedpyright', '--project', 'engineering/bp_longitudinal.json')
 
 
 @nox.session

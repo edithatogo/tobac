@@ -172,8 +172,8 @@ that limitation no longer applies to the sessions named above. No hosted success
 strict-all pass, profiling result or empirical funding result is claimed. Earlier receipts remain
 historical evidence.
 
-**The hosted `quality` leg was failing on a checker that was never actually checking the file.** The
-`review/m2b-longitudinal` rebase fixed the declared venv in `engineering/bp_longitudinal.json`, but
+**A `quality` leg that never actually checked the file, and a gate that could never pass.** The
+`review/m2b-longitudinal` rebase declared a venv in `engineering/bp_longitudinal.json`, but
 pyright resolves an interpreter by precedence and `venv`/`venvPath` did not take effect as declared.
 Two consequences, both measured: (1) with no interpreter pinned, pandas ships **no** type stubs, so
 `read_csv` is untyped, every DataFrame value collapses to `Unknown`, and `--select ALL` strict mode
@@ -187,14 +187,19 @@ imports under any ambient interpreter, including the inactive-venv case Nox actu
 defects fixed: `table['source_id']`/`source_locator` and `primary['period_start']`/`period_end` are
 now read through the checked `DataFrame` instead of `itertuples` attribute access; `source_id` and
 `source_locator` are unchanged in the emitted `aligned_observations.csv` (verified in a fresh run), and
-the `<column> = <index>` pattern keeps every value identical. Verified: 152 → 139 remaining errors,
-all `reportUnknown*` attributable to pandas having no stubs, with **zero** `reportMissingImports`.
+the `<column> = <index>` pattern keeps every value identical. Verified across three commits: the
+hosted leg went 154 → 133 as imports started resolving, and the local count is now 133 with **zero**
+`reportMissingImports` and **zero** `reportArgumentType`/`reportAssignmentType` — every remaining
+error is the pandas-stub `reportUnknown*` cascade.
 
-**The 139 residual errors are recorded, not silenced.** Strict type checking of the runner is
-`quality`'s actual gate, and it is **not green**: 139 errors remain, every one of them the
-pandas-stub gap above. They are left failing rather than suppressed with a blanket config ignore, so
-the count stays visible. Closing them means adding `pandas-stubs` to the lock, which is a
-dependency-review decision, not a `type: ignore` sweep.
+**The 133 residual errors are real, and gating on them was my mistake.** This branch's
+`bp_longitudinal.json` was briefly added to the blocking `quality` session. It cannot pass: pandas
+ships no `py.typed` stubs, so ~133 `reportUnknown*` errors cascade from correct code. That made
+`quality` unachievable and turned the hosted leg red. The check now runs as its own
+`nox -s types_longitudinal` session, which stays runnable and **is expected to fail**; it is not part
+of `quality` and must not be reported as green. Closing it requires `pandas-stubs` in
+`engineering/audit.lock` — a reviewed lock regeneration plus receipt, i.e. an open
+release-qualification gate, not a mechanical edit or an ignore sweep.
 
 **The member-versus-new-option bug is fixed and cross-checked, not asserted.** Verifying
 `scripts/check_mutation_score.py` against mutmut 3.8.0 showed its table declared exit code `-24` as
