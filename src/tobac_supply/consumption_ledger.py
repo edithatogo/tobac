@@ -10,6 +10,7 @@ import math
 from dataclasses import dataclass
 from numbers import Integral, Real
 from typing import Any, cast
+lazy import itertools
 lazy from collections.abc import Iterable
 
 import numpy as np
@@ -48,6 +49,62 @@ def _array(values: Iterable[float], name: str, length: int, *, signed: bool = Fa
     return a
 
 
+
+MIN_CALENDAR_YEAR = 1
+MAX_CALENDAR_YEAR = 9998
+
+
+def _source_ids(values: tuple[str, ...]) -> tuple[str, ...]:
+    """Validate a declared source identity; the empty tuple is the unattributed default."""
+    if not isinstance(cast("object", values), tuple):
+        msg = f"source_ids must be a tuple of strings; got {type(values).__name__}"
+        raise ValueError(msg)  # noqa: TRY004  # Retain the suite-wide ValueError domain contract.
+    stripped: list[str] = []
+    for value in values:
+        if not isinstance(cast("object", value), str):
+            msg = f"source_ids must contain strings; got {type(value).__name__} {value!r}"
+            raise ValueError(msg)  # noqa: TRY004  # Retain the suite-wide ValueError domain contract.
+        cleaned = value.strip()
+        if not cleaned:
+            msg = "source_ids contains an empty source id; each source id must be "
+            msg += "non-empty after stripping whitespace"
+            raise ValueError(msg)
+        if cleaned in stripped:
+            msg = f"source_ids contains duplicate source id {cleaned!r}; source ids must be unique"
+            raise ValueError(msg)
+        stripped.append(cleaned)
+    return tuple(stripped)
+
+
+def _observation_years(values: tuple[int, ...]) -> tuple[int, ...]:
+    """Validate declared observation years; the empty tuple means unattributed years."""
+    if not isinstance(cast("object", values), tuple):
+        msg = f"observation_years must be a tuple of integer years; got {type(values).__name__}"
+        raise ValueError(msg)  # noqa: TRY004  # Retain the suite-wide ValueError domain contract.
+    years: list[int] = []
+    for value in values:
+        if not isinstance(cast("object", value), Integral):
+            msg = f"observation_years must contain integer calendar years; got {value!r}"
+            raise ValueError(msg)  # noqa: TRY004  # Retain the suite-wide ValueError domain contract.
+        year = int(value)
+        if not MIN_CALENDAR_YEAR <= year <= MAX_CALENDAR_YEAR:
+            constrained = f"{MIN_CALENDAR_YEAR}..{MAX_CALENDAR_YEAR}"
+            msg = f"observation_years value {year} is not a calendar year (must be {constrained})"
+            raise ValueError(msg)
+        years.append(year)
+    for previous, current in itertools.pairwise(years):
+        if current == previous:
+            msg = f"observation_years contains duplicate year {current}; calendar years must be unique"
+            raise ValueError(msg)
+        if current < previous:
+            msg = (
+                f"observation_years is not strictly increasing: {current} follows {previous}; "
+                "calendar years must be strictly increasing"
+            )
+            raise ValueError(msg)
+    return tuple(years)
+
+
 @dataclass(frozen=True)
 class SupplyBasis:
     """Source-specific product, geographic and duty-free coverage, not inferred from units."""
@@ -56,6 +113,8 @@ class SupplyBasis:
     geography: str = "NZ_national"
     products: str = "factory_made_and_RYO_at_source_0.7g_convention"
     duty_free_included: bool = True
+    source_ids: tuple[str, ...] = ()
+    observation_years: tuple[int, ...] = ()
 
     def __post_init__(self) -> None:
         """Validate construction invariants and normalize the stored values."""
@@ -71,6 +130,13 @@ class SupplyBasis:
         if not isinstance(cast("object", self.duty_free_included), bool):
             msg = "duty_free_included must be boolean"
             raise ValueError(msg)  # noqa: TRY004  # Retain the established ValueError domain-validation contract.
+        # Canonicalize the declared identity (whitespace-stripped ids, int-cast
+        # years). The helpers validate before returning, so an invalid declaration
+        # raises rather than being silently amended; the stored form is the unique
+        # canonical spelling, so two spellings of one source cannot declare
+        # distinct identities.
+        object.__setattr__(self, "source_ids", _source_ids(self.source_ids))
+        object.__setattr__(self, "observation_years", _observation_years(self.observation_years))
 
 
 @dataclass(frozen=True)
