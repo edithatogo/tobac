@@ -1,6 +1,6 @@
 # Verified published versions on 2026-10-24; transitive hash lock is a separate gate.
 nox==2026.10.20
-virtualenv==21.14.12  # transitive nox tool; pinned to clear CVE-2026-1137xx
+virtualenv==21.14.13  # transitive nox tool; pinned to clear CVE-2026-1137xx
 ruff==0.17.2
 basedpyright==1.40.2
 pip-audit==2.10.1
