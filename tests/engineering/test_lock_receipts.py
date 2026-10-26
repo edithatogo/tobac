@@ -51,6 +51,7 @@ def test_valid_receipt_binds_exact_inputs_and_lock(tmp_path, profile):
 
 
 @pytest.mark.parametrize('target', ['pyproject.toml', 'requirements.lock',
+    'engineering/reference-requirements.txt',
     'engineering/requirements.in', 'engineering/test-requirements.txt',
     'engineering/build-requirements.txt'])
 def test_input_change_invalidates_lock(tmp_path, target):
