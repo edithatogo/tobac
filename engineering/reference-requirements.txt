@@ -13,3 +13,9 @@ matplotlib==3.11.2
 jsonschema==4.26.0
 PyYAML==6.0.3
 hypothesis==6.170.8
+
+# Qualified optional interchange; exercised in required package/test environments.
+pyarrow==26.0.0
+polars==1.44.2
+patito==0.8.6
+msgspec==0.22.0

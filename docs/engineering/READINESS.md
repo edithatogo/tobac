@@ -322,3 +322,19 @@ Native Dependency Graph qualification is now obtained: run `40275206942` passed
 after PR #35 merged at `666dd8c`. Native readback retained every previous package
 identifier and added 15 missing entries. No Python selection, dependency versions,
 required checks, repository visibility or security settings changed.
+
+## Current evidence interchange qualification — 26 October 2026
+
+The optional Arrow/Polars boundary now preserves the existing EvidencePacket,
+Scope and SupplyBasis contract, including supplied covariance provenance and
+UTC/null timestamps. See EVIDENCE_INTERCHANGE.md and
+integration/ecosystem/interchange_20261026.json for actual software evidence.
+Required tests and clean installed-package checks exercise it; existing scientific
+models, data and reference outputs remain unchanged. Native Voiage 2.2 compatibility
+qualification is distinct from the future Voiage 3 migration in PR #41.
+
+The earlier native graph success above is historical. The root managed parser
+still lacks Python 3.15 support (run 40325526891, upstream issue 16524); a later
+engineering-directory graph success does not prove root-parser compatibility.
+The supported resolved-lock snapshot submission and complete native graph readback
+remain qualified. No check or runtime requirement is waived.

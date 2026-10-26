@@ -10,20 +10,20 @@
     "engineering/ecosystem.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/engineering/lock-candidate-ecosystem/ecosystem.lock",
+    "outputs/engineering/interchange-locks-v5/ecosystem/ecosystem.lock",
     "--universal",
     "--python-version",
     "3.15"
   ],
   "resolver_exit_code": 0,
   "inputs": {
-    "pyproject.toml": "a4d3c51423bd506701e5aacc4375b5e7ca1d3bbb920eeb7405d120c5a7a8404b",
+    "pyproject.toml": "c3db9f6d19c4b45c771f77270156e67bb967bca72d4cf21105aa83ec2351afcc",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
-    "engineering/reference-requirements.txt": "903a327e85b2f9a419922716f5b13539f2f830bf776cb30491443d538058fe58",
+    "engineering/reference-requirements.txt": "bcfac4b3e722e5fac72afb6f0c6f0c25265b5f7519bb7df26372c49fb662f26e",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
     "engineering/test-requirements.txt": "2265388fba38b42c2477fe9e55b36d9c536a86c04bbd0f00dfad3f1c644ebfe8",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68"
   },
-  "lock_sha256": "4e8ce795f456c9bd3b46effe31dcd3b5404a28e6f94b9f711ea24a9bb621cb08",
+  "lock_sha256": "d4adbe51b68e8777f1f836b15ff2262edae74b72160bdb1ad7f3a58f85726c77",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

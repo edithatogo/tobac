@@ -39,11 +39,11 @@ All phases end with evidence review. Local review is not independent scientific 
 - [x] Task C2: Implement only missing reusable capabilities in their owning repos: VOI/cost interfaces, uptake/diffusion, extraction/citation provenance or generic simulation adapters.
   - [x] Separate scenario values, model definitions and execution settings through existing typed interfaces only where the mapping demonstrates a gap; preserve structural invariants and Rust-native ownership (R11).
   - [x] Demonstrate one bounded extension with compatibility/migration tests and unchanged reference scenarios (R11.4); do not create a generic framework.
-- [ ] Task C3: Write schema, no-coercion, ordering, null/NaN, lifetime, chunking and migration/rollback tests.
-- [ ] Task C4: Implement qualified Polars/Arrow/Patito/msgspec boundaries without replacing the shared evidence contract.
-  - [ ] Verify buffer identity/lifetime/allocation for each zero-copy claim and distinguish logical versus raw-byte hashing.
+- [x] Task C3: Write schema, no-coercion, ordering, null/NaN, lifetime, chunking and migration/rollback tests.
+- [x] Task C4: Implement qualified Polars/Arrow/Patito/msgspec boundaries without replacing the shared evidence contract.
+  - [x] Verify buffer identity/lifetime/allocation for each zero-copy claim and distinguish logical versus raw-byte hashing.
 - [x] Task C5: Wire exact upstream artifacts or editable development sources into tobac with explicit versions and independent package boundaries.
-- [ ] Task C6: Phase verification and checkpoint: execute upstream native suites and tobac consumer/integration checks; retain real API/runtime receipts and changed-interface notes.
+- [x] Task C6: Phase verification and checkpoint: execute upstream native suites and tobac consumer/integration checks; retain real API/runtime receipts and changed-interface notes.
 
 ## Phase D — Numerical backends and performance (R02, R04, R07)
 
@@ -116,10 +116,10 @@ No phase is complete merely because this document exists.
 
 - A: current main/worktrees/PRs and nine upstream issue inventories inspected (gh pagination through 5,000); no duplicate producer change or owner reassignment. PR #19/#20 are closed; PR #41 remains separately owned and planning-only. The directory named voiage had an unexpected remote and was not used as producer authority; the actual installed artifact is hash-bound to the prior source/build receipt.
 - B: actual Python 3.15.1, reference source/data/output baseline, parameter round-trip/schema/isolation/I/O and bounded action/scenario extension tests, full tests and numerical reproduction. Apache-2.0 metadata is aligned; re-resolved lock versions are unchanged. Reference pins remain qualified; optional latest candidates do not replace them automatically.
-- C: actual installed current Voiage EVPI/JAX and strict primitive interchange probes pass. C3/C4/C6 remain open for the full producer/consumer metadata, timestamp, nullable and migration contract. Tested float64 buffer sharing is narrower than a qualified observational interchange. Voiage 3.0.0 is not published; PR #41’s distinct candidate gate is preserved. No competing shared evidence contract is introduced.
+- C: C3/C4/C6 domain interchange is implemented and qualified against Voiage 2.2.0+tobac3151.1. Full source/state/scope/covariance/supply provenance, UTC/null capture times, strict schema/order, lifetime/chunking, logical/physical hashes and retained-v1 rollback checks pass. PR #41 remains a separately owned future migration; no Voiage 3.0 acceptance is inferred.
 - D: weighted/permuted/offset float64 parity, actual CPU device, cold/transfer/warm endpoint and separately compiled public matmul-operand measurements. NumPy remains default; current JAX endpoint is slower, so no surrogate or speculative kernel rewrite is justified. No backend-specific stochastic equivalence is inferred.
 - E: input/model/environment-bound immutable receipts; actual quick M1/M2 interruption/resume versus uninterrupted CSV comparison; real clean installed API/M1 CLI and sdist reconstruction outside checkouts; context required-contract and stale-source gates. Recovery is between stages; partial kernels are retained and rejected for unsafe resume.
-- F: strict reference checks, actual ty/pyrefly/prek, 68/68 bounded gremlins detection, redacted source/script/engineering/workflow secret scans, security-disposition checks and supported pinned macOS audit/provenance jobs. Hosted artifact signing/audit and downstream verification remain pending until actually executed. F6’s non-macOS ARM execution remains in the existing roadmap; no macOS completion claim covers it.
+- F: strict reference checks, actual ty/pyrefly/prek, 68/68 bounded gremlins detection, redacted source/script/engineering/workflow secret scans, security-disposition checks and supported pinned macOS audit/provenance jobs. Prior final-main artifact signing/audit and downstream verification passed; the current publication still requires its own hosted readback. F6’s non-macOS ARM execution remains in the existing roadmap; no macOS completion claim covers it.
 - G: consume existing source/native contracts. No demonstrated current consumer gap warrants Innovate/Kairos/Searchright/AegisArchive adapters or new upstream tracks. This is an evidenced assessment/defer disposition, not an implemented integration. No adapter is added before duplicate-study/lineage tests or producer qualification.
 - H: current local full test/security/package/reproduction and native scopes are in integration/ecosystem/verification_20261026.json. Final-head hosted checks and guarded receiving-ref readback remain pending. Issue #1 is historical context under current AGENTS.md; no comment or independent review is a gate.
 
@@ -137,7 +137,7 @@ recovery log reuse, nested unknown parameters, archive registry validation and m
 
 PR #43 merged at `a9e247416fe71932118ca92b1b04e93cb8e42267` after 15 successful checks and one expected PR-only provenance skip. Trusted dispatch `40315911202` passed all six engineering jobs, including audit/provenance. All four signed subjects passed exact-source/ref/workflow downstream verification. Hosted macOS: 838 passed, four capability skips, 92% coverage; mutmut 102/131 killed. No SLSA level or empirical qualification is inferred.
 
-The remaining C3/C4/C6 producer-interchange items stay unchecked. They must not be archived as complete while the full metadata/nullable/timestamp/migration contract and future Voiage producer remain unqualified. Final receiving-ref checks are read back on GitHub and linked from PR #43.
+At the PR #43 checkpoint C3/C4/C6 remained unchecked. The later close-out below implements the domain contract against the current qualified producer, while retaining PR #41 separately. Final receiving-ref checks are read back on GitHub and linked from PR #43.
 
 ## Managed dependency graph follow-up
 
@@ -146,3 +146,56 @@ The remaining C3/C4/C6 producer-interchange items stay unchecked. They must not 
 PR #44 merged at `0940c595ce06f4142467de3f687dea881dae8ea2` after 15 successful PR checks and two expected trusted-write skips. Native default-branch snapshot `114186314` returned SUCCESS; 113 submitted PURLs appear in the 123-PURL native export, with every previous PURL retained. Receipt: `integration/ecosystem/dependency-submission_20261026.json`.
 
 - [ ] External service gate: managed root Dependabot parser Python 3.15 support (upstream issue 16524). The supported submission route is qualified; the failed managed run is not hidden or called successful.
+
+## Implementation resume — 26 October 2026
+
+Implement domain-owned transport against the currently qualified producer and installed artifacts. The original specification does not require Voiage 3.0.0; its separate future migration in PR #41 is preserved. Full metadata, covariance provenance, timestamp/null, ordering, chunking, schema evolution and ownership tests precede implementation. No prior, observation or published numerical result changes.
+
+## C3/C4/C6 implementation and review close-out — 26 October 2026
+
+Implemented in c347f82 against the current qualified Voiage 2.2.0+tobac3151.1
+artifact, preserving PR #41's separate Voiage 3 migration. Domain transport lives
+in src/tobac/interchange.py and reuses EvidencePacket, Scope and SupplyBasis.
+No existing scientific contract or M3 implementation changed. Strict metadata,
+UTC/null timestamps, covariance provenance, ordering, dtype, chunking, caller
+isolation, buffer lifetime/effective addresses, logical/physical hashes and
+unsupported-version/retained-IPC rollback cases execute in 36 native tests.
+
+Local full suite: 880 passed, five real capability skips, 92% branch coverage.
+Native transport/workstream/M3: 97 passed, zero skipped. Ruff ALL/BasedPyright:
+zero diagnostics. Actual numerical reproduction, security audit and clean
+wheel/sdist/API/IPC/M1 checks passed. All original reference baseline hashes match.
+Other workstream's iniconfig 2.3.1 and pluggy 1.7.0 merges are retained; all four
+locks are genuinely regenerated against their canonical inputs.
+
+Review: docs/reviews/2026-10-26-evidence-interchange.md. Execution:
+integration/ecosystem/interchange_20261026.json. Hosted final-head checks and
+receiving-ref verification follow publication; no unexecuted job is called passed.
+
+- [x] Task: Apply interchange review fixes c347f82 (metadata sidecar, canonical
+  decoding, supply scope match, sliced buffer offsets and canonical dependency pins).
+
+Only the external managed Dependabot Python 3.15 service gate remains unchecked.
+Do not archive this track as fully complete while that gate remains open. No new
+completed track is awaiting archival; the seven prior archives remain preserved.
+
+Current-main reconciliation also retains pandas 3.1.0, Pygments 2.21.0 and pytest
+9.1.1 from PRs #36/#45/#46. The combined pandas/Pygments checkout passed the full
+880-test/92% suite, strict checks, reproduction, clean-package and security gates.
+The final full suite with pytest 9.1.1 also passed: 880 tests, five real capability
+skips, 92% coverage. Native producer/workstream/M3 tests passed 97/97 with the
+final locks. Hosted checks must qualify the final PR head before merge. The root managed parser still fails on Python 3.15 (run 40325526891);
+engineering-directory graph run 40326897087 passed but does not close that root gate.
+
+Publication: PR #47. All local implementation, review and reconciliation evidence
+is recorded above; exact-head hosted results are required before guarded merge.
+
+Hosted qualification: PR #47 head a702ac571aba59cf53146efd4678c9deeb7a75e6
+passed all 15 executable PR checks, including full macOS Python 3.15.1
+qualification; two trusted-write jobs are intentionally main/dispatch-only.
+Downloaded macOS JUnit/coverage: 880 passed, five capability skips, 91.8033%
+branch-inclusive coverage (displayed 92%). The freshly built native Voiage wheel
+and domain interchange receipt pass, with the exact adapter source hash retained.
+The final receipt-only update receives the same checks before guarded merge.
+Receiving ref and trusted default-branch jobs are linked from PR #47. The external
+root-parser gate remains open; no new track is falsely archived as complete.

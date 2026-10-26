@@ -2,14 +2,14 @@
   "track_id": "scientific_ecosystem_20261025",
   "title": "Scientific ecosystem modernisation",
   "type": "refactor",
-  "status": "partial_external_producer_contract_gates_open",
+  "status": "in_progress",
   "created_at": "2026-10-25T12:24:37.028925+00:00",
   "updated_at": "2026-10-26",
   "description": "Scientific ecosystem modernisation",
   "base_commit": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
   "approval_scope": "Autonomous macOS implementation, review, fixes and archival authorised 26 October 2026",
   "implementation_authorized": true,
-  "implementation_state": "macos_implementation_and_review_verified_producer_contract_open",
+  "implementation_state": "C3_C4_C6_implemented_current_qualified_producer_external_service_gate_open",
   "github_issue": "https://github.com/edithatogo/tobac/issues/22",
   "github_cross_reference": {
     "issue": "https://github.com/edithatogo/tobac/issues/22"
@@ -19,8 +19,7 @@
   "verification": "integration/ecosystem/verification_20261026.json",
   "review": "docs/reviews/2026-10-26-conductor-autonomous.md",
   "remaining_gates": [
-    "C3/C4/C6 full producer interchange/migration qualification; Voiage 3.0.0 unpublished",
-    "Managed root Dependabot parser lacks Python 3.15 support; supported native submission and complete graph readback are qualified"
+    "managed root Dependabot parser Python 3.15 support; supported snapshot submission remains qualified"
   ],
   "publication": {
     "pull_request": 43,
@@ -31,5 +30,15 @@
     "trusted_dispatch_checks": "6/6 successful",
     "downstream_attestation_verification": "4/4 signed subjects verified with exact source commit/ref/workflow and self-hosted runners denied"
   },
-  "dependency_submission_receipt": "integration/ecosystem/dependency-submission_20261026.json"
+  "dependency_submission_receipt": "integration/ecosystem/dependency-submission_20261026.json",
+  "resume_base": "a6296d422a4c5270828cbec2b398a7eb131d7818",
+  "interchange_verification": "integration/ecosystem/interchange_20261026.json",
+  "interchange_review": "docs/reviews/2026-10-26-evidence-interchange.md",
+  "interchange_publication": {
+    "pull_request": 47,
+    "url": "https://github.com/edithatogo/tobac/pull/47",
+    "local_qualification": "880 passed, 5 skips, 92% coverage; 97 native tests passed; strict/reproduction/security/clean package passed",
+    "hosted": "15 successful PR checks; two expected trusted-write skips; receipt-only update must pass the same gates before merge; receiving ref linked from PR #47",
+    "qualified_head": "a702ac571aba59cf53146efd4678c9deeb7a75e6"
+  }
 }

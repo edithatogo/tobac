@@ -1,0 +1,264 @@
+{
+  "schema": "tobac.ecosystem-interchange-closeout.v1",
+  "implementation_commit": "c347f8289972e87cfe434fa1047f28df2acdc485",
+  "reconciled_main": "eded92c62e582fa1995f647504bebb0996fe6882",
+  "native": {
+    "schema": "tobac.interchange-qualification.v1",
+    "status": "passed",
+    "python": "3.15.1 (main, Oct 21 2026, 17:39:16) [Clang 23.1.3 ]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "pyarrow": "26.0.0",
+      "polars": "1.44.2",
+      "patito": "0.8.6",
+      "msgspec": "0.22.0",
+      "voiage": "2.2.0+tobac3151.1"
+    },
+    "source_sha256": "f1253323f2e0d47dcdac652a039ce0cd592d5a55ea511556fdfd7b2e6a846bdb",
+    "scope": {
+      "geography": "NZ_national",
+      "population": "synthetic adults",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "unit": "cigarette_equivalents"
+    },
+    "logical_sha256_v1": "e41e62d285441f16489075498acc8283b5bbfbe84f1328b8445397886e7533dd",
+    "ipc_sha256": {
+      "contiguous.arrow": "73a8d2dbf36310aeffef165e864962a66773926801d6f89e8344300a3ebdefad",
+      "chunked.arrow": "6c8d59a7ab2584c188a0729832f97f880795cbabfa21e8f2f4c7ae410518e985"
+    },
+    "float64_view": {
+      "source_address": 527054629200,
+      "view_address": 527054629200,
+      "arrow_pool_before": 192,
+      "arrow_pool_after": 2256,
+      "survives_source_gc": true,
+      "length": 2,
+      "offset": 0
+    },
+    "producer": {
+      "value": 0.6009450952528033,
+      "value_unit": "score",
+      "voiage_version": "2.2.0+tobac3151.1",
+      "backend": "voiage.methods.basic.evpi",
+      "adapter": "exact nonnegative weighted-contrast transform",
+      "population_scaling": "none; input already carries the decision scale"
+    },
+    "limits": "Synthetic fixture only. Export/reconstruction copy. No string, whole-table or process-wide zero-allocation claim; Arrow pool counters exclude other allocators. Digests are not signatures. No empirical or Voiage 3 qualification."
+  },
+  "tests": {
+    "full": {
+      "passed": 880,
+      "skipped": 5,
+      "coverage_percent": 92
+    },
+    "native_producer_workstream_m3": {
+      "passed": 97,
+      "skipped": 0
+    },
+    "transport_native": {
+      "passed": 36
+    }
+  },
+  "checks": {
+    "strict_all": "passed; Ruff ALL and BasedPyright strict, zero diagnostics",
+    "reproduce": "passed; actual M1/M2/M3 reproduction in milestone log",
+    "clean_package": "passed; installed wheel API, transport/IPC and M1 CLI outside checkout; sdist reconstruction",
+    "security": "passed; findings lifecycle, zizmor and pip-audit; no known vulnerabilities"
+  },
+  "reference_baseline_files_verified": 38,
+  "logs": {
+    "interchange-final-milestone.log": "fefe05dd5882378f8389cba8b85bc26273cf30d2f4312b5715b0df7642ecb7cc",
+    "interchange-native-final.log": "53b0ee76f8d782d4f903c345e54181fdb458cfae2b9b24178d8967464dc6ef15",
+    "interchange-strict-final.log": "56882e01cb80173ef053c4096e4ee43e3123a15f5c0a06715f96988d48fbd91c",
+    "interchange-security-final.log": "6b83060f1659d3f92583371456eca6d4db0ea663e96ac04f07ccba79646080df",
+    "interchange-milestone.log": "4e8f9e5adf1e972c2cfb1d7e590e8f502b5d9ef1523dff995c0f316a875a8887",
+    "interchange-pytest911-final.log": "2a5ef31ef86d0696244d925d3de0cff67f0141461f5da4fcbbfe098fa4781643",
+    "interchange-native-pytest911-final.log": "2460f351be9464aabf894ac623fa082910b7a11c99c5c0c9f9bb9df25dde9d7a"
+  },
+  "producer": {
+    "source": "7af563c8cb373057d30662650b3f332f39e05b83",
+    "wheel_sha256": "25a6d95d90d1fb1ff625a62e92715e06d36cc85968b9c20cfa381e26da96a205",
+    "build_receipt": "integration/voiage_python315_compatibility_20261026.json"
+  },
+  "remaining_gate": {
+    "upstream_issue": "https://github.com/dependabot/dependabot-core/issues/16524",
+    "state_at_readback": "open",
+    "scope": "managed root Dependabot parser Python 3.15 support; supported snapshot submission remains qualified",
+    "last_root_managed_failure": 40325526891,
+    "engineering_directory_success_not_root_acceptance": 40326897087
+  },
+  "limits": "Software qualification, not empirical calibration or Voiage 3.0 acceptance. The final receipt-only update receives the same checks before merge; receiving ref and trusted main outcomes are readable from PR #47 and its linked runs.",
+  "reconciliation_commit": "f3d8cfcbb1bf6a600c83ddeb7957a5ec77b0b5dc",
+  "retained_maintenance": {
+    "pandas": "3.1.0",
+    "pygments": "2.21.0",
+    "pytest": "9.1.1",
+    "iniconfig": "2.3.1",
+    "pluggy": "1.7.0"
+  },
+  "reconciled_milestone": {
+    "log_sha256": "4ff6ca898417df57bc3df55f07bcef957a36fc8e5128966671e1d463e188322d",
+    "result": "tests, strict_all, reproduce, clean_package, security passed; pandas 3.1.0/Pygments 2.21.0",
+    "final_pytest911_full_suite": "passed: 880 tests, 5 real capability skips, 92% branch coverage"
+  },
+  "native_environment": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.0",
+    "pytest": "9.1.1",
+    "pygments": "2.21.0",
+    "pluggy": "1.7.0",
+    "iniconfig": "2.3.1",
+    "pydantic": "2.14.1"
+  },
+  "hosted_pr": {
+    "pull_request": 47,
+    "qualified_head": "a702ac571aba59cf53146efd4678c9deeb7a75e6",
+    "checks": [
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007641/job/121590168540",
+        "name": "macOS Python 3.15.1 qualification",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007641/job/121590228150",
+        "name": "Python 3.15.1 resolved dependency graph",
+        "state": "SKIPPED"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007641/job/121590168176",
+        "name": "Tests macos-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007641/job/121590168044",
+        "name": "quality",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007641/job/121590168438",
+        "name": "Tests windows-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007641/job/121590168377",
+        "name": "Tests ubuntu-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007641/job/121590169509",
+        "name": "macOS package provenance",
+        "state": "SKIPPED"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007588/job/121589646513",
+        "name": "voiage-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007604/job/121589645589",
+        "name": "voiage-released-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007587/job/121589644763",
+        "name": "longitudinal",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007588/job/121589644628",
+        "name": "sourceright",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007604/job/121589645162",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328007588/job/121589644120",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328000000/job/121589619885",
+        "name": "voiage-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328000000/job/121589619434",
+        "name": "sourceright",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328000000/job/121589619833",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40328000008/job/121589619638",
+        "name": "longitudinal",
+        "state": "SUCCESS"
+      }
+    ],
+    "macos_tests": {
+      "passed": 880,
+      "skipped": 5,
+      "coverage_percent": 91.80327868852459
+    },
+    "native_receipt": {
+      "schema": "tobac.interchange-qualification.v1",
+      "status": "passed",
+      "python": "3.15.1 (main, Oct 21 2026, 17:39:16) [Clang 23.1.3 ]",
+      "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+      "versions": {
+        "pyarrow": "26.0.0",
+        "polars": "1.44.2",
+        "patito": "0.8.6",
+        "msgspec": "0.22.0",
+        "voiage": "2.2.0+tobac3151.1"
+      },
+      "source_sha256": "f1253323f2e0d47dcdac652a039ce0cd592d5a55ea511556fdfd7b2e6a846bdb",
+      "scope": {
+        "geography": "NZ_national",
+        "population": "synthetic adults",
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "unit": "cigarette_equivalents"
+      },
+      "logical_sha256_v1": "e41e62d285441f16489075498acc8283b5bbfbe84f1328b8445397886e7533dd",
+      "ipc_sha256": {
+        "contiguous.arrow": "73a8d2dbf36310aeffef165e864962a66773926801d6f89e8344300a3ebdefad",
+        "chunked.arrow": "6c8d59a7ab2584c188a0729832f97f880795cbabfa21e8f2f4c7ae410518e985"
+      },
+      "float64_view": {
+        "source_address": 45184065616,
+        "view_address": 45184065616,
+        "arrow_pool_before": 192,
+        "arrow_pool_after": 2256,
+        "survives_source_gc": true,
+        "length": 2,
+        "offset": 0
+      },
+      "producer": {
+        "value": 0.6009450952528033,
+        "value_unit": "score",
+        "voiage_version": "2.2.0+tobac3151.1",
+        "backend": "voiage.methods.basic.evpi",
+        "adapter": "exact nonnegative weighted-contrast transform",
+        "population_scaling": "none; input already carries the decision scale"
+      },
+      "limits": "Synthetic fixture only. Export/reconstruction copy. No string, whole-table or process-wide zero-allocation claim; Arrow pool counters exclude other allocators. Digests are not signatures. No empirical or Voiage 3 qualification."
+    },
+    "native_build": {
+      "upstream_revision": "7af563c8cb373057d30662650b3f332f39e05b83",
+      "patch_sha256": "ecdc9b1d79fdb5a2d5cb313ef5aba494b86c8b771ffb2e536025d4ce9484c184",
+      "derived_revision": "759e8c6e1a76d169bba513a5b5b85bff7c91bf55",
+      "wheel": "voiage-2.2.0+tobac3151.1-cp312-abi3-macosx_11_0_arm64.whl",
+      "wheel_sha256": "ab4e95d9c77ee25600c2db5da2fa46624916334e0c2678f48ca71d351a8fd028",
+      "scope": "Metadata-only compatibility build; unchanged Voiage implementation and native code",
+      "environment": "Using Python 3.15.1 environment at: .nox/voiage\nannotated-doc==0.0.5\nannotated-types==0.8.0\nattrs==26.1.0\nclick==8.5.0\ncloudpickle==3.1.2\ncontourpy==1.4.0\ncoverage==7.17.0\ncycler==0.12.1\nfonttools==4.67.0\nhypothesis==6.170.8\niniconfig==2.3.1\njoblib==1.6.0\njsonschema==4.26.0\njsonschema-specifications==2025.9.1\nkiwisolver==1.5.1\nmarkdown-it-py==4.2.0\nmatplotlib==3.11.2\nmdurl==0.1.2\nmsgspec==0.22.0\nnarwhals==2.27.1\nnumpy==2.5.4\npackaging==26.3\npandas==3.1.0\npatito==0.8.6\npillow==13.0.0\npluggy==1.7.0\npolars==1.44.2\npolars-runtime-32==1.44.2\npyarrow==26.0.0\npydantic==2.14.1\npydantic-core==2.50.1\npygments==2.21.0\npyparsing==3.3.3\npytest==9.1.1\npython-dateutil==3.0.0\npyyaml==6.0.3\nreferencing==0.37.0\nrich==15.0.0\nrpds-py==2026.9.1\nscikit-learn==1.9.1\nscipy==1.18.1\nsetuptools==84.2.1\nshellingham==1.5.4\nsix==1.17.0\nsortedcontainers==2.4.0\nthreadpoolctl==3.7.0\n-e file:///Users/runner/work/tobac/tobac\ntyper==0.27.3\ntyping-extensions==4.16.0\ntyping-inspection==0.4.4\ntzdata==2026.5\nvoiage @ file:///Users/runner/work/tobac/tobac/outputs/engineering/voiage/69ef91753a684826884018e3a9b250b5/wheels/voiage-2.2.0+tobac3151.1-cp312-abi3-macosx_11_0_arm64.whl\nxarray==2026.9.0\n"
+    }
+  }
+}
