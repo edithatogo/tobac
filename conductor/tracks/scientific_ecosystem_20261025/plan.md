@@ -141,4 +141,8 @@ The remaining C3/C4/C6 producer-interchange items stay unchecked. They must not 
 
 ## Managed dependency graph follow-up
 
-- [~] Add and verify the supported Python 3.15.1 resolved-lock snapshot submission route; retain the root managed parser's upstream runtime failure explicitly. Native run 40316535031 supports only through Python 3.14 and cannot satisfy the unchanged package constraint. No check or security setting is waived.
+- [x] Add and verify the supported Python 3.15.1 resolved-lock snapshot submission route; retain the root managed parser's upstream runtime failure explicitly. Native run 40316535031 supports only through Python 3.14 and cannot satisfy the unchanged package constraint. No check or security setting is waived.
+
+PR #44 merged at `0940c595ce06f4142467de3f687dea881dae8ea2` after 15 successful PR checks and two expected trusted-write skips. Native default-branch snapshot `114186314` returned SUCCESS; 113 submitted PURLs appear in the 123-PURL native export, with every previous PURL retained. Receipt: `integration/ecosystem/dependency-submission_20261026.json`.
+
+- [ ] External service gate: managed root Dependabot parser Python 3.15 support (upstream issue 16524). The supported submission route is qualified; the failed managed run is not hidden or called successful.

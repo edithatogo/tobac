@@ -5,7 +5,7 @@
   "platform": "macOS arm64",
   "python": "3.15.1",
   "local": {
-    "full_suite": "835 passed, 4 capability skips, 92% branch-inclusive coverage before final archive/proof/extension tests",
+    "full_suite": "845 passed, 4 capability skips, 92% branch-inclusive coverage on final implementation head 616dc3f",
     "final_affected": "65 post-review affected/workstream tests passed, followed by final strict checks; hosted full suite pending",
     "strict": "configured ALL Ruff and BasedPyright zero findings",
     "reproduction": "Nox reproduce passed: M1/M2 grid/M3/release/empirical runners and verifiers plus longitudinal comparison",
@@ -179,6 +179,14 @@
     "supported_service_versions": "3.10.*, 3.11.*, 3.12.*, 3.13.*, 3.14.*",
     "upstream_issue": "https://github.com/dependabot/dependabot-core/issues/16524",
     "constraints_or_security_settings_changed": false,
-    "additive_supported_submission": "under qualification"
+    "additive_supported_submission": "verified default-branch API SUCCESS; all 113 submitted PURLs present in 123-PURL native export; all prior PURLs retained",
+    "native_receipt": "integration/ecosystem/dependency-submission_20261026.json"
+  },
+  "snapshot_publication": {
+    "pull_request": 44,
+    "qualified_head": "616dc3f1726511357c19c1f0717a9b4840b49395",
+    "merge_commit": "0940c595ce06f4142467de3f687dea881dae8ea2",
+    "pr_checks": "15 successful; two expected PR-boundary skips",
+    "trusted_snapshot_run": 40318816219
   }
 }

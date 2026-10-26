@@ -65,3 +65,5 @@ through the supported API and retains the response. Contents write is scoped to 
 because GitHub requires it for this endpoint; no checkout credential persistence or repository
 settings writes are introduced. All existing audits, graph jobs and alerts remain intact.
 Actual API acceptance and default-branch SBOM readback must be verified independently.
+
+Native default-branch closeout: PR #44 merged at 0940c595ce06f4142467de3f687dea881dae8ea2. Snapshot 114186314 returned SUCCESS. Native export contains all 113 submitted PURLs among 123 total, with every prior PURL retained. Visible repository/security settings are unchanged. Receipt: integration/ecosystem/dependency-submission_20261026.json. The managed parser's unsupported-runtime failure remains an upstream gate.

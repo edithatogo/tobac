@@ -102,3 +102,23 @@ for the current finite decision and source-handoff use cases. Existing native/so
 retained; no duplicate capture, search service, upstream track or background automation is added.
 Open scientific requirements are in conductor/research-gates.md. See the active plan, review
 report and integration/ecosystem/verification_20261026.json for the actual scopes and results.
+
+## Candidate dispositions after native execution
+
+| Candidate | Disposition and evidence boundary |
+| --- | --- |
+| Nox/uv, Ruff, BasedPyright, Hypothesis, mutmut, Scalene, pip-audit, zizmor | Retain the existing qualified reference harness and pins; current execution receipts remain separate from historical profiling. |
+| ruff-action, zizmor-action, gh-action-pip-audit | Defer duplicate wrappers; required pinned CLI tools already run. No unexecuted action is qualified by CLI success. |
+| ty, pyrefly | Native advisory comparison passed with qualified imports; Pyrefly used its reported basic preset. Neither replaces strict BasedPyright. |
+| prek | Native hooks/runtime check passed; retain optional runner adoption and existing hook semantics. |
+| pytest-gremlins | Bounded native comparison passed, 68/68 detected; does not replace the distinct 102/131 mutmut measurement. |
+| harden-runner | Supported macOS public/community audit executed; no paid raw-event upload or egress-blocking claim. |
+| attest-build-provenance | Trusted source/artifact operation qualified; four subjects verified downstream with exact source/workflow/ref checks. No SLSA level asserted. |
+| gitleaks | Redacted native scans of src/scripts/engineering/workflows passed. |
+| GitHub dependency submission | Native exact-lock/commit submission and default-branch export qualified; managed Python parser support remains upstream-open. |
+| JAX | Optional installed Voiage EVPI operation qualified; NumPy stays default on measured performance. |
+| Polars/Arrow/Patito/msgspec | Primitive path probes passed; full producer metadata/null/timestamp/migration contract remains open. |
+| array-api-compat, Equinox, Optimistix, Lineax, Quadax, Interpax, Diffrax, BlackJAX, jaxtyping, beartype | Defer: the current finite reference path demonstrates no required new solver/inference/API boundary for these candidates. No import or numerical qualification claimed. |
+| mars | Defer: no measured need for approximate nested-VOI replacement; held-out/regret qualification would be required before adoption. |
+| Innovate/Kairos/Searchright/AegisArchive | Assessment/defer for current consumer need; preserve producer/native owners and existing evidence contract. |
+| ubuntu-24.04-arm and non-macOS promotion | Deferred roadmap scope; existing safety checks remain effective. |

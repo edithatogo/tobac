@@ -9,7 +9,8 @@ The macOS implementation adds parameter serialization, stage-bound replay/recove
 required-context guards, clean installed-package qualification, explicit Voiage/JAX EVPI,
 native interchange/tool probes, mutation boundary assertions and security/provenance gates.
 PR #43 is merged and the macOS implementation/review and native provenance gates pass.
-Only C3/C4/C6 full producer-interchange qualification remains open; see the plan.
+C3/C4/C6 full producer-interchange qualification and the upstream managed parser runtime
+remain open. The supported native dependency-submission route and graph readback pass.
 Review: `docs/reviews/2026-10-26-conductor-autonomous.md`.
 Execution: `integration/ecosystem/verification_20261026.json`.
 
