@@ -366,7 +366,7 @@ def ecosystem(session):
     if len(session.posargs) != 1:
         session.error('Supply the qualified macOS Voiage compatibility wheel path')
     wheel = Path(session.posargs[0]).resolve()
-    expected = json.loads((ROOT / 'integration/voiage_python315_compatibility_20261026.json').read_text())['build']['wheel_sha256']
+    expected = json.loads((ROOT / 'integration/voiage_polars2_compatibility_20261027.json').read_text())['build']['wheel_sha256']
     if not wheel.is_file() or hashlib.sha256(wheel.read_bytes()).hexdigest() != expected:
         session.error('Voiage wheel differs from the qualified artifact')
     session.run('python', 'scripts/lock_receipt.py', 'verify', '--profile', 'ecosystem',

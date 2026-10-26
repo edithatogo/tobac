@@ -57,7 +57,7 @@ def partition_problem(problem: DecisionProblem, labels: Sequence[object]) -> Dec
     return DecisionProblem(np.asarray(means), problem.action_names, problem.value_unit, np.asarray(masses))
 
 
-def installed_evpi(problem: DecisionProblem, *, expected_version: str = "2.2.0+tobac3151.1") -> Report:
+def installed_evpi(problem: DecisionProblem, *, expected_version: str = "2.2.0+tobac3151.2") -> Report:
     """Execute the actual released API; an unavailable package is an error."""
     installed = version("voiage")
     if installed != expected_version:

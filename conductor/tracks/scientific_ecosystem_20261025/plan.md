@@ -199,3 +199,22 @@ and domain interchange receipt pass, with the exact adapter source hash retained
 The final receipt-only update receives the same checks before guarded merge.
 Receiving ref and trusted default-branch jobs are linked from PR #47. The external
 root-parser gate remains open; no new track is falsely archived as complete.
+
+## Polars 2 upgrade follow-up — 27 October 2026
+
+PR #48 initially updated two declarations without regenerating source-bound
+locks and left the Voiage/ecosystem inputs pinned to Polars 1.44.2. The existing
+Voiage compatibility wheel also required polars<2. Align all declared profiles
+on 2.0.0, regenerate four locks, and qualify a new metadata-only Voiage
+2.2.0+tobac3151.2 build from the unchanged pinned source. Original .1 evidence
+remains immutable. No numerical implementation, parity tolerance, security gate
+or Python 3.15.1 requirement changes.
+
+- [x] Implement, review and locally qualify the Polars 2 fix c8ca3cf: 882 passed,
+  five capability skips, 92% coverage; 99 native producer tests and all six local
+  Nox gates passed. Hosted macOS and all existing PR checks remain required
+  before guarded merge; the receiving ref and actual outcomes are linked from PR #48.
+
+Review: docs/reviews/2026-10-27-polars2-pr48.md. Artifact and verification:
+integration/voiage_polars2_compatibility_20261027.json. The root managed parser
+service gate remains open; no track is falsely archived or check waived.

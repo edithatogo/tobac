@@ -26,7 +26,7 @@ def qualify(path: str | Path) -> Report:
         raise FileExistsError(msg)
     receipt: Report = {
         "schema": "tobac.voiage-qualification.v1",
-        "expected_version": "2.2.0+tobac3151.1",
+        "expected_version": "2.2.0+tobac3151.2",
         "success": False,
         "installed_library_executed": False,
         "python": platform.python_version(),
