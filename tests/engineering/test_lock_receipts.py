@@ -19,7 +19,8 @@ def load():
 
 
 def inputs(root):
-    files = ['pyproject.toml', 'requirements.lock', 'engineering/requirements.in',
+    files = ['pyproject.toml', 'requirements.lock', 'engineering/reference-requirements.txt',
+             'engineering/requirements.in',
              'engineering/test-requirements.txt', 'engineering/build-requirements.txt',
              'engineering/audit.in', 'engineering/tools-requirements.txt',
              'engineering/voiage.in', 'engineering/voiage-build-requirements.txt']
@@ -50,6 +51,7 @@ def test_valid_receipt_binds_exact_inputs_and_lock(tmp_path, profile):
 
 
 @pytest.mark.parametrize('target', ['pyproject.toml', 'requirements.lock',
+    'engineering/reference-requirements.txt',
     'engineering/requirements.in', 'engineering/test-requirements.txt',
     'engineering/build-requirements.txt'])
 def test_input_change_invalidates_lock(tmp_path, target):
@@ -177,7 +179,7 @@ def test_bool_exit_code_is_not_success_metadata(tmp_path):
 def test_supported_local_include_spellings(tmp_path,include):
     m=load();inputs(tmp_path)
     (tmp_path/'engineering/requirements.in').write_text(include+'\n')
-    assert len(m.input_hashes(tmp_path,'runtime'))==5
+    assert len(m.input_hashes(tmp_path,'runtime'))==6
 
 
 def test_malformed_includes_and_missing_inputs_fail(tmp_path):

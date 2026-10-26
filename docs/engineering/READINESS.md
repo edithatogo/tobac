@@ -280,3 +280,12 @@ Voiage follow-up completed through PR #33 at `f06eed6`: all 15 hosted checks pas
 on its exact qualified head, including both formerly failing installed-library
 jobs. Python remains 3.15.1. The compatibility receipt records receiving commit,
 source/patch/wheel identity and actual hosted equal/weighted/native/Arrow scope.
+
+## Native Dependency Graph manifest discovery
+
+The canonical version list is `engineering/reference-requirements.txt`; the root
+`requirements.lock` remains a compatible include. This fixes the managed fetcher's
+unsupported custom include suffix without changing any version pins, Python 3.15.1
+selection, audit settings or required checks. All three hash-lock receipts bind the
+new canonical input. See `DEPENDENCY_GRAPH.md` and
+`integration/dependency_graph_20261026.json` for actual native execution status.

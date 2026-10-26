@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 INPUTS = (
     "pyproject.toml",
     "requirements.lock",
+    "engineering/reference-requirements.txt",
     "engineering/requirements.in",
     "engineering/test-requirements.txt",
     "engineering/build-requirements.txt",
