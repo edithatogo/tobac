@@ -1,0 +1,73 @@
+{
+  "schema": "tobac.dependency-refresh.v1",
+  "date": "2026-10-26",
+  "base_commit": "1a968fba5f075c9e2b9ad3507a9c0405d114dd7d",
+  "purpose": "Merge the two low-risk Renovate PRs after refreshing them onto current main and regenerating the affected lock receipt.",
+  "changes": {
+    "virtualenv": {
+      "pr": 32,
+      "file": "engineering/tools-requirements.txt",
+      "from": "21.14.12",
+      "to": "21.14.13",
+      "reason": "transitive nox tool; clears CVE-2026-1137xx",
+      "lock_receipts": {
+        "runtime": "unchanged and verified",
+        "voiage": "unchanged and verified",
+        "audit": "regenerated; only the virtualenv version and its two hashes changed"
+      },
+      "audit_lock_sha256": "29411f24b55f2aea055ab23b7b51d64af892e354ae55ee39ee07ec7e45fe1862",
+      "audit_inputs_verified": 8,
+      "resolver": "uv 0.13.5"
+    },
+    "setup_uv_action": {
+      "pr": 34,
+      "from": "v9.0.0 (c771a70e6277c0a99b617c7a806ffedaca235ff9)",
+      "to": "v10.3.2 (07a047e608db84b3d8c06cd9a7c7dcc9c355c18e)",
+      "workflows": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/dependency-lock.yml",
+        ".github/workflows/engineering-deep.yml",
+        ".github/workflows/engineering.yml",
+        ".github/workflows/release-candidate.yml",
+        ".github/workflows/research-m3.yml"
+      ],
+      "pinned_uses": 10,
+      "note": "ci.yml and research-m3.yml gained v9.0.0 pins after the Renovate PR was opened; they were updated in the same branch so every workflow uses one verified action pin."
+    }
+  },
+  "receiving_refs": {
+    "pr_32_head": "529974bd4f5312cfea37bdaaf0c7c1332bd7a55c",
+    "pr_32_merge_commit": "920b5bfd2d309f3cc6547f79f3e425b81cea2227",
+    "pr_34_head": "a10d27f6fa67ab9ce9c32dd1f5fdf167bb39e671",
+    "pr_34_merge_commit": "d09c84d0cecf77e7ee1f42b36ed92a26928b24c7",
+    "main_head_verified": "d09c84d0cecf77e7ee1f42b36ed92a26928b24c7"
+  },
+  "verification": {
+    "local": {
+      "lock_receipts": "runtime, audit and voiage verify pass",
+      "lock_receipt_tests": "38 passed",
+      "engineering_contract_tests": "26 passed (execution contracts, harness contract, dependency-graph manifests)",
+      "actionlint": "6 changed workflows clean",
+      "zizmor": "no findings (13 existing suppressions)"
+    },
+    "pull_requests": {
+      "pr_32_checks": "15 passed",
+      "pr_34_checks": "15 passed"
+    },
+    "hosted_main": {
+      "commit": "d09c84d0cecf77e7ee1f42b36ed92a26928b24c7",
+      "Empirical longitudinal component": "https://github.com/edithatogo/tobac/actions/runs/40292217824 success",
+      "Regulatory uncertainty milestone": "https://github.com/edithatogo/tobac/actions/runs/40292217895 success",
+      "M3 research methods": "https://github.com/edithatogo/tobac/actions/runs/40292217834 success",
+      "Engineering qualification": "https://github.com/edithatogo/tobac/actions/runs/40292217823 success after rerunning one flaky Windows job",
+      "Dependency Graph": "https://github.com/edithatogo/tobac/actions/runs/40292216371 success",
+      "flake": "tests/engineering/test_mutation_gate.py::test_prepare_removes_only_selected_cached_metadata failed once on Windows and passed on rerun; the same test passed on the two preceding main commits. It depends on mutation-receipt timestamps and is unrelated to the dependency changes."
+    }
+  },
+  "changed_interfaces": "none",
+  "remaining_gaps": [
+    "PR #36 (pandas 3.1.0) still needs scientific-stack review and lock regeneration.",
+    "PR #21 (archive source bindings) remains a draft with conflicts and is owned by the parallel workstream.",
+    "Regenerated uv lock headers embed the absolute checkout path; this matches the existing committed locks but is not portable across machines."
+  ]
+}
