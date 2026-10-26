@@ -264,7 +264,7 @@ def main() -> None:
         "locator",
     ]
     with (args.out / "table.csv").open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=columns, extrasaction="ignore")
+        writer = csv.DictWriter(stream, fieldnames=columns, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         writer.writerows(dict(r, issues=";".join(r["issues"])) for r in report["rows"])
     sys.stdout.write(f"{len(report['rows'])} source-bound rows; national comparison remains incomplete\n")
