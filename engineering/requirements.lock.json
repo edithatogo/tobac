@@ -10,7 +10,7 @@
     "engineering/requirements.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/engineering/lock-candidate-315/requirements.lock",
+    "outputs/engineering/reconcile-lock-candidate/requirements.lock",
     "--universal",
     "--python-version",
     "3.15"
@@ -23,6 +23,6 @@
     "engineering/test-requirements.txt": "57f40259568e4553e40e89362357801da3986c231541d65957538e0c9a108fef",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68"
   },
-  "lock_sha256": "df70625f6a4bf95134dc814bf98711db64b1d98f65e2adca4e50572d1ee36c12",
+  "lock_sha256": "95b443d3ea48211dc5195b7e7438aa4f7b721fefac543d23de3d9ba6a2264f27",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

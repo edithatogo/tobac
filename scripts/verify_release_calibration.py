@@ -12,7 +12,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
-from typing import Any
+from typing import Any, SupportsFloat, cast
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_ARTIFACTS = (
@@ -56,7 +56,7 @@ def _load(path: Path) -> tuple[dict[str, Any] | None, str | None]:
         return None, f"Malformed JSON in {path}: {exc}"
     if not isinstance(loaded, dict):
         return None, f"Expected a JSON object in {path}; got {type(loaded).__name__}"
-    return loaded, None
+    return cast("dict[str, Any]", loaded), None
 
 
 def _rows(path: Path) -> tuple[list[dict[str, str]] | None, str | None]:
@@ -68,10 +68,10 @@ def _rows(path: Path) -> tuple[list[dict[str, str]] | None, str | None]:
         return None, f"Unreadable {path}: {exc}"
 
 
-def _finite(value: Any) -> float | None:
+def _finite(value: object) -> float | None:
     """Return the finite float value, or None for missing, malformed or NaN/inf."""
     try:
-        number = float(value)
+        number = float(cast("SupportsFloat | str", value))
     except TypeError, ValueError:
         return None
     return number if math.isfinite(number) else None
@@ -92,7 +92,7 @@ def _summary_scope(
     models: list[str] = []
     pairs: set[tuple[str, int]] = set()
     for row in rows:
-        model = row.get("model")
+        model = row.get("model", "")
         if model not in models:
             models.append(model)
         try:
@@ -104,7 +104,7 @@ def _summary_scope(
     return models, pairs
 
 
-def _check_grid(
+def _check_grid(  # noqa: C901  # Keep ordered model validation and report assembly in one visible operation.
     out: Path,
     errors: list[str],
     models: list[str],
@@ -128,13 +128,13 @@ def _check_grid(
         )
     seen: set[tuple[str, int, str]] = set()
     for row in rows:
-        model = row.get("model")
+        model = row.get("model", "")
         try:
             horizon = int(row.get("horizon", ""))
         except TypeError, ValueError:
             errors.append(f"grid_convergence.csv has a non-integer horizon: {row!r}")
             continue
-        measure = row.get("measure")
+        measure = row.get("measure", "")
         key = (model, horizon, measure)
         if model not in models or horizon not in horizons or measure not in measures:
             errors.append(
@@ -163,16 +163,14 @@ def _check_grid(
             )
     for model in models:
         for horizon in GRID_HORIZONS:
-            for measure in GRID_MEASURES:
-                if (model, horizon, measure) not in seen:
-                    errors.append(
-                        "grid_convergence.csv is missing "
-                        f"model={model!r} horizon={horizon!r} "
-                        f"measure={measure!r}"
-                    )
+            errors.extend(
+                f"grid_convergence.csv is missing model={model!r} horizon={horizon!r} measure={measure!r}"
+                for measure in GRID_MEASURES
+                if (model, horizon, measure) not in seen
+            )
 
 
-def _check_monte_carlo(
+def _check_monte_carlo(  # noqa: C901  # Keep ordered model validation and report assembly in one visible operation.
     out: Path,
     errors: list[str],
     pairs: set[tuple[str, int]],
@@ -192,7 +190,7 @@ def _check_monte_carlo(
         )
     seen: set[tuple[str, int]] = set()
     for row in rows:
-        model = row.get("model")
+        model = row.get("model", "")
         try:
             year = int(row.get("year", ""))
         except TypeError, ValueError:
@@ -215,15 +213,16 @@ def _check_monte_carlo(
         analytic = _finite(row.get("analytic_mean"))
         simulation = _finite(row.get("simulation_mean"))
         mcse = _finite(row.get("mcse_mean"))
-        for statistic, value, raw in (
-            ("analytic_mean", analytic, row.get("analytic_mean")),
-            ("simulation_mean", simulation, row.get("simulation_mean")),
-        ):
-            if value is None:
-                errors.append(
-                    f"monte_carlo_checks.csv {statistic} is not finite for "
-                    f"model={model!r} year={year!r}: {raw!r}"
+        errors.extend(
+            (
+                f"monte_carlo_checks.csv {statistic} is not finite for model={model!r} year={year!r}: {raw!r}"
+                for statistic, value, raw in (
+                    ("analytic_mean", analytic, row.get("analytic_mean")),
+                    ("simulation_mean", simulation, row.get("simulation_mean")),
                 )
+                if value is None
+            )
+        )
         if mcse is None or mcse <= 0:
             errors.append(
                 "monte_carlo_checks.csv mcse_mean must be finite and > 0 for "
@@ -239,12 +238,16 @@ def _check_monte_carlo(
                     f"year={year!r}: analytic_mean={analytic!r} "
                     f"simulation_mean={simulation!r} mcse_mean={mcse!r}"
                 )
-    for model, year in sorted(pairs):
-        if (model, year) not in seen:
-            errors.append(f"monte_carlo_checks.csv is missing model={model!r} year={year!r}")
+    errors.extend(
+        (
+            f"monte_carlo_checks.csv is missing model={model!r} year={year!r}"
+            for model, year in sorted(pairs)
+            if (model, year) not in seen
+        )
+    )
 
 
-def verify(out: Any, root: Any = ROOT) -> dict[str, Any]:
+def verify(out: str | Path, root: str | Path = ROOT) -> dict[str, Any]:  # noqa: C901, PLR0912  # Keep ordered model validation and report assembly in one visible operation.; Keep explicit fail-closed validation branches together.
     """Return a fail-closed integrity report for one calibration output directory.
 
     Args:
@@ -281,10 +284,11 @@ def verify(out: Any, root: Any = ROOT) -> dict[str, Any]:
         if not isinstance(items, list):
             errors.append(f"Manifest field {group!r} must be a list of path/sha256 records")
             continue
-        for item in items:
+        for item in cast("list[Any]", items):
             if not isinstance(item, dict):
                 errors.append(f"Manifest record must be an object; got {item!r}")
                 continue
+            item = cast("dict[str, Any]", item)
             if group == "files":
                 listed.append(item.get("path"))
             path, digest = item.get("path"), item.get("sha256")
@@ -327,7 +331,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("out", type=Path)
     result = verify(parser.parse_args().out)
-    print(json.dumps(result, indent=2))
+    print(json.dumps(result, indent=2))  # noqa: T201  # CLI emits the requested structured result on stdout.
     raise SystemExit(0 if result["status"] == "pass" else 1)
 
 

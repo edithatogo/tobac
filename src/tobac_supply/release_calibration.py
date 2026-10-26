@@ -11,10 +11,11 @@ from __future__ import annotations
 
 import math
 import re
-from collections.abc import Iterable
 from dataclasses import dataclass
+from functools import partial
 from numbers import Integral, Real
-from typing import Any
+from typing import Any, cast
+lazy from collections.abc import Iterable
 
 import numpy as np
 from numpy.typing import NDArray
@@ -25,32 +26,42 @@ Array = NDArray[np.float64]
 SERIES_LABEL = "Total tobacco sold tonnes (excl. cigars/cigarillos)"
 
 
-def _float(value: Real, name: str, *, positive: bool = False) -> float:
-    if isinstance(value, (bool, np.bool_)) or not isinstance(value, Real):
-        raise ValueError(f"{name} must be a finite real number; got {value!r}")
+# Named bounds preserve the existing scientific/data contract.
+MIN_GRID_POINTS = 3
+
+
+def _float(value: float, name: str, *, positive: bool = False) -> float:
+    if isinstance(value, (bool, np.bool_)) or not isinstance(cast("object", value), Real):
+        msg = f"{name} must be a finite real number; got {value!r}"
+        raise ValueError(msg)  # noqa: TRY004  # Retain the established ValueError domain-validation contract.
     result = float(value)
     if not math.isfinite(result) or (positive and result <= 0):
         requirement = "> 0 and finite" if positive else "finite"
-        raise ValueError(f"{name} must be {requirement}; got {value!r}")
+        msg = f"{name} must be {requirement}; got {value!r}"
+        raise ValueError(msg)
     return result
 
 
-def _int(value: Integral, name: str, minimum: int = 1, maximum: int | None = None) -> int:
+def _int(value: int, name: str, minimum: int = 1, maximum: int | None = None) -> int:
     permitted = f"[{minimum}, {maximum}]" if maximum is not None else f">= {minimum}"
-    if isinstance(value, (bool, np.bool_)) or not isinstance(value, Integral):
-        raise ValueError(f"{name} must be an integer in {permitted}; got {value!r}")
+    if isinstance(value, (bool, np.bool_)) or not isinstance(cast("object", value), Integral):
+        msg = f"{name} must be an integer in {permitted}; got {value!r}"
+        raise ValueError(msg)  # noqa: TRY004  # Retain the established ValueError domain-validation contract.
     if value < minimum or (maximum is not None and value > maximum):
-        raise ValueError(f"{name} must be an integer in {permitted}; got {value!r}")
+        msg = f"{name} must be an integer in {permitted}; got {value!r}"
+        raise ValueError(msg)
     return int(value)
 
 
-def _array(values: Iterable[Real], name: str, *, positive: bool = False) -> Array:
+def _array(values: Iterable[float], name: str, *, positive: bool = False) -> Array:
     try:
         result = np.asarray([_float(v, name, positive=positive) for v in values])
     except TypeError as exc:
-        raise ValueError(f"{name} must be a numeric vector") from exc
+        msg = f"{name} must be a numeric vector"
+        raise ValueError(msg) from exc
     if not len(result):
-        raise ValueError(f"{name} cannot be empty")
+        msg = f"{name} cannot be empty"
+        raise ValueError(msg)
     return result
 
 
@@ -63,9 +74,11 @@ def parse_release_export(text: str, expected_years: Iterable[int]) -> list[dict[
     """
     expected = [_int(y, "expected_year", 1, 9998) for y in expected_years]
     if not expected or len(set(expected)) != len(expected):
-        raise ValueError("Expected coverage must contain unique years")
-    if not isinstance(text, str):
-        raise ValueError("Export must be text")
+        msg = "Expected coverage must contain unique years"
+        raise ValueError(msg)
+    if not isinstance(cast("object", text), str):
+        msg = "Export must be text"
+        raise ValueError(msg)  # noqa: TRY004  # Retain the established ValueError domain-validation contract.
     observed: dict[int, int] = {}
     pattern = re.compile(re.escape(SERIES_LABEL) + r",([0-9]{4}),([0-9]+|[0-9]{1,3}(?:,[0-9]{3})+)$")
     for raw in text.splitlines():
@@ -74,14 +87,17 @@ def parse_release_export(text: str, expected_years: Iterable[int]) -> list[dict[
             continue
         match = pattern.fullmatch(line)
         if not match:
-            raise ValueError(f"Malformed known-series row: {line}")
+            msg = f"Malformed known-series row: {line}"
+            raise ValueError(msg)
         year, value = int(match[1]), int(match[2].replace(",", ""))
         if year in observed or year not in expected or value <= 0:
-            raise ValueError("Duplicate/unexpected year or nonpositive reported release")
+            msg = "Duplicate/unexpected year or nonpositive reported release"
+            raise ValueError(msg)
         observed[year] = value
     if set(observed) != set(expected):
-        raise ValueError("Incomplete extraction; missing years are not zero")
-    return [dict(year=y, tonnes=observed[y]) for y in sorted(observed)]
+        msg = "Incomplete extraction; missing years are not zero"
+        raise ValueError(msg)
+    return [{"year": y, "tonnes": observed[y]} for y in sorted(observed)]
 
 
 @dataclass(frozen=True)
@@ -99,6 +115,7 @@ class ReleaseGrid:
     sigma_prior_scale: float = 0.10
 
     def __post_init__(self) -> None:
+        """Validate construction invariants and normalize the stored values."""
         for name in ("mu_min", "mu_max", "mu_prior_mean"):
             _float(getattr(self, name), name)
         for name in ("sigma_min", "sigma_max", "mu_prior_sd", "sigma_prior_scale"):
@@ -106,13 +123,15 @@ class ReleaseGrid:
         for name in ("mu_points", "sigma_points"):
             _int(getattr(self, name), name, 3, 2001)
         if self.mu_max <= self.mu_min or self.sigma_max <= self.sigma_min:
-            raise ValueError("Prior supports must increase")
+            msg = "Prior supports must increase"
+            raise ValueError(msg)
 
 
 def make_grid(grid: ReleaseGrid) -> tuple[Array, Array, Array]:
     """Return flattened mu/sigma cells and normalized trapezoidal prior masses."""
-    if not isinstance(grid, ReleaseGrid):
-        raise ValueError("grid must be ReleaseGrid")
+    if not isinstance(cast("object", grid), ReleaseGrid):
+        msg = "grid must be ReleaseGrid"
+        raise ValueError(msg)  # noqa: TRY004  # Retain the established ValueError domain-validation contract.
     mu = np.linspace(grid.mu_min, grid.mu_max, grid.mu_points)
     sigma = np.linspace(grid.sigma_min, grid.sigma_max, grid.sigma_points)
     mw, sw = np.ones(len(mu)), np.ones(len(sigma))
@@ -129,6 +148,8 @@ def make_grid(grid: ReleaseGrid) -> tuple[Array, Array, Array]:
 
 @dataclass(frozen=True)
 class ReleasePosterior:
+    """Finite release-process posterior with its observed support and model settings."""
+
     mu: Array
     sigma: Array
     weights: Array
@@ -139,13 +160,16 @@ class ReleasePosterior:
     window: int | None
 
     def __post_init__(self) -> None:
+        """Validate construction invariants and normalize the stored values."""
         mu = _array(self.mu, "mu")
         sigma = _array(self.sigma, "sigma", positive=True)
         weights = _array(self.weights, "weights")
         if len(mu) != len(sigma) or len(mu) != len(weights):
-            raise ValueError("Posterior vector lengths differ")
+            msg = "Posterior vector lengths differ"
+            raise ValueError(msg)
         if np.any(weights < 0) or not np.isclose(weights.sum(), 1.0, rtol=0, atol=1e-10):
-            raise ValueError("Posterior masses must be nonnegative and sum to one")
+            msg = "Posterior masses must be nonnegative and sum to one"
+            raise ValueError(msg)
         _int(self.last_year, "last_year", 1, 9998)
         _int(self.first_change_year, "first_change_year", 1, self.last_year)
         _int(self.n_changes, "n_changes", 2)
@@ -153,7 +177,8 @@ class ReleasePosterior:
         if self.window is not None:
             _int(self.window, "window", 2)
         if self.last_year - self.first_change_year + 1 != self.n_changes:
-            raise ValueError("Change-year coverage does not match n_changes")
+            msg = "Change-year coverage does not match n_changes"
+            raise ValueError(msg)
         for name, arr in [("mu", mu), ("sigma", sigma), ("weights", weights)]:
             arr.setflags(write=False)
             object.__setattr__(self, name, arr)
@@ -161,7 +186,7 @@ class ReleasePosterior:
 
 def fit_release_process(
     years: Iterable[int],
-    values: Iterable[Real],
+    values: Iterable[float],
     *,
     window: int | None = None,
     through_year: int | None = None,
@@ -175,16 +200,18 @@ def fit_release_process(
     """
     x = np.asarray([_int(y, "year", 1, 9998) for y in years])
     y = _array(values, "release", positive=True)
-    if len(x) != len(y) or len(x) < 3 or np.any(np.diff(x) != 1):
-        raise ValueError("At least three contiguous annual levels are required")
+    if len(x) != len(y) or len(x) < MIN_GRID_POINTS or np.any(np.diff(x) != 1):
+        msg = "At least three contiguous annual levels are required"
+        raise ValueError(msg)
     if window is not None:
         window = _int(window, "window", 2)
     if through_year is not None:
         cutoff = _int(through_year, "through_year", 1, 9998)
         mask = x <= cutoff
         x, y = x[mask], y[mask]
-        if len(x) < 3:
-            raise ValueError("Insufficient observations before cutoff")
+        if len(x) < MIN_GRID_POINTS:
+            msg = "Insufficient observations before cutoff"
+            raise ValueError(msg)
     change = np.diff(np.log(y))
     if window is not None:
         change = change[-window:]
@@ -204,6 +231,11 @@ def _horizon(value: int) -> int:
     return _int(value, "horizon", 1, 50)
 
 
+def _mixture_cdf(value: float, *, means: Array, scales: Array, weights: Array, q: float) -> float:
+    """Evaluate a fixed mixture CDF residual for one bound quantile root."""
+    return float(np.dot(weights, ndtr((value - means) / scales)) - q)
+
+
 def forecast_summary(posterior: ReleasePosterior, horizons: Iterable[int]) -> list[dict[str, Any]]:
     """Analytic mixture moments and deterministic quantiles of future reported levels.
 
@@ -213,8 +245,10 @@ def forecast_summary(posterior: ReleasePosterior, horizons: Iterable[int]) -> li
     rows: list[dict[str, Any]] = []
     for horizon in horizons:
         h = _horizon(horizon)
+        means: Array
+        scales: Array
         means, scales = h * posterior.mu, math.sqrt(h) * posterior.sigma
-        row: dict[str, Any] = dict(year=posterior.last_year + h, horizon=h)
+        row: dict[str, Any] = {"year": posterior.last_year + h, "horizon": h}
         row["mean"] = float(
             posterior.last_value * np.sum(posterior.weights * np.exp(means + 0.5 * scales**2))
         )
@@ -231,7 +265,7 @@ def forecast_summary(posterior: ReleasePosterior, horizons: Iterable[int]) -> li
                 quantile = left
             else:
                 quantile = brentq(
-                    lambda v: float(np.dot(posterior.weights, ndtr((v - means) / scales)) - q),
+                    partial(_mixture_cdf, means=means, scales=scales, weights=posterior.weights, q=q),
                     left - 1e-10,
                     right + 1e-10,
                     xtol=1e-12,
@@ -244,7 +278,7 @@ def forecast_summary(posterior: ReleasePosterior, horizons: Iterable[int]) -> li
     return rows
 
 
-def log_predictive_density(posterior: ReleasePosterior, value: Real, horizon: int = 1) -> float:
+def log_predictive_density(posterior: ReleasePosterior, value: float, horizon: int = 1) -> float:
     """Log density on the reported-level scale, including the logarithm Jacobian."""
     target, h = _float(value, "target", positive=True), _horizon(horizon)
     active = posterior.weights > 0
@@ -268,15 +302,15 @@ def sample_release_paths(posterior: ReleasePosterior, horizon: int, draws: int, 
     mu, sigma = posterior.mu[cells], posterior.sigma[cells]
     changes = mu[:, None] + sigma[:, None] * rng.normal(size=(n, h))
     levels = posterior.last_value * np.exp(np.cumsum(changes, axis=1))
-    return dict(
-        years=np.arange(posterior.last_year + 1, posterior.last_year + h + 1),
-        values=levels,
-        mu=mu,
-        sigma=sigma,
-        posterior_cell=cells,
-        estimand="reported_lawful_smoked_tobacco_releases",
-        unit="tonnes/year",
-    )
+    return {
+        "years": np.arange(posterior.last_year + 1, posterior.last_year + h + 1),
+        "values": levels,
+        "mu": mu,
+        "sigma": sigma,
+        "posterior_cell": cells,
+        "estimand": "reported_lawful_smoked_tobacco_releases",
+        "unit": "tonnes/year",
+    }
 
 
 def boundary_mass(posterior: ReleasePosterior) -> float:

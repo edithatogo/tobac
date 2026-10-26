@@ -193,7 +193,7 @@ def test_inventory_success_does_not_fill_in_current_quotes_or_raw_observations()
 @pytest.mark.parametrize('name', ['tests', 'reproduce', 'package', 'evidence'])
 def test_nox_paths_run_evidence_gate_first_and_stop_on_failure(monkeypatch, name):
     import types
-    nox = types.ModuleType('nox');nox.options=types.SimpleNamespace();nox.session=lambda f:f
+    nox = types.ModuleType('nox');nox.options=types.SimpleNamespace();nox.session=lambda f=None, **kwargs: f if f is not None else (lambda fn: fn)
     command=types.ModuleType('nox.command')
     class CommandFailed(Exception):pass
     command.CommandFailed=CommandFailed
@@ -212,7 +212,8 @@ def test_nox_paths_run_evidence_gate_first_and_stop_on_failure(monkeypatch, name
     with pytest.raises(CommandFailed):getattr(mod,name)(Session())
     inventory = [call for call in calls if call[:4] ==
                  ('python','scripts/qualify_integrations.py','--mode','inventory')]
-    assert inventory[0][-1]==f'outputs/engineering/evidence-{name}.json'
+    assert inventory[0][-1].startswith(f'outputs/engineering/evidence-{name}-')
+    assert inventory[0][-1].endswith('.json')
     if name == 'evidence':
         assert calls[0][:2] == ('python', '-c')
 

@@ -2,6 +2,11 @@
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from matplotlib.figure import Figure
+
 import argparse
 import hashlib
 import json
@@ -15,13 +20,13 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-import numpy as np
-import pandas as pd
-import scipy
-from numpy.typing import NDArray
+import numpy as np  # noqa: E402  # Standalone CLI establishes its local src path before project imports.
+import pandas as pd  # noqa: E402  # Standalone CLI establishes its local src path before project imports.
+import scipy  # noqa: E402  # Standalone CLI establishes its local src path before project imports.
+lazy from numpy.typing import NDArray  # noqa: E402  # Standalone CLI establishes its local src path before project imports.
 
-from tobac_supply.longitudinal import rolling_origin_forecasts
-from tobac_supply.release_calibration import (
+from tobac_supply.longitudinal import rolling_origin_forecasts  # noqa: E402  # Standalone CLI establishes its local src path before project imports.
+from tobac_supply.release_calibration import (  # noqa: E402  # Standalone CLI establishes its local src path before project imports.
     ReleaseGrid,
     boundary_mass,
     fit_release_process,
@@ -61,10 +66,11 @@ def configured_windows(cfg: dict[str, Any]) -> dict[str, int | None]:
     declared = cfg["windows"]
     named = window_names(declared)
     if len(named) != len(declared):
-        raise ValueError(
+        msg = (
             f"Config declares {len(declared)} windows but {len(named)} distinct model "
             f"names result from {declared!r}; window specifications must be distinct"
         )
+        raise ValueError(msg)
     return named
 
 
@@ -85,7 +91,7 @@ def provenance() -> dict[str, Any]:
 
     def git(*args: str) -> str | None:
         try:
-            done = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, check=False)
+            done = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, check=False)  # noqa: S603, S607  # Reviewed fixed executable/argv, bounded invocation, no shell.; Fixed git subcommand in the trusted local tool environment, no shell.
         except OSError:
             return None
         return done.stdout.strip() if done.returncode == 0 else None
@@ -100,10 +106,12 @@ def provenance() -> dict[str, Any]:
 
 
 def sha(path: Path | str) -> str:
+    """Return the SHA-256 digest of the supplied source bytes."""
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 def save_json(path: Path | str, obj: dict[str, Any]) -> None:
+    """Write the supplied report as formatted JSON."""
     Path(path).write_text(json.dumps(obj, indent=2, allow_nan=False) + "\n", encoding="utf-8")
 
 
@@ -126,14 +134,23 @@ def reconcile_sources(root: Path | str, cfg: dict[str, Any]) -> dict[str, Any]:
     root = Path(root)
     for key in ("exclusions", "unresolved"):
         if key not in cfg:
-            raise ValueError(f"Config must declare {key!r}; got keys {sorted(cfg)}")
+            msg = f"Config must declare {key!r}; got keys {sorted(cfg)}"
+            raise ValueError(msg)
     old = root / "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv"
     raw = root / "data/calibration_20261024/raw/tobacco_returns_completion.txt"
     extracted = parse_release_export(raw.read_text(), range(2010, 2026))
     existing = pd.read_csv(old)
-    expected = [{"year": int(r.year), "tonnes": int(r.value)} for r in existing.itertuples()]
+    expected = [
+        {"year": int(year), "tonnes": int(value)}
+        for year, value in zip(
+            np.asarray(existing["year"], dtype=np.int64),
+            np.asarray(existing["value"], dtype=np.int64),
+            strict=True,
+        )
+    ]
     if extracted != expected:
-        raise ValueError("Supplied completion conflicts with accepted series; investigate, do not overwrite")
+        msg = "Supplied completion conflicts with accepted series; investigate, do not overwrite"
+        raise ValueError(msg)
     return {
         "status": "matched_all_rows",
         "rows": len(extracted),
@@ -166,7 +183,8 @@ def absolute_percentage_error(observed: float, predicted: float) -> float:
 
     """
     if not observed > 0:
-        raise ValueError(f"observed must be > 0 for MAPE; got {observed!r}")
+        msg = f"observed must be > 0 for MAPE; got {observed!r}"
+        raise ValueError(msg)
     return 100 * abs(predicted - observed) / observed
 
 
@@ -178,11 +196,12 @@ def interval_score(observed: float, lower: float, upper: float, alpha: float) ->
 
     """
     if not 0 < alpha < 1:
-        raise ValueError(f"alpha must be in (0,1); got {alpha!r}")
+        msg = f"alpha must be in (0,1); got {alpha!r}"
+        raise ValueError(msg)
     return float(upper - lower + (2 / alpha) * (max(lower - observed, 0) + max(observed - upper, 0)))
 
 
-def hindcasts(
+def hindcasts(  # noqa: PLR0913, PLR0917  # Preserve explicit dimensioned inputs and the established API.; Preserve the established positional calling convention.
     years: NDArray[np.int_],
     values: NDArray[np.float64],
     grid: ReleaseGrid,
@@ -190,6 +209,7 @@ def hindcasts(
     selection_end: int,
     windows: dict[str, int | None] | None = None,
 ) -> list[dict[str, Any]]:
+    """Evaluate the declared rolling-origin designs using only their prior observations."""
     rows: list[dict[str, Any]] = []
     exploratory, reserved = stage_names(start_year, selection_end, years)
     for name, window in (WINDOWS if windows is None else windows).items():
@@ -224,7 +244,7 @@ def hindcasts(
     return rows
 
 
-def figures(
+def figures(  # noqa: PLR0913, PLR0915, PLR0917  # Preserve explicit dimensioned inputs and the established API.; Keep the declared numerical/report sequence visible and ordered.; Preserve the established positional calling convention.
     out: Path,
     years: NDArray[np.int_],
     values: NDArray[np.float64],
@@ -232,20 +252,21 @@ def figures(
     checks: list[dict[str, Any]],
     selected: str,
 ) -> None:
-    import matplotlib
+    """Render release projections and retrospective diagnostics with their scope caveats."""
+    import matplotlib as mpl  # noqa: PLC0415  # Keep optional dependencies and backend selection lazy.
 
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-    from matplotlib.ticker import MaxNLocator
+    mpl.use("Agg")
+    import matplotlib.pyplot as plt  # noqa: PLC0415  # Keep optional dependencies and backend selection lazy.
+    from matplotlib.ticker import MaxNLocator  # noqa: PLC0415  # Keep optional dependencies and backend selection lazy.
 
-    matplotlib.rcParams["svg.hashsalt"] = "tobac-release-calibration-2.8.0"
+    mpl.rcParams["svg.hashsalt"] = "tobac-release-calibration-2.8.0"
     folder = out / "figures"
     folder.mkdir()
 
-    def save(fig: Any, stem: str) -> None:
+    def save(fig: Figure, stem: str) -> None:
         fig.tight_layout()
-        fig.savefig(folder / (stem + ".png"), dpi=220)
-        fig.savefig(folder / (stem + ".svg"), metadata={"Date": None})
+        fig.savefig(folder / (stem + ".png"), dpi=220)  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+        fig.savefig(folder / (stem + ".svg"), metadata={"Date": None})  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
         plt.close(fig)
 
     df = pd.DataFrame(forecasts)
@@ -253,25 +274,25 @@ def figures(
     chosen = df[df.model == selected]
 
     fig, ax = plt.subplots(figsize=(10, 5.7))
-    ax.plot(years, values, "o-", label="Published releases, 2010–2025")
-    ax.plot(chosen.year, chosen["median"], "o--", label=f"Conditional median: {selected.replace('_', ' ')}")
-    ax.fill_between(
+    ax.plot(years, values, "o-", label="Published releases, 2010\u20132025")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    ax.plot(chosen.year, chosen["median"], "o--", label=f"Conditional median: {selected.replace('_', ' ')}")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    ax.fill_between(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
         chosen.year, chosen.lower_95, chosen.upper_95, alpha=0.14, label="95% predictive interval"
     )
-    ax.fill_between(
+    ax.fill_between(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
         chosen.year, chosen.lower_80, chosen.upper_80, alpha=0.22, label="80% predictive interval"
     )
-    ax.axvline(2025.5, linestyle=":", alpha=0.6)
+    ax.axvline(2025.5, linestyle=":", alpha=0.6)  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.set(
         xlabel="Calendar year",
         ylabel="Reported releases (tonnes/year)",
         title="NZ lawful smoked-tobacco releases: observations and conditional projection",
     )
-    ax.legend(fontsize=8, loc="upper right")
-    ax.grid(axis="y", alpha=0.2)
+    ax.legend(fontsize=8, loc="upper right")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    ax.grid(axis="y", alpha=0.2)  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.xaxis.set_major_locator(MaxNLocator(integer=True))
     ax.set_ylim(bottom=0)
-    fig.text(
+    fig.text(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
         0.01,
         0.01,
         "Reported releases are not total consumption or illicit supply. Later years are exploratory.",
@@ -282,45 +303,45 @@ def figures(
 
     fig, ax = plt.subplots(figsize=(9, 4.8))
     one = df[df.horizon == 1].reset_index(drop=True)
-    for i, r in one.iterrows():
-        ax.errorbar(
+    for i, (_index, r) in enumerate(one.iterrows()):
+        ax.errorbar(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
             r["median"], i, xerr=[[r["median"] - r.lower_95], [r.upper_95 - r["median"]]], fmt="o", capsize=5
         )
-    ax.set_yticks(range(len(one)), [m.replace("_", " ") for m in one.model])
-    ax.axvline(values[-1], linestyle=":", label="2025 reported value")
+    ax.set_yticks(range(len(one)), [m.replace("_", " ") for m in one.model])  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    ax.axvline(values[-1], linestyle=":", label="2025 reported value")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.set(
         xlabel="Projected 2026 reported releases (tonnes/year)",
         title="Structural sensitivity: 2026 release projection",
     )
-    ax.grid(axis="x", alpha=0.2)
-    ax.legend(fontsize=8)
+    ax.grid(axis="x", alpha=0.2)  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    ax.legend(fontsize=8)  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     save(fig, "02_window_sensitivity")
 
     fig, ax = plt.subplots(figsize=(10, 5.3))
     observed = h[h.model == selected]
-    ax.plot(observed.test_year, observed.observed_tonnes, "o-", label="Held-out reported releases")
-    ax.plot(observed.test_year, observed["median"], "s--", label="One-year-ahead predictive median")
-    ax.fill_between(
+    ax.plot(observed.test_year, observed.observed_tonnes, "o-", label="Held-out reported releases")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    ax.plot(observed.test_year, observed["median"], "s--", label="One-year-ahead predictive median")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    ax.fill_between(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
         observed.test_year, observed.lower_95, observed.upper_95, alpha=0.2, label="95% predictive interval"
     )
-    ax.axvline(2022.5, linestyle=":", label="Exploratory selection / reserved diagnostic split")
+    ax.axvline(2022.5, linestyle=":", label="Exploratory selection / reserved diagnostic split")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.set(
         xlabel="Held-out observation year",
         ylabel="Reported releases (tonnes/year)",
         title="Retrospective predictive checks, using only earlier observations",
     )
-    ax.grid(axis="y", alpha=0.2)
-    ax.legend(fontsize=8)
+    ax.grid(axis="y", alpha=0.2)  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    ax.legend(fontsize=8)  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.xaxis.set_major_locator(MaxNLocator(integer=True))
     save(fig, "03_rolling_predictive_checks")
 
     (out / "FIGURE_CAPTIONS.md").write_text("""# Figure captions — release 2.8.0
 
 1. **NZ reported lawful smoked-tobacco releases and conditional projection.** Observations
-are the official numerical-table values, 2010–2025. The displayed candidate is chosen by
-an exploratory 2015–2022 log-score comparison. Bands are conditional posterior-predictive
+are the official numerical-table values, 2010\u20132025. The displayed candidate is chosen by
+an exploratory 2015\u20132022 log-score comparison. Bands are conditional posterior-predictive
 80% and 95% intervals, not uncertainty about illegal consumption or policy effects. 2026
-is the primary horizon; 2027–2030 extrapolate constant transition parameters without shocks.
+is the primary horizon; 2027\u20132030 extrapolate constant transition parameters without shocks.
 
 2. **Recency-window sensitivity for 2026.** Dots show posterior-predictive medians; whiskers
 show 95% intervals for all-history, four-change and eight-change models. A window of four
@@ -365,10 +386,11 @@ def selection_report(
         for statistic in SELECTION_STATISTICS:
             value = float(getattr(row, statistic))
             if not math.isfinite(value):
-                raise ValueError(
+                msg = (
                     f"Non-finite {statistic} for model {row.model!r}: {value!r}; "
                     "cannot report a selection margin"
                 )
+                raise ValueError(msg)
             record[statistic] = value
         scores.append(record)
     margin = None
@@ -385,18 +407,20 @@ def selection_report(
     }
 
 
-def run(
+def run(  # noqa: PLR0915  # Keep the declared numerical/report sequence visible and ordered.
     out: Path | str,
-    quick: bool = False,
+    quick: bool = False,  # noqa: FBT001, FBT002  # Preserve the established public positional flag convention.
     draws: int | None = None,
-    skip_figures: bool = False,
+    skip_figures: bool = False,  # noqa: FBT001, FBT002  # Preserve the established public positional flag convention.
 ) -> dict[str, Any]:
+    """Run the declared analysis and write provenance-bound outputs."""
     out = Path(out).resolve()
     if out.exists() and any(out.iterdir()):
-        raise ValueError(
+        msg = (
             f"Output directory must be empty: {out} already contains files; "
             "a fresh, unused directory is required"
         )
+        raise ValueError(msg)
     out.mkdir(parents=True, exist_ok=True)
     cfg = json.loads((ROOT / "configs/calibration_v2.8.0/model.json").read_text())
     windows = configured_windows(cfg)
@@ -511,19 +535,20 @@ def run(
                 )
         fine = replace(grid, mu_points=2 * grid.mu_points - 1, sigma_points=2 * grid.sigma_points - 1)
         finepost = fit_release_process(years, values, window=window, grid=fine)
-        for coarse, refined in zip(forecast_summary(p, [1, 5]), forecast_summary(finepost, [1, 5])):
-            for measure in ["mean", "median", "lower_95", "upper_95"]:
-                convergence.append(
-                    {
-                        "model": name,
-                        "horizon": coarse["horizon"],
-                        "measure": measure,
-                        "coarse": coarse[measure],
-                        "fine": refined[measure],
-                        "relative_difference": abs(coarse[measure] - refined[measure])
-                        / abs(refined[measure]),
-                    }
-                )
+        for coarse, refined in zip(
+            forecast_summary(p, [1, 5]), forecast_summary(finepost, [1, 5]), strict=True
+        ):
+            convergence.extend(
+                {
+                    "model": name,
+                    "horizon": coarse["horizon"],
+                    "measure": measure,
+                    "coarse": coarse[measure],
+                    "fine": refined[measure],
+                    "relative_difference": abs(coarse[measure] - refined[measure]) / abs(refined[measure]),
+                }
+                for measure in ["mean", "median", "lower_95", "upper_95"]
+            )
     pd.DataFrame(forecasts).to_csv(out / "forecast_summary.csv", index=False, float_format="%.12g")
     pd.DataFrame(parameters).to_csv(
         out / "posterior_parameter_summary.csv", index=False, float_format="%.12g"
@@ -607,13 +632,14 @@ def run(
 
 
 def main() -> None:
+    """Parse command-line options, execute the selected operation and report its result."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--quick", action="store_true")
     parser.add_argument("--draws", type=int)
     parser.add_argument("--skip-figures", action="store_true")
     args = parser.parse_args()
-    print(json.dumps(run(args.out, args.quick, args.draws, args.skip_figures), indent=2))
+    print(json.dumps(run(args.out, args.quick, args.draws, args.skip_figures), indent=2))  # noqa: T201  # CLI emits the requested structured result on stdout.
 
 
 if __name__ == "__main__":

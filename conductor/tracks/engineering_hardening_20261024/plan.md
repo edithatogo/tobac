@@ -60,3 +60,14 @@ external scientific qualification; the open hosted failure is not closed by this
 
 ## Phase: Review Fixes
 - [x] Task: Align BasedPyright targets with Python 3.15 and verify review fix f06d0b5
+
+## Reconciliation of PR #25
+
+- [x] Preserve both development histories and reconcile the empirical runner and core.
+- [x] Qualify scientific stubs on Python 3.15.1; focused runner reports zero type errors.
+- [x] Reject incomplete mutation results and nonfinite/out-of-range thresholds.
+- [ ] Verify source/tool-bound fresh mutation results, integrated Nox checks and hosted macOS.
+- [ ] Commit final receipts, reconcile remote main, merge and verify receiving commit.
+
+The parallel 916a41e profile attempt is retained in Git history as an uninformative run; it is
+not substituted for the separate Python 3.15.1 profile receipt.

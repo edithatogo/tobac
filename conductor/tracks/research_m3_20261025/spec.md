@@ -1,4 +1,4 @@
-# M3 specification
+# M3 research portfolios, implementation and staged decisions
 
 Implement the six user-approved additions without replacing the common decision/evidence model: weighted Voiage parity and structure-only EVPPI; joint-source/shared-cost/calibration portfolios; prior/structure envelopes without viewpoint probabilities; imperfect implementation; pilot/continue/stop; conditional uptake/delay materiality before adopting Innovate/Kairos.
 

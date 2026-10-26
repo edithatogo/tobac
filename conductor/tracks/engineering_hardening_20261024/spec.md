@@ -1,4 +1,4 @@
-# Library reuse, qualified CI/CD and context engineering
+# Library reuse and qualified engineering harness
 
 Preserve scientific meaning and M3 paths. Replace the scalar Gaussian-density plumbing
 with the existing SciPy distribution API after parity, shape and domain tests. Add a small

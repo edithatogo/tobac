@@ -1,0 +1,15 @@
+{
+  "schema": "tobac.core-maintenance.v1",
+  "original_source": "evidence/core_extraction_20261024.py",
+  "original_sha256": "79b76cae4dae52d81a22a71595bdf05be1bc5b4e599a62f03a90a01f8f05e27c",
+  "permitted_changes": [
+    "formatting",
+    "annotations",
+    "typing.cast wrappers",
+    "named literal bounds"
+  ],
+  "original_manifest": "integration/baseline.json",
+  "constant_bindings": {
+    "MATRIX_NDIM": 2
+  }
+}

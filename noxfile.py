@@ -1,6 +1,7 @@
 """Nox/uv execution with source-bound locks; configuration is not qualification."""
 import os
 from pathlib import Path
+from uuid import uuid4
 import sys
 
 import nox
@@ -10,6 +11,9 @@ nox.options.default_venv_backend = 'uv'
 nox.options.sessions = ['tests', 'quality']
 ROOT = Path(__file__).resolve().parent
 OUT = Path('outputs/engineering')
+# Measured 61.7% on src/tobac/supply.py at main 5ab361b. A floor below the measured
+# score converts a silent success into a regression alarm without asserting adequacy.
+MUTATION_MINIMUM_PERCENT = '60'
 
 
 def environment(session, profile='runtime', require_lock=False):
@@ -70,7 +74,8 @@ def audit_tools(session):
     says plainly that this is not the locked release profile.
     """
     if sys.platform == 'linux':
-        return environment(session, profile='audit')
+        environment(session, profile='audit')
+        return None
     if os.environ.get('TOBAC_REQUIRE_LOCK') == '1':
         session.error('Locked qualification requires the Linux audit lock; not available here')
     session.log('NATIVE AUDIT: host-resolved tools from engineering/tools-requirements.txt; '
@@ -103,17 +108,17 @@ def run_all_checks(session, commands):
 def verify_evidence(session, label):
     """Inventory and preserved-byte gate; not source applicability or CSL validation."""
     session.run('python', 'scripts/qualify_integrations.py', '--mode', 'inventory',
-                '--out', f'outputs/engineering/evidence-{label}.json')
+                '--out', f'outputs/engineering/evidence-{label}-{uuid4().hex}.json')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def evidence(session):
     """Offline standard-library check; no package install or empirical conditioning."""
     session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
     verify_evidence(session, 'evidence')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def tests(session):
     verify_evidence(session, 'tests')
     environment(session)
@@ -124,50 +129,55 @@ def tests(session):
     session.run('python', '-m', 'coverage', 'report', '--fail-under=90')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def quality(session):
     audit_tools(session)
     run_all_checks(session, [
         ['ruff', 'check', '--isolated', '--select', 'E9,F63,F7,F82', 'src', 'scripts'],
         ['ruff', 'check', '--config', 'engineering/ruff.toml', 'scripts/context_bundle.py'],
-        ['basedpyright', '--project', 'engineering/basedpyright.json'],
+        ['basedpyright', '--pythonpath', str(Path(session.bin) / ('python.exe' if os.name == 'nt' else 'python')), '--project', 'engineering/basedpyright.json'],
+        ['basedpyright', '--pythonpath', str(Path(session.bin) / ('python.exe' if os.name == 'nt' else 'python')), '--project', 'engineering/bp_longitudinal.json'],
     ])
 
 
-@nox.session
+@nox.session(python='3.15.1')
+def types_longitudinal(session):
+    """Strict typing of the empirical runner using this session's interpreter."""
+    audit_tools(session)
+    session.run('basedpyright', '--pythonpath', str(Path(session.bin) / ('python.exe' if os.name == 'nt' else 'python')), '--project', 'engineering/bp_longitudinal.json')
+
+
+@nox.session(python='3.15.1')
 def strict_all(session):
     audit_tools(session)
     run_all_checks(session, [
         ['ruff', 'check', '--config', 'engineering/ruff.toml', 'src', 'scripts'],
-        ['basedpyright', '--project', 'engineering/basedpyright-all.json'],
+        ['basedpyright', '--pythonpath', str(Path(session.bin) / ('python.exe' if os.name == 'nt' else 'python')), '--project', 'engineering/basedpyright-all.json'],
     ])
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def reproduce(session):
     verify_evidence(session, 'reproduce')
     environment(session)
     session.run('python', 'scripts/verify.py')
+    replay_root = OUT / 'replays' / uuid4().hex
     for module, destination in [('tobac.run', 'm1'), ('tobac.m2', 'm2'), ('tobac.research.runner', 'm3')]:
-        args = ['python', '-m', module, '--out', f'outputs/replay_{destination}']
+        args = ['python', '-m', module, '--out', str(replay_root / destination)]
         if module == 'tobac.m2':
             args.append('--grid-check')
         session.run(*args)
-        session.run('python', 'scripts/verify.py', f'outputs/replay_{destination}')
+        session.run('python', 'scripts/verify.py', str(replay_root / destination))
     for stem in ['release_calibration', 'empirical_longitudinal']:
-        destination = f'outputs/replay_{stem}'
-        # The runners refuse a non-empty output directory by design. This replay
-        # path is fixed, so clear only that path before regenerating it; a
-        # deliberate re-run must not require hand-deleting prior evidence.
-        session.run('rm', '-rf', destination)
+        destination = str(replay_root / stem)
         session.run('python', f'scripts/run_{stem}.py', '--out', destination)
         session.run('python', f'scripts/verify_{stem}.py', destination)
     session.run('python', 'scripts/check_longitudinal_results.py',
-                '--empirical', 'outputs/replay_empirical_longitudinal',
-                '--releases', 'outputs/replay_release_calibration')
+                '--empirical', str(replay_root / 'empirical_longitudinal'),
+                '--releases', str(replay_root / 'release_calibration'))
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def security(session):
     audit_tools(session)
     run_all_checks(session, [
@@ -176,16 +186,17 @@ def security(session):
     ])
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def lock(session):
     """Produce review candidates, not automatic trusted locks or source commits."""
     session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
+    destination = session.posargs[0] if session.posargs else 'outputs/engineering/lock-candidate'
     for profile in ['runtime', 'audit']:
         session.run('python', 'scripts/lock_receipt.py', 'generate', '--profile', profile,
-                    '--path', 'outputs/engineering/lock-candidate')
+                    '--path', destination)
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def package(session):
     """Build an internal candidate only after exact locked installation."""
     verify_evidence(session, 'package')
@@ -197,14 +208,20 @@ def package(session):
                 '--out-dir', 'outputs/release-candidate', external=True)
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def mutation(session):
+    """Mutation score gate; mutmut enforces no threshold of its own."""
     audit_tools(session)
+    session.run('python', 'scripts/check_mutation_score.py', '--prepare',
+                '--receipt', 'outputs/engineering/mutation-input.json')
     session.run('mutmut', 'run', 'tobac.supply*')
     session.run('mutmut', 'results')
+    session.run('python', 'scripts/check_mutation_score.py',
+                '--minimum', MUTATION_MINIMUM_PERCENT,
+                '--receipt', 'outputs/engineering/mutation-input.json')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def profile(session):
     audit_tools(session)
     # Scalene 2.4 replaced the flat CLI with subcommands; program arguments must follow '---'.
@@ -213,7 +230,7 @@ def profile(session):
                 '--out', 'outputs/profile_empirical', '--quick')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def canary(session):
     """Latest/pre-release source-only experiment; cannot qualify the reference environment."""
     session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONPATH='src')
@@ -224,7 +241,7 @@ def canary(session):
     session.run('python', '-m', 'pytest', '-q', '--strict-markers')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def research_m3(session):
     """M3 uses the existing reference environment and preserves its lock gates."""
     verify_evidence(session, 'research_m3')

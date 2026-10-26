@@ -7,6 +7,7 @@ import hashlib
 import json
 import platform
 from pathlib import Path
+from typing import TYPE_CHECKING, cast
 
 import numpy as np
 import scipy
@@ -33,13 +34,29 @@ from .retail_case import (
 from .run import write_csv
 from .supply import expected_releases, release_loglikelihood
 
+if TYPE_CHECKING:
+    from tobac._typing import FloatArray, Report
 
-def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
+
+# Named bounds preserve the existing scientific/data contract.
+INVARIANT_ATOL = 1e-11
+
+
+def run(  # noqa: C901, PLR0912, PLR0915  # Keep ordered model validation and report assembly in one visible operation.; Keep explicit fail-closed validation branches together.; Keep the declared numerical/report sequence visible and ordered.
+    config_path: str | Path,
+    out: str | Path,
+    *,
+    quit_points: int = 4,
+    quick: bool = False,
+    grid_check: bool = False,
+) -> Report:
+    """Run the declared analysis and write provenance-bound outputs."""
     root = Path.cwd().resolve()
     path = Path(config_path).resolve()
     spec = json.loads(path.read_text(encoding="utf-8"))
     if spec["schema"] != "tobac.m2.retail.v1":
-        raise ValueError("Unknown M2 schema")
+        msg = "Unknown M2 schema"
+        raise ValueError(msg)
     base = load_config(root / spec["base_config"])
     sourcepath = root / "evidence/m2/source_review.json"
     source = json.loads(sourcepath.read_text(encoding="utf-8"))["sources"][0]
@@ -47,19 +64,21 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
         source["finding"]["alpha"],
         source["finding"]["beta"],
     ]:
-        raise ValueError("Source-prior values differ from the extracted parameter record")
+        msg = "Source-prior values differ from the extracted parameter record"
+        raise ValueError(msg)
     out = Path(out)
     if out.exists() and any(out.iterdir()):
-        raise FileExistsError("Use a new output directory")
+        msg = "Use a new output directory"
+        raise FileExistsError(msg)
     out.mkdir(parents=True, exist_ok=True)
     cases = spec["cases"][2:3] if quick else spec["cases"]
     weights = [1.0] if quick else spec["crime_weights"]
-    rows = []
-    partial = []
-    learning = []
-    summary = []
-    increments = []
-    checks = []
+    rows: list[Report] = []
+    partial: list[Report] = []
+    learning: list[Report] = []
+    summary: list[Report] = []
+    increments: list[Report] = []
+    checks: list[bool] = []
     reference = None
     groups = [
         "market",
@@ -100,12 +119,12 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
                     scope=spec["scientific_status"],
                 )
             )
-            values = {}
+            values: dict[str, float] = {}
             for group in groups:
                 val = exact_partial_information(pr, grouped_labels(s, c, group))
                 partial.append(dict(key, group=group, evppi=val))
                 values[group] = val
-                checks.append(-1e-11 <= val <= evpi + 1e-11)
+                checks.append(-INVARIANT_ATOL <= val <= evpi + 1e-11)
             for name, likelihood in designs.items():
                 targets = (
                     {
@@ -136,9 +155,9 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
                     learning.append(dict(key, design=name, target=target, **stats))
                 checks.extend(
                     [
-                        r["evsi"] >= -1e-11,
+                        r["evsi"] >= -INVARIANT_ATOL,
                         r["evsi"] <= evpi + 1e-11,
-                        r["posterior_martingale_max_error"] < 1e-11,
+                        r["posterior_martingale_max_error"] < INVARIANT_ATOL,
                     ]
                 )
                 if name == "panel_supply":
@@ -146,7 +165,8 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
             if case["id"] == "source_shape_partial_replacement" and weight == 1:
                 reference = (s, p, c, pr, channels, designs)
     if reference is None:
-        raise ValueError("A reference case/weight is required")
+        msg = "A reference case/weight is required"
+        raise ValueError(msg)
     s, p, c, pr, ch, designs = reference
     scope = Scope(
         "synthetic representative catchment",
@@ -168,9 +188,9 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
         )
         checks.extend(
             [
-                result["chain_error"] < 1e-11,
+                result["chain_error"] < INVARIANT_ATOL,
                 abs(result["expected_remaining_evpi"] - (result["initial_evpi"] - result["first_evsi"]))
-                < 1e-11,
+                < INVARIANT_ATOL,
             ]
         )
     # Synthetic accounting/update fixture: NEVER label these as NZ observations.
@@ -180,7 +200,7 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
         s["tobacco"] * s["unrecorded_lawful"],
         reporting_multiplier=s["supply_ratio"],
     )[:, None]
-    synthetic = []
+    synthetic: list[Report] = []
     for observation in (250.0, 500.0):
         packet = EvidencePacket(
             evidence_id=f"synthetic-release-{observation}",
@@ -201,8 +221,12 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
                 "synthetic_observation": observation,
                 "assumed_sd": 80.0,
                 "qualification": "synthetic fixture; NOT an empirical NZ update",
-                "posterior_mean_illicit_share": float(after.problem.prior_weights @ s["illicit"]),
-                "posterior_mean_diversion": float(after.problem.prior_weights @ s["diversion"]),
+                "posterior_mean_illicit_share": float(
+                    cast("FloatArray", after.problem.prior_weights) @ s["illicit"]
+                ),
+                "posterior_mean_diversion": float(
+                    cast("FloatArray", after.problem.prior_weights) @ s["diversion"]
+                ),
                 "prior_mean_diversion": float(p @ s["diversion"]),
                 "realised_panel_evsi_after_D0": res["evsi"],
                 "remaining_evpi": exact_evpi(after.problem),
@@ -212,11 +236,14 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
         )
         checks.extend(
             [
-                abs(after.problem.prior_weights @ s["diversion"] - p @ s["diversion"]) < 1e-11,
-                abs(same.sum() - 1) < 1e-11,
+                bool(
+                    abs(cast("FloatArray", after.problem.prior_weights) @ s["diversion"] - p @ s["diversion"])
+                    < INVARIANT_ATOL
+                ),
+                bool(abs(same.sum() - 1) < INVARIANT_ATOL),
             ]
         )
-    grid = []
+    grid: list[Report] = []
     if grid_check:
         for nodes in (2, 4, 8):
             ss, pp, cc = build_retail_states(base, quit_points=nodes, source_beta=spec["source_beta"])
@@ -225,7 +252,13 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
             for name in ("panel", "panel_supply", "causal_policy_study", "causal_matched_total_and_lawful"):
                 r = evaluate(prr, dd[name])
                 grid.append(
-                    dict(quit_nodes=nodes, states=len(pp), design=name, evpi=exact_evpi(prr), evsi=r["evsi"])
+                    {
+                        "quit_nodes": nodes,
+                        "states": len(pp),
+                        "design": name,
+                        "evpi": exact_evpi(prr),
+                        "evsi": r["evsi"],
+                    }
                 )
     outputs = {
         "summary.csv": summary,
@@ -249,7 +282,11 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
         "python": platform.python_version(),
         "numpy": np.__version__,
         "scipy": scipy.__version__,
-        "scope": "exact conditional finite calculation; transported model input; no empirical posterior, national funding or continuous-convergence claim",
+        ("scope"): (
+            "exact conditional finite calculation; transported model input; no "
+            "empirical posterior, national funding or continuous-convergence "
+            "claim"
+        ),
     }
     (out / "validation.json").write_text(json.dumps(validation, indent=2) + "\n", encoding="utf-8")
     package = Path(__file__).resolve().parent
@@ -265,11 +302,13 @@ def run(config_path, out, *, quit_points=4, quick=False, grid_check=False):
         encoding="utf-8",
     )
     if not all(checks):
-        raise ArithmeticError("M2 invariant failed")
+        msg = "M2 invariant failed"
+        raise ArithmeticError(msg)
     return validation
 
 
-def main():
+def main() -> None:
+    """Parse command-line options, execute the selected operation and report its result."""
     p = argparse.ArgumentParser()
     p.add_argument("--config", default="configs/m2_retail.json")
     p.add_argument("--out", required=True)
@@ -277,7 +316,7 @@ def main():
     p.add_argument("--quick", action="store_true")
     p.add_argument("--grid-check", action="store_true")
     a = p.parse_args()
-    print(
+    print(  # noqa: T201  # CLI emits the requested structured result on stdout.
         json.dumps(
             run(a.config, a.out, quit_points=a.quit_points, quick=a.quick, grid_check=a.grid_check), indent=2
         )

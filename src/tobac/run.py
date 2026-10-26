@@ -13,6 +13,7 @@ import numpy as np
 import scipy
 
 from tobac._core import exact_evpi, exact_partial_information
+lazy from tobac._typing import Report
 
 from .information import evaluate, same_data_robustness, scalar_oracle
 from .regulation import (
@@ -26,8 +27,14 @@ from .regulation import (
     study_channels,
 )
 
+# Named bounds preserve the existing scientific/data contract.
+REFERENCE_OTHER_NICOTINE_MG = 150.0
+INVARIANT_ATOL = 1e-10
+INVARIANT_ATOL_1e_12 = 1e-12
 
-def write_csv(path, rows):
+
+def write_csv(path: Path, rows: list[Report]) -> None:
+    """Write a report table with a stable union of its declared columns."""
     if not rows:
         return
     keys = list(dict.fromkeys(k for row in rows for k in row))
@@ -37,14 +44,16 @@ def write_csv(path, rows):
         w.writerows(rows)
 
 
-def run(config_path, out, quick=False):
+def run(config_path: str | Path, out: str | Path, quick: bool = False) -> Report:  # noqa: C901, FBT001, FBT002, PLR0915  # Keep ordered model validation and report assembly in one visible operation.; Preserve the established public positional flag convention.; Keep the declared numerical/report sequence visible and ordered.
+    """Run the declared analysis and write provenance-bound outputs."""
     c = load_config(config_path)
     out = Path(out)
     root = Path.cwd().resolve()
     config_relative = Path(config_path).resolve().relative_to(root)
     confidence = c["scientific_event"]["confidence"]
     if out.exists() and any(out.iterdir()):
-        raise FileExistsError("Use a new empty output directory")
+        msg = "Use a new empty output directory"
+        raise FileExistsError(msg)
     out.mkdir(parents=True, exist_ok=True)
     s, p0 = build_states(c)
     d = policy_components(s, c)
@@ -53,7 +62,9 @@ def run(config_path, out, quick=False):
     event = (d["illicit"][:, 1] - d["illicit"][:, 0]) / s["tobacco"] >= c["scientific_event"][
         "minimum_absolute_growth_fraction"
     ]
-    current_event = s["tobacco"] * s["illicit"] >= 150.0  # explicitly illustrative scientific magnitude
+    current_event = (
+        s["tobacco"] * s["illicit"] >= REFERENCE_OTHER_NICOTINE_MG
+    )  # explicitly illustrative scientific magnitude
     groups = [
         "market",
         "behaviour",
@@ -75,15 +86,15 @@ def run(config_path, out, quick=False):
         cases += [(name, {}, a) for name, a in c["dependence_scenarios"].items() if a]
     else:
         cases = cases[:1]
-    summaries = []
-    partials = []
-    infos = []
-    science = []
-    ledgers = []
-    prices = []
-    incremental = []
-    checks = []
-    by_reference = {}
+    summaries: list[Report] = []
+    partials: list[Report] = []
+    infos: list[Report] = []
+    science: list[Report] = []
+    ledgers: list[Report] = []
+    prices: list[Report] = []
+    incremental: list[Report] = []
+    checks: list[bool] = []
+    by_reference: dict[str, Report] = {}
     for name, prior_args, association in cases:
         _, p = build_states(c, prior_args, association)
         for weight in [1.0] if quick else c["crime_weights"]:
@@ -99,9 +110,13 @@ def run(config_path, out, quick=False):
                     **{a: float(p @ pr.values[:, j]) for j, a in enumerate(ACTIONS)},
                 )
             )
-            for j, a in enumerate(ACTIONS):
-                ledgers.append(dict(base, action=a, **{k: float(p @ v[:, j]) for k, v in d.items()}))
-            pv = {}
+            ledgers.extend(
+                (
+                    dict(base, action=a, **{k: float(p @ v[:, j]) for k, v in d.items()})
+                    for j, a in enumerate(ACTIONS)
+                )
+            )
+            pv: dict[str, float] = {}
             for group in groups:
                 pv[group] = exact_partial_information(pr, grouped_labels(s, c, group))
                 partials.append(
@@ -112,9 +127,15 @@ def run(config_path, out, quick=False):
                         scope="exact EVPPI for declared finite variables, not estimated continuous EVPPI",
                     )
                 )
-            scores = {}
-            for design, l in designs.items():
-                r = evaluate(pr, l, targets if weight == 1 else None, event=event, confidence=confidence)
+            scores: dict[str, float] = {}
+            for design, likelihood_matrix in designs.items():
+                r = evaluate(
+                    pr,
+                    likelihood_matrix,
+                    targets if weight == 1 else None,
+                    event=event,
+                    confidence=confidence,
+                )
                 scores[design] = r["evsi"]
                 infos.append(
                     dict(
@@ -124,9 +145,10 @@ def run(config_path, out, quick=False):
                     )
                 )
                 if weight == 1:
-                    rc = evaluate(pr, l, event=current_event, confidence=confidence)
-                    for target, v in r["targets"].items():
-                        science.append(dict(base, design=design, target=target, **v))
+                    rc = evaluate(pr, likelihood_matrix, event=current_event, confidence=confidence)
+                    science.extend(
+                        (dict(base, design=design, target=target, **v) for target, v in r["targets"].items())
+                    )
                     science.append(
                         dict(
                             base,
@@ -150,52 +172,65 @@ def run(config_path, out, quick=False):
                 if name == "balanced" and weight == 1:
                     by_reference[design] = r
                     for scale in c["monetary_scales_nzd_per_unit"]:
-                        for cost in c["conditional_study_cost_grid_nzd"]:
-                            prices.append(
-                                dict(
-                                    design=design,
-                                    assumed_nzd_per_normalised_unit=scale,
-                                    gross_value_nzd=r["evsi"] * scale,
-                                    assumed_study_cost_nzd=cost,
-                                    enbs_nzd=r["evsi"] * scale - cost,
-                                    scope="normative monetary scale and hypothetical price; not NZ benefit estimate or quote",
-                                )
-                            )
-                checks.append(r["evsi"] >= -1e-10 and r["evsi"] <= ep + 1e-10)
-                checks.append(r["posterior_martingale_max_error"] < 1e-10)
-            for first, second in [
-                ("panel", "panel_supply"),
-                ("supply", "panel_supply"),
-                ("panel_supply", "better_quantification_supply"),
-                ("panel_supply", "calibration_panel_supply"),
-                ("causal_policy_study", "causal_and_harm"),
-            ]:
-                incremental.append(
+                        prices.extend(
+                            {
+                                "design": design,
+                                "assumed_nzd_per_normalised_unit": scale,
+                                "gross_value_nzd": r["evsi"] * scale,
+                                "assumed_study_cost_nzd": cost,
+                                "enbs_nzd": r["evsi"] * scale - cost,
+                                "scope": (
+                                    "normative monetary scale and hypothetical price; not NZ benefit "
+                                    "estimate or quote"
+                                ),
+                            }
+                            for cost in c["conditional_study_cost_grid_nzd"]
+                        )
+                checks.append(r["evsi"] >= -INVARIANT_ATOL and r["evsi"] <= ep + 1e-10)
+                checks.append(r["posterior_martingale_max_error"] < INVARIANT_ATOL)
+            incremental.extend(
+                (
                     dict(
                         base,
                         existing_information=first,
                         combined_information=second,
                         incremental_evsi=scores[second] - scores[first],
-                        scope="prospective marginal information; for observed baseline data condition prior once first",
+                        scope=(
+                            "prospective marginal information; for observed baseline data "
+                            "condition prior once first"
+                        ),
                     )
+                    for first, second in [
+                        ("panel", "panel_supply"),
+                        ("supply", "panel_supply"),
+                        ("panel_supply", "better_quantification_supply"),
+                        ("panel_supply", "calibration_panel_supply"),
+                        ("causal_policy_study", "causal_and_harm"),
+                    ]
                 )
+            )
             checks.append(scores["panel_supply"] <= pv["baseline_reachable"] + 1e-10)
     # Common-data robustness, not a comparison of different simulated datasets.
     pr = make_problem(s, p0, c)
     priors = [build_states(c, {"diversion": q})[1] for q in (0.2, 0.5, 0.8)]
-    robust = []
-    for design, l in designs.items():
-        robust.append(
+    robust: list[Report] = []
+    robust.extend(
+        (
             dict(
-                design=design, **same_data_robustness(pr.values, priors, p0, l, event, confidence=confidence)
+                design=design,
+                **same_data_robustness(
+                    pr.values, priors, p0, likelihood_matrix, event, confidence=confidence
+                ),
             )
+            for design, likelihood_matrix in designs.items()
         )
+    )
     oracle = scalar_oracle(pr, designs["panel_supply"])
     vector = evaluate(pr, designs["panel_supply"])["evsi"]
-    checks.append(abs(oracle - vector) < 1e-12)
+    checks.append(abs(oracle - vector) < INVARIANT_ATOL_1e_12)
     # Independent Monte Carlo over *exact outcome* probabilities: integration check.
-    l = designs["panel_supply"]
-    j = l * p0
+    likelihood_matrix = designs["panel_supply"]
+    j = likelihood_matrix * p0
     prob = j.sum(1)
     post = j / prob[:, None]
     a0 = np.argmax(p0 @ pr.values)
@@ -249,17 +284,19 @@ def run(config_path, out, quick=False):
         encoding="utf-8",
     )
     if not all(checks):
-        raise ArithmeticError("A numerical invariant failed; inspect outputs")
+        msg = "A numerical invariant failed; inspect outputs"
+        raise ArithmeticError(msg)
     return validation
 
 
-def main():
+def main() -> None:
+    """Parse command-line options, execute the selected operation and report its result."""
     p = argparse.ArgumentParser()
     p.add_argument("--config", default="configs/regulatory.json")
     p.add_argument("--out", required=True)
     p.add_argument("--quick", action="store_true")
     a = p.parse_args()
-    print(json.dumps(run(a.config, a.out, a.quick), indent=2))
+    print(json.dumps(run(a.config, a.out, a.quick), indent=2))  # noqa: T201  # CLI emits the requested structured result on stdout.
 
 
 if __name__ == "__main__":

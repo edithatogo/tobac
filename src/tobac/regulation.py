@@ -11,27 +11,37 @@ from __future__ import annotations
 import json
 from itertools import product
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import numpy as np
+lazy from numpy.typing import ArrayLike
 
 from tobac._core import BiomarkerParameters, Catchment, DecisionProblem, Exposure, predict_signals
 
 from .config_validation import validate_config
 from .information import joint_likelihood, lognormal_bins
 
+if TYPE_CHECKING:
+    from tobac._typing import Config, FloatArray, Report, StateArrays
+
 ACTIONS = ("reference", "retail_restriction", "restriction_plus_support", "expanded_cessation")
 
 
-def load_config(path: str | Path) -> dict:
+def load_config(path: str | Path) -> Report:
+    """Load and validate a regulatory scenario configuration."""
     return validate_config(json.loads(Path(path).read_text(encoding="utf-8")))
 
 
-def build_states(config: dict, scenario: dict | None = None, association: float = 0.0):
+def build_states(
+    config: Config, scenario: dict[str, float] | None = None, association: float = 0.0
+) -> tuple[StateArrays, FloatArray]:
+    """Enumerate the declared joint state grid and normalize its scenario weights."""
     axes = config["axes"]
     ids = [a["id"] for a in axes]
     overrides = scenario or {}
     if set(overrides) - set(ids):
-        raise ValueError("Unknown prior axis")
+        msg = "Unknown prior axis"
+        raise ValueError(msg)
     probs = np.array([overrides.get(n, 0.5) for n in ids], float)
     if (
         not np.isfinite(probs).all()
@@ -39,7 +49,8 @@ def build_states(config: dict, scenario: dict | None = None, association: float 
         or (probs >= 1).any()
         or not np.isfinite(association)
     ):
-        raise ValueError("Interior finite probabilities and association required")
+        msg = "Interior finite probabilities and association required"
+        raise ValueError(msg)
     bits = np.array(list(product((0, 1), repeat=len(axes))))
     states = {a["id"]: np.asarray(a["values"], float)[bits[:, i]] for i, a in enumerate(axes)}
     weights = np.prod(np.where(bits, probs, 1 - probs), axis=1)
@@ -52,14 +63,15 @@ def build_states(config: dict, scenario: dict | None = None, association: float 
     return states, weights
 
 
-def policy_components(s: dict, c: dict) -> dict:
+def policy_components(s: StateArrays, c: Config) -> StateArrays:
+    """Compute aligned exposure and consequence components for each policy action."""
     t = s["tobacco"]
     i = t * s["illicit"]
-    l = t - i
-    removed = l * s["restriction"]
+    lawful = t - i
+    removed = lawful * s["restriction"]
     diverted = removed * s["diversion"]
     illegal_restricted = i + diverted
-    legal = np.column_stack([l, l - removed, l - removed, l * (1 - s["cessation"])])
+    legal = np.column_stack([lawful, lawful - removed, lawful - removed, lawful * (1 - s["cessation"])])
     illicit = np.column_stack(
         [i, illegal_restricted, illegal_restricted * (1 - s["mitigation"]), i * (1 - s["cessation"])]
     )
@@ -77,19 +89,24 @@ def policy_components(s: dict, c: dict) -> dict:
         "criminal_harm_change": crime,
         "resource_cost": costs,
         # Cigarette-volume tax base only, NOT cash or a social resource gain.
-        "fiscal_volume_change": legal - l[:, None],
+        "fiscal_volume_change": legal - lawful[:, None],
     }
 
 
-def make_problem(states, prior, config, crime_weight=1.0) -> DecisionProblem:
+def make_problem(
+    states: StateArrays, prior: FloatArray, config: Config, crime_weight: float = 1.0
+) -> DecisionProblem:
+    """Construct the finite decision problem under the declared normative harm weight."""
     if not np.isfinite(crime_weight) or crime_weight < 0:
-        raise ValueError("Nonnegative normative weight required")
+        msg = "Nonnegative normative weight required"
+        raise ValueError(msg)
     d = policy_components(states, config)
     nb = d["health_gain"] - crime_weight * d["criminal_harm_change"] - d["resource_cost"]
     return DecisionProblem(nb, ACTIONS, "normalised decision units; not NZD or QALYs", prior)
 
 
-def grouped_labels(states, config, group):
+def grouped_labels(states: StateArrays, config: Config, group: str) -> list[tuple[float, ...]]:
+    """Build the named uncertainty partition without disclosing nuisance states."""
     if group == "baseline_reachable":
         ids = ["tobacco", "illicit", "other_nicotine", "yield", "supply_ratio", "unrecorded_lawful"]
     elif group == "all":
@@ -97,12 +114,14 @@ def grouped_labels(states, config, group):
     else:
         ids = [a["id"] for a in config["axes"] if a["group"] == group]
     if not ids:
-        raise ValueError("Unknown uncertainty group")
+        msg = "Unknown uncertainty group"
+        raise ValueError(msg)
     # Tuples deliberately repeat for all nuisance-state combinations.
     return list(zip(*(states[n].tolist() for n in ids), strict=True))
 
 
-def study_channels(s, c, *, policy_ratio=None):
+def study_channels(s: StateArrays, c: Config, *, policy_ratio: ArrayLike | None = None) -> StateArrays:
+    """Construct coarsened report likelihoods conditional on the joint latent states."""
     k = c["constants"]
     m = c["measurements"]
     n = len(s["tobacco"])
@@ -131,9 +150,10 @@ def study_channels(s, c, *, policy_ratio=None):
         else np.asarray(policy_ratio, dtype=float)
     )
     if ratio.shape != (n,) or not np.isfinite(ratio).all() or (ratio <= 0).any():
-        raise ValueError("Supply a positive state-aligned counterfactual consumption ratio")
+        msg = "Supply a positive state-aligned counterfactual consumption ratio"
+        raise ValueError(msg)
     highcrime = s["crime"] == max(s["crime"])
-    acc = m["harm_classification_accuracy"]
+    acc = float(m["harm_classification_accuracy"])
     highother = s["other_nicotine"] == max(s["other_nicotine"])
     harmpositive = np.where(highcrime, acc, 1 - acc)
     comp_positive = np.where(highother, 0.85, 0.15)  # assumed composition-survey accuracy
@@ -149,7 +169,7 @@ def study_channels(s, c, *, policy_ratio=None):
     }
 
 
-def studies(ch):
+def studies(ch: StateArrays) -> StateArrays:
     """Each study returns one coarsened report; not a fitted sample-size design.
 
     policy_comparison presupposes an identifying counterfactual design. It is

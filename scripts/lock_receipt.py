@@ -13,7 +13,7 @@ import shlex
 import shutil
 import subprocess
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUTS = (
@@ -29,29 +29,39 @@ PROFILES = {
 }
 
 
+# Named bounds preserve the existing scientific/data contract.
+INCLUDE_PARTS = 2
+
+
 def safe_path(root: Path, path: Path) -> Path:
     """Require an existing repository path without traversed symlinks."""
     root = root.resolve()
     candidate = path if path.is_absolute() else root / path
     if ".." in candidate.parts or not candidate.is_relative_to(root):
-        raise ValueError("Path must stay inside the repository")
+        msg = "Path must stay inside the repository"
+        raise ValueError(msg)
     cursor = root
     for part in candidate.relative_to(root).parts:
         cursor /= part
         if cursor.is_symlink():
-            raise ValueError("Dependency/receipt symlink is not allowed")
+            msg = "Dependency/receipt symlink is not allowed"
+            raise ValueError(msg)
     if not candidate.is_file():
-        raise ValueError(f"Required file missing: {candidate.relative_to(root)}")
+        msg = f"Required file missing: {candidate.relative_to(root)}"
+        raise ValueError(msg)
     return candidate
 
 
 def digest(path: Path) -> str:
+    """Return the SHA-256 digest of the selected file bytes."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def input_hashes(root: Path, profile: str) -> dict[str, str]:
+def input_hashes(root: Path, profile: str) -> dict[str, str]:  # noqa: C901  # Keep ordered model validation and report assembly in one visible operation.
+    """Bind the declared dependency profile to its complete input file hashes."""
     if profile not in PROFILES:
-        raise ValueError("Unknown dependency profile")
+        msg = "Unknown dependency profile"
+        raise ValueError(msg)
     paths = INPUTS + (
         ("engineering/audit.in", "engineering/tools-requirements.txt") if profile == "audit" else ()
     )
@@ -66,8 +76,9 @@ def input_hashes(root: Path, profile: str) -> dict[str, str]:
                 continue
             target = None
             if tokens[0] in {"-r", "-c", "--requirement", "--constraint"}:
-                if len(tokens) != 2:
-                    raise ValueError("Malformed dependency include")
+                if len(tokens) != INCLUDE_PARTS:
+                    msg = "Malformed dependency include"
+                    raise ValueError(msg)
                 target = tokens[1]
             elif tokens[0].startswith(("--requirement=", "--constraint=")):
                 target = tokens[0].split("=", 1)[1]
@@ -80,15 +91,18 @@ def input_hashes(root: Path, profile: str) -> dict[str, str]:
                     not canonical.is_relative_to(root.resolve())
                     or canonical.relative_to(root.resolve()).as_posix() not in snapshots
                 ):
-                    raise ValueError("Undeclared dependency include; extend the reviewed input profile")
+                    msg = "Undeclared dependency include; extend the reviewed input profile"
+                    raise ValueError(msg)
     return snapshots
 
 
 def unique_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    """Reject duplicate JSON keys while preserving their decoded values."""
     result: dict[str, Any] = {}
     for key, value in pairs:
         if key in result:
-            raise ValueError(f"Duplicate JSON key: {key}")
+            msg = f"Duplicate JSON key: {key}"
+            raise ValueError(msg)
         result[key] = value
     return result
 
@@ -98,15 +112,18 @@ def verify(root: Path, lock: Path, profile: str) -> dict[str, Any]:
     current = input_hashes(root, profile)
     path = safe_path(root, lock)
     receipt_path = safe_path(root, path.with_suffix(".lock.json"))
-    receipt = json.loads(receipt_path.read_text(encoding="utf-8"), object_pairs_hook=unique_pairs)
+    receipt: dict[str, Any] = json.loads(
+        receipt_path.read_text(encoding="utf-8"), object_pairs_hook=unique_pairs
+    )
     if (
-        not isinstance(receipt, dict)
+        not isinstance(cast("object", receipt), dict)
         or receipt.get("schema") != "tobac.lock-receipt.v1"
         or receipt.get("profile") != profile
         or type(receipt.get("resolver_exit_code")) is not int
         or receipt.get("resolver_exit_code") != 0
     ):
-        raise ValueError("Invalid or unsuccessful resolver receipt")
+        msg = "Invalid or unsuccessful resolver receipt"
+        raise ValueError(msg)
     command = receipt.get("command")
     if (
         not isinstance(command, list)
@@ -115,13 +132,17 @@ def verify(root: Path, lock: Path, profile: str) -> dict[str, Any]:
         or not isinstance(receipt.get("resolver"), str)
         or not receipt["resolver"].startswith("uv ")
     ):
-        raise ValueError("Missing uv resolver identity/command")
+        msg = "Missing uv resolver identity/command"
+        raise ValueError(msg)
     if receipt.get("inputs") != current:
-        raise ValueError("Dependency input hashes differ; regenerate and review the lock")
+        msg = "Dependency input hashes differ; regenerate and review the lock"
+        raise ValueError(msg)
     if receipt.get("lock_sha256") != digest(path):
-        raise ValueError("Lock hash mismatch")
+        msg = "Lock hash mismatch"
+        raise ValueError(msg)
     if "--hash=sha256:" not in path.read_text(encoding="utf-8"):
-        raise ValueError("Empty/unhashed candidate; uv must validate the full hash syntax on sync")
+        msg = "Empty/unhashed candidate; uv must validate the full hash syntax on sync"
+        raise ValueError(msg)
     return {
         "status": "pass",
         "profile": profile,
@@ -135,7 +156,7 @@ def verify(root: Path, lock: Path, profile: str) -> dict[str, Any]:
 def recorded_command(command: list[str], root: Path) -> list[str]:
     """Store repo-relative paths so the recorded provenance is reproducible on any checkout."""
     resolved = root.resolve()
-    recorded = []
+    recorded: list[str] = []
     for item in command:
         path = Path(item)
         if path.is_absolute():
@@ -154,21 +175,25 @@ def generate(root: Path, out: Path, profile: str) -> Path:
     before = input_hashes(root, profile)
     uv = shutil.which("uv")
     if uv is None:
-        raise ValueError("Install the official uv executable to resolve dependencies")
+        msg = "Install the official uv executable to resolve dependencies"
+        raise ValueError(msg)
     out = out if out.is_absolute() else root / out
     if ".." in out.parts or not out.is_relative_to(root):
-        raise ValueError("Candidate output must stay inside the repository")
+        msg = "Candidate output must stay inside the repository"
+        raise ValueError(msg)
     cursor = root
     for part in out.relative_to(root).parts:
         cursor /= part
         if cursor.is_symlink():
-            raise ValueError("Candidate output symlink is not allowed")
+            msg = "Candidate output symlink is not allowed"
+            raise ValueError(msg)
     out.mkdir(parents=True, exist_ok=True)
     source, name = PROFILES[profile]
     target = out / name
     receipt_path = target.with_suffix(".lock.json")
     if target.exists() or receipt_path.exists():
-        raise ValueError("Refusing to overwrite an existing candidate or reviewed lock")
+        msg = "Refusing to overwrite an existing candidate or reviewed lock"
+        raise ValueError(msg)
     command = [
         uv,
         "--no-config",
@@ -185,14 +210,16 @@ def generate(root: Path, out: Path, profile: str) -> Path:
         # Audit utilities include Linux-specific tools; they are not a Windows test dependency.
         command += ["--python-version", "3.15", "--python-platform", "x86_64-unknown-linux-gnu"]
     try:
-        version = subprocess.run(
+        version = subprocess.run(  # noqa: S603  # Reviewed fixed executable/argv, bounded invocation, no shell.
             [uv, "--version"], check=True, text=True, capture_output=True, timeout=30
         ).stdout.strip()
-        subprocess.run(command, cwd=root, check=True, timeout=600)
+        subprocess.run(command, cwd=root, check=True, timeout=600)  # noqa: S603  # Reviewed fixed executable/argv, bounded invocation, no shell.
         if input_hashes(root, profile) != before:
-            raise ValueError("Dependency inputs changed during resolution")
+            msg = "Dependency inputs changed during resolution"
+            raise ValueError(msg)  # noqa: TRY301  # Record failure or clean incomplete receipts in the enclosing handler.
         if not target.is_file() or "--hash=sha256:" not in target.read_text(encoding="utf-8"):
-            raise ValueError("uv did not produce a hashed lock")
+            msg = "uv did not produce a hashed lock"
+            raise ValueError(msg)  # noqa: TRY301  # Record failure or clean incomplete receipts in the enclosing handler.
         receipt = {
             "schema": "tobac.lock-receipt.v1",
             "profile": profile,
@@ -213,6 +240,7 @@ def generate(root: Path, out: Path, profile: str) -> Path:
 
 
 def main() -> None:
+    """Parse command-line options, execute the selected operation and report its result."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("operation", choices=["generate", "verify"])
     parser.add_argument("--profile", choices=PROFILES, required=True)
@@ -226,7 +254,7 @@ def main() -> None:
         result = verify(args.root, path, args.profile)
     else:
         result = verify(args.root, args.path, args.profile)
-    print(json.dumps(result, indent=2))
+    print(json.dumps(result, indent=2))  # noqa: T201  # CLI emits the requested structured result on stdout.
 
 
 if __name__ == "__main__":

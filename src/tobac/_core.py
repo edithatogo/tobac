@@ -1,6 +1,7 @@
 """Source-preserving extraction of the verified predecessor numerical/physical core.
 
-Bodies are unchanged; imports/package namespace are made standalone. See
+Numerical definitions retain the original AST after explicit static maintenance.
+The original source bytes and permitted changes are verified by scripts/verify.py. See
 integration/baseline.json for source archive, commit and per-function hashes.
 Optional historical health/fiscal engines remain in the preserved full archive.
 """
@@ -8,33 +9,39 @@ Optional historical health/fiscal engines remain in the preserved full archive.
 from __future__ import annotations
 
 import math
-from collections.abc import Sequence
 from dataclasses import dataclass
 from numbers import Real
+from typing import cast
+lazy from collections.abc import Sequence
 
 import numpy as np
 
+lazy from tobac._typing import FloatArray
 
-class LibraryUnavailable(RuntimeError):
+# Named bounds preserve the existing scientific/data contract.
+MATRIX_NDIM = 2
+
+
+class LibraryUnavailable(RuntimeError):  # noqa: N818  # Preserve the inherited public exception name and source provenance.
     """The requested external backend could not be loaded; no silent fallback."""
 
 
 @dataclass(frozen=True)
 class DecisionProblem:
-    values: np.ndarray
+    values: FloatArray
     action_names: Sequence[str]
     value_unit: str
-    prior_weights: np.ndarray | None = None
+    prior_weights: FloatArray | None = None
 
     def __post_init__(self) -> None:
         values = np.array(self.values, dtype=float, copy=True)
         names = tuple(self.action_names)
-        if values.ndim != 2 or min(values.shape) < 1 or not np.isfinite(values).all():
-            raise ValueError("Values must be a non-empty finite state-by-action matrix")
+        if values.ndim != MATRIX_NDIM or min(values.shape) < 1 or not np.isfinite(values).all():
+            raise ValueError("Values must be a non-empty finite state-by-action matrix")  # noqa: EM101, TRY003  # Preserve the byte/AST-verified inherited exception contract.
         if len(names) != values.shape[1] or len(set(names)) != len(names) or any(not n for n in names):
-            raise ValueError("Action names must be unique and match value columns")
-        if not isinstance(self.value_unit, str) or not self.value_unit.strip():
-            raise ValueError("Declare a value unit")
+            raise ValueError("Action names must be unique and match value columns")  # noqa: EM101, TRY003  # Preserve the byte/AST-verified inherited exception contract.
+        if not isinstance(cast("object", self.value_unit), str) or not self.value_unit.strip():
+            raise ValueError("Declare a value unit")  # noqa: EM101, TRY003  # Preserve the byte/AST-verified inherited exception contract.
         weights = (
             np.ones(values.shape[0])
             if self.prior_weights is None
@@ -46,9 +53,9 @@ class DecisionProblem:
             or (weights < 0).any()
             or not weights.sum() > 0
         ):
-            raise ValueError("Prior weights must be nonnegative, finite and have positive mass")
+            raise ValueError("Prior weights must be nonnegative, finite and have positive mass")  # noqa: EM101, TRY003  # Preserve the byte/AST-verified inherited exception contract.
         if not math.isfinite(float(weights.sum())):
-            raise ValueError("Weight sum overflow")
+            raise ValueError("Weight sum overflow")  # noqa: EM101, TRY003  # Preserve the byte/AST-verified inherited exception contract.
         weights /= weights.sum()
         values.setflags(write=False)
         weights.setflags(write=False)
@@ -60,24 +67,32 @@ class DecisionProblem:
 def exact_evpi(problem: DecisionProblem, backend: str = "reference") -> float:
     """Exact EVPI under the finite joint prior; values are already population-scaled."""
     if backend == "voiage":
-        if not np.allclose(problem.prior_weights, 1 / len(problem.prior_weights), rtol=0, atol=1e-14):
-            raise ValueError(
-                "This voiage adapter supports equally weighted states only; no implicit resampling"
+        if not np.allclose(
+            cast("FloatArray", problem.prior_weights),
+            1 / len(cast("FloatArray", problem.prior_weights)),
+            rtol=0,
+            atol=1e-14,
+        ):
+            raise ValueError(  # noqa: TRY003  # Preserve the byte/AST-verified inherited exception contract.
+                "This voiage adapter supports equally weighted states only; no implicit resampling"  # noqa: EM101  # Preserve the byte/AST-verified inherited exception contract.
             )
-        from .integrations import voiage_evpi
+        from .integrations import voiage_evpi  # noqa: PLC0415  # Keep optional dependencies and backend selection lazy.
 
         try:
             return voiage_evpi(problem.values, list(problem.action_names))
         except (ImportError, OSError) as error:
-            raise LibraryUnavailable(
-                "voiage could not be imported; install a compatible released build"
+            raise LibraryUnavailable(  # noqa: TRY003  # Preserve the byte/AST-verified inherited exception contract.
+                "voiage could not be imported; install a compatible released build"  # noqa: EM101  # Preserve the byte/AST-verified inherited exception contract.
             ) from error
     if backend != "reference":
-        raise ValueError(f"Unknown backend {backend!r}")
-    current_action = int(np.argmax(problem.prior_weights @ problem.values))
+        raise ValueError(f"Unknown backend {backend!r}")  # noqa: EM102, TRY003  # Preserve the byte/AST-verified inherited exception contract.
+    current_action = int(np.argmax(cast("FloatArray", problem.prior_weights) @ problem.values))
     # Algebraically identical expected regret avoids cancellation of nearly
     # equal large totals. This is not clipping a negative estimate to zero.
-    return float(problem.prior_weights @ (np.max(problem.values, axis=1) - problem.values[:, current_action]))
+    return float(
+        cast("FloatArray", problem.prior_weights)
+        @ (np.max(problem.values, axis=1) - problem.values[:, current_action])
+    )
 
 
 def exact_partial_information(problem: DecisionProblem, group_labels: Sequence[object]) -> float:
@@ -87,29 +102,33 @@ def exact_partial_information(problem: DecisionProblem, group_labels: Sequence[o
     Naming every PSA row uniquely would disclose the entire state and return
     EVPI, not a valid single-parameter EVPPI estimate.
     """
-    if len(group_labels) != len(problem.prior_weights):
-        raise ValueError("Group labels must match the state count")
+    if len(group_labels) != len(cast("FloatArray", problem.prior_weights)):
+        raise ValueError("Group labels must match the state count")  # noqa: EM101, TRY003  # Preserve the byte/AST-verified inherited exception contract.
     groups: dict[object, list[int]] = {}
     for i, label in enumerate(group_labels):
         try:
             groups.setdefault(label, []).append(i)
         except TypeError as error:
-            raise ValueError("Partition labels must be hashable") from error
-    current_action = int(np.argmax(problem.prior_weights @ problem.values))
-    gains = []
+            raise ValueError("Partition labels must be hashable") from error  # noqa: EM101, TRY003  # Preserve the byte/AST-verified inherited exception contract.
+    current_action = int(np.argmax(cast("FloatArray", problem.prior_weights) @ problem.values))
+    gains: list[float] = []
     for indices in groups.values():
-        joint_group_values = problem.prior_weights[indices] @ problem.values[indices]
+        joint_group_values = cast("FloatArray", problem.prior_weights)[indices] @ problem.values[indices]
         gains.append(float(np.max(joint_group_values) - joint_group_values[current_action]))
     return math.fsum(gains)
 
 
 def _finite(
-    value: float, name: str, lower: float = 0.0, upper: float | None = None, positive: bool = False
+    value: float,
+    name: str,
+    lower: float = 0.0,
+    upper: float | None = None,
+    positive: bool = False,  # noqa: FBT001, FBT002  # Preserve the established public positional flag convention.
 ) -> None:
     if isinstance(value, bool) or not isinstance(value, Real) or not math.isfinite(value):
-        raise ValueError(f"{name} must be a finite number")
+        raise ValueError(f"{name} must be a finite number")  # noqa: EM102, TRY003  # Preserve the byte/AST-verified inherited exception contract.
     if (value <= lower if positive else value < lower) or (upper is not None and value > upper):
-        raise ValueError(f"{name} is outside its permitted range")
+        raise ValueError(f"{name} is outside its permitted range")  # noqa: EM102, TRY003  # Preserve the byte/AST-verified inherited exception contract.
 
 
 @dataclass(frozen=True)
@@ -142,7 +161,7 @@ class Exposure:
         _finite(self.illicit_share, "illicit_share", upper=1.0)
         _finite(self.unrecorded_legal_share, "unrecorded_legal_share", upper=1.0)
         if self.illicit_share + self.unrecorded_legal_share > 1.0:
-            raise ValueError("Illicit plus unrecorded lawful shares exceed one")
+            raise ValueError("Illicit plus unrecorded lawful shares exceed one")  # noqa: EM101, TRY003  # Preserve the byte/AST-verified inherited exception contract.
 
 
 @dataclass(frozen=True)

@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from typing import Any, cast
 
 import pandas as pd
 
@@ -29,7 +30,7 @@ REQUIRED = (
 # run_manifest.json is loaded separately and cannot list its own hash.
 
 
-def _read_json(path, errors, label):
+def _read_json(path: Path, errors: list[str], label: str) -> Any:  # noqa: ANN401  # Raw JSON may have any root shape; callers validate the required schema.
     try:
         return json.loads(path.read_text())
     except FileNotFoundError:
@@ -39,10 +40,11 @@ def _read_json(path, errors, label):
     return None
 
 
-def verify(out, root=ROOT):
+def verify(out: str | Path, root: Path = ROOT) -> dict[str, Any]:  # noqa: C901, PLR0912, PLR0915  # Keep ordered model validation and report assembly in one visible operation.; Keep explicit fail-closed validation branches together.; Keep the declared numerical/report sequence visible and ordered.
+    """Verify retained source and output integrity without claiming scientific qualification."""
     out = Path(out).resolve()
     root = Path(root).resolve()
-    errors = []
+    errors: list[str] = []
     manifest = _read_json(out / "run_manifest.json", errors, "run manifest")
     if manifest is None:
         return {
@@ -60,30 +62,39 @@ def verify(out, root=ROOT):
             "errors": ["Run manifest must be a JSON object"],
             "scope": "Run integrity and explicit interpretation only; not independent scientific validation",
         }
-    for key in ("commit", "command"):
-        if key not in manifest:
-            errors.append(f"Run manifest is missing provenance field {key!r}")
+    manifest = cast("dict[str, Any]", manifest)
+    errors.extend(
+        f"Run manifest is missing provenance field {key!r}"
+        for key in ("commit", "command")
+        if key not in manifest
+    )
     for group, base in [("sources", root), ("files", out)]:
         items = manifest.get(group)
         if not isinstance(items, list):
             errors.append(f"Run manifest is missing a {group!r} list")
             continue
-        for item in items:
+        for item in cast("list[Any]", items):
             if not isinstance(item, dict) or "path" not in item or "sha256" not in item:
                 errors.append(f"Malformed {group} entry: {item!r}")
                 continue
+            item = cast("dict[str, Any]", item)
             target = (base / item["path"]).resolve()
             if not target.is_relative_to(base) or not target.is_file():
                 errors.append(f"Invalid path: {item['path']}")
                 continue
             if hashlib.sha256(target.read_bytes()).hexdigest() != item["sha256"]:
                 errors.append(f"Hash mismatch: {item['path']}")
-    listed = {item["path"] for item in manifest.get("files", []) if isinstance(item, dict) and "path" in item}
+    listed = {
+        cast("dict[str, Any]", item)["path"]
+        for item in manifest.get("files", [])
+        if isinstance(item, dict) and "path" in item
+    }
     missing = [name for name in REQUIRED if name not in listed or not (out / name).is_file()]
     if missing:
         errors.append("Missing required artefacts: " + ", ".join(missing))
     scope = _read_json(out / "fit_scope.json", errors, "fit scope")
     if isinstance(scope, dict):
+        scope = cast("dict[str, Any]", scope)
         if manifest.get("funding_recommendation") is not False:
             errors.append("Funding readiness overstated")
         if scope.get("funding_recommendation") is not False:
@@ -103,7 +114,7 @@ def verify(out, root=ROOT):
                 errors.append("Aligned observations carry no alignment field")
                 subset = frame.iloc[0:0]
             else:
-                subset = frame[frame["alignment"] == manifest["primary_alignment"]]
+                subset = frame.loc[frame["alignment"].eq(str(manifest["primary_alignment"]))]
             if subset.empty:
                 errors.append("No aligned observations for the declared primary alignment")
             elif int(subset.year.max()) != scope.get("latest_paired_year"):
@@ -131,5 +142,5 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("out", type=Path)
     result = verify(parser.parse_args().out)
-    print(json.dumps(result, indent=2))
+    print(json.dumps(result, indent=2))  # noqa: T201  # CLI emits the requested structured result on stdout.
     raise SystemExit(0 if result["status"] == "pass" else 1)

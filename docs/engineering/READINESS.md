@@ -221,3 +221,10 @@ Official documentation consulted:
 - https://nox.thea.codes/en/stable/usage.html
 - https://cli.github.com/manual/gh_api
 - https://docs.github.com/en/actions/how-tos/secure-your-work/lock-workflow-dependencies
+
+## PR #25 reconciliation
+
+The 916a41e parallel profile attempt was uninformative and is retained in history. It does
+not overwrite the Python 3.15.1 receipt above. The focused longitudinal checker now uses
+qualified stubs and the actual Nox session interpreter, with no cached cross-environment path.
+The mutation gate requires complete results and a fresh source/tool-bound receipt.

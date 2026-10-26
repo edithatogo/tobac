@@ -10,6 +10,7 @@ import json
 import re
 import zipfile
 from pathlib import Path, PurePosixPath
+from typing import Any, cast
 
 ROOT = Path(__file__).resolve().parents[1]
 PREFIX = "evidence/prior_work/v2.9.0/"
@@ -20,43 +21,54 @@ TRANSFORMS = {"none", "CRLF_to_LF_only", SUBSET, SUBSET_CANONICAL_DOI}
 
 
 def sha(data: bytes) -> str:
+    """Return the SHA-256 digest of the supplied source bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
-def unique_pairs(pairs):
-    result = {}
+def unique_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    """Reject duplicate JSON keys while preserving their decoded values."""
+    result: dict[str, Any] = {}
     for key, value in pairs:
         if key in result:
-            raise ValueError(f"Duplicate JSON key: {key}")
+            msg = f"Duplicate JSON key: {key}"
+            raise ValueError(msg)
         result[key] = value
     return result
 
 
-def read_json(text: str):
+def read_json(text: str) -> Any:  # noqa: ANN401  # Raw JSON may have any root shape; callers validate the required schema.
+    """Decode JSON while rejecting duplicate object keys."""
     return json.loads(text, object_pairs_hook=unique_pairs)
 
 
 def relative_path(value: str, prefix: str) -> PurePosixPath:
-    if not isinstance(value, str) or "\\" in value:
-        raise ValueError("Invalid relative path")
+    """Validate a canonical relative path within the declared archive prefix."""
+    if not isinstance(cast("object", value), str) or "\\" in value:
+        msg = "Invalid relative path"
+        raise ValueError(msg)
     path = PurePosixPath(value)
     if not value.startswith(prefix) or path.is_absolute() or ".." in path.parts or path.as_posix() != value:
-        raise ValueError("Path outside declared snapshot")
+        msg = "Path outside declared snapshot"
+        raise ValueError(msg)
     return path
 
 
 def checked_file(root: Path, name: str) -> Path:
+    """Resolve a required repository file while rejecting symlink traversal."""
     path = root
     for part in PurePosixPath(name).parts:
         path /= part
         if path.is_symlink():
-            raise ValueError(f"Forbidden symlink: {name}")
+            msg = f"Forbidden symlink: {name}"
+            raise ValueError(msg)
     if not path.is_file():
-        raise ValueError(f"Missing file: {name}")
+        msg = f"Missing file: {name}"
+        raise ValueError(msg)
     return path
 
 
-def verify(root: Path = ROOT, archive: Path | None = None) -> dict:
+def verify(root: Path = ROOT, archive: Path | None = None) -> dict[str, Any]:  # noqa: C901, PLR0912, PLR0915  # Keep ordered model validation and report assembly in one visible operation.; Keep explicit fail-closed validation branches together.; Keep the declared numerical/report sequence visible and ordered.
+    """Verify retained source and output integrity without claiming scientific qualification."""
     root = Path(root).resolve()
     manifest = read_json(checked_file(root, MANIFEST).read_text(encoding="utf-8"))
     if (
@@ -68,19 +80,23 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict:
         or type(manifest.get("supplier_quotes_received_by_this_import")) is not int
         or manifest["supplier_quotes_received_by_this_import"] != 0
     ):
-        raise ValueError("Invalid schema or overstated incorporation scope")
+        msg = "Invalid schema or overstated incorporation scope"
+        raise ValueError(msg)
     entries = manifest.get("files")
     if not isinstance(entries, list) or not entries:
-        raise ValueError("Missing file inventory")
-    seen = set()
+        msg = "Missing file inventory"
+        raise ValueError(msg)
+    entries = cast("list[dict[str, Any]]", entries)
+    seen: set[str] = set()
     rows_total = 0
-    tokens = set()
-    references = None
+    tokens: set[str] = set()
+    references: list[dict[str, Any]] | None = None
     for item in entries:
         name = relative_path(item["path"], PREFIX).as_posix()
         relative_path(item["archive_path"], "tobac/")
         if name in seen:
-            raise ValueError("Duplicate file inventory entry")
+            msg = "Duplicate file inventory entry"
+            raise ValueError(msg)
         seen.add(name)
         if (
             not isinstance(item.get("role"), str)
@@ -88,10 +104,12 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict:
             or item.get("transformation") not in TRANSFORMS
             or any(not re.fullmatch("[0-9a-f]{64}", item.get(k, "")) for k in ("sha256", "archive_sha256"))
         ):
-            raise ValueError("Missing/invalid role, transformation or hash")
+            msg = "Missing/invalid role, transformation or hash"
+            raise ValueError(msg)
         data = checked_file(root, name).read_bytes()
         if sha(data) != item["sha256"]:
-            raise ValueError(f"Content hash mismatch: {name}")
+            msg = f"Content hash mismatch: {name}"
+            raise ValueError(msg)
         if name.endswith(".csv"):
             reader = csv.DictReader(io.StringIO(data.decode("utf-8")))
             records = list(reader)
@@ -100,43 +118,56 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict:
                 or len(set(reader.fieldnames)) != len(reader.fieldnames)
                 or any(None in r or any(v is None for v in r.values()) for r in records)
             ):
-                raise ValueError(f"Malformed CSV: {name}")
+                msg = f"Malformed CSV: {name}"
+                raise ValueError(msg)
             if type(item.get("rows")) is not int or len(records) != item["rows"]:
-                raise ValueError(f"CSV row count mismatch: {name}")
+                msg = f"CSV row count mismatch: {name}"
+                raise ValueError(msg)
             rows_total += len(records)
             for row in records:
                 for key in ("source_id", "source_ids", "legal_context_source_ids"):
                     tokens.update(t.strip() for t in re.split("[;|]", row.get(key, "")) if t.strip())
                 for key in ("current_raw_observation", "admissible_as_current_nz_raw_assay"):
                     if key in row and row[key].lower() != "false":
-                        raise ValueError("Historical evidence presented as current raw observation")
+                        msg = "Historical evidence presented as current raw observation"
+                        raise ValueError(msg)
         elif name.endswith("/references.csl.json"):
             references = read_json(data.decode("utf-8"))
-            if not isinstance(references, list) or len(references) != item.get("records"):
-                raise ValueError("Bibliography record count mismatch")
+            if not isinstance(cast("object", references), list) or len(
+                cast("list[dict[str, Any]]", references)
+            ) != item.get("records"):
+                msg = "Bibliography record count mismatch"
+                raise ValueError(msg)
     actual = {
         p.relative_to(root).as_posix() for p in (root / PREFIX).rglob("*") if p.is_file() or p.is_symlink()
     }
     if actual != seen:
-        raise ValueError("Unregistered or missing snapshot files")
+        msg = "Unregistered or missing snapshot files"
+        raise ValueError(msg)
     if references is None:
-        raise ValueError("Missing inherited bibliography")
+        msg = "Missing inherited bibliography"
+        raise ValueError(msg)
     ids = [r["id"] for r in references]
     if len(set(ids)) != len(ids) or sorted(ids) != manifest["source_ids"]:
-        raise ValueError("Bibliography identities differ")
+        msg = "Bibliography identities differ"
+        raise ValueError(msg)
     if sorted(tokens - set(ids)) != manifest["unmatched_source_tokens"]:
-        raise ValueError("Undeclared source tokens or lost reference linkage")
+        msg = "Undeclared source tokens or lost reference linkage"
+        raise ValueError(msg)
     if not set(ids) <= tokens:
-        raise ValueError("Bibliography contains unrelated source identities")
+        msg = "Bibliography contains unrelated source identities"
+        raise ValueError(msg)
     archive_checked = False
     if archive is not None:
         if sha(Path(archive).read_bytes()) != manifest["archive"]["sha256"]:
-            raise ValueError("Archive hash does not match declared predecessor")
+            msg = "Archive hash does not match declared predecessor"
+            raise ValueError(msg)
         with zipfile.ZipFile(archive) as source:
             for item in entries:
                 raw = source.read(item["archive_path"])
                 if sha(raw) != item["archive_sha256"]:
-                    raise ValueError("Source member hash differs")
+                    msg = "Source member hash differs"
+                    raise ValueError(msg)
                 copied = checked_file(root, item["path"]).read_bytes()
                 if item["transformation"] in {SUBSET, SUBSET_CANONICAL_DOI}:
                     original = read_json(raw.decode("utf-8"))
@@ -147,14 +178,17 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict:
                         # canonical lower-case form, which is the same identifier (DOIs are
                         # case-insensitive). Every other field must still equal the archive.
                         if any(r.get("DOI") and r["DOI"] != r["DOI"].lower() for r in references):
-                            raise ValueError("Stored DOI is not canonical")
+                            msg = "Stored DOI is not canonical"
+                            raise ValueError(msg)
                         expected = [dict(r, DOI=r["DOI"].lower()) if r.get("DOI") else r for r in expected]
                     if references != expected:
-                        raise ValueError("Inherited reference records changed")
+                        msg = "Inherited reference records changed"
+                        raise ValueError(msg)
                 else:
                     expected = raw if item["transformation"] == "none" else raw.replace(b"\r\n", b"\n")
                     if expected != copied:
-                        raise ValueError("Source bytes changed beyond declared newline conversion")
+                        msg = "Source bytes changed beyond declared newline conversion"
+                        raise ValueError(msg)
         archive_checked = True
     return {
         "status": "pass",
@@ -168,11 +202,12 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict:
 
 
 def main() -> None:
+    """Parse command-line options, execute the selected operation and report its result."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--archive", type=Path)
     args = parser.parse_args()
-    print(json.dumps(verify(args.root, args.archive), indent=2))
+    print(json.dumps(verify(args.root, args.archive), indent=2))  # noqa: T201  # CLI emits the requested structured result on stdout.
 
 
 if __name__ == "__main__":

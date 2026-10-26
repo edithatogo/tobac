@@ -77,7 +77,7 @@ def test_newest_ecosystem_is_a_separate_canary_not_a_reference_overwrite():
         checker = json.loads((ROOT / 'engineering' / profile).read_text())
         assert checker['pythonVersion'] == '3.15'
     all_checker = json.loads((ROOT / 'engineering/basedpyright-all.json').read_text())
-    assert all_checker['extraPaths'] == ['../src']
+    assert all_checker['extraPaths'] == ['../src', '../scripts']
 
 
 def test_renovate_does_not_automerge_scientific_changes():

@@ -13,17 +13,23 @@ from pathlib import Path, PurePosixPath
 MAX_BYTES = 5_000_000
 
 
+# Named bounds preserve the existing scientific/data contract.
+MIN_OBSERVATIONS = 2
+
+
 def safe_members(raw: bytes) -> dict[str, bytes]:
+    """Verify packed artifact names and hashes before extracting any member."""
     if len(raw) > MAX_BYTES:
-        raise ValueError("Unpacked archive exceeds the bounded result contract")
-    files = {}
+        msg = "Unpacked archive exceeds the bounded result contract"
+        raise ValueError(msg)
+    files: dict[str, bytes] = {}
     with tarfile.open(fileobj=io.BytesIO(raw), mode="r:") as archive:
         for member in archive:
             path = PurePosixPath(member.name)
             if (
                 not member.isfile()
                 or path.is_absolute()
-                or len(path.parts) != 2
+                or len(path.parts) != MIN_OBSERVATIONS
                 or path.parts[0] not in {"full", "refined"}
                 or ".." in path.parts
                 or path.suffix not in {".csv", ".json"}
@@ -31,33 +37,42 @@ def safe_members(raw: bytes) -> dict[str, bytes]:
                 or member.size < 0
                 or member.size > MAX_BYTES
             ):
-                raise ValueError("Unsafe or duplicate archive member")
+                msg = "Unsafe or duplicate archive member"
+                raise ValueError(msg)
             source = archive.extractfile(member)
             if source is None:
-                raise ValueError("Missing member bytes")
+                msg = "Missing member bytes"
+                raise ValueError(msg)
             files[member.name] = source.read(MAX_BYTES + 1)
             if len(files[member.name]) != member.size:
-                raise ValueError("Truncated member")
+                msg = "Truncated member"
+                raise ValueError(msg)
     if sum(map(len, files.values())) > MAX_BYTES:
-        raise ValueError("Expanded output exceeds limit")
+        msg = "Expanded output exceeds limit"
+        raise ValueError(msg)
     return files
 
 
 def unpack(source: Path, destination: Path) -> int:
+    """Extract verified M3 artifacts into a new destination without overwriting files."""
     source, destination = Path(source), Path(destination)
     if destination.exists():
-        raise FileExistsError("Use a new output directory")
+        msg = "Use a new output directory"
+        raise FileExistsError(msg)
     manifest = json.loads((source / "manifest.json").read_text())
     if manifest["schema"] != "tobac.m3.saved-runs.v1":
-        raise ValueError("Unknown archive schema")
-    pieces = []
+        msg = "Unknown archive schema"
+        raise ValueError(msg)
+    pieces: list[bytes] = []
     for part in manifest["parts"]:
         name = part["name"]
         if name not in {"part-001", "part-002", "part-003"}:
-            raise ValueError("Invalid part path")
+            msg = "Invalid part path"
+            raise ValueError(msg)
         data = (source / name).read_bytes()
         if len(data) != part["size"] or hashlib.sha256(data).hexdigest() != part["sha256"]:
-            raise ValueError("Archive part mismatch")
+            msg = "Archive part mismatch"
+            raise ValueError(msg)
         pieces.append(data)
     packed = b"".join(pieces)
     if (
@@ -65,14 +80,17 @@ def unpack(source: Path, destination: Path) -> int:
         or len(packed) != manifest["archive_bytes"]
         or hashlib.sha256(packed).hexdigest() != manifest["archive_sha256"]
     ):
-        raise ValueError("Complete archive mismatch")
+        msg = "Complete archive mismatch"
+        raise ValueError(msg)
     decoder = lzma.LZMADecompressor(memlimit=128 * 1024 * 1024)
     raw = decoder.decompress(packed, max_length=MAX_BYTES + 1)
     if not decoder.eof or decoder.unused_data:
-        raise ValueError("Oversized or trailing archive stream")
+        msg = "Oversized or trailing archive stream"
+        raise ValueError(msg)
     files = safe_members(raw)
     if len(files) != manifest["file_count"]:
-        raise ValueError("Archive file-count mismatch")
+        msg = "Archive file-count mismatch"
+        raise ValueError(msg)
     destination.mkdir(parents=True, exist_ok=False)
     for name, data in files.items():
         target = destination / name
@@ -82,12 +100,13 @@ def unpack(source: Path, destination: Path) -> int:
     return len(files)
 
 
-def main():
+def main() -> None:
+    """Parse command-line options, execute the selected operation and report its result."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", required=True)
     parser.add_argument("--archive", default="results/milestone3/archive")
     args = parser.parse_args()
-    print(
+    print(  # noqa: T201  # CLI emits the requested structured result on stdout.
         json.dumps(
             {
                 "restored_files": unpack(Path(args.archive), Path(args.out)),

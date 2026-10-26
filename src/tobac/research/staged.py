@@ -8,39 +8,57 @@ no extra population multiplication or implicit lifetime extrapolation occurs.
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING, cast
+lazy from collections.abc import Sequence
+
 import numpy as np
+lazy from numpy.typing import ArrayLike
 
-from tobac._core import DecisionProblem
-from tobac.information import _likelihood
+from tobac.information import validate_likelihood
+lazy from tobac._core import DecisionProblem
+lazy from tobac.evidence import Belief
+
+if TYPE_CHECKING:
+    from tobac._typing import FloatArray, Report
+
+    from .portfolio import Costs, Source
 
 
-def two_stage(
+# Named bounds preserve the existing scientific/data contract.
+MAX_JOINT_CELLS = 30000000
+
+
+def two_stage(  # noqa: PLR0913  # Preserve explicit dimensioned inputs and the established API.
     problem: DecisionProblem,
-    pilot,
-    followup,
+    pilot: ArrayLike,
+    followup: ArrayLike,
     *,
     pilot_cost: float,
     followup_cost: float,
     pilot_remaining: float = 1.0,
     followup_remaining: float = 1.0,
-    joint=None,
-) -> dict:
-    n = len(problem.prior_weights)
-    a = _likelihood(pilot, n)
-    b = _likelihood(followup, n)
+    joint: ArrayLike | None = None,
+) -> Report:
+    """Compare fixed and adaptive two-stage designs with matched action timing."""
+    n = len(cast("FloatArray", problem.prior_weights))
+    a = validate_likelihood(pilot, n)
+    b = validate_likelihood(followup, n)
     raw = [pilot_cost, followup_cost, pilot_remaining, followup_remaining]
     if any(isinstance(x, (bool, np.bool_)) for x in raw):
-        raise ValueError("Numeric costs/times cannot be booleans")
+        msg = "Numeric costs/times cannot be booleans"
+        raise ValueError(msg)
     numbers = np.asarray(raw, float)
     if (
         not np.isfinite(numbers).all()
         or min(pilot_cost, followup_cost) < 0
         or not 0 <= followup_remaining <= pilot_remaining <= 1
     ):
-        raise ValueError("Nonnegative costs and chronological remaining fractions required")
-    if len(a) * len(b) * n > 30_000_000:
-        raise ValueError("Exact staged outcome tensor exceeds memory contract")
-    j = a[:, None, :] * b[None, :, :] if joint is None else np.asarray(joint, float)
+        msg = "Nonnegative costs and chronological remaining fractions required"
+        raise ValueError(msg)
+    if len(a) * len(b) * n > MAX_JOINT_CELLS:
+        msg = "Exact staged outcome tensor exceeds memory contract"
+        raise ValueError(msg)
+    j: FloatArray = a[:, None, :] * b[None, :, :] if joint is None else np.asarray(joint, float)
     if (
         j.shape != (len(a), len(b), n)
         or not np.isfinite(j).all()
@@ -48,18 +66,20 @@ def two_stage(
         or not np.allclose(j.sum(axis=1), a, atol=1e-11, rtol=0)
         or not np.allclose(j.sum(axis=0), b, atol=1e-11, rtol=0)
     ):
-        raise ValueError("Joint report must match both declared marginals")
-    p = problem.prior_weights
+        msg = "Joint report must match both declared marginals"
+        raise ValueError(msg)
+    p = cast("FloatArray", problem.prior_weights)
     baseline = int(np.argmax(p @ (problem.values - problem.values[:, 0, None])))
     contrasts = problem.values - problem.values[:, baseline, None]
     q = a @ p
-    branches = []
+    branches: list[Report] = []
     for y, prob in enumerate(q):
         if prob <= 0:
             continue
         post = a[y] * p / prob
         immediate = float(np.max(post @ contrasts))
-        future = float(np.sum(np.max((j[y] * p[None, :] / prob) @ contrasts, axis=1)))
+        conditional: FloatArray = (j[y] * p[None, :] / float(prob)) @ contrasts
+        future = float(conditional.max(axis=1).sum())
         stop = pilot_remaining * immediate
         go = (pilot_remaining - followup_remaining) * immediate + followup_remaining * future - followup_cost
         branches.append(
@@ -96,24 +116,24 @@ def two_stage(
     }
 
 
-def staged_portfolio(
-    belief,
-    pilot_sources,
-    followup_sources,
-    costs,
+def staged_portfolio(  # noqa: PLR0913  # Preserve explicit dimensioned inputs and the established API.
+    belief: Belief,
+    pilot_sources: Sequence[Source],
+    followup_sources: Sequence[Source],
+    costs: Costs,
     *,
-    existing_assets=(),
-    pilot_remaining=1.0,
-    followup_remaining=1.0,
-    followup_cost_multiplier=1.0,
-    joint=None,
-):
+    existing_assets: Sequence[str] = (),
+    pilot_remaining: float = 1.0,
+    followup_remaining: float = 1.0,
+    followup_cost_multiplier: float = 1.0,
+    joint: ArrayLike | None = None,
+) -> Report:
     """Evidence-aware wrapper; followup charges only newly acquired shared assets.
 
     Stage reports must represent distinct prospective underlying data. An explicit
     stage-level joint tensor is required when conditional independence is false.
     """
-    from .portfolio import joint_report, portfolio_value
+    from .portfolio import joint_report, portfolio_value  # noqa: PLC0415  # Keep optional dependencies and backend selection lazy.
 
     all_sources = list(pilot_sources) + list(followup_sources)
     # Reuse the shared evidence/identity validation, including rejection of D0 reuse.
@@ -121,13 +141,15 @@ def staged_portfolio(
         portfolio_value(belief, sources, costs, existing_assets=existing_assets)
     data = [d for source in all_sources for d in source.data_ids]
     if len(data) != len(set(data)):
-        raise ValueError("Stages cannot rebuy overlapping data")
+        msg = "Stages cannot rebuy overlapping data"
+        raise ValueError(msg)
     if (
         isinstance(followup_cost_multiplier, (bool, np.bool_))
         or not np.isfinite(followup_cost_multiplier)
         or followup_cost_multiplier < 0
     ):
-        raise ValueError("Finite nonnegative followup price multiplier required")
+        msg = "Finite nonnegative followup price multiplier required"
+        raise ValueError(msg)
     first = costs.price(pilot_sources, existing_assets)
     extra = costs.price(all_sources, existing_assets) - first
     n = len(belief.state_ids)

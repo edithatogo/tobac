@@ -20,3 +20,10 @@ The existing workflow definitions and repository checks remain unchanged. They m
 on non-macOS runners; this roadmap does not waive their failures, assert success, or change branch
 protection. Any returned work must use current `main`, preserve in-flight work, and record actual
 platform-specific verification.
+
+## Advisory CI/CD, automation, quality and security lane
+
+Track: `conductor/roadmap/cicd_hardening_20261025/`.
+
+Deferred until existing strict checks are reliable. The proposed Linux arm runner and
+additional automation tools are roadmap work; no job or entitlement is claimed as qualified.

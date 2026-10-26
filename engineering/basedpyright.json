@@ -1,7 +1,14 @@
 {
-  "include": ["../scripts/context_bundle.py"],
+  "include": [
+    "../scripts/context_bundle.py"
+  ],
   "typeCheckingMode": "strict",
   "pythonVersion": "3.15",
   "pythonPlatform": "All",
-  "failOnWarnings": true
+  "failOnWarnings": true,
+  "extraPaths": [
+    "../src",
+    "../scripts"
+  ],
+  "stubPath": "typings"
 }

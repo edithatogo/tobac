@@ -8,6 +8,7 @@ import hashlib
 import json
 import platform
 from pathlib import Path
+from typing import TYPE_CHECKING, cast
 
 import numpy as np
 import scipy
@@ -25,6 +26,9 @@ from .staged import staged_portfolio
 from .structure import structure_value
 from .voiage_adapter import partition_problem, uniform_equivalent
 
+if TYPE_CHECKING:
+    from tobac._typing import FloatArray, Report
+
 DESIGNS = {
     "none": [],
     "calibration_only": ["calibration"],
@@ -41,7 +45,13 @@ DESIGNS = {
 }
 
 
-def write_csv(path, rows):
+# Named bounds preserve the existing scientific/data contract.
+INVARIANT_ATOL = 1e-11
+REFERENCE_HIGH_PROBABILITY = 0.5
+
+
+def write_csv(path: Path, rows: list[Report]) -> None:
+    """Write a report table with a stable union of its declared columns."""
     if not rows:
         return
     fields = list(dict.fromkeys(k for row in rows for k in row))
@@ -57,12 +67,14 @@ def write_csv(path, rows):
         )
 
 
-def run(config_path, out, *, quick=False) -> dict:
+def run(config_path: str | Path, out: str | Path, *, quick: bool = False) -> Report:  # noqa: C901, PLR0912, PLR0915  # Keep ordered model validation and report assembly in one visible operation.; Keep explicit fail-closed validation branches together.; Keep the declared numerical/report sequence visible and ordered.
+    """Run the declared analysis and write provenance-bound outputs."""
     root = Path.cwd().resolve()
     path = Path(config_path).resolve()
     cfg = json.loads(path.read_text(encoding="utf-8"))
     if cfg["schema"] != "tobac.research-m3.v1":
-        raise ValueError("Unknown M3 schema")
+        msg = "Unknown M3 schema"
+        raise ValueError(msg)
     base = load_config(root / cfg["base_config"])
     retail_path = root / cfg["retail_config"]
     rc = json.loads(retail_path.read_text(encoding="utf-8"))
@@ -72,20 +84,22 @@ def run(config_path, out, *, quick=False) -> dict:
     priors = [0.5] if quick else cfg["prior_high_illicit_probabilities"]
     weights = [1.0] if quick else cfg["normative_crime_weights"]
     if any(not 0 < p < 1 for p in priors):
-        raise ValueError("Prior-scenario probabilities must be interior")
+        msg = "Prior-scenario probabilities must be interior"
+        raise ValueError(msg)
     dest = Path(out)
     if dest.exists() and any(dest.iterdir()):
-        raise FileExistsError("Use a new result directory")
+        msg = "Use a new result directory"
+        raise FileExistsError(msg)
     dest.mkdir(parents=True, exist_ok=True)
-    rows = []
-    partials = []
-    increments = []
-    impl = []
-    cells = []
-    stages = []
-    stage_branches = []
-    d0 = []
-    checks = []
+    rows: list[Report] = []
+    partials: list[Report] = []
+    increments: list[Report] = []
+    impl: list[Report] = []
+    cells: list[Report] = []
+    stages: list[Report] = []
+    stage_branches: list[Report] = []
+    d0: list[Report] = []
+    checks: list[bool] = []
     ref = None
     scope = Scope(
         "M2 synthetic representative catchment",
@@ -143,8 +157,8 @@ def run(config_path, out, *, quick=False) -> dict:
                 evpi = exact_evpi(pr)
                 trans = uniform_equivalent(pr)
                 error = abs(float(np.mean(np.max(trans, axis=1)) - np.max(np.mean(trans, axis=0))) - evpi)
-                checks.append(error < 1e-11)
-                results = {}
+                checks.append(error < INVARIANT_ATOL)
+                results: dict[str, Report] = {}
                 for design, keys in DESIGNS.items():
                     r = portfolio_value(b, [sources[k] for k in keys], costs)
                     rows.append(
@@ -163,9 +177,9 @@ def run(config_path, out, *, quick=False) -> dict:
                     results[design] = r
                     checks.extend(
                         [
-                            r["evsi"] >= -1e-11,
+                            r["evsi"] >= -INVARIANT_ATOL,
                             r["evsi"] <= evpi + 1e-11,
-                            r["posterior_martingale_max_error"] < 1e-11,
+                            r["posterior_martingale_max_error"] < INVARIANT_ATOL,
                         ]
                     )
                 for group in [
@@ -179,7 +193,7 @@ def run(config_path, out, *, quick=False) -> dict:
                     labels = grouped_labels(s, c, group)
                     g = partition_problem(pr, labels)
                     v = exact_evpi(g)
-                    checks.append(abs(v - exact_partial_information(pr, labels)) < 1e-11)
+                    checks.append(abs(v - exact_partial_information(pr, labels)) < INVARIANT_ATOL)
                     partials.append(dict(tag, group=group, evppi=v, value_unit=pr.value_unit))
                 for more, less in [
                     ("calibration_panel_supply", "panel_supply"),
@@ -199,23 +213,31 @@ def run(config_path, out, *, quick=False) -> dict:
                             value_unit=pr.value_unit,
                         )
                     )
-                    checks.append(delta >= -1e-11)
-                if case["id"] == "source_shape_partial_replacement" and high_probability == 0.5 and cw == 1:
+                    checks.append(delta >= -INVARIANT_ATOL)
+                if (
+                    case["id"] == "source_shape_partial_replacement"
+                    and high_probability == REFERENCE_HIGH_PROBABILITY
+                    and cw == 1
+                ):
                     ref = (s, p, c, pr, b, channels, sources, costs)
     if ref is None:
-        raise ValueError("Required reference scenario absent")
-    s, p, c, pr, b, ch, sources, costs = ref
+        msg = "Required reference scenario absent"
+        raise ValueError(msg)
+    s, p, c, pr, b, _ch, sources, costs = ref
     # Explicit model-probability sensitivity only. Never use these weights to pool the robustness scenarios.
     model0 = retail_problem(s, p, c, 1.0, lawful_replacement=0.0)
     model1 = retail_problem(s, p, c, 1.0, lawful_replacement=1.0)
-    structural = []
+    structural: list[Report] = []
     for w in cfg["structure_probability_grid"]:
         r = structure_value({"no_lawful_replacement": model0, "full_lawful_replacement": model1}, [w, 1 - w])
         structural.append(dict(probability_first_model=w, **r))
-        checks.extend([r["structure_only"] >= -1e-11, r["remaining_parameter_value"] >= -1e-11])
-    # Possible baseline supply outcomes, not actual NZ D0. New analysis uses posterior Belief and rejects the old data IDs.
+        checks.extend(
+            [r["structure_only"] >= -INVARIANT_ATOL, r["remaining_parameter_value"] >= -INVARIANT_ATOL]
+        )
+    # Possible baseline supply outcomes, not actual NZ D0. New analysis uses posterior Belief and
+    # rejects the old data IDs.
     old = sources["legal_supply"]
-    q = old.likelihood @ pr.prior_weights
+    q = old.likelihood @ cast("FloatArray", pr.prior_weights)
     for y, mass in enumerate(q):
         if mass <= 0:
             continue
@@ -245,8 +267,9 @@ def run(config_path, out, *, quick=False) -> dict:
     expected_extra = sum(x["prior_predictive_probability"] * x["conditional_panel_evsi"] for x in d0)
     combined = portfolio_value(b, [sources[k] for k in DESIGNS["panel_supply"]], costs)
     first = portfolio_value(b, [old], costs)
-    checks.append(abs(expected_extra - (combined["evsi"] - first["evsi"])) < 1e-11)
-    # Implementation fractions are scenario-weighted parts of the same valued horizon, not extra years/population.
+    checks.append(abs(expected_extra - (combined["evsi"] - first["evsi"])) < INVARIANT_ATOL)
+    # Implementation fractions are scenario-weighted parts of the same valued horizon, not extra
+    # years/population.
     for profile, trajectory in cfg["uptake_profiles"].items():
         fraction = discounted_uptake(trajectory, cfg["time_weights"])
         kernel = adoption_kernel(
@@ -258,23 +281,24 @@ def run(config_path, out, *, quick=False) -> dict:
         for design in ["panel_supply", "calibration_panel_supply", "matched_causal", "linked"]:
             r = portfolio_value(eb, [sources[k] for k in DESIGNS[design]], costs)
             impl.append(
-                dict(
-                    profile=profile,
-                    effective_uptake=fraction,
-                    design=design,
-                    evsi=r["evsi"],
-                    cost=r["cost"],
-                    enbs=r["enbs"],
-                    value_unit=pr.value_unit,
-                )
+                {
+                    "profile": profile,
+                    "effective_uptake": fraction,
+                    "design": design,
+                    "evsi": r["evsi"],
+                    "cost": r["cost"],
+                    "enbs": r["enbs"],
+                    "value_unit": pr.value_unit,
+                }
             )
-    # A pilot comprises the panel+baseline supply; follow-up is a matched causal comparison. Costs use shared assets.
+    # A pilot comprises the panel+baseline supply; follow-up is a matched causal comparison. Costs use
+    # shared assets.
     pilot_sources = [sources[k] for k in DESIGNS["panel_supply"]]
     next_sources = [sources[k] for k in DESIGNS["matched_causal"]]
-    la = joint_likelihood(*(x.likelihood for x in pilot_sources))
-    lb = joint_likelihood(*(x.likelihood for x in next_sources))
+    _la = joint_likelihood(*(x.likelihood for x in pilot_sources))
+    _lb = joint_likelihood(*(x.likelihood for x in next_sources))
     ca = costs.price(pilot_sources)
-    cb = costs.price(pilot_sources + next_sources) - ca
+    _cb = costs.price(pilot_sources + next_sources) - ca
     for timing in cfg["stage_timings"]:
         for multiplier in cfg["stage_followup_cost_multipliers"]:
             r = staged_portfolio(
@@ -295,7 +319,7 @@ def run(config_path, out, *, quick=False) -> dict:
                     r["best_with_no_study"] >= 0,
                 ]
             )
-    envelopes = []
+    envelopes: list[Report] = []
     for cw in weights:
         envelopes.extend(
             dict(crime_weight=cw, **x) for x in envelope([r for r in rows if r["crime_weight"] == cw])
@@ -341,17 +365,19 @@ def run(config_path, out, *, quick=False) -> dict:
         encoding="utf-8",
     )
     if not all(checks):
-        raise ArithmeticError("M3 exact invariants failed")
+        msg = "M3 exact invariants failed"
+        raise ArithmeticError(msg)
     return validation
 
 
-def main():
+def main() -> None:
+    """Parse command-line options, execute the selected operation and report its result."""
     p = argparse.ArgumentParser()
     p.add_argument("--config", default="configs/m3_research.json")
     p.add_argument("--out", required=True)
     p.add_argument("--quick", action="store_true")
     args = p.parse_args()
-    print(json.dumps(run(args.config, args.out, quick=args.quick), indent=2))
+    print(json.dumps(run(args.config, args.out, quick=args.quick), indent=2))  # noqa: T201  # CLI emits the requested structured result on stdout.
 
 
 if __name__ == "__main__":

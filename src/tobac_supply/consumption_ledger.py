@@ -7,10 +7,10 @@ or observations; no catchment allocation or tonnes-to-sticks conversion is impli
 from __future__ import annotations
 
 import math
-from collections.abc import Iterable
 from dataclasses import dataclass
 from numbers import Integral, Real
-from typing import Any
+from typing import Any, cast
+lazy from collections.abc import Iterable
 
 import numpy as np
 from numpy.typing import NDArray
@@ -21,22 +21,30 @@ Array = NDArray[np.float64]
 YearsArray = NDArray[np.int64]
 
 
-def _scalar(value: Real, name: str, minimum: float = 0.0) -> float:
-    if isinstance(value, (bool, np.bool_)) or not isinstance(value, Real):
-        raise ValueError(f"{name} must be numeric, not boolean")
+# Named bounds preserve the existing scientific/data contract.
+MAX_YEAR_BEFORE_CLOSING = 9998
+
+
+def _scalar(value: float, name: str, minimum: float = 0.0) -> float:
+    if isinstance(value, (bool, np.bool_)) or not isinstance(cast("object", value), Real):
+        msg = f"{name} must be numeric, not boolean"
+        raise ValueError(msg)  # noqa: TRY004  # Retain the established ValueError domain-validation contract.
     x = float(value)
     if not math.isfinite(x) or x < minimum:
-        raise ValueError(f"{name} must be finite and >= {minimum}")
+        msg = f"{name} must be finite and >= {minimum}"
+        raise ValueError(msg)
     return x
 
 
-def _array(values: Iterable[Real], name: str, length: int, signed: bool = False) -> Array:
+def _array(values: Iterable[float], name: str, length: int, *, signed: bool = False) -> Array:
     try:
         a = np.array([_scalar(x, name, -math.inf if signed else 0.0) for x in values])
     except TypeError as exc:
-        raise ValueError(f"{name} must be a sequence") from exc
+        msg = f"{name} must be a sequence"
+        raise ValueError(msg) from exc
     if len(a) != length:
-        raise ValueError(f"{name} needs {length} values, got {len(a)}")
+        msg = f"{name} needs {length} values, got {len(a)}"
+        raise ValueError(msg)
     return a
 
 
@@ -50,18 +58,25 @@ class SupplyBasis:
     duty_free_included: bool = True
 
     def __post_init__(self) -> None:
+        """Validate construction invariants and normalize the stored values."""
         if self.unit != "cigarette_equivalents":
-            raise ValueError("Incompatible unit: an explicit audited conversion is required")
-        if not isinstance(self.geography, str) or not self.geography.strip():
-            raise ValueError("geography is required")
-        if not isinstance(self.products, str) or not self.products.strip():
-            raise ValueError("product basis is required")
-        if not isinstance(self.duty_free_included, bool):
-            raise ValueError("duty_free_included must be boolean")
+            msg = "Incompatible unit: an explicit audited conversion is required"
+            raise ValueError(msg)
+        if not isinstance(cast("object", self.geography), str) or not self.geography.strip():
+            msg = "geography is required"
+            raise ValueError(msg)
+        if not isinstance(cast("object", self.products), str) or not self.products.strip():
+            msg = "product basis is required"
+            raise ValueError(msg)
+        if not isinstance(cast("object", self.duty_free_included), bool):
+            msg = "duty_free_included must be boolean"
+            raise ValueError(msg)  # noqa: TRY004  # Retain the established ValueError domain-validation contract.
 
 
 @dataclass(frozen=True)
 class LawfulLedger:
+    """Aligned releases, stock and lawful-channel accounting under a declared basis."""
+
     years: YearsArray
     releases: Array
     stocks: Array
@@ -87,14 +102,14 @@ class LawfulLedger:
             object.__setattr__(self, name, frozen)
 
 
-def lawful_ledger(
+def lawful_ledger(  # noqa: PLR0913  # Preserve explicit dimensioned inputs and the established API.
     years: Iterable[int],
-    releases: Iterable[Real],
-    stocks: Iterable[Real],
+    releases: Iterable[float],
+    stocks: Iterable[float],
     *,
-    unrecorded: Iterable[Real] | None = None,
-    net_visitors: Iterable[Real] | None = None,
-    duty_free_addition: Iterable[Real] | None = None,
+    unrecorded: Iterable[float] | None = None,
+    net_visitors: Iterable[float] | None = None,
+    duty_free_addition: Iterable[float] | None = None,
     basis: SupplyBasis,
 ) -> LawfulLedger:
     """Compute C_t = R_t + S_(t-1) - S_t + U_t + V_t + D_t.
@@ -111,21 +126,28 @@ def lawful_ledger(
     """
     yy = list(years)
     if not yy or any(
-        isinstance(y, (bool, np.bool_)) or not isinstance(y, Integral) or not 1 <= y <= 9998 for y in yy
+        isinstance(y, (bool, np.bool_))
+        or not isinstance(y, Integral)
+        or not 1 <= y <= MAX_YEAR_BEFORE_CLOSING
+        for y in yy
     ):
-        raise ValueError("years must be nonempty calendar integers")
+        msg = "years must be nonempty calendar integers"
+        raise ValueError(msg)
     y = np.asarray(yy, dtype=np.int64)
     if np.any(np.diff(y) != 1):
-        raise ValueError("years must be consecutive, unique and increasing")
-    if not isinstance(basis, SupplyBasis):
-        raise ValueError("A validated SupplyBasis is required")
+        msg = "years must be consecutive, unique and increasing"
+        raise ValueError(msg)
+    if not isinstance(cast("object", basis), SupplyBasis):
+        msg = "A validated SupplyBasis is required"
+        raise ValueError(msg)  # noqa: TRY004  # Retain the established ValueError domain-validation contract.
     n = len(y)
     r, s = _array(releases, "releases", n), _array(stocks, "stocks", n + 1)
     u = _array(np.zeros(n) if unrecorded is None else unrecorded, "unrecorded", n)
-    v = _array(np.zeros(n) if net_visitors is None else net_visitors, "net_visitors", n, True)
+    v = _array(np.zeros(n) if net_visitors is None else net_visitors, "net_visitors", n, signed=True)
     d = _array(np.zeros(n) if duty_free_addition is None else duty_free_addition, "duty_free", n)
     if basis.duty_free_included and np.any(d != 0):
-        raise ValueError("Additional duty-free would double count this source")
+        msg = "Additional duty-free would double count this source"
+        raise ValueError(msg)
     c = r + s[:-1] - s[1:] + u + v + d
     negative = np.flatnonzero(c < 0)
     if negative.size:
@@ -135,16 +157,18 @@ def lawful_ledger(
             f"V={v[i]:.6g}, D={d[i]:.6g}"
             for i in negative
         )
-        raise ValueError(
+        msg = (
             f"{details}. The caller must supply a release/stock/adjustment set "
             f"that does not imply negative consumption"
         )
+        raise ValueError(msg)
     if not np.isfinite(c).all():
-        raise ValueError("Ledger overflow")
+        msg = "Ledger overflow"
+        raise ValueError(msg)
     return LawfulLedger(y, r, s, u, v, d, c, basis)
 
 
-def stock_scenario(releases: Iterable[Real], days: Real) -> Array:
+def stock_scenario(releases: Iterable[float], days: float) -> Array:
     """Assumed stock boundaries: opening=first release rate; closings=current rate.
 
     A fixed days-of-supply scenario, not observed stocks. The source's 365-day
@@ -158,7 +182,8 @@ def stock_scenario(releases: Iterable[Real], days: Real) -> Array:
     """
     r = list(releases)
     if not r:
-        raise ValueError("releases must not be empty")
+        msg = "releases must not be empty"
+        raise ValueError(msg)
     a = _array(r, "releases", len(r))
     d = _scalar(days, "stock days")
     return np.r_[a[0], a] * d / 365.0
@@ -182,14 +207,15 @@ def annualised_supply(ledger: LawfulLedger, start: str, end: str) -> dict[str, A
 
     """
     result = aggregate_uniform_years(
-        dict(zip(ledger.years.tolist(), ledger.consumption.tolist())), start, end
+        dict(zip(ledger.years.tolist(), ledger.consumption.tolist(), strict=True)), start, end
     )
     covered_days = result["covered_days"]
     if covered_days <= 0:
-        raise ValueError(
+        msg = (
             f"Window {start} to {end} covers {covered_days} days: an annualised "
             f"per-365-day rate requires at least one covered day"
         )
+        raise ValueError(msg)
     result["annualised_per_365_days"] = result["allocated_total"] / covered_days * 365.0
     result["unit"] = "cigarette_equivalents/365_day_equivalent"
     result["allocation_is_observed"] = False

@@ -10,7 +10,7 @@ Plan: `docs/plans/2026-10-24-m2-evidence-and-retail.md`. Contracts: `docs/m2_ret
 
 Implemented: observed-evidence identity/scope guards; finite posterior update; duplicate/forecast rejection; joint reporting-error supply bridge; published net-cessation structural alternative with null/transport cases; lawful replacement sensitivity; matched total/lawful causal report; exact incremental-information identities; config-domain checks; source-effect grid refinement; additive CI steps. Source parameter extraction is manually checked, not independently human-reviewed or approved by a citation tool.
 
-## M2b — Historical empirical longitudinal bridge
+## M2b empirical longitudinal source integration
 **Status: incorporated on main, reviewed and hosted-executed; current-NZ empirical qualification open.**
 Track: `conductor/archive/longitudinal_integration_20261024/`. Review receipt:
 `integration/m2b_review_20261025.json`. Results: `results/longitudinal/`.
@@ -35,7 +35,7 @@ closes the previous "no hosted pass" gate but not scientific validity. Still ope
 `SupplyBasis` carries no source IDs or observation dates; and the archived 42-of-43
 predecessor comparison and 499 full-suite count remain unverifiable local claims.
 
-## Shared workstream synchronisation — 24 October 2026
+## Cross-workstream synchronisation and regression contracts
 **Status: cross-interface regression checks complete; scientific conditioning remains open.**
 Guide: `docs/WORKSTREAM_SYNC.md`. Contributor instructions: `AGENTS.md`.
 Track: `conductor/tracks/workstream_sync_20261024/`. Receipt: `integration/workstream_sync_verification.json`.
@@ -66,7 +66,7 @@ status belong to the retained execution receipt.
 
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
-## Library reuse and engineering harness — 24 October 2026
+## Library reuse and qualified engineering harness
 **Status: [~] macOS Python 3.15.1 local qualification recorded at 59bb0e4; hosted macOS and strict_all remain open. Linux/Windows and other non-macOS qualification moved to the roadmap.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
 Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
@@ -85,7 +85,7 @@ Current development targets macOS; other platform qualification is deferred to
 `conductor/roadmap.md`. Do not turn configuration or a checksum into a claim of successful
 execution or scientific validity; hosted macOS confirmation is not obtained.
 
-## Engineering execution follow-through — 24 October 2026
+## Source-bound dependency and execution qualification
 **Status: macOS runtime-lock qualification recorded; hosted macOS and strict_all remain open. Linux audit execution and other non-macOS qualification are deferred to the roadmap.**
 Track: `conductor/tracks/engineering_execution_20261024/`.
 Receipt: `integration/engineering_followthrough.json`; current instructions: `docs/engineering/READINESS.md`.
@@ -93,7 +93,7 @@ This links the source-bound locks, portable/audit environment separation, read-o
 diagnostic and strict internal release gates; current work is macOS-focused and this status is not
 new execution evidence.
 
-## Incorporation and prior-work audit — 25 October 2026
+## Prior-work evidence preservation and incorporation audit
 **Status: selected reference snapshot verified; full archive migration and live empirical use are not claimed.**
 Track: `conductor/tracks/incorporation_audit_20261025/`.
 Index: `docs/INCORPORATION_STATUS.md`; manifest: `integration/prior_work_manifest.json`.
@@ -106,7 +106,7 @@ model inputs/results, dependencies and gates were unchanged by that audit. No co
 becomes a calibrated parameter, forecast a new observation, template a quotation, or old
 manuscript submission-ready. M3 incorporation now follows below.
 
-## M3 — research portfolios, implementation and staged decisions
+## M3 research portfolios, implementation and staged decisions
 **Status: conditional numerical implementation complete; actual Voiage and hosted qualification remain open.**
 Track: `conductor/tracks/research_m3_20261025/`.
 Contract: `docs/research/M3_CONTRACT.md`; results: `results/milestone3/report.md`.
@@ -125,7 +125,7 @@ configuration is not successful execution. Receiving commit and hosted outcomes 
 the local Conductor track and execution receipts.
 
 
-## Evidence execution integration — 25 October 2026
+## Executable integration of preserved evidence
 **Status: shared preflight and all-collection validation wired; external/hosted qualification remains open.**
 Track: `conductor/tracks/evidence_execution_20261025/`.
 Guide: `docs/EVIDENCE_INTEGRATION.md`; local receipts: `integration/evidence_inventory_20261025.json`
@@ -142,3 +142,10 @@ empirical posterior, quote, full scientific replay or third-party validation is 
 M3 arrived concurrently at fa39fd36 and is preserved. The evidence gate also covers its
 research_m3 Nox session; shared reproduction now includes the M3 runner once. These command
 contracts were locally retested; the M3 numerical results were not re-estimated in this pass.
+
+## Reconciled engineering verification — 26 October 2026
+
+PR #25 is being reconciled with the Python 3.15.1 migration. The focused runner now checks
+against qualified pandas/SciPy/jsonschema stubs and the calling session interpreter. Current
+verification and completion receipts will supersede older counts for this integrated tree.
+Independent review is optional; current development and hosted qualification target macOS.

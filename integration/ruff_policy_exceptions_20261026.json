@@ -1,0 +1,1081 @@
+{
+  "date": "2026-10-26",
+  "scope": "Reviewed compatibility/style exceptions, not code fixes or disabled type diagnostics",
+  "inline_findings": 175,
+  "rules": {
+    "ANN401": 3,
+    "S603": 6,
+    "T201": 18,
+    "C901": 17,
+    "PLR0912": 8,
+    "PLR0911": 2,
+    "TRY301": 6,
+    "PLC0415": 13,
+    "BLE001": 2,
+    "E402": 11,
+    "S607": 2,
+    "PLR0913": 14,
+    "PLR0917": 8,
+    "TRY004": 18,
+    "PLR0915": 10,
+    "FBT001": 5,
+    "FBT002": 5,
+    "N818": 1,
+    "TRY003": 13,
+    "EM101": 10,
+    "EM102": 3
+  },
+  "standalone_cli_rule": "INP001",
+  "entries": [
+    {
+      "path": "scripts/actions_diagnostics.py",
+      "line_at_review": 28,
+      "rule": "ANN401",
+      "reason": "Raw JSON may have any root shape; callers validate the required schema."
+    },
+    {
+      "path": "scripts/actions_diagnostics.py",
+      "line_at_review": 37,
+      "rule": "S603",
+      "reason": "Reviewed fixed executable/argv, bounded invocation, no shell."
+    },
+    {
+      "path": "scripts/actions_diagnostics.py",
+      "line_at_review": 136,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/check_conductor_track_names.py",
+      "line_at_review": 66,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/check_conductor_track_names.py",
+      "line_at_review": 110,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/check_conductor_track_names.py",
+      "line_at_review": 113,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/check_conductor_track_names.py",
+      "line_at_review": 115,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/check_longitudinal_results.py",
+      "line_at_review": 108,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/check_longitudinal_results.py",
+      "line_at_review": 108,
+      "rule": "PLR0912",
+      "reason": "Keep explicit fail-closed validation branches together."
+    },
+    {
+      "path": "scripts/check_longitudinal_results.py",
+      "line_at_review": 163,
+      "rule": "PLR0911",
+      "reason": "Return a precise failure receipt at each validation boundary."
+    },
+    {
+      "path": "scripts/check_longitudinal_results.py",
+      "line_at_review": 189,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/check_longitudinal_results.py",
+      "line_at_review": 189,
+      "rule": "PLR0911",
+      "reason": "Return a precise failure receipt at each validation boundary."
+    },
+    {
+      "path": "scripts/check_longitudinal_results.py",
+      "line_at_review": 189,
+      "rule": "PLR0912",
+      "reason": "Keep explicit fail-closed validation branches together."
+    },
+    {
+      "path": "scripts/check_longitudinal_results.py",
+      "line_at_review": 397,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/check_mutation_score.py",
+      "line_at_review": 101,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/check_mutation_score.py",
+      "line_at_review": 131,
+      "rule": "TRY301",
+      "reason": "Record failure or clean incomplete receipts in the enclosing handler."
+    },
+    {
+      "path": "scripts/check_mutation_score.py",
+      "line_at_review": 134,
+      "rule": "TRY301",
+      "reason": "Record failure or clean incomplete receipts in the enclosing handler."
+    },
+    {
+      "path": "scripts/lock_receipt.py",
+      "line_at_review": 60,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/lock_receipt.py",
+      "line_at_review": 213,
+      "rule": "S603",
+      "reason": "Reviewed fixed executable/argv, bounded invocation, no shell."
+    },
+    {
+      "path": "scripts/lock_receipt.py",
+      "line_at_review": 216,
+      "rule": "S603",
+      "reason": "Reviewed fixed executable/argv, bounded invocation, no shell."
+    },
+    {
+      "path": "scripts/lock_receipt.py",
+      "line_at_review": 219,
+      "rule": "TRY301",
+      "reason": "Record failure or clean incomplete receipts in the enclosing handler."
+    },
+    {
+      "path": "scripts/lock_receipt.py",
+      "line_at_review": 222,
+      "rule": "TRY301",
+      "reason": "Record failure or clean incomplete receipts in the enclosing handler."
+    },
+    {
+      "path": "scripts/lock_receipt.py",
+      "line_at_review": 257,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/qualify_integrations.py",
+      "line_at_review": 145,
+      "rule": "S603",
+      "reason": "Reviewed fixed executable/argv, bounded invocation, no shell."
+    },
+    {
+      "path": "scripts/qualify_integrations.py",
+      "line_at_review": 178,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "scripts/qualify_integrations.py",
+      "line_at_review": 179,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "scripts/qualify_integrations.py",
+      "line_at_review": 180,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "scripts/qualify_integrations.py",
+      "line_at_review": 222,
+      "rule": "BLE001",
+      "reason": "Persist an explicit failing receipt; this path never reports success."
+    },
+    {
+      "path": "scripts/qualify_integrations.py",
+      "line_at_review": 227,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 24,
+      "rule": "E402",
+      "reason": "Standalone CLI establishes its local src path before project imports."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 25,
+      "rule": "E402",
+      "reason": "Standalone CLI establishes its local src path before project imports."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 26,
+      "rule": "E402",
+      "reason": "Standalone CLI establishes its local src path before project imports."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 28,
+      "rule": "E402",
+      "reason": "Standalone CLI establishes its local src path before project imports."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 34,
+      "rule": "E402",
+      "reason": "Standalone CLI establishes its local src path before project imports."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 62,
+      "rule": "S603",
+      "reason": "Reviewed fixed executable/argv, bounded invocation, no shell."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 62,
+      "rule": "S607",
+      "reason": "Fixed git subcommand in the trusted local tool environment, no shell."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 240,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 240,
+      "rule": "PLR0917",
+      "reason": "Preserve the established positional calling convention."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 323,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 343,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 348,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 391,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 394,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 400,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 455,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 455,
+      "rule": "PLR0917",
+      "reason": "Preserve the established positional calling convention."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 455,
+      "rule": "PLR0915",
+      "reason": "Keep the declared numerical/report sequence visible and ordered."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 467,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 470,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 634,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 634,
+      "rule": "PLR0915",
+      "reason": "Keep the declared numerical/report sequence visible and ordered."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 634,
+      "rule": "FBT001",
+      "reason": "Preserve the established public positional flag convention."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 634,
+      "rule": "FBT002",
+      "reason": "Preserve the established public positional flag convention."
+    },
+    {
+      "path": "scripts/run_empirical_longitudinal.py",
+      "line_at_review": 999,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 23,
+      "rule": "E402",
+      "reason": "Standalone CLI establishes its local src path before project imports."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 24,
+      "rule": "E402",
+      "reason": "Standalone CLI establishes its local src path before project imports."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 25,
+      "rule": "E402",
+      "reason": "Standalone CLI establishes its local src path before project imports."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 26,
+      "rule": "E402",
+      "reason": "Standalone CLI establishes its local src path before project imports."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 28,
+      "rule": "E402",
+      "reason": "Standalone CLI establishes its local src path before project imports."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 29,
+      "rule": "E402",
+      "reason": "Standalone CLI establishes its local src path before project imports."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 94,
+      "rule": "S603",
+      "reason": "Reviewed fixed executable/argv, bounded invocation, no shell."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 94,
+      "rule": "S607",
+      "reason": "Fixed git subcommand in the trusted local tool environment, no shell."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 204,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 204,
+      "rule": "PLR0917",
+      "reason": "Preserve the established positional calling convention."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 247,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 247,
+      "rule": "PLR0917",
+      "reason": "Preserve the established positional calling convention."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 247,
+      "rule": "PLR0915",
+      "reason": "Keep the declared numerical/report sequence visible and ordered."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 256,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 259,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 260,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 410,
+      "rule": "PLR0915",
+      "reason": "Keep the declared numerical/report sequence visible and ordered."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 412,
+      "rule": "FBT001",
+      "reason": "Preserve the established public positional flag convention."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 412,
+      "rule": "FBT002",
+      "reason": "Preserve the established public positional flag convention."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 414,
+      "rule": "FBT001",
+      "reason": "Preserve the established public positional flag convention."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 414,
+      "rule": "FBT002",
+      "reason": "Preserve the established public positional flag convention."
+    },
+    {
+      "path": "scripts/run_release_calibration.py",
+      "line_at_review": 642,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/unpack_m3_results.py",
+      "line_at_review": 109,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/verify.py",
+      "line_at_review": 89,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/verify_empirical_longitudinal.py",
+      "line_at_review": 33,
+      "rule": "ANN401",
+      "reason": "Raw JSON may have any root shape; callers validate the required schema."
+    },
+    {
+      "path": "scripts/verify_empirical_longitudinal.py",
+      "line_at_review": 43,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/verify_empirical_longitudinal.py",
+      "line_at_review": 43,
+      "rule": "PLR0912",
+      "reason": "Keep explicit fail-closed validation branches together."
+    },
+    {
+      "path": "scripts/verify_empirical_longitudinal.py",
+      "line_at_review": 43,
+      "rule": "PLR0915",
+      "reason": "Keep the declared numerical/report sequence visible and ordered."
+    },
+    {
+      "path": "scripts/verify_empirical_longitudinal.py",
+      "line_at_review": 145,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/verify_prior_work.py",
+      "line_at_review": 39,
+      "rule": "ANN401",
+      "reason": "Raw JSON may have any root shape; callers validate the required schema."
+    },
+    {
+      "path": "scripts/verify_prior_work.py",
+      "line_at_review": 70,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/verify_prior_work.py",
+      "line_at_review": 70,
+      "rule": "PLR0912",
+      "reason": "Keep explicit fail-closed validation branches together."
+    },
+    {
+      "path": "scripts/verify_prior_work.py",
+      "line_at_review": 70,
+      "rule": "PLR0915",
+      "reason": "Keep the declared numerical/report sequence visible and ordered."
+    },
+    {
+      "path": "scripts/verify_prior_work.py",
+      "line_at_review": 210,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "scripts/verify_release_calibration.py",
+      "line_at_review": 107,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/verify_release_calibration.py",
+      "line_at_review": 173,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/verify_release_calibration.py",
+      "line_at_review": 250,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "scripts/verify_release_calibration.py",
+      "line_at_review": 250,
+      "rule": "PLR0912",
+      "reason": "Keep explicit fail-closed validation branches together."
+    },
+    {
+      "path": "scripts/verify_release_calibration.py",
+      "line_at_review": 334,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 24,
+      "rule": "N818",
+      "reason": "Preserve the inherited public exception name and source provenance."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 39,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 39,
+      "rule": "EM101",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 41,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 41,
+      "rule": "EM101",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 43,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 43,
+      "rule": "EM101",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 55,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 55,
+      "rule": "EM101",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 57,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 57,
+      "rule": "EM101",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 75,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 76,
+      "rule": "EM101",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 78,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 83,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 84,
+      "rule": "EM101",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 87,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 87,
+      "rule": "EM102",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 105,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 105,
+      "rule": "EM101",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 111,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 111,
+      "rule": "EM101",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 121,
+      "rule": "FBT001",
+      "reason": "Preserve the established public positional flag convention."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 121,
+      "rule": "FBT002",
+      "reason": "Preserve the established public positional flag convention."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 124,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 124,
+      "rule": "EM102",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 126,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 126,
+      "rule": "EM102",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 159,
+      "rule": "TRY003",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/_core.py",
+      "line_at_review": 159,
+      "rule": "EM101",
+      "reason": "Preserve the byte/AST-verified inherited exception contract."
+    },
+    {
+      "path": "src/tobac/config_validation.py",
+      "line_at_review": 57,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "src/tobac/config_validation.py",
+      "line_at_review": 57,
+      "rule": "PLR0912",
+      "reason": "Keep explicit fail-closed validation branches together."
+    },
+    {
+      "path": "src/tobac/config_validation.py",
+      "line_at_review": 57,
+      "rule": "PLR0915",
+      "reason": "Keep the declared numerical/report sequence visible and ordered."
+    },
+    {
+      "path": "src/tobac/evidence.py",
+      "line_at_review": 35,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac/evidence.py",
+      "line_at_review": 130,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac/evidence.py",
+      "line_at_review": 225,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "src/tobac/information.py",
+      "line_at_review": 204,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "src/tobac/information.py",
+      "line_at_review": 204,
+      "rule": "PLR0917",
+      "reason": "Preserve the established positional calling convention."
+    },
+    {
+      "path": "src/tobac/integrations.py",
+      "line_at_review": 10,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "src/tobac/integrations.py",
+      "line_at_review": 11,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "src/tobac/m2.py",
+      "line_at_review": 45,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "src/tobac/m2.py",
+      "line_at_review": 45,
+      "rule": "PLR0912",
+      "reason": "Keep explicit fail-closed validation branches together."
+    },
+    {
+      "path": "src/tobac/m2.py",
+      "line_at_review": 45,
+      "rule": "PLR0915",
+      "reason": "Keep the declared numerical/report sequence visible and ordered."
+    },
+    {
+      "path": "src/tobac/m2.py",
+      "line_at_review": 319,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "src/tobac/research/portfolio.py",
+      "line_at_review": 29,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac/research/portfolio.py",
+      "line_at_review": 127,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "src/tobac/research/qualification.py",
+      "line_at_review": 62,
+      "rule": "TRY301",
+      "reason": "Record failure or clean incomplete receipts in the enclosing handler."
+    },
+    {
+      "path": "src/tobac/research/qualification.py",
+      "line_at_review": 74,
+      "rule": "TRY301",
+      "reason": "Record failure or clean incomplete receipts in the enclosing handler."
+    },
+    {
+      "path": "src/tobac/research/qualification.py",
+      "line_at_review": 84,
+      "rule": "BLE001",
+      "reason": "Persist an explicit failing receipt; this path never reports success."
+    },
+    {
+      "path": "src/tobac/research/qualification.py",
+      "line_at_review": 99,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "src/tobac/research/runner.py",
+      "line_at_review": 70,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "src/tobac/research/runner.py",
+      "line_at_review": 70,
+      "rule": "PLR0912",
+      "reason": "Keep explicit fail-closed validation branches together."
+    },
+    {
+      "path": "src/tobac/research/runner.py",
+      "line_at_review": 70,
+      "rule": "PLR0915",
+      "reason": "Keep the declared numerical/report sequence visible and ordered."
+    },
+    {
+      "path": "src/tobac/research/runner.py",
+      "line_at_review": 380,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "src/tobac/research/staged.py",
+      "line_at_review": 31,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "src/tobac/research/staged.py",
+      "line_at_review": 119,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "src/tobac/research/staged.py",
+      "line_at_review": 136,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "src/tobac/research/voiage_adapter.py",
+      "line_at_review": 66,
+      "rule": "PLC0415",
+      "reason": "Keep optional dependencies and backend selection lazy."
+    },
+    {
+      "path": "src/tobac/run.py",
+      "line_at_review": 47,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "src/tobac/run.py",
+      "line_at_review": 47,
+      "rule": "PLR0915",
+      "reason": "Keep the declared numerical/report sequence visible and ordered."
+    },
+    {
+      "path": "src/tobac/run.py",
+      "line_at_review": 47,
+      "rule": "FBT001",
+      "reason": "Preserve the established public positional flag convention."
+    },
+    {
+      "path": "src/tobac/run.py",
+      "line_at_review": 47,
+      "rule": "FBT002",
+      "reason": "Preserve the established public positional flag convention."
+    },
+    {
+      "path": "src/tobac/run.py",
+      "line_at_review": 299,
+      "rule": "T201",
+      "reason": "CLI emits the requested structured result on stdout."
+    },
+    {
+      "path": "src/tobac/supply.py",
+      "line_at_review": 20,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "src/tobac/supply.py",
+      "line_at_review": 20,
+      "rule": "PLR0917",
+      "reason": "Preserve the established positional calling convention."
+    },
+    {
+      "path": "src/tobac_supply/consumption_ledger.py",
+      "line_at_review": 31,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac_supply/consumption_ledger.py",
+      "line_at_review": 73,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac_supply/consumption_ledger.py",
+      "line_at_review": 105,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "src/tobac_supply/consumption_ledger.py",
+      "line_at_review": 142,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac_supply/empirical_longitudinal.py",
+      "line_at_review": 171,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac_supply/empirical_longitudinal.py",
+      "line_at_review": 254,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "src/tobac_supply/empirical_longitudinal.py",
+      "line_at_review": 254,
+      "rule": "PLR0917",
+      "reason": "Preserve the established positional calling convention."
+    },
+    {
+      "path": "src/tobac_supply/empirical_longitudinal.py",
+      "line_at_review": 307,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "src/tobac_supply/longitudinal.py",
+      "line_at_review": 31,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac_supply/longitudinal.py",
+      "line_at_review": 46,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac_supply/longitudinal.py",
+      "line_at_review": 66,
+      "rule": "C901",
+      "reason": "Keep ordered model validation and report assembly in one visible operation."
+    },
+    {
+      "path": "src/tobac_supply/longitudinal.py",
+      "line_at_review": 306,
+      "rule": "PLR0913",
+      "reason": "Preserve explicit dimensioned inputs and the established API."
+    },
+    {
+      "path": "src/tobac_supply/longitudinal.py",
+      "line_at_review": 306,
+      "rule": "PLR0917",
+      "reason": "Preserve the established positional calling convention."
+    },
+    {
+      "path": "src/tobac_supply/release_calibration.py",
+      "line_at_review": 36,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac_supply/release_calibration.py",
+      "line_at_review": 49,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac_supply/release_calibration.py",
+      "line_at_review": 81,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    },
+    {
+      "path": "src/tobac_supply/release_calibration.py",
+      "line_at_review": 134,
+      "rule": "TRY004",
+      "reason": "Retain the established ValueError domain-validation contract."
+    }
+  ]
+}
