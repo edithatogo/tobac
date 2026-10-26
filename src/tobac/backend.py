@@ -22,7 +22,7 @@ def evpi(problem: DecisionProblem, *, backend: str = "numpy") -> float:
     if backend != "jax":
         msg = "Unsupported numerical backend"
         raise ValueError(msg)
-    if importlib.metadata.version("voiage") != "2.2.0+tobac3151.1":
+    if importlib.metadata.version("voiage") != "2.2.0+tobac3151.2":
         msg = "Unqualified Voiage artifact for optional JAX EVPI"
         raise RuntimeError(msg)
     jax = importlib.import_module("jax")

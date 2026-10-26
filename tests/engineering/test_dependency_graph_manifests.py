@@ -56,3 +56,16 @@ def test_canonical_pins_are_unique_and_satisfy_declared_runtime_dependencies():
     for text in declared:
         requirement = Requirement(text)
         assert pins[canonicalize_name(requirement.name)] in requirement.specifier
+
+
+@pytest.mark.parametrize('manifest', ['voiage.in', 'ecosystem.in'])
+def test_polars_profile_pin_matches_canonical_requirement(manifest):
+    """An optional profile must not silently restore an older Polars runtime."""
+    def polars_pin(path):
+        requirements = [Requirement(line) for line in path.read_text().splitlines()
+                        if line and not line.startswith(('#', '-'))]
+        return [str(item.specifier) for item in requirements
+                if canonicalize_name(item.name) == 'polars']
+    canonical = polars_pin(ROOT / 'engineering/reference-requirements.txt')
+    assert len(canonical) == 1
+    assert polars_pin(ROOT / 'engineering' / manifest) == canonical
