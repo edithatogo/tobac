@@ -10,7 +10,7 @@
     "engineering/audit.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/engineering/ecosystem/final-locks/audit.lock",
+    "outputs/engineering/lock-candidate-audit/audit.lock",
     "--python-version",
     "3.15",
     "--python-platform",
@@ -20,13 +20,13 @@
   "inputs": {
     "pyproject.toml": "28db7f635d91795e08924196fa6afa88b7443d59d7552df25fa7e0b6d5ed5ce2",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
-    "engineering/reference-requirements.txt": "c588f37fa1d78fad9ce2020a6821e665cff6a215971ad3de707df2b08de667c9",
+    "engineering/reference-requirements.txt": "8e9d6e68c7a9094575646e73588c66ac4c619b68b3c8f266b048d144e7e0733f",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
     "engineering/test-requirements.txt": "2265388fba38b42c2477fe9e55b36d9c536a86c04bbd0f00dfad3f1c644ebfe8",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/audit.in": "7b149445a2ccf7a2417a4668a29a8dd6e927bbcef081de86b50c2450e22304f9",
     "engineering/tools-requirements.txt": "5d0cb084f15b643a24edaa6b2cfb4b0315fdcbdd605b00d40cda249b89230761"
   },
-  "lock_sha256": "d898a4ab1c137fb0a6835042aa6c92c3b6247eb378ac021157040862eeb3a36d",
+  "lock_sha256": "bf8835b7c6978a77422f0128986de623397828eab9d1df83c88c5124b0ba5b07",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
