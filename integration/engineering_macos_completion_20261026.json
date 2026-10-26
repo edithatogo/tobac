@@ -218,7 +218,87 @@
     "integration/dependency_graph_20261026.json"
   ],
   "closeout_checks": {
-    "current_head_hosted": "pending PR checks before merge",
+    "current_head_hosted": {
+      "status": "success",
+      "head_commit": "0564658e795cdf117519388adb199e15e76f3b78",
+      "checks": [
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289854708/job/121462085954",
+          "name": "macOS Python 3.15.1 qualification",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289854708/job/121462085680",
+          "name": "Tests macos-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289854812/job/121462086277",
+          "name": "voiage-parity",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289854855/job/121462086506",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289854708/job/121462085273",
+          "name": "quality",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289854855/job/121462087193",
+          "name": "voiage-released-parity",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289854812/job/121462086564",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289854708/job/121462085654",
+          "name": "Tests ubuntu-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289854720/job/121462085509",
+          "name": "longitudinal",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289854708/job/121462085524",
+          "name": "Tests windows-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289854812/job/121462086536",
+          "name": "sourceright",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289643576/job/121461415420",
+          "name": "voiage-parity",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289643576/job/121461415042",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289643680/job/121461415466",
+          "name": "longitudinal",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40289643576/job/121461415364",
+          "name": "sourceright",
+          "state": "SUCCESS"
+        }
+      ]
+    },
     "conductor_track_names": "9/9 consistent",
     "metadata_and_evidence_links": "validated",
     "focused_context_harness_tests": "26 passed",
@@ -226,7 +306,11 @@
     "source_scope": "documentation/status only; code, workflows, tests, dependency inputs and locks unchanged"
   },
   "publication": {
-    "status": "pending guarded merge"
+    "status": "merged",
+    "pull_request": "https://github.com/edithatogo/tobac/pull/37",
+    "merge_commit": "19dc67653dfb844777c80dfe58076b790d0e88f1",
+    "receiving_ref": "refs/heads/main",
+    "post_merge_checks": "Verify receiving main head independently; this receipt records the completed PR checks."
   },
   "base_artifacts": {
     "outputs/engineering/closeout-base-tests.log": {

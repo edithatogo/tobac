@@ -36,5 +36,11 @@
     "external_references_verified": 40,
     "all_full_sha": true
   },
-  "deferred_scope": "Linux/Windows qualification and advisory expansion remain in conductor/roadmap.md"
+  "deferred_scope": "Linux/Windows qualification and advisory expansion remain in conductor/roadmap.md",
+  "completion_publication": {
+    "pull_request": 37,
+    "merge_commit": "19dc67653dfb844777c80dfe58076b790d0e88f1",
+    "pr_head_checks": "15/15 passed",
+    "receipt": "integration/engineering_macos_completion_20261026.json"
+  }
 }
