@@ -53,3 +53,9 @@ The bounded macOS changes preserve reference scientific inputs and reuse the exi
 ---
 
 Review performed sequentially by the implementing agent under conductor-review; it is not independent scientific endorsement. The >300-line iterative review was authorised by the user's autonomous implementation/review instruction. Files were reviewed by responsibility: parameter/model boundary, backend/interchange probe, replay/recovery, clean package, security/workflow, tests and Conductor. Existing completed-track specifications and retained reviews were read before archival. No source value, prior, likelihood or published result was recalibrated. Disk exhaustion and initial failed checks remain in local evidence.
+
+## Native receiving-ref follow-up review
+
+The managed root graph parser rejects Python 3.15 (upstream issue 16524). The supported additive snapshot helper was reviewed as a <300-line change: exact interpreter/HEAD/committed-lock checks, no inferred dependency edges, trusted job-only API permission and preserved existing settings. Six new cases and affected graph/lock/workstream checks pass. API branch acceptance is distinct from default-branch graph readback.
+
+A Windows PR failure exposed a mutation freshness clock-domain mismatch. A deterministic regression reproduces a wall clock ahead of file timestamps. Preparation now records filesystem time, retaining cached-output removal, source/tool hashes, stale-result rejection and score/completeness checks. No retry, tolerance window or waiver was added.

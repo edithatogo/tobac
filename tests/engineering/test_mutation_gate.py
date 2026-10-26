@@ -173,3 +173,15 @@ def test_prepare_removes_only_selected_cached_metadata(tmp_path, monkeypatch):
     assert module.main(["--minimum", "60", "--receipt", "receipt.json"]) == 1
     write_meta(tmp_path, {"killed": 1})
     assert module.main(["--minimum", "60", "--receipt", "receipt.json"]) == 0
+
+
+def test_preparation_uses_filesystem_clock_not_higher_precision_wall_clock(tmp_path,monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    source=Path('src/tobac/supply.py');source.parent.mkdir(parents=True);source.write_text('source')
+    module=load()
+    monkeypatch.setattr(module.importlib.metadata,'version',lambda _: 'qualified')
+    # Deterministic reproduction of a wall clock ahead of file timestamp precision.
+    monkeypatch.setattr(module.time,'time_ns',lambda: 10**30)
+    assert module.main(['--prepare','--receipt','receipt.json'])==0
+    write_meta(tmp_path,{'killed':1})
+    assert module.main(['--minimum','60','--receipt','receipt.json'])==0

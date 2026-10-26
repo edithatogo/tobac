@@ -22,7 +22,8 @@
     "Mutation statement coverage contaminated branch coverage; isolated per-run storage added",
     "Disk exhaustion interrupted security/package installation; disposable task artifacts removed and actual checks rerun",
     "Nested parameter and security proof validation tightened during review",
-    "Native artifact readback found uv-generated hidden .gitignore in the digest manifest, while upload excludes hidden build metadata; restrict subjects to wheel/sdist/audit SBOM and rerun hosted proof"
+    "Native artifact readback found uv-generated hidden .gitignore in the digest manifest, while upload excludes hidden build metadata; restrict subjects to wheel/sdist/audit SBOM and rerun hosted proof",
+    "Windows PR mutation freshness regression compared filesystem mtime to higher-precision wall time; deterministic regression passes after preparation uses filesystem time, without tolerance or waiver"
   ],
   "hosted": {
     "status": "passed",
@@ -159,7 +160,8 @@
     "scripts/lock_receipt.py": "134693e1938eac19dc52b78f8e5e4a20874ea785ee727045dbf89eec1c35b1cf",
     "noxfile.py": "27eb93d7dd732d0cc1559b73ad272416b10a5b65b6d34d3ece805c9c25cfe831",
     ".github/workflows/engineering.yml": "dee572ca1c35e99369d9bb989a2b6b85e5c02b600955ee5993bb9377627febf0",
-    "scripts/dependency_snapshot.py": "7d22f0168e266afc776ef8cfa1f929c217734fe9928440ec7b921a1caae679ca"
+    "scripts/dependency_snapshot.py": "7d22f0168e266afc776ef8cfa1f929c217734fe9928440ec7b921a1caae679ca",
+    "scripts/check_mutation_score.py": "5eec7f20038b5babb715ef14c091e3a487f8c8b7d3f98f6933b329cd2917e14f"
   },
   "publication": {
     "pull_request": 43,

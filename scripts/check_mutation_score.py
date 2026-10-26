@@ -122,6 +122,10 @@ def main(argv: list[str]) -> int:  # noqa: C901  # Keep ordered model validation
         meta_path.unlink(missing_ok=True)
         args.receipt.parent.mkdir(parents=True, exist_ok=True)
         args.receipt.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
+        # Compare file timestamps in the same clock/precision domain. Windows
+        # file mtimes can lag time.time_ns even for a newly completed write.
+        state["prepared_ns"] = args.receipt.stat().st_mtime_ns
+        args.receipt.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
         return 0
     if args.minimum is None or not math.isfinite(args.minimum) or not 0 <= args.minimum <= MAX_PERCENT:
         parser.error("minimum must be a finite percentage between zero and 100")
