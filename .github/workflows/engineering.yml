@@ -133,3 +133,36 @@ jobs:
             outputs/engineering/clean-package/
           if-no-files-found: error
           retention-days: 14
+
+  dependency_submission:
+    name: Python 3.15.1 resolved dependency graph
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: macos-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
+        with:
+          version: '0.13.5'
+          python-version: '3.15.1'
+          enable-cache: false
+      - name: Verify locks and generate resolved dependency snapshot
+        run: |
+          uv venv --python 3.15.1 .venv-dependency-graph
+          uv pip sync --python .venv-dependency-graph/bin/python --require-hashes engineering/requirements.lock
+          .venv-dependency-graph/bin/python scripts/dependency_snapshot.py --out outputs/dependency-graph/snapshot.json
+      - name: Submit exact snapshot through the supported GitHub API
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/dependency-graph/snapshots" --input outputs/dependency-graph/snapshot.json > outputs/dependency-graph/response.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: python315-dependency-submission
+          path: outputs/dependency-graph/
+          if-no-files-found: error
+          retention-days: 14

@@ -19,7 +19,8 @@
   "verification": "integration/ecosystem/verification_20261026.json",
   "review": "docs/reviews/2026-10-26-conductor-autonomous.md",
   "remaining_gates": [
-    "C3/C4/C6 full producer interchange/migration qualification; Voiage 3.0.0 unpublished"
+    "C3/C4/C6 full producer interchange/migration qualification; Voiage 3.0.0 unpublished",
+    "Managed Dependabot root parser lacks Python 3.15 support; supported additive snapshot route under qualification"
   ],
   "publication": {
     "pull_request": 43,
