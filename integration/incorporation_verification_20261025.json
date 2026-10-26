@@ -61,5 +61,18 @@
     "scripts/verify_prior_work.py": "0bdf3b17870168c787a4682288dc045655c8b06f",
     "tests/incorporation/test_prior_work.py": "e5c7d16269157587c33a6d3addde5327f53bc2e6",
     "integration/prior_work_manifest.json": "58ad07ec78b7cc996a90f54dafebfbd16fd94b00"
-  }
+  },
+  "receiving_commit": "5218d831f8b2452c7937da91ee00bf9b96183b2d",
+  "remote_ref": "refs/heads/integration/incorporation-audit-20261025@5218d83",
+  "archive_comparison": {
+    "executed_at": "5218d831f8b2452c7937da91ee00bf9b96183b2d",
+    "archive_retained_in_repo": false,
+    "interpretation": "The archive comparison was executed at the receiving commit against a locally-held predecessor ZIP. The ZIP is not part of this repository, and the recorded archive_check_command contains a placeholder path, so this result cannot be re-derived here; treat it as an executed-at-the-time claim, not a reproducible gate."
+  },
+  "superseded_by": {
+    "090d07c": "canonicalised one CSL DOI (references.csl.json) within the declared _canonical_doi transform",
+    "193f6bb": "declared the DOI-case normalisation in the manifest and verifier",
+    "note": "The pinned snapshot tree 69ba4384 and helper blobs describe 5218d83. The preserved subtree on current main differs by exactly the tracked DOI case change."
+  },
+  "review_receipt": "integration/incorporation_audit_review_20261026.json"
 }
