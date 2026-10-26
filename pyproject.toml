@@ -15,7 +15,7 @@ pythonpath = ["src"]
 testpaths = ["tests"]
 
 [project.optional-dependencies]
-interchange = ["pyarrow==26.0.0", "polars==1.44.2", "patito==0.8.6", "msgspec==0.22.0"]
+interchange = ["pyarrow==26.0.0", "polars==2.0.0", "patito==0.8.6", "msgspec==0.22.0"]
 longitudinal = ["pandas==3.1.0", "matplotlib==3.11.2"]
 engineering = ["jsonschema==4.26.0"]
 
