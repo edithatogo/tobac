@@ -333,3 +333,11 @@ def moh_workbook(session):
     """Explicit local native-producer verification; no acquisition or source mutation."""
     environment(session)
     session.run('python', 'scripts/qualify_moh_workbook.py', *session.posargs)
+
+
+@nox.session(python='3.15.1')
+def product_reconciliation(session):
+    """Recompute dated source-bound product tables; no source acquisition or conditioning."""
+    environment(session)
+    session.run('python', 'scripts/reconcile_products_2025.py', '--out',
+                'outputs/engineering/product-reconciliation', *session.posargs)

@@ -1,0 +1,122 @@
+{
+  "schema": "tobac.2025-product-assets.v1",
+  "acquisition_receipt_sha256": "e589a7be954ab57ea7d4d80bbd0d4ea58d7290347b3df6164826cae3402c2f3e",
+  "source_set_sha256": "2eca48f4b37007ade6fbe9ce2676e628ce69d50ea930c67cf996f0b1216f7358",
+  "python": "3.15.1",
+  "libraries": {
+    "openpyxl": "3.1.5",
+    "pypdf": "6.21.2",
+    "warcio": "1.8.1"
+  },
+  "raw_objects_committed": false,
+  "sources": [
+    {
+      "id": "asset-1",
+      "issuer": "BAT",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/BAT-Sales-Cigarettes-2025.pdf",
+      "sha256": "5274d4108faf2cbf2527aeb300634591f3f7684aa953f18219751dec214bce98",
+      "warc_sha256": "77d01dc99ce396223495598a444bf691eb644bf88d49feca185c0204b0523e39",
+      "byte_count": 166939,
+      "source_filename": "BAT-Sales-Cigarettes-2025.pdf",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-2",
+      "issuer": "BAT",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/BAT-Sales-RYO-2025.pdf",
+      "sha256": "5c683fe95b250f357d622c5aeb84a31dbbf1d3abf7ac82b983ba10ce41b63430",
+      "warc_sha256": "11ce501418fcb038c7aeb985304355c8a78811928477c9869367ae6969e44eb8",
+      "byte_count": 169796,
+      "source_filename": "BAT-Sales-RYO-2025.pdf",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-3",
+      "issuer": "Imperial",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/Imperial-Tobacco-New-Zealand-Sales-Return-2025.pdf",
+      "sha256": "eb530fe34d5b4094caf2633887e17954d70184ec096f0ddee4a0dfea9f2d1cac",
+      "warc_sha256": "1a474a8b4d5916c88fc334bd417560261b12db08635f16dc091293c4d2db1bac",
+      "byte_count": 539032,
+      "source_filename": "Imperial-Tobacco-New-Zealand-Sales-Return-2025.pdf",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-4",
+      "issuer": "PM",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/Philip-Morris-%28NZ%29-Sales-Return-2025.pdf",
+      "sha256": "5e19d359ac510cde94be0ccf5afd62ea0062850e03b80a95a9b7830244d4ef3f",
+      "warc_sha256": "f100b2b5e1697ee3f2437d491501052ff34b1b5b6460572970f31388f5230d12",
+      "byte_count": 5732643,
+      "source_filename": "Philip-Morris-(NZ)-Sales-Return-2025.pdf",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-5",
+      "issuer": "Havana",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/Havana-House-Sales-2025.pdf",
+      "sha256": "f68ae3e2f9a47d358f3c30e44fc58095daf800cfc7c8f49539d2b94379058dd7",
+      "warc_sha256": "0850f60e808da97157fcd93a6634ad0325ef007a002b298b98bd3e50c39be7fb",
+      "byte_count": 5614954,
+      "source_filename": "Havana-House-Sales-2025.pdf",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-6",
+      "issuer": "BigKiwi",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/Big-Kiwi-Trading-Sales-Return-2025.xlsx",
+      "sha256": "5443f9878e93de30be9b2ddeced7b07e7eae065efa40307d04c67da61f57bc9b",
+      "warc_sha256": "03ba4eff19279697de66040a861962bc84a48d0370b80afbb8915ec413ecdb22",
+      "byte_count": 28392,
+      "source_filename": "Big-Kiwi-Trading-Sales-Return-2025.xlsx",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-7",
+      "issuer": "Canteros",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/Canteros-Limited-Sales-Return-2025.xlsx",
+      "sha256": "6262365ca043a587a1f8b32262243801ba7ee12fd6a564a8f1244b5ead844189",
+      "warc_sha256": "327abd17ed4daaf573e47536f9cd168da8fadd67969d7a5b85c03165a4fbac83",
+      "byte_count": 65071,
+      "source_filename": "Canteros-Limited-Sales-Return-2025.xlsx",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-8",
+      "issuer": "NZTG",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/NZ-Tobacco-Group-Sales-Return-2025.xlsx",
+      "sha256": "d2243b50e6670a9a9bafbc2f4bec863571a320da8bde72dd36ee22b1ca96c6f8",
+      "warc_sha256": "ab0261174260804618b1d2cc4a5b1532a4eb7f66dd3b4ea49224ee40cd0d6f49",
+      "byte_count": 34359,
+      "source_filename": "NZ-Tobacco-Group-Sales-Return-2025.xlsx",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-9",
+      "issuer": "RS",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/R%26S-King-Limited-Sales-Return-2025.xlsx",
+      "sha256": "2fb80ed59b486089e673dac128c7ff45c2b80e972946a9574f85b1e450c790e6",
+      "warc_sha256": "b7d992bda0e467a766eb97bed07322e37640f97f1bbb4b405c54c46c5a362298",
+      "byte_count": 34320,
+      "source_filename": "R&S-King-Limited-Sales-Return-2025.xlsx",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    }
+  ]
+}

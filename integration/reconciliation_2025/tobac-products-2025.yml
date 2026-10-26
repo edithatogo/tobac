@@ -1,0 +1,28 @@
+name: tobac-products-2025
+description: Explicit 2025 product returns for bounded consumer reconciliation; local
+  acquisition only.
+enabled: true
+adapters:
+- web
+schedule: manual
+rights_class: source_specific_review_required
+output_preservation_policy:
+  format: warc_and_manifest
+  compression: none
+  cas_hash_algorithm: sha256
+  retention: permanent_subject_to_rights_review
+publication_policy:
+  huggingface:
+    enabled: false
+  zenodo:
+    enabled: false
+targets:
+- https://www.health.govt.nz/system/files/2026-08/BAT-Sales-Cigarettes-2025.pdf
+- https://www.health.govt.nz/system/files/2026-08/BAT-Sales-RYO-2025.pdf
+- https://www.health.govt.nz/system/files/2026-08/Imperial-Tobacco-New-Zealand-Sales-Return-2025.pdf
+- https://www.health.govt.nz/system/files/2026-08/Philip-Morris-%28NZ%29-Sales-Return-2025.pdf
+- https://www.health.govt.nz/system/files/2026-08/Havana-House-Sales-2025.pdf
+- https://www.health.govt.nz/system/files/2026-08/Big-Kiwi-Trading-Sales-Return-2025.xlsx
+- https://www.health.govt.nz/system/files/2026-08/Canteros-Limited-Sales-Return-2025.xlsx
+- https://www.health.govt.nz/system/files/2026-08/NZ-Tobacco-Group-Sales-Return-2025.xlsx
+- https://www.health.govt.nz/system/files/2026-08/R%26S-King-Limited-Sales-Return-2025.xlsx

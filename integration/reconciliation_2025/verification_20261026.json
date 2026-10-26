@@ -1,0 +1,60 @@
+{
+  "schema": "tobac.product-reconciliation-verification.v1",
+  "date": "2026-10-26",
+  "base_commit": "f55edb1b3aecdfc2c8afc243b8659e69614b2f13",
+  "python": "Python 3.15.1",
+  "scope": "Bounded descriptive product reconciliation; no scientific qualification or live conditioning",
+  "sources": {
+    "assets": 9,
+    "issuers": 8,
+    "measurement_rows": 28,
+    "native_receipt": "integration/reconciliation_2025/native-verification_20261026.json"
+  },
+  "checks": {
+    "full_suite": "808 passed, 4 capability skips; 93% branch-inclusive coverage before final period-identity metadata guard",
+    "final_affected_tests": "70 passed after final period-identity guard, including workstream integration",
+    "strict": "Ruff configured ALL passed; BasedPyright 0 errors, 0 warnings, 0 notes",
+    "reproduction": "Nox reproduce passed; scientific source and inputs unchanged afterwards",
+    "package": "Nox package wheel/sdist build passed; no new clean-install qualification claimed",
+    "conductor": "10/10 names consistent",
+    "hosted": {
+      "status": "pending"
+    }
+  },
+  "failure_history": [
+    "Initial overlapping-channel regression failed, corrected and passed failure-only then full suite",
+    "Final period-identity regression failed, corrected and passed failure-only then all 70 affected tests"
+  ],
+  "local_log_sha256": {
+    "products-final-tests.log": "700e458f08aa4ee6106cb55e5bdf13309eb1f286ac7cf170392e48e82955825c",
+    "products-final-focused.log": "2e9b08a9f1584313ef4a545c019f4ba258b9981ed8d293331b80e88f10556b85",
+    "products-final-typing.log": "56882e01cb80173ef053c4096e4ee43e3123a15f5c0a06715f96988d48fbd91c",
+    "products-milestone.log": "83339ecb3d2852f64645c21418699253ea37650fafdb63a70274f3fcfcff9b30",
+    "products-period-red.log": "a2d2a0eec650f27d4a6853891482510a70b533a4d8fe22d20a8ea55869a9e06c"
+  },
+  "sha256": {
+    "noxfile.py": "8e4a1b6abe42fa14eb609f5855eb0c9039a853a51319787b329a5e4f6d7dbfc6",
+    "scripts/reconcile_products_2025.py": "1ecd1a61744461bbfa1b0bba337e9b1c67287181b90514d3d8ac5b1384175bbd",
+    "scripts/verify_product_assets.py": "cb16c32614ccb6f5d601bf68f4aab1463c559cabfa2e55f200a8d7b1b77859e9",
+    "tests/engineering/test_product_reconciliation.py": "08d38ec19dbe550e8124574aed4417ef7021c41e78fccc1762997e87ee248b1b",
+    "docs/2025_PRODUCT_RECONCILIATION.md": "054ed26a3678d3fd4185baee54606e004dc2a7bcc5be7f5315ce8f55f1ad7266",
+    "integration/reconciliation_2025/extraction-receipt.json": "1b2436e15fc17229e3b411cc40d09a8d88dac2fa6b549119f56e67f9b5025d6c",
+    "integration/reconciliation_2025/generated/report.json": "1f2c39bd96612741fbd479e64767ec2d85fe51d2754ecfd9d38598a77ae54519",
+    "integration/reconciliation_2025/generated/table.csv": "aab7d793565cb19c2e3b2485e3b29401ea35bc5457322020208163e1cd398fde",
+    "integration/reconciliation_2025/native-verification_20261026.json": "aa7cdc8e9317c0566581e883fbeaf4df379d1e48eacfa163668cd570373812b6",
+    "integration/reconciliation_2025/product-extractions.json": "f63896ec4db3134b4f8de20a34f038abef7c8e5b8bb42439d752249bc1122804",
+    "integration/reconciliation_2025/source-assets.json": "42586509ab6760e8c0fe7388df164546ace22d6e7be9a472ba451d2294613657",
+    "integration/reconciliation_2025/tobac-products-2025.yml": "2eca48f4b37007ade6fbe9ce2676e628ce69d50ea930c67cf996f0b1216f7358"
+  },
+  "unchanged_scope": [
+    "src",
+    "data",
+    "results",
+    "dependency locks",
+    ".github workflows",
+    "previous source receipts"
+  ],
+  "national_aggregation_qualified": false,
+  "measurement_parameters_changed": false,
+  "scientific_qualification": false
+}

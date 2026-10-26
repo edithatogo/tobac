@@ -201,3 +201,11 @@ Guide: `docs/MOH_OBSERVATION_PATHWAY.md`; specification and execution receipts a
 
 MOH follow-up PR #40 merged at `160c0a5c53e440d9345ad51efc7dca2a7611bf6c` after 15/15 hosted checks passed.
 Receipt: `integration/archive/moh-pathway-verification_20261026.json`.
+
+### 2025 product-level return reconciliation
+
+Nine source assets for eight listed issuers are captured and locally verified. The 28-row
+consumer table preserves domestic/duty-free/unspecified channels, signed corrections and
+separate ingredient/additive/sales measures. Source year and packet/carton conflicts prevent
+national closure; missing channel quantities and RYO conversion remain unqualified.
+Guide: `docs/2025_PRODUCT_RECONCILIATION.md`; report: `integration/reconciliation_2025/generated/`.
