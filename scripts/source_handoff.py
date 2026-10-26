@@ -125,7 +125,7 @@ def verify_inventory(root: Path, inputs: dict[str, Any]) -> dict[str, Any]:
                 raise ValueError(msg)
     # Do not silently omit files newly added to either maintained input tree.
     actual = {
-        str(p.relative_to(root))
+        p.relative_to(root).as_posix()
         for pattern in ("data/**/*.csv", "evidence/prior_work/**/*.csv")
         for p in root.glob(pattern)
     }

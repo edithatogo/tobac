@@ -25,8 +25,8 @@ def test_input_hashes_rows_and_archive_targets():
     manifest = json.loads((ARCHIVE / 'consumer-inputs.json').read_text(encoding='utf-8'))
     register = json.loads((ARCHIVE / 'source-register.json').read_text(encoding='utf-8'))
     identities = {row['archive_id'] for row in register['sources']}
-    expected = {str(p.relative_to(ROOT)) for p in ROOT.glob('data/**/*.csv')}
-    expected |= {str(p.relative_to(ROOT)) for p in ROOT.glob('evidence/prior_work/**/*.csv')}
+    expected = {p.relative_to(ROOT).as_posix() for p in ROOT.glob('data/**/*.csv')}
+    expected |= {p.relative_to(ROOT).as_posix() for p in ROOT.glob('evidence/prior_work/**/*.csv')}
     assert {row['path'] for row in manifest['inputs']} == expected
     for row in manifest['inputs']:
         path = ROOT / row['path']

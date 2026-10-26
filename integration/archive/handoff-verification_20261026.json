@@ -16,7 +16,8 @@
     "package": "Nox package wheel/sdist build passed; not a new clean-install qualification",
     "nox_source_handoff": "passed on final schema; 28 rows blocked as expected",
     "conductor_track_names": "10/10 consistent",
-    "hosted": "pending exact PR head; not inferred from local checks"
+    "hosted": "First PR head passed macOS tests and other checks except Windows inventory path separators; corrected to POSIX serialization; final head checks pending.",
+    "path_fix": "64 focused tests pass after the path fix; generated real-data report byte-identical"
   },
   "report_status": "blocked",
   "row_count": 28,
@@ -25,7 +26,7 @@
   "source_files_unchanged": true,
   "workflow_and_dependency_files_unchanged": true,
   "sha256": {
-    "scripts/source_handoff.py": "9565897160afa15d03f0840653561de2ea6f9c8a0a640365418a1b5752745aee",
+    "scripts/source_handoff.py": "82db25625391f191164892e82c20a23110e09749d21c34285cdf8723f57309b8",
     "engineering/schemas/observation-handoff.schema.json": "1b41ad6f8572c4a19cec697c1eb7f157b794b42ca5cc2de76c51e48531bdb60c",
     "integration/archive/observation-handoff.json": "1f73838eab9a62b80ddabbd627313a03fdad0862e6ca331a783f5c542aa8ca2e",
     "integration/archive/observation-handoff-report.json": "dcc6f3485f2cacae1c2b168a3db3c07e0fcdae1c146939ab3b34af98022cba83",
@@ -53,5 +54,12 @@
       "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
       "bytes": 19
     }
+  },
+  "first_hosted_failure": {
+    "run": 40295086291,
+    "job": 121479082763,
+    "head": "f76c9421f3de5e9bbd23ff0ebab5ca740d0a8bc5",
+    "error": "Windows path separators caused false incomplete inventory; fixed scanner and inherited test serialization",
+    "log_sha256": "7dea8fb6a18befde6ff8930ad6cec70737a93873e2be64a5aaa7aeb1e9875617"
   }
 }
