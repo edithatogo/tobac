@@ -120,6 +120,17 @@ def qualify(out: Path) -> dict[str, Any]:
             "('a','b'),'score',np.array([.75,.25])))==.75; print(p)"
         )
         run([str(python), "-I", "-c", probe], external)
+        interchange_probe = (
+            "from pathlib import Path; import numpy as np; "
+            "from tobac.evidence import Scope,EvidencePacket; "
+            "from tobac.interchange import to_arrow,to_polars,from_polars,write_ipc,read_ipc; "
+            "s=Scope('NZ','adults','2024-01-01','2024-12-31','counts'); "
+            "p=EvidencePacket('e',('d',),('s',),('a','b'),np.array([0.,-1.]),s,s,'joint'); "
+            "t=to_arrow(p); assert from_polars(to_polars(t)).state_ids==p.state_ids; "
+            "write_ipc(Path('evidence.arrow'),t); "
+            "assert read_ipc(Path('evidence.arrow')).data_ids==p.data_ids"
+        )
+        run([str(python), "-I", "-c", interchange_probe], external)
         shutil.copytree(ROOT / "configs", external / "configs")
         run(
             [str(python), "-I", "-m", "tobac.run", "--quick", "--out", "result"],

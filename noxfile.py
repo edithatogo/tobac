@@ -311,7 +311,8 @@ def voiage(session):
     session.run('uv', 'pip', 'install', '--python', python, '--no-index', str(wheel), external=True)
     session.run('uv', 'pip', 'check', '--python', python, external=True)
     session.run('python', '-m', 'pytest', '-q', 'tests/m3', 'tests/engineering/test_voiage_installed.py',
-                'tests/test_workstream_integration.py')
+                'tests/test_workstream_integration.py', 'tests/engineering/test_evidence_interchange.py')
+    session.run('python', 'scripts/qualify_interchange.py', '--out', str(run / 'interchange'))
     session.run('python', 'scripts/qualify_integrations.py', '--mode', 'voiage',
                 '--out', str(run / 'equal-weight.json'))
     session.run('python', '-m', 'tobac.research.qualification', '--out', str(run / 'weighted.json'))
@@ -329,6 +330,7 @@ def voiage(session):
     receipt_dir.mkdir()
     for name in ['build-receipt.json', 'equal-weight.json', 'weighted.json']:
         shutil.copyfile(run / name, receipt_dir / name)
+    shutil.copytree(run / 'interchange', receipt_dir / 'interchange')
     session.log(f'Voiage receipt: {receipt_dir}')
 
 
@@ -378,6 +380,10 @@ def ecosystem(session):
     session.run('uv', 'pip', 'check', '--python', python, external=True)
     destination = str(OUT / 'ecosystem' / ('native-' + uuid4().hex + '.json'))
     session.run('python', 'scripts/qualify_ecosystem.py', '--out', destination)
+    session.run('python', 'scripts/qualify_interchange.py', '--out',
+                str(OUT / 'interchange' / uuid4().hex))
+    session.run('python', '-m', 'pytest', 'tests/engineering/test_evidence_interchange.py',
+                'tests/test_workstream_integration.py', 'tests/m3')
 
 
 @nox.session(python='3.15.1')
