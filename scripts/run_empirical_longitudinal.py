@@ -488,8 +488,8 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
     summary['period_role']=['historical']*len(primary)+['extrapolation']*len(future_years)
     summary.to_csv(out/'latent_ratio_summary.csv',index=False)
     n=512 if quick else cfg['draws']
-    paths=sample_temporal(fit,primary.time.tolist(),n,cfg['seed'])
-    pd.DataFrame(paths,columns=[f'log_ratio_{y}' for y in primary.year]).to_csv(out/'joint_historical_paths.csv',index_label='path_id')
+    paths=sample_temporal(fit,[float(t) for t in primary['time']],n,cfg['seed'])
+    pd.DataFrame(paths,columns=[f'log_ratio_{y}' for y in primary['year']]).to_csv(out/'joint_historical_paths.csv',index_label='path_id')
     pd.DataFrame({'annual_process_log_sd':spec.process_grid,'posterior_mass':fit.weights}).to_csv(out/'process_sd_posterior.csv',index=False)
     stock_rows: list[dict[str, float | str | int]] = []
     discrepancies: list[dict[str, float | str | int]] = []
@@ -531,7 +531,8 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
             discrepancies.extend(summarise_gap(name, primary, mapped_arrays, 0, 0., 0.))
     pd.DataFrame(stock_rows).to_csv(out/'lawful_stock_ledgers.csv',index=False)
     gaps=pd.DataFrame(discrepancies);gaps.to_csv(out/'signed_discrepancy_sensitivity.csv',index=False)
-    variants=[('primary',primary,spec),
+    variants: list[tuple[str, pd.DataFrame, TemporalSpec]] = [
+              ('primary',primary,spec),
               ('calendar',frames['calendar_replication'],spec),
               ('collection_calendar',frames['documented_collection_sensitivity'],spec),
               ('arithmetic_midpoint',assembled_inputs(table,alignment=cfg['primary_alignment'],
@@ -540,7 +541,8 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
                                                       centre='published_upper_stress'),spec),
               ('lower_centre_stress',assembled_inputs(table,alignment=cfg['primary_alignment'],
                                                       centre='published_lower_stress'),spec),
-              ('exclude_source_2014_arithmetic_issue',primary[primary.year!=2014],spec),
+              ('exclude_source_2014_arithmetic_issue',
+               primary.loc[primary['year']!=2014],spec),
               ('intensity_cv_0',primary,replace(spec,intensity_cv=0)),
               ('intensity_cv_0.2',primary,replace(spec,intensity_cv=.2)),
               ('alignment_cv_0.15',primary,replace(spec,alignment_cv=.15)),
