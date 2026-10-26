@@ -89,3 +89,12 @@ not substituted for the separate Python 3.15.1 profile receipt.
 - [x] Affected/full/macOS checks pass; all 15 hosted PR #33 checks pass.
   Verified receiving commit `f06eed630a8832174328a0472bdcaf55c98a4af9` on main.
   Receipt: `integration/voiage_python315_compatibility_20261026.json`.
+
+## GitHub Dependency Graph manifest discovery
+
+- [x] Preserve exact version pins in a recognized canonical requirements file; retain the
+  legacy install entrypoint and bind the new input in every lock receipt.
+- [x] Verify manifest discovery closure, unchanged versions, all three hash locks, focused/full
+  Python 3.15.1 checks and numerical reproduction.
+- [ ] Publish through a guarded PR and verify a genuine managed Dependency Graph success.
+  Keep all audits, checks and repository security settings intact.
