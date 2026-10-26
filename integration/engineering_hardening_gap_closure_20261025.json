@@ -13,6 +13,14 @@
   },
   "closed_gaps": [
     {
+      "gap": "quality's basedpyright leg never actually checked the runner (vacuous 0 errors locally), and wiring bp_longitudinal.json into quality made that session unachievable",
+      "resolution": "engineering/bp_longitudinal.json now uses an executionEnvironments entry with extraPaths to .nox/quality/lib/python3.13/site-packages, so imports resolve under any ambient interpreter, including Nox's inactive-venv case; reading table/primary columns through the checked DataFrame replaced itertuples attribute access. The strict check was then moved out of the blocking quality session into its own nox -s types_longitudinal session, because pandas ships no py.typed stubs and ~133 reportUnknown* errors cascade from correct code. noxfile.py installs tools-requirements.txt with -U so a stale local tool cannot pass against a newer pin.",
+      "executed": [
+        {"session": "quality", "result": "success", "detail": "ruff E9/F63/F7/F82 pass; ruff strict config on context_bundle pass; basedpyright 0 errors, 0 warnings on engineering/basedpyright.json. Hosted confirmation pending on this head."},
+        {"session": "types_longitudinal", "result": "failure-expected", "detail": "basedpyright on bp_longitudinal.json: 133 strict errors, all reportUnknown* from pandas having no stubs (0 reportMissingImports, 0 reportArgumentType, 0 reportAssignmentType). Not part of quality and not reported green. Closing it requires pandas-stubs in engineering/audit.lock, a reviewed lock regeneration plus receipt."}
+      ]
+    },
+    {
       "gap": "audit sessions (quality, security, strict_all, mutation, profile) unexecutable off Linux",
       "resolution": "noxfile.py gained audit_tools(): Linux keeps the locked audit profile as authoritative; other hosts resolve the same reviewed pins host-natively and log an explicit NATIVE AUDIT ... NOT release qualification banner. environment() keeps its original Linux-only guard, so a direct locked attempt still fails closed.",
       "executed": [
@@ -53,7 +61,7 @@
       "gap": "mutation testing unexecuted",
       "resolution": "mutmut 3.7.0 executed natively on src/tobac/supply.py",
       "result": {"mutants": 128, "killed": 79, "survived": 49, "score_percent": 61.7},
-      "assessment": "the session passes because mutmut enforces no threshold; 49 survivors indicate weak test discrimination on tobac.supply and should not be read as adequate coverage"
+      "assessment": "the session originally passed because mutmut 3.7.0 enforces no threshold; 49 survivors indicate weak test discrimination on tobac.supply and should not be read as adequate coverage. At 2057074 rebase time the session gained scripts/check_mutation_score.py, which reads mutmut's own mutants/<path>.meta exit codes and fails below a floor of 60%, so the same 61.7% result now passes by 1.7 points rather than unconditionally. The floor is a regression alarm, not an adequacy claim: raising it requires working through the 49 survivors."
     }
   ],
   "newly_measured_but_open": [
@@ -86,7 +94,7 @@
     "not_a_lock_defect": true
   },
   "interface_changes": {
-    "noxfile": "audit_tools() helper; quality/strict_all/security/mutation/profile route through it. Linux behaviour unchanged.",
+    "noxfile": "audit_tools() helper; quality/strict_all/security/mutation/profile route through it. Linux behaviour unchanged. Between the record and 2057074 the mutation session also runs scripts/check_mutation_score.py with MUTATION_MINIMUM_PERCENT=60, and engineering/basedpyright.json pins venvPath=../.nox venv=quality so the quality session resolves jsonschema instead of warning.",
     "tests": "tests/engineering/test_execution_contracts.py harness clears TOBAC_REQUIRE_LOCK",
     "repository": ".gitattributes added (LF normalisation); .gitignore excludes .nox/, mutants/, .coverage*",
     "artifacts": "engineering/requirements.lock{,.json} and engineering/audit.lock{,.json} now committed",

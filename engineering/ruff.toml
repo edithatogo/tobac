@@ -8,3 +8,5 @@ ignore = ["D203", "D213", "COM812"]
 # JSON interchange is dynamic; fixed Git argv is deliberately shell-free; readable CLI/errors.
 # Single-file CLI scripts are not packages and carry no copyright header by project convention.
 "**/context_bundle.py" = ["ANN401", "S603", "S607", "TRY003", "EM101", "EM102", "T201", "INP001", "CPY001"]
+# A single-file CLI pass/fail gate: prints its verdict and exits; no shebang install path.
+"**/check_mutation_score.py" = ["EXE001", "CPY001", "T201"]

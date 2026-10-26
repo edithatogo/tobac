@@ -1,5 +1,6 @@
 {
   "track_id": "research_m3_20261025",
+  "title": "M3 research portfolios, implementation and staged decisions",
   "status": "partial",
   "description": "Six approved research-method additions; numerical implementation passed, actual external integration and full hosted qualification pending",
   "base_commit": "886fc08929f8e4e7e34fb6443bbf81545e52c3db",

@@ -43,8 +43,8 @@ def _path(root: Path, name: str) -> Path:
 def build(root: Path, config: dict[str, Any]) -> tuple[dict[str, Any], str]:
     """Create a complete profile or fail; a budget overrun never truncates evidence."""
     schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
-    Draft202012Validator.check_schema(schema)
     # jsonschema ships no type stubs, so its members are Unknown to strict type checking.
+    Draft202012Validator.check_schema(schema)  # pyright: ignore[reportUnknownMemberType]
     Draft202012Validator(schema).validate(config)  # pyright: ignore[reportUnknownMemberType]
     root = root.resolve()
     commit = _git(root, "rev-parse", "HEAD")

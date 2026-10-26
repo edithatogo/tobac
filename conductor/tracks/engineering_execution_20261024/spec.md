@@ -1,4 +1,4 @@
-# Engineering execution follow-through
+# Source-bound dependency and execution qualification
 
 Incorporate the approved library/harness recommendations without replacing scientific code or
 parallel M3 research. Require source-bound genuine dependency locks, separate portable/runtime

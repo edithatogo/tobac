@@ -128,7 +128,7 @@ def lawful_ledger(
     return LawfulLedger(y, r, s, u, v, d, c, basis)
 
 
-def stock_scenario(releases: Iterable[Real], days: Real) -> Array:
+def stock_scenario(releases: Iterable[float], days: float) -> Array:
     """Assumed stock boundaries: opening=first release rate; closings=current rate.
 
     A fixed days-of-supply scenario, not observed stocks. The source's 365-day
