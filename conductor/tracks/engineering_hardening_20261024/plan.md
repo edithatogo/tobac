@@ -79,3 +79,11 @@ external scientific qualification; the open hosted failure is not closed by this
 
 The parallel 916a41e profile attempt is retained in Git history as an uninformative run; it is
 not substituted for the separate Python 3.15.1 profile receipt.
+
+## Voiage Python 3.15.1 compatibility
+
+- [x] Build a locally versioned metadata-only candidate from pinned Voiage 2.2.0 source;
+  preserve implementation, native code and upstream licence. No dependency bypass.
+- [x] Qualify resolver consistency, installed equal/weighted/partition EVPI and Arrow round trips.
+- [x] Replace both incompatible hosted install routes with the same qualified source build.
+- [ ] Run affected/full/macOS checks, merge and verify remaining hosted jobs.

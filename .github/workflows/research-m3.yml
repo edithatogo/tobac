@@ -32,8 +32,8 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
   voiage-released-parity:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+    runs-on: macos-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -43,21 +43,12 @@ jobs:
           version: '0.13.5'
           python-version: '3.15.1'
           enable-cache: false
-      - name: Verify immutable Voiage release wheel
-        run: |
-          mkdir -p outputs/voiage-release
-          curl --fail --location --retry 2 https://github.com/edithatogo/voiage/releases/download/v2.2.0/voiage-2.2.0-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl -o outputs/voiage-release/voiage-2.2.0-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-          echo '8eb3ba00ec24efcc2f8213141a0343456f28a4cfa8ae25ca9d5d19ad4effe119  outputs/voiage-release/voiage-2.2.0-cp312-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl' | sha256sum -c -
-      - name: Isolated installed-release qualification, not a reference hash-lock claim
-        run: |
-          uv venv --python 3.15.1 .venv-voiage
-          uv pip install --python .venv-voiage/bin/python outputs/voiage-release/*.whl
-          uv pip check --python .venv-voiage/bin/python
-          PYTHONPATH=src .venv-voiage/bin/python -m tobac.research.qualification --out outputs/m3_voiage.json
+      - name: Build and qualify pinned Voiage Python 3.15.1 compatibility candidate
+        run: uvx --python 3.15.1 --from nox==2026.10.20 nox -s voiage
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
           name: m3-actual-voiage-parity
-          path: outputs/m3_voiage.json
+          path: outputs/engineering/voiage-receipts-*/
           if-no-files-found: warn
           retention-days: 14
