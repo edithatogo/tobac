@@ -14,3 +14,11 @@
 
 The pinned vendor/conductor submodule is upstream tooling, not these project plans. Its host
 checkout/activation must be verified separately. No automatic background worker is installed.
+
+## Actions pinning decision — 26 October 2026
+
+Retain full 40-character commit-SHA references for external GitHub Actions and
+reusable workflows. The generated tag-based Actions-lock proposal is rejected and
+closed; do not trade these immutable references for mutable tags to adopt a lockfile.
+Version updates remain reviewable changes to full-SHA references. Existing security
+checks, dependency locks, audits and failure policies remain required.

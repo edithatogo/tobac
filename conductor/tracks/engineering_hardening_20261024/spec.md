@@ -8,5 +8,5 @@ Do not invent locks, executed statuses, external scientific validation, empirica
 
 Publication must preserve the current base tree and pass affected/cross-workstream tests.
 Current engineering development is macOS-focused. Hosted macOS and maximal strict qualification
-remain open until actual runs are inspected; Linux/Windows and other non-macOS qualification is
+are complete for the inspected scope in `integration/engineering_macos_completion_20261026.json`; Linux/Windows and other non-macOS qualification is
 deferred to `conductor/roadmap.md`.

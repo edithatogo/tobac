@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 INPUTS = (
     "pyproject.toml",
     "requirements.lock",
+    "engineering/reference-requirements.txt",
     "engineering/requirements.in",
     "engineering/test-requirements.txt",
     "engineering/build-requirements.txt",
@@ -26,6 +27,7 @@ INPUTS = (
 PROFILES = {
     "runtime": ("engineering/requirements.in", "requirements.lock"),
     "audit": ("engineering/audit.in", "audit.lock"),
+    "voiage": ("engineering/voiage.in", "voiage.lock"),
 }
 
 
@@ -65,6 +67,8 @@ def input_hashes(root: Path, profile: str) -> dict[str, str]:  # noqa: C901  # K
     paths = INPUTS + (
         ("engineering/audit.in", "engineering/tools-requirements.txt") if profile == "audit" else ()
     )
+    if profile == "voiage":
+        paths += ("engineering/voiage.in", "engineering/voiage-build-requirements.txt")
     snapshots = {name: digest(safe_path(root, Path(name))) for name in paths}
     # Closed input profile: a new include needs an explicit addition here, not silent reuse.
     for name in paths:

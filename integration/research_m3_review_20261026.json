@@ -1,0 +1,46 @@
+{
+  "schema": "tobac.review-qualification.v1",
+  "date": "2026-10-26",
+  "review_of_track": "research_m3_20261025",
+  "reviewed_at_main": "d1d3272cae462d0c2d1eea49eb9fb7a0736861d8",
+  "verdict": "0 critical, 0 high, 1 medium, 4 low. M3-owned paths (src/tobac/research, tests/m3, results/milestone3) were reviewed read-only and NO changes were made to them; findings are recorded for the M3 workstream to action on issue #1.",
+  "verified_supported_claims": [
+    "six approved research-method additions implemented in src/tobac/research with tests/m3 coverage",
+    "162 scoped tests pass (70+18+11+2 regulatory, 26 cross-workstream, 35 M3/preservation); 35/35 in tests/m3",
+    "full run reproduces invariant_count=2105, scenario_decisions=45, designs=12, reference_states=12288",
+    "refinement quick run reproduces invariant_count=81, scenario_decisions=1, designs=12, reference_states=20480",
+    "24-file hashed archive restores; archive SHA-256 6249990f... matches report.md and the manifest; all part and output hashes verify",
+    "mutation probes 10/12 caught; the 2 misses are coverage gaps listed below, not demonstrated defects",
+    "voiage blocked (not installed in the reviewed interpreter); wheel SHA-256 pin verified against the live GitHub release asset",
+    "explicit negatives hold: no current empirical posterior, quote, full scientific replay or independent review is claimed",
+    "track commit fa39fd36 sits directly on receiving base 5218d83 and touched no shared numerical module"
+  ],
+  "findings_for_m3_workstream": [
+    {
+      "id": "M3-M1", "severity": "medium",
+      "summary": "results/milestone3/report.md's documented restore-then-verify path fails at current main: scripts/unpack_m3_results.py restores the 24 files, but scripts/verify.py outputs/m3_saved/full exits 1 because 5 of 23 pinned input hashes no longer match the tree (src/tobac/regulation.py, run.py, m2.py from the concurrent workstream; and the track's own src/tobac/research/runner.py and qualification.py changed post-publication at 20b10c1 - UTF-8/POSIX portability, numerically a no-op).",
+      "suggestion": "State the pinning ('manifests verify at receiving base 5218d83/fa39fd36') or regenerate the saved archive at HEAD so the documented restore path passes."
+    },
+    {
+      "id": "M3-L1", "severity": "low",
+      "summary": "unchanged_numerical_module_git_blobs list: 8 of 13 still match current main; 5 have drifted. Correct at the reviewed base; stale in the present tense.",
+      "suggestion": "Add the base commit to the section header."
+    },
+    {
+      "id": "M3-L2", "severity": "low",
+      "summary": "Staged 'retain current best action while waiting' branch is only exercised in its degenerate case: forcing baseline=0 produced 0 test failures because every fixture has the prior-best action at index 0.",
+      "suggestion": "Add a fixture whose prior-best action is not index 0 and assert the baseline is retained."
+    },
+    {
+      "id": "M3-L3", "severity": "low",
+      "summary": "The unweighted robust-envelope rejection of scenario_probability is untested: deleting the guard produced 0 test failures.",
+      "suggestion": "Extend test_unweighted_robust_envelope to pass a row containing scenario_probability and assert ValueError."
+    },
+    {
+      "id": "M3-L4", "severity": "low",
+      "summary": "A few tests restate the production identity (structure_only+remaining==joint_perfect, joint_gain==info+implementation+interaction, staged adaptive_enbs recomputed with the same rule); they cannot fail independently.",
+      "suggestion": "Replace at least one restated assertion per case with a hand-computed expected value."
+    }
+  ],
+  "boundary_note": "Per AGENTS.md, M3 owns src/tobac/research and tests/m3. This review changed nothing under those paths; the findings above are a coordination record for the M3 workstream."
+}

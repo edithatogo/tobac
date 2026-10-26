@@ -1,0 +1,222 @@
+{
+  "schema": "tobac.dependency-graph-manifests.v1",
+  "date": "2026-10-26",
+  "base_commit": "f802ebb8104f99a3363514a250a0377344af3825",
+  "original_failed_run": "https://github.com/edithatogo/tobac/actions/runs/40272768074",
+  "cause": "managed fetcher does not follow .lock requirements include; required file absent from fetched checkout",
+  "fix": "one canonical engineering/reference-requirements.txt with root requirements.lock compatibility include",
+  "reference_version_bytes_preserved": true,
+  "reference_sha256": "c588f37fa1d78fad9ce2020a6821e665cff6a215971ad3de707df2b08de667c9",
+  "resolved_version_entries_unchanged": {
+    "runtime": 29,
+    "audit": 91,
+    "voiage": 49
+  },
+  "python_runtime": "3.15.1 unchanged",
+  "local_checks": {
+    "tests": "730 passed, 4 skipped; 93% coverage",
+    "quality": "pass",
+    "whole_source_types": "0 errors, 0 warnings, 0 notes",
+    "reproduce": "pass M1/M2/M3 and longitudinal verification",
+    "installed_voiage": "63 passed plus both equal/weighted probes; hash-installed regenerated profile",
+    "workflow_security": "no findings (13 existing suppressions)",
+    "focused_updated_manifest_and_receipt_tests": "43 passed"
+  },
+  "security_settings_before": {
+    "security_and_analysis": {
+      "dependabot_security_updates": {
+        "status": "disabled"
+      },
+      "secret_scanning": {
+        "status": "disabled"
+      },
+      "secret_scanning_non_provider_patterns": {
+        "status": "disabled"
+      },
+      "secret_scanning_push_protection": {
+        "status": "disabled"
+      },
+      "secret_scanning_validity_checks": {
+        "status": "disabled"
+      }
+    },
+    "visibility": "public"
+  },
+  "hosted": {
+    "status": "success",
+    "managed_run": "https://github.com/edithatogo/tobac/actions/runs/40275206942",
+    "managed_commit": "666dd8c2f266d3ea83c2d606e0d00f606e0c24c0",
+    "managed_job": "update-pip-graph",
+    "managed_job_conclusion": "success",
+    "qualified_pr_head": "8e9bcfdd181a76c1d7fbabee89ca96d1f61cc5b2",
+    "pr_checks": [
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274861586/job/121415351862",
+        "name": "voiage-released-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274861520/job/121415351660",
+        "name": "Tests macos-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274861520/job/121415351605",
+        "name": "Tests ubuntu-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274861520/job/121415351578",
+        "name": "quality",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274861520/job/121415351388",
+        "name": "macOS Python 3.15.1 qualification",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274861586/job/121415351532",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274861520/job/121415351848",
+        "name": "Tests windows-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274861538/job/121415350965",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274861538/job/121415351151",
+        "name": "voiage-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274861561/job/121415351071",
+        "name": "longitudinal",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274861538/job/121415351150",
+        "name": "sourceright",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274855949/job/121415333112",
+        "name": "voiage-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274855949/job/121415332838",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274855949/job/121415333052",
+        "name": "sourceright",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40274855953/job/121415332879",
+        "name": "longitudinal",
+        "state": "SUCCESS"
+      }
+    ],
+    "all_15_pr_checks_passed": true,
+    "macos_full_suite": "731 passed, 4 skipped; 93% coverage"
+  },
+  "artifacts": {
+    "outputs/engineering/graph-local-reference.log": {
+      "sha256": "47a1ba508920f12cc597f599be209e6ebd9e4d156f5efbe05c3ffd5641efbbba",
+      "bytes": 19849
+    },
+    "outputs/engineering/graph-local-voiage.log": {
+      "sha256": "f91b59360187973d2bdcfa6afaeb6f2b17205944a63c8304705252822c59430d",
+      "bytes": 10677
+    },
+    "outputs/engineering/dependency-graph-fetcher-current.rb": {
+      "sha256": "52afd1a2acf13c56cad383959b9e71d8794550cf3c492d782a829eb5eaf9d492",
+      "bytes": 13981
+    },
+    "engineering/requirements.lock": {
+      "sha256": "54c080a6b794367473d6ac97f6e47fac989d37865b5d2ae1fcb8475892f5f581",
+      "bytes": 89725
+    },
+    "engineering/audit.lock": {
+      "sha256": "e5cca81afb7f0bff3379701054f0a0efe3d46db0e95f7d4d7414ad859e10a709",
+      "bytes": 175088
+    },
+    "engineering/voiage.lock": {
+      "sha256": "f42dfe66f89011ba3cddccdfa453dd45de589346bf4fb4f62ad320516f769f62",
+      "bytes": 113807
+    },
+    "outputs/engineering/graph-native-success.log": {
+      "sha256": "494f23adc35fc87c35905681d8522beafc5cdae74d0324f6b8b84683ddfbbe18",
+      "bytes": 77460
+    },
+    "outputs/engineering/graph-sbom-before.json": {
+      "sha256": "5fea4d50b599b9f3a829304dd0e865c143e8689684f965f7cd9114afe52a07e2",
+      "bytes": 31322
+    },
+    "outputs/engineering/graph-sbom-after.json": {
+      "sha256": "7c0537d27289b8b567e5028ddc183aad953cbc7ee68d3e772967181f611c3895",
+      "bytes": 153551
+    },
+    "outputs/engineering/graph-pr-macos-tests.log": {
+      "sha256": "d3dc8ce5c649b6f32b4b2a5aa97c93ea7764af7d8da2363c6f7f21e2ffb0ea1a",
+      "bytes": 37647
+    }
+  },
+  "publication": {
+    "pull_request": "https://github.com/edithatogo/tobac/pull/35",
+    "receiving_commit": "666dd8c2f266d3ea83c2d606e0d00f606e0c24c0",
+    "remote_main_verified": true
+  },
+  "native_graph_readback": {
+    "purls_before": 27,
+    "purls_after": 42,
+    "previous_entries_preserved": true,
+    "added_purls": [
+      "pkg:pypi/click@8.5.0",
+      "pkg:pypi/iniconfig@2.3.0",
+      "pkg:pypi/matplotlib@3.11.2",
+      "pkg:pypi/packaging@26.3",
+      "pkg:pypi/pandas@3.0.6",
+      "pkg:pypi/pluggy@1.6.0",
+      "pkg:pypi/polars@1.44.2",
+      "pkg:pypi/pyarrow@26.0.0",
+      "pkg:pypi/pydantic@2.14.1",
+      "pkg:pypi/pygments@2.20.0",
+      "pkg:pypi/pytest@9.0.3",
+      "pkg:pypi/scikit-learn@1.9.1",
+      "pkg:pypi/typer@0.27.3",
+      "pkg:pypi/typing-extensions@4.16.0",
+      "pkg:pypi/xarray@2026.9.0"
+    ]
+  },
+  "security_settings_after": {
+    "security_and_analysis": {
+      "dependabot_security_updates": {
+        "status": "disabled"
+      },
+      "secret_scanning": {
+        "status": "disabled"
+      },
+      "secret_scanning_non_provider_patterns": {
+        "status": "disabled"
+      },
+      "secret_scanning_push_protection": {
+        "status": "disabled"
+      },
+      "secret_scanning_validity_checks": {
+        "status": "disabled"
+      }
+    },
+    "visibility": "public"
+  },
+  "security_settings_unchanged": true
+}

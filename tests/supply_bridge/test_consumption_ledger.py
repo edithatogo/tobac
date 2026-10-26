@@ -197,3 +197,56 @@ def test_bad_adjustment_shapes_and_metadata(module):
     with pytest.raises(ValueError):module.SupplyBasis(products='')
     with pytest.raises(ValueError):
         module.lawful_ledger([2023],[100],[0,0],basis='tonnes')
+
+
+def test_basis_empty_identity_defaults_are_unattributed(module):
+    basis=module.SupplyBasis()
+    assert basis.source_ids==()
+    assert basis.observation_years==()
+    x=module.lawful_ledger([2023],[100.],[0.,0.],basis=basis)
+    assert x.basis.source_ids==()
+    assert x.basis.observation_years==()
+
+
+@pytest.mark.parametrize('kwargs,field,rule',[
+    ({'source_ids':('s1','s1')},'source_ids','unique'),
+    ({'source_ids':('s1','')},'source_ids','non-empty'),
+    ({'source_ids':(' s1 ','s1')},'source_ids','unique'),
+    ({'source_ids':('s1',1)},'source_ids','strings'),
+    ({'source_ids':['s1']},'source_ids','tuple'),
+    ({'observation_years':(2023,2021)},'observation_years','strictly increasing'),
+    ({'observation_years':(2020,2020)},'observation_years','unique'),
+    ({'observation_years':(2023.0,)},'observation_years','integer'),
+    ({'observation_years':(0,)},'observation_years','calendar'),
+])
+def test_basis_rejects_malformed_identity_declarations(module,kwargs,field,rule):
+    with pytest.raises(ValueError) as excinfo:
+        module.SupplyBasis(**kwargs)
+    message=str(excinfo.value)
+    assert field in message
+    assert rule in message
+
+
+def test_basis_canonicalises_the_declared_identity(module):
+    basis=module.SupplyBasis(source_ids=(' parallel-S08 ',),observation_years=(2012,2013,2023))
+    assert basis.source_ids==('parallel-S08',)
+    assert basis.observation_years==(2012,2013,2023)
+    x=module.lawful_ledger([2023],[100.],[0.,0.],basis=basis)
+    assert x.basis.source_ids==('parallel-S08',)
+    assert x.basis.observation_years==(2012,2013,2023)
+
+
+def test_ledger_basis_distinguishes_sources_conditioning_same_observations(module):
+    # Declared source identity without observation years is documented, not rejected.
+    unattributed_years=module.SupplyBasis(source_ids=('parallel-S08',))
+    assert unattributed_years.observation_years==()
+    assert unattributed_years.source_ids==('parallel-S08',)
+    # Same numbers from the same observation years, different declared source: the
+    # duplicate-conditioning question is now answerable at the ledger layer.
+    a=module.lawful_ledger([2023],[100.],[0.,0.],
+                           basis=module.SupplyBasis(source_ids=('parallel-S08',),observation_years=(2023,)))
+    b=module.lawful_ledger([2023],[100.],[0.,0.],
+                           basis=module.SupplyBasis(source_ids=('forced_other_source',),observation_years=(2023,)))
+    np.testing.assert_array_equal(a.consumption,b.consumption)
+    assert a.basis!=b.basis
+    assert a.basis.source_ids!=b.basis.source_ids
