@@ -20,3 +20,7 @@
 ## Capabilities
 
 -   [Agent Skills](../.agents/skills/)
+
+## Approved planning on implementation hold
+
+- [Scientific ecosystem modernisation](./tracks/scientific_ecosystem_20261025/index.md): do not implement without a new user instruction.

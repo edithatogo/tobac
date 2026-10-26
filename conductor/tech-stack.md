@@ -17,4 +17,3 @@ harden-runner, zizmor-action and gh-action-pip-audit. ty and pyrefly are separat
 BasedPyright and report diagnostics only; prek is the Rust pre-commit runner, not pre-commit
 itself. Renovate's pinGitHubActionDigests preset preserves the existing full-SHA posture. Only a
 generated/reviewed hash lock qualifies a release environment.
-

@@ -149,3 +149,12 @@ PR #25 is being reconciled with the Python 3.15.1 migration. The focused runner 
 against qualified pandas/SciPy/jsonschema stubs and the calling session interpreter. Current
 verification and completion receipts will supersede older counts for this integrated tree.
 Independent review is optional; current development and hosted qualification target macOS.
+
+## Scientific ecosystem modernisation — 25 October 2026
+**Status: approved planning registered; implementation not authorised.**
+Track: `conductor/tracks/scientific_ecosystem_20261025/`.
+GitHub: https://github.com/edithatogo/tobac/issues/22
+
+Approved Conductor registration only; implementation not authorised. Reuses
+existing CI/archive and upstream contracts. No runtime or scientific
+qualification claimed.
