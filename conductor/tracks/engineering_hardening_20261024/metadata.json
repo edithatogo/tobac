@@ -1,7 +1,7 @@
 {
   "track_id": "engineering_hardening_20261024",
   "title": "Library reuse and qualified engineering harness",
-  "status": "macos_local_checks_pass_hosted_macos_pending",
+  "status": "macos_python3151_qualified_pr29_publication",
   "base_commit": "044c9951fb35c1ca020416da587bfa04e01b2967",
   "date": "2026-10-24",
   "updated": "2026-10-26",
@@ -19,7 +19,12 @@
     "nox_tests": "721 passed, 2 skipped; 93% coverage on macOS Python 3.15.1",
     "strict_all": "zero configured Ruff and BasedPyright findings; 175 documented style/API exceptions",
     "mutation": "92/131 killed (70.2%); 39 survivors remain",
-    "hosted_macos": "pending exact reconciled PR head",
+    "hosted_macos": "c645028: 721 passed, 93% coverage; all six engineering sessions pass; mutation 100/131",
     "open_findings": "Actions-lock policy and non-macOS roadmap; optional Voiage runtime/scientific gates remain separate"
+  },
+  "publication": {
+    "pull_request": 29,
+    "receiving_ref": "main",
+    "qualified_commit": "c645028383163aa069937d34e14f8661374b608a"
   }
 }

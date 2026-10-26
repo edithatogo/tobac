@@ -8,7 +8,7 @@
 - [x] Define secure bounded matrix/deep/canary/internal-candidate lanes with maintained tools and full action pins.
 - [x] Attempt real dependency-lock generation; record the uncached/offline failure without a fake lock.
 - [x] Add reviewed context profiles, small agent skill, Conductor project context and pinned upstream gitlink definition.
-- [~] Execute new Nox/Ruff/BasedPyright/Hypothesis/mutation/security/profile tooling in a capable environment.
+- [x] Execute new Nox/Ruff/BasedPyright/Hypothesis/mutation/security/profile tooling in a capable environment.
   - [x] 2026-10-25 at 044c995: real Nox `tests` (495 passed, 91% coverage) and `reproduce`
     (M1/M2/M3/longitudinal, all verifiers pass) executed in **bootstrap** mode.
   - [x] Ruff (both invocations), BasedPyright strict, zizmor and pip-audit executed and **green**
@@ -34,14 +34,14 @@
   - [ ] Official Actions transitive lock **rejected on review**: `gh actions-lock` produced
     `actions.lock` but only by replacing all 37 full-SHA action pins with mutable tags. Adopting
     tag+lockfile pinning is a security-policy decision, so the output was reverted. Open decision.
-- [~] Complete macOS-focused qualification.
+- [x] Complete macOS-focused qualification.
   - [x] Full scientific replay executed locally under the reviewed lock (verification/integrity only).
   - [x] `package` now succeeds under the reviewed lock; wheel install/import verified.
   - [x] Windows hosted failure root-caused to CRLF checkout changing hashed evidence bytes; fixed
     with `.gitattributes` (`* text=auto eol=lf`, `evidence/** -text`).
   - [x] Release-gate hermeticity defect found and fixed: three contract tests failed under
     `TOBAC_REQUIRE_LOCK=1` because the fixture inherited the release flag with an empty ROOT.
-  - [ ] Post-migration hosted macOS qualification is not obtained.
+  - [x] Post-reconciliation macOS hosted qualification obtained at c645028 (PR #29).
     Non-macOS qualification is deferred to `conductor/roadmap.md`.
 - [x] 2026-10-26 Python 3.15.1 locked local qualification: 611 tests passed (90% coverage),
   scientific reproduction and longitudinal output verification passed, package build and clean
@@ -51,7 +51,7 @@
   errors across all source and CLI modules on the same Python 3.15.1 interpreter.
   See `docs/engineering/LINT_POLICY.md`: 175 explicit style/API exceptions are recorded
   separately from code corrections. No whole-project type diagnostics were disabled.
-- [ ] Confirm post-reconciliation hosted macOS qualification and guarded publication.
+- [x] Confirm hosted macOS qualification at c645028; publish through expected-head guarded PR #29.
 - [ ] Official Actions-lock policy decision remains open; existing full-SHA pins are retained.
   Linux/Windows qualification remains in the roadmap.
 
@@ -69,8 +69,11 @@ external scientific qualification; the open hosted failure is not closed by this
 - [x] Fresh source/tool-bound mutation run and repeat run verified; detection improved from
   79/131 to 92/131 (70.2%), with 39 survivors retained as a coverage limitation.
 - [x] Local integrated Nox checks, runtime boundaries and clean wheel import verified.
-- [ ] Hosted macOS qualification against the final PR head.
-- [ ] Commit final receipts, reconcile remote main, merge and verify receiving commit.
+- [x] Hosted macOS qualification at c645028: 721 passed, 93% coverage; all six
+  engineering sessions pass; hosted mutation 100/131 killed (76.3%).
+  Final documentation-only PR head must retain passing macOS checks before merge.
+- [x] Commit final receipts and reconcile remote main through 8f9b98f.
+- [ ] Merge PR #29 after current-head macOS checks; verify its receiving commit on main.
 
 The parallel 916a41e profile attempt is retained in Git history as an uninformative run; it is
 not substituted for the separate Python 3.15.1 profile receipt.

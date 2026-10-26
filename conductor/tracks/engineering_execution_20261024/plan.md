@@ -18,7 +18,7 @@
   - [x] Whole-source `strict_all` passes after PR #25 reconciliation; explicit style/API
     exceptions and optional-library static contracts are documented in LINT_POLICY.md.
   - Non-macOS platform-matrix qualification is deferred to `conductor/roadmap.md`.
-- [ ] Confirm post-migration hosted macOS checks from actual annotations; diagnose any failure
+- [x] Confirm hosted macOS tests and engineering sessions at c645028 (PR #29); diagnose any failure
   without weakening gates. Non-macOS hosted-runner diagnosis is deferred to the roadmap.
 
 Publication receipt is the final receiving commit recorded in the local track. Local helper/command

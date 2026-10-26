@@ -259,3 +259,11 @@ also inspected and attempted in an isolated macOS environment; it retains SciPy 
 pandas <3 requirements, and pyarrow 25.0.1 has no cp315 wheels. Installation failed. Those
 optional-library probes remain fail-closed; this is a genuine upstream qualification blocker,
 not a passing macOS reference check or permission to bypass dependency metadata.
+
+Hosted macOS qualification is now obtained at `c645028` in run `40269769566`: the actual Python
+3.15.1 assertion passed, 721 tests passed with two optional-tool skips and 93% coverage, and
+quality/strict_all/reproduce/package/security/mutation all passed. Hosted mutation killed
+100/131 (76.3%), with 31 survivors; local 92/131 remains a separate observation. The final
+receipt-only update publishes through PR #29 after checking its current head. The receiving
+`main` ref and merge commit are readable from that PR. Optional Voiage probes remain blocked;
+this macOS qualification does not claim every hosted job passed.

@@ -67,7 +67,7 @@ status belong to the retained execution receipt.
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
 ## Library reuse and qualified engineering harness
-**Status: [~] PR #25 reconciled; macOS Python 3.15.1 local tests, strict_all, reproduction, package, security and mutation pass. Hosted macOS confirmation pending. Other platforms remain in the roadmap.**
+**Status: [~] PR #25 reconciled; macOS Python 3.15.1 local tests, strict_all, reproduction, package, security and mutation pass. Hosted macOS qualification passes at c645028 (PR #29). Other platforms remain in the roadmap.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
 Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
 Receipt: `integration/engineering_verification.json`; execution receipts:
@@ -82,11 +82,10 @@ Ruff now pass; 175 intentional style/API exceptions are documented separately in
 `docs/engineering/LINT_POLICY.md`. Fresh scoped mutation detection is 92/131 (70.2%), with
 39 surviving mutants remaining a coverage limitation. Original source bytes and numerical
 results remain independently checked. Current qualification receipt:
-`integration/engineering_reconciliation_20261026.json`. Hosted macOS confirmation remains
-pending; Linux/Windows qualification is deferred to `conductor/roadmap.md`.
+`integration/engineering_reconciliation_20261026.json`. Hosted macOS tests and all six engineering sessions pass at c645028; Linux/Windows qualification is deferred to `conductor/roadmap.md`.
 
 ## Source-bound dependency and execution qualification
-**Status: macOS runtime-lock and whole-source strict qualification pass locally; hosted macOS confirmation pending. Linux audit execution and other platforms remain deferred.**
+**Status: macOS runtime-lock and whole-source strict qualification pass locally; hosted macOS qualification passes at c645028 (PR #29). Linux audit execution and other platforms remain deferred.**
 Track: `conductor/tracks/engineering_execution_20261024/`.
 Receipt: `integration/engineering_followthrough.json`; current instructions: `docs/engineering/READINESS.md`.
 This links the source-bound locks, portable/audit environment separation, read-only hosted

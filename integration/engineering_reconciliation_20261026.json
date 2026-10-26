@@ -56,7 +56,34 @@
   },
   "scientific_boundary": "Static optional Voiage contract and labelled protocol-double tests do not qualify the actual optional library. No calibration or empirical claim added.",
   "hosted_macos": {
-    "status": "pending exact PR head"
+    "status": "success",
+    "qualified_head": "c645028383163aa069937d34e14f8661374b608a",
+    "run": "https://github.com/edithatogo/tobac/actions/runs/40269769566",
+    "full_suite": {
+      "passed": 721,
+      "skipped": 2,
+      "coverage_percent": 93,
+      "job_id": 121399850018
+    },
+    "engineering_job": {
+      "status": "success",
+      "job_id": 121399849969,
+      "sessions": [
+        "quality",
+        "strict_all",
+        "reproduce",
+        "package",
+        "security",
+        "mutation"
+      ]
+    },
+    "mutation": {
+      "killed": 100,
+      "total": 131,
+      "survived": 31,
+      "percent": 76.3,
+      "note": "Hosted and local mutation results are retained separately; no assumption that survivor sets are identical."
+    }
   },
   "non_macos": "qualification deferred to conductor/roadmap.md",
   "artifacts": {
@@ -107,6 +134,14 @@
     "outputs/engineering/ruff-update-nox-report.json": {
       "sha256": "248f9b6247c8d63d31f6c89c2ed8b93801cf4960dceeafd7da24c6301e2ac31e",
       "bytes": 770
+    },
+    "outputs/engineering/hosted-macos-tests.log": {
+      "sha256": "bb93c312eeeccd3289af887bafcdc090ba3dfed0ca320cab9b9f94c50efb92ec",
+      "bytes": 37653
+    },
+    "outputs/engineering/hosted-macos-qualification.log": {
+      "sha256": "02360a8f612838aab22474d9adf5ba6147792192707c2ff82f0e4a8cea3d6f89",
+      "bytes": 115381
     }
   },
   "nox_sessions": {
@@ -132,5 +167,10 @@
     "released_2_2_0": "same incompatible SciPy <1.17 and pandas <3 pins; pyarrow25.0.1 has no cp315 wheels; local isolated install failed without changing reference environment",
     "macos_wheel_sha256": "c7c26afe72de58c02a49f0b734fa0f69adf4c8c073a59b71ea888feaa77e1056",
     "action": "retain failing optional-library probes and separate scientific gate; no dependency bypass, downgrade, false success or continue-on-error"
+  },
+  "publication": {
+    "pull_request": "https://github.com/edithatogo/tobac/pull/29",
+    "receiving_ref": "refs/heads/main",
+    "method": "expected-head guarded merge after current-head macOS checks"
   }
 }
