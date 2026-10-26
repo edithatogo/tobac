@@ -376,6 +376,9 @@ def validate_config(cfg: dict[str, Any]) -> None:  # noqa: C901  # Keep ordered 
     if missing:
         msg = f"Configuration is missing required keys: {', '.join(missing)}"
         raise ValueError(msg)
+    if not isinstance(cfg["source_id"], str) or not cfg["source_id"].strip():
+        msg = "source_id must be a non-empty string naming the source the observation rows came from"
+        raise ValueError(msg)
     if cfg["primary_alignment"] not in ALIGNMENTS:
         msg = f"primary_alignment={cfg['primary_alignment']!r} is not one of {ALIGNMENTS}"
         raise ValueError(msg)

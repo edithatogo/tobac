@@ -113,12 +113,13 @@ class SupplyBasis:
         if not isinstance(cast("object", self.duty_free_included), bool):
             msg = "duty_free_included must be boolean"
             raise ValueError(msg)  # noqa: TRY004  # Retain the established ValueError domain-validation contract.
-        if self.source_ids != _source_ids(self.source_ids):
-            msg = "source_ids normalization changed the declared identity"
-            raise ValueError(msg)  # noqa: TRY004  # Retain the established ValueError domain-validation contract.
-        if self.observation_years != _observation_years(self.observation_years):
-            msg = "observation_years normalization changed the declared identity"
-            raise ValueError(msg)  # noqa: TRY004  # Retain the established ValueError domain-validation contract.
+        # Canonicalize the declared identity (whitespace-stripped ids, int-cast
+        # years). The helpers validate before returning, so an invalid declaration
+        # raises rather than being silently amended; the stored form is the unique
+        # canonical spelling, so two spellings of one source cannot declare
+        # distinct identities.
+        object.__setattr__(self, "source_ids", _source_ids(self.source_ids))
+        object.__setattr__(self, "observation_years", _observation_years(self.observation_years))
 
 
 @dataclass(frozen=True)
