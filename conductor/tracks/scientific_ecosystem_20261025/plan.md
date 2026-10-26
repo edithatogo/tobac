@@ -116,10 +116,10 @@ No phase is complete merely because this document exists.
 
 - A: current main/worktrees/PRs and nine upstream issue inventories inspected (gh pagination through 5,000); no duplicate producer change or owner reassignment. PR #19/#20 are closed; PR #41 remains separately owned and planning-only. The directory named voiage had an unexpected remote and was not used as producer authority; the actual installed artifact is hash-bound to the prior source/build receipt.
 - B: actual Python 3.15.1, reference source/data/output baseline, parameter round-trip/schema/isolation/I/O and bounded action/scenario extension tests, full tests and numerical reproduction. Apache-2.0 metadata is aligned; re-resolved lock versions are unchanged. Reference pins remain qualified; optional latest candidates do not replace them automatically.
-- C: actual installed current Voiage EVPI/JAX and strict primitive interchange probes pass. C3/C4/C6 remain open for the full producer/consumer metadata, timestamp, nullable and migration contract. Tested float64 buffer sharing is narrower than a qualified observational interchange. Voiage 3.0.0 is not published; PR #41’s distinct candidate gate is preserved. No competing shared evidence contract is introduced.
+- C: C3/C4/C6 domain interchange is implemented and qualified against Voiage 2.2.0+tobac3151.1. Full source/state/scope/covariance/supply provenance, UTC/null capture times, strict schema/order, lifetime/chunking, logical/physical hashes and retained-v1 rollback checks pass. PR #41 remains a separately owned future migration; no Voiage 3.0 acceptance is inferred.
 - D: weighted/permuted/offset float64 parity, actual CPU device, cold/transfer/warm endpoint and separately compiled public matmul-operand measurements. NumPy remains default; current JAX endpoint is slower, so no surrogate or speculative kernel rewrite is justified. No backend-specific stochastic equivalence is inferred.
 - E: input/model/environment-bound immutable receipts; actual quick M1/M2 interruption/resume versus uninterrupted CSV comparison; real clean installed API/M1 CLI and sdist reconstruction outside checkouts; context required-contract and stale-source gates. Recovery is between stages; partial kernels are retained and rejected for unsafe resume.
-- F: strict reference checks, actual ty/pyrefly/prek, 68/68 bounded gremlins detection, redacted source/script/engineering/workflow secret scans, security-disposition checks and supported pinned macOS audit/provenance jobs. Hosted artifact signing/audit and downstream verification remain pending until actually executed. F6’s non-macOS ARM execution remains in the existing roadmap; no macOS completion claim covers it.
+- F: strict reference checks, actual ty/pyrefly/prek, 68/68 bounded gremlins detection, redacted source/script/engineering/workflow secret scans, security-disposition checks and supported pinned macOS audit/provenance jobs. Prior final-main artifact signing/audit and downstream verification passed; the current publication still requires its own hosted readback. F6’s non-macOS ARM execution remains in the existing roadmap; no macOS completion claim covers it.
 - G: consume existing source/native contracts. No demonstrated current consumer gap warrants Innovate/Kairos/Searchright/AegisArchive adapters or new upstream tracks. This is an evidenced assessment/defer disposition, not an implemented integration. No adapter is added before duplicate-study/lineage tests or producer qualification.
 - H: current local full test/security/package/reproduction and native scopes are in integration/ecosystem/verification_20261026.json. Final-head hosted checks and guarded receiving-ref readback remain pending. Issue #1 is historical context under current AGENTS.md; no comment or independent review is a gate.
 
@@ -137,7 +137,7 @@ recovery log reuse, nested unknown parameters, archive registry validation and m
 
 PR #43 merged at `a9e247416fe71932118ca92b1b04e93cb8e42267` after 15 successful checks and one expected PR-only provenance skip. Trusted dispatch `40315911202` passed all six engineering jobs, including audit/provenance. All four signed subjects passed exact-source/ref/workflow downstream verification. Hosted macOS: 838 passed, four capability skips, 92% coverage; mutmut 102/131 killed. No SLSA level or empirical qualification is inferred.
 
-The remaining C3/C4/C6 producer-interchange items stay unchecked. They must not be archived as complete while the full metadata/nullable/timestamp/migration contract and future Voiage producer remain unqualified. Final receiving-ref checks are read back on GitHub and linked from PR #43.
+At the PR #43 checkpoint C3/C4/C6 remained unchecked. The later close-out below implements the domain contract against the current qualified producer, while retaining PR #41 separately. Final receiving-ref checks are read back on GitHub and linked from PR #43.
 
 ## Managed dependency graph follow-up
 
@@ -178,3 +178,10 @@ receiving-ref verification follow publication; no unexecuted job is called passe
 Only the external managed Dependabot Python 3.15 service gate remains unchecked.
 Do not archive this track as fully complete while that gate remains open. No new
 completed track is awaiting archival; the seven prior archives remain preserved.
+
+Current-main reconciliation also retains pandas 3.1.0, Pygments 2.21.0 and pytest
+9.1.1 from PRs #36/#45/#46. The combined pandas/Pygments checkout passed the full
+880-test/92% suite, strict checks, reproduction, clean-package and security gates.
+A final full suite runs with pytest 9.1.1, and hosted checks qualify the final PR
+head. The root managed parser still fails on Python 3.15 (run 40325526891);
+engineering-directory graph run 40326897087 passed but does not close that root gate.

@@ -1,7 +1,7 @@
 {
   "schema": "tobac.ecosystem-interchange-closeout.v1",
   "implementation_commit": "c347f8289972e87cfe434fa1047f28df2acdc485",
-  "reconciled_main": "1185da1bca2d0a84072287371efbc5c8a608d33b",
+  "reconciled_main": "eded92c62e582fa1995f647504bebb0996fe6882",
   "native": {
     "schema": "tobac.interchange-qualification.v1",
     "status": "passed",
@@ -82,7 +82,22 @@
   "remaining_gate": {
     "upstream_issue": "https://github.com/dependabot/dependabot-core/issues/16524",
     "state_at_readback": "open",
-    "scope": "managed root Dependabot parser Python 3.15 support; supported snapshot submission remains qualified"
+    "scope": "managed root Dependabot parser Python 3.15 support; supported snapshot submission remains qualified",
+    "last_root_managed_failure": 40325526891,
+    "engineering_directory_success_not_root_acceptance": 40326897087
   },
-  "limits": "Software qualification against current Voiage, not empirical calibration or Voiage 3.0 acceptance. Hosted checks pending publication."
+  "limits": "Software qualification against current Voiage, not empirical calibration or Voiage 3.0 acceptance. Hosted checks pending publication.",
+  "reconciliation_commit": "f3d8cfcbb1bf6a600c83ddeb7957a5ec77b0b5dc",
+  "retained_maintenance": {
+    "pandas": "3.1.0",
+    "pygments": "2.21.0",
+    "pytest": "9.1.1",
+    "iniconfig": "2.3.1",
+    "pluggy": "1.7.0"
+  },
+  "reconciled_milestone": {
+    "log_sha256": "4ff6ca898417df57bc3df55f07bcef957a36fc8e5128966671e1d463e188322d",
+    "result": "tests, strict_all, reproduce, clean_package, security passed; pandas 3.1.0/Pygments 2.21.0",
+    "final_pytest911_full_suite": "running before publication; exact-head hosted qualification required"
+  }
 }
