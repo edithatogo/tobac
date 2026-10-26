@@ -251,3 +251,11 @@ coverage/scientific-planning/incorporation-review changes are preserved. The sci
 track remains planning-only. Current execution details are in
 `integration/engineering_reconciliation_20261026.json`; hosted macOS checks remain pending until
 reported there. No optional Voiage runtime or new scientific calibration is claimed.
+
+The subsequent main Ruff 0.17.2 update is retained and its native quality, strict_all and security
+sessions pass. The legacy hosted optional Voiage 2.1.0 probe fails installation on Python 3.15.1:
+its SciPy <1.17 requirement selects an unsupported source build. The released 2.2.0 wheel was
+also inspected and attempted in an isolated macOS environment; it retains SciPy <1.17 and
+pandas <3 requirements, and pyarrow 25.0.1 has no cp315 wheels. Installation failed. Those
+optional-library probes remain fail-closed; this is a genuine upstream qualification blocker,
+not a passing macOS reference check or permission to bypass dependency metadata.
