@@ -17,5 +17,11 @@
     "receiving_commit": "104729a615e19ccf8da2cb52e729d46df624037d",
     "pull_request": 29,
     "qualified_commit": "1f6b375c8a491a395b0e6580a8e567dc921445a9"
+  },
+  "dependency_graph": {
+    "status": "native_success",
+    "receiving_commit": "666dd8c2f266d3ea83c2d606e0d00f606e0c24c0",
+    "run_id": 40275206942,
+    "receipt": "integration/dependency_graph_20261026.json"
   }
 }

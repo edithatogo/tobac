@@ -30,3 +30,12 @@ receiving commit and graph readback are recorded in
 
 Upstream implementation inspected:
 https://github.com/dependabot/dependabot-core/blob/main/python/lib/dependabot/python/shared_file_fetcher.rb
+
+## Verified publication
+
+PR #35 passed all 15 checks before merging at `666dd8c`. The genuine managed
+`update-pip-graph` job passed in run `40275206942`. Native SBOM export increased
+from 27 to 42 package identifiers, adding the missing reference and Voiage
+dependencies while retaining all previous entries. Repository visibility and
+security settings were read back unchanged. The hosted macOS full suite passed
+731 tests with four optional-environment skips at 93% coverage.

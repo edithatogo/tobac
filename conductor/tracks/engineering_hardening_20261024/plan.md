@@ -96,5 +96,7 @@ not substituted for the separate Python 3.15.1 profile receipt.
   legacy install entrypoint and bind the new input in every lock receipt.
 - [x] Verify manifest discovery closure, unchanged versions, all three hash locks, focused/full
   Python 3.15.1 checks and numerical reproduction.
-- [ ] Publish through a guarded PR and verify a genuine managed Dependency Graph success.
+- [x] PR #35 passed all 15 checks and merged at `666dd8c`. Managed Dependency Graph
+  run `40275206942` passed; native SBOM readback grew from 27 to 42 package identifiers
+  with every previous entry retained. Security settings were read back unchanged.
   Keep all audits, checks and repository security settings intact.
