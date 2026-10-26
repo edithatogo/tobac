@@ -1,0 +1,54 @@
+{
+  "schema": "tobac.review-qualification.v1",
+  "date": "2026-10-26",
+  "review_of_track": "incorporation_audit_20261025",
+  "reviewed_at_main": "d1d3272cae462d0c2d1eea49eb9fb7a0736861d8",
+  "verdict_after_fixes": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low_remaining": ["archive member comparison not re-runnable from this repository", "cascade-coupled failure attribution in the negative tests", "compilation claim has no recorded command", "'manuscript submission-ready' clause is governance prose with no mechanical check"]
+  },
+  "verified": [
+    {"claim": "19 preserved files exist and hash-match the manifest", "result": "0 mismatches on current main"},
+    {"claim": "298 CSV data rows and 28 CSL records", "result": "recounted from the actual files, zero mismatch"},
+    {"claim": "snapshot_git_tree 69ba4384 and helper blobs 0bdf3b17/e5c7d162/58ad07ec", "result": "all match commit 5218d83 exactly"},
+    {"claim": "21 scoped tests pass", "result": "21/21 pass"},
+    {"claim": "publication receipt on issue #1", "result": "comment names receiving commit 5218d83 and the guarded expected-head publication"},
+    {"claim": "audit was additive and scoped", "result": "git diff 886fc08..5218d83 = 29 added / 2 modified / 0 deleted, nothing in src/data/configs/results/engineering/CI"},
+    {"claim": "no copied assumption becomes a calibrated parameter etc.", "result": "manifest flags and CSV current-observation guard enforce the first three negatives; the last ('manuscript submission-ready') is intent prose"},
+    {"claim": "remote evidence subtree matches tested local bytes", "result": "true at 5218d83 (origin branch integration/incorporation-audit-20261025@5218d83); the preserved subtree since changed only by the tracked DOI case fix at 090d07c/193f6bb"}
+  ],
+  "findings_and_fixes": [
+    {
+      "severity": "high-before-fix",
+      "summary": "A coordinated file+manifest drift passed all 21 tests: the default verify() is anchored only to the same-tree manifest, and the independent anchors (archive member hashes) were not asserted.",
+      "fix": "test_real_preserved_payload now asserts the verifier's own recount of the ACTUAL files equals the golden total 298 (and 19 files / 28 records), so a file+manifest drift must also break this literal. Verified: duplicating one CSV row and updating the manifest in lockstep now FAILS the test."
+    },
+    {
+      "severity": "high-before-fix",
+      "summary": "The receipt's pinned tree/blob hashes and the archive-comparison claim describe 5218d83 and are stale or unverifiable on current main.",
+      "fix": "Receipt annotated (additive keys only): receiving_commit, remote_ref, archive_comparison (executed-at-5218d83 against a locally-held ZIP not retained in the repo; not re-runnable), superseded_by 090d07c/193f6bb. Pinned historical values kept as recorded."
+    },
+    {
+      "severity": "medium-before-fix",
+      "summary": "Plan item 10 was unchecked although the publication receipt exists; the remote-subtree claim outran the recorded evidence.",
+      "fix": "Plan item ticked with the receiving commit and comment references; tracks.md and the receipt now name the remote ref and the DOI-case follow-up."
+    },
+    {
+      "severity": "medium-before-fix",
+      "summary": "INCORPORATION_STATUS.md said the reference list is 'exact archived record objects', which is no longer exact after the DOI canonicalisation.",
+      "fix": "Prose amended to name the _canonical_doi transform and the two commits; 'every other field exact'."
+    },
+    {
+      "severity": "low-before-fix",
+      "summary": "Parametrized manifest tests asserted only ValueError with no message; test literals duplicated manifest-adjacent constants.",
+      "fix": "Stable expected messages added; totals cross-checked against the manifest and the golden literal rather than only each other."
+    }
+  ],
+  "not_claimed": [
+    "complete predecessor archive migration",
+    "re-running the archive member comparison (ZIP not retained in this repository)",
+    "scientific replay, current-NZ posterior, hosted CI qualification or external review"
+  ]
+}
