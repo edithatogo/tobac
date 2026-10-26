@@ -7,7 +7,7 @@ packaging==26.3
 pluggy==1.7.0
 Pygments==2.20.0
 # Longitudinal runners and tests.
-pandas==3.0.6
+pandas==3.1.0
 matplotlib==3.11.2
 # Engineering contract/property tests, not scientific runtime dependencies.
 jsonschema==4.26.0
