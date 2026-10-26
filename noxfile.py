@@ -326,3 +326,10 @@ def voiage(session):
     for name in ['build-receipt.json', 'equal-weight.json', 'weighted.json']:
         shutil.copyfile(run / name, receipt_dir / name)
     session.log(f'Voiage receipt: {receipt_dir}')
+
+
+@nox.session(python='3.15.1')
+def moh_workbook(session):
+    """Explicit local native-producer verification; no acquisition or source mutation."""
+    environment(session)
+    session.run('python', 'scripts/qualify_moh_workbook.py', *session.posargs)

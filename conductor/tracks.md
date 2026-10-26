@@ -188,3 +188,13 @@ No likelihood, posterior or current-NZ empirical qualification is inferred.
 
 PR #21 merged at `cf8295b5c1b649685ba78f4977ec7f1b5883d1a8` after all 15 checks passed.
 Receipt: `integration/archive/handoff-verification_20261026.json`.
+
+### MOH workbook pathway — 26 October 2026
+
+Native source verification re-executed: retained CAS/WARC fixity, payload/request identity,
+and all 16 workbook/consumer values pass. The dated report closes local source/value gaps
+for those rows and records the supported 2025 national retail-release Scope. Original capture
+time, historical definitions, aggregate duty-free/product coverage, conversion, calibrated
+measurement/covariance and the target catchment/transport remain open. No prior is updated.
+Guide: `docs/MOH_OBSERVATION_PATHWAY.md`; specification and execution receipts are under
+`integration/archive/moh-*`. Companion archive PR #776 publication/recovery remains separate.

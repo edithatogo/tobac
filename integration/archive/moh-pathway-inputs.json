@@ -1,0 +1,21 @@
+{
+  "producer_tool": "tools/verify_tobac_capture.py",
+  "producer_register": "registry/tobac/sources.json",
+  "native_capture_receipt": "build/tobac/20261025-assets/capture.json",
+  "schema": "tobac.moh-pathway-inputs.v1",
+  "native_store": "build/tobac/cas",
+  "qualified_producer_environment": {
+    "python": [
+      3,
+      15,
+      1
+    ],
+    "packages": {
+      "openpyxl": "3.1.5",
+      "warcio": "1.8.1"
+    }
+  },
+  "producer_tool_sha256": "983c314558572ef1c88b424ca72f546674639ec494ee2409b8c1ee8efbebc0f4",
+  "producer_register_sha256": "9f18cf7767df2db7ba42437cea0b92f92db29d53bdc33865aa280a76ea491840",
+  "native_capture_receipt_sha256": "46227cfc16c508ac5a93e9ac1045c50590dbee8cc53508de4eac3109512a8821"
+}

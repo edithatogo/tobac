@@ -1,0 +1,89 @@
+{
+  "schema": "tobac.moh-observation-specification.v1",
+  "source_id": "long-nz-tobacco-tonnes-2025",
+  "source_receipt": "moh-workbook-qualification_20261026.json",
+  "scope": {
+    "geography": "New Zealand retail market",
+    "population": "aggregate manufacturer/importer reported releases; not resident consumption",
+    "unit": "tonnes/year",
+    "years": [
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "calendar_period_2025": "explicit in official 2025 page",
+    "calendar_period_2010_2024": "consumer calendar labels consistent with annual series; original annual definitions not independently re-established",
+    "workbook_product_exclusion": "cigars/cigarillos",
+    "heated_products_2025": "excluded from smoked-tobacco highlights and reported separately",
+    "heated_products_earlier_years": "not independently established",
+    "pipe_tobacco_in_aggregate": "not independently established",
+    "duty_free_included": null,
+    "duty_free_reason": "Returns can include duty-free channels, but aggregation of this workbook has not been reconciled to those returns."
+  },
+  "source_context": {
+    "url": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+    "reviewed_on": "2026-10-26",
+    "page_updated": "2026-08-21",
+    "locators": [
+      "Highlights",
+      "Tonnes of tobacco sold per year",
+      "dataset download"
+    ],
+    "linked_workbook_matches_retained_source_url": true,
+    "context_is_new_review_not_original_capture": true
+  },
+  "conversion": {
+    "total_mass_divided_by_0_7_is_valid": false,
+    "reason": "Aggregate tobacco mass is not a count of factory-made cigarettes plus RYO. Product-specific amounts and conversion definitions are required.",
+    "required": [
+      "separate factory-made cigarette counts",
+      "separate RYO mass",
+      "audited RYO grams-per-stick convention",
+      "pipe and heated-product treatment",
+      "consistent duty-free coverage"
+    ]
+  },
+  "measurement_model": {
+    "status": "specified requirements; not fitted or approved",
+    "observation_equation": "reported_tonnes[t] = compatible_release_mass[t] + shared_reporting_error[t] + period_error[t] + reporting_resolution_error[t]",
+    "compatible_release_mass": "Annual national mass under the same product/channel coverage; not catchment consumption or illicit origin.",
+    "reported_resolution_tonnes": 1,
+    "resolution_status": "integer workbook values; no rounding distribution inferred",
+    "covariance_family_for_qualification": "Sigma = D R D + tau^2 1 1^T; positive D, SPD R and tau >= 0 must be justified, not assumed fitted.",
+    "parameter_values": null,
+    "no_sampling_CI_is_not_zero_measurement_error": true,
+    "existing_numeric_interface": "tobac.supply.release_loglikelihood requires compatible predictions/units and a supplied SPD covariance",
+    "overlapping_periods": "Use allocation A and A Sigma A^T; overlapping aggregates are not independent new data.",
+    "shared_data": "Phyo summaries already reuse MOH returns and NZHS; do not multiply their likelihoods with the same underlying returns.",
+    "calibration_needed": [
+      "source revision/coverage errors",
+      "product/channel reconciliation",
+      "cross-period dependence",
+      "stock and cross-border flow",
+      "source-to-target transport"
+    ]
+  },
+  "remaining_gates": [
+    "original capture timestamp and historical edition",
+    "historical annual definitions",
+    "aggregate duty-free/product reconciliation",
+    "unit conversion",
+    "measurement-error calibration and covariance",
+    "selected target catchment/population and transport"
+  ],
+  "scientific_qualification": false,
+  "automatically_conditions_live_model": false
+}
