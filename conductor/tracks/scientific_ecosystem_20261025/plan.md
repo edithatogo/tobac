@@ -138,3 +138,7 @@ recovery log reuse, nested unknown parameters, archive registry validation and m
 PR #43 merged at `a9e247416fe71932118ca92b1b04e93cb8e42267` after 15 successful checks and one expected PR-only provenance skip. Trusted dispatch `40315911202` passed all six engineering jobs, including audit/provenance. All four signed subjects passed exact-source/ref/workflow downstream verification. Hosted macOS: 838 passed, four capability skips, 92% coverage; mutmut 102/131 killed. No SLSA level or empirical qualification is inferred.
 
 The remaining C3/C4/C6 producer-interchange items stay unchecked. They must not be archived as complete while the full metadata/nullable/timestamp/migration contract and future Voiage producer remain unqualified. Final receiving-ref checks are read back on GitHub and linked from PR #43.
+
+## Managed dependency graph follow-up
+
+- [~] Add and verify the supported Python 3.15.1 resolved-lock snapshot submission route; retain the root managed parser's upstream runtime failure explicitly. Native run 40316535031 supports only through Python 3.14 and cannot satisfy the unchanged package constraint. No check or security setting is waived.

@@ -39,3 +39,29 @@ from 27 to 42 package identifiers, adding the missing reference and Voiage
 dependencies while retaining all previous entries. Repository visibility and
 security settings were read back unchanged. The hosted macOS full suite passed
 731 tests with four optional-environment skips at 93% coverage.
+
+## Root parser boundary and supported submission — 26 October 2026
+
+After PR #43 changed package metadata, the service also attempted the root pyproject.
+Run 40316535031 rejected `>=3.15.1,<3.16`: its service-owned Python manager currently
+supports only through 3.14. This is a genuine managed-service limitation, distinct from
+the earlier engineering include-closure repair. Upstream issue:
+https://github.com/dependabot/dependabot-core/issues/16524.
+
+The project requirement stays Python 3.15.1. No constraint is loosened, manifest hidden,
+security setting disabled, or failing managed job reclassified as successful.
+The existing graph remains readable. GitHub's supported dependency-submission API supplies
+an additive route for resolved dependencies while the managed parser limitation remains open:
+https://docs.github.com/en/rest/dependency-graph/dependency-submission.
+
+`scripts/dependency_snapshot.py` checks its actual interpreter, exact checkout SHA,
+all four lock receipts and each lock's committed bytes. It emits every resolved package
+as an exact PURL, with lock hash and source identity. Unknown dependency edges, directness
+and runtime/development scope are omitted rather than invented. This is a complete resolved
+profile inventory, not an installed-import or scientific qualification claim.
+
+The trusted macOS job hash-syncs the reference environment, creates a new snapshot, submits
+through the supported API and retains the response. Contents write is scoped to that job
+because GitHub requires it for this endpoint; no checkout credential persistence or repository
+settings writes are introduced. All existing audits, graph jobs and alerts remain intact.
+Actual API acceptance and default-branch SBOM readback must be verified independently.
