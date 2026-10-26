@@ -1,0 +1,22 @@
+{
+  "schema": "tobac.2025-extraction-receipt.v1",
+  "date": "2026-10-26",
+  "python": "3.15.1",
+  "methods": [
+    "native archive capture and local CAS/WARC payload/request verification",
+    "openpyxl checked source cells",
+    "pypdf text reviewed volume-column transcriptions",
+    "tesseract OCR followed by visual review for PM pp41/42/58"
+  ],
+  "sha256": {
+    "integration/reconciliation_2025/product-extractions.json": "f63896ec4db3134b4f8de20a34f038abef7c8e5b8bb42439d752249bc1122804",
+    "integration/reconciliation_2025/source-assets.json": "42586509ab6760e8c0fe7388df164546ace22d6e7be9a472ba451d2294613657",
+    "integration/reconciliation_2025/tobac-products-2025.yml": "2eca48f4b37007ade6fbe9ce2676e628ce69d50ea930c67cf996f0b1216f7358",
+    "integration/archive/moh-workbook-qualification_20261026.json": "b26f31443677e90f156cfae6953a05f4fd9a18245b33ba665c33e6f2519985f6",
+    "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+    "integration/reconciliation_2025/native-verification_20261026.json": "aa7cdc8e9317c0566581e883fbeaf4df379d1e48eacfa163668cd570373812b6"
+  },
+  "raw_source_recovery": "consumer-local CAS/WARC retained; not committed or remotely recoverable from Git",
+  "capture_timestamp_status": "native WARC-Date absent; verification date is not a reconstructed header",
+  "manual_review_is_not_independent_endorsement": true
+}

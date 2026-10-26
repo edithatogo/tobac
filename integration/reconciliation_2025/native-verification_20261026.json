@@ -1,0 +1,73 @@
+{
+  "schema": "tobac.product-assets-verification.v1",
+  "verified_at": "2026-10-26T10:02:28.896610+00:00",
+  "python": "3.15.1 (main, Oct 21 2026, 17:39:16) [Clang 23.1.3 ]",
+  "warcio": "1.8.1",
+  "assets": [
+    {
+      "asset_id": "asset-1",
+      "sha256": "5274d4108faf2cbf2527aeb300634591f3f7684aa953f18219751dec214bce98",
+      "warc_sha256": "77d01dc99ce396223495598a444bf691eb644bf88d49feca185c0204b0523e39",
+      "native_capture_timestamp": null,
+      "status": "verified"
+    },
+    {
+      "asset_id": "asset-2",
+      "sha256": "5c683fe95b250f357d622c5aeb84a31dbbf1d3abf7ac82b983ba10ce41b63430",
+      "warc_sha256": "11ce501418fcb038c7aeb985304355c8a78811928477c9869367ae6969e44eb8",
+      "native_capture_timestamp": null,
+      "status": "verified"
+    },
+    {
+      "asset_id": "asset-3",
+      "sha256": "eb530fe34d5b4094caf2633887e17954d70184ec096f0ddee4a0dfea9f2d1cac",
+      "warc_sha256": "1a474a8b4d5916c88fc334bd417560261b12db08635f16dc091293c4d2db1bac",
+      "native_capture_timestamp": null,
+      "status": "verified"
+    },
+    {
+      "asset_id": "asset-4",
+      "sha256": "5e19d359ac510cde94be0ccf5afd62ea0062850e03b80a95a9b7830244d4ef3f",
+      "warc_sha256": "f100b2b5e1697ee3f2437d491501052ff34b1b5b6460572970f31388f5230d12",
+      "native_capture_timestamp": null,
+      "status": "verified"
+    },
+    {
+      "asset_id": "asset-5",
+      "sha256": "f68ae3e2f9a47d358f3c30e44fc58095daf800cfc7c8f49539d2b94379058dd7",
+      "warc_sha256": "0850f60e808da97157fcd93a6634ad0325ef007a002b298b98bd3e50c39be7fb",
+      "native_capture_timestamp": null,
+      "status": "verified"
+    },
+    {
+      "asset_id": "asset-6",
+      "sha256": "5443f9878e93de30be9b2ddeced7b07e7eae065efa40307d04c67da61f57bc9b",
+      "warc_sha256": "03ba4eff19279697de66040a861962bc84a48d0370b80afbb8915ec413ecdb22",
+      "native_capture_timestamp": null,
+      "status": "verified"
+    },
+    {
+      "asset_id": "asset-7",
+      "sha256": "6262365ca043a587a1f8b32262243801ba7ee12fd6a564a8f1244b5ead844189",
+      "warc_sha256": "327abd17ed4daaf573e47536f9cd168da8fadd67969d7a5b85c03165a4fbac83",
+      "native_capture_timestamp": null,
+      "status": "verified"
+    },
+    {
+      "asset_id": "asset-8",
+      "sha256": "d2243b50e6670a9a9bafbc2f4bec863571a320da8bde72dd36ee22b1ca96c6f8",
+      "warc_sha256": "ab0261174260804618b1d2cc4a5b1532a4eb7f66dd3b4ea49224ee40cd0d6f49",
+      "native_capture_timestamp": null,
+      "status": "verified"
+    },
+    {
+      "asset_id": "asset-9",
+      "sha256": "2fb80ed59b486089e673dac128c7ff45c2b80e972946a9574f85b1e450c790e6",
+      "warc_sha256": "b7d992bda0e467a766eb97bed07322e37640f97f1bbb4b405c54c46c5a362298",
+      "native_capture_timestamp": null,
+      "status": "verified"
+    }
+  ],
+  "manifest_sha256": "42586509ab6760e8c0fe7388df164546ace22d6e7be9a472ba451d2294613657",
+  "scope": "local object integrity and request binding; not source interpretation or remote recovery"
+}

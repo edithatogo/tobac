@@ -1,0 +1,29 @@
+id,issuer,product,channel,year,measure,quantity,unit,normalized_quantity,normalized_unit,cigarette_equivalents,included_in_subtotals,issues,source_asset,locator
+BAT-cigarettes-domestic,BAT,factory_made,domestic,2025,sales_volume,323408565,sticks,323408565,sticks,323408565,True,,asset-1,PDF p1 reported total
+BAT-cigarettes-duty-free,BAT,factory_made,duty_free,2025,sales_volume,2100000,sticks,2100000,sticks,2100000,True,,asset-1,PDF p2 reported total
+BAT-ryo-domestic,BAT,ryo,domestic,2024,sales_volume,103.9,tonnes,103.9,tonnes,,False,period_conflict;ryo_conversion_not_qualified_for_2025,asset-2,PDF p1 printed total; document heading 2024
+BAT-ryo-duty-free,BAT,ryo,duty_free,2024,sales_volume,1.5,tonnes,1.5,tonnes,,False,period_conflict;ryo_conversion_not_qualified_for_2025,asset-2,PDF p1 duty-free printed total; document heading 2024
+Imperial-cigarettes-domestic,Imperial,factory_made,domestic,2025,sales_volume,214724.060,thousand_sticks,214724060.000,sticks,214724060.000,True,,asset-3,PDF pp3-4 domestic volume column; 26 rows
+Imperial-ryo-domestic,Imperial,ryo,domestic,2025,sales_volume,69038.22,kg,69.03822,tonnes,,True,ryo_conversion_not_qualified_for_2025,asset-3,PDF p4 domestic RYO volume column; 19 rows
+Imperial-cigarettes-duty-free,Imperial,factory_made,duty_free,2025,sales_volume,3819.0,thousand_sticks,3819000.0,sticks,3819000.0,True,,asset-3,PDF p5 duty-free volume column; 11 rows
+Imperial-ryo-duty-free,Imperial,ryo,duty_free,2025,sales_volume,1703.0,kg,1.7030,tonnes,,True,ryo_conversion_not_qualified_for_2025,asset-3,PDF p5 duty-free RYO volume column; 6 rows
+Imperial-FM-ingredient,Imperial,factory_made,unspecified,2025,ingredient_mass,155784,kg,155.784,tonnes,,True,,asset-3,PDF p2 tobacco weight by product class
+Imperial-RYO-ingredient,Imperial,ryo,unspecified,2025,ingredient_mass,59947,kg,59.947,tonnes,,True,,asset-3,PDF p2 tobacco weight by product class
+PM-cigarettes-domestic,PM,factory_made,domestic,2025,sales_volume,186440785,sticks,186440785,sticks,186440785,True,,asset-4,"PDF p41 Schedule B1(A), all 10 volume cells"
+PM-cigarettes-duty-free,PM,factory_made,duty_free,2025,sales_volume,196000,sticks,196000,sticks,196000,True,,asset-4,"PDF p42 Schedule B1(B), all 7 volume cells"
+PM-ryo-domestic,PM,ryo,domestic,2025,sales_volume,34.69953,tonnes,34.69953,tonnes,,True,ryo_conversion_not_qualified_for_2025,asset-4,"PDF p58 Schedule B4, all 6 volume cells"
+PM-ryo-duty-free,PM,ryo,duty_free,2025,sales_volume,,tonnes,,,,False,not_reported;ryo_conversion_not_qualified_for_2025,asset-4,PDF p58 is explicitly domestic only
+PM-FM-ingredient,PM,factory_made,all_channels,2025,ingredient_mass,134241.52,kg,134.24152,tonnes,,True,,asset-4,PDF p3 ingredient weight including additives; domestic and underbond
+PM-FM-additives,PM,factory_made,all_channels,2025,additive_mass,2187.49,kg,2.18749,tonnes,,True,,asset-4,PDF p3 additive weight
+PM-RYO-ingredient,PM,ryo,all_channels,2025,ingredient_mass,39378.14,kg,39.37814,tonnes,,True,,asset-4,PDF p50 ingredient weight including additives
+PM-RYO-additives,PM,ryo,all_channels,2025,additive_mass,4678.61,kg,4.67861,tonnes,,True,,asset-4,PDF p50 additive weight
+PM-cigarillo-ingredient,PM,cigarillos,all_channels,2025,ingredient_mass,1492.19,kg,1.49219,tonnes,,False,excluded_product,asset-4,PDF p4 separate cigarillo product class
+Havana-weight,Havana,unclassified_smoked,unspecified,2025,all_product_mass,736,kg,0.736,tonnes,,False,product_basis_unresolved,asset-5,PDF p9 total tobacco weight letter
+BigKiwi-ryo-unspecified,BigKiwi,ryo,unspecified,2025,sales_volume,0.0258,tonnes,0.0258,tonnes,,True,channel_unspecified;ryo_conversion_not_qualified_for_2025,asset-6,XLSX RYO tobacco! volume column 4; 3 populated data cells
+Canteros-ryo-unspecified,Canteros,ryo,unspecified,2025,sales_volume,0.00846,tonnes,0.00846,tonnes,,True,channel_unspecified;ryo_conversion_not_qualified_for_2025,asset-7,XLSX RYO tobacco! volume column 6; 1 populated data cells
+Canteros-pipe-unspecified,Canteros,pipe,unspecified,2025,sales_volume,0.17560,tonnes,0.17560,tonnes,,True,channel_unspecified,asset-7,XLSX Pipe tobacco! volume column 6; 96 populated data cells
+NZTG-factory_made-unspecified,NZTG,factory_made,unspecified,2025,sales_volume,5800000,sticks,5800000,sticks,5800000,True,channel_unspecified,asset-8,XLSX Cigarettes! volume column 4; 8 populated data cells
+NZTG-ryo-unspecified,NZTG,ryo,unspecified,2025,sales_volume,3.268,tonnes,3.268,tonnes,,True,channel_unspecified;ryo_conversion_not_qualified_for_2025,asset-8,XLSX RYO tobacco! volume column 4; 5 populated data cells
+RS-cigarettes-table,RS,factory_made,unspecified,2025,sales_volume,3820,packs_20,76400,sticks,,False,channel_unspecified;quantity_conflict,asset-9,XLSX Knight Tobacco!F28:F29 header F25:F27
+RS-cigarettes-note,RS,factory_made,unspecified,2025,sales_volume,3820,cartons_200,764000,sticks,,False,alternative_representation;quantity_conflict,asset-9,XLSX Knight Tobacco!A31
+RS-ryo-unspecified,RS,ryo,unspecified,2025,sales_volume,857.09,kg,0.85709,tonnes,,True,channel_unspecified;ryo_conversion_not_qualified_for_2025,asset-9,XLSX Knight Tobacco!D37:D38; 15633*30g + 7762*50g

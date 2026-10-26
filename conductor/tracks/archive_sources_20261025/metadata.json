@@ -34,5 +34,17 @@
       "qualified_head": "94228c62622dff8a226d251309bfba1293a72e36",
       "hosted_checks": "15/15 passed"
     }
+  },
+  "product_reconciliation": {
+    "status": "local_software_and_native_verification_passed_hosted_pending",
+    "guide": "docs/2025_PRODUCT_RECONCILIATION.md",
+    "report": "integration/reconciliation_2025/generated/report.json",
+    "national_aggregation_qualified": false,
+    "source_conflicts": [
+      "BAT RYO document year",
+      "R&S King packet/carton quantities",
+      "unreported channels and physical mass conversion"
+    ],
+    "verification": "integration/reconciliation_2025/verification_20261026.json"
   }
 }

@@ -1,0 +1,1210 @@
+{
+  "schema": "tobac.product-reconciliation-report.v1",
+  "status": "incomplete_source_conflicts",
+  "rows": [
+    {
+      "id": "BAT-cigarettes-domestic",
+      "issuer": "BAT",
+      "product": "factory_made",
+      "channel": "domestic",
+      "source_asset": "asset-1",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "323408565",
+      "unit": "sticks",
+      "components": [
+        "323408565"
+      ],
+      "locator": "PDF p1 reported total",
+      "method": "reviewed_transcription",
+      "issues": [],
+      "notes": "",
+      "normalized_quantity": "323408565",
+      "normalized_unit": "sticks",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": "323408565",
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "BAT-cigarettes-duty-free",
+      "issuer": "BAT",
+      "product": "factory_made",
+      "channel": "duty_free",
+      "source_asset": "asset-1",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "2100000",
+      "unit": "sticks",
+      "components": [
+        "2100000"
+      ],
+      "locator": "PDF p2 reported total",
+      "method": "reviewed_transcription",
+      "issues": [],
+      "notes": "",
+      "normalized_quantity": "2100000",
+      "normalized_unit": "sticks",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": "2100000",
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "BAT-ryo-domestic",
+      "issuer": "BAT",
+      "product": "ryo",
+      "channel": "domestic",
+      "source_asset": "asset-2",
+      "year": 2024,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "103.9",
+      "unit": "tonnes",
+      "components": [
+        "103.9"
+      ],
+      "locator": "PDF p1 printed total; document heading 2024",
+      "method": "reviewed_transcription",
+      "issues": [
+        "period_conflict",
+        "ryo_conversion_not_qualified_for_2025"
+      ],
+      "notes": "Official 2025 link conflicts with the PDF year; excluded from 2025 subtotals. Rounded reported total retained.",
+      "normalized_quantity": "103.9",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": false,
+      "cigarette_equivalents": null,
+      "data_ids": [],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "BAT-ryo-duty-free",
+      "issuer": "BAT",
+      "product": "ryo",
+      "channel": "duty_free",
+      "source_asset": "asset-2",
+      "year": 2024,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "1.5",
+      "unit": "tonnes",
+      "components": [
+        "1.5"
+      ],
+      "locator": "PDF p1 duty-free printed total; document heading 2024",
+      "method": "reviewed_transcription",
+      "issues": [
+        "period_conflict",
+        "ryo_conversion_not_qualified_for_2025"
+      ],
+      "notes": "",
+      "normalized_quantity": "1.5",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": false,
+      "cigarette_equivalents": null,
+      "data_ids": [],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "Imperial-cigarettes-domestic",
+      "issuer": "Imperial",
+      "product": "factory_made",
+      "channel": "domestic",
+      "source_asset": "asset-3",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "214724.060",
+      "unit": "thousand_sticks",
+      "components": [
+        "-3.22",
+        "18957.22",
+        "8140.44",
+        "6345.6",
+        "10508.25",
+        "6214.925",
+        "5766.3",
+        "39740.22",
+        "11237.82",
+        "5120.58",
+        "60971.780",
+        "9169.86",
+        "14321.05",
+        "2029.1",
+        "1054.1",
+        "626",
+        "1311.92",
+        "-0.2",
+        "-10.825",
+        "-10.175",
+        "7189.02",
+        "414.66",
+        "216.56",
+        "5480.125",
+        "-35.25",
+        "-31.8"
+      ],
+      "locator": "PDF pp3-4 domestic volume column; 26 rows",
+      "method": "reviewed_transcription",
+      "issues": [],
+      "notes": "",
+      "normalized_quantity": "214724060.000",
+      "normalized_unit": "sticks",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": "214724060.000",
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "Imperial-ryo-domestic",
+      "issuer": "Imperial",
+      "product": "ryo",
+      "channel": "domestic",
+      "source_asset": "asset-3",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "69038.22",
+      "unit": "kg",
+      "components": [
+        "11653.23",
+        "10236.45",
+        "10710.96",
+        "1096.53",
+        "2262.96",
+        "1352.15",
+        "9547.53",
+        "2578.68",
+        "2172.18",
+        "8530.74",
+        "2585.65",
+        "923.4",
+        "862.92",
+        "900.25",
+        "747.21",
+        "-11.82",
+        "2149.2",
+        "740.85",
+        "-0.85"
+      ],
+      "locator": "PDF p4 domestic RYO volume column; 19 rows",
+      "method": "reviewed_transcription",
+      "issues": [
+        "ryo_conversion_not_qualified_for_2025"
+      ],
+      "notes": "",
+      "normalized_quantity": "69.03822",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "Imperial-cigarettes-duty-free",
+      "issuer": "Imperial",
+      "product": "factory_made",
+      "channel": "duty_free",
+      "source_asset": "asset-3",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "3819.0",
+      "unit": "thousand_sticks",
+      "components": [
+        "530.8",
+        "358.0",
+        "329.8",
+        "71.6",
+        "30.0",
+        "1339.2",
+        "448.8",
+        "246.2",
+        "286.6",
+        "147.0",
+        "31.0"
+      ],
+      "locator": "PDF p5 duty-free volume column; 11 rows",
+      "method": "reviewed_transcription",
+      "issues": [],
+      "notes": "",
+      "normalized_quantity": "3819000.0",
+      "normalized_unit": "sticks",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": "3819000.0",
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "Imperial-ryo-duty-free",
+      "issuer": "Imperial",
+      "product": "ryo",
+      "channel": "duty_free",
+      "source_asset": "asset-3",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "1703.0",
+      "unit": "kg",
+      "components": [
+        "611.5",
+        "312.5",
+        "223.5",
+        "341.0",
+        "64.5",
+        "150.0"
+      ],
+      "locator": "PDF p5 duty-free RYO volume column; 6 rows",
+      "method": "reviewed_transcription",
+      "issues": [
+        "ryo_conversion_not_qualified_for_2025"
+      ],
+      "notes": "",
+      "normalized_quantity": "1.7030",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "Imperial-FM-ingredient",
+      "issuer": "Imperial",
+      "product": "factory_made",
+      "channel": "unspecified",
+      "source_asset": "asset-3",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "ingredient_mass",
+      "quantity": "155784",
+      "unit": "kg",
+      "components": [
+        "155784"
+      ],
+      "locator": "PDF p2 tobacco weight by product class",
+      "method": "reviewed_transcription",
+      "issues": [],
+      "notes": "Not summed with sales volumes; additive inclusion differs from PM wording.",
+      "normalized_quantity": "155.784",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "Imperial-RYO-ingredient",
+      "issuer": "Imperial",
+      "product": "ryo",
+      "channel": "unspecified",
+      "source_asset": "asset-3",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "ingredient_mass",
+      "quantity": "59947",
+      "unit": "kg",
+      "components": [
+        "59947"
+      ],
+      "locator": "PDF p2 tobacco weight by product class",
+      "method": "reviewed_transcription",
+      "issues": [],
+      "notes": "",
+      "normalized_quantity": "59.947",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "PM-cigarettes-domestic",
+      "issuer": "PM",
+      "product": "factory_made",
+      "channel": "domestic",
+      "source_asset": "asset-4",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "186440785",
+      "unit": "sticks",
+      "components": [
+        "26982400",
+        "18128700",
+        "110485800",
+        "1471125",
+        "1283700",
+        "8869900",
+        "9694800",
+        "1097680",
+        "3634320",
+        "4792360"
+      ],
+      "locator": "PDF p41 Schedule B1(A), all 10 volume cells",
+      "method": "OCR_assisted_visual_transcription",
+      "issues": [],
+      "notes": "",
+      "normalized_quantity": "186440785",
+      "normalized_unit": "sticks",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": "186440785",
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "PM-cigarettes-duty-free",
+      "issuer": "PM",
+      "product": "factory_made",
+      "channel": "duty_free",
+      "source_asset": "asset-4",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "196000",
+      "unit": "sticks",
+      "components": [
+        "8000",
+        "8000",
+        "40000",
+        "60000",
+        "30000",
+        "30000",
+        "20000"
+      ],
+      "locator": "PDF p42 Schedule B1(B), all 7 volume cells",
+      "method": "OCR_assisted_visual_transcription",
+      "issues": [],
+      "notes": "",
+      "normalized_quantity": "196000",
+      "normalized_unit": "sticks",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": "196000",
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "PM-ryo-domestic",
+      "issuer": "PM",
+      "product": "ryo",
+      "channel": "domestic",
+      "source_asset": "asset-4",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "34.69953",
+      "unit": "tonnes",
+      "components": [
+        "2.13372",
+        "2.74221",
+        "17.39268",
+        "0.73341",
+        "0.75489",
+        "10.94262"
+      ],
+      "locator": "PDF p58 Schedule B4, all 6 volume cells",
+      "method": "OCR_assisted_visual_transcription",
+      "issues": [
+        "ryo_conversion_not_qualified_for_2025"
+      ],
+      "notes": "First cell visually verified 2.13372; OCR initially misread 2.18372. No duty-free RYO schedule observed.",
+      "normalized_quantity": "34.69953",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "PM-ryo-duty-free",
+      "issuer": "PM",
+      "product": "ryo",
+      "channel": "duty_free",
+      "source_asset": "asset-4",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": null,
+      "unit": "tonnes",
+      "components": null,
+      "locator": "PDF p58 is explicitly domestic only",
+      "method": "reviewed_transcription",
+      "issues": [
+        "not_reported",
+        "ryo_conversion_not_qualified_for_2025"
+      ],
+      "notes": "Absence of a schedule is not a zero.",
+      "normalized_quantity": null,
+      "normalized_unit": null,
+      "included_in_subtotals": false,
+      "cigarette_equivalents": null,
+      "data_ids": [],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "PM-FM-ingredient",
+      "issuer": "PM",
+      "product": "factory_made",
+      "channel": "all_channels",
+      "source_asset": "asset-4",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "ingredient_mass",
+      "quantity": "134241.52",
+      "unit": "kg",
+      "components": [
+        "134241.52"
+      ],
+      "locator": "PDF p3 ingredient weight including additives; domestic and underbond",
+      "method": "OCR_assisted_transcription",
+      "issues": [],
+      "notes": "",
+      "normalized_quantity": "134.24152",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "PM-FM-additives",
+      "issuer": "PM",
+      "product": "factory_made",
+      "channel": "all_channels",
+      "source_asset": "asset-4",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "additive_mass",
+      "quantity": "2187.49",
+      "unit": "kg",
+      "components": [
+        "2187.49"
+      ],
+      "locator": "PDF p3 additive weight",
+      "method": "OCR_assisted_transcription",
+      "issues": [],
+      "notes": "",
+      "normalized_quantity": "2.18749",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "PM-RYO-ingredient",
+      "issuer": "PM",
+      "product": "ryo",
+      "channel": "all_channels",
+      "source_asset": "asset-4",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "ingredient_mass",
+      "quantity": "39378.14",
+      "unit": "kg",
+      "components": [
+        "39378.14"
+      ],
+      "locator": "PDF p50 ingredient weight including additives",
+      "method": "OCR_assisted_transcription",
+      "issues": [],
+      "notes": "",
+      "normalized_quantity": "39.37814",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "PM-RYO-additives",
+      "issuer": "PM",
+      "product": "ryo",
+      "channel": "all_channels",
+      "source_asset": "asset-4",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "additive_mass",
+      "quantity": "4678.61",
+      "unit": "kg",
+      "components": [
+        "4678.61"
+      ],
+      "locator": "PDF p50 additive weight",
+      "method": "OCR_assisted_transcription",
+      "issues": [],
+      "notes": "",
+      "normalized_quantity": "4.67861",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "PM-cigarillo-ingredient",
+      "issuer": "PM",
+      "product": "cigarillos",
+      "channel": "all_channels",
+      "source_asset": "asset-4",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "ingredient_mass",
+      "quantity": "1492.19",
+      "unit": "kg",
+      "components": [
+        "1492.19"
+      ],
+      "locator": "PDF p4 separate cigarillo product class",
+      "method": "OCR_assisted_transcription",
+      "issues": [
+        "excluded_product"
+      ],
+      "notes": "",
+      "normalized_quantity": "1.49219",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": false,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "Havana-weight",
+      "issuer": "Havana",
+      "product": "unclassified_smoked",
+      "channel": "unspecified",
+      "source_asset": "asset-5",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "all_product_mass",
+      "quantity": "736",
+      "unit": "kg",
+      "components": [
+        "736"
+      ],
+      "locator": "PDF p9 total tobacco weight letter",
+      "method": "OCR_assisted_transcription",
+      "issues": [
+        "product_basis_unresolved"
+      ],
+      "notes": "Sales pages list cigars/cigarillos; no inclusion in the mass comparator assumed.",
+      "normalized_quantity": "0.736",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": false,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "BigKiwi-ryo-unspecified",
+      "issuer": "BigKiwi",
+      "product": "ryo",
+      "channel": "unspecified",
+      "source_asset": "asset-6",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "0.0258",
+      "unit": "tonnes",
+      "components": [
+        "0.015",
+        "0.0063",
+        "0.0045"
+      ],
+      "locator": "XLSX RYO tobacco! volume column 4; 3 populated data cells",
+      "method": "openpyxl_numeric_cells_15_significant_digits",
+      "issues": [
+        "channel_unspecified",
+        "ryo_conversion_not_qualified_for_2025"
+      ],
+      "notes": "2025 cohort follows official link; no domestic/duty-free split in sheet. Missing other sheets are not zero.",
+      "normalized_quantity": "0.0258",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "Canteros-ryo-unspecified",
+      "issuer": "Canteros",
+      "product": "ryo",
+      "channel": "unspecified",
+      "source_asset": "asset-7",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "0.00846",
+      "unit": "tonnes",
+      "components": [
+        "0.00846"
+      ],
+      "locator": "XLSX RYO tobacco! volume column 6; 1 populated data cells",
+      "method": "openpyxl_numeric_cells_15_significant_digits",
+      "issues": [
+        "channel_unspecified",
+        "ryo_conversion_not_qualified_for_2025"
+      ],
+      "notes": "2025 cohort follows official link; no domestic/duty-free split in sheet. Missing other sheets are not zero.",
+      "normalized_quantity": "0.00846",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "Canteros-pipe-unspecified",
+      "issuer": "Canteros",
+      "product": "pipe",
+      "channel": "unspecified",
+      "source_asset": "asset-7",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "0.17560",
+      "unit": "tonnes",
+      "components": [
+        "0.0006",
+        "0.00045",
+        "0.0034",
+        "0.00035",
+        "0.0035",
+        "0.00125",
+        "0.0022",
+        "0.00125",
+        "0.00085",
+        "0.0006",
+        "5e-05",
+        "0.0005",
+        "0.00153",
+        "0.00582",
+        "0.00681",
+        "0.00138",
+        "0.00276",
+        "0.0009",
+        "0.0015",
+        "0.00085",
+        "0.00175",
+        "0.0019",
+        "0.00405",
+        "0.00027",
+        "0.00042",
+        "0.00024",
+        "0.00018",
+        "0.00045",
+        "0.00036",
+        "0.0003",
+        "0.00033",
+        "0.0013",
+        "0.00042",
+        "0.00096",
+        "0.00085",
+        "0.0019",
+        "0.00087",
+        "0.02145",
+        "0.0251",
+        "5e-05",
+        "0.0002",
+        "0.00066",
+        "5e-05",
+        "0.00021",
+        "0.00093",
+        "0.0005",
+        "0.0005",
+        "0.00125",
+        "0.00095",
+        "0.0004",
+        "0.0055",
+        "0.006",
+        "0.00365",
+        "0.0011",
+        "0.0027",
+        "0.00195",
+        "0.00475",
+        "0.00155",
+        "0.00525",
+        "0.00025",
+        "0.00015",
+        "0.00045",
+        "0.00135",
+        "0.0021",
+        "0.0004",
+        "0.0004",
+        "0.0004",
+        "0.0001",
+        "0.0026",
+        "0.0002",
+        "0.0001",
+        "0.0009",
+        "0.00365",
+        "0.0025",
+        "0.00365",
+        "0.00215",
+        "0.00025",
+        "0.00165",
+        "0.0015",
+        "0.0001",
+        "0.00015",
+        "0.00015",
+        "0.00015",
+        "0.00415",
+        "0.0004",
+        "0.00075",
+        "0.0004",
+        "0.0004",
+        "0.0007",
+        "0.0004",
+        "0.0003",
+        "0.00015",
+        "0.0017",
+        "0.00021",
+        "0.00018",
+        "0.00276"
+      ],
+      "locator": "XLSX Pipe tobacco! volume column 6; 96 populated data cells",
+      "method": "openpyxl_numeric_cells_15_significant_digits",
+      "issues": [
+        "channel_unspecified"
+      ],
+      "notes": "2025 cohort follows official link; no domestic/duty-free split in sheet. Missing other sheets are not zero.",
+      "normalized_quantity": "0.17560",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "NZTG-factory_made-unspecified",
+      "issuer": "NZTG",
+      "product": "factory_made",
+      "channel": "unspecified",
+      "source_asset": "asset-8",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "5800000",
+      "unit": "sticks",
+      "components": [
+        "63800",
+        "22000",
+        "71200",
+        "8600",
+        "406200",
+        "882400",
+        "4282000",
+        "63800"
+      ],
+      "locator": "XLSX Cigarettes! volume column 4; 8 populated data cells",
+      "method": "openpyxl_numeric_cells_15_significant_digits",
+      "issues": [
+        "channel_unspecified"
+      ],
+      "notes": "2025 cohort follows official link; no domestic/duty-free split in sheet. Missing other sheets are not zero.",
+      "normalized_quantity": "5800000",
+      "normalized_unit": "sticks",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": "5800000",
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "NZTG-ryo-unspecified",
+      "issuer": "NZTG",
+      "product": "ryo",
+      "channel": "unspecified",
+      "source_asset": "asset-8",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "3.268",
+      "unit": "tonnes",
+      "components": [
+        "1.395",
+        "1.22",
+        "0",
+        "0.063",
+        "0.59"
+      ],
+      "locator": "XLSX RYO tobacco! volume column 4; 5 populated data cells",
+      "method": "openpyxl_numeric_cells_15_significant_digits",
+      "issues": [
+        "channel_unspecified",
+        "ryo_conversion_not_qualified_for_2025"
+      ],
+      "notes": "2025 cohort follows official link; no domestic/duty-free split in sheet. Missing other sheets are not zero.",
+      "normalized_quantity": "3.268",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "RS-cigarettes-table",
+      "issuer": "RS",
+      "product": "factory_made",
+      "channel": "unspecified",
+      "source_asset": "asset-9",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "3820",
+      "unit": "packs_20",
+      "components": [
+        "3750",
+        "70"
+      ],
+      "locator": "XLSX Knight Tobacco!F28:F29 header F25:F27",
+      "method": "reviewed_transcription",
+      "issues": [
+        "channel_unspecified",
+        "quantity_conflict"
+      ],
+      "notes": "Table says 3820 packs of 20 = 76400 sticks; A31 says 3820 cartons of ten packs = 764000 sticks. Do not choose silently.",
+      "normalized_quantity": "76400",
+      "normalized_unit": "sticks",
+      "included_in_subtotals": false,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "RS-cigarettes-note",
+      "issuer": "RS",
+      "product": "factory_made",
+      "channel": "unspecified",
+      "source_asset": "asset-9",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "3820",
+      "unit": "cartons_200",
+      "components": [
+        "3820"
+      ],
+      "locator": "XLSX Knight Tobacco!A31",
+      "method": "reviewed_transcription",
+      "issues": [
+        "alternative_representation",
+        "quantity_conflict"
+      ],
+      "notes": "Alternative to table, not additional sales.",
+      "normalized_quantity": "764000",
+      "normalized_unit": "sticks",
+      "included_in_subtotals": false,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    },
+    {
+      "id": "RS-ryo-unspecified",
+      "issuer": "RS",
+      "product": "ryo",
+      "channel": "unspecified",
+      "source_asset": "asset-9",
+      "year": 2025,
+      "listing_year": 2025,
+      "measure": "sales_volume",
+      "quantity": "857.09",
+      "unit": "kg",
+      "components": [
+        "468.99",
+        "388.1"
+      ],
+      "locator": "XLSX Knight Tobacco!D37:D38; 15633*30g + 7762*50g",
+      "method": "openpyxl_checked_pack_weight_arithmetic",
+      "issues": [
+        "channel_unspecified",
+        "ryo_conversion_not_qualified_for_2025"
+      ],
+      "notes": "Equals 857.09 kg; machine-floating total E53 is 857.0900000000001. No domestic/duty-free split declared.",
+      "normalized_quantity": "0.85709",
+      "normalized_unit": "tonnes",
+      "included_in_subtotals": true,
+      "cigarette_equivalents": null,
+      "data_ids": [
+        "NZ_MOH_tobacco_returns:2025-01-01/2026-01-01"
+      ],
+      "can_condition_live_model": false
+    }
+  ],
+  "subtotals": [
+    {
+      "product": "factory_made",
+      "channel": "all_channels",
+      "measure": "additive_mass",
+      "unit": "tonnes",
+      "quantity": "2.18749"
+    },
+    {
+      "product": "factory_made",
+      "channel": "all_channels",
+      "measure": "ingredient_mass",
+      "unit": "tonnes",
+      "quantity": "134.24152"
+    },
+    {
+      "product": "factory_made",
+      "channel": "domestic",
+      "measure": "sales_volume",
+      "unit": "sticks",
+      "quantity": "724573410.000"
+    },
+    {
+      "product": "factory_made",
+      "channel": "duty_free",
+      "measure": "sales_volume",
+      "unit": "sticks",
+      "quantity": "6115000.0"
+    },
+    {
+      "product": "factory_made",
+      "channel": "unspecified",
+      "measure": "ingredient_mass",
+      "unit": "tonnes",
+      "quantity": "155.784"
+    },
+    {
+      "product": "factory_made",
+      "channel": "unspecified",
+      "measure": "sales_volume",
+      "unit": "sticks",
+      "quantity": "5800000"
+    },
+    {
+      "product": "pipe",
+      "channel": "unspecified",
+      "measure": "sales_volume",
+      "unit": "tonnes",
+      "quantity": "0.17560"
+    },
+    {
+      "product": "ryo",
+      "channel": "all_channels",
+      "measure": "additive_mass",
+      "unit": "tonnes",
+      "quantity": "4.67861"
+    },
+    {
+      "product": "ryo",
+      "channel": "all_channels",
+      "measure": "ingredient_mass",
+      "unit": "tonnes",
+      "quantity": "39.37814"
+    },
+    {
+      "product": "ryo",
+      "channel": "domestic",
+      "measure": "sales_volume",
+      "unit": "tonnes",
+      "quantity": "103.73775"
+    },
+    {
+      "product": "ryo",
+      "channel": "duty_free",
+      "measure": "sales_volume",
+      "unit": "tonnes",
+      "quantity": "1.7030"
+    },
+    {
+      "product": "ryo",
+      "channel": "unspecified",
+      "measure": "ingredient_mass",
+      "unit": "tonnes",
+      "quantity": "59.947"
+    },
+    {
+      "product": "ryo",
+      "channel": "unspecified",
+      "measure": "sales_volume",
+      "unit": "tonnes",
+      "quantity": "4.15935"
+    }
+  ],
+  "aggregate_reference_tonnes": "755",
+  "reconstructed_national_mass_tonnes": null,
+  "aggregate_residual_tonnes": null,
+  "national_cigarette_equivalents": null,
+  "cross_checks": {
+    "PM_RYO_gross_minus_additives_matches_sales": true,
+    "PM_RYO_net_tonnes": "34.69953",
+    "interpretation": "Arithmetic equality; missing duty-free sales remain unknown. The national mass definition remains unqualified."
+  },
+  "remaining_gates": [
+    "BAT RYO document year 2024 conflicts with 2025 listing",
+    "R&S King cigarette packet/carton conflict",
+    "Unspecified and unreported channels remain unknown",
+    "Factory-made tobacco mass and aggregate additive/product definitions unresolved",
+    "2025 RYO stick conversion not qualified",
+    "Original capture timestamps absent; remote raw-object recovery not claimed",
+    "Measurement covariance, target scope and transport remain unqualified"
+  ],
+  "measurement_parameters_changed": false,
+  "automatically_conditions_live_model": false,
+  "scientific_qualification": false,
+  "source_asset_count": 9,
+  "issuer_count": 8,
+  "source_assets": [
+    {
+      "id": "asset-1",
+      "issuer": "BAT",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/BAT-Sales-Cigarettes-2025.pdf",
+      "sha256": "5274d4108faf2cbf2527aeb300634591f3f7684aa953f18219751dec214bce98",
+      "warc_sha256": "77d01dc99ce396223495598a444bf691eb644bf88d49feca185c0204b0523e39",
+      "byte_count": 166939,
+      "source_filename": "BAT-Sales-Cigarettes-2025.pdf",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-2",
+      "issuer": "BAT",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/BAT-Sales-RYO-2025.pdf",
+      "sha256": "5c683fe95b250f357d622c5aeb84a31dbbf1d3abf7ac82b983ba10ce41b63430",
+      "warc_sha256": "11ce501418fcb038c7aeb985304355c8a78811928477c9869367ae6969e44eb8",
+      "byte_count": 169796,
+      "source_filename": "BAT-Sales-RYO-2025.pdf",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-3",
+      "issuer": "Imperial",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/Imperial-Tobacco-New-Zealand-Sales-Return-2025.pdf",
+      "sha256": "eb530fe34d5b4094caf2633887e17954d70184ec096f0ddee4a0dfea9f2d1cac",
+      "warc_sha256": "1a474a8b4d5916c88fc334bd417560261b12db08635f16dc091293c4d2db1bac",
+      "byte_count": 539032,
+      "source_filename": "Imperial-Tobacco-New-Zealand-Sales-Return-2025.pdf",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-4",
+      "issuer": "PM",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/Philip-Morris-%28NZ%29-Sales-Return-2025.pdf",
+      "sha256": "5e19d359ac510cde94be0ccf5afd62ea0062850e03b80a95a9b7830244d4ef3f",
+      "warc_sha256": "f100b2b5e1697ee3f2437d491501052ff34b1b5b6460572970f31388f5230d12",
+      "byte_count": 5732643,
+      "source_filename": "Philip-Morris-(NZ)-Sales-Return-2025.pdf",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-5",
+      "issuer": "Havana",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/Havana-House-Sales-2025.pdf",
+      "sha256": "f68ae3e2f9a47d358f3c30e44fc58095daf800cfc7c8f49539d2b94379058dd7",
+      "warc_sha256": "0850f60e808da97157fcd93a6634ad0325ef007a002b298b98bd3e50c39be7fb",
+      "byte_count": 5614954,
+      "source_filename": "Havana-House-Sales-2025.pdf",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-6",
+      "issuer": "BigKiwi",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/Big-Kiwi-Trading-Sales-Return-2025.xlsx",
+      "sha256": "5443f9878e93de30be9b2ddeced7b07e7eae065efa40307d04c67da61f57bc9b",
+      "warc_sha256": "03ba4eff19279697de66040a861962bc84a48d0370b80afbb8915ec413ecdb22",
+      "byte_count": 28392,
+      "source_filename": "Big-Kiwi-Trading-Sales-Return-2025.xlsx",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-7",
+      "issuer": "Canteros",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/Canteros-Limited-Sales-Return-2025.xlsx",
+      "sha256": "6262365ca043a587a1f8b32262243801ba7ee12fd6a564a8f1244b5ead844189",
+      "warc_sha256": "327abd17ed4daaf573e47536f9cd168da8fadd67969d7a5b85c03165a4fbac83",
+      "byte_count": 65071,
+      "source_filename": "Canteros-Limited-Sales-Return-2025.xlsx",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-8",
+      "issuer": "NZTG",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/NZ-Tobacco-Group-Sales-Return-2025.xlsx",
+      "sha256": "d2243b50e6670a9a9bafbc2f4bec863571a320da8bde72dd36ee22b1ca96c6f8",
+      "warc_sha256": "ab0261174260804618b1d2cc4a5b1532a4eb7f66dd3b4ea49224ee40cd0d6f49",
+      "byte_count": 34359,
+      "source_filename": "NZ-Tobacco-Group-Sales-Return-2025.xlsx",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    },
+    {
+      "id": "asset-9",
+      "issuer": "RS",
+      "uri": "https://www.health.govt.nz/system/files/2026-08/R%26S-King-Limited-Sales-Return-2025.xlsx",
+      "sha256": "2fb80ed59b486089e673dac128c7ff45c2b80e972946a9574f85b1e450c790e6",
+      "warc_sha256": "b7d992bda0e467a766eb97bed07322e37640f97f1bbb4b405c54c46c5a362298",
+      "byte_count": 34320,
+      "source_filename": "R&S-King-Limited-Sales-Return-2025.xlsx",
+      "capture_date": null,
+      "integrity": "CAS/WARC hash, payload equality and request hash checked locally 2026-10-26",
+      "parent_source_id": "long-nz-tobacco-tonnes-2025"
+    }
+  ],
+  "provenance_status": "Dated manual/openpyxl extraction; native fixity executed locally; remote recovery unqualified"
+}

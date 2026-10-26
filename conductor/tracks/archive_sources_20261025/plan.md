@@ -29,3 +29,12 @@ The bounded pathway review does not qualify a regulatory likelihood or posterior
 `docs/MOH_OBSERVATION_PATHWAY.md` and the dated MOH qualification receipt.
 
 MOH follow-up PR #40 merged at `160c0a5c53e440d9345ad51efc7dca2a7611bf6c` after 15/15 hosted checks passed.
+
+## 2025 product-level reconciliation
+
+- [x] Acquire nine linked returns through the existing native producer and verify local CAS/WARC identities.
+- [x] Extract 28 product/channel/measure records with exact source locators and preserved conflicts.
+- [x] Produce dimensionally separated subtotals and a workbook comparison that retains unresolved mass/count gaps.
+- [x] Preserve signed adjustments, missing channels, shared data and unqualified RYO conversion.
+- [x] Complete software regressions, strict checks and scientific reproduction/package gates.
+- [ ] Publish and verify exact-head hosted checks; retain source conflicts as scientific gates.
