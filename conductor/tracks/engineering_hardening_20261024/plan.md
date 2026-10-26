@@ -12,10 +12,18 @@
   - [x] 2026-10-25 at 044c995: real Nox `tests` (495 passed, 91% coverage) and `reproduce`
     (M1/M2/M3/longitudinal, all verifiers pass) executed in **bootstrap** mode.
   - [x] Ruff (both invocations), BasedPyright strict, zizmor and pip-audit executed and **green**
-    after fixing three real defects they exposed.
+    after fixing three real defects they exposed. "BasedPyright strict" here means
+    `engineering/basedpyright.json`; the separate strict check on the longitudinal runner
+    (`engineering/bp_longitudinal.json`) is not green and is listed below.
   - [x] 2026-10-25 gap-closure pass: mutation (mutmut 3.7.0) executed natively on
     `src/tobac/supply.py` — 128 mutants, 79 killed, 49 survived (61.7%). The session passes
     because mutmut enforces no threshold; the survivor count is a recorded weakness, not a pass.
+    At `2057074` the session gained `scripts/check_mutation_score.py --minimum 60`, so the same
+    score now passes by 1.7 points; that floor is a regression alarm, not adequacy.
+  - [x] 2026-10-26 at `c8b070f`: `nox -s tests` 618 passed / 2 skipped, 91% coverage, and
+    `nox -s quality` green, on the `review/m2b-longitudinal` tree. This is a different tree from
+    the 495-test locked pass above, so the counts are not comparable and neither supersedes the
+    other.
   - [ ] Profiling (Scalene 2.4.0) still not executed; tool available natively only.
   - [ ] The Nox `audit` profile (Linux-scoped lock) itself remains unexecuted on Linux. A
     `audit_tools()` path now runs the same quality/security checks host-natively and labels

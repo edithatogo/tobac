@@ -79,8 +79,12 @@ status belong to the receipt on issue #1.
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
 ### Engineering gates that are open, not passing
-`quality` (ruff and strict basedpyright on `scripts/context_bundle.py` plus
-`engineering/bp_longitudinal.json`) is green. These are measured and still failing, and must
+`quality` is green — ruff `E9,F63,F7,F82`, ruff under `engineering/ruff.toml` on
+`scripts/context_bundle.py`, and basedpyright under `engineering/basedpyright.json`. It does
+**not** include `engineering/bp_longitudinal.json`: that strict check was briefly wired into
+`quality`, could never pass (pandas ships no `py.typed` stubs), and now runs only as the
+separate `types_longitudinal` session below. Any earlier statement that `quality` covers
+`bp_longitudinal.json` is superseded. These gates are measured and still failing, and must
 not be read as passing:
 
 - `strict_all`: 4,168 ruff `--select ALL` errors (2,281 fixable) and 3,584 basedpyright
@@ -113,9 +117,12 @@ Receipt: `integration/engineering_verification.json`; execution receipts:
 The Gaussian reporting density delegates to SciPy while physical/state/data contracts stay
 unchanged. New Nox/uv, schema-validated context profiles, secure bounded CI/deep/canary lanes,
 Renovate/pre-commit configuration and pinned Conductor gitlink are explicit engineering layers.
-`uv pip sync --require-hashes` now drives `tests` (495 passed, 91% coverage), `reproduce` (five
+`uv pip sync --require-hashes` now drives `tests` (495 passed at the 25 October 2026 locked pass;
+618 passed / 2 skipped at the 26 October 2026 `review/m2b-longitudinal` head, `c8b070f`, which is
+a different tree — do not compare the two), `reproduce` (five
 replays verified) and `package`, and the built wheel installs and imports. Mutation is executed
-and weak (61.7% killed); `strict_all` is measured at 4,168 ruff and 3,584 BasedPyright errors and
+and weak (61.7% killed); `strict_all` is measured (4,168 ruff and 3,584 BasedPyright at the
+original measurement; 4,861 and 2,456 at the 26 October 2026 macOS/Python 3.15 re-measurement) and
 is not green. The Windows leg failure was a CRLF checkout defect now fixed by `.gitattributes`.
 Do not turn configuration or a checksum into a claim of successful execution or scientific
 validity; hosted confirmation and independent review are not obtained.

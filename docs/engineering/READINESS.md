@@ -128,8 +128,8 @@ automatically enabled or claimed. Preserve the M3-owned research namespace when 
 
 `integration/engineering_hardening_execution_20261025.json` records the first 25 October pass at
 `044c9951`; `integration/engineering_hardening_gap_closure_20261025.json` records the second pass
-at `5ab361b`. Together they cover the following, all executed on a network-enabled macOS arm64
-checkout.
+at `5ab361b`, amended at `e33e78a` on 26 October 2026 for the `types_longitudinal` gate. Together
+they cover the following, all executed on a network-enabled macOS arm64 checkout.
 
 **Locked qualification now exists.** Both reviewed profiles were promoted into `engineering/`
 after a review of versions, origins, licences (89 packages; no copyleft, unknown or proprietary
@@ -146,19 +146,33 @@ strict-lint errors, four strict-type errors and four `artipacked` findings that 
 ever reported. They are fixed and `quality`/`security` are green. `noxfile.py` now routes audit
 sessions through `audit_tools()`: Linux keeps the locked audit profile as authoritative, other
 hosts resolve the same reviewed pins natively and log `NATIVE AUDIT ... NOT release
-qualification`. The guard in `environment()` is unchanged and still fails closed.
+qualification`. The guard in `environment()` is unchanged and still fails closed. On Linux the
+audit sessions additionally pin the interpreter (`python_version='3.13'`), so the audit
+environment is the one the lock was reviewed against rather than whatever Nox would otherwise
+pick.
+
+**`quality` does not cover the longitudinal runner's strict types, and must not be reported as
+if it did.** The blocking `quality` session is ruff `E9,F63,F7,F82`, ruff under
+`engineering/ruff.toml` on `scripts/context_bundle.py`, and basedpyright under
+`engineering/basedpyright.json`. `engineering/bp_longitudinal.json` is a separate session,
+`nox -s types_longitudinal`, which is expected to fail; see the gap described below.
 
 **Two defects surfaced only because the gates actually ran.** First, `strict_all` has never been
-green: 4,168 ruff `--select ALL` errors and 3,584 BasedPyright-all errors across the whole source.
-That is measured, not fixed, and remains an open gate. Second, three engineering contract tests
-failed under `TOBAC_REQUIRE_LOCK=1` because the harness fixture inherited the release flag with an
-empty `ROOT`; `.github/workflows/release-candidate.yml` sets exactly that flag, so the release
-gate itself was broken. The fixture is now hermetic.
+green: 4,168 ruff `--select ALL` errors and 3,584 BasedPyright-all errors across the whole source
+(original measurement, 25 October 2026). Re-measured on 26 October 2026 on macOS with the
+corrected Python 3.15 target, the counts are 4,861 ruff and 2,456 basedpyright; the earlier
+basedpyright figure came from a stale 3.12 target, so do not compare the two or quote one as the
+other. Either way it is measured, not fixed, and remains an open gate. Second, three engineering
+contract tests failed under `TOBAC_REQUIRE_LOCK=1` because the harness fixture inherited the
+release flag with an empty `ROOT`; `.github/workflows/release-candidate.yml` sets exactly that
+flag, so the release gate itself was broken. The fixture is now hermetic.
 
 **Mutation is executed but weak.** mutmut ran natively on `src/tobac/supply.py`: 128 mutants, 79
-killed, 49 survived (61.7%). The session reports success because mutmut enforces no threshold; the
-survivor count is a coverage finding, not a pass. The pinned tool is 3.8.0; the 3.7.0 invocation
-recorded in the earlier pass is historical evidence. Scalene profiling remains unexecuted.
+killed, 49 survived (61.7%). mutmut itself enforces no threshold; the `mutation` session now runs
+`scripts/check_mutation_score.py --minimum 60`, so the same 61.7% passes by 1.7 points. That floor
+is a regression alarm, not evidence of adequate coverage, and raising it means working through the
+49 survivors. The pinned tool is 3.8.0; the 3.7.0 invocation recorded in the earlier pass is
+historical evidence. Scalene profiling remains unexecuted.
 
 **The Windows leg failure was a checkout defect, not a code defect.** Windows converted text to
 CRLF, so the recorded SHA-256 of `evidence/prior_work/v2.9.0/data/empirical_intake_20261024/
