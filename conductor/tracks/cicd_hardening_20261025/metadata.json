@@ -37,7 +37,7 @@
     "ubuntu-24.04-arm": {"role": "diagnostic leg; not reference qualification"}
   },
   "open_gates": [
-    "strict_all is not green: 4,168 ruff and 3,584 basedpyright-all errors",
+    "strict_all is not green: 4,168 ruff and 3,584 basedpyright-all errors at the original measurement; 4,861 ruff and 2,456 basedpyright on the 26 October 2026 macOS/Python 3.15 re-measurement",
     "hosted runner pre-runner failure root cause is not established (issue #4)",
     "attestation and database entitlements for a private repository are unverified",
     "harden-runner egress-policy block not adopted; only audit is planned",

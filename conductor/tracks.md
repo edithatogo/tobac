@@ -86,7 +86,16 @@ not be read as passing:
 - `strict_all`: 4,168 ruff `--select ALL` errors (2,281 fixable) and 3,584 basedpyright
   errors across the whole source tree, measured 25 October 2026. The release workflow runs
   this session before packaging, so packaging is blocked on it. No count has been reduced
-  since; re-measure before quoting.
+  since; re-measure before quoting. Both counts are pin/host dependent and were superseded on
+  26 October 2026 by a macOS measurement on the Python 3.15 target: 4,861 ruff and 2,456
+  basedpyright (issue #1 comment `6406854120`). The earlier basedpyright figure was taken on a
+  stale 3.12 target, so cross-version figure comparisons are not valid.
+- `types_longitudinal`: the strict check on `scripts/run_empirical_longitudinal.py`
+  (`engineering/bp_longitudinal.json`) is **expected to fail** with 133 errors that are all the
+  pandas-stub `reportUnknown*` cascade (0 `reportMissingImports`, 0 `reportArgumentType`,
+  0 `reportAssignmentType`). It was briefly wired into `quality` and made that session
+  unachievable; it is now a separate session and is not part of `quality`. Closing it needs
+  `pandas-stubs` in `engineering/audit.lock`, a reviewed lock regeneration and a receipt.
 - mutation: 49 of 128 mutants survive on `src/tobac/supply.py` (61.7%). A 60% floor now
   fails the session on regression, which is a guard, not evidence of adequate coverage.
 - `profile` (Scalene) has never been executed.
@@ -176,7 +185,8 @@ ruff-action, ty, pyrefly, basedpyright, j178/prek, gitleaks, harden-runner, zizm
 gh-action-pip-audit, attest-build-provenance and an ubuntu-24.04-arm diagnostic leg. Every
 lane job is non-required and report-only. The reference NumPy/SciPy pins, engineering locks
 and receipts, `strict_all` counts and all existing required Nox sessions are unchanged.
-`strict_all` remains measured-not-fixed at 4,168 ruff and 3,584 basedpyright-all errors, so no
+`strict_all` remains measured-not-fixed (4,168 ruff and 3,584 basedpyright-all at the original
+measurement; 4,861 and 2,456 at the 26 October 2026 macOS/Python 3.15 re-measurement), so no
 lane result is a gate. Attestation entitlements, runner-level egress blocking, arm64
 qualification and all hosted jobs remain open. Configuration is not execution.
 

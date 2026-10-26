@@ -14,6 +14,7 @@
 - [ ] Execute what the local host supports; record unexecuted jobs explicitly.
 - [ ] Publish with an expected-head check, then verify the receiving commit on issue #1.
 
-strict_all (4,168 ruff, 3,584 basedpyright-all errors) remains measured-not-fixed. Attestation
+strict_all (4,168 ruff, 3,584 basedpyright-all errors at the original measurement; 4,861 and
+2,456 at the 26 October 2026 macOS/Python 3.15 re-measurement) remains measured-not-fixed. Attestation
 entitlements, harden-runner egress blocking, the arm64 leg and all hosted jobs remain open until
 an actual run is recorded.

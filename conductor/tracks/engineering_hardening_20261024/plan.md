@@ -42,9 +42,17 @@
   - [x] Release-gate hermeticity defect found and fixed: three contract tests failed under
     `TOBAC_REQUIRE_LOCK=1` because the fixture inherited the release flag with an empty ROOT.
   - [ ] Hosted matrix confirmation, licensed attestations and independent review not obtained.
-- [ ] `strict_all` is measured, not green: 4,168 ruff `--select ALL` errors and 3,584
-  BasedPyright-all errors across the whole source. Pre-existing and previously never executed;
-  recorded as an open gate rather than claimed.
+- [ ] `strict_all` is measured, not green. Original whole-source measurement: 4,168 ruff
+  `--select ALL` errors and 3,584 BasedPyright-all errors. Re-measured 26 October 2026 on macOS
+  with the corrected Python 3.15 target: 4,861 ruff and 2,456 basedpyright (issue #1 comment
+  `6406854120`); the earlier basedpyright count was taken on a stale 3.12 target. No count has
+  been reduced by this track. Pre-existing and previously never executed; recorded as an open
+  gate rather than claimed.
+- [ ] `types_longitudinal` (strict check of `scripts/run_empirical_longitudinal.py`) is
+  **expected to fail**: 133 errors, all the pandas-stub `reportUnknown*` cascade, with zero
+  `reportMissingImports`, `reportArgumentType` or `reportAssignmentType`. It is deliberately
+  outside the blocking `quality` session. Closing it needs `pandas-stubs` added to
+  `engineering/audit.lock` with a reviewed regeneration and receipt.
 
 The publication receipt on issue #1 names the receiving commit. Engineering configuration is
 not external scientific qualification; the open hosted failure is not closed by this track.
