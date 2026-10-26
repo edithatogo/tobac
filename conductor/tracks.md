@@ -174,7 +174,7 @@ unchanged, and security settings/checks are preserved. Receipt:
 `integration/dependency_graph_20261026.json`; guide: `docs/engineering/DEPENDENCY_GRAPH.md`.
 
 ## Archival source integration — 25 October 2026
-**Status: consumer bindings reconciled; bounded observation handoff implemented, verification in progress.**
+**Status: consumer bindings reconciled; bounded observation handoff implemented, local software qualification passed; hosted pending.**
 Track: `conductor/tracks/archive_sources_20261025/`.
 Guide: `docs/ARCHIVAL_SOURCES.md`; immutable snapshot bindings: `integration/archive/`.
 Maps 43 CSL records and 18 CSV files (326 rows) into archive-govt-nz. Preserves source

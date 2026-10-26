@@ -1,6 +1,6 @@
 # Archival source integration
 
-Status: consumer bindings reconciled; bounded handoff implemented, verification in progress.
+Status: consumer bindings reconciled; bounded handoff implemented, local software qualification passed; hosted pending.
 
 Base: `59bb0e4ebaf1881158849df1702a1d3101aad58f`.
 Owner scope: `integration/archive/`, consumer handoff script/schema, documentation and tests.
