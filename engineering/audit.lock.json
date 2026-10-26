@@ -10,7 +10,7 @@
     "engineering/audit.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/engineering/lock-candidate-audit/audit.lock",
+    "outputs/engineering/lock-candidate/audit.lock",
     "--python-version",
     "3.13",
     "--python-platform",
@@ -24,8 +24,8 @@
     "engineering/test-requirements.txt": "2265388fba38b42c2477fe9e55b36d9c536a86c04bbd0f00dfad3f1c644ebfe8",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/audit.in": "44cc43404b559ac717a67fd293cf6f7cd3a4d4feebe4cc47fb422db414807a32",
-    "engineering/tools-requirements.txt": "797b073fc2dd10c5392a89d43594ed93564edc421c9fdc1dc1cb2d3d9d90b4d6"
+    "engineering/tools-requirements.txt": "2f21037d91ba56dc9b0ab9e55f144b06da3d30c7d6e854c934dbaf3ee989db1c"
   },
-  "lock_sha256": "19f8e274cdd064faf22692c9c6c00f2668e09b801667781d214e6c71e287c5e2",
+  "lock_sha256": "e471a5a452464222ff0841c2462f0bdc7f9bced68ad56b246edcc6241e2c1542",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
