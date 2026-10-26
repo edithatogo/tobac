@@ -128,7 +128,7 @@ Scientific gaps remain in conductor/research-gates.md; no data or empirical para
 
 ## Phase: Review Fixes
 
-- [~] Task: Apply review suggestions; record implementation commit and final hosted qualification.
+- [x] Task: Apply review suggestions f617307 and 5bc6ae9; final hosted qualification remains in H3/H4.
 
 Review: docs/reviews/2026-10-26-conductor-autonomous.md. Fixed coverage-store contamination,
 recovery log reuse, nested unknown parameters, archive registry validation and macOS path aliasing.
