@@ -210,7 +210,11 @@ qualification and all hosted jobs remain open. Configuration is not execution.
 
 ---
 
-- [ ] **Track: Scientific ecosystem modernisation**
-  *Link: [tracks/scientific_ecosystem_20261025/index.md](tracks/scientific_ecosystem_20261025/index.md)*
-  **Approved planning only; implementation not authorised.** Reuses existing CI/archive and upstream contracts. No runtime or scientific qualification claimed.
-  GitHub: https://github.com/edithatogo/tobac/issues/22
+## Scientific ecosystem modernisation — 25 October 2026
+**Status: approved planning registered; implementation not authorised.**
+Track: `conductor/tracks/scientific_ecosystem_20261025/`.
+GitHub: https://github.com/edithatogo/tobac/issues/22
+
+Approved Conductor registration only; implementation not authorised. Reuses
+existing CI/archive and upstream contracts. No runtime or scientific
+qualification claimed.
