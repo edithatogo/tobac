@@ -107,7 +107,20 @@ jobs:
           python-version: '3.15.1'
           enable-cache: false
       - name: Build source-independent artifacts
-        run: uvx --python 3.15.1 --from nox==2026.10.20 nox -s package clean_package
+        run: uvx --python 3.15.1 --from nox==2026.10.20 nox -s package clean_package security
+      - name: Bind audit SBOM to exact package subjects
+        run: |
+          cp outputs/engineering/sbom.json outputs/release-candidate/sbom.json
+          .nox/package/bin/python - <<'PYTHON'
+          import hashlib, json
+          from pathlib import Path
+          folder = Path('outputs/release-candidate')
+          record = {'schema': 'tobac.artifact-sbom.v1',
+                    'scope': 'actual audited build/tool environment; not runtime-only dependency inference',
+                    'sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                               for p in sorted(folder.iterdir()) if p.is_file()}}
+          (folder / 'artifact-sbom.json').write_text(json.dumps(record, indent=2) + '\n')
+          PYTHON
       - uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a
         with:
           subject-path: outputs/release-candidate/*
