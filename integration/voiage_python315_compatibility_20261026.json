@@ -1,0 +1,108 @@
+{
+  "schema": "tobac.voiage-python315-compatibility.v1",
+  "date": "2026-10-26",
+  "base_commit": "4ccb381a9b54d4a7c9263a6d24e9ec8eea7acec1",
+  "build": {
+    "upstream_revision": "7af563c8cb373057d30662650b3f332f39e05b83",
+    "patch_sha256": "ecdc9b1d79fdb5a2d5cb313ef5aba494b86c8b771ffb2e536025d4ce9484c184",
+    "derived_revision": "759e8c6e1a76d169bba513a5b5b85bff7c91bf55",
+    "wheel": "voiage-2.2.0+tobac3151.1-cp312-abi3-macosx_11_0_arm64.whl",
+    "wheel_sha256": "25a6d95d90d1fb1ff625a62e92715e06d36cc85968b9c20cfa381e26da96a205",
+    "scope": "Metadata-only compatibility build; unchanged Voiage implementation and native code",
+    "environment": "Using Python 3.15.1 environment at: .nox/voiage\nannotated-doc==0.0.5\nannotated-types==0.8.0\nattrs==26.1.0\nclick==8.5.0\ncloudpickle==3.1.2\ncontourpy==1.4.0\ncoverage==7.17.0\ncycler==0.12.1\nfonttools==4.67.0\nhypothesis==6.170.8\niniconfig==2.3.0\njoblib==1.6.0\njsonschema==4.26.0\njsonschema-specifications==2025.9.1\nkiwisolver==1.5.1\nmarkdown-it-py==4.2.0\nmatplotlib==3.11.2\nmdurl==0.1.2\nnarwhals==2.27.1\nnumpy==2.5.4\npackaging==26.3\npandas==3.0.6\npillow==13.0.0\npluggy==1.6.0\npolars==1.44.2\npolars-runtime-32==1.44.2\npyarrow==26.0.0\npydantic==2.14.1\npydantic-core==2.50.1\npygments==2.20.0\npyparsing==3.3.3\npytest==9.0.3\npython-dateutil==3.0.0\npyyaml==6.0.3\nreferencing==0.37.0\nrich==15.0.0\nrpds-py==2026.9.1\nscikit-learn==1.9.1\nscipy==1.18.1\nsetuptools==84.2.1\nshellingham==1.5.4\nsix==1.17.0\nsortedcontainers==2.4.0\nthreadpoolctl==3.7.0\n-e file:///Users/doughnut/.codex/worktrees/engineering-hardening/tobac\ntyper==0.27.3\ntyping-extensions==4.16.0\ntyping-inspection==0.4.4\ntzdata==2026.5\nvoiage @ file:///Volumes/PortableSSD/cache/tobac-voiage-qualification/a8174a9bbc284050a25e25d887fd54c0/wheels/voiage-2.2.0+tobac3151.1-cp312-abi3-macosx_11_0_arm64.whl\nxarray==2026.9.0\n"
+  },
+  "equal_weight": {
+    "tool": "voiage",
+    "version": "2.2.0+tobac3151.1",
+    "cases": 51,
+    "max_absolute_error": 4.440892098500626e-16,
+    "success": true,
+    "external_tool_executed": true,
+    "scope": "equal-weight EVPI only; not EVPPI/EVSI or empirical validation"
+  },
+  "weighted": {
+    "schema": "tobac.voiage-qualification.v1",
+    "expected_version": "2.2.0+tobac3151.1",
+    "success": true,
+    "installed_library_executed": true,
+    "python": "3.15.1",
+    "status": "passed",
+    "checks": [
+      {
+        "case": "uniform",
+        "error": 0.0,
+        "value": 5.0,
+        "unit": "normalised fixture units"
+      },
+      {
+        "case": "unequal",
+        "error": 0.0,
+        "value": 1.0,
+        "unit": "normalised fixture units"
+      },
+      {
+        "case": "zero_mass",
+        "error": 0.0,
+        "value": 0.0,
+        "unit": "normalised fixture units"
+      },
+      {
+        "case": "small_mass",
+        "error": 6.077470925670262e-16,
+        "value": 9.99999993922529e-08,
+        "unit": "normalised fixture units"
+      },
+      {
+        "case": "identical_structure_only",
+        "value": 0.0,
+        "joint_perfect": 5.000000000000001,
+        "expected_structure_only": 0.0
+      }
+    ],
+    "scope": "source-built compatibility EVPI on exact weighted and finite-partition transforms only; no generic EVSI or structural API certification",
+    "version": "2.2.0+tobac3151.1"
+  },
+  "installed_tests": {
+    "passed": 63,
+    "scope": "M3, actual installed numerical/Arrow/native tests and workstream integration"
+  },
+  "audit": {
+    "known_vulnerabilities": 0,
+    "unavailable_advisory_identities": [
+      "tobac-regulatory-research",
+      "voiage local compatibility build"
+    ]
+  },
+  "hosted": {
+    "status": "pending current PR head"
+  },
+  "artifacts": {
+    "outputs/engineering/voiage-compatibility-locked.log": {
+      "sha256": "a4a2bbd8ac3e2c4e8380f71a79a5dfc5ffad71287308f650566676aacf45a6d3",
+      "bytes": 10677
+    },
+    "outputs/engineering/voiage-dependency-audit.log": {
+      "sha256": "1c7ed2f76bdd236c3e905cc6ff8389e694ad10ab273646611fb3b72bc71800d1",
+      "bytes": 407
+    },
+    "engineering/voiage-python315.patch": {
+      "sha256": "ecdc9b1d79fdb5a2d5cb313ef5aba494b86c8b771ffb2e536025d4ce9484c184",
+      "bytes": 830
+    },
+    "engineering/voiage.lock": {
+      "sha256": "4d4fd8ccb89b890385bb937980af3568f36507df304a1889a9a2da2b15d7e971",
+      "bytes": 113735
+    },
+    "engineering/voiage.lock.json": {
+      "sha256": "ad74f185dce3171cbfb348bdb987802c73bec20994e5c35c8bca391147b17881",
+      "bytes": 1405
+    }
+  },
+  "reference_checks": {
+    "tests": "723 passed, 4 skipped; 93% coverage",
+    "quality": "pass; zero configured Ruff/strict checker findings",
+    "whole_source_types": "0 errors, 0 warnings, 0 notes",
+    "reproduce": "M1/M2/M3 and both longitudinal replays/verification pass",
+    "workflow_security": "no findings (13 existing suppressions)"
+  }
+}

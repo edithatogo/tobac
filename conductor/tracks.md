@@ -121,7 +121,9 @@ The additive `src/tobac/research` package implements weighted expected-value ada
 structure-only EVPPI, complementary/dependent reports, shared assets, existing-data guards,
 unweighted scenario envelopes, state-action implementation and matched pilot/continue/stop.
 162 scoped tests and 2,105 full-run invariants passed; this is not the entire live suite.
-The mathematical weighted adapter is tested but the real Voiage 2.2.0 probe remains blocked.
+The real source-built Voiage `2.2.0+tobac3151.1` adapter now passes local weighted/partition
+and equal-weight probes on Python 3.15.1. Hosted compatibility verification is pending;
+see `docs/engineering/VOIAGE_PYTHON315.md`. This does not qualify generic EVSI or structural APIs.
 Innovate/Kairos are optional; uptake/delay materiality is demonstrated with declared scenarios,
 not fitted external outputs. Full/refinement tables and manifests are preserved as 24 files
 in a hashed bounded archive with an unpacker. Existing source/evidence/engineering files are
@@ -153,8 +155,8 @@ contracts were locally retested; the M3 numerical results were not re-estimated 
 PR #25 and the Python 3.15.1 migration were reconciled through PR #29, merged at `104729a`.
 The focused runner and whole-source strict checks use qualified stubs and the calling session
 interpreter. Both hosted macOS jobs passed at final PR head `1f6b375`; the receiving commit and
-execution details are in `integration/engineering_reconciliation_20261026.json`. Optional Voiage
-installation remains blocked by upstream dependencies. Independent review is optional; current
+execution details are in `integration/engineering_reconciliation_20261026.json`. Voiage compatibility follow-up: the metadata-only, source-built candidate passes locally;
+see `integration/voiage_python315_compatibility_20261026.json` for current hosted status. Independent review is optional; current
 development and hosted qualification target macOS.
 
 ## Scientific ecosystem modernisation — 25 October 2026

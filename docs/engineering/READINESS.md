@@ -267,3 +267,11 @@ quality/strict_all/reproduce/package/security/mutation all passed. Hosted mutati
 receipt-only update publishes through PR #29 after checking its current head. The receiving
 `main` ref and merge commit are readable from that PR. Optional Voiage probes remain blocked;
 this macOS qualification does not claim every hosted job passed.
+
+## Voiage dependency compatibility follow-up
+
+The historical blocker above is addressed by a distinctly versioned, metadata-only
+source build, with normal dependency resolution and a separate input-bound hash lock.
+Both installed-library probes and Arrow/native checks pass locally on Python 3.15.1.
+See `VOIAGE_PYTHON315.md` and `integration/voiage_python315_compatibility_20261026.json`
+for scope and current hosted outcomes. The reference scientific pins are unchanged.
