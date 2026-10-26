@@ -21,7 +21,8 @@
     "First clean-package import-location assertion failed on macOS path aliases, corrected and rerun",
     "Mutation statement coverage contaminated branch coverage; isolated per-run storage added",
     "Disk exhaustion interrupted security/package installation; disposable task artifacts removed and actual checks rerun",
-    "Nested parameter and security proof validation tightened during review"
+    "Nested parameter and security proof validation tightened during review",
+    "Native artifact readback found uv-generated hidden .gitignore in the digest manifest, while upload excludes hidden build metadata; restrict subjects to wheel/sdist/audit SBOM and rerun hosted proof"
   ],
   "hosted": {
     "status": "pending"
@@ -64,6 +65,6 @@
     "scripts/check_conductor_track_names.py": "c6e6f8b634cfd323533560db5dc73432959792d95a7234f0b38a5f50b7941368",
     "scripts/lock_receipt.py": "134693e1938eac19dc52b78f8e5e4a20874ea785ee727045dbf89eec1c35b1cf",
     "noxfile.py": "27eb93d7dd732d0cc1559b73ad272416b10a5b65b6d34d3ece805c9c25cfe831",
-    ".github/workflows/engineering.yml": "572a5c7c52fb2308ba3fbc080cc67366349d202a947c605a64e78ab948cafa00"
+    ".github/workflows/engineering.yml": "6b3c736d53d3df2e7cfefe778c5987144cf09bf0f5bd81411ae10fbc983b7ee2"
   }
 }

@@ -44,6 +44,12 @@ The bounded macOS changes preserve reference scientific inputs and reuse the exi
 - **Context**: /var and /private/var represented the same clean environment but failed a lexical path comparison.
 - **Suggestion applied**: resolve both the module path and environment prefix; real installed-API/CLI execution passes afterwards.
 
+### Medium: Artifact binding included hidden build metadata outside the upload
+
+- **File**: .github/workflows/engineering.yml
+- **Context**: uv created a hidden .gitignore beside the distributions. The manifest included it, but the artifact upload correctly omitted hidden build metadata, so downstream byte verification failed.
+- **Suggestion applied**: restrict the digest binding to actual wheel/sdist/SBOM subjects; rerun hosted signing and downstream verification.
+
 ---
 
 Review performed sequentially by the implementing agent under conductor-review; it is not independent scientific endorsement. The >300-line iterative review was authorised by the user's autonomous implementation/review instruction. Files were reviewed by responsibility: parameter/model boundary, backend/interchange probe, replay/recovery, clean package, security/workflow, tests and Conductor. Existing completed-track specifications and retained reviews were read before archival. No source value, prior, likelihood or published result was recalibrated. Disk exhaustion and initial failed checks remain in local evidence.

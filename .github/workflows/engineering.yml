@@ -118,7 +118,8 @@ jobs:
           record = {'schema': 'tobac.artifact-sbom.v1',
                     'scope': 'actual audited build/tool environment; not runtime-only dependency inference',
                     'sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-                               for p in sorted(folder.iterdir()) if p.is_file()}}
+                               for p in sorted(folder.iterdir())
+                               if p.is_file() and (p.suffix in {'.whl', '.gz'} or p.name == 'sbom.json')}}
           (folder / 'artifact-sbom.json').write_text(json.dumps(record, indent=2) + '\n')
           PYTHON
       - uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a
