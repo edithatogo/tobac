@@ -100,9 +100,15 @@ Index: `docs/INCORPORATION_STATUS.md`; manifest: `integration/prior_work_manifes
 Receipt: `integration/incorporation_verification_20261025.json`.
 
 Preserves 19 previously archive-only evidence/template files: 298 mixed-purpose CSV rows and
-28 inherited reference records. Twenty-one scoped preservation tests and actual source-archive
-comparison passed. The remote evidence subtree matches tested local bytes. Current code,
-model inputs/results, dependencies and gates were unchanged by that audit. No copied assumption
+28 inherited reference records. Twenty-one scoped preservation tests and the source-archive
+comparison passed at the receiving commit `5218d83` (the predecessor ZIP itself is not
+retained in this repository, so that comparison is an executed-at-the-time claim, not a
+reproducible gate — see the receipt). The uploaded snapshot tree matched the tested local
+subtree at `5218d83`; `references.csl.json` was since DOI-case-canonicalised at `090d07c`
+with the transform declared at `193f6bb`. A review on 26 October 2026 re-confirmed the
+payload and the 21-test suite and anchored the row/bibliography totals in the tests
+(receipt: `integration/incorporation_audit_review_20261026.json`). Current code, model
+inputs/results, dependencies and gates were unchanged by that audit. No copied assumption
 becomes a calibrated parameter, forecast a new observation, template a quotation, or old
 manuscript submission-ready. M3 incorporation now follows below.
 

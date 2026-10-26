@@ -37,9 +37,18 @@ def edit_manifest(root, change):
 
 def test_real_preserved_payload():
     result = load().verify(ROOT)
+    manifest = json.loads((ROOT / 'integration/prior_work_manifest.json').read_text())
     assert result['status'] == 'pass'
     assert result['files'] == 19
+    assert result['files'] == len(manifest['files'])
+    # The 298-row total is a golden number that is also restated in the receipts and
+    # docs; asserting it against the verifier's own recount of the ACTUAL files (not
+    # the manifest's rows fields) breaks a coordinated file+manifest drift: changing
+    # both files and manifest in lockstep still has to match this literal.
+    expected_rows = sum(f.get('rows', 0) for f in manifest['files'] if f['path'].endswith('.csv'))
+    assert result['csv_rows'] == expected_rows == 298
     assert result['bibliography_records'] == 28
+    assert result['bibliography_records'] == len(manifest['source_ids'])
     assert result['automatically_conditions_live_model'] is False
     assert result['scope'] == 'preservation_and_internal_linkage_not_scientific_validation'
 
@@ -56,24 +65,29 @@ def test_changed_bytes_fail(snapshot):
     with pytest.raises(ValueError, match='hash'): load().verify(snapshot)
 
 
-@pytest.mark.parametrize('change', [
-    lambda d: d.update(automatically_conditions_live_model=True),
-    lambda d: d.update(new_raw_assays=1),
-    lambda d: d.update(supplier_quotes_received_by_this_import=1),
-    lambda d: d.update(bibliographic_validation_performed=True),
-    lambda d: d.update(schema='other'),
-    lambda d: d.update(files=[]),
-    lambda d: d['files'].append(d['files'][0].copy()),
-    lambda d: d['files'][0].update(role=''),
-    lambda d: d['files'][0].update(path='../../escape'),
-    lambda d: d['files'][0].update(archive_path='tobac/../../escape'),
-    lambda d: d['files'][0].update(sha256='invalid'),
-    lambda d: d['files'][0].update(transformation='reestimated'),
-    lambda d: d.update(unmatched_source_tokens=[]),
+@pytest.mark.parametrize('change,message', [
+    (lambda d: d.update(automatically_conditions_live_model=True),
+     'overstated incorporation scope'),
+    (lambda d: d.update(new_raw_assays=1), None),
+    (lambda d: d.update(supplier_quotes_received_by_this_import=1), None),
+    (lambda d: d.update(bibliographic_validation_performed=True),
+     'overstated incorporation scope'),
+    (lambda d: d.update(schema='other'), 'overstated incorporation scope'),
+    (lambda d: d.update(files=[]), 'Missing file inventory'),
+    (lambda d: d['files'].append(d['files'][0].copy()), 'Duplicate file inventory entry'),
+    (lambda d: d['files'][0].update(role=''), 'role, transformation or hash'),
+    (lambda d: d['files'][0].update(path='../../escape'), 'Path outside declared snapshot'),
+    (lambda d: d['files'][0].update(archive_path='tobac/../../escape'), 'Path outside declared snapshot'),
+    (lambda d: d['files'][0].update(sha256='invalid'), 'role, transformation or hash'),
+    (lambda d: d['files'][0].update(transformation='reestimated'), 'role, transformation or hash'),
+    (lambda d: d.update(unmatched_source_tokens=[]), None),
 ])
-def test_malformed_or_overclaiming_manifest_fails(snapshot, change):
+def test_malformed_or_overclaiming_manifest_fails(snapshot, change, message):
     edit_manifest(snapshot, change)
-    with pytest.raises(ValueError): load().verify(snapshot)
+    if message is None:
+        with pytest.raises(ValueError): load().verify(snapshot)
+    else:
+        with pytest.raises(ValueError, match=message): load().verify(snapshot)
 
 
 def test_wrong_row_count_fails(snapshot):
