@@ -189,3 +189,13 @@ engineering-directory graph run 40326897087 passed but does not close that root 
 
 Publication: PR #47. All local implementation, review and reconciliation evidence
 is recorded above; exact-head hosted results are required before guarded merge.
+
+Hosted qualification: PR #47 head a702ac571aba59cf53146efd4678c9deeb7a75e6
+passed all 15 executable PR checks, including full macOS Python 3.15.1
+qualification; two trusted-write jobs are intentionally main/dispatch-only.
+Downloaded macOS JUnit/coverage: 880 passed, five capability skips, 91.8033%
+branch-inclusive coverage (displayed 92%). The freshly built native Voiage wheel
+and domain interchange receipt pass, with the exact adapter source hash retained.
+The final receipt-only update receives the same checks before guarded merge.
+Receiving ref and trusted default-branch jobs are linked from PR #47. The external
+root-parser gate remains open; no new track is falsely archived as complete.

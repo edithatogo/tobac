@@ -38,6 +38,7 @@
     "pull_request": 47,
     "url": "https://github.com/edithatogo/tobac/pull/47",
     "local_qualification": "880 passed, 5 skips, 92% coverage; 97 native tests passed; strict/reproduction/security/clean package passed",
-    "hosted": "pending exact-head qualification before guarded merge"
+    "hosted": "15 successful PR checks; two expected trusted-write skips; receipt-only update must pass the same gates before merge; receiving ref linked from PR #47",
+    "qualified_head": "a702ac571aba59cf53146efd4678c9deeb7a75e6"
   }
 }

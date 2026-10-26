@@ -11,7 +11,9 @@ native interchange/tool probes, mutation boundary assertions and security/proven
 PR #43 is merged and the macOS implementation/review and native provenance gates pass.
 C3/C4/C6 domain interchange is implemented and locally qualified against the current
 Voiage artifact (c347f82); PR #41 retains its separate future producer migration.
-Only the upstream managed parser Python 3.15 runtime gate remains open. The supported native dependency-submission route and graph readback pass.
+PR #47 records 15 successful hosted checks for the domain boundary; its final
+receipt update receives the same gates before guarded merge. Only the upstream
+managed parser Python 3.15 runtime gate remains open. The supported native dependency-submission route and graph readback pass.
 Review: `docs/reviews/2026-10-26-conductor-autonomous.md`.
 Execution: `integration/ecosystem/verification_20261026.json` and
 `integration/ecosystem/interchange_20261026.json`.

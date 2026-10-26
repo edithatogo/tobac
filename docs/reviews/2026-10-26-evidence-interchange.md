@@ -33,3 +33,10 @@ Remaining external gate: the managed root Dependabot parser's Python 3.15 suppor
 The supported dependency snapshot submission remains required and unchanged.
 Final executable evidence and publication refs are recorded in the track plan
 and integration/ecosystem/interchange_20261026.json after qualification.
+
+Hosted readback: PR #47 head a702ac5 passed all 15 executable checks, including
+macOS qualification and a fresh native producer build. Downloaded macOS JUnit and
+coverage confirm 880 passed, five capability skips and 92% displayed coverage.
+The native producer/interchange artifact has the exact adapter source hash and
+matches the independent weighted EVPI oracle. Two trusted-write jobs are correctly
+reserved for main/dispatch. Final receipt-only changes receive the same gates.
