@@ -150,10 +150,12 @@ contracts were locally retested; the M3 numerical results were not re-estimated 
 
 ## Reconciled engineering verification — 26 October 2026
 
-PR #25 is being reconciled with the Python 3.15.1 migration. The focused runner now checks
-against qualified pandas/SciPy/jsonschema stubs and the calling session interpreter. Current
-verification and completion receipts will supersede older counts for this integrated tree.
-Independent review is optional; current development and hosted qualification target macOS.
+PR #25 and the Python 3.15.1 migration were reconciled through PR #29, merged at `104729a`.
+The focused runner and whole-source strict checks use qualified stubs and the calling session
+interpreter. Both hosted macOS jobs passed at final PR head `1f6b375`; the receiving commit and
+execution details are in `integration/engineering_reconciliation_20261026.json`. Optional Voiage
+installation remains blocked by upstream dependencies. Independent review is optional; current
+development and hosted qualification target macOS.
 
 ## Scientific ecosystem modernisation — 25 October 2026
 **Status: approved planning registered; implementation not authorised.**

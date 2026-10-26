@@ -25,7 +25,7 @@
   "publication": {
     "pull_request": 29,
     "receiving_ref": "main",
-    "qualified_commit": "c645028383163aa069937d34e14f8661374b608a",
+    "qualified_commit": "1f6b375c8a491a395b0e6580a8e567dc921445a9",
     "receiving_commit": "104729a615e19ccf8da2cb52e729d46df624037d",
     "status": "merged"
   }
