@@ -43,3 +43,7 @@ values (2010–2025) match the existing CSV exactly. The additional
 closes the workbook-value check while retaining the existing conversion, duty-free
 and measurement qualifications. The two supporting JSON/text extraction notes are
 also hash-inventoried as agent records. They retain their original provenance role.
+
+The reconciled consumer handoff now validates declared observations and reports explicit
+scientific gaps: [source-to-observation guide](SOURCE_OBSERVATION_HANDOFF.md).
+The original snapshot receipts above retain their dated meaning.

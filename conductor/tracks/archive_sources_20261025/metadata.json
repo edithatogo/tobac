@@ -1,0 +1,16 @@
+{
+  "track_id": "archive_sources_20261025",
+  "title": "Archival source integration",
+  "status": "implementation_in_progress",
+  "scope": "Bounded source-to-observation consumer validation; no conditioning",
+  "updated": "2026-10-26",
+  "base_commit": "d09c84d0cecf77e7ee1f42b36ed92a26928b24c7",
+  "reconciled_pull_request": 21,
+  "scientific_qualification": false,
+  "broader_lineage_implementation": false,
+  "evidence": [
+    "integration/archive/source-bindings.json",
+    "integration/archive/observation-handoff.json"
+  ],
+  "guide": "docs/SOURCE_OBSERVATION_HANDOFF.md"
+}

@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "target_scope",
+    "target_products",
+    "used_data_ids",
+    "dependency_mappings",
+    "observations",
+    "target_scope_status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "tobac.observation-handoff.v1"
+    },
+    "target_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "geography",
+        "population",
+        "start",
+        "end",
+        "unit"
+      ],
+      "properties": {
+        "geography": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "population": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "start": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "end": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "target_products": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "used_data_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "dependency_mappings": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "observation_id",
+          "path",
+          "collection",
+          "source_id",
+          "period_start",
+          "period_end",
+          "year",
+          "role",
+          "source_scope",
+          "products",
+          "likelihood_model",
+          "covariance_model",
+          "transport_model"
+        ],
+        "properties": {
+          "observation_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "collection": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "period_start": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "period_end": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "year": {
+            "type": "integer",
+            "minimum": 1900,
+            "maximum": 2200
+          },
+          "role": {
+            "enum": [
+              "observation",
+              "summary",
+              "forecast",
+              "posterior",
+              "assumption"
+            ]
+          },
+          "source_scope": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "geography",
+                  "population",
+                  "start",
+                  "end",
+                  "unit"
+                ],
+                "properties": {
+                  "geography": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "population": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "start": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                  },
+                  "end": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "products": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "likelihood_model": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "covariance_model": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "transport_model": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "target_scope_status": {
+      "enum": [
+        "proposed",
+        "declared"
+      ]
+    }
+  }
+}

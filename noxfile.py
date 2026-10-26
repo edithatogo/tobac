@@ -157,9 +157,19 @@ def strict_all(session):
 
 
 @nox.session(python='3.15.1')
+def source_handoff(session):
+    """Validate source/observation declarations; blocked scientific gaps remain explicit."""
+    environment(session)
+    session.run('python', 'scripts/source_handoff.py', '--out',
+                'outputs/engineering/source-handoff.json', *session.posargs)
+
+
+@nox.session(python='3.15.1')
 def reproduce(session):
     verify_evidence(session, 'reproduce')
     environment(session)
+    session.run('python', 'scripts/source_handoff.py', '--out',
+                'outputs/engineering/source-handoff-reproduction.json')
     session.run('python', 'scripts/verify.py')
     replay_root = OUT / 'replays' / uuid4().hex
     for module, destination in [('tobac.run', 'm1'), ('tobac.m2', 'm2'), ('tobac.research.runner', 'm3')]:
