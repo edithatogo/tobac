@@ -46,3 +46,9 @@ explicitly reported as unauditable by that service.
 These are bounded software compatibility and numerical parity checks. They do
 not establish generic EVSI, structural APIs, empirical calibration, causal validity
 or a full upstream Voiage test-suite qualification. No public release is made.
+
+All 15 checks on PR #33 passed at `fe56de0`, including both formerly failing
+Voiage jobs, the full engineering matrix and numerical/longitudinal checks.
+Receiving commit `f06eed630a8832174328a0472bdcaf55c98a4af9` was verified on main.
+The full hosted and local receipts are in
+`integration/voiage_python315_compatibility_20261026.json`.

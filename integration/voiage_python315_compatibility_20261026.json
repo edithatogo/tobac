@@ -74,7 +74,148 @@
     ]
   },
   "hosted": {
-    "status": "pending current PR head"
+    "status": "success",
+    "qualified_commit": "fe56de0268ccba29be4849bcb26350e5add87acb",
+    "checks": [
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272441974/job/121407961608",
+        "name": "Tests macos-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272441639/job/121407960540",
+        "name": "voiage-released-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272441974/job/121407961446",
+        "name": "macOS Python 3.15.1 qualification",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272441635/job/121407960316",
+        "name": "voiage-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272441974/job/121407961542",
+        "name": "Tests ubuntu-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272441974/job/121407961636",
+        "name": "quality",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272441678/job/121407960439",
+        "name": "longitudinal",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272441639/job/121407960164",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272441635/job/121407960178",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272441974/job/121407961602",
+        "name": "Tests windows-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272441635/job/121407960292",
+        "name": "sourceright",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272436827/job/121407945634",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272436827/job/121407945706",
+        "name": "sourceright",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272436813/job/121407945157",
+        "name": "longitudinal",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/40272436827/job/121407945416",
+        "name": "voiage-parity",
+        "state": "SUCCESS"
+      }
+    ],
+    "installed_m3_run": "https://github.com/edithatogo/tobac/actions/runs/40272441639",
+    "equal_weight_run": "https://github.com/edithatogo/tobac/actions/runs/40272441635",
+    "all_15_checks_passed": true,
+    "build_receipt": {
+      "upstream_revision": "7af563c8cb373057d30662650b3f332f39e05b83",
+      "patch_sha256": "ecdc9b1d79fdb5a2d5cb313ef5aba494b86c8b771ffb2e536025d4ce9484c184",
+      "derived_revision": "759e8c6e1a76d169bba513a5b5b85bff7c91bf55",
+      "wheel": "voiage-2.2.0+tobac3151.1-cp312-abi3-macosx_11_0_arm64.whl",
+      "wheel_sha256": "ab4e95d9c77ee25600c2db5da2fa46624916334e0c2678f48ca71d351a8fd028",
+      "scope": "Metadata-only compatibility build; unchanged Voiage implementation and native code",
+      "environment": "Using Python 3.15.1 environment at: .nox/voiage\nannotated-doc==0.0.5\nannotated-types==0.8.0\nattrs==26.1.0\nclick==8.5.0\ncloudpickle==3.1.2\ncontourpy==1.4.0\ncoverage==7.17.0\ncycler==0.12.1\nfonttools==4.67.0\nhypothesis==6.170.8\niniconfig==2.3.0\njoblib==1.6.0\njsonschema==4.26.0\njsonschema-specifications==2025.9.1\nkiwisolver==1.5.1\nmarkdown-it-py==4.2.0\nmatplotlib==3.11.2\nmdurl==0.1.2\nnarwhals==2.27.1\nnumpy==2.5.4\npackaging==26.3\npandas==3.0.6\npillow==13.0.0\npluggy==1.6.0\npolars==1.44.2\npolars-runtime-32==1.44.2\npyarrow==26.0.0\npydantic==2.14.1\npydantic-core==2.50.1\npygments==2.20.0\npyparsing==3.3.3\npytest==9.0.3\npython-dateutil==3.0.0\npyyaml==6.0.3\nreferencing==0.37.0\nrich==15.0.0\nrpds-py==2026.9.1\nscikit-learn==1.9.1\nscipy==1.18.1\nsetuptools==84.2.1\nshellingham==1.5.4\nsix==1.17.0\nsortedcontainers==2.4.0\nthreadpoolctl==3.7.0\n-e file:///Users/runner/work/tobac/tobac\ntyper==0.27.3\ntyping-extensions==4.16.0\ntyping-inspection==0.4.4\ntzdata==2026.5\nvoiage @ file:///Users/runner/work/tobac/tobac/outputs/engineering/voiage/a2d341bb29c74f409074469ab6f36343/wheels/voiage-2.2.0+tobac3151.1-cp312-abi3-macosx_11_0_arm64.whl\nxarray==2026.9.0\n"
+    },
+    "weighted_receipt": {
+      "schema": "tobac.voiage-qualification.v1",
+      "expected_version": "2.2.0+tobac3151.1",
+      "success": true,
+      "installed_library_executed": true,
+      "python": "3.15.1",
+      "status": "passed",
+      "checks": [
+        {
+          "case": "uniform",
+          "error": 0.0,
+          "value": 5.0,
+          "unit": "normalised fixture units"
+        },
+        {
+          "case": "unequal",
+          "error": 0.0,
+          "value": 1.0,
+          "unit": "normalised fixture units"
+        },
+        {
+          "case": "zero_mass",
+          "error": 0.0,
+          "value": 0.0,
+          "unit": "normalised fixture units"
+        },
+        {
+          "case": "small_mass",
+          "error": 6.077470925670262e-16,
+          "value": 9.99999993922529e-08,
+          "unit": "normalised fixture units"
+        },
+        {
+          "case": "identical_structure_only",
+          "value": 0.0,
+          "joint_perfect": 5.000000000000001,
+          "expected_structure_only": 0.0
+        }
+      ],
+      "scope": "source-built compatibility EVPI on exact weighted and finite-partition transforms only; no generic EVSI or structural API certification",
+      "version": "2.2.0+tobac3151.1"
+    },
+    "equal_weight_receipt": {
+      "tool": "voiage",
+      "version": "2.2.0+tobac3151.1",
+      "cases": 51,
+      "max_absolute_error": 4.440892098500626e-16,
+      "success": true,
+      "external_tool_executed": true,
+      "scope": "equal-weight EVPI only; not EVPPI/EVSI or empirical validation"
+    }
   },
   "artifacts": {
     "outputs/engineering/voiage-compatibility-locked.log": {
@@ -104,5 +245,10 @@
     "whole_source_types": "0 errors, 0 warnings, 0 notes",
     "reproduce": "M1/M2/M3 and both longitudinal replays/verification pass",
     "workflow_security": "no findings (13 existing suppressions)"
+  },
+  "publication": {
+    "pull_request": "https://github.com/edithatogo/tobac/pull/33",
+    "receiving_commit": "f06eed630a8832174328a0472bdcaf55c98a4af9",
+    "remote_main_verified": true
   }
 }
