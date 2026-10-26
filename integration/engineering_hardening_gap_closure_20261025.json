@@ -16,16 +16,32 @@
       "gap": "quality's basedpyright leg never actually checked the runner (vacuous 0 errors locally), and wiring bp_longitudinal.json into quality made that session unachievable",
       "resolution": "engineering/bp_longitudinal.json now uses an executionEnvironments entry with extraPaths to .nox/quality/lib/python3.13/site-packages, so imports resolve under any ambient interpreter, including Nox's inactive-venv case; reading table/primary columns through the checked DataFrame replaced itertuples attribute access. The strict check was then moved out of the blocking quality session into its own nox -s types_longitudinal session, because pandas ships no py.typed stubs and ~133 reportUnknown* errors cascade from correct code. noxfile.py installs tools-requirements.txt with -U so a stale local tool cannot pass against a newer pin.",
       "executed": [
-        {"session": "quality", "result": "success", "detail": "ruff E9/F63/F7/F82 pass; ruff strict config on context_bundle pass; basedpyright 0 errors, 0 warnings on engineering/basedpyright.json. Hosted confirmation pending on this head."},
-        {"session": "types_longitudinal", "result": "failure-expected", "detail": "basedpyright on bp_longitudinal.json: 133 strict errors, all reportUnknown* from pandas having no stubs (0 reportMissingImports, 0 reportArgumentType, 0 reportAssignmentType). Not part of quality and not reported green. Closing it requires pandas-stubs in engineering/audit.lock, a reviewed lock regeneration plus receipt."}
+        {
+          "session": "quality",
+          "result": "success",
+          "detail": "ruff E9/F63/F7/F82 pass; ruff strict config on context_bundle pass; basedpyright 0 errors, 0 warnings on engineering/basedpyright.json. Hosted confirmation pending on this head."
+        },
+        {
+          "session": "types_longitudinal",
+          "result": "failure-expected",
+          "detail": "basedpyright on bp_longitudinal.json: 133 strict errors, all reportUnknown* from pandas having no stubs (0 reportMissingImports, 0 reportArgumentType, 0 reportAssignmentType). Not part of quality and not reported green. Closing it requires pandas-stubs in engineering/audit.lock, a reviewed lock regeneration plus receipt."
+        }
       ]
     },
     {
       "gap": "audit sessions (quality, security, strict_all, mutation, profile) unexecutable off Linux",
       "resolution": "noxfile.py gained audit_tools(): Linux keeps the locked audit profile as authoritative; other hosts resolve the same reviewed pins host-natively and log an explicit NATIVE AUDIT ... NOT release qualification banner. environment() keeps its original Linux-only guard, so a direct locked attempt still fails closed.",
       "executed": [
-        {"session": "quality", "result": "success", "detail": "ruff E9/F63/F7/F82 pass; ruff strict config on context_bundle pass; basedpyright 0 errors, 0 warnings"},
-        {"session": "security", "result": "success", "detail": "zizmor no findings (13 suppressed); pip-audit no known vulnerabilities; cyclonedx SBOM written"}
+        {
+          "session": "quality",
+          "result": "success",
+          "detail": "ruff E9/F63/F7/F82 pass; ruff strict config on context_bundle pass; basedpyright 0 errors, 0 warnings"
+        },
+        {
+          "session": "security",
+          "result": "success",
+          "detail": "zizmor no findings (13 suppressed); pip-audit no known vulnerabilities; cyclonedx SBOM written"
+        }
       ]
     },
     {
@@ -39,9 +55,24 @@
         "reviewer": "same-assistant review; not independent human approval"
       },
       "locked_install_proof": [
-        {"session": "tests", "command_env": "TOBAC_REQUIRE_LOCK=1", "observed": "uv pip sync --require-hashes engineering/requirements.lock; scipy==1.17.0; 495 passed, 0 failed, 0 skipped, 91% coverage", "bootstrap_used": false},
-        {"session": "reproduce", "command_env": "TOBAC_REQUIRE_LOCK=1", "observed": "locked sync then M1, M2 --grid-check, M3, release_calibration and empirical_longitudinal all verified; artifacts 23 and 21", "bootstrap_used": false},
-        {"session": "package", "command_env": "TOBAC_REQUIRE_LOCK=1", "observed": "built tobac_regulatory_research-0.2.0.tar.gz and -py3-none-any.whl into outputs/release-candidate under --no-build-isolation", "bootstrap_used": false}
+        {
+          "session": "tests",
+          "command_env": "TOBAC_REQUIRE_LOCK=1",
+          "observed": "uv pip sync --require-hashes engineering/requirements.lock; scipy==1.17.0; 495 passed, 0 failed, 0 skipped, 91% coverage",
+          "bootstrap_used": false
+        },
+        {
+          "session": "reproduce",
+          "command_env": "TOBAC_REQUIRE_LOCK=1",
+          "observed": "locked sync then M1, M2 --grid-check, M3, release_calibration and empirical_longitudinal all verified; artifacts 23 and 21",
+          "bootstrap_used": false
+        },
+        {
+          "session": "package",
+          "command_env": "TOBAC_REQUIRE_LOCK=1",
+          "observed": "built tobac_regulatory_research-0.2.0.tar.gz and -py3-none-any.whl into outputs/release-candidate under --no-build-isolation",
+          "bootstrap_used": false
+        }
       ],
       "wheel_install_proof": "the built wheel installed into a clean Python 3.13 venv and imported tobac, tobac_supply and tobac.research, resolving numpy 2.3.5 and scipy 1.17.0"
     },
@@ -60,14 +91,24 @@
     {
       "gap": "mutation testing unexecuted",
       "resolution": "mutmut 3.7.0 executed natively on src/tobac/supply.py",
-      "result": {"mutants": 128, "killed": 79, "survived": 49, "score_percent": 61.7},
+      "result": {
+        "mutants": 128,
+        "killed": 79,
+        "survived": 49,
+        "score_percent": 61.7
+      },
       "assessment": "the session originally passed because mutmut 3.7.0 enforces no threshold; 49 survivors indicate weak test discrimination on tobac.supply and should not be read as adequate coverage. At 2057074 rebase time the session gained scripts/check_mutation_score.py, which reads mutmut's own mutants/<path>.meta exit codes and fails below a floor of 60%, so the same 61.7% result now passes by 1.7 points rather than unconditionally. The floor is a regression alarm, not an adequacy claim: raising it requires working through the 49 survivors."
     }
   ],
   "newly_measured_but_open": [
     {
       "gate": "strict_all",
-      "measured": {"ruff_select_all_errors": 4168, "ruff_fixable": 2281, "basedpyright_all_errors": 3584, "basedpyright_all_warnings": 1},
+      "measured": {
+        "ruff_select_all_errors": 4168,
+        "ruff_fixable": 2281,
+        "basedpyright_all_errors": 3584,
+        "basedpyright_all_warnings": 1
+      },
       "status": "OPEN",
       "note": "whole-source strict lint/type audit has never been green; recorded as measured, not fixed. This is the gate .github/workflows/release-candidate.yml requires before packaging."
     },
@@ -100,5 +141,16 @@
     "artifacts": "engineering/requirements.lock{,.json} and engineering/audit.lock{,.json} now committed",
     "scientific": "no change to src/ science, priors, inputs or published results"
   },
-  "review": "same-assistant execution and review; not independent scientific review, signed provenance or licensed attestation"
+  "review": "same-assistant execution and review; not independent scientific review, signed provenance or licensed attestation",
+  "review_annotations_20261026": {
+    "promoted_locks_first_committed_at": "c3923550f6fa213a4409848df8dac4493a0d5093",
+    "base_commit_note": "The recorded base_commit 5ab361b has no engineering/*.lock files and no TOBAC_REQUIRE_LOCK=1 environment() wiring, so the locked-mode runs this receipt records are only reproducible from c392355, where the promoted locks and the locked-mode guard first exist. Treat base_commit as the bootstrap base; the executed state is the c392355 tree (plus later lock regenerations from Renovate).",
+    "strict_all_note": "The recorded 4,168 ruff / 3,584 basedpyright counts were measured at 5ab361b; upstream re-measured on 26 October 2026 on the Python 3.15 target (4,861 ruff / 2,456 basedpyright, issue #1 comment 6406854120) and warned the earlier basedpyright figure came from a stale 3.12 target. Do not quote either count without its date, target and pin.",
+    "verified_independently_20261026": {
+      "tests_at_base": "495 passed, 91% coverage (1638/1740) at 5ab361b",
+      "ruff_at_base": "4,168 errors / 2,281 fixable with ruff 0.16.8 at 5ab361b",
+      "locks_promoted_and_self_verifying": "engineering/requirements.lock and audit.lock verify at HEAD",
+      "crlf_pair": "LF 144cded7... vs CRLF a47dea28... reproduced"
+    }
+  }
 }

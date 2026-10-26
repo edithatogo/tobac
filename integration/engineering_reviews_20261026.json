@@ -1,0 +1,58 @@
+{
+  "schema": "tobac.review-qualification.v1",
+  "date": "2026-10-26",
+  "review_of_tracks": ["engineering_execution_20261024", "engineering_hardening_20261024"],
+  "reviewed_at_main": "d1d3272cae462d0c2d1eea49eb9fb7a0736861d8",
+  "aggregate_verdict": "0 critical, 1 high, 4 medium, 5 low, of which the High, three Mediums and most Lows are already corrected upstream on 2026-10-26; this review fixes the remaining test gap and annotates the receipts.",
+  "verified_supported_claims": [
+    "495 passed / 91% coverage (1638/1740) reproduce exactly at base 5ab361b / 044c995",
+    "strict_all ruff 4,168 (2,281 fixable) reproduces with ruff 0.16.8 at 5ab361b",
+    "promoted locks verify at HEAD (lock_receipt verify --profile runtime|audit)",
+    "quality (ruff E9,F63,F7,F82 + ruff.toml + basedpyright.json) green with a wired environment",
+    "zizmor no findings (13 suppressed); pip-audit no vulnerabilities",
+    "Windows CRLF hash pair LF 144cded7 / CRLF a47dea28 reproduced",
+    "123 tests in tests/engineering pass; 611 full-suite at d1d3272"
+  ],
+  "findings_and_disposition": [
+    {
+      "id": "ENG-H1", "severity": "high-before-fix",
+      "summary": "strict_all '3,584 basedpyright errors, 1 warning' was environment/target-dependent and later measured at 4,861 ruff / 2,456 basedpyright on the corrected Python 3.15 target.",
+      "disposition": "corrected upstream at c8b070f/a7d0e8d (README.md re-measurement + tracks.md 'gates that are open'); this review's verified_supported_claims and the gap-closure annotation carry the dated figures."
+    },
+    {
+      "id": "ENG-M1", "severity": "medium",
+      "summary": "tracks.md said 'genuine locks remain open' (execution section) while the hardening section had promoted locks.",
+      "disposition": "locks first committed at c392355; upstream registry now reflects promoted locks; execution section re-read on 2026-10-26."
+    },
+    {
+      "id": "ENG-M2", "severity": "medium",
+      "summary": "gap-closure receipt base_commit 5ab361b cannot host its locked-run claims (locks land at c392355).",
+      "disposition": "annotated additively in this change (promoted_locks_first_committed_at, base_commit_note)."
+    },
+    {
+      "id": "ENG-M3", "severity": "medium",
+      "summary": "'hosted_matrix: not executed' overstated; the pushed matrix executes on every merge (not inspected).",
+      "disposition": "stale wording superseded by upstream; hosted engineering matrix was green at d85e8617 run 40265384210 (2026-10-26); inspection recorded as an open gate."
+    },
+    {
+      "id": "ENG-L1", "severity": "low",
+      "summary": "lock_receipt.verify()'s unhashed-candidate guard had zero test coverage (mutation probe 0/33).",
+      "disposition": "FIXED HERE: test_verify_rejects_an_unhashed_candidate_with_a_matching_receipt (runtime+audit) added in tests/engineering/test_lock_receipts.py; guard-removal mutation now fails 2 tests."
+    },
+    {
+      "id": "ENG-L2", "severity": "low",
+      "summary": "engineering_followthrough.json payload hashes describe 886fc08, not its base_commit 711705c.",
+      "disposition": "annotated additively (payload_commit, base_vs_payload_note)."
+    },
+    {
+      "id": "ENG-L3", "severity": "low",
+      "summary": "hardening metadata latest_execution/open_findings stale and 'three real defects' understates the 10 recorded findings.",
+      "disposition": "recorded here; upstream registry edits on 26 October already refresh the gate state."
+    }
+  ],
+  "not_re_verified_here": [
+    "mutation 61.7% (requires ~128 full-suite runs, > 1.5 h)",
+    "pip-audit advisory counts under the pinned tool venv (disk)",
+    "reproduce five-replay run and package wheel install (regenerates outputs)"
+  ]
+}
