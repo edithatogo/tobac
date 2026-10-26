@@ -36,5 +36,11 @@
     "receiving_commit": "f06eed630a8832174328a0472bdcaf55c98a4af9",
     "version": "2.2.0+tobac3151.1",
     "receipt": "integration/voiage_python315_compatibility_20261026.json"
+  },
+  "dependency_graph": {
+    "status": "native_success",
+    "receiving_commit": "666dd8c2f266d3ea83c2d606e0d00f606e0c24c0",
+    "run_id": 40275206942,
+    "receipt": "integration/dependency_graph_20261026.json"
   }
 }

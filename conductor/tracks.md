@@ -167,3 +167,11 @@ GitHub: https://github.com/edithatogo/tobac/issues/22
 Approved Conductor registration only; implementation not authorised. Reuses
 existing CI/archive and upstream contracts. No runtime or scientific
 qualification claimed.
+
+## Native Dependency Graph repair — 26 October 2026
+
+PR #35 merged at `666dd8c` after all 15 PR checks passed. Managed graph run
+`40275206942` passed; native SBOM readback grew from 27 to 42 package identifiers
+without losing any existing entry. Python remains 3.15.1, all dependency pins are
+unchanged, and security settings/checks are preserved. Receipt:
+`integration/dependency_graph_20261026.json`; guide: `docs/engineering/DEPENDENCY_GRAPH.md`.

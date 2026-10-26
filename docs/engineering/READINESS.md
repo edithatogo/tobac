@@ -36,7 +36,8 @@ then promote through a reviewed dependency change. A newer version is not itself
 ## 2. Separate portable and audit environments
 
 - `engineering/requirements.in`: reference research, test and explicit local-build dependencies.
-  The root `requirements.lock` remains a version list, not a transitive hash lock.
+  The root `requirements.lock` is a compatibility include for the version list in
+  `engineering/reference-requirements.txt`, not a transitive hash lock.
 - `engineering/audit.in`: adds the existing audit-tool pins. Its resolved lock is scoped to
   Linux x86_64 and Python 3.15.1. Linux-oriented mutmut/Scalene are not Windows matrix dependencies.
 - `engineering/build-requirements.txt`: explicit setuptools pin. Local project installation
@@ -280,3 +281,17 @@ Voiage follow-up completed through PR #33 at `f06eed6`: all 15 hosted checks pas
 on its exact qualified head, including both formerly failing installed-library
 jobs. Python remains 3.15.1. The compatibility receipt records receiving commit,
 source/patch/wheel identity and actual hosted equal/weighted/native/Arrow scope.
+
+## Native Dependency Graph manifest discovery
+
+The canonical version list is `engineering/reference-requirements.txt`; the root
+`requirements.lock` remains a compatible include. This fixes the managed fetcher's
+unsupported custom include suffix without changing any version pins, Python 3.15.1
+selection, audit settings or required checks. All three hash-lock receipts bind the
+new canonical input. See `DEPENDENCY_GRAPH.md` and
+`integration/dependency_graph_20261026.json` for actual native execution status.
+
+Native Dependency Graph qualification is now obtained: run `40275206942` passed
+after PR #35 merged at `666dd8c`. Native readback retained every previous package
+identifier and added 15 missing entries. No Python selection, dependency versions,
+required checks, repository visibility or security settings changed.
