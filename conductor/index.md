@@ -21,6 +21,6 @@
 
 -   [Agent Skills](../.agents/skills/)
 
-## Approved planning on implementation hold
+## Active implementation
 
-- [Scientific ecosystem modernisation](./tracks/scientific_ecosystem_20261025/index.md): do not implement without a new user instruction.
+- [Scientific ecosystem modernisation](./tracks/scientific_ecosystem_20261025/index.md): autonomous implementation and review authorised 26 October 2026.

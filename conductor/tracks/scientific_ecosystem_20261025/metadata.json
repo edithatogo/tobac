@@ -2,17 +2,18 @@
   "track_id": "scientific_ecosystem_20261025",
   "title": "Scientific ecosystem modernisation",
   "type": "refactor",
-  "status": "new",
+  "status": "in_progress",
   "created_at": "2026-10-25T12:24:37.028925+00:00",
   "updated_at": "2026-10-25T12:24:37.028925+00:00",
   "description": "Scientific ecosystem modernisation",
   "base_commit": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
-  "approval_scope": "Approved Conductor registration only; do not implement",
-  "implementation_authorized": false,
-  "implementation_state": "not_started",
+  "approval_scope": "Autonomous macOS implementation, review, fixes and archival authorised 26 October 2026",
+  "implementation_authorized": true,
+  "implementation_state": "reconciling_current_main",
   "github_issue": "https://github.com/edithatogo/tobac/issues/22",
   "github_cross_reference": {
     "issue": "https://github.com/edithatogo/tobac/issues/22"
   },
-  "master_issue": "https://github.com/edithatogo/tobac/issues/22"
+  "master_issue": "https://github.com/edithatogo/tobac/issues/22",
+  "implementation_base": "fa0665f8e2409eec5e1f8e2bb25fc3644ffedd2f"
 }

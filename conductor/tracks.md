@@ -157,11 +157,11 @@ see `integration/voiage_python315_compatibility_20261026.json` for current hoste
 development and hosted qualification target macOS.
 
 ## Scientific ecosystem modernisation — 25 October 2026
-**Status: approved planning registered; implementation not authorised.**
+**Status: [~] In progress — autonomous implementation and review authorised 26 October 2026.**
 Track: `conductor/tracks/scientific_ecosystem_20261025/`.
 GitHub: https://github.com/edithatogo/tobac/issues/22
 
-Approved Conductor registration only; implementation not authorised. Reuses
+Implementation, review, fixes and archival authorised by the owner on 26 October 2026. Reuses
 existing CI/archive and upstream contracts. No runtime or scientific
 qualification claimed.
 
