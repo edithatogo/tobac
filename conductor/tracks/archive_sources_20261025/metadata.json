@@ -36,7 +36,7 @@
     }
   },
   "product_reconciliation": {
-    "status": "local_software_and_native_verification_passed_hosted_pending",
+    "status": "bounded_reconciliation_complete_national_source_qualification_open",
     "guide": "docs/2025_PRODUCT_RECONCILIATION.md",
     "report": "integration/reconciliation_2025/generated/report.json",
     "national_aggregation_qualified": false,
@@ -45,6 +45,12 @@
       "R&S King packet/carton quantities",
       "unreported channels and physical mass conversion"
     ],
-    "verification": "integration/reconciliation_2025/verification_20261026.json"
+    "verification": "integration/reconciliation_2025/verification_20261026.json",
+    "publication": {
+      "pull_request": 42,
+      "qualified_head": "2861511ee1141bcfff39c902b4a9405d1cc26326",
+      "merge_commit": "e543029e2f1f973562519c01b47ff3d06f257079",
+      "hosted_checks": "15/15 passed"
+    }
   }
 }

@@ -37,4 +37,6 @@ MOH follow-up PR #40 merged at `160c0a5c53e440d9345ad51efc7dca2a7611bf6c` after 
 - [x] Produce dimensionally separated subtotals and a workbook comparison that retains unresolved mass/count gaps.
 - [x] Preserve signed adjustments, missing channels, shared data and unqualified RYO conversion.
 - [x] Complete software regressions, strict checks and scientific reproduction/package gates.
-- [ ] Publish and verify exact-head hosted checks; retain source conflicts as scientific gates.
+- [x] Publish and verify exact-head hosted checks; retain source conflicts as scientific gates.
+
+Product reconciliation PR #42 merged at `e543029e2f1f973562519c01b47ff3d06f257079` after 15/15 checks passed at `2861511ee1141bcfff39c902b4a9405d1cc26326`. Bounded implementation is complete; national source and measurement qualification remains open.

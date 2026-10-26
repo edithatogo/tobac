@@ -18,8 +18,90 @@
     "package": "Nox package wheel/sdist build passed; no new clean-install qualification claimed",
     "conductor": "10/10 names consistent",
     "hosted": {
-      "status": "pending"
-    }
+      "status": "success",
+      "pull_request": 42,
+      "qualified_head": "2861511ee1141bcfff39c902b4a9405d1cc26326",
+      "merge_commit": "e543029e2f1f973562519c01b47ff3d06f257079",
+      "hosted_checks": "15/15 passed",
+      "checks": [
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306510795/job/121516838417",
+          "name": "voiage-released-parity",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306510900/job/121516838723",
+          "name": "Tests macos-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306510900/job/121516838446",
+          "name": "macOS Python 3.15.1 qualification",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306510900/job/121516838556",
+          "name": "Tests ubuntu-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306510900/job/121516838707",
+          "name": "Tests windows-latest Python 3.15.1",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306510900/job/121516838580",
+          "name": "quality",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306510946/job/121516838801",
+          "name": "voiage-parity",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306510946/job/121516838234",
+          "name": "sourceright",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306510795/job/121516838680",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306510946/job/121516838774",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306510826/job/121516837909",
+          "name": "longitudinal",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306468784/job/121516699154",
+          "name": "numerical",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306468784/job/121516698786",
+          "name": "sourceright",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306468706/job/121516698328",
+          "name": "longitudinal",
+          "state": "SUCCESS"
+        },
+        {
+          "link": "https://github.com/edithatogo/tobac/actions/runs/40306468784/job/121516699228",
+          "name": "voiage-parity",
+          "state": "SUCCESS"
+        }
+      ]
+    },
+    "final_output_normalization": "44 product/workstream tests plus strict Ruff and BasedPyright passed after LF-output correction; full hosted tests passed on qualified head"
   },
   "failure_history": [
     "Initial overlapping-channel regression failed, corrected and passed failure-only then full suite",
@@ -56,5 +138,11 @@
   ],
   "national_aggregation_qualified": false,
   "measurement_parameters_changed": false,
-  "scientific_qualification": false
+  "scientific_qualification": false,
+  "publication": {
+    "pull_request": 42,
+    "qualified_head": "2861511ee1141bcfff39c902b4a9405d1cc26326",
+    "merge_commit": "e543029e2f1f973562519c01b47ff3d06f257079",
+    "hosted_checks": "15/15 passed"
+  }
 }

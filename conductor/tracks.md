@@ -209,3 +209,7 @@ consumer table preserves domestic/duty-free/unspecified channels, signed correct
 separate ingredient/additive/sales measures. Source year and packet/carton conflicts prevent
 national closure; missing channel quantities and RYO conversion remain unqualified.
 Guide: `docs/2025_PRODUCT_RECONCILIATION.md`; report: `integration/reconciliation_2025/generated/`.
+
+Product reconciliation PR #42 merged after 15/15 final-head checks passed. Bounded software
+reconciliation is complete; national source/measurement qualification remains open. Receipt:
+`integration/reconciliation_2025/verification_20261026.json`.
