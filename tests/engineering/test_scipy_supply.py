@@ -111,3 +111,30 @@ def test_zero_observations_and_hypotheses_are_legal():
     covariance = np.array([[1., .2], [.2, 1.]])
     np.testing.assert_allclose(release_loglikelihood(observed, expected, covariance),
                                oracle(observed, expected, covariance), rtol=1e-13)
+
+
+@pytest.mark.parametrize('total,share,expected', [(0.,0.,0.),(.5,0.,.5),(1.,1.,0.),(1.,.5,.5)])
+def test_physical_zero_and_fractional_boundaries_are_not_shifted(total, share, expected):
+    from tobac.supply import expected_releases
+    assert expected_releases(total,share,0.) == expected
+
+
+def test_each_signed_accounting_channel_and_reporting_multiplier():
+    from tobac.supply import expected_releases
+    # Independent lawful ledger: 100*.8 - 7 + 2 + 3 + 4 = 82; report at 1.2.
+    assert expected_releases(100.,.2,7.,stock_change=2.,outbound=3.,wastage=4.,reporting_multiplier=1.2) == pytest.approx(98.4)
+    assert expected_releases(100.,.2,7.,stock_change=-2.,outbound=3.,wastage=4.,reporting_multiplier=.8) == pytest.approx(62.4)
+
+
+@pytest.mark.parametrize('total,unrecorded,stock',[(.5,.7,0.),(.5,0.,-.7)])
+def test_fractional_negative_consumption_or_releases_are_rejected(total,unrecorded,stock):
+    from tobac.supply import expected_releases
+    with pytest.raises(ValueError,match='negative'):
+        expected_releases(total,0.,unrecorded,stock_change=stock)
+
+
+@pytest.mark.parametrize('total,share,unrecorded,stock', [(-.5,1.,0.,0.),(0.,1.5,0.,0.),(.5,0.,.7,1.)])
+def test_each_domain_guard_is_independent_of_later_accounting_guards(total,share,unrecorded,stock):
+    from tobac.supply import expected_releases
+    with pytest.raises(ValueError):
+        expected_releases(total,share,unrecorded,stock_change=stock)

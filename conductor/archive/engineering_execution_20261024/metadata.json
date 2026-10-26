@@ -1,0 +1,49 @@
+{
+  "track_id": "engineering_execution_20261024",
+  "title": "Source-bound dependency and execution qualification",
+  "status": "complete",
+  "updated": "2026-10-26",
+  "base_commit": "711705cb49b98ed24f66d29240d7cd7bc9c100e1",
+  "date": "2026-10-24",
+  "evidence": [
+    "docs/engineering/READINESS.md",
+    "integration/engineering_followthrough.json",
+    "tests/engineering/test_lock_receipts.py",
+    "tests/engineering/test_execution_contracts.py",
+    "tests/engineering/test_actions_diagnostics.py",
+    "integration/engineering_reconciliation_20261026.json",
+    "integration/engineering_macos_completion_20261026.json"
+  ],
+  "publication": {
+    "receiving_commit": "104729a615e19ccf8da2cb52e729d46df624037d",
+    "pull_request": 29,
+    "qualified_commit": "1f6b375c8a491a395b0e6580a8e567dc921445a9"
+  },
+  "dependency_graph": {
+    "status": "native_success",
+    "receiving_commit": "666dd8c2f266d3ea83c2d606e0d00f606e0c24c0",
+    "run_id": 40275206942,
+    "receipt": "integration/dependency_graph_20261026.json"
+  },
+  "completed_scope": "macOS Python 3.15.1 engineering qualification",
+  "completed": "2026-10-26",
+  "completion_receipt": "integration/engineering_macos_completion_20261026.json",
+  "qualified_base_commit": "f11d491a1925da73a2bf9de059a2b6bed8680030",
+  "actions_policy": {
+    "status": "closed_rejected_generated_lock",
+    "decision": "retain full-SHA pins",
+    "owner_authorized": "2026-10-26",
+    "external_references_verified": 40,
+    "all_full_sha": true
+  },
+  "deferred_scope": "Linux/Windows qualification and advisory expansion remain in conductor/roadmap.md",
+  "completion_publication": {
+    "pull_request": 37,
+    "merge_commit": "19dc67653dfb844777c80dfe58076b790d0e88f1",
+    "pr_head_checks": "15/15 passed",
+    "receipt": "integration/engineering_macos_completion_20261026.json"
+  },
+  "archived_at": "2026-10-26",
+  "archive_scope": "Completed bounded macOS/software scope; empirical and source gates remain in conductor/research-gates.md",
+  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md"
+}

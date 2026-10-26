@@ -11,5 +11,9 @@
     "src/tobac_supply/consumption_ledger.py",
     "src/tobac_supply/empirical_longitudinal.py"
   ],
-  "base_commit": null
+  "base_commit": null,
+  "required_paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md"
+  ]
 }

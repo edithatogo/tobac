@@ -1,0 +1,41 @@
+{
+  "schema": "tobac.clean-package.v1",
+  "status": "passed",
+  "python": "3.15.1 (main, Oct 21 2026, 17:39:16) [Clang 23.1.3 ]",
+  "source_overrides": false,
+  "artifacts": {
+    "commands.json": "ab7adda2708d16a3f04d5bf3760442b2b227afa01952b7d804c33cca96cdd2e6",
+    "dist/tobac_regulatory_research-0.2.0-py3-none-any.whl": "53b46004b8ef103044d01d38a4e68c0aed88094ab19f5b39547d8e83468e292d",
+    "dist/.gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+    "dist/tobac_regulatory_research-0.2.0.tar.gz": "cb61aa5b16fa3697f28c86e8341dc4822907bcb2b3b3cd34863f36fbebb12a3a",
+    "reconstructed/tobac_regulatory_research-0.2.0-py3-none-any.whl": "3eda98c7200045c81fc5bdb1a7572077ba6862cf3b89c5092fe6c17979aa9703",
+    "reconstructed/.gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+    "installed-cli-result/consequence_ledgers.csv": "c03976b88f61d21b425723207660af0aede6c93721dae24622e4cdee5621bc3b",
+    "installed-cli-result/scientific_learning.csv": "c3b525a021f512988e3626105fbe581a0b7c1f393f43aa62c58081c7189bff8b",
+    "installed-cli-result/grouped_evppi.csv": "fca4476a5fff47cb5de29eda0076fbab4017896ed5eca28393433efe2489b22a",
+    "installed-cli-result/validation.json": "aa100714f3bc86a0a775bd9a0c53b175cd946bc7dbfcdd194d920db3c5bdec49",
+    "installed-cli-result/study_value.csv": "6b2d715de75405a3ee9cee632ea41e7bdb709dbc8d645861738795c29fa5186b",
+    "installed-cli-result/manifest.json": "3f721c09e18e44b7f8f87b34a57a626c91e0f3690291bcb89399e3789d2ffcb5",
+    "installed-cli-result/same_data_robustness.csv": "cf0cbe859de6bb5c912aec7b79b238b023e887d84ec2c354abedd54b7782c0ec",
+    "installed-cli-result/conditional_price_frontier.csv": "8467c4beae0911f9d7e334a5140fa2561a8c1a853f1fade74f76d4ec7479e59f",
+    "installed-cli-result/decision_summary.csv": "a27472409c8bc3403ed82d2fd591d85a4801ca286abac3dff5d41a4f18660179",
+    "installed-cli-result/incremental_information.csv": "45b059fae80c67f932535a59d4c750fef93f6e21fa12bb8fdafdf939eb983c57"
+  },
+  "installed_cli_validation": {
+    "passed": true,
+    "checks": 29,
+    "states": 4096,
+    "cases": 1,
+    "designs": 13,
+    "exact_oracle_error": 0.0,
+    "mc_check_estimate": 0.004614039864943213,
+    "mc_check_se": 2.853489969292415e-05,
+    "exact_reference_evsi": 0.004650638006605107,
+    "method": "exact finite prior and coarsened outcomes; MC used only as independent check",
+    "scope": "conditional research; not current NZ posterior or policy recommendation",
+    "python": "3.15.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "scope": "wheel install/API/quick M1 CLI and sdist-to-wheel build; no external scientific approval"
+}

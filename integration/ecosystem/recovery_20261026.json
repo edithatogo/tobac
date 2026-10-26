@@ -1,0 +1,172 @@
+{
+  "schema": "tobac.recovery-qualification.v1",
+  "completed": [
+    "m1",
+    "m2"
+  ],
+  "scope": "native quick M1/M2 stage-boundary interruption; not mid-kernel recovery",
+  "receipt_immutable": true,
+  "csv_sha256": {
+    "m1/consequence_ledgers.csv": "c03976b88f61d21b425723207660af0aede6c93721dae24622e4cdee5621bc3b",
+    "m1/scientific_learning.csv": "c3b525a021f512988e3626105fbe581a0b7c1f393f43aa62c58081c7189bff8b",
+    "m1/grouped_evppi.csv": "fca4476a5fff47cb5de29eda0076fbab4017896ed5eca28393433efe2489b22a",
+    "m1/study_value.csv": "6b2d715de75405a3ee9cee632ea41e7bdb709dbc8d645861738795c29fa5186b",
+    "m1/same_data_robustness.csv": "cf0cbe859de6bb5c912aec7b79b238b023e887d84ec2c354abedd54b7782c0ec",
+    "m1/conditional_price_frontier.csv": "8467c4beae0911f9d7e334a5140fa2561a8c1a853f1fade74f76d4ec7479e59f",
+    "m1/decision_summary.csv": "a27472409c8bc3403ed82d2fd591d85a4801ca286abac3dff5d41a4f18660179",
+    "m1/incremental_information.csv": "45b059fae80c67f932535a59d4c750fef93f6e21fa12bb8fdafdf939eb983c57",
+    "m2/summary.csv": "c05404cac54502f017e56dbda942fa374ee02c34f7db004e9f8aa589eae542c7",
+    "m2/scientific_learning.csv": "dc81d97f72f688f46204e472c62a2692864e3fcf1f6022195fdee9d876d7530d",
+    "m2/grouped_evppi.csv": "14af7bc102880da0862b8dcc1dea15014eef401fe6fa99ee30ef76f060c7da27",
+    "m2/study_value.csv": "5f4a7f826d6b9f10dd3384fd1c4d4ce839c69b4c0d199dc73ef465db65ef3317",
+    "m2/incremental_information.csv": "fc7ece5b35728d8959ed63550068af9f642878d936ddb1aed6b692250fef1ffc"
+  },
+  "identity": {
+    "inputs": {
+      "configs/calibration_v2.8.0/model.json": "91c12ebf0e5216fcf2575b1cdc3c4dc9ca6b98972cbe0947c57d362f5e00bb0d",
+      "configs/empirical_longitudinal_v2.9.0/model.json": "c067ff230546638a28b4edf3ad3555bea9f309a035ff723e8bcd48cb68e95f41",
+      "configs/m2_retail.json": "925746a584e0f986e22b7848bd8fac50ae7fb6ae5e06a1cd8d4bad2742192b3f",
+      "configs/m3_research.json": "23528a30122c5de6629b4ff4b9784a24c942d5ed9c28d11924a5427a670c6d8a",
+      "configs/m3_research_refinement.json": "ce5be3a259130c196dd5f20154e73801a6bdfa305829b949d95ced99274e9bc7",
+      "configs/regulatory.json": "8fff72e501726af284d5b07bf61a40e803bb6fc41da767f49f77ecc7ec4eaaa7",
+      "data/calibration_20261024/raw/tobacco_returns_completion.txt": "b1ead4c90cacda71b50e8ccfcbbda3e416ace9ffc64173848741d11b21e8bcb5",
+      "data/empirical_intake_20261024/nz_historical_legal_supply.csv": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "data/empirical_longitudinal_20261024/source_record.json": "48368264e86ca0aeab7f329b4ec4aea419b6232c4711ad31f0770611081450b6",
+      "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e"
+    },
+    "model_sources": {
+      "__init__.py": "438a1124a46dfc7a91b5424c8127a8ead3e01c0f34e45740a1238429aa54f94f",
+      "_core.py": "c2dae2df9d91d5143d7ffe5926fcc410f65fbfc6933a8e5bdabf3c8b61c5bcee",
+      "_typing.py": "ec3ebd6c74b4b7dbeed64c668984e432fa5366ab9ebadee07c597f4b6270ec2f",
+      "backend.py": "5039bcfe4c890c76cf78f259848f80e4b971ca2c1222df5769c59e667034cc16",
+      "config_validation.py": "1f9b31118eb2b45c1ff084bb84384fdd1fafc330e603457772b4a586d01f7fe8",
+      "evidence.py": "88dd31c846b88b547b9db5418565a1b78325c42074862aa6a6ae268017501602",
+      "information.py": "40a8bdc98768de8d721f6c8aef2a7a842cecbb219e8887916d963e401237e29f",
+      "integrations.py": "4a40996b1186fc4bf057797af0facffaeaf107a6d2e21cca94fa4d5e1372209c",
+      "m2.py": "269a3e302bcdf833deab9ec1e73bffe7a8d1f79601836eeed1978b6c69b8401f",
+      "parameters.py": "4bd24a90b831372b8a90aa4ed6011a684d480d8f5ef72552f523387e8bf52168",
+      "regulation.py": "a1d361e300df331bb10810100f1e153f1f6faf4d8de4e5824b3702bc9fc517e5",
+      "replay.py": "80fd7281581c854704e7551502ed6e3bc90f847847a1af32c4d493b2a37ed704",
+      "research/__init__.py": "82c9f7c23f3f260b62ba6bb1b5065dbccee5509b09cbd92505803412e7c976dd",
+      "research/implementation.py": "a899abdcb222ae696fab116e8a774735692da6743e1b80a070cef8ee4d8cce0d",
+      "research/portfolio.py": "e054aaebeb09824bb305408b5defd79695398c4fd1d26c60f5719da7c0316c3d",
+      "research/qualification.py": "b553cddad6b04096ad9339542e84409dc1c8e0b1ecbc370ae74d20fbcdd21c64",
+      "research/robust.py": "42cef714d35a3f28fa4ca006d91d13de84456ef938c5ed863c3566af9bc14275",
+      "research/runner.py": "b7979d3d4e6174ac7332c6e6d3b1c25c5371b3a0fe41d9a6b483dc6f0dbd0516",
+      "research/staged.py": "d6d2ca4ba7637d6401c110a4e27e8c896dd2c001b545a00d88fa02875b667ee6",
+      "research/structure.py": "add80ead9c7f07c4fa9230bf9a000f277c770631a52266f42eb74fc3d57b2ddf",
+      "research/voiage_adapter.py": "63120dba5752df3d143a4c58efcc67e569662b3f5a6e0645951e899614e973b3",
+      "retail_case.py": "248ec4ed391440ce8277f4e31dc30ace0586cc30ab1ac8ced524b1dae8558ff5",
+      "run.py": "6eb79491c6e184d76bb364b354a66a452213c5769f8b8e157485f240e26b8702",
+      "supply.py": "45261897fd11636492186c070fc6b0a77caf7dae3d9345ef2dec495ca169acfb"
+    },
+    "locks": {
+      "engineering/audit.lock": "d898a4ab1c137fb0a6835042aa6c92c3b6247eb378ac021157040862eeb3a36d",
+      "engineering/audit.lock.json": "e7b93430cbfdd433a2ec537e44de3460e832552afa12128dc4fdf637fd17092b",
+      "engineering/ecosystem.lock": "11df7a6ad764038a37a681e6ccb0f13000f91a0934c6b2c7df38a41565f9d761",
+      "engineering/ecosystem.lock.json": "46b1d1c4dba75eeab3b03a8f63d047aa73bf80a478aba16b1b2dbaf7861bac4f",
+      "engineering/requirements.lock": "15994750dfd42c88015bbdd06c765c9e7b8c74dd5ead42a50db79ce7654281dc",
+      "engineering/requirements.lock.json": "13f5f99f66d9b56edb3cb106f8db89669a1ae33d0fbe7acbf98c1e08de2a6cdf",
+      "engineering/voiage.lock": "5845a8ee29b93abda1b03b2cfdf093b8fa30669804260fa791a5116647f6f692",
+      "engineering/voiage.lock.json": "0d4f67c82a987651455d7061a8d636aeb7b6bc12407f29cc6a775b75aade887d"
+    },
+    "execution": {
+      "python": "3.15.1",
+      "libraries": {
+        "numpy": "2.5.4",
+        "scipy": "1.18.1"
+      },
+      "machine": "arm64",
+      "system": "Darwin",
+      "threads": "1",
+      "backend": "numpy",
+      "precision": "float64",
+      "rng": "existing exact finite runners; no new sampling",
+      "blas": {
+        "Compilers": {
+          "c": {
+            "name": "clang",
+            "linker": "ld64",
+            "version": "15.0.0",
+            "commands": "cc"
+          },
+          "cython": {
+            "name": "cython",
+            "linker": "cython",
+            "version": "3.3.0",
+            "commands": "cython"
+          },
+          "c++": {
+            "name": "clang",
+            "linker": "ld64",
+            "version": "15.0.0",
+            "commands": "c++"
+          }
+        },
+        "Machine Information": {
+          "host": {
+            "cpu": "aarch64",
+            "family": "aarch64",
+            "endian": "little",
+            "system": "darwin"
+          },
+          "build": {
+            "cpu": "aarch64",
+            "family": "aarch64",
+            "endian": "little",
+            "system": "darwin"
+          }
+        },
+        "Build Dependencies": {
+          "blas": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "lapack": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          }
+        },
+        "Python Information": {
+          "path": "/private/var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/build-env-zzknca2z/bin/python",
+          "version": "3.15"
+        },
+        "SIMD Extensions": {
+          "baseline": [
+            "NEON",
+            "NEON_FP16",
+            "NEON_VFPV4",
+            "ASIMD"
+          ],
+          "found": [
+            "ASIMDHP",
+            "ASIMDDP"
+          ],
+          "not found": [
+            "ASIMDFHM"
+          ]
+        }
+      },
+      "xla_flags": null
+    }
+  },
+  "qualifier_sha256": "e8d551ae87258585f674777211588096861e9b3ba4209a32b6e5191f228008dd",
+  "command": [
+    "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/.nox/recovery/bin/python",
+    "scripts/qualify_recovery.py",
+    "--out",
+    "outputs/engineering/recovery/aa434c2270c54869beff25e4b9ffc61e"
+  ]
+}

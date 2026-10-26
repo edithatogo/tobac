@@ -76,11 +76,60 @@ jobs:
           enable-cache: false
       - run: mkdir -p outputs/engineering
       - name: Qualify the macOS engineering and numerical checks
-        run: uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/macos-nox-report.json -s quality strict_all reproduce package security mutation
+        run: uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/macos-nox-report.json -s quality strict_all reproduce package security mutation clean_package recovery
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: macos-python3151-qualification
           path: outputs/engineering/
           if-no-files-found: warn
+          retention-days: 14
+
+  artifact_provenance:
+    name: macOS package provenance
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: macos-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    steps:
+      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
+        with:
+          version: '0.13.5'
+          python-version: '3.15.1'
+          enable-cache: false
+      - name: Build source-independent artifacts
+        run: uvx --python 3.15.1 --from nox==2026.10.20 nox -s package clean_package security
+      - name: Bind audit SBOM to exact package subjects
+        run: |
+          cp outputs/engineering/sbom.json outputs/release-candidate/sbom.json
+          .nox/package/bin/python - <<'PYTHON'
+          import hashlib, json
+          from pathlib import Path
+          folder = Path('outputs/release-candidate')
+          record = {'schema': 'tobac.artifact-sbom.v1',
+                    'scope': 'actual audited build/tool environment; not runtime-only dependency inference',
+                    'sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                               for p in sorted(folder.iterdir())
+                               if p.is_file() and (p.suffix in {'.whl', '.gz'} or p.name == 'sbom.json')}}
+          (folder / 'artifact-sbom.json').write_text(json.dumps(record, indent=2) + '\n')
+          PYTHON
+      - uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a
+        with:
+          subject-path: outputs/release-candidate/*
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: macos-package-provenance
+          path: |
+            outputs/release-candidate/
+            outputs/engineering/clean-package/
+          if-no-files-found: error
           retention-days: 14

@@ -1,0 +1,5 @@
+{
+  "schema": "tobac.security-findings.v1",
+  "scope": "Maintained dispositions supplement the required actual audit and workflow scanner; no finding is suppressed by absence here",
+  "findings": []
+}

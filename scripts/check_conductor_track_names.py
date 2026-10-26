@@ -44,10 +44,14 @@ def registry_headings(repo: Path) -> tuple[dict[str, str], list[str]]:
     """
     sections: list[tuple[str | None, str | None]] = []
     pending: str | None = None
+    archive = repo / "conductor/archive/index.md"
+    archive_text = archive.read_text(encoding="utf-8") if archive.is_file() else ""
     for line in (
         (repo / "conductor" / "tracks.md").read_text(encoding="utf-8")
         + "\n"
         + (repo / "conductor" / "roadmap.md").read_text(encoding="utf-8")
+        + "\n"
+        + archive_text
     ).splitlines():
         match = HEADING.match(line)
         if match:

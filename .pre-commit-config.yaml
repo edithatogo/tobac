@@ -1,23 +1,31 @@
+default_language_version:
+  python: python3.15
 minimum_pre_commit_version: '4.6.1'
 repos:
   - repo: local
     hooks:
+      - id: python-runtime
+        name: Required Python runtime
+        entry: python -c "import sys; assert sys.version_info[:3] == (3, 15, 1)"
+        language: python
+        pass_filenames: false
+        always_run: true
       - id: python-fatal-checks
         name: Ruff fatal Python checks
         entry: ruff check --isolated --select E9,F63,F7,F82
         language: python
-        additional_dependencies: [ruff==0.16.8]
+        additional_dependencies: [ruff==0.17.2]
         types: [python]
       - id: context-harness-strict
         name: Strict context-harness lint
         entry: ruff check --config engineering/ruff.toml
         language: python
-        additional_dependencies: [ruff==0.16.8]
+        additional_dependencies: [ruff==0.17.2]
         files: ^scripts/context_bundle\.py$
       - id: context-harness-types
         name: Strict context-harness types
         entry: basedpyright --project engineering/basedpyright.json
         language: python
-        additional_dependencies: [basedpyright==1.39.9, jsonschema==4.26.0]
+        additional_dependencies: [basedpyright==1.40.2, jsonschema==4.26.0]
         pass_filenames: false
         files: ^(scripts/context_bundle\.py|engineering/)

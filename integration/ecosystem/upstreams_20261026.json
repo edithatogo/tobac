@@ -1,0 +1,158 @@
+{
+  "schema": "tobac.upstream-assessment.v1",
+  "method": "bounded local discovery and paginated all-state gh inventories, max 5000 per repository",
+  "repositories": [
+    {
+      "repository": "voiage",
+      "local_head": "eb53decf918c0bb778fdc8771c2ba230681cd80a",
+      "local_remote": "https://github.com/edithatogo/astro-polyglot.git",
+      "local_dirty": false,
+      "github": {
+        "defaultBranchRef": {
+          "name": "main"
+        },
+        "nameWithOwner": "edithatogo/voiage"
+      },
+      "instructions_sha256": {
+        "AGENTS.md": "752f11252e7532aba196051fe6de53641dc6c7b846a98a9eb207d4bc24a4ff1a",
+        "conductor/tracks.md": "73ff0c86704bc8b6c167e348c1555483cf0b88313d760ecc1dae00cb750c32f0"
+      },
+      "issues_all_states": 306
+    },
+    {
+      "repository": "innovate",
+      "local_head": "3dab45d04cf04d8f11bdfeeef09d6c3eefd93cd1",
+      "local_remote": "",
+      "local_dirty": true,
+      "github": {
+        "defaultBranchRef": {
+          "name": "main"
+        },
+        "nameWithOwner": "edithatogo/innovate"
+      },
+      "instructions_sha256": {
+        "conductor/tracks.md": "57bc27eed40400ad38c324274eff26a9fe052119891fcd1c37aab14eee154d6e"
+      },
+      "issues_all_states": 227
+    },
+    {
+      "repository": "kairos",
+      "local_head": "80063b7413a26013e265107ea462828d94a49849",
+      "local_remote": "https://github.com/edithatogo/kairos",
+      "local_dirty": false,
+      "github": {
+        "defaultBranchRef": {
+          "name": "main"
+        },
+        "nameWithOwner": "edithatogo/kairos"
+      },
+      "instructions_sha256": {
+        "AGENTS.md": "7feeddb4af5795906b99bf894b9c1b5f6bff2ebfac1ea2a5c97466f300581c38",
+        "conductor/tracks.md": "8f61c62816192f1748b3fa72b93a8271b7d9a9d3e0475d2049e011b021dda537"
+      },
+      "issues_all_states": 11
+    },
+    {
+      "repository": "sourceright",
+      "local_head": "89bb795ef34b0586e4d04b7a6a9fa9ef1ddf6f15",
+      "local_remote": "https://github.com/edithatogo/sourceright.git",
+      "local_dirty": false,
+      "github": {
+        "defaultBranchRef": {
+          "name": "main"
+        },
+        "nameWithOwner": "edithatogo/sourceright"
+      },
+      "instructions_sha256": {
+        "AGENTS.md": "27a9a07364ea205de512b0351ec05d98a696a6580799994b1b2b0967513a3caa",
+        "conductor/tracks.md": "7d8596f759f3ddeac35c39b8021198f56e4ef348f4c581822148aba25622c6b9"
+      },
+      "issues_all_states": 54
+    },
+    {
+      "repository": "citeweft",
+      "local_head": "fb48944c89c00d365745a3610225d3a0ebcb0103",
+      "local_remote": "https://github.com/edithatogo/citeweft.git",
+      "local_dirty": false,
+      "github": {
+        "defaultBranchRef": {
+          "name": "main"
+        },
+        "nameWithOwner": "edithatogo/citeweft"
+      },
+      "instructions_sha256": {
+        "conductor/tracks.md": "863dd0808de833a5b5f458ce602c28a443e17a8e316bb0c6fabb8a0c5c3d4f9f"
+      },
+      "issues_all_states": 5
+    },
+    {
+      "repository": "searchright",
+      "local_head": "e1f78ecf3467a88fc95523c53babb503fb3921ef",
+      "local_remote": "https://github.com/edithatogo/searchright",
+      "local_dirty": false,
+      "github": {
+        "defaultBranchRef": {
+          "name": "main"
+        },
+        "nameWithOwner": "edithatogo/searchright"
+      },
+      "instructions_sha256": {
+        "AGENTS.md": "c37df303303b9a1acb72d8830c8535422f5d8503cb686707610309406a208692",
+        "conductor/tracks.md": "23d55a325ff2526a3ae30c7e0dd8e56553e6d752308786a556d1c5ff27d7caca"
+      },
+      "issues_all_states": 600
+    },
+    {
+      "repository": "archive-govt-nz",
+      "local_head": "08340fd6e81ca73b2c68deb414dcb5d5b89272a9",
+      "local_remote": "https://github.com/edithatogo/archive-govt-nz",
+      "local_dirty": false,
+      "github": {
+        "defaultBranchRef": {
+          "name": "main"
+        },
+        "nameWithOwner": "edithatogo/archive-govt-nz"
+      },
+      "instructions_sha256": {
+        "AGENTS.md": "d7d83222acc3af8b3b46ea397c3b75c697f57b1f3d4c4b7d2aec9c1c7b2d1a6e",
+        "conductor/tracks.md": "c69efdcd456e726dc14a3388709c7403adb82b38e0271dc68f58ec034011b82f"
+      },
+      "issues_all_states": 125
+    },
+    {
+      "repository": "aegisarchive",
+      "local_head": "d66f3c861ebbf1c162611880d9ff8eba8b67fa5f",
+      "local_remote": "https://github.com/edithatogo/aegisarchive.git",
+      "local_dirty": false,
+      "github": {
+        "defaultBranchRef": {
+          "name": "main"
+        },
+        "nameWithOwner": "edithatogo/aegisarchive"
+      },
+      "instructions_sha256": {
+        "AGENTS.md": "8592a1d873f7eb2b3d28a354e3a94376d2e483759b51cf2f6eb24eb1739ea1ef",
+        "conductor/tracks.md": "035423f880f668b63e11043fc128c12579a5e43da3fa1de63bdf5b3b0e8ad68d"
+      },
+      "issues_all_states": 25
+    },
+    {
+      "repository": "mars",
+      "local_head": "cc17c8d632419c0f4a293ced1e785bd8c3e5bed6",
+      "local_remote": "https://github.com/edithatogo/mars.git",
+      "local_dirty": true,
+      "github": {
+        "defaultBranchRef": {
+          "name": "main"
+        },
+        "nameWithOwner": "edithatogo/mars"
+      },
+      "instructions_sha256": {
+        "AGENTS.md": "f493bc63a1fccaa5176cf027635f2a9ed88d10cd416cecb81f00a565dc4a7b71",
+        "conductor/tracks.md": "36d9dd59842010537d53e1064752ec661d7a20c17a4ccfeeb24aed29da37f73c"
+      },
+      "issues_all_states": 12
+    }
+  ],
+  "scope": "read-only; voiage named directory remote mismatch rejected as producer authority; actual qualified wheel/source receipt retained"
+}

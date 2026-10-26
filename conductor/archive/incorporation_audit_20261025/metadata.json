@@ -1,0 +1,17 @@
+{
+  "track_id": "incorporation_audit_20261025",
+  "title": "Prior-work evidence preservation and incorporation audit",
+  "status": "reference_snapshot_verified_publication_receipt_on_issue_1",
+  "base_commit": "886fc08929f8e4e7e34fb6443bbf81545e52c3db",
+  "date": "2026-10-25",
+  "evidence": [
+    "docs/INCORPORATION_STATUS.md",
+    "integration/prior_work_manifest.json",
+    "integration/incorporation_verification_20261025.json",
+    "tests/incorporation/test_prior_work.py"
+  ],
+  "scope": "selected reference material only; no automatic empirical update or full archive migration",
+  "archived_at": "2026-10-26",
+  "archive_scope": "Completed bounded macOS/software scope; empirical and source gates remain in conductor/research-gates.md",
+  "completion_review": "docs/reviews/2026-10-26-conductor-autonomous.md"
+}

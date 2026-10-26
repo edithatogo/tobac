@@ -11,5 +11,9 @@
     "pyproject.toml",
     "noxfile.py"
   ],
-  "base_commit": null
+  "base_commit": null,
+  "required_paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md"
+  ]
 }
