@@ -110,6 +110,31 @@ def source_table(root: Path = ROOT) -> pd.DataFrame:
     return table
 
 
+def declared_basis(table: pd.DataFrame) -> SupplyBasis:
+    """Declare the identity of the series the ledger conditions, read from the table.
+
+    The source table carries one source_id for every row. A table mixing sources
+    must fail rather than declare an ambiguous basis, so a tonne-magnitude series
+    relabelled as cigarette equivalents is rejected and two runs conditioning the
+    same MOH/NZHS source are distinguishable at the ledger layer.
+    """
+    if "source_id" not in table or table["source_id"].isna().any():
+        msg = ("Source table must carry a non-empty source_id on every row to declare the basis")
+        raise ValueError(msg)
+    ids = sorted({str(value).strip() for value in table["source_id"].unique()})
+    if not ids or any(not value for value in ids):
+        msg = f"Source table must carry a non-empty source_id on every row; got {ids!r}"
+        raise ValueError(msg)
+    if len(ids) != 1:
+        detail = f"mixes more than one source_id {ids!r}"
+        msg = f"Source table {detail}; a single source is required"
+        raise ValueError(msg)
+    return SupplyBasis(
+        source_ids=tuple(ids),
+        observation_years=tuple(int(year) for year in table["year"]),
+    )
+
+
 ALIGNMENTS = ("nominal_survey_year", "calendar_replication", "documented_collection_sensitivity")
 CENTRES = (
     "geometric_interval_midpoint",
@@ -147,7 +172,8 @@ def assembled_inputs(table: pd.DataFrame, *, alignment: str, centre: str) -> pd.
     """No synthetic rows: reconstruct each working summary from one published pair of limits.
 
     Both selectors are keyword-only and validated so an omitted argument cannot
-    silently select a different scientific input.
+    silently select a different scientific input. The ledger basis is declared
+    from the table's own source identity, not an anonymous default.
     """
     if alignment not in ALIGNMENTS:
         msg = f"Unknown alignment {alignment!r}"
@@ -159,7 +185,7 @@ def assembled_inputs(table: pd.DataFrame, *, alignment: str, centre: str) -> pd.
         table.year.tolist(),
         table.legal_sales_cigarette_equivalent.tolist(),
         np.zeros(len(table) + 1),
-        basis=SupplyBasis(),
+        basis=declared_basis(table),
     )
     rows: list[dict[str, Any]] = []
     previous_end: date | None = None
@@ -276,6 +302,7 @@ CONFIG_KEYS = (
     "version",
     "analysis_date",
     "source",
+    "source_id",
     "estimand",
     "primary_alignment",
     "primary_centre",
@@ -340,7 +367,7 @@ def _unique(
     return out
 
 
-def validate_config(cfg: dict[str, Any]) -> None:  # noqa: C901  # Keep ordered model validation and report assembly in one visible operation.
+def validate_config(cfg: dict[str, Any]) -> None:  # noqa: C901, PLR0912  # Keep ordered model validation and report assembly in one visible operation.
     # Config is already typed as dict[str, Any], so isinstance check is redundant but kept for runtime safety
     """Validate the declared model configuration and supported parameter domains."""
     if not isinstance(cfg, dict):  # type: ignore[unreachable]
@@ -349,6 +376,9 @@ def validate_config(cfg: dict[str, Any]) -> None:  # noqa: C901  # Keep ordered 
     missing = [key for key in CONFIG_KEYS if key not in cfg]
     if missing:
         msg = f"Configuration is missing required keys: {', '.join(missing)}"
+        raise ValueError(msg)
+    if not isinstance(cfg["source_id"], str) or not cfg["source_id"].strip():
+        msg = "source_id must be a non-empty string naming the source the observation rows came from"
         raise ValueError(msg)
     if cfg["primary_alignment"] not in ALIGNMENTS:
         msg = f"primary_alignment={cfg['primary_alignment']!r} is not one of {ALIGNMENTS}"
@@ -631,7 +661,7 @@ def plots(  # noqa: PLR0913, PLR0915, PLR0917  # Preserve explicit dimensioned i
     save(fig, "05_calendar_sensitivity")
 
 
-def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, Any]:  # noqa: C901, FBT001, FBT002, PLR0915  # Keep ordered model validation and report assembly in one visible operation.; Preserve the established public positional flag convention.; Keep the declared numerical/report sequence visible and ordered.
+def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, Any]:  # noqa: C901, FBT001, FBT002, PLR0912, PLR0915  # Keep ordered model validation and report assembly in one visible operation.; Preserve the established public positional flag convention.; Keep the declared numerical/report sequence visible and ordered.
     """Run the declared analysis and write provenance-bound outputs."""
     root = Path(root)
     out = Path(out)
@@ -707,6 +737,17 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
     # assumptions or drop a declared arm.
     ledger_scenarios = scenario_arms(cfg)
     ledgers: dict[str, np.ndarray] = {}
+    basis = declared_basis(table)
+    cfg_basis_id = basis.source_ids[0]
+    if not isinstance(cfg.get("source_id"), str) or not cfg["source_id"].strip():
+        msg = "source_id must be a non-empty string naming the source the observation rows came from"
+        raise ValueError(msg)
+    if cfg["source_id"].strip() != cfg_basis_id:
+        msg = (
+            f"config source_id={cfg['source_id']!r} disagrees with the source table's "
+            f"declared source_id {cfg_basis_id!r}"
+        )
+        raise ValueError(msg)
     for name, days, unrecorded, visitor in ledger_scenarios:
         ledger = lawful_ledger(
             table.year.tolist(),
@@ -714,7 +755,7 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
             stock_scenario(allreleases, days),
             unrecorded=unrecorded * allreleases,
             net_visitors=visitor * allreleases,
-            basis=SupplyBasis(),
+            basis=basis,
         )
         # Read the period bounds through the checked object: attribute access on the
         # itertuples row type collapses to Any without pandas stubs.
@@ -898,6 +939,7 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
             "primary_centre": cfg["primary_centre"],
             "version": cfg["version"],
             "assumptions": cfg["assumptions"],
+            "declared_source_basis": asdict(basis),
             "current_joint_nz_posterior": False,
             "current_assay_panel_fitted": False,
             "likelihood": "Gaussian summary approximation on raw survey proxy / matched release log ratio",

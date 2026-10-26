@@ -249,3 +249,70 @@ def research_m3(session):
     session.run('python', '-m', 'pytest', '-q', 'tests/m3', 'tests/test_workstream_integration.py')
     session.run('python', '-m', 'tobac.research.runner', '--out', 'outputs/replay_m3')
     session.run('python', 'scripts/verify.py', 'outputs/replay_m3')
+
+
+@nox.session(python='3.15.1')
+def voiage(session):
+    """Build a pinned, explicitly local-versioned Voiage compatibility candidate."""
+    import hashlib
+    import json
+    import subprocess
+
+    session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
+    # Independent, input-bound dependency lock; the wheel still resolves its dependencies normally.
+    session.run('python', 'scripts/lock_receipt.py', 'verify', '--profile', 'voiage',
+                '--path', 'engineering/voiage.lock')
+    python = str(Path(session.bin).resolve() / 'python')
+    session.run('uv', 'pip', 'sync', '--python', python, '--require-hashes',
+                'engineering/voiage.lock', external=True)
+    session.install('--no-deps', '--no-build-isolation', '-e', '.')
+    base = Path(session.posargs[0]).resolve() if session.posargs else (ROOT / OUT / 'voiage').resolve()
+    run = base / uuid4().hex
+    source, wheels = run / 'source', run / 'wheels'
+    run.mkdir(parents=True)
+    revision = '7af563c8cb373057d30662650b3f332f39e05b83'
+    patch = ROOT / 'engineering/voiage-python315.patch'
+    session.run('git', 'init', str(source), external=True)
+    session.run('git', '-C', str(source), '-c', 'credential.helper=', 'fetch', '--depth=1',
+                'https://github.com/edithatogo/voiage.git', revision, external=True)
+    session.run('git', '-C', str(source), 'checkout', '--detach', 'FETCH_HEAD', external=True)
+    fetched = session.run('git', '-C', str(source), 'rev-parse', 'HEAD', silent=True, external=True)
+    if not isinstance(fetched, str) or fetched.strip() != revision:
+        session.error('Fetched Voiage source does not match the reviewed revision')
+    session.run('git', '-C', str(source), 'apply', '--check', str(patch), external=True)
+    session.run('git', '-C', str(source), 'apply', str(patch), external=True)
+    session.run('git', '-C', str(source), 'add', 'pyproject.toml', external=True)
+    session.run('git', '-C', str(source), '-c', 'user.name=Tobac compatibility build',
+                '-c', 'user.email=voiage-compatibility@users.noreply.github.com',
+                'commit', '-m', 'Qualify Voiage metadata for tobac Python 3.15.1', external=True,
+                env={'GIT_AUTHOR_DATE': '2026-10-26T00:00:00+00:00',
+                     'GIT_COMMITTER_DATE': '2026-10-26T00:00:00+00:00'})
+    python = str(Path(session.bin).resolve() / 'python')
+    session.env['CARGO_TARGET_DIR'] = str(run / 'cargo-target')
+    session.run('uv', 'build', '--python', python, '--build-constraint',
+                str(ROOT / 'engineering/voiage-build-requirements.txt'),
+                '--wheel', '--out-dir', str(wheels), str(source), external=True)
+    wheel, = wheels.glob('*.whl')
+    session.run('uv', 'pip', 'install', '--python', python, '--no-index', str(wheel), external=True)
+    session.run('uv', 'pip', 'check', '--python', python, external=True)
+    session.run('python', '-m', 'pytest', '-q', 'tests/m3', 'tests/engineering/test_voiage_installed.py',
+                'tests/test_workstream_integration.py')
+    session.run('python', 'scripts/qualify_integrations.py', '--mode', 'voiage',
+                '--out', str(run / 'equal-weight.json'))
+    session.run('python', '-m', 'tobac.research.qualification', '--out', str(run / 'weighted.json'))
+    derived = subprocess.check_output(['git', '-C', str(source), 'rev-parse', 'HEAD'], text=True).strip()
+    record = {'upstream_revision': revision, 'patch_sha256': hashlib.sha256(patch.read_bytes()).hexdigest(),
+              'derived_revision': derived, 'wheel': wheel.name,
+              'wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
+              'scope': 'Metadata-only compatibility build; unchanged Voiage implementation and native code'}
+    record['environment'] = session.run('uv', 'pip', 'freeze', '--python', python, silent=True, external=True)
+    (run / 'build-receipt.json').write_text(json.dumps(record, indent=2) + '\n')
+    OUT.mkdir(parents=True, exist_ok=True)
+    # Keep compact receipts without uploading a complete upstream checkout or native target tree.
+    import shutil
+    receipt_dir = OUT / ('voiage-receipts-' + run.name)
+    receipt_dir.mkdir()
+    for name in ['build-receipt.json', 'equal-weight.json', 'weighted.json']:
+        shutil.copyfile(run / name, receipt_dir / name)
+    session.log(f'Voiage receipt: {receipt_dir}')

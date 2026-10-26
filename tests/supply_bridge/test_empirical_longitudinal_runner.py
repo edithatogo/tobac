@@ -244,3 +244,47 @@ def test_source_input_rejects_unit_substitution(tmp_path):
     t=runner.source_table();t['unit']='tonnes/year';target=tmp_path/'data/empirical_intake_20261024'
     target.mkdir(parents=True);t.to_csv(target/'nz_historical_legal_supply.csv',index=False)
     with pytest.raises(ValueError,match='tonne'):runner.source_table(tmp_path)
+
+
+def test_config_source_id_must_be_a_non_empty_string():
+    cfg=json.loads(CONFIG.read_text())
+    runner.validate_config(cfg)
+    assert cfg['source_id']=='parallel-S08'
+    for value in ('','   ',0,None,['parallel-S08']):
+        with pytest.raises(ValueError,match='source_id'):
+            runner.validate_config(dict(cfg,source_id=value))
+    missing=dict(cfg);missing.pop('source_id')
+    with pytest.raises(ValueError,match='missing required keys'):
+        runner.validate_config(missing)
+
+
+def test_emitted_ledgers_and_receipt_declare_source_identity(monkeypatch,tmp_path):
+    # Registers every SupplyBasis the runner constructs: a future change that
+    # reverts any call site to the anonymous default loses the declared identity
+    # and fails here, and the observation years cannot be dropped either.
+    cfg=json.loads(CONFIG.read_text())
+    constructed=[]
+    real=runner.SupplyBasis
+    def recording(*args,**kwargs):
+        basis=real(*args,**kwargs)
+        constructed.append(basis)
+        return basis
+    monkeypatch.setattr(runner,'SupplyBasis',recording)
+    manifest=runner.run(tmp_path/'result',quick=True)
+    assert constructed,'the runner built no SupplyBasis; declared identity is untested'
+    expected_years=tuple(range(2012,2024))
+    for basis in constructed:
+        assert basis.source_ids==(cfg['source_id'],)
+        assert basis.observation_years==expected_years
+    scope=json.loads((tmp_path/'result/fit_scope.json').read_text())
+    declared=scope['declared_source_basis']
+    assert declared['source_ids']==[cfg['source_id']]
+    assert declared['observation_years']==list(range(2012,2024))
+    assert declared['unit']=='cigarette_equivalents'
+    # The emitted ledger rows span exactly the declared observation years.
+    ledgers=pd.read_csv(tmp_path/'result/lawful_stock_ledgers.csv')
+    assert set(ledgers.year)==set(range(2012,2024))
+    assert set(ledgers.unit)=={'cigarette_equivalents/calendar_year'}
+    # The scope receipt is part of the audited manifest output set.
+    listed={item['path'] for item in manifest['files']}
+    assert 'fit_scope.json' in listed

@@ -62,35 +62,32 @@ status belong to the retained execution receipt.
 5. Identify incremental criminal harms separately from participation, revenue and fiscal transfers; retain null-effect scenarios.
 6. Validate near-limit anabasine performance, residual/serial dependence and prospective causal counterfactuals. Improve continuous support and held-out field prediction.
 7. Agree Maori governance/permissible use, equitable coverage and actual incremental programme costs.
-8. Resolve issue #4's hosted execution failures without weakening gates. Execute genuine Sourceright/CiteWeft/voiage and record precise scope. Current numerical parity is internal reference parity, not third-party qualification.
+8. Complete remaining external-tool/source-applicability qualification, including CiteWeft. The macOS engineering, Sourceright and bounded installed-Voiage execution checks now pass; those software receipts do not establish empirical or third-party scientific validity.
 
-Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
+Local and hosted software checks are recorded separately from independent scientific endorsement and external agency approval, which remain unclaimed. Receiving commits and actual run outcomes belong in Conductor and their execution receipts.
 
 ## Library reuse and qualified engineering harness
-**Status: [~] PR #25 reconciled; macOS Python 3.15.1 local tests, strict_all, reproduction, package, security and mutation pass. Hosted macOS checks pass at final PR head 1f6b375; PR #29 merged at 104729a. Other platforms remain in the roadmap.**
+**Status: [x] Complete for macOS Python 3.15.1 — 26 October 2026.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
-Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
-Receipt: `integration/engineering_verification.json`; execution receipts:
-`integration/engineering_hardening_execution_20261025.json` and
-`integration/engineering_hardening_gap_closure_20261025.json`.
+Current acceptance: `integration/engineering_macos_completion_20261026.json`.
+Guide: `docs/engineering/READINESS.md`; policy: `docs/engineering/LINT_POLICY.md`.
 
-The Gaussian reporting density delegates to SciPy while physical/state/data contracts stay
-unchanged. New Nox/uv, schema-validated context profiles, secure bounded CI/deep/canary lanes,
-Renovate/pre-commit configuration and pinned Conductor gitlink are explicit engineering layers.
-`uv pip sync --require-hashes` drives runtime sessions. Whole-source strict typing and configured
-Ruff now pass; 175 intentional style/API exceptions are documented separately in
-`docs/engineering/LINT_POLICY.md`. Fresh scoped mutation detection is 92/131 (70.2%), with
-39 surviving mutants remaining a coverage limitation. Original source bytes and numerical
-results remain independently checked. Current qualification receipt:
-`integration/engineering_reconciliation_20261026.json`. Hosted macOS tests and all six engineering sessions pass at c645028; Linux/Windows qualification is deferred to `conductor/roadmap.md`.
+The inspected base `f11d491` passed 745 tests with four optional-environment skips
+and 93% coverage; all macOS engineering sessions pass. Whole-source strict typing
+and configured Ruff pass. Hosted mutation detects 100/131 (76.3%); 31 survivors and
+175 documented style/API exceptions remain explicit non-blocking follow-ups.
+Voiage's bounded installed-library compatibility and native Dependency Graph repair
+are qualified in their separate receipts. Full-SHA Actions pinning is retained;
+the rejected generated tag-based lock proposal is closed by the owner's decision.
+Historical receipts remain intact. Other platforms and advisory work stay in the roadmap.
 
 ## Source-bound dependency and execution qualification
-**Status: macOS runtime-lock and whole-source strict qualification pass locally; hosted macOS checks pass at 1f6b375; PR #29 merged at 104729a. Linux audit execution and other platforms remain deferred.**
+**Status: [x] Complete for the macOS scope; non-macOS qualification remains deferred.**
 Track: `conductor/tracks/engineering_execution_20261024/`.
-Receipt: `integration/engineering_followthrough.json`; current instructions: `docs/engineering/READINESS.md`.
-This links the source-bound locks, portable/audit environment separation, read-only hosted
-diagnostic and strict internal release gates; current work is macOS-focused and this status is not
-new execution evidence.
+Acceptance: `integration/engineering_macos_completion_20261026.json`; earlier lock and
+execution receipts remain dated evidence. Runtime/Voiage locks are input-bound and
+hash-installed; native macOS audit-tool qualification is distinct from Linux audit
+lock execution. No external scientific or empirical validity is inferred.
 
 ## Prior-work evidence preservation and incorporation audit
 **Status: selected reference snapshot verified; full archive migration and live empirical use are not claimed.**
@@ -112,7 +109,7 @@ becomes a calibrated parameter, forecast a new observation, template a quotation
 manuscript submission-ready. M3 incorporation now follows below.
 
 ## M3 research portfolios, implementation and staged decisions
-**Status: conditional numerical implementation complete; actual Voiage and hosted qualification remain open.**
+**Status: conditional numerical implementation and bounded installed Voiage/macOS hosted qualification pass; empirical qualification remains open.**
 Track: `conductor/tracks/research_m3_20261025/`.
 Contract: `docs/research/M3_CONTRACT.md`; results: `results/milestone3/report.md`.
 Receipt: `integration/m3_local_verification.json`; six-item status: `integration/m3_requirement_status.csv`.
@@ -121,7 +118,9 @@ The additive `src/tobac/research` package implements weighted expected-value ada
 structure-only EVPPI, complementary/dependent reports, shared assets, existing-data guards,
 unweighted scenario envelopes, state-action implementation and matched pilot/continue/stop.
 162 scoped tests and 2,105 full-run invariants passed; this is not the entire live suite.
-The mathematical weighted adapter is tested but the real Voiage 2.2.0 probe remains blocked.
+The real source-built Voiage `2.2.0+tobac3151.1` adapter now passes local weighted/partition
+and equal-weight probes on Python 3.15.1. All 15 PR #33 checks passed; merged at `f06eed6`;
+see `docs/engineering/VOIAGE_PYTHON315.md`. This does not qualify generic EVSI or structural APIs.
 Innovate/Kairos are optional; uptake/delay materiality is demonstrated with declared scenarios,
 not fitted external outputs. Full/refinement tables and manifests are preserved as 24 files
 in a hashed bounded archive with an unpacker. Existing source/evidence/engineering files are
@@ -153,8 +152,8 @@ contracts were locally retested; the M3 numerical results were not re-estimated 
 PR #25 and the Python 3.15.1 migration were reconciled through PR #29, merged at `104729a`.
 The focused runner and whole-source strict checks use qualified stubs and the calling session
 interpreter. Both hosted macOS jobs passed at final PR head `1f6b375`; the receiving commit and
-execution details are in `integration/engineering_reconciliation_20261026.json`. Optional Voiage
-installation remains blocked by upstream dependencies. Independent review is optional; current
+execution details are in `integration/engineering_reconciliation_20261026.json`. Voiage compatibility follow-up: the metadata-only source build passes locally and hosted;
+see `integration/voiage_python315_compatibility_20261026.json` for current hosted status. Independent review is optional; current
 development and hosted qualification target macOS.
 
 ## Scientific ecosystem modernisation — 25 October 2026
@@ -165,3 +164,11 @@ GitHub: https://github.com/edithatogo/tobac/issues/22
 Approved Conductor registration only; implementation not authorised. Reuses
 existing CI/archive and upstream contracts. No runtime or scientific
 qualification claimed.
+
+## Native Dependency Graph repair — 26 October 2026
+
+PR #35 merged at `666dd8c` after all 15 PR checks passed. Managed graph run
+`40275206942` passed; native SBOM readback grew from 27 to 42 package identifiers
+without losing any existing entry. Python remains 3.15.1, all dependency pins are
+unchanged, and security settings/checks are preserved. Receipt:
+`integration/dependency_graph_20261026.json`; guide: `docs/engineering/DEPENDENCY_GRAPH.md`.
