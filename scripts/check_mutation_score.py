@@ -116,6 +116,9 @@ def main(argv: list[str]) -> int:  # noqa: C901  # Keep ordered model validation
         if args.receipt is None:
             parser.error("--prepare requires --receipt")
         state = mutation_input(args.source)
+        # mutmut uses the generated source mtime to decide whether metadata needs
+        # regeneration. Remove both selected artifacts so repeat runs stay fresh.
+        (args.mutants_dir / args.source).unlink(missing_ok=True)
         meta_path.unlink(missing_ok=True)
         args.receipt.parent.mkdir(parents=True, exist_ok=True)
         args.receipt.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")

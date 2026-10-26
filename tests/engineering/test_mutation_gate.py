@@ -164,8 +164,11 @@ def test_prepare_removes_only_selected_cached_metadata(tmp_path, monkeypatch):
     selected = write_meta(tmp_path, {"killed": 1})
     other = selected.with_name("other.py.meta")
     other.write_text("preserve unrelated result")
+    generated = selected.with_suffix("")
+    generated.write_text("cached generated mutants")
     assert module.main(["--prepare", "--receipt", "receipt.json"]) == 0
     assert not selected.exists()
+    assert not generated.exists()
     assert other.read_text() == "preserve unrelated result"
     assert module.main(["--minimum", "60", "--receipt", "receipt.json"]) == 1
     write_meta(tmp_path, {"killed": 1})
