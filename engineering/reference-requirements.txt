@@ -4,7 +4,7 @@ scipy==1.18.1
 pytest==9.0.3
 iniconfig==2.3.1
 packaging==26.3
-pluggy==1.6.0
+pluggy==1.7.0
 Pygments==2.20.0
 # Longitudinal runners and tests.
 pandas==3.0.6
