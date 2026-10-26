@@ -111,7 +111,7 @@ def source_table(root: Path = ROOT) -> pd.DataFrame:
 
 
 def declared_basis(table: pd.DataFrame) -> SupplyBasis:
-    """Declared identity of the series the ledger conditions, read from the table.
+    """Declare the identity of the series the ledger conditions, read from the table.
 
     The source table carries one source_id for every row. A table mixing sources
     must fail rather than declare an ambiguous basis, so a tonne-magnitude series
@@ -119,14 +119,15 @@ def declared_basis(table: pd.DataFrame) -> SupplyBasis:
     same MOH/NZHS source are distinguishable at the ledger layer.
     """
     if "source_id" not in table or table["source_id"].isna().any():
-        msg = "Source table must carry a non-empty source_id on every row to declare the basis"
+        msg = ("Source table must carry a non-empty source_id on every row to declare the basis")
         raise ValueError(msg)
     ids = sorted({str(value).strip() for value in table["source_id"].unique()})
     if not ids or any(not value for value in ids):
         msg = f"Source table must carry a non-empty source_id on every row; got {ids!r}"
         raise ValueError(msg)
     if len(ids) != 1:
-        msg = f"Source table mixes more than one source_id {ids!r}; a single source is required for a declared basis"
+        detail = f"mixes more than one source_id {ids!r}"
+        msg = f"Source table {detail}; a single source is required"
         raise ValueError(msg)
     return SupplyBasis(
         source_ids=tuple(ids),
@@ -366,7 +367,7 @@ def _unique(
     return out
 
 
-def validate_config(cfg: dict[str, Any]) -> None:  # noqa: C901  # Keep ordered model validation and report assembly in one visible operation.
+def validate_config(cfg: dict[str, Any]) -> None:  # noqa: C901, PLR0912  # Keep ordered model validation and report assembly in one visible operation.
     # Config is already typed as dict[str, Any], so isinstance check is redundant but kept for runtime safety
     """Validate the declared model configuration and supported parameter domains."""
     if not isinstance(cfg, dict):  # type: ignore[unreachable]
@@ -660,7 +661,7 @@ def plots(  # noqa: PLR0913, PLR0915, PLR0917  # Preserve explicit dimensioned i
     save(fig, "05_calendar_sensitivity")
 
 
-def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, Any]:  # noqa: C901, FBT001, FBT002, PLR0915  # Keep ordered model validation and report assembly in one visible operation.; Preserve the established public positional flag convention.; Keep the declared numerical/report sequence visible and ordered.
+def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, Any]:  # noqa: C901, FBT001, FBT002, PLR0912, PLR0915  # Keep ordered model validation and report assembly in one visible operation.; Preserve the established public positional flag convention.; Keep the declared numerical/report sequence visible and ordered.
     """Run the declared analysis and write provenance-bound outputs."""
     root = Path(root)
     out = Path(out)

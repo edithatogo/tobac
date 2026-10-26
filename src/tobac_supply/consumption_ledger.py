@@ -10,7 +10,8 @@ import math
 from dataclasses import dataclass
 from numbers import Integral, Real
 from typing import Any, cast
-from collections.abc import Iterable
+lazy import itertools
+lazy from collections.abc import Iterable
 
 import numpy as np
 from numpy.typing import NDArray
@@ -49,44 +50,60 @@ def _array(values: Iterable[float], name: str, length: int, *, signed: bool = Fa
 
 
 
+MIN_CALENDAR_YEAR = 1
+MAX_CALENDAR_YEAR = 9998
+
+
 def _source_ids(values: tuple[str, ...]) -> tuple[str, ...]:
     """Validate a declared source identity; the empty tuple is the unattributed default."""
-    if not isinstance(values, tuple):
-        raise ValueError(f"source_ids must be a tuple of strings; got {type(values).__name__}")
+    if not isinstance(cast("object", values), tuple):
+        msg = f"source_ids must be a tuple of strings; got {type(values).__name__}"
+        raise ValueError(msg)  # noqa: TRY004  # Retain the suite-wide ValueError domain contract.
     stripped: list[str] = []
     for value in values:
-        if not isinstance(value, str):
-            raise ValueError(f"source_ids must contain strings; got {type(value).__name__} {value!r}")
+        if not isinstance(cast("object", value), str):
+            msg = f"source_ids must contain strings; got {type(value).__name__} {value!r}"
+            raise ValueError(msg)  # noqa: TRY004  # Retain the suite-wide ValueError domain contract.
         cleaned = value.strip()
         if not cleaned:
-            raise ValueError("source_ids contains an empty source id; each source id must be non-empty after stripping whitespace")
+            msg = "source_ids contains an empty source id; each source id must be "
+            msg += "non-empty after stripping whitespace"
+            raise ValueError(msg)
         if cleaned in stripped:
-            raise ValueError(f"source_ids contains duplicate source id {cleaned!r}; source ids must be unique")
+            msg = f"source_ids contains duplicate source id {cleaned!r}; source ids must be unique"
+            raise ValueError(msg)
         stripped.append(cleaned)
     return tuple(stripped)
 
 
 def _observation_years(values: tuple[int, ...]) -> tuple[int, ...]:
     """Validate declared observation years; the empty tuple means unattributed years."""
-    if not isinstance(values, tuple):
-        raise ValueError(f"observation_years must be a tuple of integer years; got {type(values).__name__}")
+    if not isinstance(cast("object", values), tuple):
+        msg = f"observation_years must be a tuple of integer years; got {type(values).__name__}"
+        raise ValueError(msg)  # noqa: TRY004  # Retain the suite-wide ValueError domain contract.
     years: list[int] = []
     for value in values:
-        if isinstance(value, (bool, np.bool_)) or not isinstance(value, Integral):
-            raise ValueError(f"observation_years must contain integer calendar years; got {value!r}")
+        if not isinstance(cast("object", value), Integral):
+            msg = f"observation_years must contain integer calendar years; got {value!r}"
+            raise ValueError(msg)  # noqa: TRY004  # Retain the suite-wide ValueError domain contract.
         year = int(value)
-        if not 1 <= year <= 9998:
-            raise ValueError(f"observation_years value {year} is not a calendar year (must be 1..9998)")
+        if not MIN_CALENDAR_YEAR <= year <= MAX_CALENDAR_YEAR:
+            constrained = f"{MIN_CALENDAR_YEAR}..{MAX_CALENDAR_YEAR}"
+            msg = f"observation_years value {year} is not a calendar year (must be {constrained})"
+            raise ValueError(msg)
         years.append(year)
-    for previous, current in zip(years, years[1:]):
+    for previous, current in itertools.pairwise(years):
         if current == previous:
-            raise ValueError(f"observation_years contains duplicate year {current}; calendar years must be unique")
+            msg = f"observation_years contains duplicate year {current}; calendar years must be unique"
+            raise ValueError(msg)
         if current < previous:
-            raise ValueError(
+            msg = (
                 f"observation_years is not strictly increasing: {current} follows {previous}; "
                 "calendar years must be strictly increasing"
             )
+            raise ValueError(msg)
     return tuple(years)
+
 
 @dataclass(frozen=True)
 class SupplyBasis:
