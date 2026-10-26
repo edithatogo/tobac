@@ -6,6 +6,26 @@
     {
       "repository": "voiage",
       "base": "ca3f05cc8adcc74b99fe236152327d0cd3679553",
+      "disposition": "planning-only four-track tabular v3 programme replacing the xarray contract with Polars; tobac consumer qualification bounded separately",
+      "tracks": [
+        "conductor/tracks/tabular_contract_v3_20261026",
+        "conductor/tracks/polars_container_20261026",
+        "conductor/tracks/pandas_free_io_20261026",
+        "conductor/tracks/translation_reference_20261026"
+      ],
+      "issues": [
+        "https://github.com/edithatogo/voiage/issues/1195",
+        "https://github.com/edithatogo/voiage/issues/1196",
+        "https://github.com/edithatogo/voiage/issues/1197",
+        "https://github.com/edithatogo/voiage/issues/1198",
+        "https://github.com/edithatogo/voiage/issues/1199"
+      ],
+      "consumer_track": "conductor/tracks/voiage_polars_qualification_20261026",
+      "caveat": "Registration only: every Voiage track is status new and every tobac qualification task is unchecked. No container change, dependency removal or executed parity claim exists."
+    },
+    {
+      "repository": "voiage",
+      "base": "ca3f05cc8adcc74b99fe236152327d0cd3679553",
       "disposition": "new bounded consumer qualification track",
       "track": "conductor/tracks/tobac_consumer_qualification_20261025",
       "issue": "https://github.com/edithatogo/voiage/issues/1193"

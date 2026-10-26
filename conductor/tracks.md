@@ -201,3 +201,17 @@ Guide: `docs/MOH_OBSERVATION_PATHWAY.md`; specification and execution receipts a
 
 MOH follow-up PR #40 merged at `160c0a5c53e440d9345ad51efc7dca2a7611bf6c` after 15/15 hosted checks passed.
 Receipt: `integration/archive/moh-pathway-verification_20261026.json`.
+
+## Voiage 3.0.0 Polars consumer qualification — 26 October 2026
+**Status: planned; registration only. No implementation, dependency or scientific claim.**
+Track: `conductor/tracks/voiage_polars_qualification_20261026/`.
+
+Bounds tobac's exposure to Voiage's removal of its xarray contract. The measured surface is
+`ValueArray.from_numpy` plus `DecisionAnalysis(...).evpi()` with an unchanged `1e-10` parity
+check; `src/tobac` contains no `.dataset`, `to_dataset`, `from_dataset` or xarray reference.
+The currently qualified build is the metadata-only compatibility wheel `2.2.0+tobac3151.1`
+from upstream `7af563c8`, not upstream 2.2.0. Candidate qualification against an unpatched
+Voiage 3.0.0 wheel is unexecuted and remains open, as does the decision on whether the
+metadata patch is still required. Voiage-side tracks are registered planning only at
+`ca3f05cc`; see the cross-repository register in
+`conductor/tracks/scientific_ecosystem_20261025/dependencies.json`.
