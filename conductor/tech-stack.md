@@ -17,3 +17,8 @@ harden-runner, zizmor-action and gh-action-pip-audit. ty and pyrefly are separat
 BasedPyright and report diagnostics only; prek is the Rust pre-commit runner, not pre-commit
 itself. Renovate's pinGitHubActionDigests preset preserves the existing full-SHA posture. Only a
 generated/reviewed hash lock qualifies a release environment.
+
+The optional `interchange` extra uses PyArrow 26.0.0, Polars 1.44.2, Patito 0.8.6
+and msgspec 0.22.0 to transport the existing evidence contract. Required test and
+clean-package environments exercise it; the numerical runtime remains unchanged.
+See docs/engineering/EVIDENCE_INTERCHANGE.md for schema, ownership and hash limits.

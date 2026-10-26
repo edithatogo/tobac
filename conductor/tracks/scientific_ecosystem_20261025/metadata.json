@@ -9,7 +9,7 @@
   "base_commit": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
   "approval_scope": "Autonomous macOS implementation, review, fixes and archival authorised 26 October 2026",
   "implementation_authorized": true,
-  "implementation_state": "implementing_C3_C4_C6_against_current_qualified_producer",
+  "implementation_state": "C3_C4_C6_implemented_current_qualified_producer_external_service_gate_open",
   "github_issue": "https://github.com/edithatogo/tobac/issues/22",
   "github_cross_reference": {
     "issue": "https://github.com/edithatogo/tobac/issues/22"
@@ -19,8 +19,7 @@
   "verification": "integration/ecosystem/verification_20261026.json",
   "review": "docs/reviews/2026-10-26-conductor-autonomous.md",
   "remaining_gates": [
-    "C3/C4/C6 full producer interchange/migration qualification; Voiage 3.0.0 unpublished",
-    "Managed root Dependabot parser lacks Python 3.15 support; supported native submission and complete graph readback are qualified"
+    "managed root Dependabot parser Python 3.15 support; supported snapshot submission remains qualified"
   ],
   "publication": {
     "pull_request": 43,
@@ -32,5 +31,7 @@
     "downstream_attestation_verification": "4/4 signed subjects verified with exact source commit/ref/workflow and self-hosted runners denied"
   },
   "dependency_submission_receipt": "integration/ecosystem/dependency-submission_20261026.json",
-  "resume_base": "a6296d422a4c5270828cbec2b398a7eb131d7818"
+  "resume_base": "a6296d422a4c5270828cbec2b398a7eb131d7818",
+  "interchange_verification": "integration/ecosystem/interchange_20261026.json",
+  "interchange_review": "docs/reviews/2026-10-26-evidence-interchange.md"
 }

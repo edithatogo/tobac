@@ -1,0 +1,88 @@
+{
+  "schema": "tobac.ecosystem-interchange-closeout.v1",
+  "implementation_commit": "c347f8289972e87cfe434fa1047f28df2acdc485",
+  "reconciled_main": "1185da1bca2d0a84072287371efbc5c8a608d33b",
+  "native": {
+    "schema": "tobac.interchange-qualification.v1",
+    "status": "passed",
+    "python": "3.15.1 (main, Oct 21 2026, 17:39:16) [Clang 23.1.3 ]",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "pyarrow": "26.0.0",
+      "polars": "1.44.2",
+      "patito": "0.8.6",
+      "msgspec": "0.22.0",
+      "voiage": "2.2.0+tobac3151.1"
+    },
+    "source_sha256": "f1253323f2e0d47dcdac652a039ce0cd592d5a55ea511556fdfd7b2e6a846bdb",
+    "scope": {
+      "geography": "NZ_national",
+      "population": "synthetic adults",
+      "start": "2024-01-01",
+      "end": "2024-12-31",
+      "unit": "cigarette_equivalents"
+    },
+    "logical_sha256_v1": "e41e62d285441f16489075498acc8283b5bbfbe84f1328b8445397886e7533dd",
+    "ipc_sha256": {
+      "contiguous.arrow": "73a8d2dbf36310aeffef165e864962a66773926801d6f89e8344300a3ebdefad",
+      "chunked.arrow": "6c8d59a7ab2584c188a0729832f97f880795cbabfa21e8f2f4c7ae410518e985"
+    },
+    "float64_view": {
+      "source_address": 534973459056,
+      "view_address": 534973459056,
+      "arrow_pool_before": 192,
+      "arrow_pool_after": 2256,
+      "survives_source_gc": true,
+      "length": 2,
+      "offset": 0
+    },
+    "producer": {
+      "value": 0.6009450952528033,
+      "value_unit": "score",
+      "voiage_version": "2.2.0+tobac3151.1",
+      "backend": "voiage.methods.basic.evpi",
+      "adapter": "exact nonnegative weighted-contrast transform",
+      "population_scaling": "none; input already carries the decision scale"
+    },
+    "limits": "Synthetic fixture only. Export/reconstruction copy. No string, whole-table or process-wide zero-allocation claim; Arrow pool counters exclude other allocators. Digests are not signatures. No empirical or Voiage 3 qualification."
+  },
+  "tests": {
+    "full": {
+      "passed": 880,
+      "skipped": 5,
+      "coverage_percent": 92
+    },
+    "native_producer_workstream_m3": {
+      "passed": 97,
+      "skipped": 0
+    },
+    "transport_native": {
+      "passed": 36
+    }
+  },
+  "checks": {
+    "strict_all": "passed; Ruff ALL and BasedPyright strict, zero diagnostics",
+    "reproduce": "passed; actual M1/M2/M3 reproduction in milestone log",
+    "clean_package": "passed; installed wheel API, transport/IPC and M1 CLI outside checkout; sdist reconstruction",
+    "security": "passed; findings lifecycle, zizmor and pip-audit; no known vulnerabilities"
+  },
+  "reference_baseline_files_verified": 38,
+  "logs": {
+    "interchange-final-milestone.log": "fefe05dd5882378f8389cba8b85bc26273cf30d2f4312b5715b0df7642ecb7cc",
+    "interchange-native-final.log": "53b0ee76f8d782d4f903c345e54181fdb458cfae2b9b24178d8967464dc6ef15",
+    "interchange-strict-final.log": "56882e01cb80173ef053c4096e4ee43e3123a15f5c0a06715f96988d48fbd91c",
+    "interchange-security-final.log": "6b83060f1659d3f92583371456eca6d4db0ea663e96ac04f07ccba79646080df",
+    "interchange-milestone.log": "4e8f9e5adf1e972c2cfb1d7e590e8f502b5d9ef1523dff995c0f316a875a8887"
+  },
+  "producer": {
+    "source": "7af563c8cb373057d30662650b3f332f39e05b83",
+    "wheel_sha256": "25a6d95d90d1fb1ff625a62e92715e06d36cc85968b9c20cfa381e26da96a205",
+    "build_receipt": "integration/voiage_python315_compatibility_20261026.json"
+  },
+  "remaining_gate": {
+    "upstream_issue": "https://github.com/dependabot/dependabot-core/issues/16524",
+    "state_at_readback": "open",
+    "scope": "managed root Dependabot parser Python 3.15 support; supported snapshot submission remains qualified"
+  },
+  "limits": "Software qualification against current Voiage, not empirical calibration or Voiage 3.0 acceptance. Hosted checks pending publication."
+}

@@ -39,11 +39,11 @@ All phases end with evidence review. Local review is not independent scientific 
 - [x] Task C2: Implement only missing reusable capabilities in their owning repos: VOI/cost interfaces, uptake/diffusion, extraction/citation provenance or generic simulation adapters.
   - [x] Separate scenario values, model definitions and execution settings through existing typed interfaces only where the mapping demonstrates a gap; preserve structural invariants and Rust-native ownership (R11).
   - [x] Demonstrate one bounded extension with compatibility/migration tests and unchanged reference scenarios (R11.4); do not create a generic framework.
-- [~] Task C3: Write schema, no-coercion, ordering, null/NaN, lifetime, chunking and migration/rollback tests.
-- [ ] Task C4: Implement qualified Polars/Arrow/Patito/msgspec boundaries without replacing the shared evidence contract.
-  - [ ] Verify buffer identity/lifetime/allocation for each zero-copy claim and distinguish logical versus raw-byte hashing.
+- [x] Task C3: Write schema, no-coercion, ordering, null/NaN, lifetime, chunking and migration/rollback tests.
+- [x] Task C4: Implement qualified Polars/Arrow/Patito/msgspec boundaries without replacing the shared evidence contract.
+  - [x] Verify buffer identity/lifetime/allocation for each zero-copy claim and distinguish logical versus raw-byte hashing.
 - [x] Task C5: Wire exact upstream artifacts or editable development sources into tobac with explicit versions and independent package boundaries.
-- [ ] Task C6: Phase verification and checkpoint: execute upstream native suites and tobac consumer/integration checks; retain real API/runtime receipts and changed-interface notes.
+- [x] Task C6: Phase verification and checkpoint: execute upstream native suites and tobac consumer/integration checks; retain real API/runtime receipts and changed-interface notes.
 
 ## Phase D — Numerical backends and performance (R02, R04, R07)
 
@@ -150,3 +150,31 @@ PR #44 merged at `0940c595ce06f4142467de3f687dea881dae8ea2` after 15 successful 
 ## Implementation resume — 26 October 2026
 
 Implement domain-owned transport against the currently qualified producer and installed artifacts. The original specification does not require Voiage 3.0.0; its separate future migration in PR #41 is preserved. Full metadata, covariance provenance, timestamp/null, ordering, chunking, schema evolution and ownership tests precede implementation. No prior, observation or published numerical result changes.
+
+## C3/C4/C6 implementation and review close-out — 26 October 2026
+
+Implemented in c347f82 against the current qualified Voiage 2.2.0+tobac3151.1
+artifact, preserving PR #41's separate Voiage 3 migration. Domain transport lives
+in src/tobac/interchange.py and reuses EvidencePacket, Scope and SupplyBasis.
+No existing scientific contract or M3 implementation changed. Strict metadata,
+UTC/null timestamps, covariance provenance, ordering, dtype, chunking, caller
+isolation, buffer lifetime/effective addresses, logical/physical hashes and
+unsupported-version/retained-IPC rollback cases execute in 36 native tests.
+
+Local full suite: 880 passed, five real capability skips, 92% branch coverage.
+Native transport/workstream/M3: 97 passed, zero skipped. Ruff ALL/BasedPyright:
+zero diagnostics. Actual numerical reproduction, security audit and clean
+wheel/sdist/API/IPC/M1 checks passed. All original reference baseline hashes match.
+Other workstream's iniconfig 2.3.1 and pluggy 1.7.0 merges are retained; all four
+locks are genuinely regenerated against their canonical inputs.
+
+Review: docs/reviews/2026-10-26-evidence-interchange.md. Execution:
+integration/ecosystem/interchange_20261026.json. Hosted final-head checks and
+receiving-ref verification follow publication; no unexecuted job is called passed.
+
+- [x] Task: Apply interchange review fixes c347f82 (metadata sidecar, canonical
+  decoding, supply scope match, sliced buffer offsets and canonical dependency pins).
+
+Only the external managed Dependabot Python 3.15 service gate remains unchecked.
+Do not archive this track as fully complete while that gate remains open. No new
+completed track is awaiting archival; the seven prior archives remain preserved.
