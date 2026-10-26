@@ -78,6 +78,21 @@ status belong to the receipt on issue #1.
 
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
+### Engineering gates that are open, not passing
+`quality` (ruff and strict basedpyright on `scripts/context_bundle.py` plus
+`engineering/bp_longitudinal.json`) is green. These are measured and still failing, and must
+not be read as passing:
+
+- `strict_all`: 4,168 ruff `--select ALL` errors (2,281 fixable) and 3,584 basedpyright
+  errors across the whole source tree, measured 25 October 2026. The release workflow runs
+  this session before packaging, so packaging is blocked on it. No count has been reduced
+  since; re-measure before quoting.
+- mutation: 49 of 128 mutants survive on `src/tobac/supply.py` (61.7%). A 60% floor now
+  fails the session on regression, which is a guard, not evidence of adequate coverage.
+- `profile` (Scalene) has never been executed.
+- The official Actions transitive lock and the hosted all-legs matrix remain open; the
+  hosted run quoted above covers one CI invocation, not every OS/Python leg.
+
 ## Library reuse and qualified engineering harness — 24 October 2026
 **Status: [~] locks promoted and locked-mode tests/replay/packaging green at 5ab361b; hosted matrix confirmation, strict_all, profiling and independent review remain open.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.

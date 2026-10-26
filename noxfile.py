@@ -10,6 +10,9 @@ nox.options.default_venv_backend = 'uv'
 nox.options.sessions = ['tests', 'quality']
 ROOT = Path(__file__).resolve().parent
 OUT = Path('outputs/engineering')
+# Measured 61.7% on src/tobac/supply.py at main 5ab361b. A floor below the measured
+# score converts a silent success into a regression alarm without asserting adequacy.
+MUTATION_MINIMUM_PERCENT = '60'
 
 
 def environment(session, profile='runtime', require_lock=False):
@@ -196,9 +199,12 @@ def package(session):
 
 @nox.session
 def mutation(session):
+    """Mutation score gate; mutmut enforces no threshold of its own."""
     audit_tools(session)
     session.run('mutmut', 'run', 'tobac.supply*')
     session.run('mutmut', 'results')
+    session.run('python', 'scripts/check_mutation_score.py',
+                '--minimum', MUTATION_MINIMUM_PERCENT)
 
 
 @nox.session
