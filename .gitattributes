@@ -10,3 +10,6 @@ evidence/** -text
 
 # Immutable extraction retains the original trailing blank line as byte evidence.
 evidence/core_extraction_20261024.py whitespace=-blank-at-eof
+
+# A unified-diff context line contains its required leading space.
+engineering/voiage-python315.patch whitespace=-blank-at-eol
