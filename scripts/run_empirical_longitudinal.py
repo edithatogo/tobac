@@ -60,6 +60,19 @@ def source_table(root: Path = ROOT) -> pd.DataFrame:
     return table
 
 
+def declared_basis(source_id: str, table: pd.DataFrame) -> SupplyBasis:
+    """The declared identity of the series the runner conditions.
+
+    Names the config-level source and the actual observation rows, so a
+    tonne-magnitude series cannot be relabelled and two runs conditioning the same
+    MOH/NZHS source are distinguishable at the ledger layer.
+    """
+    return SupplyBasis(
+        source_ids=(source_id,),
+        observation_years=tuple(int(year) for year in table.year),
+    )
+
+
 ALIGNMENTS=('nominal_survey_year','calendar_replication','documented_collection_sensitivity')
 CENTRES=('geometric_interval_midpoint','arithmetic_interval_midpoint',
          'published_upper_stress','published_lower_stress')
@@ -88,12 +101,14 @@ def period_origin(year: int, alignment: str) -> str:
 
 
 def assembled_inputs(
-    table: pd.DataFrame, *, alignment: str, centre: str
+    table: pd.DataFrame, *, alignment: str, centre: str, source_id: str | None = None,
 ) -> list[dict[str, Any]]:
     """No synthetic rows: reconstruct each working summary from one published pair of limits.
 
     Both selectors are keyword-only and validated so an omitted argument cannot
-    silently select a different scientific input.
+    silently select a different scientific input. `source_id`, when supplied, names
+    the config-level source whose rows `table` carries; the runner always supplies
+    it so the emitted ledger basis is declared rather than anonymous.
     """
     if alignment not in ALIGNMENTS:
         raise ValueError(f'Unknown alignment {alignment!r}')
@@ -103,7 +118,7 @@ def assembled_inputs(
         table.year.tolist(),
         table.legal_sales_cigarette_equivalent.tolist(),
         np.zeros(len(table) + 1),
-        basis=SupplyBasis(),
+        basis=declared_basis(source_id, table) if source_id is not None else SupplyBasis(),
     )
     rows: list[dict[str, Any]] = []
     previous_end: date | None = None
@@ -183,7 +198,7 @@ def summarise_gap(name, frame, values, stock_days, unrecorded_fraction, visitor_
     return rows
 
 
-CONFIG_KEYS=('version','analysis_date','source','estimand','primary_alignment','primary_centre',
+CONFIG_KEYS=('version','analysis_date','source','source_id','estimand','primary_alignment','primary_centre',
              'source_uplift','source_ci_level','source_annual_days','ryo_grams_per_equivalent',
              'external_uplift_medians','shared_uplift_log_sd','base_shared_uplift_log_sd',
              'stock_days','unrecorded_lawful_fractions_of_releases',
@@ -223,6 +238,9 @@ def validate_config(cfg):
     missing=[key for key in CONFIG_KEYS if key not in cfg]
     if missing:
         raise ValueError(f'Configuration is missing required keys: {", ".join(missing)}')
+    if not isinstance(cfg['source_id'], str) or not cfg['source_id'].strip():
+        raise ValueError('source_id must be a non-empty string naming the source the '
+                         'observation rows came from')
     if cfg['primary_alignment'] not in ALIGNMENTS:
         raise ValueError(f'primary_alignment={cfg["primary_alignment"]!r} is not one of {ALIGNMENTS}')
     if cfg['primary_centre'] not in CENTRES:
@@ -395,11 +413,16 @@ def run(out,root=ROOT,quick=False):
     if set(table.ryo_conversion_g_per_stick.unique())!={float(cfg['ryo_grams_per_equivalent'])}:
         raise ValueError('ryo_grams_per_equivalent does not match the source table convention '
                          f'{sorted(set(table.ryo_conversion_g_per_stick.unique()))!r}')
-    frames={name:assembled_inputs(table,alignment=name,centre=cfg['primary_centre'])
+    frames={name:assembled_inputs(table,alignment=name,centre=cfg['primary_centre'],
+                                  source_id=cfg['source_id'])
             for name in ALIGNMENTS}
     primary=frames[cfg['primary_alignment']]
     last_year=int(primary.year.iloc[-1])
     validate_horizon(cfg,last_year)
+    # The declared identity of the conditioned source; every emitted ledger and the
+    # fit-scope receipt record the same basis, so a reverted anonymous basis fails
+    # closed instead of relabelling a series.
+    basis=declared_basis(cfg['source_id'], table)
     out.mkdir(parents=True,exist_ok=True)
     pd.concat(frames.values(),ignore_index=True).to_csv(out/'aligned_observations.csv',index=False)
     fit=fit_frame(primary,spec)
@@ -423,7 +446,7 @@ def run(out,root=ROOT,quick=False):
     for name,days,unrecorded,visitor in ledger_scenarios:
         ledger=lawful_ledger(table.year.tolist(),allreleases,stock_scenario(allreleases,days),
                              unrecorded=unrecorded*allreleases,net_visitors=visitor*allreleases,
-                             basis=SupplyBasis())
+                             basis=basis)
         aligned=np.array([annualised_supply(ledger,r.period_start,r.period_end)['annualised_per_365_days'] for r in primary.itertuples()])
         ledgers[name]=aligned
         for j,y in enumerate(table.year):
@@ -446,11 +469,14 @@ def run(out,root=ROOT,quick=False):
               ('calendar',frames['calendar_replication'],spec),
               ('collection_calendar',frames['documented_collection_sensitivity'],spec),
               ('arithmetic_midpoint',assembled_inputs(table,alignment=cfg['primary_alignment'],
-                                                      centre='arithmetic_interval_midpoint'),spec),
+                                                      centre='arithmetic_interval_midpoint',
+                                                      source_id=cfg['source_id']),spec),
               ('upper_centre_stress',assembled_inputs(table,alignment=cfg['primary_alignment'],
-                                                      centre='published_upper_stress'),spec),
+                                                      centre='published_upper_stress',
+                                                      source_id=cfg['source_id']),spec),
               ('lower_centre_stress',assembled_inputs(table,alignment=cfg['primary_alignment'],
-                                                      centre='published_lower_stress'),spec),
+                                                      centre='published_lower_stress',
+                                                      source_id=cfg['source_id']),spec),
               ('exclude_source_2014_arithmetic_issue',primary[primary.year!=2014],spec),
               ('intensity_cv_0',primary,replace(spec,intensity_cv=0)),
               ('intensity_cv_0.2',primary,replace(spec,intensity_cv=.2)),
@@ -506,6 +532,7 @@ def run(out,root=ROOT,quick=False):
     save_json(out/'fit_scope.json',dict(estimand=cfg['estimand'],latest_paired_year=last_year,
         primary_alignment=cfg['primary_alignment'],primary_centre=cfg['primary_centre'],
         version=cfg['version'],assumptions=cfg['assumptions'],
+        declared_source_basis=asdict(basis),
         current_joint_nz_posterior=False,current_assay_panel_fitted=False,
         likelihood='Gaussian summary approximation on raw survey proxy / matched release log ratio',
         accounting='Source conventions retained; timing/stock/scope corrections are assumptions',

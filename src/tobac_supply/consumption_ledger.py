@@ -38,13 +38,75 @@ def _array(values: Iterable[Real], name: str, length: int, signed: bool = False)
     return a
 
 
+def _source_ids(values: tuple[str, ...]) -> tuple[str, ...]:
+    """Validate a declared source identity; empty tuple is the unattributed default.
+
+    Rejects non-string elements, blank (after stripping) ids and duplicates. The
+    canonical whitespace-stripped form is stored, so two spellings of one source
+    cannot declare distinct identities.
+    """
+    if not isinstance(values, tuple):
+        raise ValueError(f'source_ids must be a tuple of strings; got {type(values).__name__}')
+    stripped: list[str] = []
+    for value in values:
+        if not isinstance(value, str):
+            raise ValueError(f'source_ids must contain strings; got {type(value).__name__} {value!r}')
+        cleaned = value.strip()
+        if not cleaned:
+            raise ValueError('source_ids contains an empty source id; each source id must be '
+                             'non-empty after stripping whitespace')
+        if cleaned in stripped:
+            raise ValueError(f'source_ids contains duplicate source id {cleaned!r}; '
+                             'source ids must be unique')
+        stripped.append(cleaned)
+    return tuple(stripped)
+
+
+def _observation_years(values: tuple[int, ...]) -> tuple[int, ...]:
+    """Validate declared observation years; empty tuple means unattributed years.
+
+    Rejects non-integral values, non-calendar years and duplicates or a
+    non-increasing order, so a series cannot be mislabelled with another run's
+    observation window.
+    """
+    if not isinstance(values, tuple):
+        raise ValueError(f'observation_years must be a tuple of integer years; '
+                         f'got {type(values).__name__}')
+    years: list[int] = []
+    for value in values:
+        if isinstance(value, (bool, np.bool_)) or not isinstance(value, Integral):
+            raise ValueError(f'observation_years must contain integer calendar years; got {value!r}')
+        year = int(value)
+        if not 1 <= year <= 9998:
+            raise ValueError(f'observation_years value {year} is not a calendar year '
+                             '(must be 1..9998)')
+        years.append(year)
+    for previous, current in zip(years, years[1:]):
+        if current == previous:
+            raise ValueError(f'observation_years contains duplicate year {current}; '
+                             'calendar years must be unique')
+        if current < previous:
+            raise ValueError(f'observation_years is not strictly increasing: {current} '
+                             f'follows {previous}; calendar years must be strictly increasing')
+    return tuple(years)
+
+
 @dataclass(frozen=True)
 class SupplyBasis:
-    """Source-specific product, geographic and duty-free coverage, not inferred from units."""
+    """Source-specific product, geographic and duty-free coverage, not inferred from units.
+
+    `source_ids` and `observation_years` are optional identity declarations: they
+    name WHICH source and WHICH observation years a series came from, so two runs
+    conditioning the same MOH/NZHS source are distinguishable at the ledger layer.
+    An empty tuple is documented as "unattributed", and a caller that omits them
+    must not claim a source identity.
+    """
     unit: str = 'cigarette_equivalents'
     geography: str = 'NZ_national'
     products: str = 'factory_made_and_RYO_at_source_0.7g_convention'
     duty_free_included: bool = True
+    source_ids: tuple[str, ...] = ()
+    observation_years: tuple[int, ...] = ()
 
     def __post_init__(self) -> None:
         if self.unit != 'cigarette_equivalents':
@@ -55,6 +117,10 @@ class SupplyBasis:
             raise ValueError('product basis is required')
         if not isinstance(self.duty_free_included, bool):
             raise ValueError('duty_free_included must be boolean')
+        # Normalise the declared identity (strip whitespace, canonise ints) on a
+        # frozen dataclass; validation is not a default that changes a scientific input.
+        object.__setattr__(self, 'source_ids', _source_ids(self.source_ids))
+        object.__setattr__(self, 'observation_years', _observation_years(self.observation_years))
 
 
 @dataclass(frozen=True)
