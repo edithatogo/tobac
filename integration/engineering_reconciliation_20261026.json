@@ -171,6 +171,13 @@
   "publication": {
     "pull_request": "https://github.com/edithatogo/tobac/pull/29",
     "receiving_ref": "refs/heads/main",
-    "method": "expected-head guarded merge after current-head macOS checks"
+    "method": "expected-head guarded merge after current-head macOS checks",
+    "status": "merged",
+    "receiving_commit": "104729a615e19ccf8da2cb52e729d46df624037d",
+    "remote_ref_verified": true,
+    "qualified_final_pr_head": "1f6b375c8a491a395b0e6580a8e567dc921445a9",
+    "final_pr_hosted_run": "https://github.com/edithatogo/tobac/actions/runs/40270043750",
+    "final_pr_macos_tests": "success",
+    "final_pr_macos_engineering": "success"
   }
 }

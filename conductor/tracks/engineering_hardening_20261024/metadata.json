@@ -1,7 +1,7 @@
 {
   "track_id": "engineering_hardening_20261024",
   "title": "Library reuse and qualified engineering harness",
-  "status": "macos_python3151_qualified_pr29_publication",
+  "status": "macos_python3151_qualified_merged_pr29",
   "base_commit": "044c9951fb35c1ca020416da587bfa04e01b2967",
   "date": "2026-10-24",
   "updated": "2026-10-26",
@@ -25,6 +25,8 @@
   "publication": {
     "pull_request": 29,
     "receiving_ref": "main",
-    "qualified_commit": "c645028383163aa069937d34e14f8661374b608a"
+    "qualified_commit": "c645028383163aa069937d34e14f8661374b608a",
+    "receiving_commit": "104729a615e19ccf8da2cb52e729d46df624037d",
+    "status": "merged"
   }
 }

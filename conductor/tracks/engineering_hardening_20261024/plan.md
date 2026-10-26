@@ -73,7 +73,9 @@ external scientific qualification; the open hosted failure is not closed by this
   engineering sessions pass; hosted mutation 100/131 killed (76.3%).
   Final documentation-only PR head must retain passing macOS checks before merge.
 - [x] Commit final receipts and reconcile remote main through 8f9b98f.
-- [ ] Merge PR #29 after current-head macOS checks; verify its receiving commit on main.
+- [x] PR #29 merged after both final-head macOS checks passed (run 40270043750).
+  Receiving commit `104729a615e19ccf8da2cb52e729d46df624037d` verified on remote main.
+  Optional Voiage installation probes remain blocked by upstream dependencies.
 
 The parallel 916a41e profile attempt is retained in Git history as an uninformative run; it is
 not substituted for the separate Python 3.15.1 profile receipt.
