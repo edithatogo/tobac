@@ -10,14 +10,19 @@ nox.options.default_venv_backend = 'uv'
 nox.options.sessions = ['tests', 'quality']
 ROOT = Path(__file__).resolve().parent
 OUT = Path('outputs/engineering')
+# Measured 61.7% on src/tobac/supply.py at main 5ab361b. A floor below the measured
+# score converts a silent success into a regression alarm without asserting adequacy.
+MUTATION_MINIMUM_PERCENT = '60'
 
 
-def environment(session, profile='runtime', require_lock=False):
+def environment(session, profile='runtime', require_lock=False, python_version=None):
     """Exact sync when locked; explicit bootstrap only outside release qualification."""
     if profile not in {'runtime', 'audit'}:
         session.error('Unknown environment profile')
     if profile == 'audit' and sys.platform != 'linux':
         session.error('Audit-tool profile is Linux-only; use runtime tests on other platforms')
+    if python_version is not None:
+        session.env['VIRTUALENV_PYTHON'] = python_version
     session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
     name = 'requirements.lock' if profile == 'runtime' else 'audit.lock'
     lock = ROOT / 'engineering' / name
@@ -69,7 +74,11 @@ def audit_tools(session):
     says plainly that this is not the locked release profile.
     """
     if sys.platform == 'linux':
-        return environment(session, profile='audit')
+        # Pin the interpreter alongside the tool versions so the audit environment is the same
+        # one the lock was reviewed against. The pandas resolution that the longitudinal
+        # type-check config depends on is handled by that config's own extraPaths, not here.
+        environment(session, profile='audit', python_version='3.13')
+        return None
     if os.environ.get('TOBAC_REQUIRE_LOCK') == '1':
         session.error('Locked qualification requires the Linux audit lock; not available here')
     session.log('NATIVE AUDIT: host-resolved tools from engineering/tools-requirements.txt; '
@@ -79,8 +88,12 @@ def audit_tools(session):
     # The audit checks import the project and jsonschema, so the ordinary dependency set is
     # required too; installing only the tool pins leaves basedpyright unable to resolve imports.
     session.install('-r', 'requirements.lock', '-r', 'engineering/test-requirements.txt',
-                    '-r', 'engineering/build-requirements.txt',
-                    '-r', 'engineering/tools-requirements.txt')
+                    '-r', 'engineering/build-requirements.txt')
+    # -U is load-bearing: the pins below must override any older copy already present in
+    # the session venv. Without it pip reports "Requirement already satisfied" and silently
+    # keeps the stale version, so a local run can pass or fail on a different checker than
+    # the Linux audit lock runs.
+    session.install('-U', '-r', 'engineering/tools-requirements.txt')
     session.install('--no-deps', '--no-build-isolation', '-e', '.')
     OUT.mkdir(parents=True, exist_ok=True)
     return None
@@ -129,6 +142,25 @@ def quality(session):
         ['ruff', 'check', '--config', 'engineering/ruff.toml', 'scripts/context_bundle.py'],
         ['basedpyright', '--project', 'engineering/basedpyright.json'],
     ])
+
+
+@nox.session
+def types_longitudinal(session):
+    """Strict type check of the longitudinal runner; NOT part of `quality` yet.
+
+    This cannot pass as configured: pandas ships no ``py.typed`` stubs, so every
+    DataFrame value is ``Unknown`` and strict mode reports ~133 cascading
+    ``reportUnknown*`` errors on real, correct code. It was briefly wired into
+    ``quality`` and made that session unachievable; gating on it would either block
+    every change or push an ignore sweep over genuine findings.
+
+    It stays a separate, runnable session rather than a silent pass. Closing it needs
+    ``pandas-stubs`` in ``engineering/audit.lock`` — a reviewed lock regeneration and
+    receipt, which is an open release-qualification gate, not a mechanical edit. Until
+    then this session is expected to fail and must not be reported as green.
+    """
+    audit_tools(session)
+    session.run('basedpyright', '--project', 'engineering/bp_longitudinal.json')
 
 
 @nox.session
@@ -195,9 +227,12 @@ def package(session):
 
 @nox.session
 def mutation(session):
+    """Mutation score gate; mutmut enforces no threshold of its own."""
     audit_tools(session)
     session.run('mutmut', 'run', 'tobac.supply*')
     session.run('mutmut', 'results')
+    session.run('python', 'scripts/check_mutation_score.py',
+                '--minimum', MUTATION_MINIMUM_PERCENT)
 
 
 @nox.session

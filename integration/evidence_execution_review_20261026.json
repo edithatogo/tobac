@@ -1,0 +1,43 @@
+{
+  "schema": "tobac.review-qualification.v1",
+  "date": "2026-10-26",
+  "review_of_track": "evidence_execution_20261025",
+  "reviewed_at_main": "d1d3272cae462d0c2d1eea49eb9fb7a0736861d8",
+  "verdict_after_fixes": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low_remaining": [
+      "archive comparison executed at the track's run is not re-runnable (predecessor ZIP not in the repository)",
+      "test counts grew from the recorded 60 to 64 on current main (dated record)"
+    ]
+  },
+  "verified": [
+    {"claim": "the CLI inventories real evidence/*.csl.json collections and hashes their bytes", "result": "ran scripts/qualify_integrations.py --mode inventory; exit 0; receipt structure reproduced"},
+    {"claim": "missing required collection fails", "result": "bypassing the required-collection check fails 3 tests (mutation probe)"},
+    {"claim": "nonfinite external EVPI can never qualify parity", "result": "bypassing the isfinite guard fails 3 tests (mutation probe)"},
+    {"claim": "nox tests/reproduce/package/security sessions run the preservation gate first", "result": "noxfile.py verify_evidence() is the first call in each session"},
+    {"claim": "51-case equal-weight voiage probe and external disclaimers", "result": "tests assert 51 cases; receipts record external tools as not installed, hosted CI as unqualified"},
+    {"claim": "M3 arrived concurrently at fa39fd36 and is preserved", "result": "fa39fd36 is an ancestor of current main"},
+    {"claim": "64 tests pass in tests/incorporation", "result": "64 passed"},
+    {"claim": "track receipt's inventory hash for the longitudinal CSL was accurate at base 5218d83", "result": "cf853de8... equals sha256 of the file at 5218d83; the file was then changed by commit 005364e (PMCID added to the CSL entry)"}
+  ],
+  "findings_and_fixes": [
+    {
+      "severity": "medium-before-fix",
+      "summary": "integration/evidence_inventory_20261025.json records sha256 cf853de8... for evidence/longitudinal/references.csl.json; on current main the file is af009648... because commit 005364e added the missed PMCID. Every other field and hash still matches the live CLI output, so this is a single stale digest, not a general drift.",
+      "fix": "docs/EVIDENCE_INTEGRATION.md now states the receipt documents the 2026-10-25 pass at base 5218d83, names the PMCID edit, and gives the re-inventory command. The historical receipt itself is not overwritten."
+    },
+    {
+      "severity": "low-before-fix",
+      "summary": "The track's execution receipt records an archive comparison and a compilation pass whose commands are not reproducible from the repository.",
+      "fix": "Recorded as a known limitation in this review receipt; the architecture cannot re-derive them without the predecessor ZIP and the original environment."
+    }
+  ],
+  "not_claimed": [
+    "hosted CI qualification",
+    "Sourceright or voiage installed-library parity (both are explicitly recorded as unavailable)",
+    "scientific applicability or bibliographic validation (receipts set both to false)",
+    "full scientific replay"
+  ]
+}

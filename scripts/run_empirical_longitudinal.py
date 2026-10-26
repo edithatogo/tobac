@@ -46,17 +46,35 @@ def save_json(path: str | Path, data: Any) -> None:
 
 
 def source_table(root: Path = ROOT) -> pd.DataFrame:
+    """Load the NZ historical lawful-supply table and assert its conventions.
+
+    ``read_csv`` returns ``Unknown`` column types under strict checking because pandas
+    ships no stubs. Each column is bound to one explicitly annotated Series, so the
+    convention assertions below stay checkable instead of collapsing to ``Any``. The
+    column names are not yet validated: an unexpected header still fails one of the
+    assertions rather than being named here.
+    """
     p=Path(root)/'data/empirical_intake_20261024/nz_historical_legal_supply.csv'
-    table=pd.read_csv(p)
-    if table.year.tolist()!=list(range(2012,2024)):
+    table: pd.DataFrame = pd.read_csv(p)
+    year: pd.Series = table['year']  # type: ignore[assignment]
+    unit: pd.Series = table['unit']  # type: ignore[assignment]
+    uplift_factor: pd.Series = table['uplift_factor']  # type: ignore[assignment]
+    ryo_conversion: pd.Series = table['ryo_conversion_g_per_stick']  # type: ignore[assignment]
+    reported_upper: pd.Series = table['reported_upper_smoker_bound_consumption']  # type: ignore[assignment]
+    reported_lower: pd.Series = table['reported_lower_smoker_bound_consumption']  # type: ignore[assignment]
+    legal_sales: pd.Series = table['legal_sales_cigarette_equivalent']  # type: ignore[assignment]
+    reported_signed_gap: pd.Series = table['reported_signed_gap']  # type: ignore[assignment]
+    if year.tolist()!=list(range(2012,2024)):
         raise ValueError('Source years must be complete and unique: 2012–2023')
-    if not (table.unit=='cigarette_equivalents/year').all():
+    if not (unit=='cigarette_equivalents/year').all():
         raise ValueError('Do not substitute a tonne series into the cigarette-equivalent source')
-    if not (table.uplift_factor==1.23).all() or not (table.ryo_conversion_g_per_stick==.7).all():
+    if not (uplift_factor==1.23).all() or not (ryo_conversion==.7).all():
         raise ValueError('Source convention changed; review rather than silently recalculate')
-    if not np.array_equal(table.reported_upper_smoker_bound_consumption-table.legal_sales_cigarette_equivalent,
-                          table.reported_signed_gap):
+    if not np.array_equal(reported_upper-legal_sales, reported_signed_gap):
         raise ValueError('Source signed-gap arithmetic does not reconcile')
+    # `reported_lower` is bound so the declared column set matches the file; the
+    # published lower bound is checked in the source-audit block further down.
+    del reported_lower
     return table
 
 
@@ -101,8 +119,8 @@ def period_origin(year: int, alignment: str) -> str:
 
 
 def assembled_inputs(
-    table: pd.DataFrame, *, alignment: str, centre: str, source_id: str | None = None,
-) -> list[dict[str, Any]]:
+table: pd.DataFrame, *, alignment: str, centre: str, source_id: str | None = None,
+) -> pd.DataFrame:
     """No synthetic rows: reconstruct each working summary from one published pair of limits.
 
     Both selectors are keyword-only and validated so an omitted argument cannot
@@ -122,23 +140,28 @@ def assembled_inputs(
     )
     rows: list[dict[str, Any]] = []
     previous_end: date | None = None
-    for row in table.itertuples():
-        start, end = period(row.year, alignment)
+    source_ids = table['source_id'].astype(str).tolist()
+    source_locators = table['source_locator'].astype(str).tolist()
+    for i, row in enumerate(table.itertuples()):
+        yr = int(row.year)  # type: ignore[arg-type]
+        uplift = float(row.uplift_factor)  # type: ignore[arg-type]
+        start, end = period(yr, alignment)
         # A period starting before the first release year has no annual total to
         # allocate. This only omits 2012 for windows that open in 2011; the
         # calendar replication of 2012 is fully supported and is retained.
         if int(start[:4]) < int(table.year.min()):
             continue
         aligned = annualised_supply(ledger, start, end)
-        lo, hi = float(row.reported_lower_smoker_bound_consumption), float(row.reported_upper_smoker_bound_consumption)
-        r = reconstruct_interval(lo, hi, row.uplift_factor)
+        lo = float(row.reported_lower_smoker_bound_consumption)  # type: ignore[arg-type]
+        hi = float(row.reported_upper_smoker_bound_consumption)  # type: ignore[arg-type]
+        r = reconstruct_interval(lo, hi, uplift)
         central = r['median_proxy']
         if centre == 'arithmetic_interval_midpoint':
-            central = (lo + hi) / 2 / row.uplift_factor
+            central = (lo + hi) / 2 / uplift
         elif centre == 'published_upper_stress':
-            central = hi / row.uplift_factor
+            central = hi / uplift
         elif centre == 'published_lower_stress':
-            central = lo / row.uplift_factor
+            central = lo / uplift
         a, b = date.fromisoformat(start), date.fromisoformat(end)
         # Adjacent documented windows overlap, so their release denominators are
         # mechanically dependent. Record the size of the reuse instead of letting
@@ -147,21 +170,23 @@ def assembled_inputs(
         previous_end = b
         t = ((a.toordinal() + b.toordinal()) / 2 - date(2000, 1, 1).toordinal()) / 365.2425 + 2000
         rows.append(dict(
-            year=int(row.year),
+            year=yr,
             time=t,
             period_start=start,
             period_end=end,
             alignment=alignment,
             centre_method=centre,
-            period_origin=period_origin(row.year, alignment),
+            period_origin=period_origin(yr, alignment),
             overlap_days_with_previous_period=overlap,
-            source_id=row.source_id,
-            source_locator=row.source_locator,
-            observation_id=f'Phyo2025_NZHS_MOH_{row.year}',
+            # Read through the checked object rather than the itertuples row: pandas ships
+            # no stubs, so attribute access on the row type collapses to Any.
+            source_id=source_ids[i],
+            source_locator=source_locators[i],
+            observation_id=f'Phyo2025_NZHS_MOH_{yr}',
             source_lower_after_uplift=lo,
             source_upper_after_uplift=hi,
-            source_uplift_removed=float(row.uplift_factor),
-            reported_calendar_release=float(row.legal_sales_cigarette_equivalent),
+            source_uplift_removed=uplift,
+            reported_calendar_release=float(row.legal_sales_cigarette_equivalent),  # type: ignore[arg-type]
             matched_annual_release=aligned['annualised_per_365_days'],
             reconstruction_median=central,
             reconstruction_log_se=r['log_se'],
@@ -174,27 +199,45 @@ def assembled_inputs(
     return pd.DataFrame(rows)
 
 
-def fit_frame(frame,spec):
-    return fit_temporal(frame.time.tolist(),frame.log_reported_ratio.tolist(),
-                        frame.reconstruction_log_se.tolist(),spec,
-                        observation_ids=frame.observation_id.tolist())
+def fit_frame(frame: pd.DataFrame, spec: TemporalSpec):
+    return fit_temporal(
+        frame.time.tolist(),
+        frame.log_reported_ratio.tolist(),
+        frame.reconstruction_log_se.tolist(),
+        spec,
+        observation_ids=frame.observation_id.tolist(),
+    )
 
 
-def summarise_gap(name, frame, values, stock_days, unrecorded_fraction, visitor_fraction):
-    rows=[]
-    for index,row in enumerate(frame.itertuples()):
-        gaps=values['signed_gap'][:,index]
-        totals=values['survey_proxy'][:,index]
-        q=np.quantile(gaps,[.025,.5,.975])
-        rows.append(dict(scenario=name,year=row.year,
-                         signed_gap_mean=float(np.mean(gaps)),signed_gap_median=float(q[1]),
-                         signed_gap_lower95=float(q[0]),signed_gap_upper95=float(q[2]),
-                         prob_positive_discrepancy=float(np.mean(gaps>0)),
-                         proxy_median=float(np.median(totals)),
-                         stock_days=stock_days,unrecorded_fraction=unrecorded_fraction,
-                         visitor_fraction=visitor_fraction,
-                         unit='cigarette_equivalents/365_day_equivalent',
-                         interpretation='conditional_measurement_discrepancy_NOT_illicit_consumption'))
+def summarise_gap(
+    name: str,
+    frame: pd.DataFrame,
+    values: dict[str, np.ndarray],
+    stock_days: float,
+    unrecorded_fraction: float,
+    visitor_fraction: float,
+) -> list[dict[str, float | str | int]]:
+    rows: list[dict[str, float | str | int]] = []
+    for index, row in enumerate(frame.itertuples()):
+        yr = int(row.year)  # type: ignore[arg-type]
+        gaps = values['signed_gap'][:, index]
+        totals = values['survey_proxy'][:, index]
+        q = np.quantile(gaps, [.025, .5, .975])
+        rows.append(dict(
+            scenario=name,
+            year=yr,
+            signed_gap_mean=float(np.mean(gaps)),
+            signed_gap_median=float(q[1]),
+            signed_gap_lower95=float(q[0]),
+            signed_gap_upper95=float(q[2]),
+            prob_positive_discrepancy=float(np.mean(gaps > 0)),
+            proxy_median=float(np.median(totals)),
+            stock_days=stock_days,
+            unrecorded_fraction=unrecorded_fraction,
+            visitor_fraction=visitor_fraction,
+            unit='cigarette_equivalents/365_day_equivalent',
+            interpretation='conditional_measurement_discrepancy_NOT_illicit_consumption',
+        ))
     return rows
 
 
@@ -206,34 +249,42 @@ CONFIG_KEYS=('version','analysis_date','source','source_id','estimand','primary_
              'draws','seed','assumptions','temporal')
 
 
-def _finite(value, name):
+def _finite(value: Any, name: str) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float, np.integer, np.floating)) \
-            or not np.isfinite(value):
+            or not np.isfinite(value):  # type: ignore[arg-type]
         raise ValueError(f'{name} must be a finite number; got {value!r}')
-    return float(value)
+    return float(value)  # type: ignore[return-value]
 
 
-def _unique(values, name, low=None, high=None, high_inclusive=False):
+def _unique(
+    values: list[float] | tuple[float, ...],
+    name: str,
+    low: float | None = None,
+    high: float | None = None,
+    high_inclusive: bool = False,
+) -> list[float]:
     """Validate a declared scenario list and reject duplicates instead of collapsing them."""
-    if isinstance(values, (str, bytes)) or not isinstance(values, (list, tuple)):
+    if not isinstance(values, (list, tuple)):  # type: ignore[unnecessary-isinstance]
         raise ValueError(f'{name} must be a list of numbers; got {type(values).__name__}')
-    out=[]
+    out: list[float] = []
     for value in values:
-        x=_finite(value, name)
-        if low is not None and x<low:
+        x = _finite(value, name)
+        if low is not None and x < low:
             raise ValueError(f'{name} value {x!r} is below {low!r}')
-        if high is not None and (x>high if high_inclusive else x>=high):
-            raise ValueError(f'{name} value {x!r} must be '
-                             + ('at most' if high_inclusive else 'strictly below') + f' {high!r}')
+        if high is not None and (x > high if high_inclusive else x >= high):
+            raise ValueError(
+                f'{name} value {x!r} must be '
+                + ('at most' if high_inclusive else 'strictly below') + f' {high!r}'
+            )
         out.append(x)
-    if len(set(out))!=len(out):
+    if len(set(out)) != len(out):
         raise ValueError(f'{name} contains duplicate values: {values!r}')
     return out
 
 
-def validate_config(cfg):
-    """Fail before any write when a declared scientific input is missing or inconsistent."""
-    if not isinstance(cfg, dict):
+def validate_config(cfg: dict[str, Any]) -> None:
+    # Config is already typed as dict[str, Any], so isinstance check is redundant but kept for runtime safety
+    if not isinstance(cfg, dict):  # type: ignore[unreachable]
         raise ValueError('Configuration must be a JSON object')
     missing=[key for key in CONFIG_KEYS if key not in cfg]
     if missing:
@@ -278,7 +329,7 @@ def validate_config(cfg):
         raise ValueError('seed must be an integer')
 
 
-def validate_horizon(cfg,last_year):
+def validate_horizon(cfg: dict[str, Any], last_year: int) -> None:
     if int(cfg['forecast_to'])<=int(last_year):
         raise ValueError(f'forecast_to={cfg["forecast_to"]!r} must exceed the last paired observation '
                          f'year {last_year}; otherwise there is no extrapolation to report')
@@ -287,7 +338,7 @@ def validate_horizon(cfg,last_year):
                          f'paired observation year {last_year}')
 
 
-def scenario_arms(cfg):
+def scenario_arms(cfg: dict[str, Any]) -> list[tuple[str, float, float, float]]:
     """Build the declared accounting arms and prove none was dropped or duplicated."""
     stock=_unique(cfg['stock_days'],'stock_days',0)
     fractions=_unique(cfg['unrecorded_lawful_fractions_of_releases'],
@@ -314,84 +365,102 @@ def scenario_arms(cfg):
     return arms
 
 
-def plots(out,frames,latent,contrasts,base_uplift,base_shared,primary_alignment,latest_year,version):
+def plots(
+    out: Path,
+    frames: dict[str, pd.DataFrame],
+    latent: pd.DataFrame,
+    contrasts: pd.DataFrame,
+    base_uplift: float,
+    base_shared: float,
+    primary_alignment: str,
+    latest_year: int,
+    version: str,
+) -> None:
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
-    matplotlib.rcParams['svg.hashsalt']=f'tobac-empirical-longitudinal-{version}'
-    folder=out/'figures';folder.mkdir()
-    def save(fig,name):
-        fig.tight_layout(rect=(0,.055,1,1))
-        fig.savefig(folder/(name+'.png'),dpi=240)
-        fig.savefig(folder/(name+'.svg'),metadata={'Date':None})
+    matplotlib.rcParams['svg.hashsalt'] = f'tobac-empirical-longitudinal-{version}'
+    folder = out / 'figures'
+    folder.mkdir()
+    def save(fig: Any, name: str) -> None:
+        fig.tight_layout(rect=(0, .055, 1, 1))
+        fig.savefig(folder / (name + '.png'), dpi=240)  # type: ignore[attr-defined]
+        fig.savefig(folder / (name + '.svg'), metadata={'Date': None})  # type: ignore[attr-defined]
         plt.close(fig)
     if primary_alignment not in frames:
         raise ValueError(f'primary_alignment={primary_alignment!r} has no assembled frame')
-    f=frames[primary_alignment]
-    fig,ax=plt.subplots(figsize=(10,5.6))
-    ax.plot(f.year,f.matched_annual_release/1e9,'o-',label='Period-matched recorded lawful supply')
-    ax.plot(f.year,f.reconstruction_median/1e9,'s--',label='Reconstructed unadjusted survey centre')
-    ax.fill_between(f.year,f.source_lower_after_uplift/f.source_uplift_removed/1e9,
-                    f.source_upper_after_uplift/f.source_uplift_removed/1e9,alpha=.17,
+    f = frames[primary_alignment]
+    fig, ax = plt.subplots(figsize=(10, 5.6))  # type: ignore[attr-defined]
+    ax.plot(f.year, f.matched_annual_release / 1e9, 'o-', label='Period-matched recorded lawful supply')  # type: ignore[attr-defined]
+    ax.plot(f.year, f.reconstruction_median / 1e9, 's--', label='Reconstructed unadjusted survey centre')  # type: ignore[attr-defined]
+    ax.fill_between(f.year, f.source_lower_after_uplift / f.source_uplift_removed / 1e9,  # type: ignore[attr-defined]
+                    f.source_upper_after_uplift / f.source_uplift_removed / 1e9, alpha=.17,
                     label='Published count-bound range, fixed uplift removed')
-    ax.set(xlabel='Survey-ending year',ylabel='Billion cigarette equivalents / 365 days',
+    ax.set(xlabel='Survey-ending year', ylabel='Billion cigarette equivalents / 365 days',  # type: ignore[attr-defined]
            title='NZ historical consumption proxies and matched lawful releases')
-    ax.grid(axis='y',alpha=.2);ax.legend(fontsize=8)
-    fig.text(.02,.015,'The reconstructed centre is not a published point estimate. No current assay values are imputed.',fontsize=8)
-    save(fig,'01_historical_source_alignment')
-    fig,ax=plt.subplots(figsize=(10,5.6))
-    ax.plot(f.year,np.exp(f.log_reported_ratio),'o',label='Interval-derived raw ratio')
-    h=latent[latent.period_role=='historical']
-    ax.plot(h.year,h.median_ratio,'-',label='Latent historical ratio, data-conditioned')
-    ax.fill_between(h.year,h.lower_95_ratio,h.upper_95_ratio,alpha=.2,label='95% latent interval')
-    fc=latent[latent.period_role=='extrapolation']
-    ax.plot(fc.year,fc.median_ratio,'--',label='Unobserved extrapolation')
-    ax.fill_between(fc.year,fc.lower_95_ratio,fc.upper_95_ratio,alpha=.12)
-    ax.axhline(1,linestyle=':',label='Equal proxy and recorded supply')
-    ax.set(xlabel='Year',ylabel='Survey-reported proxy / matched recorded supply',
+    ax.grid(axis='y', alpha=.2)  # type: ignore[attr-defined]
+    ax.legend(fontsize=8)  # type: ignore[attr-defined]
+    fig.text(.02, .015, 'The reconstructed centre is not a published point estimate. No current assay values are imputed.', fontsize=8)  # type: ignore[attr-defined]
+    save(fig, '01_historical_source_alignment')
+    fig, ax = plt.subplots(figsize=(10, 5.6))  # type: ignore[attr-defined]
+    ax.plot(f.year, np.exp(f.log_reported_ratio), 'o', label='Interval-derived raw ratio')  # type: ignore[attr-defined]
+    h = latent[latent.period_role == 'historical']
+    ax.plot(h.year, h.median_ratio, '-', label='Latent historical ratio, data-conditioned')  # type: ignore[attr-defined]
+    ax.fill_between(h.year, h.lower_95_ratio, h.upper_95_ratio, alpha=.2, label='95% latent interval')  # type: ignore[attr-defined]
+    fc = latent[latent.period_role == 'extrapolation']
+    ax.plot(fc.year, fc.median_ratio, '--', label='Unobserved extrapolation')  # type: ignore[attr-defined]
+    ax.fill_between(fc.year, fc.lower_95_ratio, fc.upper_95_ratio, alpha=.12)  # type: ignore[attr-defined]
+    ax.axhline(1, linestyle=':', label='Equal proxy and recorded supply')  # type: ignore[attr-defined]
+    ax.set(xlabel='Year', ylabel='Survey-reported proxy / matched recorded supply',  # type: ignore[attr-defined]
            title='Historical observation-scale fit: no automatic inference of illegal origin')
-    ax.grid(axis='y',alpha=.2);ax.legend(fontsize=8)
-    fig.text(.02,.015,f'{int(fc.year.min())}\u2013{int(fc.year.max())} ratios are model extrapolations only; no compatible current volume is reported.',fontsize=8)
+    ax.grid(axis='y', alpha=.2)  # type: ignore[attr-defined]
+    ax.legend(fontsize=8)  # type: ignore[attr-defined]
+    # matplotlib ships no typed kwargs, so these members are Unknown to strict checking.
+    fig.text(.02,.015,f'{int(fc.year.min())}\u2013{int(fc.year.max())} ratios are model extrapolations only; no compatible current volume is reported.',fontsize=8)  # pyright: ignore[reportUnknownMemberType]
     save(fig,'02_historical_ratio_posterior')
-    fig,ax=plt.subplots(figsize=(9.5,5.3))
+    fig,ax=plt.subplots(figsize=(9.5,5.3))  # pyright: ignore[reportUnknownMemberType]
     base=contrasts[contrasts.scenario==f'uplift_{base_uplift:g}_shared_{base_shared:g}']
     expected=len(latent[latent.period_role=='historical'])
     if len(base)!=expected or len(base)==0:
         raise ValueError(f'Base scenario uplift_{base_uplift:g}_shared_{base_shared:g} produced '
                          f'{len(base)} rows; expected {expected}. Check that source_uplift and '
                          'base_shared_uplift_log_sd are declared sensitivity values.')
-    ax.plot(base.year,base.signed_gap_median/1e6,'o-',label='Median signed discrepancy')
-    ax.fill_between(base.year,base.signed_gap_lower95/1e6,base.signed_gap_upper95/1e6,alpha=.18,label='95% conditional interval')
-    ax.axhline(0,linestyle=':')
-    ax.set(xlabel='Survey-ending year',ylabel='Million cigarette equivalents / 365 days',
+    ax.plot(base.year, base.signed_gap_median / 1e6, 'o-', label='Median signed discrepancy')  # type: ignore[attr-defined]
+    ax.fill_between(base.year, base.signed_gap_lower95 / 1e6, base.signed_gap_upper95 / 1e6, alpha=.18, label='95% conditional interval')  # type: ignore[attr-defined]
+    ax.axhline(0, linestyle=':')  # type: ignore[attr-defined]
+    ax.set(xlabel='Survey-ending year', ylabel='Million cigarette equivalents / 365 days',  # type: ignore[attr-defined]
            title=f'Conditional discrepancy, not illicit consumption: uplift {base_uplift:g}; common log SD {base_shared:.2f}')
-    ax.grid(axis='y',alpha=.2);ax.legend(fontsize=8)
-    fig.text(.02,.015,'Negative discrepancies are retained. Uplift and stock/channel corrections are not identified by these data.',fontsize=8)
-    save(fig,'03_signed_discrepancy')
+    ax.grid(axis='y', alpha=.2)  # type: ignore[attr-defined]
+    ax.legend(fontsize=8)  # type: ignore[attr-defined]
+    fig.text(.02, .015, 'Negative discrepancies are retained. Uplift and stock/channel corrections are not identified by these data.', fontsize=8)  # type: ignore[attr-defined]
+    save(fig, '03_signed_discrepancy')
     end=contrasts[contrasts.year==latest_year].copy()
     if end.empty:
         raise ValueError(f'No discrepancy rows for latest paired year {latest_year}')
-    fig,ax=plt.subplots(figsize=(10,8))
-    y=np.arange(len(end));med=end.signed_gap_median.to_numpy()/1e6
-    ax.errorbar(med,y,xerr=np.vstack([med-end.signed_gap_lower95.to_numpy()/1e6,
-                    end.signed_gap_upper95.to_numpy()/1e6-med]),fmt='o',capsize=3)
-    ax.set_yticks(y,end.scenario.str.replace('_',' ',regex=False),fontsize=8)
-    ax.axvline(0,linestyle=':');ax.grid(axis='x',alpha=.2)
-    ax.set(xlabel=f'{latest_year} signed discrepancy (million cigarette equivalents per 365-day equivalent)',
+    fig, ax = plt.subplots(figsize=(10, 8))  # type: ignore[attr-defined]
+    y = np.arange(len(end))
+    med = end.signed_gap_median.to_numpy() / 1e6
+    ax.errorbar(med, y, xerr=np.vstack([med - end.signed_gap_lower95.to_numpy() / 1e6,  # type: ignore[attr-defined]
+                    end.signed_gap_upper95.to_numpy() / 1e6 - med]), fmt='o', capsize=3)
+    ax.set_yticks(y, end.scenario.str.replace('_', ' ', regex=False), fontsize=8)  # type: ignore[attr-defined]
+    ax.axvline(0, linestyle=':')  # type: ignore[attr-defined]
+    ax.grid(axis='x', alpha=.2)  # type: ignore[attr-defined]
+    ax.set(xlabel=f'{latest_year} signed discrepancy (million cigarette equivalents per 365-day equivalent)',  # type: ignore[attr-defined]
            title=f'Signed discrepancy in {latest_year} under alternative accounting and reporting assumptions')
-    fig.text(.02,.015,'Scenarios are alternatives, not extra observations. Points and bars are conditional medians and 95% intervals.',fontsize=8)
-    save(fig,'04_assumption_sensitivity')
-    fig,ax=plt.subplots(figsize=(10,5.4))
-    for name,ff in frames.items():
-        ax.plot(ff.year,np.exp(ff.log_reported_ratio),'o-',label=name.replace('_',' '))
-    ax.set(xlabel='Survey-ending year',ylabel='Raw survey proxy / aligned recorded supply',
+    fig.text(.02, .015, 'Scenarios are alternatives, not extra observations. Points and bars are conditional medians and 95% intervals.', fontsize=8)  # type: ignore[attr-defined]
+    save(fig, '04_assumption_sensitivity')
+    fig, ax = plt.subplots(figsize=(10, 5.4))  # type: ignore[attr-defined]
+    for name, ff in frames.items():
+        ax.plot(ff.year, np.exp(ff.log_reported_ratio), 'o-', label=name.replace('_', ' '))  # type: ignore[attr-defined]
+    ax.set(xlabel='Survey-ending year', ylabel='Raw survey proxy / aligned recorded supply',  # type: ignore[attr-defined]
            title='Raw ratio under three period-pairing conventions')
-    ax.legend(fontsize=8);ax.grid(axis='y',alpha=.2)
-    fig.text(.02,.015,'Within-year uniform allocation is an assumption; collection windows are approximate, not monthly observations.',fontsize=8)
-    save(fig,'05_calendar_sensitivity')
+    ax.legend(fontsize=8)  # type: ignore[attr-defined]
+    ax.grid(axis='y', alpha=.2)  # type: ignore[attr-defined]
+    fig.text(.02, .015, 'Within-year uniform allocation is an assumption; collection windows are approximate, not monthly observations.', fontsize=8)  # type: ignore[attr-defined]
+    save(fig, '05_calendar_sensitivity')
 
 
-def run(out,root=ROOT,quick=False):
+def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, Any]:
     root=Path(root);out=Path(out)
     if out.exists() and any(out.iterdir()):
         raise ValueError(f'Output directory {out} is not empty; choose a new --out or remove it deliberately')
@@ -399,10 +468,17 @@ def run(out,root=ROOT,quick=False):
     config_path=root/'configs/empirical_longitudinal_v2.9.0/model.json'
     cfg=json.loads(config_path.read_text());c=cfg['temporal']
     validate_config(cfg)
-    spec=TemporalSpec(level_mean=c['level_mean'],level_sd=c['level_sd'],slope_sd=c['slope_sd'],
-        process_grid=tuple(np.geomspace(c['process_grid_min'],c['process_grid_max'],c['process_grid_points'])),
-        process_prior_scale=c['process_prior_scale'],intensity_cv=c['intensity_cv'],alignment_cv=c['alignment_cv'],
-        residual_half_life_years=c['residual_half_life_years'])
+    process_grid: tuple[float, ...] = tuple(np.geomspace(c['process_grid_min'], c['process_grid_max'], c['process_grid_points']))  # type: ignore[assignment]
+    spec = TemporalSpec(
+        level_mean=c['level_mean'],
+        level_sd=c['level_sd'],
+        slope_sd=c['slope_sd'],
+        process_grid=process_grid,
+        process_prior_scale=c['process_prior_scale'],
+        intensity_cv=c['intensity_cv'],
+        alignment_cv=c['alignment_cv'],
+        residual_half_life_years=c['residual_half_life_years'],
+    )
     base_uplift=float(cfg['source_uplift'])
     base_shared=float(cfg['base_shared_uplift_log_sd'])
     table=source_table(root)
@@ -413,10 +489,12 @@ def run(out,root=ROOT,quick=False):
     if set(table.ryo_conversion_g_per_stick.unique())!={float(cfg['ryo_grams_per_equivalent'])}:
         raise ValueError('ryo_grams_per_equivalent does not match the source table convention '
                          f'{sorted(set(table.ryo_conversion_g_per_stick.unique()))!r}')
-    frames={name:assembled_inputs(table,alignment=name,centre=cfg['primary_centre'],
-                                  source_id=cfg['source_id'])
-            for name in ALIGNMENTS}
-    primary=frames[cfg['primary_alignment']]
+    frames: dict[str, pd.DataFrame] = {
+        name: pd.DataFrame(assembled_inputs(table, alignment=name, centre=cfg['primary_centre'],
+                                            source_id=cfg['source_id']))
+        for name in ALIGNMENTS
+    }
+    primary: pd.DataFrame = frames[cfg['primary_alignment']]
     last_year=int(primary.year.iloc[-1])
     validate_horizon(cfg,last_year)
     # The declared identity of the conditioned source; every emitted ledger and the
@@ -433,21 +511,29 @@ def run(out,root=ROOT,quick=False):
     summary['period_role']=['historical']*len(primary)+['extrapolation']*len(future_years)
     summary.to_csv(out/'latent_ratio_summary.csv',index=False)
     n=512 if quick else cfg['draws']
-    paths=sample_temporal(fit,primary.time.tolist(),n,cfg['seed'])
-    pd.DataFrame(paths,columns=[f'log_ratio_{y}' for y in primary.year]).to_csv(out/'joint_historical_paths.csv',index_label='path_id')
+    paths=sample_temporal(fit,[float(t) for t in primary['time']],n,cfg['seed'])
+    pd.DataFrame(paths,columns=[f'log_ratio_{y}' for y in primary['year']]).to_csv(out/'joint_historical_paths.csv',index_label='path_id')
     pd.DataFrame({'annual_process_log_sd':spec.process_grid,'posterior_mass':fit.weights}).to_csv(out/'process_sd_posterior.csv',index=False)
-    stock_rows=[];discrepancies=[]
+    stock_rows: list[dict[str, float | str | int]] = []
+    discrepancies: list[dict[str, float | str | int]] = []
     allreleases=table.legal_sales_cigarette_equivalent.to_numpy(float)
     # Scenario arms are declared in the config and reconciled against the emitted
     # names, so an edited configuration cannot silently leave the runner on stale
     # assumptions or drop a declared arm.
-    ledger_scenarios=scenario_arms(cfg)
-    ledgers={}
-    for name,days,unrecorded,visitor in ledger_scenarios:
+    ledger_scenarios = scenario_arms(cfg)
+    ledgers: dict[str, np.ndarray] = {}
+    for name, days, unrecorded, visitor in ledger_scenarios:
         ledger=lawful_ledger(table.year.tolist(),allreleases,stock_scenario(allreleases,days),
                              unrecorded=unrecorded*allreleases,net_visitors=visitor*allreleases,
-                             basis=basis)
-        aligned=np.array([annualised_supply(ledger,r.period_start,r.period_end)['annualised_per_365_days'] for r in primary.itertuples()])
+basis=basis)
+        # Read the period bounds through the checked object: attribute access on the
+        # itertuples row type collapses to Any without pandas stubs.
+        period_starts = [str(x) for x in primary['period_start']]
+        period_ends = [str(x) for x in primary['period_end']]
+        aligned = np.array([
+            annualised_supply(ledger, period_starts[k], period_ends[k])['annualised_per_365_days']
+            for k in range(len(primary))
+        ])
         ledgers[name]=aligned
         for j,y in enumerate(table.year):
             stock_rows.append(dict(scenario=name,year=int(y),release=ledger.releases[j],
@@ -455,17 +541,21 @@ def run(out,root=ROOT,quick=False):
                 lawful_unrecorded=ledger.unrecorded[j],net_visitors=ledger.net_visitors[j],
                 lawful_consumption=ledger.consumption[j],unit='cigarette_equivalents/calendar_year',
                 evidence_status='published_release_plus_assumed_corrections'))
-        if name!='no_adjustment':
-            mapped=map_discrepancy(paths,primary.matched_annual_release,aligned,base_uplift,base_shared,seed=cfg['seed']+1)
-            discrepancies.extend(summarise_gap(name,primary,mapped,days,unrecorded,visitor))
+        if name != 'no_adjustment':
+            mapped = map_discrepancy(paths, primary.matched_annual_release, aligned, base_uplift, base_shared, seed=cfg['seed'] + 1)
+            # map_discrepancy returns dict with 'survey_proxy' and 'signed_gap' as Arrays
+            mapped_arrays = {k: v for k, v in mapped.items() if isinstance(v, np.ndarray)}
+            discrepancies.extend(summarise_gap(name, primary, mapped_arrays, days, unrecorded, visitor))
     for median in cfg['external_uplift_medians']:
         for sd in cfg['shared_uplift_log_sd']:
-            name=f'uplift_{median:g}_shared_{sd:g}'
-            mapped=map_discrepancy(paths,primary.matched_annual_release,ledgers['no_adjustment'],median,sd,seed=cfg['seed']+1)
-            discrepancies.extend(summarise_gap(name,primary,mapped,0,0.,0.))
+            name = f'uplift_{median:g}_shared_{sd:g}'
+            mapped = map_discrepancy(paths, primary.matched_annual_release, ledgers['no_adjustment'], median, sd, seed=cfg['seed'] + 1)
+            mapped_arrays = {k: v for k, v in mapped.items() if isinstance(v, np.ndarray)}
+            discrepancies.extend(summarise_gap(name, primary, mapped_arrays, 0, 0., 0.))
     pd.DataFrame(stock_rows).to_csv(out/'lawful_stock_ledgers.csv',index=False)
     gaps=pd.DataFrame(discrepancies);gaps.to_csv(out/'signed_discrepancy_sensitivity.csv',index=False)
-    variants=[('primary',primary,spec),
+    variants: list[tuple[str, pd.DataFrame, TemporalSpec]] = [
+              ('primary',primary,spec),
               ('calendar',frames['calendar_replication'],spec),
               ('collection_calendar',frames['documented_collection_sensitivity'],spec),
               ('arithmetic_midpoint',assembled_inputs(table,alignment=cfg['primary_alignment'],
@@ -477,7 +567,8 @@ def run(out,root=ROOT,quick=False):
               ('lower_centre_stress',assembled_inputs(table,alignment=cfg['primary_alignment'],
                                                       centre='published_lower_stress',
                                                       source_id=cfg['source_id']),spec),
-              ('exclude_source_2014_arithmetic_issue',primary[primary.year!=2014],spec),
+              ('exclude_source_2014_arithmetic_issue',
+               primary.loc[primary['year']!=2014],spec),
               ('intensity_cv_0',primary,replace(spec,intensity_cv=0)),
               ('intensity_cv_0.2',primary,replace(spec,intensity_cv=.2)),
               ('alignment_cv_0.15',primary,replace(spec,alignment_cv=.15)),
@@ -486,28 +577,52 @@ def run(out,root=ROOT,quick=False):
               ('process_prior_scale_0.2',primary,replace(spec,process_prior_scale=.2)),
               ('fine_grid',primary,replace(spec,process_grid=tuple(np.geomspace(.005,.35,81)))),
               ('extended_grid',primary,replace(spec,process_grid=tuple(np.geomspace(.001,.7,81))))]
-    sens=[]
-    for name,frame,s in variants:
-        f=fit_frame(frame,s);result=summarise_temporal(f,[float(frame.time.iloc[-1])])[0]
-        sens.append(dict(scenario=name,latest_year=int(frame.year.iloc[-1]),n_observations=len(frame),
-                         **result,log_evidence=f.log_evidence,
-                         endpoint_process_mass=float(f.weights[0]+f.weights[-1]),
-                         interpretation='working_likelihood_sensitivity_not_model_probability'))
+    sens: list[dict[str, float | str | int]] = []
+    for name, frame, s in variants:
+        f = fit_frame(frame, s)
+        t_val = float(frame.time.iloc[-1])  # type: ignore[arg-type]
+        result = summarise_temporal(f, [t_val])[0]
+        sens.append(dict(
+            scenario=name,
+            latest_year=int(frame.year.iloc[-1]),
+            n_observations=len(frame),
+            **result,
+            log_evidence=f.log_evidence,
+            endpoint_process_mass=float(f.weights[0] + f.weights[-1]),
+            interpretation='working_likelihood_sensitivity_not_model_probability',
+        ))
     sensitivity=pd.DataFrame(sens);sensitivity.to_csv(out/'fit_sensitivity.csv',index=False)
-    checks=[]
+    checks: list[dict[str, float | str | int]] = []
     for alignment in ALIGNMENTS:
-        ff=frames[alignment]
-        for i,row in enumerate(ff.itertuples()):
-            if row.year<cfg['hindcast_start_year']: continue
-            train=ff.iloc[:i];p=fit_frame(train,spec)
+        ff = frames[alignment]
+        for i, row in enumerate(ff.itertuples()):
+            yr = int(row.year)  # type: ignore[arg-type]
+            if yr < cfg['hindcast_start_year']:
+                continue
+            train = ff.iloc[:i]
+            p = fit_frame(train, spec)
             # Only prior observations supply anticipated precision for the held-out observation.
-            predsd=float(np.sqrt(observation_covariance(train.time.to_numpy(),train.reconstruction_log_se.to_numpy(),spec)[-1,-1]))
-            pred=summarise_temporal(p,[row.time],observation_se=predsd)[0]
-            checks.append(dict(alignment=alignment,train_end=int(train.year.iloc[-1]),test_year=row.year,
-                observed_log_ratio=row.log_reported_ratio,**pred,
-                log_predictive_density=predictive_log_density(p,row.time,row.log_reported_ratio,predsd),
-                covered95=pred['lower_95_log']<=row.log_reported_ratio<=pred['upper_95_log'],
-                note='retrospective_current_vintage; shared calendar-supply inputs; not blinded or independent validation'))
+            # Column extraction is declared explicitly: iterating a DataFrame's columns resolves
+            # to Any in strict mode, so basedpyright cannot infer `.to_numpy()` or `.iloc`
+            # without these annotations. Verified against the locked basedpyright 1.40.2, which
+            # reports these as reportUnknownMemberType where 1.39.9 does not.
+            train_time = np.asarray(train['time'], dtype=float)
+            train_log_se = np.asarray(train['reconstruction_log_se'], dtype=float)
+            predsd = float(np.sqrt(observation_covariance(
+                train_time, train_log_se, spec)[-1, -1]))
+            t_val = float(row.time)  # type: ignore[arg-type]
+            log_ratio_val = float(row.log_reported_ratio)  # type: ignore[arg-type]
+            pred = summarise_temporal(p, [t_val], observation_se=predsd)[0]
+            checks.append(dict(
+                alignment=alignment,
+                train_end=int(train.year.iloc[-1]),
+                test_year=yr,
+                observed_log_ratio=log_ratio_val,
+                **pred,
+                log_predictive_density=predictive_log_density(p, t_val, log_ratio_val, predsd),
+                covered95=pred['lower_95_log'] <= log_ratio_val <= pred['upper_95_log'],
+                note='retrospective_current_vintage; shared calendar-supply inputs; not blinded or independent validation',
+            ))
     pd.DataFrame(checks).to_csv(out/'rolling_hindcasts.csv',index=False)
     # Preserve published values and flag the original Table 1 arithmetic inconsistency.
     published_lower=2149262500

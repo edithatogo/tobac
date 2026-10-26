@@ -1,4 +1,4 @@
-# M2b — Incorporate the empirical longitudinal component
+# M2b empirical longitudinal source integration
 
 Preserve main's regulatory M1/M2a implementation. Add the previously tested v2.8 reported-release
 and v2.9 historical consumption/supply modules under tobac_supply, with sources, config,

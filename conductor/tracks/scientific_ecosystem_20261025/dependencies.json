@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "implementation_authorized": false,
+  "qualification": "planning and routing only; existing status labels are not fresh runtime evidence",
+  "dependencies": [
+    {
+      "repository": "voiage",
+      "base": "ca3f05cc8adcc74b99fe236152327d0cd3679553",
+      "disposition": "new bounded consumer qualification track",
+      "track": "conductor/tracks/tobac_consumer_qualification_20261025",
+      "issue": "https://github.com/edithatogo/voiage/issues/1193"
+    },
+    {
+      "repository": "innovate",
+      "base": "83d556ba4995fd5f5238f4953e9a8af34976f464",
+      "disposition": "new bounded consumer qualification track",
+      "track": "conductor/tracks/tobac_consumer_qualification_20261025",
+      "issue": "https://github.com/edithatogo/innovate/issues/546"
+    },
+    {
+      "repository": "sourceright",
+      "base": "6e2a69cba6bf65c35bef65c193b3e91b46df5c91",
+      "disposition": "reuse existing citation/extraction and engineering owners; no demonstrated new producer gap",
+      "tracks": [
+        "conductor/archive/91-citeweft-boundary-and-grobid-reference-extraction",
+        "conductor/archive/97-citeweft-repository-extraction",
+        "conductor/tracks/89-harness-security-quality-cicd-hardening"
+      ],
+      "issues": [
+        "https://github.com/edithatogo/sourceright/issues/81",
+        "https://github.com/edithatogo/sourceright/issues/82",
+        "https://github.com/edithatogo/sourceright/issues/83"
+      ]
+    },
+    {
+      "repository": "citeweft",
+      "base": "fb48944c89c00d365745a3610225d3a0ebcb0103",
+      "disposition": "reuse independent release/downstream compatibility contract; no duplicate extraction track",
+      "track": "conductor/tracks/02-independent-release-and-downstream-compatibility",
+      "issue": "https://github.com/edithatogo/citeweft/issues/3",
+      "caveat": "Issue #3 is closed while the checked registry retains an unchecked entry; reconcile execution evidence before claiming current completion. No status changed here."
+    },
+    {
+      "repository": "kairos",
+      "base": "80063b7413a26013e265107ea462828d94a49849",
+      "disposition": "reuse Rust-native Arrow/Polars/binding contracts; no Equinox core rewrite or demonstrated new producer gap",
+      "tracks": [
+        "conductor/tracks/62-official-arrow-parquet-zero-copy-ffi-spine",
+        "conductor/tracks/70-polars-native-data-processing",
+        "conductor/tracks/105-python315-runtime-qualification"
+      ],
+      "issue": "https://github.com/edithatogo/kairos/issues/127"
+    },
+    {
+      "repository": "tobac",
+      "disposition": "reuse active CI-hardening and scientific-stack owners",
+      "pull_requests": [
+        "https://github.com/edithatogo/tobac/pull/20",
+        "https://github.com/edithatogo/tobac/pull/19"
+      ]
+    },
+    {
+      "repository": "archive-govt-nz",
+      "disposition": "preserve active source-binding workstream and consume its contract",
+      "coordination": "https://github.com/edithatogo/tobac/issues/1#issuecomment-6397394234"
+    },
+    {
+      "repository": "searchright",
+      "disposition": "optional offline consumer assessment; no upstream track until a concrete gap is demonstrated"
+    },
+    {
+      "repository": "aegisarchive",
+      "disposition": "optional engine assessment through existing archive owner; no duplicate capture work"
+    },
+    {
+      "repository": "mars",
+      "disposition": "conditional voiage surrogate assessment after profiling; no upstream track now"
+    },
+    {
+      "repository": "rac-conformance",
+      "disposition": "reuse independent-oracle design patterns only"
+    },
+    {
+      "repository": "template-solo-python/template-solo-rust/conductor-next",
+      "disposition": "generic reuse assessment only after demonstrated consumer need"
+    }
+  ],
+  "duplicate_check": [
+    {
+      "repository": "tobac",
+      "all_state_issue_count": 4,
+      "inventory_sha256": "364a3fa4de6986a9b791e76f039998d50652a97c454a036e090d3e347e8f9b0f",
+      "method": "gh issue list --state all --limit 5000 (paginated by gh)",
+      "matching_tobac_consumer_issue_found_before_creation": false
+    },
+    {
+      "repository": "voiage",
+      "all_state_issue_count": 300,
+      "inventory_sha256": "033d284efd52b06b8fe4d5e02f678c1730dcee7bc69782c7fce4a5d2153863be",
+      "method": "gh issue list --state all --limit 5000 (paginated by gh)",
+      "matching_tobac_consumer_issue_found_before_creation": false
+    },
+    {
+      "repository": "innovate",
+      "all_state_issue_count": 223,
+      "inventory_sha256": "16f4d8dec84ce03c87b652c0538ab9f56786f2cb311498788b93cd6a319e54b6",
+      "method": "gh issue list --state all --limit 5000 (paginated by gh)",
+      "matching_tobac_consumer_issue_found_before_creation": false
+    },
+    {
+      "repository": "sourceright",
+      "all_state_issue_count": 54,
+      "inventory_sha256": "6d1e3d80954bb2bcccb2185f2a739aa8a0b928dc87b5b49deb467f55594f893c",
+      "method": "gh issue list --state all --limit 5000 (paginated by gh)",
+      "matching_tobac_consumer_issue_found_before_creation": false
+    },
+    {
+      "repository": "citeweft",
+      "all_state_issue_count": 5,
+      "inventory_sha256": "da16423c213cf3b8d237c64425813ba07c033be0f0d17455d5ee565e34f28ab8",
+      "method": "gh issue list --state all --limit 5000 (paginated by gh)",
+      "matching_tobac_consumer_issue_found_before_creation": false
+    },
+    {
+      "repository": "kairos",
+      "all_state_issue_count": 11,
+      "inventory_sha256": "e389b364c138b8599e48c891df66f0d898a0752cda25b1248b70f27a76e53eb6",
+      "method": "gh issue list --state all --limit 5000 (paginated by gh)",
+      "matching_tobac_consumer_issue_found_before_creation": false
+    }
+  ]
+}

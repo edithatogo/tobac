@@ -12,11 +12,25 @@
   - [x] 2026-10-25 at 044c995: real Nox `tests` (495 passed, 91% coverage) and `reproduce`
     (M1/M2/M3/longitudinal, all verifiers pass) executed in **bootstrap** mode.
   - [x] Ruff (both invocations), BasedPyright strict, zizmor and pip-audit executed and **green**
-    after fixing three real defects they exposed.
+    after fixing three real defects they exposed. "BasedPyright strict" here means
+    `engineering/basedpyright.json`; the separate strict check on the longitudinal runner
+    (`engineering/bp_longitudinal.json`) is not green and is listed below.
   - [x] 2026-10-25 gap-closure pass: mutation (mutmut 3.7.0) executed natively on
     `src/tobac/supply.py` — 128 mutants, 79 killed, 49 survived (61.7%). The session passes
     because mutmut enforces no threshold; the survivor count is a recorded weakness, not a pass.
-  - [ ] Profiling (Scalene 2.4.0) still not executed; tool available natively only.
+    At `2057074` the session gained `scripts/check_mutation_score.py --minimum 60`, so the same
+    score now passes by 1.7 points; that floor is a regression alarm, not adequacy.
+  - [x] 2026-10-26 at `c8b070f`: `nox -s tests` 618 passed / 2 skipped, 91% coverage, and
+    `nox -s quality` green, on the `review/m2b-longitudinal` tree. This is a different tree from
+    the 495-test locked pass above, so the counts are not comparable and neither supersedes the
+    other.
+  - [ ] Profiling (Scalene) now executes but is not yet informative; the gate stays open.
+    26 October 2026 at `a7d0e8d`, `nox -s profile` wrote a valid `outputs/engineering/scalene.json`.
+    Interpreter start-up dominates (`import pandas`/`import numpy` are the two most expensive
+    lines), only a reduced 512-draw run is covered, only the runner script and
+    `<exec@_internal.py:64>` are attributed, ~16–20% of samples are opaque C-extension time, and
+    two runs at the same commit disagreed on magnitude (`plots()` 4.83% then 4.13%). The full-draw
+    profile and unit-test hotspot profiling remain open; the reduced profile does not cover them.
   - [ ] The Nox `audit` profile (Linux-scoped lock) itself remains unexecuted on Linux. A
     `audit_tools()` path now runs the same quality/security checks host-natively and labels
     itself `NATIVE AUDIT ... NOT release qualification`; the Linux profile stays authoritative.
@@ -42,9 +56,17 @@
   - [x] Release-gate hermeticity defect found and fixed: three contract tests failed under
     `TOBAC_REQUIRE_LOCK=1` because the fixture inherited the release flag with an empty ROOT.
   - [ ] Hosted matrix confirmation, licensed attestations and independent review not obtained.
-- [ ] `strict_all` is measured, not green: 4,168 ruff `--select ALL` errors and 3,584
-  BasedPyright-all errors across the whole source. Pre-existing and previously never executed;
-  recorded as an open gate rather than claimed.
+- [ ] `strict_all` is measured, not green. Original whole-source measurement: 4,168 ruff
+  `--select ALL` errors and 3,584 BasedPyright-all errors. Re-measured 26 October 2026 on macOS
+  with the corrected Python 3.15 target: 4,861 ruff and 2,456 basedpyright (issue #1 comment
+  `6406854120`); the earlier basedpyright count was taken on a stale 3.12 target. No count has
+  been reduced by this track. Pre-existing and previously never executed; recorded as an open
+  gate rather than claimed.
+- [ ] `types_longitudinal` (strict check of `scripts/run_empirical_longitudinal.py`) is
+  **expected to fail**: 133 errors, all the pandas-stub `reportUnknown*` cascade, with zero
+  `reportMissingImports`, `reportArgumentType` or `reportAssignmentType`. It is deliberately
+  outside the blocking `quality` session. Closing it needs `pandas-stubs` added to
+  `engineering/audit.lock` with a reviewed regeneration and receipt.
 
 The publication receipt on issue #1 names the receiving commit. Engineering configuration is
 not external scientific qualification; the open hosted failure is not closed by this track.

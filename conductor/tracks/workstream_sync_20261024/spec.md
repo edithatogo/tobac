@@ -1,4 +1,4 @@
-# Shared-workstream synchronisation
+# Cross-workstream synchronisation and regression contracts
 
 Maintain a single current main across the regulatory and longitudinal contributions.
 Preserve source equations, IDs, published outputs and empirical-qualification boundaries.

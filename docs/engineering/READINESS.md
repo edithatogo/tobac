@@ -128,8 +128,8 @@ automatically enabled or claimed. Preserve the M3-owned research namespace when 
 
 `integration/engineering_hardening_execution_20261025.json` records the first 25 October pass at
 `044c9951`; `integration/engineering_hardening_gap_closure_20261025.json` records the second pass
-at `5ab361b`. Together they cover the following, all executed on a network-enabled macOS arm64
-checkout.
+at `5ab361b`, amended at `e33e78a` on 26 October 2026 for the `types_longitudinal` gate. Together
+they cover the following, all executed on a network-enabled macOS arm64 checkout.
 
 **Locked qualification now exists.** Both reviewed profiles were promoted into `engineering/`
 after a review of versions, origins, licences (89 packages; no copyleft, unknown or proprietary
@@ -146,19 +146,49 @@ strict-lint errors, four strict-type errors and four `artipacked` findings that 
 ever reported. They are fixed and `quality`/`security` are green. `noxfile.py` now routes audit
 sessions through `audit_tools()`: Linux keeps the locked audit profile as authoritative, other
 hosts resolve the same reviewed pins natively and log `NATIVE AUDIT ... NOT release
-qualification`. The guard in `environment()` is unchanged and still fails closed.
+qualification`. The guard in `environment()` is unchanged and still fails closed. On Linux the
+audit sessions additionally pin the interpreter (`python_version='3.13'`), so the audit
+environment is the one the lock was reviewed against rather than whatever Nox would otherwise
+pick.
+
+**`quality` does not cover the longitudinal runner's strict types, and must not be reported as
+if it did.** The blocking `quality` session is ruff `E9,F63,F7,F82`, ruff under
+`engineering/ruff.toml` on `scripts/context_bundle.py`, and basedpyright under
+`engineering/basedpyright.json`. `engineering/bp_longitudinal.json` is a separate session,
+`nox -s types_longitudinal`, which is expected to fail; see the gap described below.
 
 **Two defects surfaced only because the gates actually ran.** First, `strict_all` has never been
-green: 4,168 ruff `--select ALL` errors and 3,584 BasedPyright-all errors across the whole source.
-That is measured, not fixed, and remains an open gate. Second, three engineering contract tests
-failed under `TOBAC_REQUIRE_LOCK=1` because the harness fixture inherited the release flag with an
-empty `ROOT`; `.github/workflows/release-candidate.yml` sets exactly that flag, so the release
-gate itself was broken. The fixture is now hermetic.
+green: 4,168 ruff `--select ALL` errors and 3,584 BasedPyright-all errors across the whole source
+(original measurement, 25 October 2026). Re-measured on 26 October 2026 on macOS with the
+corrected Python 3.15 target, the counts are 4,861 ruff and 2,456 basedpyright; the earlier
+basedpyright figure came from a stale 3.12 target, so do not compare the two or quote one as the
+other. Either way it is measured, not fixed, and remains an open gate. Second, three engineering
+contract tests failed under `TOBAC_REQUIRE_LOCK=1` because the harness fixture inherited the
+release flag with an empty `ROOT`; `.github/workflows/release-candidate.yml` sets exactly that
+flag, so the release gate itself was broken. The fixture is now hermetic.
 
-**Mutation is executed but weak.** mutmut 3.7.0 ran natively on `src/tobac/supply.py`: 128
-mutants, 79 killed, 49 survived (61.7%). The session reports success because mutmut enforces no
-threshold; the survivor count is a coverage finding, not a pass. Scalene profiling remains
-unexecuted.
+**Profiling executes, and is not yet informative.** `nox -s profile` ran Scalene 2.4.0 on
+26 October 2026 at `a7d0e8d`, writing a valid CPU-only `outputs/engineering/scalene.json` (8.5 MB)
+plus a reduced `outputs/profile_empirical` (512 draws rather than the configured 8,192), and the
+session is green. Reporting that as a resolved gate would be wrong for three reasons. First, CPU
+is dominated by interpreter start-up: `import pandas` and `import numpy` are the two most
+expensive lines (~4.4–8.3% each), above the 4.1–4.8% attributed to the whole `plots()` function.
+Second, ~16–20% of samples are in C extensions (NumPy/SciPy) that a Python profiler can only
+report as a single opaque total, and the only attributed files are the runner script and
+`<exec@_internal.py:64>`. Third, the numbers are not stable: two runs at the same commit agreed on
+the *ranking* but disagreed on magnitude (`plots()` 4.83% then 4.13%; `import pandas` 8.30% then
+4.41%) and even on which functions received any samples. So this does not establish that any part
+of `tobac` or `tobac.research` is cheap, and the full-draw profile and unit-test hotspot
+profiling both remain open.
+
+**Mutation is executed but weak.** mutmut ran natively on `src/tobac/supply.py`: 128 mutants, 79
+killed, 49 survived (61.7%). mutmut itself enforces no threshold; the `mutation` session now runs
+`scripts/check_mutation_score.py --minimum 60`, so the same 61.7% passes by 1.7 points. That floor
+is a regression alarm, not evidence of adequate coverage, and raising it means working through the
+49 survivors. The pinned tool is 3.8.0; the 3.7.0 invocation recorded in the earlier pass is
+historical evidence. Profiling executes but start-up dominates, the sample is a reduced 512-draw
+run, and two runs at one commit disagreed on magnitude, so the full-draw profile and unit-test
+hotspot profiling remain outstanding.
 
 **The Windows leg failure was a checkout defect, not a code defect.** Windows converted text to
 CRLF, so the recorded SHA-256 of `evidence/prior_work/v2.9.0/data/empirical_intake_20261024/
@@ -171,6 +201,52 @@ failed offline resolution attempt. Command-planning tests there use a labelled N
 that limitation no longer applies to the sessions named above. No hosted success, signed release,
 strict-all pass, profiling result or empirical funding result is claimed. Earlier receipts remain
 historical evidence.
+
+**A `quality` leg that never actually checked the file, and a gate that could never pass.** The
+`review/m2b-longitudinal` rebase declared a venv in `engineering/bp_longitudinal.json`, but
+pyright resolves an interpreter by precedence and `venv`/`venvPath` did not take effect as declared.
+Two consequences, both measured: (1) with no interpreter pinned, pandas ships **no** type stubs, so
+`read_csv` is untyped, every DataFrame value collapses to `Unknown`, and `--select ALL` strict mode
+reports 154 `reportUnknown*`/stub errors on one file as a cascade — that is the hosted failure; (2)
+with the config's own interpreter resolution absent, basedpyright was resolving `include` relative to
+the config file and reporting `File or directory ".../scripts/run_empirical_longitudinal.py" does not
+exist` while still printing `0 errors`. The earlier local `0 errors` was therefore **vacuous** — it
+described a check that had not analysed the runner. The config now uses an `executionEnvironments`
+entry with `extraPaths` pointing at `.nox/quality/lib/python3.13/site-packages`, which resolves
+imports under any ambient interpreter, including the inactive-venv case Nox actually creates. Real
+defects fixed: `table['source_id']`/`source_locator` and `primary['period_start']`/`period_end` are
+now read through the checked `DataFrame` instead of `itertuples` attribute access; `source_id` and
+`source_locator` are unchanged in the emitted `aligned_observations.csv` (verified in a fresh run), and
+the `<column> = <index>` pattern keeps every value identical. Verified across three commits: the
+hosted leg went 154 → 133 as imports started resolving, and the local count is now 133 with **zero**
+`reportMissingImports` and **zero** `reportArgumentType`/`reportAssignmentType` — every remaining
+error is the pandas-stub `reportUnknown*` cascade.
+
+**The 133 residual errors are real, and gating on them was my mistake.** This branch's
+`bp_longitudinal.json` was briefly added to the blocking `quality` session. It cannot pass: pandas
+ships no `py.typed` stubs, so ~133 `reportUnknown*` errors cascade from correct code. That made
+`quality` unachievable and turned the hosted leg red. The check now runs as its own
+`nox -s types_longitudinal` session, which stays runnable and **is expected to fail**; it is not part
+of `quality` and must not be reported as green. Closing it requires `pandas-stubs` in
+`engineering/audit.lock` — a reviewed lock regeneration plus receipt, i.e. an open
+release-qualification gate, not a mechanical edit or an ignore sweep.
+
+**The member-versus-new-option bug is fixed and cross-checked, not asserted.** Verifying
+`scripts/check_mutation_score.py` against mutmut 3.8.0 showed its table declared exit code `-24` as
+`killed` (63 surviving mutants were miscounted as kills) while omitting `36`/`24`/`152`/`255`
+(timeout), `37`, `-11` and `-9` (segfault). The table is now generated against mutmut's own
+`status_by_exit_code`; codes agree exactly, `KILLED_STATUSES` stays `{"killed"}`, and a synthetic
+probe confirmed each of the ten status classes is classified as mutmut classifies it. The `-24`
+asymmetry (mutmut labels `-24` and `+24` both "timeout" although `+24` is SIGXCPU) is mirrored and
+noted rather than silently corrected. If mutmut adds statuses, `suspicious` is the safe default and
+is already recorded as such.
+
+**Two checks that passed vacuously or by omission are now enforced.** `noxfile.py` installs
+`engineering/tools-requirements.txt` with `-U`, because without it pip reported "Requirement already
+satisfied" and a stale local basedpyright 1.39.9 passed against a 1.40.2 pin — a version-dependent
+false green. The runner is also now held to `ruff --select E4,E7,E9,F,B`, which immediately found 12
+real unused-import/multiple-statement findings in `strict_all`'s blind spot; it previously carried no
+ruff gate at all. Hosted confirmation of the `quality` leg is still required.
 
 Official documentation consulted:
 - https://docs.astral.sh/uv/pip/compile/

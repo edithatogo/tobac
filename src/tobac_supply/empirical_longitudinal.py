@@ -19,6 +19,8 @@ from scipy.optimize import brentq
 from scipy.special import logsumexp, ndtr, ndtri
 
 Array = NDArray[np.float64]
+TimesArray = NDArray[np.float64]
+WeightsArray = NDArray[np.float64]
 
 
 def _value(x: Real, name: str, positive: bool = False) -> float:
@@ -40,7 +42,7 @@ def _vec(values: Iterable[Real], name: str) -> Array:
     return a
 
 
-def reconstruct_interval(lower: Real, upper: Real, source_uplift: Real) -> dict[str, Any]:
+def reconstruct_interval(lower: float, upper: float, source_uplift: float) -> dict[str, float | bool | str]:
     """Undo source uplift, then reconstruct a working log-normal summary likelihood.
 
     The midpoint is a geometric midpoint of published bounds, NOT an observed
@@ -82,7 +84,7 @@ class TemporalSpec:
             raise ValueError('process_grid must be positive, unique, increasing')
 
 
-def prior_kernel(t: Iterable[Real], s: Iterable[Real], process_sd: Real,
+def prior_kernel(t: Iterable[float], s: Iterable[float], process_sd: float,
                  spec: TemporalSpec) -> Array:
     """Cov[a + b*t + W_q(t), a + b*s + W_q(s)] for nonnegative relative times."""
     x, y = _vec(t, 'times'), _vec(s, 'times')
@@ -105,16 +107,16 @@ def observation_covariance(times: Array, log_se: Array, spec: TemporalSpec) -> A
 
 @dataclass(frozen=True)
 class TemporalFit:
-    times: Array
+    times: TimesArray
     observations: Array
     log_se: Array
     spec: TemporalSpec
-    weights: Array
+    weights: WeightsArray
     log_evidence: float
     observation_ids: tuple[str, ...]
 
 
-def fit_temporal(times: Iterable[Real], observations: Iterable[Real], log_se: Iterable[Real],
+def fit_temporal(times: Iterable[float], observations: Iterable[float], log_se: Iterable[float],
                  spec: TemporalSpec = TemporalSpec(), *,
                  observation_ids: Iterable[str] | None = None) -> TemporalFit:
     """Fit the observed-ratio process; no response is imputed at absent years.
@@ -152,7 +154,7 @@ def fit_temporal(times: Iterable[Real], observations: Iterable[Real], log_se: It
     return TemporalFit(t.copy(),y.copy(),se.copy(),spec,np.exp(logmass-z),z,ids)
 
 
-def posterior_components(fit: TemporalFit, query: Iterable[Real]) -> dict[str,Array]:
+def posterior_components(fit: TemporalFit, query: Iterable[Real]) -> dict[str, Array | TimesArray | WeightsArray]:
     """Gaussian components of latent trajectory posterior on the requested times."""
     x=_vec(query,'query')
     if np.any(np.diff(x)<=0) or np.any(x<fit.times[0]):
@@ -172,8 +174,8 @@ def posterior_components(fit: TemporalFit, query: Iterable[Real]) -> dict[str,Ar
     return {'times':x,'means':np.asarray(means),'covariances':np.asarray(covs),'weights':fit.weights.copy()}
 
 
-def summarise_temporal(fit: TemporalFit, query: Iterable[Real], *,
-                       observation_se: Real = 0.) -> list[dict[str,float]]:
+def summarise_temporal(fit: TemporalFit, query: Iterable[float], *,
+                       observation_se: float = 0.) -> list[dict[str, float]]:
     """Mixture moments/quantiles, with optional stated future-observation SD.
 
     observation_se is a total future-observation log SD supplied by the caller;
@@ -198,8 +200,8 @@ def summarise_temporal(fit: TemporalFit, query: Iterable[Real], *,
     return result
 
 
-def predictive_log_density(fit: TemporalFit, query_time: Real, value: Real,
-                           observation_sd: Real) -> float:
+def predictive_log_density(fit: TemporalFit, query_time: float, value: float,
+                           observation_sd: float) -> float:
     """One held-out summary density; caller supplies past-based anticipated precision."""
     c=posterior_components(fit,[_value(query_time,'query_time')])
     obs_sd=_value(observation_sd,'observation_sd',True)
@@ -226,9 +228,9 @@ def sample_temporal(fit: TemporalFit, query: Iterable[Real], draws: int, seed: i
     return output
 
 
-def map_discrepancy(log_paths: Array, matched_releases: Iterable[Real],
-                    lawful_consumption: Iterable[Real], uplift_median: Real,
-                    shared_log_sd: Real, *, seed: int = 0) -> dict[str,Any]:
+def map_discrepancy(log_paths: Array, matched_releases: Iterable[float],
+                    lawful_consumption: Iterable[float], uplift_median: float,
+                    shared_log_sd: float, *, seed: int = 0) -> dict[str, Array | float | bool | str]:
     """Map historical proxy paths under a stated common uplift, keeping signed gaps.
 
     One uplift per trajectory is shared across all years. It is not re-estimated

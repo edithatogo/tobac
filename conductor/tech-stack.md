@@ -11,3 +11,10 @@ only a generated/reviewed hash lock qualifies a reproducible release environment
 
 No second statistical engine, Rust rewrite or universal agent framework without an identified
 need, maintained alternative review and acceptance evidence. Read docs/engineering/READINESS.md.
+
+An advisory lane mirrors the reference checks with ruff-action, ty, pyrefly, prek, gitleaks,
+harden-runner, zizmor-action and gh-action-pip-audit. ty and pyrefly are separate checkers from
+BasedPyright and report diagnostics only; prek is the Rust pre-commit runner, not pre-commit
+itself. Renovate's pinGitHubActionDigests preset preserves the existing full-SHA posture. Only a
+generated/reviewed hash lock qualifies a release environment.
+

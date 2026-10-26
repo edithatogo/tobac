@@ -37,7 +37,9 @@ The source is the supplied `tobac_v2.9.0_20261024_EMPIRICAL_LONGITUDINAL.zip`, S
 The archive contains 1,007 regular non-Git entries. Only selected files absent from the live
 repository were restored by the original audit. CSVs retain their fields, values and prose
 with CRLF normalised to LF. Markdown addenda are byte-preserved. The reference list selects
-the exact archived record objects used by these tables, with JSON whitespace reformatted.
+the archived record objects used by these tables with JSON whitespace reformatted; one DOI
+is normalised to canonical lower-case form under the declared `_canonical_doi` transform
+(commits `090d07c`/`193f6bb`), every other field exact.
 This is not new bibliographic validation or confirmation that every source supports its
 inherited extraction.
 

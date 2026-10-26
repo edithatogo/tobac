@@ -70,6 +70,14 @@ Actual executed tests, archive checks, missing-library attempts and scope limita
 `integration/evidence_inventory_20261025.json`. These are local scoped evidence; hosted success,
 full scientific replay, genuine third-party validation and independent review remain separate.
 
+The tracked inventory receipt documents the 2026-10-25 pass at base `5218d83`. One digest in it
+is now stale: the longitudinal CSL file gained its PMCID in commit `005364e`, changing
+`evidence/longitudinal/references.csl.json` from `cf853de8…` to `af009648…`; every other field
+still matches the live CLI output. Re-inventory current bytes with
+`python scripts/qualify_integrations.py --mode inventory --out <fresh path>` or `nox -s evidence`.
+The source-archive comparison in the execution receipt was run against a predecessor ZIP that is
+not retained in this repository, so it is an executed-at-the-time claim, not a reproducible gate.
+
 ## Concurrent M3 reconciliation
 M3 arrived on main during this pass at fa39fd36cd924d21128a154d19f86bf0cab95bd6. Its source,
 configurations, 24 saved output files, dedicated workflow and verification records are preserved

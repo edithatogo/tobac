@@ -10,10 +10,17 @@ Plan: `docs/plans/2026-10-24-m2-evidence-and-retail.md`. Contracts: `docs/m2_ret
 
 Implemented: observed-evidence identity/scope guards; finite posterior update; duplicate/forecast rejection; joint reporting-error supply bridge; published net-cessation structural alternative with null/transport cases; lawful replacement sensitivity; matched total/lawful causal report; exact incremental-information identities; config-domain checks; source-effect grid refinement; additive CI steps. Source parameter extraction is manually checked, not independently human-reviewed or approved by a citation tool.
 
-## M2b — Historical empirical longitudinal bridge
+## M2b empirical longitudinal source integration
 **Status: incorporated on main, reviewed and hosted-executed; current-NZ empirical qualification open.**
-Track: `conductor/archive/longitudinal_integration_20261024/`. Review receipt:
-`integration/m2b_review_20261025.json`. Results: `results/longitudinal/`.
+Track: `conductor/archive/longitudinal_integration_20261024/` (archived after incorporation).
+Evidence: `docs/empirical_longitudinal/INTEGRATION.md`, `integration/longitudinal_local_verification.json`,
+`integration/longitudinal_publication.json`, `integration/m2b_review_20261025.json`,
+`results/longitudinal/`.
+
+Imported the previously tested v2.8 reported-release and v2.9 historical consumption/supply
+modules under the `tobac_supply` namespace, with sources, config, reproduction commands, 151
+imported tests and compact results. Generated files matched the predecessor archive 42-of-43
+exactly, with the remaining diagnostic within 2.45e-15.
 
 A post-archive review found that the imported 151 component tests could not fail on the
 scientific core: deleting the `prior_kernel` slope term, removing the trapezoid prior edge
@@ -30,12 +37,17 @@ published result changed: the hosted artefacts reproduce `source_audit.json`,
 The current longitudinal workflow revision has now executed successfully on `main`
 (run 40180241081: 582 tests passed, both runners, both verifiers, all steps success). That
 closes the previous "no hosted pass" gate but not scientific validity. Still open:
-`strict_all`; CI does not diff regenerated tables against `results/longitudinal/`; the
-2021/2022 documented windows overlap by 62 and 31 days without a cross-period covariance;
-`SupplyBasis` carries no source IDs or observation dates; and the archived 42-of-43
-predecessor comparison and 499 full-suite count remain unverifiable local claims.
+`strict_all`; the 2021/2022 documented windows overlap by 62 and 31 days without a
+cross-period covariance; `SupplyBasis` carries no source IDs or observation dates; and the
+archived 42-of-43 predecessor comparison and 499 full-suite count remain unverifiable local
+claims. CI now diffs regenerated tables against `results/longitudinal/` (`56322e4`), which
+closes the previously listed regeneration-drift gap.
 
-## Shared workstream synchronisation — 24 October 2026
+Scope boundary: historical observed-summary components only. The release series and historical
+ratio are separate estimands, not a fused current NZ exposure/origin posterior. No current joint
+WBE/origin/causal/funding posterior, measured inventory or agency approval is claimed.
+
+## Cross-workstream synchronisation and regression contracts — 24 October 2026
 **Status: cross-interface regression checks complete; scientific conditioning remains open.**
 Guide: `docs/WORKSTREAM_SYNC.md`. Contributor instructions: `AGENTS.md`.
 Track: `conductor/tracks/workstream_sync_20261024/`. Receipt: `integration/workstream_sync_verification.json`.
@@ -66,7 +78,47 @@ status belong to the receipt on issue #1.
 
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
-## Library reuse and engineering harness — 24 October 2026
+### Engineering gates that are open, not passing
+`quality` is green — ruff `E9,F63,F7,F82`, ruff under `engineering/ruff.toml` on
+`scripts/context_bundle.py`, and basedpyright under `engineering/basedpyright.json`. It does
+**not** include `engineering/bp_longitudinal.json`: that strict check was briefly wired into
+`quality`, could never pass (pandas ships no `py.typed` stubs), and now runs only as the
+separate `types_longitudinal` session below. Any earlier statement that `quality` covers
+`bp_longitudinal.json` is superseded. These gates are measured and still failing, and must
+not be read as passing:
+
+- `strict_all`: 4,168 ruff `--select ALL` errors (2,281 fixable) and 3,584 basedpyright
+  errors across the whole source tree, measured 25 October 2026. The release workflow runs
+  this session before packaging, so packaging is blocked on it. No count has been reduced
+  since; re-measure before quoting. Both counts are pin/host dependent and were superseded on
+  26 October 2026 by a macOS measurement on the Python 3.15 target: 4,861 ruff and 2,456
+  basedpyright (issue #1 comment `6406854120`). The earlier basedpyright figure was taken on a
+  stale 3.12 target, so cross-version figure comparisons are not valid.
+- `types_longitudinal`: the strict check on `scripts/run_empirical_longitudinal.py`
+  (`engineering/bp_longitudinal.json`) is **expected to fail** with 133 errors that are all the
+  pandas-stub `reportUnknown*` cascade (0 `reportMissingImports`, 0 `reportArgumentType`,
+  0 `reportAssignmentType`). It was briefly wired into `quality` and made that session
+  unachievable; it is now a separate session and is not part of `quality`. Closing it needs
+  `pandas-stubs` in `engineering/audit.lock`, a reviewed lock regeneration and a receipt.
+- mutation: 49 of 128 mutants survive on `src/tobac/supply.py` (61.7%). A 60% floor now
+  fails the session on regression, which is a guard, not evidence of adequate coverage.
+- profile (Scalene): session now succeeds, but the measurement establishes almost nothing about
+  where solver cost is, so it is **not** a closed gate. Executed 26 October 2026 at `a7d0e8d`
+  via `nox -s profile`; artifact `outputs/engineering/scalene.json` (CPU-only, 8.5 MB, valid
+  JSON). On the reduced 512-draw run: `import pandas` and `import numpy` are the two most
+  expensive lines (~4.4–8.3% each), above the 4.1–4.8% attributed to the whole `plots()`
+  function; ~16–20% of samples are in C extensions a Python profiler reports only as one opaque
+  number; and the only attributed files are the runner script plus `<exec@_internal.py:64>`.
+  Two runs at the same commit agreeing on the *ranking* still disagreed on magnitude
+  (`plots()` 4.83% then 4.13%; `import pandas` 8.30% then 4.41%) and even on which functions
+  received samples, so the per-line percentages are not a stable basis for a claim at this
+  duration. Start-up dominates, the run is reduced, and nothing here profiles the full-draw run
+  or the test suite. Profiling the 8,192-draw run and profiling unit-test hotspots both remain
+  open.
+- The official Actions transitive lock and the hosted all-legs matrix remain open; the
+  hosted run quoted above covers one CI invocation, not every OS/Python leg.
+
+## Library reuse and qualified engineering harness — 24 October 2026
 **Status: [~] locks promoted and locked-mode tests/replay/packaging green at 5ab361b; hosted matrix confirmation, strict_all, profiling and independent review remain open.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
 Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
@@ -77,34 +129,43 @@ Receipt: `integration/engineering_verification.json`; execution receipts:
 The Gaussian reporting density delegates to SciPy while physical/state/data contracts stay
 unchanged. New Nox/uv, schema-validated context profiles, secure bounded CI/deep/canary lanes,
 Renovate/pre-commit configuration and pinned Conductor gitlink are explicit engineering layers.
-`uv pip sync --require-hashes` now drives `tests` (495 passed, 91% coverage), `reproduce` (five
+`uv pip sync --require-hashes` now drives `tests` (495 passed at the 25 October 2026 locked pass;
+618 passed / 2 skipped at the 26 October 2026 `review/m2b-longitudinal` head, `c8b070f`, which is
+a different tree — do not compare the two), `reproduce` (five
 replays verified) and `package`, and the built wheel installs and imports. Mutation is executed
-and weak (61.7% killed); `strict_all` is measured at 4,168 ruff and 3,584 BasedPyright errors and
+and weak (61.7% killed); `strict_all` is measured (4,168 ruff and 3,584 BasedPyright at the
+original measurement; 4,861 and 2,456 at the 26 October 2026 macOS/Python 3.15 re-measurement) and
 is not green. The Windows leg failure was a CRLF checkout defect now fixed by `.gitattributes`.
 Do not turn configuration or a checksum into a claim of successful execution or scientific
 validity; hosted confirmation and independent review are not obtained.
 
-## Engineering execution follow-through — 24 October 2026
+## Source-bound dependency and execution qualification — 24 October 2026
 **Status: implemented at 886fc08; genuine locks and external qualification remain open.**
 Track: `conductor/tracks/engineering_execution_20261024/`.
 Receipt: `integration/engineering_followthrough.json`; current instructions: `docs/engineering/READINESS.md`.
 This links the already published source-bound locks, portable/audit environment separation,
 read-only hosted diagnostic and strict internal release gates; it is not new execution evidence.
 
-## Incorporation and prior-work audit — 25 October 2026
+## Prior-work evidence preservation and incorporation audit — 25 October 2026
 **Status: selected reference snapshot verified; full archive migration and live empirical use are not claimed.**
 Track: `conductor/tracks/incorporation_audit_20261025/`.
 Index: `docs/INCORPORATION_STATUS.md`; manifest: `integration/prior_work_manifest.json`.
 Receipt: `integration/incorporation_verification_20261025.json`.
 
 Preserves 19 previously archive-only evidence/template files: 298 mixed-purpose CSV rows and
-28 inherited reference records. Twenty-one scoped preservation tests and actual source-archive
-comparison passed. The remote evidence subtree matches tested local bytes. Current code,
-model inputs/results, dependencies and gates were unchanged by that audit. No copied assumption
+28 inherited reference records. Twenty-one scoped preservation tests and the source-archive
+comparison passed at the receiving commit `5218d83` (the predecessor ZIP itself is not
+retained in this repository, so that comparison is an executed-at-the-time claim, not a
+reproducible gate — see the receipt). The uploaded snapshot tree matched the tested local
+subtree at `5218d83`; `references.csl.json` was since DOI-case-canonicalised at `090d07c`
+with the transform declared at `193f6bb`. A review on 26 October 2026 re-confirmed the
+payload and the 21-test suite and anchored the row/bibliography totals in the tests
+(receipt: `integration/incorporation_audit_review_20261026.json`). Current code, model
+inputs/results, dependencies and gates were unchanged by that audit. No copied assumption
 becomes a calibrated parameter, forecast a new observation, template a quotation, or old
 manuscript submission-ready. M3 incorporation now follows below.
 
-## M3 — research portfolios, implementation and staged decisions
+## M3 research portfolios, implementation and staged decisions
 **Status: conditional numerical implementation complete; actual Voiage and hosted qualification remain open.**
 Track: `conductor/tracks/research_m3_20261025/`.
 Contract: `docs/research/M3_CONTRACT.md`; results: `results/milestone3/report.md`.
@@ -122,7 +183,7 @@ preserved from base 5218d831. Nox and the separate genuine-library CI lane remai
 configuration is not successful execution. Receiving commit and hosted outcomes: issue #1/#4.
 
 
-## Evidence execution integration — 25 October 2026
+## Executable integration of preserved evidence — 25 October 2026
 **Status: shared preflight and all-collection validation wired; external/hosted qualification remains open.**
 Track: `conductor/tracks/evidence_execution_20261025/`.
 Guide: `docs/EVIDENCE_INTEGRATION.md`; local receipts: `integration/evidence_inventory_20261025.json`
@@ -139,3 +200,27 @@ empirical posterior, quote, full scientific replay or independent review is clai
 M3 arrived concurrently at fa39fd36 and is preserved. The evidence gate also covers its
 research_m3 Nox session; shared reproduction now includes the M3 runner once. These command
 contracts were locally retested; the M3 numerical results were not re-estimated in this pass.
+## Advisory CI/CD, automation, quality and security lane — 25 October 2026
+**Status: track created; not implemented; hosted execution and entitlements open.**
+Track: `conductor/tracks/cicd_hardening_20261025/`.
+
+A bleeding-edge tooling lane is specified beside the frozen reference lane: setup-uv/uv,
+ruff-action, ty, pyrefly, basedpyright, j178/prek, gitleaks, harden-runner, zizmor-action,
+gh-action-pip-audit, attest-build-provenance and an ubuntu-24.04-arm diagnostic leg. Every
+lane job is non-required and report-only. The reference NumPy/SciPy pins, engineering locks
+and receipts, `strict_all` counts and all existing required Nox sessions are unchanged.
+`strict_all` remains measured-not-fixed (4,168 ruff and 3,584 basedpyright-all at the original
+measurement; 4,861 and 2,456 at the 26 October 2026 macOS/Python 3.15 re-measurement), so no
+lane result is a gate. Attestation entitlements, runner-level egress blocking, arm64
+qualification and all hosted jobs remain open. Configuration is not execution.
+
+---
+
+## Scientific ecosystem modernisation — 25 October 2026
+**Status: approved planning registered; implementation not authorised.**
+Track: `conductor/tracks/scientific_ecosystem_20261025/`.
+GitHub: https://github.com/edithatogo/tobac/issues/22
+
+Approved Conductor registration only; implementation not authorised. Reuses
+existing CI/archive and upstream contracts. No runtime or scientific
+qualification claimed.
