@@ -15,7 +15,8 @@
     "tests/engineering",
     "integration/engineering_reconciliation_20261026.json",
     "integration/voiage_python315_compatibility_20261026.json",
-    "integration/engineering_macos_completion_20261026.json"
+    "integration/engineering_macos_completion_20261026.json",
+    "integration/dependency_refresh_20261026.json"
   ],
   "latest_execution": {
     "qualified_base": "f11d491a1925da73a2bf9de059a2b6bed8680030",
@@ -64,5 +65,13 @@
     "merge_commit": "19dc67653dfb844777c80dfe58076b790d0e88f1",
     "pr_head_checks": "15/15 passed",
     "receipt": "integration/engineering_macos_completion_20261026.json"
+  },
+  "dependency_refresh": {
+    "status": "merged",
+    "pull_requests": [32, 34],
+    "receiving_commit": "d09c84d0cecf77e7ee1f42b36ed92a26928b24c7",
+    "pr_head_checks": "15/15 on each pull request",
+    "hosted_main": "all four main workflows plus Dependency Graph succeeded",
+    "receipt": "integration/dependency_refresh_20261026.json"
   }
 }
