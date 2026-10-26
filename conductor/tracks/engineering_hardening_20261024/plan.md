@@ -47,13 +47,13 @@
   scientific reproduction and longitudinal output verification passed, package build and clean
   wheel install/import passed; native macOS quality/security checks and pip-audit passed.
   Receipt: `integration/engineering_hardening_python315_20261026.json`.
-- [ ] Remaining macOS-focused Python 3.15.1 gates: hosted macOS qualification, `strict_all`,
-  and the open official Actions-lock security-policy decision.
-  Linux/Windows and other non-macOS qualification is deferred to the roadmap.
-- [ ] `strict_all` is not green: the corrected Nox session uses the repository Ruff config and
-  Python 3.15 target. Its 26 October rerun reports 1,248 Ruff and 2,208 BasedPyright errors.
-  Direct JSON BasedPyright readback reports 2,052; reconcile this output-count discrepancy while
-  continuing the fixes. The original 4,861/2,235 count used the wrong Ruff config/Python target.
+- [x] Whole-source `strict_all`: zero configured Ruff findings and zero BasedPyright
+  errors across all source and CLI modules on the same Python 3.15.1 interpreter.
+  See `docs/engineering/LINT_POLICY.md`: 175 explicit style/API exceptions are recorded
+  separately from code corrections. No whole-project type diagnostics were disabled.
+- [ ] Confirm post-reconciliation hosted macOS qualification and guarded publication.
+- [ ] Official Actions-lock policy decision remains open; existing full-SHA pins are retained.
+  Linux/Windows qualification remains in the roadmap.
 
 Record the receiving commit in the local Conductor track. Engineering configuration is not
 external scientific qualification; the open hosted failure is not closed by this track.
@@ -66,7 +66,10 @@ external scientific qualification; the open hosted failure is not closed by this
 - [x] Preserve both development histories and reconcile the empirical runner and core.
 - [x] Qualify scientific stubs on Python 3.15.1; focused runner reports zero type errors.
 - [x] Reject incomplete mutation results and nonfinite/out-of-range thresholds.
-- [ ] Verify source/tool-bound fresh mutation results, integrated Nox checks and hosted macOS.
+- [x] Fresh source/tool-bound mutation run and repeat run verified; detection improved from
+  79/131 to 92/131 (70.2%), with 39 survivors retained as a coverage limitation.
+- [x] Local integrated Nox checks, runtime boundaries and clean wheel import verified.
+- [ ] Hosted macOS qualification against the final PR head.
 - [ ] Commit final receipts, reconcile remote main, merge and verify receiving commit.
 
 The parallel 916a41e profile attempt is retained in Git history as an uninformative run; it is

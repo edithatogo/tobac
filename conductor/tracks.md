@@ -67,7 +67,7 @@ status belong to the retained execution receipt.
 Source code review and tests are local; independent scientific review and external agency approval remain unclaimed. Update this registry and the issue comments with receiving commits and actual run outcomes.
 
 ## Library reuse and qualified engineering harness
-**Status: [~] macOS Python 3.15.1 local qualification recorded at 59bb0e4; hosted macOS and strict_all remain open. Linux/Windows and other non-macOS qualification moved to the roadmap.**
+**Status: [~] PR #25 reconciled; macOS Python 3.15.1 local tests, strict_all, reproduction, package, security and mutation pass. Hosted macOS confirmation pending. Other platforms remain in the roadmap.**
 Track: `conductor/tracks/engineering_hardening_20261024/`.
 Review: `docs/engineering/LIBRARY_REUSE_REVIEW.md`; use/status: `docs/engineering/READINESS.md`.
 Receipt: `integration/engineering_verification.json`; execution receipts:
@@ -77,16 +77,16 @@ Receipt: `integration/engineering_verification.json`; execution receipts:
 The Gaussian reporting density delegates to SciPy while physical/state/data contracts stay
 unchanged. New Nox/uv, schema-validated context profiles, secure bounded CI/deep/canary lanes,
 Renovate/pre-commit configuration and pinned Conductor gitlink are explicit engineering layers.
-`uv pip sync --require-hashes` now drives `tests` (495 passed, 91% coverage), `reproduce` (five
-replays verified) and `package`, and the built wheel installs and imports. Mutation is executed
-and weak (61.7% killed); `strict_all` was measured at 4,861 Ruff and 2,235 BasedPyright errors and
-is not green. The Windows leg failure was a CRLF checkout defect now fixed by `.gitattributes`.
-Current development targets macOS; other platform qualification is deferred to
-`conductor/roadmap.md`. Do not turn configuration or a checksum into a claim of successful
-execution or scientific validity; hosted macOS confirmation is not obtained.
+`uv pip sync --require-hashes` drives runtime sessions. Whole-source strict typing and configured
+Ruff now pass; 175 intentional style/API exceptions are documented separately in
+`docs/engineering/LINT_POLICY.md`. Fresh scoped mutation detection is 92/131 (70.2%), with
+39 surviving mutants remaining a coverage limitation. Original source bytes and numerical
+results remain independently checked. Current qualification receipt:
+`integration/engineering_reconciliation_20261026.json`. Hosted macOS confirmation remains
+pending; Linux/Windows qualification is deferred to `conductor/roadmap.md`.
 
 ## Source-bound dependency and execution qualification
-**Status: macOS runtime-lock qualification recorded; hosted macOS and strict_all remain open. Linux audit execution and other non-macOS qualification are deferred to the roadmap.**
+**Status: macOS runtime-lock and whole-source strict qualification pass locally; hosted macOS confirmation pending. Linux audit execution and other platforms remain deferred.**
 Track: `conductor/tracks/engineering_execution_20261024/`.
 Receipt: `integration/engineering_followthrough.json`; current instructions: `docs/engineering/READINESS.md`.
 This links the source-bound locks, portable/audit environment separation, read-only hosted

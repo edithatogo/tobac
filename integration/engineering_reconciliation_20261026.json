@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "tested_commit": "725c201851614c20b8247cbf18566ed063dc8dd1",
+  "reconciled_pr": {
+    "number": 25,
+    "merged_commit": "d85e8617a5e87042e4bbcd841278ca75cb6171d3"
+  },
+  "reconciled_main": "e6f2016fc157e3c5f37a69dfdb5bf052f22c5058",
+  "host": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "python": "3.15.1 (main, Oct 21 2026, 17:39:16) [Clang 23.1.3 ]",
+  "python_executable": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/.nox/quality/bin/python",
+  "full_suite": {
+    "passed": 721,
+    "skipped": 2,
+    "coverage_percent": 93,
+    "coverage_floor": 90,
+    "skips": "mutmut mapping tests require audit tool environment; all 83 targeted mutation gate/supply tests passed in .nox/mutation"
+  },
+  "static": {
+    "ruff": "zero configured findings",
+    "basedpyright": "0 errors, 0 warnings, 0 notes",
+    "scope": "all active src and scripts modules",
+    "ruff_style_api_exceptions": 175,
+    "policy": "docs/engineering/LINT_POLICY.md",
+    "whole_project_type_suppressions_added": false
+  },
+  "mutation": {
+    "scope": "src/tobac/supply.py",
+    "mutmut": "3.8.0",
+    "killed": 92,
+    "total": 131,
+    "survived": 39,
+    "percent": 70.2,
+    "floor": 60,
+    "fresh_repeat_verified": true,
+    "limitation": "39 survivors remain; threshold is a regression alarm, not complete mutation coverage",
+    "first_repeat_failure": "metadata-only invalidation caused mutmut mtime cache to skip regeneration; now remove both selected generated source and metadata"
+  },
+  "core_preservation": {
+    "original_snapshot": "evidence/core_extraction_20261024.py",
+    "original_manifest_unchanged": true,
+    "maintenance_contract": "integration/core_maintenance_20261026.json",
+    "tamper_tests": 7
+  },
+  "clean_wheel": {
+    "python": "3.15.1",
+    "uv_pip_check": "passed",
+    "working_directory": "/private/tmp",
+    "imports": [
+      "tobac",
+      "tobac_supply",
+      "tobac.research"
+    ],
+    "origin": "clean environment site-packages outside checkout"
+  },
+  "scientific_boundary": "Static optional Voiage contract and labelled protocol-double tests do not qualify the actual optional library. No calibration or empirical claim added.",
+  "hosted_macos": {
+    "status": "pending exact PR head"
+  },
+  "non_macos": "qualification deferred to conductor/roadmap.md",
+  "artifacts": {
+    "outputs/engineering/final-local-checks.log": {
+      "sha256": "a382e0e0c187416842b70348b41dc63ecf41a333ce80f97f31d76ced039bd4d9",
+      "bytes": 66107
+    },
+    "outputs/engineering/coverage.json": {
+      "sha256": "11b70adbbef56b266a6270f04f7cfe030b69eb7195e7d27f14bdd42690e4cd25",
+      "bytes": 170685
+    },
+    "outputs/engineering/mutation-input.json": {
+      "sha256": "a1916dc6078efbdeb9583ddcebb2479b3ab1f77ffe8a984e76017b21e35a6a63",
+      "bytes": 177
+    },
+    "engineering/requirements.lock": {
+      "sha256": "a4e57482854a9284e19064f058c05e5128772efaab3a328f69e62934f18c52e0",
+      "bytes": 89659
+    },
+    "engineering/requirements.lock.json": {
+      "sha256": "c1741871df8c5882a6b3525ba5f7d80f7ffb648a98e778491bfd0926691e58b7",
+      "bytes": 1172
+    },
+    "engineering/audit.lock": {
+      "sha256": "2260d730d95616f98a598391bff537a86c5f4c08bb37cce4db93c1ea7ea79d4e",
+      "bytes": 175022
+    },
+    "engineering/audit.lock.json": {
+      "sha256": "b5cc4b5adf0f5e730fe87cdce88b51b257f1197ba133692f5019ae8e65bbcc5f",
+      "bytes": 1400
+    },
+    "outputs/engineering/final-local-nox-report.json": {
+      "sha256": "c7fd4481dd7caf267171b40ea41d6f61c91a10c4218ee01108280364925fa739",
+      "bytes": 1733
+    },
+    "outputs/release-candidate/tobac_regulatory_research-0.2.0-py3-none-any.whl": {
+      "sha256": "8823ed5c6b88a3e02ca3330fb99aeacb6c60bf5b2582af0c8129377784a5a433",
+      "bytes": 70048
+    },
+    "outputs/release-candidate/tobac_regulatory_research-0.2.0.tar.gz": {
+      "sha256": "8e20fd9b359e1e72fc3fa9b82e5f9e874022b9ee1c266fea72217b6ec0fc45de",
+      "bytes": 67731
+    }
+  },
+  "nox_sessions": {
+    "tests": "success",
+    "quality": "success",
+    "strict_all": "success",
+    "reproduce": "success",
+    "package": "success",
+    "security": "success",
+    "mutation": "success"
+  }
+}

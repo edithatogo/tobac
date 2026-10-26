@@ -222,9 +222,32 @@ Official documentation consulted:
 - https://cli.github.com/manual/gh_api
 - https://docs.github.com/en/actions/how-tos/secure-your-work/lock-workflow-dependencies
 
-## PR #25 reconciliation
+## PR #25 reconciliation — current local status
 
 The 916a41e parallel profile attempt was uninformative and is retained in history. It does
 not overwrite the Python 3.15.1 receipt above. The focused longitudinal checker now uses
 qualified stubs and the actual Nox session interpreter, with no cached cross-environment path.
 The mutation gate requires complete results and a fresh source/tool-bound receipt.
+
+The latest implementation supersedes the historical red strict counts above. All active source
+and CLI modules now report zero BasedPyright errors and zero configured Ruff findings on the
+session's actual Python 3.15.1 interpreter. The zero Ruff result includes 175 explicitly retained
+style/API exceptions; these are policy choices, not defects repaired. Scientific stubs describe
+static contracts, not optional-library runtime qualification. See LINT_POLICY.md and the exception
+ledger. No global unknown, missing-import or argument-type diagnostics were disabled.
+
+Mutation preparation now removes both selected generated source and metadata: mutmut's mtime
+cache otherwise skips regeneration after metadata removal. A fresh run and a repeat run detect
+92/131 mutants (70.2%); 39 survive. The 60% floor is a regression alarm, not complete test proof.
+Boundary tests cover each physical channel's finiteness/sign, legal zero endpoints, reporting
+shape/domain and strict covariance symmetry. Numerical likelihood parity uses the independent
+Cholesky oracle. The clean wheel imports from site-packages outside this checkout on 3.15.1.
+
+Original core bytes are retained and verified against unchanged extraction hashes. The active
+core has a constrained AST maintenance check covering annotations, cast identity and explicit
+literal bindings; tampering tests reject changed formulas, defaults, fields and bindings.
+Reproductions write fresh directories and retain earlier receipts. PR #25 and subsequent main
+coverage/scientific-planning/incorporation-review changes are preserved. The scientific ecosystem
+track remains planning-only. Current execution details are in
+`integration/engineering_reconciliation_20261026.json`; hosted macOS checks remain pending until
+reported there. No optional Voiage runtime or new scientific calibration is claimed.

@@ -15,7 +15,8 @@
 - [~] Complete remaining macOS engineering checks and preserve their actual outcomes.
   - [x] Scientific replay, package build/install, native quality/security tools, mutation and
     bounded profiling were executed on macOS; see the linked receipts and readiness record.
-  - [ ] `strict_all` remains red and is still a current macOS development gate.
+  - [x] Whole-source `strict_all` passes after PR #25 reconciliation; explicit style/API
+    exceptions and optional-library static contracts are documented in LINT_POLICY.md.
   - Non-macOS platform-matrix qualification is deferred to `conductor/roadmap.md`.
 - [ ] Confirm post-migration hosted macOS checks from actual annotations; diagnose any failure
   without weakening gates. Non-macOS hosted-runner diagnosis is deferred to the roadmap.
