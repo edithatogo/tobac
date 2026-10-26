@@ -194,7 +194,6 @@ empirical posterior, quote, full scientific replay or independent review is clai
 M3 arrived concurrently at fa39fd36 and is preserved. The evidence gate also covers its
 research_m3 Nox session; shared reproduction now includes the M3 runner once. These command
 contracts were locally retested; the M3 numerical results were not re-estimated in this pass.
-
 ## Advisory CI/CD, automation, quality and security lane — 25 October 2026
 **Status: track created; not implemented; hosted execution and entitlements open.**
 Track: `conductor/tracks/cicd_hardening_20261025/`.
@@ -209,3 +208,13 @@ measurement; 4,861 and 2,456 at the 26 October 2026 macOS/Python 3.15 re-measure
 lane result is a gate. Attestation entitlements, runner-level egress blocking, arm64
 qualification and all hosted jobs remain open. Configuration is not execution.
 
+---
+
+## Scientific ecosystem modernisation — 25 October 2026
+**Status: approved planning registered; implementation not authorised.**
+Track: `conductor/tracks/scientific_ecosystem_20261025/`.
+GitHub: https://github.com/edithatogo/tobac/issues/22
+
+Approved Conductor registration only; implementation not authorised. Reuses
+existing CI/archive and upstream contracts. No runtime or scientific
+qualification claimed.
