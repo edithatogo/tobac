@@ -1,0 +1,3 @@
+from numpy.typing import ArrayLike
+
+def evpi(values: ArrayLike) -> float: ...

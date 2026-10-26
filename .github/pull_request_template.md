@@ -1,12 +1,12 @@
 ## Scope and base
 Base commit:
-Workstream / coordination issue:
+Track (optional):
 Scientific estimand, assumptions or source identities changed:
 
 ## Library or implementation change
 Reused library and verified version/API:
 Why equivalent (or why a structural alternative):
-Independent reference/parity evidence:
+Reference/parity evidence:
 
 ## Executed verification
 Exact commands and environment:
@@ -18,5 +18,5 @@ Unavailable or failed checks (do not omit):
 - [ ] Observations, assumptions, posteriors and forecasts remain distinct.
 - [ ] Shared data are conditioned on once; units/date/geography/state IDs agree.
 - [ ] No secret, private correspondence, silent scope/price change or permissive CI bypass.
-- [ ] Read current main/#1; preserve parallel changes; update Conductor.
+- [ ] Read current main; preserve existing changes; update Conductor.
 - [ ] Hosted/tool execution claims match actual receipts, not configuration.

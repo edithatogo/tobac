@@ -59,3 +59,55 @@ def test_negative_releases_are_not_clipped():
     from tobac.supply import expected_releases
     with pytest.raises(ValueError, match='negative'):
         expected_releases(10., 0., 0., stock_change=-20.)
+
+
+@pytest.mark.parametrize('field', ['total', 'illicit_share', 'lawful_unrecorded',
+                                   'stock_change', 'outbound', 'wastage', 'reporting_multiplier'])
+@pytest.mark.parametrize('bad', [np.nan, np.inf, -np.inf])
+def test_each_accounting_channel_rejects_nonfinite(field, bad):
+    from tobac.supply import expected_releases
+    inputs = dict(total=100., illicit_share=.2, lawful_unrecorded=5., stock_change=0.,
+                  outbound=0., wastage=0., reporting_multiplier=1.)
+    inputs[field] = bad
+    with pytest.raises(ValueError):
+        expected_releases(**inputs)
+
+
+@pytest.mark.parametrize('field', ['total', 'illicit_share', 'lawful_unrecorded',
+                                   'outbound', 'wastage', 'reporting_multiplier'])
+def test_each_unsigned_accounting_channel_rejects_negative(field):
+    from tobac.supply import expected_releases
+    inputs = dict(total=100., illicit_share=.2, lawful_unrecorded=5., stock_change=0.,
+                  outbound=0., wastage=0., reporting_multiplier=1.)
+    inputs[field] = -.01
+    with pytest.raises(ValueError):
+        expected_releases(**inputs)
+
+
+def test_zero_and_full_illicit_accounting_endpoints_are_legal():
+    from tobac.supply import expected_releases
+    np.testing.assert_array_equal(expected_releases([0., 100.], [0., 1.], 0.), [0., 0.])
+    np.testing.assert_array_equal(expected_releases([10., 20.], 0., [10., 20.]), [0., 0.])
+    assert expected_releases(10., 0., 0., stock_change=-10.) == 0.
+    with pytest.raises(ValueError):
+        expected_releases(10., 0., 0., reporting_multiplier=0.)
+
+
+@pytest.mark.parametrize('observed,expected,covariance', [
+    ([], [[]], []), ([1.], [], [[1.]]), ([[1.]], [[1.]], [[1.]]),
+    ([1.], [1.], [[1.]]), ([1., 2.], [[1.]], [[1.]]),
+    ([1.], [[1.]], [1.]), ([1.], [[1.]], [[1., 0.], [0., 1.]]),
+    ([1.], [[np.nan]], [[1.]]), ([np.inf], [[1.]], [[1.]]),
+    ([1.], [[-1.]], [[1.]]), ([1., 2.], [[1., 2.]], [[1., .2], [.2000001, 1.]]),
+])
+def test_reporting_shape_domain_and_strict_symmetry(observed, expected, covariance):
+    with pytest.raises(ValueError):
+        release_loglikelihood(observed, expected, covariance)
+
+
+def test_zero_observations_and_hypotheses_are_legal():
+    observed = np.array([0., 1.])
+    expected = np.array([[0., 0.], [1., 1.]])
+    covariance = np.array([[1., .2], [.2, 1.]])
+    np.testing.assert_allclose(release_loglikelihood(observed, expected, covariance),
+                               oracle(observed, expected, covariance), rtol=1e-13)

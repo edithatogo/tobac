@@ -1,16 +1,14 @@
 {
-  "include": ["../scripts/run_empirical_longitudinal.py"],
+  "include": [
+    "../scripts/run_empirical_longitudinal.py"
+  ],
   "typeCheckingMode": "strict",
-  "pythonVersion": "3.13",
+  "pythonVersion": "3.15",
   "pythonPlatform": "All",
   "failOnWarnings": true,
-  "executionEnvironments": [
-    {
-      "root": "..",
-      "extraPaths": [
-        "../src",
-        "../.nox/quality/lib/python3.13/site-packages"
-      ]
-    }
-  ]
+  "extraPaths": [
+    "../src",
+    "../scripts"
+  ],
+  "stubPath": "typings"
 }

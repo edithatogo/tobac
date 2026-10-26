@@ -1,7 +1,15 @@
 {
-  "include": ["../src", "../scripts"],
+  "include": [
+    "../src",
+    "../scripts"
+  ],
   "typeCheckingMode": "strict",
-  "pythonVersion": "3.12",
+  "pythonVersion": "3.15",
   "pythonPlatform": "All",
-  "failOnWarnings": true
+  "extraPaths": [
+    "../src",
+    "../scripts"
+  ],
+  "failOnWarnings": true,
+  "stubPath": "typings"
 }

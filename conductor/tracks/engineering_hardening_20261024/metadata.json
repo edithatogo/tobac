@@ -1,7 +1,7 @@
 {
   "track_id": "engineering_hardening_20261024",
   "title": "Library reuse and qualified engineering harness",
-  "status": "nox_and_audit_tools_executed_locks_advisory_clean_promotion_and_external_qualification_open",
+  "status": "macos_python3151_qualified_merged_pr29",
   "base_commit": "044c9951fb35c1ca020416da587bfa04e01b2967",
   "date": "2026-10-24",
   "updated": "2026-10-26",
@@ -11,17 +11,30 @@
     "integration/engineering_verification.json",
     "integration/engineering_followthrough.json",
     "integration/engineering_hardening_execution_20261025.json",
-    "integration/engineering_hardening_gap_closure_20261025.json",
     "conductor/tracks/engineering_execution_20261024/plan.md",
-    "tests/engineering"
+    "tests/engineering",
+    "integration/engineering_reconciliation_20261026.json",
+    "integration/voiage_python315_compatibility_20261026.json"
   ],
   "latest_execution": {
-    "nox_tests": "495 passed, 91% coverage, locked pass at the 25 October 2026 tree; 618 passed / 2 skipped, 91% coverage at review/m2b-longitudinal c8b070f (26 October 2026, different tree)",
-    "nox_quality": "green at c8b070f: ruff E9/F63/F7/F82, ruff strict config on context_bundle.py, basedpyright 0 errors on engineering/basedpyright.json",
-    "types_longitudinal": "expected failure: 133 strict errors, all reportUnknown* from pandas having no stubs; deliberately outside quality; closing needs pandas-stubs in engineering/audit.lock",
-    "native_audit_tools": "ruff, basedpyright, zizmor, pip-audit green after fixing 3 real defects",
-    "lock_profile": "requirements.lock{,.json} and audit.lock{,.json} promoted to engineering/, 0 advisories",
-    "profile": "nox -s profile executes and writes a valid CPU-only outputs/engineering/scalene.json, but the gate stays open: start-up dominates, only a reduced 512-draw run is covered, ~16-20% of samples are opaque C-extension time, and two runs at the same commit disagreed on magnitude (plots() 4.83% then 4.13%) despite agreeing on ranking",
-    "open_findings": "audit profile still Linux-gated; mutation weak (61.7%, 60% floor is a regression alarm only); profiling executes but is not yet informative, so full-draw and unit-test hotspot profiling remain open; strict_all (4,168/3,584 originally, 4,861/2,456 re-measured on the Python 3.15 target), hosted matrix and independent review open"
+    "nox_tests": "721 passed, 2 skipped; 93% coverage on macOS Python 3.15.1",
+    "strict_all": "zero configured Ruff and BasedPyright findings; 175 documented style/API exceptions",
+    "mutation": "92/131 killed (70.2%); 39 survivors remain",
+    "hosted_macos": "c645028: 721 passed, 93% coverage; all six engineering sessions pass; mutation 100/131",
+    "open_findings": "Actions-lock policy and non-macOS roadmap; optional Voiage runtime/scientific gates remain separate",
+    "voiage": "actual equal/weighted/partition/native/Arrow qualification passed locally and hosted on Python 3.15.1"
+  },
+  "publication": {
+    "pull_request": 29,
+    "receiving_ref": "main",
+    "qualified_commit": "1f6b375c8a491a395b0e6580a8e567dc921445a9",
+    "receiving_commit": "104729a615e19ccf8da2cb52e729d46df624037d",
+    "status": "merged"
+  },
+  "voiage_compatibility": {
+    "status": "qualified_merged_pr33",
+    "receiving_commit": "f06eed630a8832174328a0472bdcaf55c98a4af9",
+    "version": "2.2.0+tobac3151.1",
+    "receipt": "integration/voiage_python315_compatibility_20261026.json"
   }
 }

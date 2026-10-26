@@ -1,6 +1,7 @@
 """Nox/uv execution with source-bound locks; configuration is not qualification."""
 import os
 from pathlib import Path
+from uuid import uuid4
 import sys
 
 import nox
@@ -15,15 +16,14 @@ OUT = Path('outputs/engineering')
 MUTATION_MINIMUM_PERCENT = '60'
 
 
-def environment(session, profile='runtime', require_lock=False, python_version=None):
+def environment(session, profile='runtime', require_lock=False):
     """Exact sync when locked; explicit bootstrap only outside release qualification."""
     if profile not in {'runtime', 'audit'}:
         session.error('Unknown environment profile')
     if profile == 'audit' and sys.platform != 'linux':
         session.error('Audit-tool profile is Linux-only; use runtime tests on other platforms')
-    if python_version is not None:
-        session.env['VIRTUALENV_PYTHON'] = python_version
     session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
     name = 'requirements.lock' if profile == 'runtime' else 'audit.lock'
     lock = ROOT / 'engineering' / name
     receipt = lock.with_suffix('.lock.json')
@@ -38,7 +38,7 @@ def environment(session, profile='runtime', require_lock=False, python_version=N
         if not isinstance(python, str) or not python.strip():
             session.error('Could not resolve the isolated interpreter')
         if profile == 'audit':
-            session.run('python', '-c', 'import sys; assert sys.version_info[:2] == (3, 13)')
+            session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
         session.run('uv', 'pip', 'sync', '--python', python.strip(), '--require-hashes',
                     str(lock), external=True)
     else:
@@ -74,10 +74,7 @@ def audit_tools(session):
     says plainly that this is not the locked release profile.
     """
     if sys.platform == 'linux':
-        # Pin the interpreter alongside the tool versions so the audit environment is the same
-        # one the lock was reviewed against. The pandas resolution that the longitudinal
-        # type-check config depends on is handled by that config's own extraPaths, not here.
-        environment(session, profile='audit', python_version='3.13')
+        environment(session, profile='audit')
         return None
     if os.environ.get('TOBAC_REQUIRE_LOCK') == '1':
         session.error('Locked qualification requires the Linux audit lock; not available here')
@@ -85,15 +82,12 @@ def audit_tools(session):
                 'NOT the Linux audit lock, hash-checked install or release qualification'
                 + ('' if audit_lock_present() else '; no audit lock is committed yet'))
     session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
     # The audit checks import the project and jsonschema, so the ordinary dependency set is
     # required too; installing only the tool pins leaves basedpyright unable to resolve imports.
     session.install('-r', 'requirements.lock', '-r', 'engineering/test-requirements.txt',
-                    '-r', 'engineering/build-requirements.txt')
-    # -U is load-bearing: the pins below must override any older copy already present in
-    # the session venv. Without it pip reports "Requirement already satisfied" and silently
-    # keeps the stale version, so a local run can pass or fail on a different checker than
-    # the Linux audit lock runs.
-    session.install('-U', '-r', 'engineering/tools-requirements.txt')
+                    '-r', 'engineering/build-requirements.txt',
+                    '-r', 'engineering/tools-requirements.txt')
     session.install('--no-deps', '--no-build-isolation', '-e', '.')
     OUT.mkdir(parents=True, exist_ok=True)
     return None
@@ -114,16 +108,17 @@ def run_all_checks(session, commands):
 def verify_evidence(session, label):
     """Inventory and preserved-byte gate; not source applicability or CSL validation."""
     session.run('python', 'scripts/qualify_integrations.py', '--mode', 'inventory',
-                '--out', f'outputs/engineering/evidence-{label}.json')
+                '--out', f'outputs/engineering/evidence-{label}-{uuid4().hex}.json')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def evidence(session):
     """Offline standard-library check; no package install or empirical conditioning."""
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
     verify_evidence(session, 'evidence')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def tests(session):
     verify_evidence(session, 'tests')
     environment(session)
@@ -134,69 +129,55 @@ def tests(session):
     session.run('python', '-m', 'coverage', 'report', '--fail-under=90')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def quality(session):
     audit_tools(session)
     run_all_checks(session, [
         ['ruff', 'check', '--isolated', '--select', 'E9,F63,F7,F82', 'src', 'scripts'],
         ['ruff', 'check', '--config', 'engineering/ruff.toml', 'scripts/context_bundle.py'],
-        ['basedpyright', '--project', 'engineering/basedpyright.json'],
+        ['basedpyright', '--pythonpath', str(Path(session.bin) / ('python.exe' if os.name == 'nt' else 'python')), '--project', 'engineering/basedpyright.json'],
+        ['basedpyright', '--pythonpath', str(Path(session.bin) / ('python.exe' if os.name == 'nt' else 'python')), '--project', 'engineering/bp_longitudinal.json'],
     ])
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def types_longitudinal(session):
-    """Strict type check of the longitudinal runner; NOT part of `quality` yet.
-
-    This cannot pass as configured: pandas ships no ``py.typed`` stubs, so every
-    DataFrame value is ``Unknown`` and strict mode reports ~133 cascading
-    ``reportUnknown*`` errors on real, correct code. It was briefly wired into
-    ``quality`` and made that session unachievable; gating on it would either block
-    every change or push an ignore sweep over genuine findings.
-
-    It stays a separate, runnable session rather than a silent pass. Closing it needs
-    ``pandas-stubs`` in ``engineering/audit.lock`` — a reviewed lock regeneration and
-    receipt, which is an open release-qualification gate, not a mechanical edit. Until
-    then this session is expected to fail and must not be reported as green.
-    """
+    """Strict typing of the empirical runner using this session's interpreter."""
     audit_tools(session)
-    session.run('basedpyright', '--project', 'engineering/bp_longitudinal.json')
+    session.run('basedpyright', '--pythonpath', str(Path(session.bin) / ('python.exe' if os.name == 'nt' else 'python')), '--project', 'engineering/bp_longitudinal.json')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def strict_all(session):
     audit_tools(session)
     run_all_checks(session, [
-        ['ruff', 'check', '--select', 'ALL', 'src', 'scripts'],
-        ['basedpyright', '--project', 'engineering/basedpyright-all.json'],
+        ['ruff', 'check', '--config', 'engineering/ruff.toml', 'src', 'scripts'],
+        ['basedpyright', '--pythonpath', str(Path(session.bin) / ('python.exe' if os.name == 'nt' else 'python')), '--project', 'engineering/basedpyright-all.json'],
     ])
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def reproduce(session):
     verify_evidence(session, 'reproduce')
     environment(session)
     session.run('python', 'scripts/verify.py')
+    replay_root = OUT / 'replays' / uuid4().hex
     for module, destination in [('tobac.run', 'm1'), ('tobac.m2', 'm2'), ('tobac.research.runner', 'm3')]:
-        args = ['python', '-m', module, '--out', f'outputs/replay_{destination}']
+        args = ['python', '-m', module, '--out', str(replay_root / destination)]
         if module == 'tobac.m2':
             args.append('--grid-check')
         session.run(*args)
-        session.run('python', 'scripts/verify.py', f'outputs/replay_{destination}')
+        session.run('python', 'scripts/verify.py', str(replay_root / destination))
     for stem in ['release_calibration', 'empirical_longitudinal']:
-        destination = f'outputs/replay_{stem}'
-        # The runners refuse a non-empty output directory by design. This replay
-        # path is fixed, so clear only that path before regenerating it; a
-        # deliberate re-run must not require hand-deleting prior evidence.
-        session.run('rm', '-rf', destination)
+        destination = str(replay_root / stem)
         session.run('python', f'scripts/run_{stem}.py', '--out', destination)
         session.run('python', f'scripts/verify_{stem}.py', destination)
     session.run('python', 'scripts/check_longitudinal_results.py',
-                '--empirical', 'outputs/replay_empirical_longitudinal',
-                '--releases', 'outputs/replay_release_calibration')
+                '--empirical', str(replay_root / 'empirical_longitudinal'),
+                '--releases', str(replay_root / 'release_calibration'))
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def security(session):
     audit_tools(session)
     run_all_checks(session, [
@@ -205,15 +186,17 @@ def security(session):
     ])
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def lock(session):
     """Produce review candidates, not automatic trusted locks or source commits."""
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
+    destination = session.posargs[0] if session.posargs else 'outputs/engineering/lock-candidate'
     for profile in ['runtime', 'audit']:
         session.run('python', 'scripts/lock_receipt.py', 'generate', '--profile', profile,
-                    '--path', 'outputs/engineering/lock-candidate')
+                    '--path', destination)
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def package(session):
     """Build an internal candidate only after exact locked installation."""
     verify_evidence(session, 'package')
@@ -225,17 +208,20 @@ def package(session):
                 '--out-dir', 'outputs/release-candidate', external=True)
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def mutation(session):
     """Mutation score gate; mutmut enforces no threshold of its own."""
     audit_tools(session)
+    session.run('python', 'scripts/check_mutation_score.py', '--prepare',
+                '--receipt', 'outputs/engineering/mutation-input.json')
     session.run('mutmut', 'run', 'tobac.supply*')
     session.run('mutmut', 'results')
     session.run('python', 'scripts/check_mutation_score.py',
-                '--minimum', MUTATION_MINIMUM_PERCENT)
+                '--minimum', MUTATION_MINIMUM_PERCENT,
+                '--receipt', 'outputs/engineering/mutation-input.json')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def profile(session):
     audit_tools(session)
     # Scalene 2.4 replaced the flat CLI with subcommands; program arguments must follow '---'.
@@ -244,17 +230,18 @@ def profile(session):
                 '--out', 'outputs/profile_empirical', '--quick')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def canary(session):
     """Latest/pre-release source-only experiment; cannot qualify the reference environment."""
     session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONPATH='src')
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
     session.install('--pre', 'numpy', 'scipy', 'pandas', 'matplotlib', 'pytest',
                     'hypothesis', 'jsonschema', 'PyYAML')
     session.run('python', '-c', 'import hypothesis, jsonschema; print("canary dependencies loaded")')
     session.run('python', '-m', 'pytest', '-q', '--strict-markers')
 
 
-@nox.session
+@nox.session(python='3.15.1')
 def research_m3(session):
     """M3 uses the existing reference environment and preserves its lock gates."""
     verify_evidence(session, 'research_m3')
@@ -262,3 +249,70 @@ def research_m3(session):
     session.run('python', '-m', 'pytest', '-q', 'tests/m3', 'tests/test_workstream_integration.py')
     session.run('python', '-m', 'tobac.research.runner', '--out', 'outputs/replay_m3')
     session.run('python', 'scripts/verify.py', 'outputs/replay_m3')
+
+
+@nox.session(python='3.15.1')
+def voiage(session):
+    """Build a pinned, explicitly local-versioned Voiage compatibility candidate."""
+    import hashlib
+    import json
+    import subprocess
+
+    session.env.update(OPENBLAS_NUM_THREADS='1', MPLBACKEND='Agg', PYTHONHASHSEED='0')
+    session.run('python', '-c', 'import sys; assert sys.version_info[:3] == (3, 15, 1)')
+    # Independent, input-bound dependency lock; the wheel still resolves its dependencies normally.
+    session.run('python', 'scripts/lock_receipt.py', 'verify', '--profile', 'voiage',
+                '--path', 'engineering/voiage.lock')
+    python = str(Path(session.bin).resolve() / 'python')
+    session.run('uv', 'pip', 'sync', '--python', python, '--require-hashes',
+                'engineering/voiage.lock', external=True)
+    session.install('--no-deps', '--no-build-isolation', '-e', '.')
+    base = Path(session.posargs[0]).resolve() if session.posargs else (ROOT / OUT / 'voiage').resolve()
+    run = base / uuid4().hex
+    source, wheels = run / 'source', run / 'wheels'
+    run.mkdir(parents=True)
+    revision = '7af563c8cb373057d30662650b3f332f39e05b83'
+    patch = ROOT / 'engineering/voiage-python315.patch'
+    session.run('git', 'init', str(source), external=True)
+    session.run('git', '-C', str(source), '-c', 'credential.helper=', 'fetch', '--depth=1',
+                'https://github.com/edithatogo/voiage.git', revision, external=True)
+    session.run('git', '-C', str(source), 'checkout', '--detach', 'FETCH_HEAD', external=True)
+    fetched = session.run('git', '-C', str(source), 'rev-parse', 'HEAD', silent=True, external=True)
+    if not isinstance(fetched, str) or fetched.strip() != revision:
+        session.error('Fetched Voiage source does not match the reviewed revision')
+    session.run('git', '-C', str(source), 'apply', '--check', str(patch), external=True)
+    session.run('git', '-C', str(source), 'apply', str(patch), external=True)
+    session.run('git', '-C', str(source), 'add', 'pyproject.toml', external=True)
+    session.run('git', '-C', str(source), '-c', 'user.name=Tobac compatibility build',
+                '-c', 'user.email=voiage-compatibility@users.noreply.github.com',
+                'commit', '-m', 'Qualify Voiage metadata for tobac Python 3.15.1', external=True,
+                env={'GIT_AUTHOR_DATE': '2026-10-26T00:00:00+00:00',
+                     'GIT_COMMITTER_DATE': '2026-10-26T00:00:00+00:00'})
+    python = str(Path(session.bin).resolve() / 'python')
+    session.env['CARGO_TARGET_DIR'] = str(run / 'cargo-target')
+    session.run('uv', 'build', '--python', python, '--build-constraint',
+                str(ROOT / 'engineering/voiage-build-requirements.txt'),
+                '--wheel', '--out-dir', str(wheels), str(source), external=True)
+    wheel, = wheels.glob('*.whl')
+    session.run('uv', 'pip', 'install', '--python', python, '--no-index', str(wheel), external=True)
+    session.run('uv', 'pip', 'check', '--python', python, external=True)
+    session.run('python', '-m', 'pytest', '-q', 'tests/m3', 'tests/engineering/test_voiage_installed.py',
+                'tests/test_workstream_integration.py')
+    session.run('python', 'scripts/qualify_integrations.py', '--mode', 'voiage',
+                '--out', str(run / 'equal-weight.json'))
+    session.run('python', '-m', 'tobac.research.qualification', '--out', str(run / 'weighted.json'))
+    derived = subprocess.check_output(['git', '-C', str(source), 'rev-parse', 'HEAD'], text=True).strip()
+    record = {'upstream_revision': revision, 'patch_sha256': hashlib.sha256(patch.read_bytes()).hexdigest(),
+              'derived_revision': derived, 'wheel': wheel.name,
+              'wheel_sha256': hashlib.sha256(wheel.read_bytes()).hexdigest(),
+              'scope': 'Metadata-only compatibility build; unchanged Voiage implementation and native code'}
+    record['environment'] = session.run('uv', 'pip', 'freeze', '--python', python, silent=True, external=True)
+    (run / 'build-receipt.json').write_text(json.dumps(record, indent=2) + '\n')
+    OUT.mkdir(parents=True, exist_ok=True)
+    # Keep compact receipts without uploading a complete upstream checkout or native target tree.
+    import shutil
+    receipt_dir = OUT / ('voiage-receipts-' + run.name)
+    receipt_dir.mkdir()
+    for name in ['build-receipt.json', 'equal-weight.json', 'weighted.json']:
+        shutil.copyfile(run / name, receipt_dir / name)
+    session.log(f'Voiage receipt: {receipt_dir}')

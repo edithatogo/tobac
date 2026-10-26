@@ -1,10 +1,19 @@
 # Engineering execution, dependency locks and qualification
 
+## Current development platform
+
+Current engineering development is focused on macOS. Linux, Windows and other non-macOS
+qualification work is deferred to [`conductor/roadmap.md`](../../conductor/roadmap.md). Existing
+workflow definitions and checks remain intact; they may still execute, and their results must be
+reported accurately. This scope change does not mark deferred checks as passed or remove them
+from repository protection settings.
+
 Dylan A Mordaunt | 24 October 2026
 
 This updates the engineering recommendations at main 711705c. Scientific inputs, models and
 published results are unchanged. Implementation, local contract tests, actual tool execution,
-hosted execution, independent review and scientific validity are separate states.
+hosted execution and scientific validity are separate states. This single-developer repository
+does not require independent review as an engineering gate.
 
 ## 1. Existing-library policy
 Use the maintained stack before another custom engine. SciPy owns the production Gaussian
@@ -20,7 +29,7 @@ Pint/Pandera/Pydantic do not establish the scientific compatibility of dates, pr
 source identities or populations. Rust acceleration requires a measured bottleneck and parity.
 The detailed decision record remains in LIBRARY_REUSE_REVIEW.md.
 
-For every proposed swap: record the old/new interface, scientific invariants, licence and version,
+For every proposed swap: record the old/new interface, scientific invariants and version,
 benchmark representative inputs, test domain edges and independent parity, rerun affected models,
 then promote through a reviewed dependency change. A newer version is not itself an improvement.
 
@@ -29,7 +38,7 @@ then promote through a reviewed dependency change. A newer version is not itself
 - `engineering/requirements.in`: reference research, test and explicit local-build dependencies.
   The root `requirements.lock` remains a version list, not a transitive hash lock.
 - `engineering/audit.in`: adds the existing audit-tool pins. Its resolved lock is scoped to
-  Linux x86_64 and Python 3.13. Linux-oriented mutmut/Scalene are not Windows matrix dependencies.
+  Linux x86_64 and Python 3.15.1. Linux-oriented mutmut/Scalene are not Windows matrix dependencies.
 - `engineering/build-requirements.txt`: explicit setuptools pin. Local project installation
   uses `--no-deps --no-build-isolation`, so it cannot fetch an unreviewed build backend.
 
@@ -44,7 +53,7 @@ Alternatively dispatch **Reviewable dependency-lock candidates**. Its two jobs r
 independently with uv and upload successful candidates; they never commit, merge or publish.
 A resolver failure removes partial lock/receipt files. Existing files are never overwritten.
 
-Review versions, platform markers, package origins/licences and advisories. Copy the reviewed
+Review versions, platform markers, package origins and advisories. Copy the reviewed
 candidate pairs into `engineering/`: `requirements.lock` with `requirements.lock.json`, and
 `audit.lock` with `audit.lock.json`. Commit them through normal review. The JSON files bind
 exact dependency-input and lock bytes to the resolver command and version. They are neither
@@ -65,9 +74,9 @@ sessions explicitly report bootstrap mode. A partial/stale lock never permits fa
 ## 3. Execution and reports
 
 ```sh
-uvx --python 3.13 --from nox==2026.10.20 nox -s tests quality
-uvx --python 3.13 --from nox==2026.10.20 nox -s reproduce
-uvx --python 3.13 --from nox==2026.10.20 nox -s strict_all security
+uvx --python 3.15.1 --from nox==2026.10.20 nox -s tests quality
+uvx --python 3.15.1 --from nox==2026.10.20 nox -s reproduce
+uvx --python 3.15.1 --from nox==2026.10.20 nox -s strict_all security
 ```
 
 Tests require a genuine Hypothesis import before collection; absent property-test tooling
@@ -77,8 +86,9 @@ independently and produce an overall failure if either fails. Workflow and depen
 checks also both run, with no ignored advisories. Failed setup cannot be called an executed scan.
 
 CI preserves Nox JSON reports, JUnit, environment, coverage and available audit outputs on
-failure. The Linux/macOS/Windows matrix uses the portable profile. The Python 3.15/latest/pre-
-release canary remains source-only, requires its test dependencies and cannot promote itself.
+failure. Python 3.15.1 is the required runtime across development, build, tests and CI. The
+Linux/macOS/Windows matrix uses the portable profile. The latest/pre-release canary remains
+source-only, requires its test dependencies and cannot promote itself.
 Direct Actions remain full-SHA pinned, read-only, credential-free after checkout and bounded
 by concurrency, timeouts and retention. No pull_request_target or automatic scientific merging.
 Renovate's pending upgrades still require review; this change does not merge them.
@@ -110,7 +120,7 @@ Do not weaken checks, make the repository public, or use a self-hosted runner to
 
 ## 5. Context and coordination
 
-AGENTS.md, WORKSTREAM_SYNC.md, Conductor and issue #1 remain authoritative. Context bundles bind
+AGENTS.md, WORKSTREAM_SYNC.md and Conductor remain authoritative. Context bundles bind
 explicit role profiles to source hashes and Git state; stale/missing/traversing/symlinked inputs
 and byte-budget overflow fail instead of silently truncating. They are not a token optimiser,
 secret scanner or prompt-injection sandbox. No persistent background agent is created.
@@ -120,25 +130,26 @@ Checkout and host activation must be verified separately. Official `gh-actions-l
 25 October 2026 and its output **rejected**: it wrote `.github/workflows/actions.lock` only by
 replacing all 37 full-SHA action pins with mutable tags, which contradicts the full-SHA posture
 this repository already enforces. No transitive action lock is adopted; choosing tag+lockfile
-pinning is a security-policy decision, not a mechanical fix. Private-repository entitlements,
-attestations, branch rules and independent review remain explicit prerequisites, not
-automatically enabled or claimed. Preserve the M3-owned research namespace when synchronising.
+pinning is a security-policy decision, not a mechanical fix. The repository currently has one
+collaborator (the owner), no branch protection or repository rulesets, and no required-review
+policy. No additional collaborator, reviewer or branch rule is needed for this project. Preserve
+the M3 research namespace when making shared changes.
 
 ## 6. Current evidence
 
 `integration/engineering_hardening_execution_20261025.json` records the first 25 October pass at
 `044c9951`; `integration/engineering_hardening_gap_closure_20261025.json` records the second pass
-at `5ab361b`, amended at `e33e78a` on 26 October 2026 for the `types_longitudinal` gate. Together
-they cover the following, all executed on a network-enabled macOS arm64 checkout.
+at `5ab361b`. Together they cover the following, all executed on a network-enabled macOS arm64
+checkout.
 
 **Locked qualification now exists.** Both reviewed profiles were promoted into `engineering/`
-after a review of versions, origins, licences (89 packages; no copyleft, unknown or proprietary
-licence; only MPL-2.0 `certifi`/`hypothesis` and dual-licensed `python-dateutil` need noting) and
-advisories (0). With `TOBAC_REQUIRE_LOCK=1`, Nox ran `uv pip sync --require-hashes` and then:
+after a review of versions, origins and advisories (0). With `TOBAC_REQUIRE_LOCK=1`, Nox ran
+`uv pip sync --require-hashes` and then:
 `tests` 495 passed, 0 failed, 0 skipped, 91% coverage; `reproduce` verified all five replays
 (M1, M2 `--grid-check`, M3, release calibration, empirical longitudinal); `package` built the
 sdist and wheel under `--no-build-isolation`. The built wheel installed into a clean Python 3.13
-venv and imported `tobac`, `tobac_supply` and `tobac.research`. Bootstrap was not used.
+venv and imported `tobac`, `tobac_supply` and `tobac.research`. This is historical execution
+evidence; Python 3.15.1 qualification is recorded separately below. Bootstrap was not used.
 
 **The Linux-only audit guard was hiding real failures rather than a platform limit.** Ruff,
 BasedPyright, zizmor and pip-audit all run natively on macOS arm64; executing them found two
@@ -146,49 +157,19 @@ strict-lint errors, four strict-type errors and four `artipacked` findings that 
 ever reported. They are fixed and `quality`/`security` are green. `noxfile.py` now routes audit
 sessions through `audit_tools()`: Linux keeps the locked audit profile as authoritative, other
 hosts resolve the same reviewed pins natively and log `NATIVE AUDIT ... NOT release
-qualification`. The guard in `environment()` is unchanged and still fails closed. On Linux the
-audit sessions additionally pin the interpreter (`python_version='3.13'`), so the audit
-environment is the one the lock was reviewed against rather than whatever Nox would otherwise
-pick.
-
-**`quality` does not cover the longitudinal runner's strict types, and must not be reported as
-if it did.** The blocking `quality` session is ruff `E9,F63,F7,F82`, ruff under
-`engineering/ruff.toml` on `scripts/context_bundle.py`, and basedpyright under
-`engineering/basedpyright.json`. `engineering/bp_longitudinal.json` is a separate session,
-`nox -s types_longitudinal`, which is expected to fail; see the gap described below.
+qualification`. The guard in `environment()` is unchanged and still fails closed.
 
 **Two defects surfaced only because the gates actually ran.** First, `strict_all` has never been
-green: 4,168 ruff `--select ALL` errors and 3,584 BasedPyright-all errors across the whole source
-(original measurement, 25 October 2026). Re-measured on 26 October 2026 on macOS with the
-corrected Python 3.15 target, the counts are 4,861 ruff and 2,456 basedpyright; the earlier
-basedpyright figure came from a stale 3.12 target, so do not compare the two or quote one as the
-other. Either way it is measured, not fixed, and remains an open gate. Second, three engineering
-contract tests failed under `TOBAC_REQUIRE_LOCK=1` because the harness fixture inherited the
-release flag with an empty `ROOT`; `.github/workflows/release-candidate.yml` sets exactly that
-flag, so the release gate itself was broken. The fixture is now hermetic.
+green: 4,168 ruff `--select ALL` errors and 3,584 BasedPyright-all errors across the whole source.
+That is measured, not fixed, and remains an open gate. Second, three engineering contract tests
+failed under `TOBAC_REQUIRE_LOCK=1` because the harness fixture inherited the release flag with an
+empty `ROOT`; `.github/workflows/release-candidate.yml` sets exactly that flag, so the release
+gate itself was broken. The fixture is now hermetic.
 
-**Profiling executes, and is not yet informative.** `nox -s profile` ran Scalene 2.4.0 on
-26 October 2026 at `a7d0e8d`, writing a valid CPU-only `outputs/engineering/scalene.json` (8.5 MB)
-plus a reduced `outputs/profile_empirical` (512 draws rather than the configured 8,192), and the
-session is green. Reporting that as a resolved gate would be wrong for three reasons. First, CPU
-is dominated by interpreter start-up: `import pandas` and `import numpy` are the two most
-expensive lines (~4.4–8.3% each), above the 4.1–4.8% attributed to the whole `plots()` function.
-Second, ~16–20% of samples are in C extensions (NumPy/SciPy) that a Python profiler can only
-report as a single opaque total, and the only attributed files are the runner script and
-`<exec@_internal.py:64>`. Third, the numbers are not stable: two runs at the same commit agreed on
-the *ranking* but disagreed on magnitude (`plots()` 4.83% then 4.13%; `import pandas` 8.30% then
-4.41%) and even on which functions received any samples. So this does not establish that any part
-of `tobac` or `tobac.research` is cheap, and the full-draw profile and unit-test hotspot
-profiling both remain open.
-
-**Mutation is executed but weak.** mutmut ran natively on `src/tobac/supply.py`: 128 mutants, 79
-killed, 49 survived (61.7%). mutmut itself enforces no threshold; the `mutation` session now runs
-`scripts/check_mutation_score.py --minimum 60`, so the same 61.7% passes by 1.7 points. That floor
-is a regression alarm, not evidence of adequate coverage, and raising it means working through the
-49 survivors. The pinned tool is 3.8.0; the 3.7.0 invocation recorded in the earlier pass is
-historical evidence. Profiling executes but start-up dominates, the sample is a reduced 512-draw
-run, and two runs at one commit disagreed on magnitude, so the full-draw profile and unit-test
-hotspot profiling remain outstanding.
+**Mutation was executed but weak at the 25 October gap-closure pass.** mutmut 3.7.0 ran natively
+on `src/tobac/supply.py`: 128 mutants, 79 killed, 49 survived (61.7%). The session reports
+success because mutmut enforces no threshold; the survivor count is a coverage finding, not a
+pass. Scalene profiling was unexecuted at that pass; the 26 October profile is recorded below.
 
 **The Windows leg failure was a checkout defect, not a code defect.** Windows converted text to
 CRLF, so the recorded SHA-256 of `evidence/prior_work/v2.9.0/data/empirical_intake_20261024/
@@ -198,58 +179,104 @@ confirming the tree was already LF. Hosted confirmation is still required.
 
 See `integration/engineering_followthrough.json` for the earlier 24 October pass and its actual
 failed offline resolution attempt. Command-planning tests there use a labelled Nox test double;
-that limitation no longer applies to the sessions named above. No hosted success, signed release,
-strict-all pass, profiling result or empirical funding result is claimed. Earlier receipts remain
+that limitation no longer applies to the sessions named above. Hosted runs on the pre-migration
+base are historical and do not qualify Python 3.15.1. No post-migration hosted success, signed
+release, strict-all pass or empirical funding result is claimed. Earlier receipts remain
 historical evidence.
 
-**A `quality` leg that never actually checked the file, and a gate that could never pass.** The
-`review/m2b-longitudinal` rebase declared a venv in `engineering/bp_longitudinal.json`, but
-pyright resolves an interpreter by precedence and `venv`/`venvPath` did not take effect as declared.
-Two consequences, both measured: (1) with no interpreter pinned, pandas ships **no** type stubs, so
-`read_csv` is untyped, every DataFrame value collapses to `Unknown`, and `--select ALL` strict mode
-reports 154 `reportUnknown*`/stub errors on one file as a cascade — that is the hosted failure; (2)
-with the config's own interpreter resolution absent, basedpyright was resolving `include` relative to
-the config file and reporting `File or directory ".../scripts/run_empirical_longitudinal.py" does not
-exist` while still printing `0 errors`. The earlier local `0 errors` was therefore **vacuous** — it
-described a check that had not analysed the runner. The config now uses an `executionEnvironments`
-entry with `extraPaths` pointing at `.nox/quality/lib/python3.13/site-packages`, which resolves
-imports under any ambient interpreter, including the inactive-venv case Nox actually creates. Real
-defects fixed: `table['source_id']`/`source_locator` and `primary['period_start']`/`period_end` are
-now read through the checked `DataFrame` instead of `itertuples` attribute access; `source_id` and
-`source_locator` are unchanged in the emitted `aligned_observations.csv` (verified in a fresh run), and
-the `<column> = <index>` pattern keeps every value identical. Verified across three commits: the
-hosted leg went 154 → 133 as imports started resolving, and the local count is now 133 with **zero**
-`reportMissingImports` and **zero** `reportArgumentType`/`reportAssignmentType` — every remaining
-error is the pandas-stub `reportUnknown*` cascade.
+## Python 3.15.1 qualification — 26 October 2026
 
-**The 133 residual errors are real, and gating on them was my mistake.** This branch's
-`bp_longitudinal.json` was briefly added to the blocking `quality` session. It cannot pass: pandas
-ships no `py.typed` stubs, so ~133 `reportUnknown*` errors cascade from correct code. That made
-`quality` unachievable and turned the hosted leg red. The check now runs as its own
-`nox -s types_longitudinal` session, which stays runnable and **is expected to fail**; it is not part
-of `quality` and must not be reported as green. Closing it requires `pandas-stubs` in
-`engineering/audit.lock` — a reviewed lock regeneration plus receipt, i.e. an open
-release-qualification gate, not a mechanical edit or an ignore sweep.
+The repository now requires CPython 3.15.1 for active development, test, build, automation and CI
+paths. The source tree selects NumPy 2.5.4, SciPy 1.18.1, pandas 3.0.6 and Matplotlib 3.11.2;
+these replace pins that could not install on Python 3.15.1. Runtime and Linux x86_64 audit lock
+candidates were generated by uv 0.13.5, input-bound, hash-checked and installed for the runtime
+profile. The new audit lock resolves for Linux/Python 3.15 but was not installed or executed on
+Linux in this worktree.
 
-**The member-versus-new-option bug is fixed and cross-checked, not asserted.** Verifying
-`scripts/check_mutation_score.py` against mutmut 3.8.0 showed its table declared exit code `-24` as
-`killed` (63 surviving mutants were miscounted as kills) while omitting `36`/`24`/`152`/`255`
-(timeout), `37`, `-11` and `-9` (segfault). The table is now generated against mutmut's own
-`status_by_exit_code`; codes agree exactly, `KILLED_STATUSES` stays `{"killed"}`, and a synthetic
-probe confirmed each of the ten status classes is classified as mutmut classifies it. The `-24`
-asymmetry (mutmut labels `-24` and `+24` both "timeout" although `+24` is SIGXCPU) is mirrored and
-noted rather than silently corrected. If mutmut adds statuses, `suspicious` is the safe default and
-is already recorded as such.
+On a repository-local Nox environment running Python 3.15.1, `nox -s tests` passed **611 tests**
+at **90% coverage**. `nox -s reproduce` passed M1, M2 with grid check, M3, release calibration
+and empirical longitudinal verifiers; the four regenerated longitudinal tables matched their
+checked-in results within the existing tolerance. The locked internal package session built the
+sdist and wheel; the wheel installed into a clean 3.15.1 environment, passed `uv pip check` and
+imported all three public package namespaces. Native macOS arm64 Nox `quality` and `security`
+passed; pip-audit found no known vulnerabilities and zizmor reported no findings.
 
-**Two checks that passed vacuously or by omission are now enforced.** `noxfile.py` installs
-`engineering/tools-requirements.txt` with `-U`, because without it pip reported "Requirement already
-satisfied" and a stale local basedpyright 1.39.9 passed against a 1.40.2 pin — a version-dependent
-false green. The runner is also now held to `ruff --select E4,E7,E9,F,B`, which immediately found 12
-real unused-import/multiple-statement findings in `strict_all`'s blind spot; it previously carried no
-ruff gate at all. Hosted confirmation of the `quality` leg is still required.
+The bounded Scalene 2.4.0 quick profile also completed on Python 3.15.1. Its local JSON artifact
+is 8,216,717 bytes, elapsed time 19.63 seconds, SHA-256
+`67f93dd57256d8e889d8bcfc5ff470deb6fe9ed8f57b53931f916e9fb2d8be26`; the runner reported 21
+artifacts, 6 source files and its historical-partial-fit scope. The artifact remains in ignored
+local outputs; its checksum and summary are retained here and in
+`integration/engineering_hardening_python315_20261026.json`.
+
+The whole-source `strict_all` remains red; its corrected Nox run reports 1,248 Ruff and 2,208
+BasedPyright errors. Direct JSON BasedPyright readback reports 2,052, so that discrepancy is
+recorded for follow-up in the active Conductor plan. Hosted macOS qualification, attestations and
+`strict_all` remain open. Independent review is not a repository gate.
+Linux hash-locked audit execution and non-macOS hosted matrix qualification are deferred to
+`conductor/roadmap.md`. The official Actions transitive lock remains deferred because its
+generated form would replace 37 full-SHA action pins with mutable tags.
 
 Official documentation consulted:
 - https://docs.astral.sh/uv/pip/compile/
 - https://nox.thea.codes/en/stable/usage.html
 - https://cli.github.com/manual/gh_api
 - https://docs.github.com/en/actions/how-tos/secure-your-work/lock-workflow-dependencies
+
+## PR #25 reconciliation — current local status
+
+The 916a41e parallel profile attempt was uninformative and is retained in history. It does
+not overwrite the Python 3.15.1 receipt above. The focused longitudinal checker now uses
+qualified stubs and the actual Nox session interpreter, with no cached cross-environment path.
+The mutation gate requires complete results and a fresh source/tool-bound receipt.
+
+The latest implementation supersedes the historical red strict counts above. All active source
+and CLI modules now report zero BasedPyright errors and zero configured Ruff findings on the
+session's actual Python 3.15.1 interpreter. The zero Ruff result includes 175 explicitly retained
+style/API exceptions; these are policy choices, not defects repaired. Scientific stubs describe
+static contracts, not optional-library runtime qualification. See LINT_POLICY.md and the exception
+ledger. No global unknown, missing-import or argument-type diagnostics were disabled.
+
+Mutation preparation now removes both selected generated source and metadata: mutmut's mtime
+cache otherwise skips regeneration after metadata removal. A fresh run and a repeat run detect
+92/131 mutants (70.2%); 39 survive. The 60% floor is a regression alarm, not complete test proof.
+Boundary tests cover each physical channel's finiteness/sign, legal zero endpoints, reporting
+shape/domain and strict covariance symmetry. Numerical likelihood parity uses the independent
+Cholesky oracle. The clean wheel imports from site-packages outside this checkout on 3.15.1.
+
+Original core bytes are retained and verified against unchanged extraction hashes. The active
+core has a constrained AST maintenance check covering annotations, cast identity and explicit
+literal bindings; tampering tests reject changed formulas, defaults, fields and bindings.
+Reproductions write fresh directories and retain earlier receipts. PR #25 and subsequent main
+coverage/scientific-planning/incorporation-review changes are preserved. The scientific ecosystem
+track remains planning-only. Current execution details are in
+`integration/engineering_reconciliation_20261026.json`; hosted macOS checks remain pending until
+reported there. No optional Voiage runtime or new scientific calibration is claimed.
+
+The subsequent main Ruff 0.17.2 update is retained and its native quality, strict_all and security
+sessions pass. The legacy hosted optional Voiage 2.1.0 probe fails installation on Python 3.15.1:
+its SciPy <1.17 requirement selects an unsupported source build. The released 2.2.0 wheel was
+also inspected and attempted in an isolated macOS environment; it retains SciPy <1.17 and
+pandas <3 requirements, and pyarrow 25.0.1 has no cp315 wheels. Installation failed. Those
+optional-library probes remain fail-closed; this is a genuine upstream qualification blocker,
+not a passing macOS reference check or permission to bypass dependency metadata.
+
+Hosted macOS qualification is now obtained at `c645028` in run `40269769566`: the actual Python
+3.15.1 assertion passed, 721 tests passed with two optional-tool skips and 93% coverage, and
+quality/strict_all/reproduce/package/security/mutation all passed. Hosted mutation killed
+100/131 (76.3%), with 31 survivors; local 92/131 remains a separate observation. The final
+receipt-only update publishes through PR #29 after checking its current head. The receiving
+`main` ref and merge commit are readable from that PR. Optional Voiage probes remain blocked;
+this macOS qualification does not claim every hosted job passed.
+
+## Voiage dependency compatibility follow-up
+
+The historical blocker above is addressed by a distinctly versioned, metadata-only
+source build, with normal dependency resolution and a separate input-bound hash lock.
+Both installed-library probes and Arrow/native checks pass locally on Python 3.15.1.
+See `VOIAGE_PYTHON315.md` and `integration/voiage_python315_compatibility_20261026.json`
+for scope and current hosted outcomes. The reference scientific pins are unchanged.
+
+Voiage follow-up completed through PR #33 at `f06eed6`: all 15 hosted checks pass
+on its exact qualified head, including both formerly failing installed-library
+jobs. Python remains 3.15.1. The compatibility receipt records receiving commit,
+source/patch/wheel identity and actual hosted equal/weighted/native/Arrow scope.

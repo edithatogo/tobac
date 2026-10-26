@@ -1,7 +1,8 @@
 {
   "track_id": "engineering_execution_20261024",
   "title": "Source-bound dependency and execution qualification",
-  "status": "implemented_scoped_tests_passed_external_execution_open",
+  "status": "macos_python3151_and_strict_all_qualified_merged_pr29_other_platforms_deferred",
+  "updated": "2026-10-26",
   "base_commit": "711705cb49b98ed24f66d29240d7cd7bc9c100e1",
   "date": "2026-10-24",
   "evidence": [
@@ -9,6 +10,12 @@
     "integration/engineering_followthrough.json",
     "tests/engineering/test_lock_receipts.py",
     "tests/engineering/test_execution_contracts.py",
-    "tests/engineering/test_actions_diagnostics.py"
-  ]
+    "tests/engineering/test_actions_diagnostics.py",
+    "integration/engineering_reconciliation_20261026.json"
+  ],
+  "publication": {
+    "receiving_commit": "104729a615e19ccf8da2cb52e729d46df624037d",
+    "pull_request": 29,
+    "qualified_commit": "1f6b375c8a491a395b0e6580a8e567dc921445a9"
+  }
 }

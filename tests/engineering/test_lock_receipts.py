@@ -21,7 +21,8 @@ def load():
 def inputs(root):
     files = ['pyproject.toml', 'requirements.lock', 'engineering/requirements.in',
              'engineering/test-requirements.txt', 'engineering/build-requirements.txt',
-             'engineering/audit.in', 'engineering/tools-requirements.txt']
+             'engineering/audit.in', 'engineering/tools-requirements.txt',
+             'engineering/voiage.in', 'engineering/voiage-build-requirements.txt']
     for name in files:
         p = root / name
         p.parent.mkdir(parents=True, exist_ok=True)
@@ -30,7 +31,7 @@ def inputs(root):
 
 def fixture(root, profile='runtime'):
     m = load(); inputs(root)
-    name = 'requirements.lock' if profile == 'runtime' else 'audit.lock'
+    name = m.PROFILES[profile][1]
     lock = root / 'engineering' / name
     lock.write_text('# fixture only, not a usable distribution\nexample==1 --hash=sha256:' + 'a'*64 + '\n')
     receipt = {'schema': 'tobac.lock-receipt.v1', 'profile': profile,
@@ -42,7 +43,7 @@ def fixture(root, profile='runtime'):
     return m, lock
 
 
-@pytest.mark.parametrize('profile', ['runtime', 'audit'])
+@pytest.mark.parametrize('profile', ['runtime', 'audit', 'voiage'])
 def test_valid_receipt_binds_exact_inputs_and_lock(tmp_path, profile):
     m, lock = fixture(tmp_path, profile)
     assert m.verify(tmp_path, lock, profile)['status'] == 'pass'
@@ -244,3 +245,10 @@ def test_cli_verify_uses_real_byte_checks(tmp_path,monkeypatch,capsys):
     monkeypatch.setattr(sys,'argv',['lock_receipt','verify','--profile','runtime','--root',str(tmp_path),'--path',str(path)])
     m.main()
     assert json.loads(capsys.readouterr().out)['status']=='pass'
+
+
+def test_voiage_dependency_changes_invalidate_receipt(tmp_path):
+    m, lock = fixture(tmp_path, 'voiage')
+    (tmp_path / 'engineering/voiage.in').write_text('pyarrow==26.0.0\n')
+    with pytest.raises(ValueError, match='input'):
+        m.verify(tmp_path, lock, 'voiage')
