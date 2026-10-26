@@ -2,16 +2,16 @@
 
 The published 2.1.0/2.2.0 dependency bounds select SciPy below 1.17, pandas below 3,
 xarray before 2025, and PyArrow 25. Those bounds cannot install a consistent native
-Python 3.15.1 environment. This repository builds `2.2.0+tobac3151.1` from upstream
+Python 3.15.1 environment. This repository builds `2.2.0+tobac3151.2` from upstream
 commit `7af563c8cb373057d30662650b3f332f39e05b83`, using the reviewed patch in
 `engineering/voiage-python315.patch`. The patch changes only package metadata:
-the local version, Python requirement and four dependency bounds. Voiage's Python
+the local version, Python requirement and five dependency bounds. Voiage's Python
 implementation, Rust/native code and upstream licence are unchanged. It is a
 consumer compatibility candidate, not an unmodified upstream release.
 
 The independent `voiage` dependency profile uses the same scientific reference pins
-as tobac, including SciPy 1.18.1 and pandas 3.0.6, together with xarray 2026.9.0 and
-PyArrow 26.0.0. The input-bound `engineering/voiage.lock{,.json}` records exact
+as tobac, including SciPy 1.18.1 and pandas 3.1.0, together with xarray 2026.9.0 and
+PyArrow 26.0.0 and Polars 2.0.0. The input-bound `engineering/voiage.lock{,.json}` records exact
 transitive versions and hashes. The existing lock helper verifies it before
 `uv pip sync --require-hashes`. Maturin 1.15.0 builds the candidate from a clean,
 committed derived source tree. Both upstream and derived identities, patch/wheel
@@ -52,3 +52,18 @@ Voiage jobs, the full engineering matrix and numerical/longitudinal checks.
 Receiving commit `f06eed630a8832174328a0472bdcaf55c98a4af9` was verified on main.
 The full hosted and local receipts are in
 `integration/voiage_python315_compatibility_20261026.json`.
+
+## Polars 2 qualification — 27 October 2026
+
+PR #48 also requires a new compatibility artifact: the earlier .1 wheel declares
+polars<2 and cannot resolve with Polars 2.0.0. The .2 patch changes that bound to
+>=2.0.0,<3 and changes the local version; all upstream implementation/native files
+remain byte-identical to the pinned revision. The new build installs with normal
+dependency resolution and passes pip check on actual Python 3.15.1.
+
+The current native run executes 99 installed-library, M3, evidence-transport and
+workstream tests, plus the equal/weighted/partition probes. Separate JAX float64,
+Arrow/Polars buffer ownership/lifetime and strict Patito/msgspec probes pass.
+The prior .1 receipt above remains historical; the current artifact identity is
+in integration/voiage_polars2_compatibility_20261027.json. No Voiage 3 migration,
+scientific calibration or generic structural/EVSI certification is implied.

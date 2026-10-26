@@ -4,7 +4,7 @@
   "type": "refactor",
   "status": "in_progress",
   "created_at": "2026-10-25T12:24:37.028925+00:00",
-  "updated_at": "2026-10-26",
+  "updated_at": "2026-10-27",
   "description": "Scientific ecosystem modernisation",
   "base_commit": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
   "approval_scope": "Autonomous macOS implementation, review, fixes and archival authorised 26 October 2026",
@@ -40,5 +40,13 @@
     "local_qualification": "880 passed, 5 skips, 92% coverage; 97 native tests passed; strict/reproduction/security/clean package passed",
     "hosted": "15 successful PR checks; two expected trusted-write skips; receipt-only update must pass the same gates before merge; receiving ref linked from PR #47",
     "qualified_head": "a702ac571aba59cf53146efd4678c9deeb7a75e6"
+  },
+  "polars2_qualification": {
+    "pull_request": 48,
+    "implementation_commit": "c8ca3cf379b673371de61bcbfd06a4bb3cce1bb3",
+    "verification": "integration/voiage_polars2_compatibility_20261027.json",
+    "review": "docs/reviews/2026-10-27-polars2-pr48.md",
+    "local": "882 tests passed, 5 skips, 92% coverage; 99 native tests; all six Nox gates passed",
+    "publication": "all existing final-head hosted checks required before guarded merge; receiving ref linked from PR #48"
   }
 }

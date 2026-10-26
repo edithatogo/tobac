@@ -57,5 +57,30 @@
     },
     "limits": "Synthetic fixture only. Export/reconstruction copy. No string, whole-table or process-wide zero-allocation claim; Arrow pool counters exclude other allocators. Digests are not signatures. No empirical or Voiage 3 qualification."
   },
-  "limits": "Not Voiage 3 qualification or empirical calibration; original compatibility receipt retained"
+  "limits": "Not Voiage 3 qualification or empirical calibration; original compatibility receipt retained",
+  "implementation_commit": "c8ca3cf379b673371de61bcbfd06a4bb3cce1bb3",
+  "verification": {
+    "full_tests": {
+      "passed": 882,
+      "skipped": 5,
+      "coverage_display_percent": 92
+    },
+    "native_producer_tests": {
+      "passed": 99
+    },
+    "nox_sessions": [
+      "tests",
+      "quality",
+      "strict_all",
+      "reproduce",
+      "clean_package",
+      "security"
+    ],
+    "result": "all six sessions passed on local macOS Python 3.15.1",
+    "native_ecosystem_receipt_sha256": "eabceec02455c1ed5d8231f389b15952421e1565c288d6dfb2b094f3b562cce3",
+    "qualification_log_sha256": "4bc1380ce0884e169767d01f2129161e0df9736ef177e6401bcb563096146516",
+    "reference_hashes_verified": 38,
+    "source_diff": "upstream producer pyproject.toml only; numerical/native implementation unchanged",
+    "hosted": "required on final PR #48 head before guarded merge"
+  }
 }
