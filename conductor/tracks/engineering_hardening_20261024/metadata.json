@@ -21,6 +21,7 @@
     "types_longitudinal": "expected failure: 133 strict errors, all reportUnknown* from pandas having no stubs; deliberately outside quality; closing needs pandas-stubs in engineering/audit.lock",
     "native_audit_tools": "ruff, basedpyright, zizmor, pip-audit green after fixing 3 real defects",
     "lock_profile": "requirements.lock{,.json} and audit.lock{,.json} promoted to engineering/, 0 advisories",
-    "open_findings": "audit profile still Linux-gated; mutation weak (61.7%, 60% floor is a regression alarm only); profiling, strict_all (4,168/3,584 originally, 4,861/2,456 re-measured on the Python 3.15 target), hosted matrix and independent review open"
+    "profile": "nox -s profile executes and writes a valid CPU-only outputs/engineering/scalene.json, but the gate stays open: start-up dominates, only a reduced 512-draw run is covered, ~16-20% of samples are opaque C-extension time, and two runs at the same commit disagreed on magnitude (plots() 4.83% then 4.13%) despite agreeing on ranking",
+    "open_findings": "audit profile still Linux-gated; mutation weak (61.7%, 60% floor is a regression alarm only); profiling executes but is not yet informative, so full-draw and unit-test hotspot profiling remain open; strict_all (4,168/3,584 originally, 4,861/2,456 re-measured on the Python 3.15 target), hosted matrix and independent review open"
   }
 }

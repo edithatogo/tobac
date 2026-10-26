@@ -167,12 +167,28 @@ contract tests failed under `TOBAC_REQUIRE_LOCK=1` because the harness fixture i
 release flag with an empty `ROOT`; `.github/workflows/release-candidate.yml` sets exactly that
 flag, so the release gate itself was broken. The fixture is now hermetic.
 
+**Profiling executes, and is not yet informative.** `nox -s profile` ran Scalene 2.4.0 on
+26 October 2026 at `a7d0e8d`, writing a valid CPU-only `outputs/engineering/scalene.json` (8.5 MB)
+plus a reduced `outputs/profile_empirical` (512 draws rather than the configured 8,192), and the
+session is green. Reporting that as a resolved gate would be wrong for three reasons. First, CPU
+is dominated by interpreter start-up: `import pandas` and `import numpy` are the two most
+expensive lines (~4.4–8.3% each), above the 4.1–4.8% attributed to the whole `plots()` function.
+Second, ~16–20% of samples are in C extensions (NumPy/SciPy) that a Python profiler can only
+report as a single opaque total, and the only attributed files are the runner script and
+`<exec@_internal.py:64>`. Third, the numbers are not stable: two runs at the same commit agreed on
+the *ranking* but disagreed on magnitude (`plots()` 4.83% then 4.13%; `import pandas` 8.30% then
+4.41%) and even on which functions received any samples. So this does not establish that any part
+of `tobac` or `tobac.research` is cheap, and the full-draw profile and unit-test hotspot
+profiling both remain open.
+
 **Mutation is executed but weak.** mutmut ran natively on `src/tobac/supply.py`: 128 mutants, 79
 killed, 49 survived (61.7%). mutmut itself enforces no threshold; the `mutation` session now runs
 `scripts/check_mutation_score.py --minimum 60`, so the same 61.7% passes by 1.7 points. That floor
 is a regression alarm, not evidence of adequate coverage, and raising it means working through the
 49 survivors. The pinned tool is 3.8.0; the 3.7.0 invocation recorded in the earlier pass is
-historical evidence. Scalene profiling remains unexecuted.
+historical evidence. Profiling executes but start-up dominates, the sample is a reduced 512-draw
+run, and two runs at one commit disagreed on magnitude, so the full-draw profile and unit-test
+hotspot profiling remain outstanding.
 
 **The Windows leg failure was a checkout defect, not a code defect.** Windows converted text to
 CRLF, so the recorded SHA-256 of `evidence/prior_work/v2.9.0/data/empirical_intake_20261024/

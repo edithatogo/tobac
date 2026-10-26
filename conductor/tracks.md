@@ -102,7 +102,19 @@ not be read as passing:
   `pandas-stubs` in `engineering/audit.lock`, a reviewed lock regeneration and a receipt.
 - mutation: 49 of 128 mutants survive on `src/tobac/supply.py` (61.7%). A 60% floor now
   fails the session on regression, which is a guard, not evidence of adequate coverage.
-- `profile` (Scalene) has never been executed.
+- profile (Scalene): session now succeeds, but the measurement establishes almost nothing about
+  where solver cost is, so it is **not** a closed gate. Executed 26 October 2026 at `a7d0e8d`
+  via `nox -s profile`; artifact `outputs/engineering/scalene.json` (CPU-only, 8.5 MB, valid
+  JSON). On the reduced 512-draw run: `import pandas` and `import numpy` are the two most
+  expensive lines (~4.4–8.3% each), above the 4.1–4.8% attributed to the whole `plots()`
+  function; ~16–20% of samples are in C extensions a Python profiler reports only as one opaque
+  number; and the only attributed files are the runner script plus `<exec@_internal.py:64>`.
+  Two runs at the same commit agreeing on the *ranking* still disagreed on magnitude
+  (`plots()` 4.83% then 4.13%; `import pandas` 8.30% then 4.41%) and even on which functions
+  received samples, so the per-line percentages are not a stable basis for a claim at this
+  duration. Start-up dominates, the run is reduced, and nothing here profiles the full-draw run
+  or the test suite. Profiling the 8,192-draw run and profiling unit-test hotspots both remain
+  open.
 - The official Actions transitive lock and the hosted all-legs matrix remain open; the
   hosted run quoted above covers one CI invocation, not every OS/Python leg.
 

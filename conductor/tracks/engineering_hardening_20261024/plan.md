@@ -24,7 +24,13 @@
     `nox -s quality` green, on the `review/m2b-longitudinal` tree. This is a different tree from
     the 495-test locked pass above, so the counts are not comparable and neither supersedes the
     other.
-  - [ ] Profiling (Scalene 2.4.0) still not executed; tool available natively only.
+  - [ ] Profiling (Scalene) now executes but is not yet informative; the gate stays open.
+    26 October 2026 at `a7d0e8d`, `nox -s profile` wrote a valid `outputs/engineering/scalene.json`.
+    Interpreter start-up dominates (`import pandas`/`import numpy` are the two most expensive
+    lines), only a reduced 512-draw run is covered, only the runner script and
+    `<exec@_internal.py:64>` are attributed, ~16–20% of samples are opaque C-extension time, and
+    two runs at the same commit disagreed on magnitude (`plots()` 4.83% then 4.13%). The full-draw
+    profile and unit-test hotspot profiling remain open; the reduced profile does not cover them.
   - [ ] The Nox `audit` profile (Linux-scoped lock) itself remains unexecuted on Linux. A
     `audit_tools()` path now runs the same quality/security checks host-natively and labels
     itself `NATIVE AUDIT ... NOT release qualification`; the Linux profile stays authoritative.
