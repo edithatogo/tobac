@@ -1,0 +1,65 @@
+{
+  "schema": "tobac.source-observation-handoff-verification.v1",
+  "date": "2026-10-26",
+  "base_commit": "12cf36c3f66d25708333527afb5cdbc8e1df0204",
+  "implementation_head": "0f7539bee0b0a6e504cc390b9e132b3890c48226",
+  "original_pr_head": "da0535dd3eb137450fc6921641913ad09845fd0c",
+  "source_register_receipts_preserved": true,
+  "python": "3.15.1 (main, Oct 21 2026, 17:39:16) [Clang 23.1.3 ]",
+  "platform": "darwin",
+  "verification": {
+    "initial_red": "new semantics failed before implementation; admission refinements 3 failures retained in outputs/engineering/source-handoff-admission-red.log",
+    "final_full_tests": "775 passed, 4 capability skips, 93% branch-inclusive source coverage",
+    "focused_tests": "64 passed including archive, handoff, workstream integration and harness contracts",
+    "strict_all": "configured Ruff and whole-source BasedPyright: 0 findings",
+    "reproduction": "Nox reproduce passed: M1, M2 grid check, M3, release calibration, empirical longitudinal, existing verifiers and longitudinal comparison; scientific source/model bytes unchanged after this run",
+    "package": "Nox package wheel/sdist build passed; not a new clean-install qualification",
+    "nox_source_handoff": "passed on final schema; 28 rows blocked as expected",
+    "conductor_track_names": "10/10 consistent",
+    "hosted": "First PR head passed macOS tests and other checks except Windows inventory path separators; corrected to POSIX serialization; final head checks pending.",
+    "path_fix": "64 focused tests pass after the path fix; generated real-data report byte-identical"
+  },
+  "report_status": "blocked",
+  "row_count": 28,
+  "automatically_conditions_live_model": false,
+  "scientific_qualification": false,
+  "source_files_unchanged": true,
+  "workflow_and_dependency_files_unchanged": true,
+  "sha256": {
+    "scripts/source_handoff.py": "82db25625391f191164892e82c20a23110e09749d21c34285cdf8723f57309b8",
+    "engineering/schemas/observation-handoff.schema.json": "1b41ad6f8572c4a19cec697c1eb7f157b794b42ca5cc2de76c51e48531bdb60c",
+    "integration/archive/observation-handoff.json": "1f73838eab9a62b80ddabbd627313a03fdad0862e6ca331a783f5c542aa8ca2e",
+    "integration/archive/observation-handoff-report.json": "dcc6f3485f2cacae1c2b168a3db3c07e0fcdae1c146939ab3b34af98022cba83",
+    "noxfile.py": "86d9c96f8e2c10848d6216295dc4c3fa39a4f5f6e79fe0980183dcfbc8a51c79",
+    "tests/engineering/test_source_handoff.py": "7ddd8f65626ffb5f08a1679ceeb0a0f495383d7ed8ae8fa2c576c1cf189fad48"
+  },
+  "local_artifacts": {
+    "outputs/engineering/source-handoff-milestone.log": {
+      "sha256": "590e6bfbaddefd8122f9ad4acbf89993b56742d1d78243ec99bdadee32a279ed",
+      "bytes": 38485
+    },
+    "outputs/engineering/source-handoff-final-tests.log": {
+      "sha256": "7e6975b622f92d116400356f3ce3bbeb7bdf705b85d72dd0b2b76f335b75b6f3",
+      "bytes": 12707
+    },
+    "outputs/engineering/source-handoff-focused.log": {
+      "sha256": "78875d444916befa93d3bd0504fcf3a6ff6711663e62fd1823729a76ea828902",
+      "bytes": 99
+    },
+    "outputs/engineering/source-handoff-typing.log": {
+      "sha256": "56882e01cb80173ef053c4096e4ee43e3123a15f5c0a06715f96988d48fbd91c",
+      "bytes": 30
+    },
+    "outputs/engineering/source-handoff-ruff.log": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    }
+  },
+  "first_hosted_failure": {
+    "run": 40295086291,
+    "job": 121479082763,
+    "head": "f76c9421f3de5e9bbd23ff0ebab5ca740d0a8bc5",
+    "error": "Windows path separators caused false incomplete inventory; fixed scanner and inherited test serialization",
+    "log_sha256": "7dea8fb6a18befde6ff8930ad6cec70737a93873e2be64a5aaa7aeb1e9875617"
+  }
+}

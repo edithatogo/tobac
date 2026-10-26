@@ -29,11 +29,11 @@ published result changed: the hosted artefacts reproduce `source_audit.json`,
 
 The current longitudinal workflow revision has now executed successfully on `main`
 (run 40180241081: 582 tests passed, both runners, both verifiers, all steps success). That
-closes the previous "no hosted pass" gate but not scientific validity. Still open:
-`strict_all`; CI does not diff regenerated tables against `results/longitudinal/`; the
-2021/2022 documented windows overlap by 62 and 31 days without a cross-period covariance;
-`SupplyBasis` carries no source IDs or observation dates; and the archived 42-of-43
-predecessor comparison and 499 full-suite count remain unverifiable local claims.
+closes the previous "no hosted pass" gate but not scientific validity. Later engineering qualification closed `strict_all`, and PR #30 added validated
+`SupplyBasis.source_ids` and `observation_years`. CI now checks regenerated longitudinal
+tables. Still open: the 2021/2022 documented windows overlap by 62 and 31 days without
+a cross-period covariance; scientific source-to-target conditioning; and the archived
+42-of-43 predecessor comparison and 499 full-suite count remain unverifiable local claims.
 
 ## Cross-workstream synchronisation and regression contracts
 **Status: cross-interface regression checks complete; scientific conditioning remains open.**
@@ -172,3 +172,16 @@ PR #35 merged at `666dd8c` after all 15 PR checks passed. Managed graph run
 without losing any existing entry. Python remains 3.15.1, all dependency pins are
 unchanged, and security settings/checks are preserved. Receipt:
 `integration/dependency_graph_20261026.json`; guide: `docs/engineering/DEPENDENCY_GRAPH.md`.
+
+## Archival source integration — 25 October 2026
+**Status: consumer bindings reconciled; bounded observation handoff implemented, local software qualification passed; hosted pending.**
+Track: `conductor/tracks/archive_sources_20261025/`.
+Guide: `docs/ARCHIVAL_SOURCES.md`; immutable snapshot bindings: `integration/archive/`.
+Maps 43 CSL records and 18 CSV files (326 rows) into archive-govt-nz. Preserves source
+aliases, dependency groups, assumptions and extracted values. Original source bytes,
+metadata-only records, HTTP challenge pages and retrieval failures are distinct. No
+new likelihood, posterior or independent scientific qualification is claimed.
+
+The bounded source-to-observation report covers 28 rows and preserves shared-data, derived-role,
+scope, capture, product and model gaps. Guide: `docs/SOURCE_OBSERVATION_HANDOFF.md`.
+No likelihood, posterior or current-NZ empirical qualification is inferred.
