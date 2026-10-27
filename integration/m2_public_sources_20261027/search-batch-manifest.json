@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-27",
+  "batches": [
+    {
+      "batch": "B02",
+      "local_path": "outputs/engineering/m2-public-completion/search/B02.json",
+      "sha256": "8d1e871689a894784b8d37f943ffc3805c47c2076e7dd1f1369960a204bbe042",
+      "queries": 4,
+      "scope": "raw engine batch kept locally;canonical candidates and exact queries tracked;no per-query result assignment"
+    },
+    {
+      "batch": "B03",
+      "local_path": "outputs/engineering/m2-public-completion/search/B03.json",
+      "sha256": "92b08f753ef92cc4d0e0f9226034f1a4dcf531d88c01a5ee71dd173dde72f91a",
+      "queries": 4,
+      "scope": "raw engine batch kept locally;canonical candidates and exact queries tracked;no per-query result assignment"
+    },
+    {
+      "batch": "B04",
+      "local_path": "outputs/engineering/m2-public-completion/search/B04.json",
+      "sha256": "78716b183178fc1a56531e236d5465edf6fa6ceedb70f7ad5ba6df536e46aa80",
+      "queries": 4,
+      "scope": "raw engine batch kept locally;canonical candidates and exact queries tracked;no per-query result assignment"
+    },
+    {
+      "batch": "B05",
+      "local_path": "outputs/engineering/m2-public-completion/search/B05.json",
+      "sha256": "20073613d2575c8f1e1a6bc96d07944d2e609835e8321c7697d870391147137f",
+      "queries": 4,
+      "scope": "raw engine batch kept locally;canonical candidates and exact queries tracked;no per-query result assignment"
+    },
+    {
+      "batch": "B06",
+      "local_path": "outputs/engineering/m2-public-completion/search/B06.json",
+      "sha256": "1efba9796b1ee924bd9b42aac5757882f8b4ea9c81dc0996028e199bacb34059",
+      "queries": 4,
+      "scope": "raw engine batch kept locally;canonical candidates and exact queries tracked;no per-query result assignment"
+    },
+    {
+      "batch": "B07",
+      "local_path": "outputs/engineering/m2-public-completion/search/B07.json",
+      "sha256": "e417b5c89fca464450ec25531d15925075c927a9b5d79f236c18775912a4a79b",
+      "queries": 4,
+      "scope": "raw engine batch kept locally;canonical candidates and exact queries tracked;no per-query result assignment"
+    },
+    {
+      "batch": "B08",
+      "local_path": "outputs/engineering/m2-public-completion/search/B08.json",
+      "sha256": "59db4ba9bed44cf0a00cc759200a6532dd97c615ccd59ea468e642ce23777b14",
+      "queries": 4,
+      "scope": "raw engine batch kept locally;canonical candidates and exact queries tracked;no per-query result assignment"
+    },
+    {
+      "batch": "B09",
+      "local_path": "outputs/engineering/m2-public-completion/search/B09.json",
+      "sha256": "3f7219844bc39a9bf33fd465e8d5e5f7b7dfc2142d9b57d10060b0a649a7e6b4",
+      "queries": 4,
+      "scope": "raw engine batch kept locally;canonical candidates and exact queries tracked;no per-query result assignment"
+    },
+    {
+      "batch": "B10",
+      "local_path": "outputs/engineering/m2-public-completion/search/B10.json",
+      "sha256": "3636dc298bd835d84fd26fa9887eefe7b3ea451cbbec47747ff444bed87fc737",
+      "queries": 4,
+      "scope": "raw engine batch kept locally;canonical candidates and exact queries tracked;no per-query result assignment"
+    },
+    {
+      "batch": "B11",
+      "local_path": "outputs/engineering/m2-public-completion/search/B11.json",
+      "sha256": "002cd515ddb5e77a6aa4dc953156908ffb0bcb371398d9e689bc4bf28f6a29ad",
+      "queries": 4,
+      "scope": "raw engine batch kept locally;canonical candidates and exact queries tracked;no per-query result assignment"
+    },
+    {
+      "batch": "B12",
+      "local_path": "outputs/engineering/m2-public-completion/search/B12.json",
+      "sha256": "565c79aed8c773d3ee0a43bd73e3b477ad003807e4322aab54ce1d4bdb05ad08",
+      "queries": 4,
+      "scope": "raw engine batch kept locally;canonical candidates and exact queries tracked;no per-query result assignment"
+    }
+  ],
+  "initial_batch": "B01 inherited seed map,not retroactively reconstructed"
+}

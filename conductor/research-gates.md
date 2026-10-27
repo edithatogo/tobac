@@ -78,3 +78,37 @@ These supersede the earlier unadopted recommendations for preparation scope only
 [Requests](../requests/m2_20261027/README.md) are local unsent drafts. Actual contact,
 restricted access/linkage, weights, new collection, costs and Māori/custodian governance
 remain open; no evidence or policy effect is inferred from the owner's direction.
+
+## Superseding public-only direction — 27 October 2026
+
+[Public-only decision](decisions/m2_public_only_20261027.md) withdraws every request
+draft. Use public reports/publications/supplements/datasets and already-released
+OIA records only. No new OIA, author/custodian contact, application or collection.
+Older access requirements describe scientific limits, not authorised next actions.
+
+## Public-source methods and table linkage — 27 October 2026
+
+[Methods](../docs/research/M2_PUBLIC_SOURCE_METHOD.md) prescribe explicit search
+streams,screening,local capture,source IDs,extraction locators,assumption provenance
+and formula/input links. [Initial tables](../evidence/m2/public_sources_20261027/README.md)
+retain imported versus fresh extracts,missing values,shared-data groups and an
+unresolved rounded-source arithmetic discrepancy. No new model input is adopted.
+Remaining full-search,supplement,visual-review and appraisal tasks are tracked in
+`tracks/m2_public_sources_20261027/plan.md`;source indexing is not empirical acceptance.
+
+
+## Completed bounded public-source pass — 27 October 2026
+
+The [completion report](../docs/research/M2_PUBLIC_SOURCE_COMPLETION.md) supersedes
+the pending-search/supplement/appraisal statements above.48queries,208dispositions,
+six bounded citation rounds and both human-yield supplements are complete with
+explicit index/access limits. Current public metadata cannot establish full native
+reference coverage for four seeds, raw-NZ-assay calibration, a matched resident
+consumption balance or a causal600-retailer effect. Legacy unavailable extracts
+remain ineligible for numerical adoption; no model likelihood or input changed.
+
+Published Customs25-826 supplies2024/25 all-importer HTPduty,not foregone excise or
+cap resource costs. Funding/design/shared-input appraisal, rounded-factor QA and
+financial-table visual review are complete. Normative welfare/equity weights and
+substantive governance remain human choices. No contact/newOIA/access application
+is authorised or required as an active task. Bounded track archived;issue#3 stays open.

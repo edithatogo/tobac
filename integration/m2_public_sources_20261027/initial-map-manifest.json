@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-27",
+  "scope": "public-only evidence-map protocol and initial linked extraction; full systematic search incomplete",
+  "base_commit": "c20cc78b9b618262e2fc6ec2bda529dab5793b01",
+  "counts": {
+    "source_documents": 19,
+    "source_records": 17,
+    "candidate_supplements": 2,
+    "fresh_local_verified_PDFs": 6,
+    "extractions": 72,
+    "assumptions": 8,
+    "parameters": 7,
+    "queries": 4,
+    "screened_candidates": 19
+  },
+  "sha256": {
+    "evidence/m2/public_sources_20261027/assumption_table.csv": "bfadb6dfb9964ed9029c33d2e8409b86ccfacd51ff3146b15a5266ba7e35b46c",
+    "evidence/m2/public_sources_20261027/source_index.csv": "a2dfad12bd181c10b6350fa361130c31c41543322ff6dacab10160827c9d6c26",
+    "evidence/m2/public_sources_20261027/extraction_table.csv": "a0e292cbda53b51f40a4b1b3414c6748a1dfb2247cf07fb2fb4c2db1b537a90d",
+    "evidence/m2/public_sources_20261027/screening.csv": "539c6c78d6c386d93f2860e177b62c9a32a0e9abbbc27967d91ab5209a8271f7",
+    "evidence/m2/public_sources_20261027/source_table.csv": "d0c2caaada439cdd4b0fde055a74f93d71934d5c9027893aa9605b795d229fe8",
+    "evidence/m2/public_sources_20261027/parameter_table.csv": "671d7d48bd8e28e0fbe1c4693b3195acb3d1f5376d7fa9ff479a4ab9f35831a5",
+    "evidence/m2/public_sources_20261027/search_log.csv": "d1f1f5bc8595354a0cc0242305d43b5888629af5fb2b4bfb3429353995dff1b8",
+    "evidence/m2/public_sources_20261027/README.md": "b7ca3a58529a1da0780d919414f2135c1310eddddb82044662db0e86d1f8436c",
+    "docs/research/M2_PUBLIC_SOURCE_METHOD.md": "cb3366bd86180ec4481d22c2cfbab889147869b0b1b9b2694b977720f6fa02bd",
+    "integration/m2_public_sources_20261027/capture-receipt.json": "36ebcb1a4fd345018df8d7ebc4c8ea74c6b0b6230db684917a02f50880ca8cd4",
+    "integration/m2_public_sources_20261027/local-catalogue.json": "230cdc7f69244bc5f0fd9510349ce401ec28ea03a49ae40772236c071675eae7",
+    "integration/m2_public_sources_20261027/capture-config/tobac-public-evidence.yml": "645c1f914095063bf0920ff3c466c61e3a7c17700b0268da16cae86be0289452",
+    "evidence/m2/synthesis_20261027.json": "d9d8f61ebfb3ac724c9575f6499b0e7dada59c93fe115403cb62c20539f01401"
+  },
+  "local_task_script_sha256": {
+    "outputs/engineering/m2-public-source-capture/task-scripts/tobac_verify_public_captures.py": "1ff8bda04f28e36a5e599455e95c18104ed0203fb0b964a7799c60bea2d822da",
+    "outputs/engineering/m2-public-source-capture/task-scripts/tobac_public_search_log.py": "249db7e8a9cdb8be569e8784e99fe8d42bbe8cf11c63349075795f6f022baccd",
+    "outputs/engineering/m2-public-source-capture/task-scripts/tobac_build_public_tables.py": "37acab00521479fe72b09d7fb44eca89c22faccb660138369be28ea8537d4ad9",
+    "outputs/engineering/m2-public-source-capture/task-scripts/tobac_complete_public_tables.py": "b6799f230af09ca38918f2bbdba0a31155e02c50af17efbc2d8b3f713720b8e6"
+  },
+  "derivation_checks": {
+    "available_month_HTP_sum_kg": "2646.5",
+    "sum_discrepancy_kg": "0.0",
+    "historical_fee_ex_gst_nzd": "647525",
+    "historical_fee_inc_gst_nzd": "744653.75",
+    "historical_source_gap": "143238345.0",
+    "Treasury_2025_rounded_difference_check_nzd_million": "-1",
+    "Treasury_discrepancy_status": "retained_not_corrected;underlying_precision_unresolved"
+  },
+  "runtime": {
+    "repo_python": "Python 3.15.1",
+    "archive_python": "Python3.15.1_actual_version_verified",
+    "warcio": "1.8.1",
+    "pdftotext": "pdftotext version 26.10.0"
+  },
+  "native_capture_timestamps": "missing in all six WARC records;not reconstructed",
+  "capture_failure": "OUP primary page terminal_status;not captured",
+  "model_inputs_changed": false,
+  "conditioned": false,
+  "target_empirically_identified": false,
+  "outreach_or_new_OIA": false,
+  "verification": "cross-reference IDs,PDF/WARC/text hashes,WARC payload equality and Decimal arithmetic;not visual table review or empirical validity"
+}

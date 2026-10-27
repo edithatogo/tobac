@@ -1,5 +1,7 @@
 # R3 — Contingent survey metadata enquiry
 
+WITHDRAWN: public-existing-data-only direction supersedes this historical draft. Do not send.
+
 LOCAL UNSENT DRAFT; not a first-wave request. Proposed routing: NZ Ministry of Health
 survey metadata team, with Stats NZ as the documented access-route custodian.
 Individual recipient/address and sender identity remain to be selected before sending.

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "prepared_on": "2026-10-27",
   "base_commit": "443cf4d297b8f21da58fb9b3b95b87ce34678873",
-  "state": "local_unsent_drafts",
+  "state": "withdrawn_unsent_historical_drafts",
   "decisions": "conductor/decisions/m2_20261027.md",
   "send_authorized": false,
   "external_requests_sent": false,
@@ -16,7 +16,7 @@
     {
       "id": "R1",
       "path": "requests/m2_20261027/R1_wastewater.md",
-      "stage": "first_wave_prepared",
+      "stage": "withdrawn",
       "recipient": "Lisa I. Pilkington",
       "published_contact": "lisa.pilkington@auckland.ac.nz",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/41447812/",
@@ -28,7 +28,7 @@
     {
       "id": "R2",
       "path": "requests/m2_20261027/R2_human_yield.md",
-      "stage": "first_wave_prepared",
+      "stage": "withdrawn",
       "recipient": "Qiuda Zheng",
       "published_contact": "q.zheng@uq.edu.au",
       "source_url": "https://doi.org/10.1093/ntr/ntag042",
@@ -40,7 +40,7 @@
     {
       "id": "R3",
       "path": "requests/m2_20261027/R3_survey.md",
-      "stage": "contingent_prepared",
+      "stage": "withdrawn",
       "recipient": "NZHS/Stats NZ metadata custodian",
       "published_contact": null,
       "source_url": "https://www.health.govt.nz/monitoring-statistics/surveys/access-to-survey-microdata",
@@ -52,7 +52,7 @@
     {
       "id": "R4",
       "path": "requests/m2_20261027/R4_supply.md",
-      "stage": "contingent_prepared",
+      "stage": "withdrawn",
       "recipient": "MOH tobacco returns custodian",
       "published_contact": null,
       "source_url": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
@@ -63,19 +63,23 @@
     }
   ],
   "sha256": {
-    "requests/m2_20261027/R1_wastewater.md": "0cc5ac4da1fa2219c13087078fbd4cfc60e910cf2cf848af123454c2adc161b8",
-    "requests/m2_20261027/R2_human_yield.md": "5d58ac356dac9b4f0dbea01fcaa047119baae22b4056f9b698565a0c578eb83c",
-    "requests/m2_20261027/R3_survey.md": "bef86eb3ce93280bb83e2d1beed0317f697cf532c073c4203ced4fdae1dac95a",
-    "requests/m2_20261027/R4_supply.md": "b2b586cb9200fb9d151b7b5ce262a06f3254233ec41dafb0b292afc87a906673",
-    "requests/m2_20261027/README.md": "73051ff0f83b23843b8a861d24aed2eaf2c1541cd3b5dea6431d1a6f1a3fdfe4",
+    "requests/m2_20261027/R1_wastewater.md": "1c42ea5c52ff469f98a01440814bf7e00894638568fe6e3f90a1f53bffda1956",
+    "requests/m2_20261027/R2_human_yield.md": "9bfedf28d9fcd5dde065faadd22b21341d8f8ce659dae9f346f0741a66226049",
+    "requests/m2_20261027/R3_survey.md": "75bad009e91ccb5c633d54d754d81c012922b0fbd56e2be1dbda1ae370ff832d",
+    "requests/m2_20261027/R4_supply.md": "abbf295931a2cf918522b4eeab220ce608e38e10fff3ffed76839958e1000483",
+    "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",
     "requests/m2_20261027/fields.csv": "7868a8a9de1f12e443c9caf781a4d75f7efd66d4e1c4fa573f924a403fead060",
-    "conductor/decisions/m2_20261027.md": "65f9861b866d15239ef1cbc5f9827d1d76dbfbea774fc887fa42e93bbc9c742e",
-    "docs/research/M2_DECISIONS.md": "8f6d4bc75699c58112a14d36fcc115b95a81756d5091c4625bde63c9a7b6577b",
+    "conductor/decisions/m2_20261027.md": "36660cf3315ca484fa8bcb4e4f5c1a289db2ae3a904defd9d499b7dc319cb853",
+    "docs/research/M2_DECISIONS.md": "6618f863a93a3105a5633d048f6afb6cff14c89beb89fd8e079d06906b815455",
     "evidence/m2/existing_records_20261027.json": "6eb606afb9812b9dd60bc1773beb61f679680a6ddcefbba180b123c8f80a6c41",
     "evidence/prior_work/v2.9.0/requests/empirical_20261024/assay_data_request_fields.csv": "e0d903c18c39f1bb69cf9142375d36ca0bfe9eabc39d38895f9f9cc112711f2b",
     "evidence/prior_work/v2.9.0/requests/empirical_20261024/supply_data_request_fields.csv": "c3fabb3e1caec5e96c479d1e5517a4fb3a86db1e8d312953ffb285acd495279e",
     "evidence/prior_work/v2.9.0/requests/empirical_20261024/operational_action_request_fields.csv": "b1062c4521d382ece10c906848743b155b45e0136d15f97f08b8ddef1d2fa972",
     "evidence/prior_work/v2.9.0/requests/empirical_20261024/R05_ASSAY_PERFORMANCE_ADDENDUM_v2.6.0.md": "92ebf7c34c4e59cff318e124c185475b4822f215654f058a573779ebf2f68e9c"
   },
-  "verification_scope": "Prepared-file fixity and declared workflow state only; not custody, access, delivery, empirical validation or a live send-prevention control"
+  "verification_scope": "Prepared-file fixity and declared workflow state only; not custody, access, delivery, empirical validation or a live send-prevention control",
+  "withdrawn_on": "2026-10-27",
+  "superseding_decision": "conductor/decisions/m2_public_only_20261027.md",
+  "new_oia_authorized": false,
+  "public_data_only": true
 }

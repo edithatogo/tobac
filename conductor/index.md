@@ -37,4 +37,9 @@
   completed bounded evidence/method review;empirical/data/decision gates remain explicit.
 
 - [M2 selected decisions and unsent requests](./tracks/m2_record_requests_20261027/plan.md):
-  owner-selected preparation scope; issue #3 empirical acceptance remains open.
+  withdrawn by the public-only decision; none sent. Issue #3 remains open.
+
+- [M2 public-source map](./archive/m2_public_sources_20261027/plan.md):
+  methods,local capture catalogue and linked extraction/assumption/parameter tables;
+  bounded public-search/citation/supplement/source review complete with access limits;
+  issue #3 scientific gates remain open.

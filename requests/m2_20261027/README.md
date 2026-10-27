@@ -1,6 +1,12 @@
-# M2 metadata-first request package — local drafts only
+# M2 request package — WITHDRAWN historical drafts
 
-Status: UNSENT. No email, native mailbox draft, access application, shared-document
+WITHDRAWN: public-existing-data-only direction supersedes this historical draft. Do not send.
+
+Status: WITHDRAWN AND UNSENT. The owner selected public existing sources only.
+See [superseding direction](../../conductor/decisions/m2_public_only_20261027.md).
+Do not send, pursue recipients or file an OIA. The sequence below is historical.
+
+Previous preparation status: UNSENT. No email, native mailbox draft, access application, shared-document
 invitation, purchase or automated delivery has been created. Owner authorised local
 preparation and repository publication only. Files contain no received restricted data.
 [Selected directions](../../conductor/decisions/m2_20261027.md) govern scope.

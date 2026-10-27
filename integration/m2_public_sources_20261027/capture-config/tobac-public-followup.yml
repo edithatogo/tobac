@@ -1,0 +1,26 @@
+name: tobac-public-followup
+description: Bounded public-source acquisition for M2 source mapping; local preservation only.
+enabled: true
+adapters:
+- web
+schedule: manual
+rights_class: source_specific_review_required
+output_preservation_policy:
+  format: warc_and_manifest
+  compression: none
+  cas_hash_algorithm: sha256
+  retention: permanent_subject_to_rights_review
+publication_policy:
+  huggingface:
+    enabled: false
+  zenodo:
+    enabled: false
+targets:
+- https://pmc.ncbi.nlm.nih.gov/articles/instance/13389531/bin/supplementary_file_1_12nov2025_ntag042.pdf
+- https://pmc.ncbi.nlm.nih.gov/articles/instance/13389531/bin/supplementary_file_2_12nov2025_ntag042.pdf
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC13389531/pdf/ntag042.pdf
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC5343689/pdf/AJPH.2016.303612.pdf
+- https://oup.silverchair-cdn.com/article-minimal/8494659
+- https://www.treasury.govt.nz/sites/default/files/2026-05/oia-20260249.pdf
+- https://tobaccocontrol.bmj.com/content/tobaccocontrol/early/2026/03/05/tc-2025-059985.full.pdf
+- https://tobaccocontrol.bmj.com/content/tobaccocontrol/34/4/430.full.pdf

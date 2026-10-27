@@ -1,0 +1,105 @@
+{
+  "captured_count": 6,
+  "command": "capture",
+  "errors": [
+    "https://tobaccocontrol.bmj.com/content/tobaccocontrol/early/2026/03/05/tc-2025-059985.full.pdf: terminal_status",
+    "https://tobaccocontrol.bmj.com/content/tobaccocontrol/34/4/430.full.pdf: terminal_status"
+  ],
+  "failed_count": 2,
+  "note": "Adapter-based sources without activated credentials or discovery infrastructure are recorded as capability_pending and tracked by conductor track multi_source_capture_activation_20260824.",
+  "pending_adapters": [],
+  "schema_version": "archive-govt-nz.cli/v1",
+  "source_set": "tobac-public-followup",
+  "source_type": "tobac-public-followup",
+  "status": "partial",
+  "targets": [
+    {
+      "byte_count": 1817,
+      "sha256": "821514cff4e8200c35939876d4e7488839194981c43b9f6c6d9b26b12a66dd3b",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/instance/13389531/bin/supplementary_file_1_12nov2025_ntag042.pdf",
+      "warc": {
+        "byte_count": 2464,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/followup-warcs/tobac-public-followup-0.warc",
+        "record_id": "urn:uuid:282df5e5-e14a-4ea4-8913-6dca64da9c8f",
+        "sha256": "56690c2a25f20271277623ec817782082a76b932c7ad445b805163c207227a5d"
+      }
+    },
+    {
+      "byte_count": 1817,
+      "sha256": "47b523e30546ed208543c84170b5b244133f6a1f77d12858125c38114035098c",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/instance/13389531/bin/supplementary_file_2_12nov2025_ntag042.pdf",
+      "warc": {
+        "byte_count": 2464,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/followup-warcs/tobac-public-followup-1.warc",
+        "record_id": "urn:uuid:7c35f39b-bed2-4971-8fdf-01488a7e8d0e",
+        "sha256": "f5daba1561dd288dac23253c7543cd0062f2181702cdeef07b80567b5c15b53c"
+      }
+    },
+    {
+      "byte_count": 1817,
+      "sha256": "c1116ca3993bf4e78c4cd76127dfe022d965814ef020798aeafea4c419fc6c02",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13389531/pdf/ntag042.pdf",
+      "warc": {
+        "byte_count": 2427,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/followup-warcs/tobac-public-followup-2.warc",
+        "record_id": "urn:uuid:eb160f9d-6013-4f9b-af70-c9316432e342",
+        "sha256": "6f86ed85297d1aa8fd941c901a2d64b3f7ec8a1ff146bfe6ec2805a5a458094f"
+      }
+    },
+    {
+      "byte_count": 1816,
+      "sha256": "a2964f77c3b45f09d1855e519d90a0019fb2040ded395000d843242a4f238bdc",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5343689/pdf/AJPH.2016.303612.pdf",
+      "warc": {
+        "byte_count": 2434,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/followup-warcs/tobac-public-followup-3.warc",
+        "record_id": "urn:uuid:1e2a6a63-84a9-4f58-8537-557a87a493f2",
+        "sha256": "d9f41961e2b7cbe2c71484e389598879a9c5504318b050dc88497e95453f96c7"
+      }
+    },
+    {
+      "byte_count": 197645,
+      "sha256": "9840a207ebad6f16d25f11fc61d8daf3268aa41ff5e3d5eff1a908545dfc3357",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://oup.silverchair-cdn.com/article-minimal/8494659",
+      "warc": {
+        "byte_count": 198300,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/followup-warcs/tobac-public-followup-4.warc",
+        "record_id": "urn:uuid:074d6eae-2017-4392-9647-63614c7e4147",
+        "sha256": "45f2f81fb963a01c6c1e5898a3209185c2ad85f2f746dd6d77d31f5524fa9339"
+      }
+    },
+    {
+      "byte_count": 16927231,
+      "sha256": "fde8ebf98b5858e430c620a3fcc5e801f6cd05c15e8bc589af0e1414217b3ff6",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.treasury.govt.nz/sites/default/files/2026-05/oia-20260249.pdf",
+      "warc": {
+        "byte_count": 16927920,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/followup-warcs/tobac-public-followup-5.warc",
+        "record_id": "urn:uuid:a603f2f0-1390-4b9c-9490-55e7d92458eb",
+        "sha256": "08fe96f5969a20c2067960c14016078588127db57c002bf3e6a0bc0c62530735"
+      }
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://tobaccocontrol.bmj.com/content/tobaccocontrol/early/2026/03/05/tc-2025-059985.full.pdf"
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://tobaccocontrol.bmj.com/content/tobaccocontrol/34/4/430.full.pdf"
+    }
+  ]
+}
