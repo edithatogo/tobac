@@ -51,3 +51,9 @@ Published Voiage 3.0.0 remains unavailable; no upstream-release success is claim
 Current receipt: integration/voiage_polars_consumer_20261027.json. Default producer
 2.2.0+tobac3151.2 retained; unpatched candidate at 6c28ac5 is unreleased version
 2.2.0. pandas/xarray remain required. Hosted/receiving-main execution is recorded in PR #41.
+
+## M2 matched evidence pathway
+
+Status: [~] In progress; autonomous implementation and self-review authorised 27 October 2026.
+Track: `conductor/tracks/m2_matched_evidence_20261027/`. Issue #3 remains the applied
+research acceptance gate; software validation does not supply missing observations.
