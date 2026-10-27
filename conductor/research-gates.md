@@ -68,3 +68,13 @@ was accessed, request sent or empirical likelihood adopted.
 
 Owner decision options: [issue #3 decisions](../docs/research/M2_DECISIONS.md).
 Recommendations remain unadopted until the owner selects them.
+
+## Selected preparation directions — 27 October 2026
+
+[Owner decisions](decisions/m2_20261027.md) now select conditional hypothetical-cap
+research, existing-record feasibility first, wide bounds/no-study as permissible,
+separate societal/budget perspectives, no paid commitments and public aggregate output.
+These supersede the earlier unadopted recommendations for preparation scope only.
+[Requests](../requests/m2_20261027/README.md) are local unsent drafts. Actual contact,
+restricted access/linkage, weights, new collection, costs and Māori/custodian governance
+remain open; no evidence or policy effect is inferred from the owner's direction.
