@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "source_id": "HDEC_SCOPE",
+      "url": "https://ethics.health.govt.nz/hdec-reviews-and-approvals/find-out-if-your-study-requires-hdec-review/",
+      "title": "Find out if your study requires HDEC review | Health and Disability Ethics Committees",
+      "format": "HTML",
+      "object_path": "outputs/engineering/m2-publication-guidance/cas/sha256/5e/5e0a3ae146ae17fdaf869fb3a16c0e8cb90cc9e20c91b53e8b99325f558431d7",
+      "sha256": "5e0a3ae146ae17fdaf869fb3a16c0e8cb90cc9e20c91b53e8b99325f558431d7",
+      "warc_path": "outputs/engineering/m2-publication-guidance/warcs/tobac-publication-guidance-0.warc",
+      "warc_sha256": "9a8e2cc9a131e8676d471f180cfee0fd4f8ec11f320c7197d96cf2c9b02c4890",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-publication-guidance/text/0.txt",
+      "text_sha256": "6274b811f485b2a3138e8128cac0a16d01b6b9bfad3f6b328d3833b5ce16ad4f",
+      "review_date": "2026-10-28",
+      "scope": "Official source bytes/WARC verified;not an ethics determination or approval"
+    },
+    {
+      "source_id": "HDEC_FAQ",
+      "url": "https://ethics.health.govt.nz/frequently-asked-questions/",
+      "title": "General frequently asked questions | Health and Disability Ethics Committees",
+      "format": "HTML",
+      "object_path": "outputs/engineering/m2-publication-guidance/cas/sha256/5e/5e9b33462b3cf27aad109a9108b6073c3d769b73e68d192fa821dd2dde4c9847",
+      "sha256": "5e9b33462b3cf27aad109a9108b6073c3d769b73e68d192fa821dd2dde4c9847",
+      "warc_path": "outputs/engineering/m2-publication-guidance/warcs/tobac-publication-guidance-1.warc",
+      "warc_sha256": "9fdac8fa4a8866cd16de34425e9c2ed273a597cdd5980d08bde769087ae5eea3",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-publication-guidance/text/1.txt",
+      "text_sha256": "043dc5652b3e4267ec2071d183658aa188ea6d0d7256f3b239688c76c81dc5c1",
+      "review_date": "2026-10-28",
+      "scope": "Official source bytes/WARC verified;not an ethics determination or approval"
+    },
+    {
+      "source_id": "NEAC_MAORI",
+      "url": "https://neac.health.govt.nz/national-ethical-standards/part-two/3-research-and-maori/",
+      "title": "3. Research and M\u0101ori | National Ethics Advisory Committee",
+      "format": "HTML",
+      "object_path": "outputs/engineering/m2-publication-guidance/cas/sha256/5f/5fc6d054513763cd79de5c921bd70071829b8f74643e03b22949bd4ba625327d",
+      "sha256": "5fc6d054513763cd79de5c921bd70071829b8f74643e03b22949bd4ba625327d",
+      "warc_path": "outputs/engineering/m2-publication-guidance/warcs/tobac-publication-guidance-2.warc",
+      "warc_sha256": "7c98ef7a4060fe35cf5b42dfd3cc2401f8a515291154f3f20f6548c8e094c0ba",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-publication-guidance/text/2.txt",
+      "text_sha256": "50965af7c12aa8634b96e025b0345f6f613af78437886c425e12e35279478216",
+      "review_date": "2026-10-28",
+      "scope": "Official source bytes/WARC verified;not an ethics determination or approval"
+    },
+    {
+      "source_id": "CHEERS2022",
+      "url": "https://www.ispor.org/heor-resources/good-practices/cheers",
+      "title": "\r\n\tISPOR - CHEERS\r\n",
+      "format": "HTML",
+      "object_path": "outputs/engineering/m2-publication-guidance/cas/sha256/84/84764b353e18c19f9e799d7abc6ac975fd7cc8fa762624621ca7c097a2e7e48d",
+      "sha256": "84764b353e18c19f9e799d7abc6ac975fd7cc8fa762624621ca7c097a2e7e48d",
+      "warc_path": "outputs/engineering/m2-publication-guidance/warcs/tobac-publication-guidance-3.warc",
+      "warc_sha256": "696e413e94ba0e5ca478ca9e04aa79abc00fdad4ee81699214969072e1c03ba3",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-publication-guidance/text/3.txt",
+      "text_sha256": "2779f294d118c54d48d0464f5690c19aab31154a570ce4ced1cf4d1e51cf1060",
+      "review_date": "2026-10-28",
+      "scope": "Official source bytes/WARC verified;not an ethics determination or approval"
+    },
+    {
+      "source_id": "ISPOR_VALIDATION",
+      "url": "https://www.ispor.org/docs/default-source/resources/outcomes-research-guidelines-index/model_transparency_and_validation-7.pdf?sfvrsn=24168dfb_0",
+      "title": "ISPOR-SMDM Model Transparency and Validation",
+      "format": "PDF",
+      "object_path": "outputs/engineering/m2-publication-guidance/cas/sha256/61/61cceb27701209e3a94a0556271e38ec48acaaf8c481a3e35d76c851dc957235",
+      "sha256": "61cceb27701209e3a94a0556271e38ec48acaaf8c481a3e35d76c851dc957235",
+      "warc_path": "outputs/engineering/m2-publication-guidance/warcs/tobac-publication-guidance-4.warc",
+      "warc_sha256": "23eac343dd0fb517fb887e562046fbd9aa004c8364a2f7512d3e6b3ded8eebf0",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-publication-guidance/text/4.txt",
+      "text_sha256": "b37eaec5ea99def9ac1fbfa6a2bb5555f381e3e6ec021a1d89a4f2c38995d7f7",
+      "review_date": "2026-10-28",
+      "scope": "Official source bytes/WARC verified;not an ethics determination or approval"
+    }
+  ],
+  "native_date_qualification": "review date is not any missing native WARC timestamp"
+}

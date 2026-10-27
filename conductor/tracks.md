@@ -94,3 +94,10 @@ Track: `conductor/archive/m2_public_sources_20261027/`.
 Searches, citation round, published supplements, extraction and self-review complete
 with explicit access limits. See docs/research/M2_PUBLIC_SOURCE_COMPLETION.md.
 No requests or model adoption; issue #3 scientific gates remain open.
+
+## M2 conditional publication and value sensitivity
+
+**Status: [~] In progress.**
+Track: `conductor/tracks/m2_conditional_publication_20261028/`.
+
+Public-only conditional analysis and desk ethics assessment;no requests/submissions.

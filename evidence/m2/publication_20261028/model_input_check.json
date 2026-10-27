@@ -1,0 +1,15 @@
+{
+  "source_id": "SHINE_RETAIL_TABLE2",
+  "doi": "10.1136/tc-2022-057655",
+  "locator": "Table2 Retail outlet restriction;CS to former-smoker transitions;one-off net cessation paragraph",
+  "alpha": 23.4,
+  "beta": 97.2,
+  "role": "transported_published_model_input_not_observed_NZ_effect",
+  "construction": "Earlier travel-cost modelling and stated intentions;different outlet cap/horizon;equal-intensity transport assumed",
+  "current_original_sha256": "c97875c489e6759776aebf1b7d948603120c46914b13440493128ade93bcdd64",
+  "derived_text_sha256": "103b56f0f091701b98ab0cbe3d2399aed33cf22bb3526766e24aaed841cc0804",
+  "catalogue": "integration/m2_publication_20261028/model-source-catalogue.json",
+  "legacy_ledger_sha256": "42941c8fcd2aebfe7d17c429ffb41bcd6ebd4aa8960b1e61f8c6297c625d292f",
+  "independent_empirical_observation": false,
+  "review_date": "2026-10-28"
+}

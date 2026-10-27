@@ -1,4 +1,4 @@
-# M2 conditional publication analysis
+# M2 conditional publication and value sensitivity
 
 Owner authorises autonomous conditional publication analysis,value-sensitivity and
 ethics assessment,review,fixes,commit,macOS Python3.15.1 checks and guarded merge.
