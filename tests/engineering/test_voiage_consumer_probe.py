@@ -75,7 +75,7 @@ def test_probe_rejects_a_shadowed_native_module(tmp_path, monkeypatch) -> None:
     from zipfile import ZipFile  # noqa: PLC0415 -- A negative source-identity fixture, not native execution.
 
     module = load()
-    wheel = tmp_path / "fixture.whl"
+    wheel = tmp_path / "fixture wheel.whl"
     filename = "_core" + module.EXTENSION_SUFFIXES[0]
     with ZipFile(wheel, "w") as archive:
         archive.writestr("voiage/" + filename, b"negative fixture")

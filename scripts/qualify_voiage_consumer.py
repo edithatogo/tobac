@@ -9,7 +9,8 @@ import sys
 from importlib.machinery import EXTENSION_SUFFIXES
 from importlib.metadata import Distribution, distribution, version
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
+from urllib.parse import urlsplit
+from urllib.request import url2pathname
 from zipfile import ZipFile
 
 import numpy as np
@@ -70,7 +71,8 @@ def qualify(wheel: Path, expected_version: str) -> dict[str, object]:
     if (
         package.version != expected_version
         or parsed.scheme != "file"
-        or Path(unquote(parsed.path)).resolve() != wheel
+        or parsed.netloc
+        or Path(url2pathname(parsed.path)).resolve() != wheel
         or origin.get("archive_info", {}).get("hashes", {}).get("sha256", digest) != digest
     ):
         msg = "Installed distribution does not match the exact qualification wheel"

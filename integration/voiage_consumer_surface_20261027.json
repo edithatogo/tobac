@@ -15,7 +15,7 @@
     "scripts/qualify_interchange.py": "bfa3029e42224f4d4bf8f1fad24f32b4f4e0bbfc7d88e1f3fda0487d8b7a1b9a",
     "scripts/qualify_moh_workbook.py": "24590bc79acfb7f2338037634c71068fc83400158ec6b45da5e69aba0acfc43b",
     "scripts/qualify_recovery.py": "d3c77f288a4536c35eff7e74d100045c7bd0aa50612ef45ea1d0b0bb47624040",
-    "scripts/qualify_voiage_consumer.py": "0dd093642396e6a5d92742bd773b6883e67e0c39749acd793603336912c8ac43",
+    "scripts/qualify_voiage_consumer.py": "d369b3ccfa867c0096c2bde0641ba93ba684100c7e31ff52efda5b1a81b9077a",
     "scripts/reconcile_products_2025.py": "1ecd1a61744461bbfa1b0bba337e9b1c67287181b90514d3d8ac5b1384175bbd",
     "scripts/run_bounded.py": "629c2aedfc2a747f95a0b9669798fef838bf2f9b12926a30ff1f7ab6cd654bcd",
     "scripts/run_empirical_longitudinal.py": "8438f919585e359701751445370fb0ccd8019e48f2c03d7d3ba5afc3f3e6a14c",
@@ -75,7 +75,7 @@
     "tests/engineering/test_scipy_supply.py": "3ff27281965fa411d1a17f6b9df061f3a192d1d97ba4102769bcd9dc0c75d8e2",
     "tests/engineering/test_security_findings.py": "eff23d44c64b79d4790c531278de0b828f4be8a7672a2c83e1534003ec87ee77",
     "tests/engineering/test_source_handoff.py": "6de8954293b66380bff3da26dd20f7095974ea90cbae9c88c90740e0040f82a4",
-    "tests/engineering/test_voiage_consumer_probe.py": "9ed3967e46d6740a7c4ec7b781e53218fa8f6c6b3a3344eda8fb9a3e4105716f",
+    "tests/engineering/test_voiage_consumer_probe.py": "8a3fee9cc8b59d2d48d5af9199cbd914625ced5f81ea243a4b2018bf67f514b2",
     "tests/engineering/test_voiage_consumer_surface.py": "0427a02e7ac69cefb3b352277cd2726bd5eb0b946cd859dfc35b918adefc1e41",
     "tests/engineering/test_voiage_installed.py": "5c063783e3905d2ac78f608ec3250a8aeabe0005d7ff215ad782a9125d71e951"
   },
@@ -132,7 +132,7 @@
   "literal_dynamic_imports": [
     {
       "path": "scripts/qualify_voiage_consumer.py",
-      "line": 79,
+      "line": 81,
       "module": "voiage._core"
     },
     {
