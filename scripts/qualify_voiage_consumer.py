@@ -81,6 +81,14 @@ def qualify(wheel: Path, expected_version: str) -> dict[str, object]:
     if not binary.is_file() or not str(binary).endswith(tuple(EXTENSION_SUFFIXES)):
         msg = "Actual Voiage native extension did not load"
         raise RuntimeError(msg)
+    native_member = "voiage/" + binary.name
+    with ZipFile(wheel) as archive:
+        if (
+            native_member not in archive.namelist()
+            or binary.resolve() != Path(str(package.locate_file(native_member))).resolve()
+        ):
+            msg = "Loaded native extension is outside the verified wheel"
+            raise RuntimeError(msg)
     rng = np.random.default_rng(931)
     differences: list[float] = []
     for states, actions in [(2, 2), (5, 3), (17, 4)]:
@@ -119,6 +127,7 @@ def qualify(wheel: Path, expected_version: str) -> dict[str, object]:
         "installed_wheel_members_verified": checked,
         "voiage_version": package.version,
         "requires_dist": package.requires,
+        "native_member": native_member,
         "native_binary_sha256": hashlib.sha256(binary.read_bytes()).hexdigest(),
         "cases": len(differences),
         "maximum_absolute_difference": max(differences),

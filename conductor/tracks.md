@@ -10,14 +10,14 @@ qualified the ecosystem, evidence interchange and Polars 2 boundary. PR #49 qual
 Renovate profile discovery and four-profile lock candidates. [PR #51](https://github.com/edithatogo/tobac/pull/51)
 merged at `b012758` with all 15 executable PR checks and all 13 receiving-main jobs
 passing, including macOS Python 3.15.1, signed artifacts and native graph readback.
-Ruff covers 108 maintained Python files; formatting, five exact preview rules,
+Ruff covers 112 maintained Python files; formatting, five exact preview rules,
 process-group resource budgets and two-worker mutation are enforced.
 
 The only unchecked track task is the upstream managed parser's Python 3.15 support
 ([dependabot-core #16524](https://github.com/dependabot/dependabot-core/issues/16524)).
 Supported dependency submission and graph readback pass; the failed managed parser
 is not hidden or marked successful. [Draft PR #41](https://github.com/edithatogo/tobac/pull/41)
-remains separate planning for future Voiage producer qualification.
+implements separate exact-candidate qualification; published-3.0 acceptance remains open.
 
 [PR #50](https://github.com/edithatogo/tobac/pull/50) qualifies Hypothesis 6.170.9:
 all four source-bound locks are regenerated, with complete ecosystem input binding.
@@ -44,6 +44,10 @@ mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remai
 
 ## Voiage Polars consumer qualification
 
-Status: implementation authorised 27 October 2026; macOS baseline/candidate
-qualification in progress. Track: `conductor/tracks/voiage_polars_qualification_20261026/`.
+Status: bounded macOS baseline/candidate implementation complete; published-3.0
+acceptance blocked externally. Track: `conductor/tracks/voiage_polars_qualification_20261026/`.
 Published Voiage 3.0.0 remains unavailable; no upstream-release success is claimed.
+
+Current receipt: integration/voiage_polars_consumer_20261027.json. Default producer
+2.2.0+tobac3151.2 retained; unpatched candidate at 6c28ac5 is unreleased version
+2.2.0. pandas/xarray remain required. Hosted/receiving-main execution is recorded in PR #41.

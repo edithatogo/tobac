@@ -2,11 +2,15 @@
   "track_id": "voiage_polars_qualification_20261026",
   "title": "Voiage 3.0.0 Polars consumer qualification",
   "status": "in_progress",
-  "description": "Bounded tobac consumer qualification for Voiage's removal of the xarray contract. Planning registration only; no runtime, dependency or scientific claim is made.",
+  "description": "Owner-authorised macOS baseline and exact unreleased candidate qualification; published-3.0 gate retained",
   "base_commit": "f55edb1b3aecdfc2c8afc243b8659e69614b2f13",
   "voiage_base": "ca3f05cc8adcc74b99fe236152327d0cd3679553",
   "source_date": "2026-10-26",
-  "owned_paths": [],
+  "owned_paths": [
+    "scripts/voiage_consumer_surface.py",
+    "scripts/qualify_voiage_consumer.py",
+    "engineering/voiage-polars-candidate.json"
+  ],
   "planned_paths": [
     "integration/",
     "engineering/voiage.in",
@@ -36,5 +40,20 @@
     "scope": "Review and complete remaining macOS qualification, refresh Conductor, commit, verify and merge; no release publication or upstream mutation",
     "source": "Direct owner request 27 October 2026"
   },
-  "external_gate": "Published unpatched Voiage 3.0.0 absent from PyPI/GitHub releases at discovery"
+  "external_gate": "Published unpatched Voiage 3.0.0 absent from PyPI/GitHub releases at discovery",
+  "candidate": {
+    "repository": "https://github.com/edithatogo/voiage.git",
+    "revision": "6c28ac5787dbe261dfc918eb941c0f8e65c75f4d",
+    "expected_version": "2.2.0",
+    "upstream_pull_request": 1202,
+    "kind": "unreleased unpatched Polars-container candidate; not published Voiage 3.0.0",
+    "requires_python": "3.15.1",
+    "release_gate": "Published 3.0.0 remains unavailable; no upstream release or default-producer promotion"
+  },
+  "owner_scope_decision": "Qualify candidate and retain release gate; direct reply 27 October 2026",
+  "updated_at": "2026-10-27",
+  "implementation_state": "macos_exact_candidate_complete_published_3_release_gate_open",
+  "verification": "integration/voiage_polars_consumer_20261027.json",
+  "review": "docs/reviews/2026-10-27-voiage-pr41.md",
+  "publication": "Exact-head and receiving-main native results maintained in https://github.com/edithatogo/tobac/pull/41"
 }

@@ -750,6 +750,7 @@ def voiage_polars_candidate(session: nox.Session) -> None:
         "tests/test_workstream_integration.py",
         "tests/m3/test_research.py",
         "tests/engineering/test_voiage_consumer_surface.py",
+        "tests/engineering/test_voiage_consumer_probe.py",
     )
     surface = session.run("python", "scripts/voiage_consumer_surface.py", silent=True)
     if not isinstance(surface, str):
@@ -772,4 +773,4 @@ def voiage_polars_candidate(session: nox.Session) -> None:
     (destination / "build.json").write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
     shutil.copyfile(wheel, destination / wheel.name)
     shutil.rmtree(source)
-    shutil.rmtree(run / "cargo-target", ignore_errors=True)
+    shutil.rmtree(run / "cargo-target")

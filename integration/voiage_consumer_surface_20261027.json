@@ -1,0 +1,146 @@
+{
+  "schema": "tobac.voiage-consumer-surface.v1",
+  "files": {
+    "scripts/actions_diagnostics.py": "df733b0bacccf119c9eb915600ee14a3ede9012492f19a29f13ea4a27ab25520",
+    "scripts/check_conductor_track_names.py": "c6e6f8b634cfd323533560db5dc73432959792d95a7234f0b38a5f50b7941368",
+    "scripts/check_longitudinal_results.py": "88ffa20bbe5c36de0f9b3f945f4dfa09b376246024f7506403f02ff3097d5fdd",
+    "scripts/check_mutation_score.py": "5eec7f20038b5babb715ef14c091e3a487f8c8b7d3f98f6933b329cd2917e14f",
+    "scripts/check_security_findings.py": "e673deed326358bc0342fdf3bfb0ddd3c277e741f2dfd736246c401af185fdb6",
+    "scripts/context_bundle.py": "df3010aca94a6bf6297800671b05412f5385e3ce92f9e4d9ffbef4158b0c4a12",
+    "scripts/dependency_snapshot.py": "dafbca7ca3944c5bb079807bacd349c20aad16180eff083720485ef47eef02c6",
+    "scripts/lock_receipt.py": "d6e8c15b5696417ecf89c13d1c4eb3053f71826fd5e6cd9fbcba4263af68d147",
+    "scripts/qualify_clean_package.py": "f2ee6f1c2e22052be16393de0d671f1fc407dbab7943e8df6f0037cdb8e20284",
+    "scripts/qualify_ecosystem.py": "93fad5e52d57b5324076a7e89c5f184efc4b3c6517628929bc4ad9c7a79525a5",
+    "scripts/qualify_integrations.py": "4563ef76cdfc98d925ee59ed062e45e0e0d272ed739c304b680a65c22fc88a4a",
+    "scripts/qualify_interchange.py": "bfa3029e42224f4d4bf8f1fad24f32b4f4e0bbfc7d88e1f3fda0487d8b7a1b9a",
+    "scripts/qualify_moh_workbook.py": "24590bc79acfb7f2338037634c71068fc83400158ec6b45da5e69aba0acfc43b",
+    "scripts/qualify_recovery.py": "d3c77f288a4536c35eff7e74d100045c7bd0aa50612ef45ea1d0b0bb47624040",
+    "scripts/qualify_voiage_consumer.py": "0dd093642396e6a5d92742bd773b6883e67e0c39749acd793603336912c8ac43",
+    "scripts/reconcile_products_2025.py": "1ecd1a61744461bbfa1b0bba337e9b1c67287181b90514d3d8ac5b1384175bbd",
+    "scripts/run_bounded.py": "629c2aedfc2a747f95a0b9669798fef838bf2f9b12926a30ff1f7ab6cd654bcd",
+    "scripts/run_empirical_longitudinal.py": "8438f919585e359701751445370fb0ccd8019e48f2c03d7d3ba5afc3f3e6a14c",
+    "scripts/run_release_calibration.py": "7a28e90ff17ecdf6604d24009b203ea25836d4fb42b80eac7c488a5b14d3185b",
+    "scripts/source_handoff.py": "82db25625391f191164892e82c20a23110e09749d21c34285cdf8723f57309b8",
+    "scripts/unpack_m3_results.py": "6e54cf9494f73c5c37dec9d2dff5090cacc82947184cb824dac867058325b9dd",
+    "scripts/verify.py": "7fc555a88945abbc42d5c32043aa3b6bd67b9f8c377d22a54c1700c9edf25c10",
+    "scripts/verify_empirical_longitudinal.py": "d0d1d67a24bbfa82fd0a79c8a46685aa0ef32a512ced21365a06686ce8f37a70",
+    "scripts/verify_prior_work.py": "ee3881532f3e54accc5d4373f6c313d03ad5fab62d7a4e007b7587776adf82cd",
+    "scripts/verify_product_assets.py": "cb16c32614ccb6f5d601bf68f4aab1463c559cabfa2e55f200a8d7b1b77859e9",
+    "scripts/verify_release_calibration.py": "0591938b15a821bb0f3367ae02ad135f2d528bbac7ac230ec4454a399b388ae5",
+    "scripts/voiage_consumer_surface.py": "4b0f6e2fe153031db13466a045f6a247e322f5aa74097c85d24a1e5979071241",
+    "src/tobac/__init__.py": "438a1124a46dfc7a91b5424c8127a8ead3e01c0f34e45740a1238429aa54f94f",
+    "src/tobac/_core.py": "c2dae2df9d91d5143d7ffe5926fcc410f65fbfc6933a8e5bdabf3c8b61c5bcee",
+    "src/tobac/_typing.py": "ec3ebd6c74b4b7dbeed64c668984e432fa5366ab9ebadee07c597f4b6270ec2f",
+    "src/tobac/backend.py": "29fbd4523810e76d59aa9ccc0df35acf76dfc5db5077ba48a8f4b20bbe9074dc",
+    "src/tobac/config_validation.py": "1f9b31118eb2b45c1ff084bb84384fdd1fafc330e603457772b4a586d01f7fe8",
+    "src/tobac/evidence.py": "88dd31c846b88b547b9db5418565a1b78325c42074862aa6a6ae268017501602",
+    "src/tobac/information.py": "40a8bdc98768de8d721f6c8aef2a7a842cecbb219e8887916d963e401237e29f",
+    "src/tobac/integrations.py": "4a40996b1186fc4bf057797af0facffaeaf107a6d2e21cca94fa4d5e1372209c",
+    "src/tobac/interchange.py": "e479d5f36e7deec849e8dc796c693af47ef2830b3aa9adb027a162b0380289b3",
+    "src/tobac/m2.py": "269a3e302bcdf833deab9ec1e73bffe7a8d1f79601836eeed1978b6c69b8401f",
+    "src/tobac/parameters.py": "58180da80bc9087a816f9058dd9e9c960059d27b8eb28ef475b6ee7dd9409d56",
+    "src/tobac/regulation.py": "a1d361e300df331bb10810100f1e153f1f6faf4d8de4e5824b3702bc9fc517e5",
+    "src/tobac/replay.py": "19fac6aa53a3233f69837ad0c1d77d7909cfe6c1c0a7e5a787e0cc50e59a505c",
+    "src/tobac/research/__init__.py": "82c9f7c23f3f260b62ba6bb1b5065dbccee5509b09cbd92505803412e7c976dd",
+    "src/tobac/research/implementation.py": "a899abdcb222ae696fab116e8a774735692da6743e1b80a070cef8ee4d8cce0d",
+    "src/tobac/research/portfolio.py": "e054aaebeb09824bb305408b5defd79695398c4fd1d26c60f5719da7c0316c3d",
+    "src/tobac/research/qualification.py": "ecbd0956f8fc6bba386e24d2abf23269e615fd076d9c9c2c76b76f3d2e29239f",
+    "src/tobac/research/robust.py": "42cef714d35a3f28fa4ca006d91d13de84456ef938c5ed863c3566af9bc14275",
+    "src/tobac/research/runner.py": "b7979d3d4e6174ac7332c6e6d3b1c25c5371b3a0fe41d9a6b483dc6f0dbd0516",
+    "src/tobac/research/staged.py": "d6d2ca4ba7637d6401c110a4e27e8c896dd2c001b545a00d88fa02875b667ee6",
+    "src/tobac/research/structure.py": "add80ead9c7f07c4fa9230bf9a000f277c770631a52266f42eb74fc3d57b2ddf",
+    "src/tobac/research/voiage_adapter.py": "3020eca14c74d7dafb228385e37debddd4a517688b04095074aaeb5aee9eb8df",
+    "src/tobac/retail_case.py": "248ec4ed391440ce8277f4e31dc30ace0586cc30ab1ac8ced524b1dae8558ff5",
+    "src/tobac/run.py": "e741b366c649a27ef9ed59ac3cf3b8cb842f4fed3ad0a7f6dd3cf750055ea020",
+    "src/tobac/supply.py": "45261897fd11636492186c070fc6b0a77caf7dae3d9345ef2dec495ca169acfb",
+    "tests/engineering/test_actions_diagnostics.py": "a33cffee83fa86701a4ccaa20b5f49a5de5a5a6c15e8608ed53d22104c317b0a",
+    "tests/engineering/test_archive_bindings.py": "c8a795dd6240a71c9d839a1325d70e2a784d271248d0465ef5eedf13969cc334",
+    "tests/engineering/test_backend_contract.py": "23f9469f2e03b917f8b5ea501981f71f217ff5ab348c65557a00f20732451127",
+    "tests/engineering/test_conductor_archive.py": "1361499a3d542089108e9918a0b910043a487ead07cb66d9da0e98a6d055b921",
+    "tests/engineering/test_context_bundle.py": "ef9453d7a0d2aa6f02426a4d1ef40dfeb934b89a5622eda724c915569e02d997",
+    "tests/engineering/test_core_maintenance.py": "97f87199e14287f084d7f102419a470f09e3afae77f0fa09487b992f056970c6",
+    "tests/engineering/test_dependency_graph_manifests.py": "a2adef9d8179054bae3f2b00f579cea7b462b900f9291ccff5cb10950827e7b6",
+    "tests/engineering/test_dependency_snapshot.py": "d883d29abe95204bb98da06b44e60b57953f6e7789f5631cf7fab3911ddee27a",
+    "tests/engineering/test_ecosystem_contracts.py": "65571ee893cefb356acba1833f76850e9c5ab1417cbbde7eb36a836dd1304f50",
+    "tests/engineering/test_evidence_interchange.py": "8f3614866ae10be6680a072aa9b7cbd0ee3673efbec9587168c885afcce08db1",
+    "tests/engineering/test_execution_contracts.py": "af3d0d827035fdc637304d122c9e4f365509fc7fb564cfbbd5c50a9deba803c5",
+    "tests/engineering/test_harness_contract.py": "1f1f16d6e97bfa1922437dde77bfcb59169428c2a3a4ff22ebcefb1d94d30f9f",
+    "tests/engineering/test_lock_receipts.py": "4d606177ca86076107ba21e5ac98dc6b519b94d667c5b11923eea78929cb0d65",
+    "tests/engineering/test_moh_qualification.py": "a1c9dc5ada23a053ca6a2f953a35bab13fc71d4cef260df0dabe1005a8588777",
+    "tests/engineering/test_mutation_gate.py": "9d612dbaeea6b7b1f7b9e2dbaeb99bbf5ac2e678c3d88cff06159e7129b2bc7b",
+    "tests/engineering/test_product_reconciliation.py": "6ba9cb45f18109704d5baf5dd302f46cd44a7d85b119016fbe95919cc7318489",
+    "tests/engineering/test_properties.py": "8f88672ee965c0a1be4ff53c769a2de0844bf6b58e23352ffa04b237023b48ef",
+    "tests/engineering/test_resource_guard.py": "86ab22e09f0319b858328bed261a58af5f78f762dd430fefab3bd00f3fee4d6f",
+    "tests/engineering/test_ruff_policy.py": "959895ac90cc62404c5899116e6fa505fc7ef99cf7fff16ab14f854ecf8c39ed",
+    "tests/engineering/test_scipy_supply.py": "3ff27281965fa411d1a17f6b9df061f3a192d1d97ba4102769bcd9dc0c75d8e2",
+    "tests/engineering/test_security_findings.py": "eff23d44c64b79d4790c531278de0b828f4be8a7672a2c83e1534003ec87ee77",
+    "tests/engineering/test_source_handoff.py": "6de8954293b66380bff3da26dd20f7095974ea90cbae9c88c90740e0040f82a4",
+    "tests/engineering/test_voiage_consumer_probe.py": "9ed3967e46d6740a7c4ec7b781e53218fa8f6c6b3a3344eda8fb9a3e4105716f",
+    "tests/engineering/test_voiage_consumer_surface.py": "0427a02e7ac69cefb3b352277cd2726bd5eb0b946cd859dfc35b918adefc1e41",
+    "tests/engineering/test_voiage_installed.py": "5c063783e3905d2ac78f608ec3250a8aeabe0005d7ff215ad782a9125d71e951"
+  },
+  "voiage_imports": [
+    {
+      "path": "scripts/qualify_integrations.py",
+      "line": 179,
+      "module": "voiage.analysis",
+      "names": [
+        "DecisionAnalysis"
+      ]
+    },
+    {
+      "path": "scripts/qualify_integrations.py",
+      "line": 180,
+      "module": "voiage.schema",
+      "names": [
+        "ValueArray"
+      ]
+    },
+    {
+      "path": "src/tobac/integrations.py",
+      "line": 10,
+      "module": "voiage.analysis",
+      "names": [
+        "DecisionAnalysis"
+      ]
+    },
+    {
+      "path": "src/tobac/integrations.py",
+      "line": 11,
+      "module": "voiage.schema",
+      "names": [
+        "ValueArray"
+      ]
+    },
+    {
+      "path": "src/tobac/research/voiage_adapter.py",
+      "line": 66,
+      "module": "voiage.methods.basic",
+      "names": [
+        "evpi"
+      ]
+    },
+    {
+      "path": "tests/engineering/test_voiage_installed.py",
+      "line": 36,
+      "module": "voiage.schema",
+      "names": [
+        "ValueArray"
+      ]
+    }
+  ],
+  "literal_dynamic_imports": [
+    {
+      "path": "scripts/qualify_voiage_consumer.py",
+      "line": 79,
+      "module": "voiage._core"
+    },
+    {
+      "path": "src/tobac/backend.py",
+      "line": 34,
+      "module": "voiage.main_backends"
+    }
+  ],
+  "removed_symbol_references": 0,
+  "scope": "Static consumer surface only; not installed wheel, dependency or scientific qualification"
+}

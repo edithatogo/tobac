@@ -2,7 +2,12 @@
 
 Qualify tobac as a consumer of Voiage when Voiage removes its xarray-backed contract and drops pandas. This track owns the qualification record and the dependency base only. It does not port tobac's longitudinal runners to Polars, and it claims no empirical, calibration or commissioning result.
 
-The Voiage-side programme is planning-only at `ca3f05cc`: a v3 contract revision, the container replacement, pandas-free I/O and packaging, and a translation reference. Nothing there is implemented. This track therefore records prerequisites, not outcomes.
+The owner authorised implementation on 27 October 2026 and explicitly selected
+qualification of the exact unreleased Polars candidate from upstream PR #1202,
+with published-3.0 acceptance retained as an open external gate. The candidate
+is pinned at 6c28ac5787dbe261dfc918eb941c0f8e65c75f4d and declares distribution
+version 2.2.0; it is not a published 3.0.0 release. No upstream merge or release
+is authorised or performed here.
 
 ## Measured surface
 
@@ -13,7 +18,12 @@ tobac's dependence on Voiage is narrow and was checked rather than assumed:
 - `tests/engineering/test_voiage_installed.py` imports `voiage._core` and `ValueArray` to prove the native extension loads on 3.15.1.
 - There is no `.dataset`, `.to_dataset`, `.from_dataset`, `xarray` or `xr.` reference anywhere in `src/tobac`.
 
-The currently qualified build is not upstream 2.2.0. It is a metadata-only compatibility build, `voiage-2.2.0+tobac3151.1`, derived from upstream revision `7af563c8` with patch `ecdc9b1d`, wheel `25a6d95d`, recorded in `integration/voiage_python315_compatibility_20261026.json`. Its resolved environment contains `pandas==3.0.6` and `xarray==2026.9.0` because the patch relaxed metadata bounds; upstream 2.2.0 declares `pandas>=1.3,<3.0` and `xarray>=0.19,<2025.0`.
+The default qualified producer remains the metadata-only compatibility build
+2.2.0+tobac3151.2, from upstream 7af563c8 with wheel SHA-256
+dc3230ceaa66292a87d021984c210dba3ef470feef951c660e9f4c2be699eb42.
+Its receipt is integration/voiage_polars2_compatibility_20261027.json.
+Polars 2.1.0 is qualified as a transport dependency for the candidate's floor;
+NumPy/SciPy scientific pins and the current producer selection remain unchanged.
 
 ## Acceptance criteria
 
@@ -23,11 +33,21 @@ Acceptance: the inventory above is re-derived by command at the qualification re
 
 ### AC2: Baseline re-qualification
 
-Acceptance: the current `2.2.0+tobac3151.1` build executes the installed Voiage probe and the EVPI parity check with the recorded tolerances; the receipt states the wheel hash, interpreter, platform and exact command.
+Acceptance: the current `2.2.0+tobac3151.2` build executes the installed Voiage probe and the EVPI parity check with the recorded tolerances; the receipt states the wheel hash, interpreter, platform and exact command.
 
 ### AC3: Candidate qualification
 
 Acceptance: when Voiage 3.0.0 is published, the unpatched upstream wheel is installed and the same probe and parity check run. If 3.0.0 is unpublished, the task is recorded as unexecuted and no success is claimed; a patched build is not presented as upstream qualification.
+
+### AC3c: Exact unreleased macOS candidate (owner-selected scope)
+
+Build the immutable unpatched candidate under Python 3.15.1, enforce locked
+dependency and wheel hashes without dependency bypass, prove installed member
+bytes match the built wheel, load the real native extension and execute the same
+consumer APIs and independent EVPI/finite-partition references at 1e-10. Retain
+the default producer and record current pandas/xarray metadata. Add hosted macOS
+execution with existing resource, timeout and security controls. This bounded
+implementation can merge while AC3 remains explicitly unexecuted.
 
 ### AC4: Patch disposition
 

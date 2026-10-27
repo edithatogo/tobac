@@ -26,3 +26,5 @@
 ## Active implementation
 
 - [Scientific ecosystem modernisation](./tracks/scientific_ecosystem_20261025/index.md): autonomous implementation and review authorised 26 October 2026.
+
+- [Voiage Polars consumer qualification](./tracks/voiage_polars_qualification_20261026/plan.md): exact unreleased macOS candidate authorised 27 October; published-3.0 gate retained.

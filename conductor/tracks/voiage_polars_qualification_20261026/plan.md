@@ -1,38 +1,38 @@
-# Implementation plan: Voiage 3.0.0 Polars consumer qualification
+# Voiage Polars consumer qualification
 
-All tasks are pending. Planning registration only; implementation is not authorised. Prerequisite: the Voiage tracks are registered but unimplemented, so AC3 cannot start until Voiage 3.0.0 is published.
+Owner-authorised implementation and exact unreleased-candidate acceptance:
+27 October 2026. Published 3.0 acceptance remains an external gate. Baseline is
+2.2.0+tobac3151.2; the unpatched candidate is PR #1202 at immutable 6c28ac5,
+whose distribution version is 2.2.0.
 
-## Phase 1: Surface freeze
+## Completed macOS implementation
 
-- [ ] T1.1 — Freeze the qualification revision `f55edb1b`, the derivation command and the expected output for AC1.
-- [ ] T1.2 — Re-derive the Voiage surface in `src/tobac`, `scripts/` and `tests/engineering/`, and assert that no removed symbol (`dataset`, `to_dataset`, `from_dataset`) is referenced. (AC1).
-- [ ] T1.3 — Validate: the inventory matches the recorded digest; the assertion fails if a removed symbol is introduced; record command and exit status. (AC1).
+- [x] Reconcile the original PR with current main, preserving both histories.
+- [x] Implement a hash-bound AST surface inventory and rejection fixtures for removed
+  symbols; the scan is static and is not proof against arbitrary dynamic lookup.
+- [x] Requalify the current baseline: 97 native ecosystem cases pass under Python 3.15.1.
+- [x] Add an opt-in immutable candidate build, real native load, exact installed-wheel
+  byte checks and independent uniform/weighted/finite-partition EVPI comparisons.
+- [x] Resolve candidate metadata against genuine source-bound locks with Polars 2.1.0;
+  scientific NumPy/SciPy pins and parity tolerances remain unchanged.
+- [x] Preserve the default compatibility producer and pandas/xarray dependencies.
+- [x] Add hosted macOS qualification with 4 GiB/time budgets, two build workers,
+  pinned Actions and unchanged existing required checks.
+- [x] Complete local verification: 923 passed/five capability skips, 92% coverage;
+  97 baseline and 69 candidate component tests, 90 API comparisons per wheel;
+  all eleven Nox sessions pass. Record exact source/wheel/commands and self-review.
 
-## Phase 2: Baseline re-qualification
+Publication through guarded PR #41 requires every exact-head check and the new
+macOS candidate job; receiving-main proof is maintained in that PR. Receipt:
+integration/voiage_polars_consumer_20261027.json.
 
-- [ ] T2.1 — Freeze the current wheel hash, interpreter, platform and the exact probe and parity commands.
-- [ ] T2.2 — Execute the installed Voiage probe and the EVPI parity check on `2.2.0+tobac3151.1`. (AC2).
-- [ ] T2.3 — Validate: the receipt records the wheel hash, environment, command, exit status and observed parity; no tolerance is changed to obtain a pass. (AC2).
+## External published-release gate — blocked
 
-## Phase 3: Candidate qualification
+- [ ] Qualify an unpatched published Voiage 3.0.0 wheel when it exists (AC3).
+- [ ] Decide patch retirement and the 3.0 dependency base from that release's actual
+  metadata (AC4/AC5); do not substitute the unreleased candidate's version or metadata.
+- [ ] Close/archive the entire track only when published-release acceptance is executed.
 
-- [ ] T3.1 — Record whether Voiage 3.0.0 is published; if not, mark the phase blocked rather than pending success.
-- [ ] T3.2 — Install the unpatched upstream 3.0.0 wheel and run the same probe and parity check. (AC3).
-- [ ] T3.3 — Validate: the receipt proves the unpatched wheel was used; a patched build is labelled as such and is not presented as upstream qualification. (AC3).
-
-## Phase 4: Patch and dependency base
-
-- [ ] T4.1 — Compare Voiage 3.0.0 declared metadata with the current patch's reason for existing; state whether the patch is still required.
-- [ ] T4.2 — Retire or retain the metadata-only patch explicitly, and record whether `pandas` remains in tobac's declared set. (AC4, AC5).
-- [ ] T4.3 — Validate: the lock receipt is regenerated and reviewed, not hand-edited; no pin is loosened without a recorded reason; the patch decision is evidenced. (AC5).
-
-## Phase 5: Parity and boundary
-
-- [ ] T5.1 — Confirm the `1e-10` tolerances and the reference calculation are unchanged.
-- [ ] T5.2 — Run affected component tests and `tests/test_workstream_integration.py`; confirm no scientific or release claim was introduced. (AC6, AC7).
-- [ ] T5.3 — Validate: the receipt states exactly what executed and what did not; no hosted job is marked passed unless it ran; no Voiage issue, release or visibility changed. (AC6, AC7).
-
-## Final acceptance
-
-- [ ] CLOSE.1 — Review every AC against the exact tested wheel and revision; list unexecuted external gates explicitly.
-- [ ] CLOSE.2 — Record the outcome in `integration/` and update this track's metadata; do not mark complete while AC3 is unexecuted.
+The owner explicitly accepted merging the bounded macOS candidate qualification
+while retaining these release gates. No upstream merge/release, pandas-free claim,
+generic EVSI qualification or empirical/scientific acceptance is implied.

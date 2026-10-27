@@ -69,3 +69,31 @@ def test_probe_checks_installed_member_bytes_even_without_installer_archive_hash
     member.write_text("value = 2\n")
     with pytest.raises(RuntimeError, match="Installed wheel member differs"):
         module.verify_installed_files(wheel, package)
+
+
+def test_probe_rejects_a_shadowed_native_module(tmp_path, monkeypatch) -> None:
+    from zipfile import ZipFile  # noqa: PLC0415 -- A negative source-identity fixture, not native execution.
+
+    module = load()
+    wheel = tmp_path / "fixture.whl"
+    filename = "_core" + module.EXTENSION_SUFFIXES[0]
+    with ZipFile(wheel, "w") as archive:
+        archive.writestr("voiage/" + filename, b"negative fixture")
+    installed = tmp_path / "installed"
+    member = installed / "voiage" / filename
+    member.parent.mkdir(parents=True)
+    member.write_bytes(b"negative fixture")
+    shadow = tmp_path / filename
+    shadow.write_bytes(b"negative fixture")
+    origin = {"url": wheel.as_uri(), "archive_info": {}}
+    package = types.SimpleNamespace(
+        version="2.2.0",
+        read_text=lambda _name: json.dumps(origin),
+        locate_file=lambda name: installed / name,
+    )
+    monkeypatch.setattr(module, "distribution", lambda _name: package)
+    monkeypatch.setattr(
+        module.importlib, "import_module", lambda _name: types.SimpleNamespace(__file__=str(shadow))
+    )
+    with pytest.raises(RuntimeError, match="outside the verified wheel"):
+        module.qualify(wheel, "2.2.0")
