@@ -43,3 +43,10 @@ clarification, genuinely new measurements only if necessary, and substantive
 human decisions. Historical national-release prediction is already executable;
 prospective raw-assay/cap-effect validation remains an empirical requirement.
 No-data policy-response bounds remain the declared full structural supports.
+
+Final bounded source/method receipt: integration/m2_evidence_synthesis_20261027.json.
+Source 2022 gap arithmetic and an official historical package-cost benchmark are
+reviewed;neither supplies current target illicit volume or a new policy/study cost.
+Reserved release diagnostics covered 5/9 model-year intervals over 3 distinct years;
+this does not establish 95% coverage or target-policy validity. No-data q,d supports
+remain [0,1] under the declared M2a structure,not uniform priors.

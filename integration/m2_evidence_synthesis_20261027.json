@@ -1,0 +1,366 @@
+{
+  "schema_version": "tobac.m2-synthesis-qualification.v1",
+  "date": "2026-10-27",
+  "baseline": "d12f3d093cbf69dc60a6c5e47c557a410c437204",
+  "implementation_commit": "c8af5c199123aed5096b4f0565833fde842430ce",
+  "initial_implementation_commit": "366f37b26f0988f48280d3644c20061c1e754c45",
+  "platform": "macOS arm64",
+  "python": "3.15.1",
+  "command": ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python .nox/tests/bin/python --from nox==2026.10.20 nox -r -s tests strict_all reproduce clean_package security",
+  "sessions": {
+    "tests": "passed",
+    "strict_all": "passed",
+    "reproduce": "passed",
+    "clean_package": "passed",
+    "security": "passed"
+  },
+  "tests": {
+    "passed": 981,
+    "skipped": 5,
+    "coverage_percent_displayed": 92,
+    "new_cases": 30,
+    "targeted_integration_passed": 153,
+    "strict_diagnostics": 0
+  },
+  "resource_budget": {
+    "rss_mib": 4096,
+    "timeout_seconds": 2400,
+    "peak_sampled_rss_mib": 815.1,
+    "scope": "sampled owned-process-group monitor;not proof of leak absence"
+  },
+  "synthesis": {
+    "schema_version": "tobac.m2-synthesis-report.v1",
+    "python": "3.15.1",
+    "source_count": 13,
+    "source_review": "evidence/m2/synthesis_20261027.json",
+    "input_sha256": {
+      "integration/reconciliation_2025/generated/report.json": "1f2c39bd96612741fbd479e64767ec2d85fe51d2754ecfd9d38598a77ae54519",
+      "integration/reconciliation_2025/product-extractions.json": "f63896ec4db3134b4f8de20a34f038abef7c8e5b8bb42439d752249bc1122804",
+      "integration/reconciliation_2025/source-assets.json": "42586509ab6760e8c0fe7388df164546ace22d6e7be9a472ba451d2294613657",
+      "integration/archive/moh-workbook-qualification_20261026.json": "b26f31443677e90f156cfae6953a05f4fd9a18245b33ba665c33e6f2519985f6",
+      "configs/m2_retail.json": "925746a584e0f986e22b7848bd8fac50ae7fb6ae5e06a1cd8d4bad2742192b3f",
+      "docs/research/M2_MATCHED_PATHWAY.md": "14d0b2b2775696a08c21cc142f69051a023ae03b18b42944bb214fc15093058a",
+      "evidence/m2/synthesis_20261027.json": "d9d8f61ebfb3ac724c9575f6499b0e7dada59c93fe115403cb62c20539f01401",
+      "engineering/schemas/m2-synthesis.schema.json": "584417f21409f9ff9cef00a3021e600d76c1a5c0dc79f0af96817c10fdea4566",
+      "src/tobac/partial_identification.py": "34f528557b34f050036e52a4a5e66b189de75c14e24087b6d9bc85e60aee834c",
+      "scripts/qualify_m2_synthesis.py": "ff635a1bd0273c95fa37f80c5a1fbfdce60438c1fa0cbb7cb35be42a2ace9e97"
+    },
+    "replay_sha256": {
+      "m2/manifest.json": "38156fc8fb6dfb4a699cd1c0ad84d827250892f95ec4f2e4433275025f92fc7c",
+      "release_calibration/run_manifest.json": "934e520a361271e37046584c2d7b8fcd7f155bafde683ef93ae24fe20a756cef",
+      "m2/validation.json": "4b739300b3339e0e5d6869bbd282ff95924a80b2fa584f3f39bc6a443012982a",
+      "m2/summary.csv": "51d2c1dfc42f7f515a13cd0ea9309a630c6c62fc5e368c2d0957900a15e7e7e2",
+      "m2/grouped_evppi.csv": "b32243e5eb21bd337eb718fc90144240c8d87bc29e2ea8d83dd07b416c46a24b",
+      "m2/study_value.csv": "3127dd8a631b0f95f6b13d5a663bb4e075f9d1084d151da3fc342a3d9f970bb1",
+      "release_calibration/rolling_predictive_checks.csv": "022f52e700d0c7137bf9c5a13ecdc298f75c4891e0707a878947ee8f4fe4b5e4"
+    },
+    "bounds": [
+      {
+        "id": "no_matched_observations",
+        "role": "assumption_demonstrations_not_NZ_observations",
+        "feasible": true,
+        "quitting": {
+          "lower": 0,
+          "upper": 1
+        },
+        "switching": {
+          "lower": 0,
+          "upper": 1
+        }
+      },
+      {
+        "id": "total_only_fixture",
+        "role": "assumption_demonstrations_not_NZ_observations",
+        "feasible": true,
+        "quitting": {
+          "lower": 0.09999999999999998,
+          "upper": 0.09999999999999998
+        },
+        "switching": {
+          "lower": 0.0,
+          "upper": 1.0
+        }
+      },
+      {
+        "id": "matched_exact_fixture",
+        "role": "assumption_demonstrations_not_NZ_observations",
+        "feasible": true,
+        "quitting": {
+          "lower": 0.09999999999999998,
+          "upper": 0.09999999999999998
+        },
+        "switching": {
+          "lower": 0.20000000000000007,
+          "upper": 0.20000000000000007
+        }
+      },
+      {
+        "id": "matched_10percent_bias_fixture",
+        "role": "assumption_demonstrations_not_NZ_observations",
+        "feasible": true,
+        "quitting": {
+          "lower": 0.0,
+          "upper": 0.18181818181818188
+        },
+        "switching": {
+          "lower": 0.022222222222222254,
+          "upper": 0.34545454545454557
+        }
+      },
+      {
+        "id": "matched_25percent_bias_fixture",
+        "role": "assumption_demonstrations_not_NZ_observations",
+        "feasible": true,
+        "quitting": {
+          "lower": 0.0,
+          "upper": 0.28
+        },
+        "switching": {
+          "lower": 0.0,
+          "upper": 0.42400000000000004
+        }
+      },
+      {
+        "id": "incompatible_structure_fixture",
+        "role": "assumption_demonstrations_not_NZ_observations",
+        "feasible": false,
+        "quitting": null,
+        "switching": null
+      }
+    ],
+    "bound_interpretation": "Sharp marginal projections under explicit Cartesian supports and M2a equal-intensity structure; marginal q,d supports are not a joint rectangle",
+    "supply": {
+      "scope": "Audited reported subset under existing nonoverlap declarations; not national consumption bounds",
+      "factory_made_known_sticks": "736488410.000",
+      "factory_made_with_one_RS_interpretation_sticks": [
+        "736564810.000",
+        "737252410.000"
+      ],
+      "RS_interpretation_width_sticks": "687600",
+      "ryo_known_tonnes": "109.60010",
+      "ryo_if_BAT_2025_year_confirmed_tonnes": "215.00010",
+      "national_upper_bound": null,
+      "national_lower_bound": null,
+      "national_cigarette_equivalents": null,
+      "reason": "Unknown coverage/channels, BAT year and physical conversions; do not sum RS alternatives or replace null with zero",
+      "underlying_data_group": "NZ_MOH_tobacco_returns"
+    },
+    "historical_gap": {
+      "source_id": "NZ_BASELINE_REPORT_2022",
+      "role": "analyst_stress_source_arithmetic_not_empirical_interval",
+      "unit": "source_reported_cigarette_equivalents/year",
+      "scope": "Historical2022-labelled table;survey/calendar/product transport remains unqualified",
+      "raw_total": "1306992000",
+      "lawful": "1555851255",
+      "uplift_support": {
+        "lower": 1,
+        "upper": 1.3
+      },
+      "gap_support": [
+        "-248859255",
+        "143238345.0"
+      ],
+      "zero_gap_uplift": 1.1904061042454737,
+      "published_arithmetic_reproduced": true,
+      "qualification": "Signed discrepancy under an analyst uplift stress set; not physical illicit bounds,CI or independent evidence"
+    },
+    "conditional_voi": {
+      "value_unit": "normalised decision units; not NZD or QALYs",
+      "summary_rows": 15,
+      "grouped_evppi_rows": 105,
+      "study_rows": 225,
+      "gross_cost_ceiling_ranges": {
+        "anabasine": [
+          0.0,
+          0.009799968112730425
+        ],
+        "better_quantification_supply": [
+          0.0,
+          0.013491369076462182
+        ],
+        "calibration_panel_supply": [
+          0.0,
+          0.013558847389224193
+        ],
+        "causal_and_harm": [
+          0.0,
+          0.012441886584366806
+        ],
+        "causal_matched_total_and_lawful": [
+          0.0,
+          0.027883671669667945
+        ],
+        "causal_policy_study": [
+          0.0,
+          0.009757691699705135
+        ],
+        "composition_panel_supply": [
+          0.0,
+          0.013492249980903457
+        ],
+        "criminal_harm_study": [
+          0.0,
+          0.009085379367884318
+        ],
+        "linked_market_and_causal": [
+          0.0,
+          0.01349223610523736
+        ],
+        "nicotine": [
+          0.0,
+          0.0027674557231852676
+        ],
+        "none": [
+          0.0,
+          0.0
+        ],
+        "panel": [
+          0.0,
+          0.00979996811273053
+        ],
+        "panel_supply": [
+          0.0,
+          0.013491228864936755
+        ],
+        "panel_supply_and_matched_causal": [
+          0.0,
+          0.032431614076990016
+        ],
+        "supply": [
+          0.0,
+          0.010294891295591184
+        ]
+      },
+      "qualification": "Existing conditional finite priors/structures; no probabilities across scenarios, no NZD conversion, no study optimisation or fitted field likelihood",
+      "cost_rule": "Same-unit incremental study cost must be below applicable EVSI; this ceiling assumes the existing outcome/adoption model"
+    },
+    "historical_prediction": {
+      "rows": 33,
+      "reserved_rows": 9,
+      "reserved_covered_95": 5,
+      "reserved_unique_years": [
+        2023,
+        2024,
+        2025
+      ],
+      "row_interpretation": "Model-year rows reuse outcomes across models; not independent observations",
+      "vintages": [
+        "single_2026_release_retrospective_not_realtime"
+      ],
+      "qualification": "Existing national-release retrospective diagnostics, not raw-assay or cap-effect held-out field validation; historical source scopes remain qualified separately"
+    },
+    "residual_requirements": [
+      {
+        "id": "contrast",
+        "category": "human_decision",
+        "requirement": "Select legally feasible policy/implementation,actual timing,catchments and credible comparison;the600-cap has no observed NZ implementation."
+      },
+      {
+        "id": "records",
+        "category": "existing_data_access_first",
+        "requirement": "Obtain matched raw assay/flow/population and lawful supply/stock/visitor/border/intensity records;seek existing administrative/laboratory records before commissioning new collection."
+      },
+      {
+        "id": "clarifications",
+        "category": "source_owner_information",
+        "requirement": "Resolve BAT year,R&S pack/carton and unreported-channel ambiguities if point totals are decision-relevant;alternatives can remain for robust analysis."
+      },
+      {
+        "id": "validation",
+        "category": "new_measurements_if_existing_records_inadequate",
+        "requirement": "Target-applicable near-limit recovery,censoring,yield/product absorption and vaping contribution;new laboratory/field validation only where existing validation records cannot support transport."
+      },
+      {
+        "id": "causal_outcomes",
+        "category": "additional_data_or_implementation",
+        "requirement": "Matched policy-response,mitigation/replacement and incremental-harm outcomes with a defensible counterfactual,including held-out target predictions;existing linked records may suffice if available. Transparent expert elicitation can support a conditional analysis but requires human responses and does not supply empirical validation."
+      },
+      {
+        "id": "resources",
+        "category": "target_specific_resource_data",
+        "requirement": "Actual policy/study resource quantities,unit costs and adoption/timing;existing cost records or supplier estimates before new observational research."
+      },
+      {
+        "id": "governance",
+        "category": "human_decision",
+        "requirement": "Maori governance/permissible use,equitable coverage,privacy/access decisions and normative health/crime/cost trade-offs."
+      }
+    ],
+    "conditioned": false,
+    "target_empirically_identified": false,
+    "checkout": {
+      "commit": "c8af5c199123aed5096b4f0565833fde842430ce",
+      "tracked_status": ""
+    },
+    "command": [
+      "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/.nox/reproduce/bin/python",
+      "scripts/qualify_m2_synthesis.py",
+      "--replay",
+      "outputs/engineering/replays/5c5a993f182f4fe5a01a4d082b1c9c2c",
+      "--out",
+      "outputs/engineering/replays/5c5a993f182f4fe5a01a4d082b1c9c2c/m2-synthesis.json"
+    ]
+  },
+  "m2_validation": {
+    "passed": true,
+    "checks": 805,
+    "cases": 5,
+    "designs": 15,
+    "quit_nodes": 4,
+    "scientific_event": {
+      "name": "restriction_adds_at_least_5_percent_of_baseline_total_to_illicit_volume",
+      "minimum_absolute_growth_fraction": 0.05,
+      "confidence": 0.9
+    },
+    "state_count_reference": 20480,
+    "python": "3.15.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scope": "exact conditional finite calculation; transported model input; no empirical posterior, national funding or continuous-convergence claim"
+  },
+  "numerical_comparison": {
+    "summary.csv": {
+      "rows": 15,
+      "numerical_comparisons": 75,
+      "max_absolute_difference": 5.551115123125783e-16,
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "passed": true
+    },
+    "reference_grouped_evppi.csv": {
+      "rows": 7,
+      "numerical_comparisons": 14,
+      "max_absolute_difference": 3.9898639947466563e-16,
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "passed": true
+    },
+    "reference_study_value.csv": {
+      "rows": 15,
+      "numerical_comparisons": 105,
+      "max_absolute_difference": 2.000888343900442e-11,
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "passed": true
+    },
+    "reference_scientific_learning.csv": {
+      "rows": 60,
+      "numerical_comparisons": 240,
+      "max_absolute_difference": 1.1102230246251565e-15,
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "passed": true
+    },
+    "grid_check.csv": {
+      "rows": 12,
+      "numerical_comparisons": 48,
+      "max_absolute_difference": 1.8041124150158794e-16,
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "passed": true
+    }
+  },
+  "execution_log_sha256": "05e8618cbac1fda3dd7bb49893414b0ee834931246c1c0896a938ac7740845a8",
+  "review": "docs/reviews/2026-10-27-m2-evidence-synthesis.md",
+  "publication": "Exact-head and receiving-main outcomes are mandatory and maintained in the publication PR;not yet executed at this local receipt."
+}

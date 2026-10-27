@@ -17,7 +17,7 @@ Python; existing SciPy validates independent optimisation oracles in tests. Exis
 M2/M3 own VOI/robustness; no competing inference or task framework.
 
 Completion means evidence review, software/bounds qualification and a precise
-residual data/decision register. Issue#3 empirical acceptance remains open wherever
+residual data/decision register. Issue #3 empirical acceptance remains open wherever
 unidentified. Preserve prior sources/receipts/results and distinguish access to
 existing records from genuinely new field/laboratory collection. No external
 contact, data-access application, field work or governance decision is authorised.

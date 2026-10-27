@@ -8,8 +8,8 @@ inputs; final committed-source qualification and hosted publication remain pendi
 - [x] **Plan Compliance**: Yes for targeted source synthesis/conditional identified sets; no applied empirical closure claimed.
 - [x] **Style Compliance**: Ruff passes after fixing line lengths; initial BasedPyright returned zero diagnostics.
 - [x] **New Tests**: Yes; independent SciPy linear-programming oracle, containment and real source/provenance failure cases.
-- [ ] **Test Coverage**: Final full source coverage pending.
-- [x] **Test Results**: 150 targeted M2/workstream cases pass; final full Nox milestone pending.
+- [x] **Test Coverage**: Final full suite981 passed/five capability skips,92% coverage.
+- [x] **Test Results**: 150 targeted M2/workstream cases pass; final five-session Nox milestone passes at `c8af5c1`.
 
 ## Findings and fixes
 
@@ -61,3 +61,15 @@ source-arithmetic/uplift sensitivity check reproduces its gap while preserving
 negative discrepancies and refusing mismatched source quantities. The original
 366f37b milestone passed978 tests/five skips,92% coverage and all five Nox gates
 (peak797.6MiB). Final verification must include this added source-arithmetic code.
+
+Final committed-source verification at `c8af5c1` passed all five Nox sessions:
+981 tests/five capability skips,92% coverage;zero strict diagnostics;clean-package
+and security pass. All 805 M2 invariants and 482 retained-table comparisons pass
+rtol=atol=1e-10. Peak 815.1MiB under 4 GiB/2400seconds. Source-bound synthesis
+reproduces13 source records,15 conditional scenarios/225 study rows,source 2022
+gap arithmetic and signed uplift sensitivity. Historical coverage5/9 model-year
+rows over 3 distinct years does not establish nominal95% calibration.
+
+Receipt: integration/m2_evidence_synthesis_20261027.json. All runtime source changes
+were reviewed before publication; hosted final-head/receiving-main proof remains
+mandatory and is maintained in the publication PR. Issue #3 stays empirically open.

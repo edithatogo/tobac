@@ -10,7 +10,7 @@ qualified the ecosystem, evidence interchange and Polars 2 boundary. PR #49 qual
 Renovate profile discovery and four-profile lock candidates. [PR #51](https://github.com/edithatogo/tobac/pull/51)
 merged at `b012758` with all 15 executable PR checks and all 13 receiving-main jobs
 passing, including macOS Python 3.15.1, signed artifacts and native graph readback.
-Ruff covers 115 maintained Python files; formatting, five exact preview rules,
+Ruff covers 119 maintained Python files; formatting, five exact preview rules,
 process-group resource budgets and two-worker mutation are enforced.
 
 The only unchecked track task is the upstream managed parser's Python 3.15 support
@@ -26,7 +26,7 @@ Its verification and receiving-main publication are recorded in the PR and
 
 ## Completed work
 
-Nine completed tracks are archived, including seven moved out of the active registry
+Ten completed tracks are archived, including seven moved out of the active registry
 on 26 October and the earlier longitudinal archive. See
 [the archive index](archive/index.md) for their specifications, plans and dated receipts.
 
@@ -62,7 +62,12 @@ The applied issue remains open: all eight matched consumption cells are missing,
 with no causal/empirical posterior or deployment acceptance. Current requirements
 remain in [research gates](research-gates.md) and issue #3.
 
-## M2 evidence synthesis and partial identification
+## Issue #3 evidence synthesis and partial identification
 
-Status:[~] In progress; autonomous evidence synthesis, bounded inference, review and merge authorised.
-Track: `conductor/tracks/m2_evidence_synthesis_20261027/`.
+The bounded source/method phase is complete at `c8af5c1`.
+[Archived plan](archive/m2_evidence_synthesis_20261027/plan.md).
+Thirteen sources, sharp conditional ratio bounds, native-unit source alternatives,
+signed historical uplift sensitivity and conditional study-cost ceilings are
+qualified. Existing records,needed target validation and substantive human
+decisions are distinguished in [research gates](research-gates.md). Issue #3
+remains open;no empirical target posterior or deployment approval is supplied.

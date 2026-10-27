@@ -33,5 +33,5 @@
   completed issue #3 bounded source-feasibility audit and self-review;
   empirical acceptance remains in research-gates.md.
 
-- [M2 evidence synthesis and partial identification](./tracks/m2_evidence_synthesis_20261027/plan.md):
-  autonomous evidence synthesis, bounded inference, review and guarded publication.
+- [M2 evidence synthesis and partial identification](./archive/m2_evidence_synthesis_20261027/plan.md):
+  completed bounded evidence/method review;empirical/data/decision gates remain explicit.
