@@ -248,7 +248,10 @@ and the four-profile candidate workflow must pass before guarded publication.
 - [x] Local tests: 903 passed, five skips, 92% coverage; all nine Nox sessions
   qualified, plus nine real Ruff policy tests. Mutation: 114/131 killed. Receipt:
   integration/ruff_resource_controls_20261027.json.
-- [~] Verify hosted macOS checks and guarded receiving-main publication.
+- [x] Publish the reviewed implementation as [PR #51](https://github.com/edithatogo/tobac/pull/51).
+  Required hosted and receiving-main verification, guarded merge identity and
+  final execution results are maintained in that PR publication record.
+  This dated local-acceptance entry does not assert an unexecuted hosted job.
 
 Policy: docs/engineering/RUFF_POLICY.md. Review:
 docs/reviews/2026-10-27-ruff-and-resource-controls.md. The existing external
