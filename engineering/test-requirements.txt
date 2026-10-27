@@ -1,5 +1,5 @@
 # Additive test tools; inherited numerical versions remain in requirements.lock.
 coverage==7.17.0
-hypothesis==6.170.8
+hypothesis==6.170.9
 jsonschema==4.26.0
 PyYAML==6.0.3

@@ -65,11 +65,19 @@ def input_hashes(root: Path, profile: str) -> dict[str, str]:  # noqa: C901  # K
     if profile not in PROFILES:
         msg = "Unknown dependency profile"
         raise ValueError(msg)
-    paths = INPUTS + (
-        ("engineering/audit.in", "engineering/tools-requirements.txt") if profile == "audit" else ()
+    paths = (
+        INPUTS
+        + {
+            "runtime": (),
+            "audit": ("engineering/audit.in", "engineering/tools-requirements.txt"),
+            "voiage": ("engineering/voiage.in", "engineering/voiage-build-requirements.txt"),
+            "ecosystem": (
+                "engineering/voiage.in",
+                "engineering/voiage-build-requirements.txt",
+                "engineering/ecosystem.in",
+            ),
+        }[profile]
     )
-    if profile == "voiage":
-        paths += ("engineering/voiage.in", "engineering/voiage-build-requirements.txt")
     snapshots = {name: digest(safe_path(root, Path(name))) for name in paths}
     # Closed input profile: a new include needs an explicit addition here, not silent reuse.
     for name in paths:

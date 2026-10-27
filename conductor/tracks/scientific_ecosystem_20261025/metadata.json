@@ -55,5 +55,22 @@
     "verification": "integration/renovate_policy_20261027.json",
     "policy": "docs/engineering/DEPENDENCY_MAINTENANCE.md",
     "scope": "update PRs only; internal GitHub graph parser gate retained"
+  },
+  "current_macos_acceptance": {
+    "pull_request": 51,
+    "merge_commit": "b0127584afc31709da945bdc9711383c81c32eae",
+    "pr_checks_passed": 15,
+    "receiving_main_jobs_passed": 13,
+    "mutation": "119/131 killed; 12 survivors; 90.8%",
+    "ruff_policy": "docs/engineering/RUFF_POLICY.md",
+    "review": "docs/reviews/2026-10-27-ruff-and-resource-controls.md"
+  },
+  "dependency_update_qualification": {
+    "pull_request": 50,
+    "package": "hypothesis",
+    "from": "6.170.8",
+    "to": "6.170.9",
+    "verification": "integration/hypothesis_pr50_20261027.json",
+    "publication": "Exact final-head hosted and receiving-main results maintained in PR #50; no waived gates"
   }
 }
