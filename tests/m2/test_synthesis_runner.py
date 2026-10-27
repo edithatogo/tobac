@@ -160,3 +160,35 @@ def test_nonfinite_values_are_not_cost_ceilings(runner, replay) -> None:
     bind_replay(replay)
     with pytest.raises(ValueError, match="Finite study"):
         runner.build_report(ROOT, replay)
+
+
+def test_historical_source_uplift_is_a_sensitivity_not_new_evidence(runner, replay) -> None:
+    report = runner.build_report(ROOT, replay)
+    gap = report["historical_gap"]
+    assert gap["gap_support"] == ["-248859255", "143238345.0"]
+    assert gap["raw_total"] == "1306992000"
+    assert gap["lawful"] == "1555851255"
+    assert gap["zero_gap_uplift"] == pytest.approx(1555851255 / 1306992000)
+    assert gap["role"] == "analyst_stress_source_arithmetic_not_empirical_interval"
+    assert not report["conditioned"]
+
+
+def test_source_gap_inputs_and_arithmetic_must_match_extraction(runner) -> None:
+    import copy  # noqa: PLC0415 -- Keep altered source-review fixtures local to the rejection test.
+
+    case = json.loads((ROOT / runner.MANIFEST).read_text())
+    changed = copy.deepcopy(case)
+    changed["historical_gap"]["raw_total"] += 1
+    with pytest.raises(ValueError, match="differ from source extraction"):
+        runner.historical_gap(changed)
+    source = next(s for s in case["sources"] if s["id"] == "NZ_BASELINE_REPORT_2022")
+    source["reported_numbers"]["reported_gap"] += 1
+    with pytest.raises(ValueError, match="arithmetic does not reproduce"):
+        runner.historical_gap(case)
+
+
+def test_historical_gap_requires_declared_unique_source(runner) -> None:
+    case = json.loads((ROOT / runner.MANIFEST).read_text())
+    case["sources"] = [s for s in case["sources"] if s["id"] != "NZ_BASELINE_REPORT_2022"]
+    with pytest.raises(ValueError, match="declared source"):
+        runner.historical_gap(case)

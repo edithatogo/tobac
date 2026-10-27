@@ -122,7 +122,7 @@
       "access": "retained_verified_extractions",
       "estimand": "Calendar2025 reported retail releases in native sticks and tonnes",
       "reported_numbers": {},
-      "limitation": "BAT year and R&S unit conflicts; missing channels/stock/visitor adjustments remain. Original objects are previously verified, not freshly recovered; manufacturer/summary aliases share underlying returns.",
+      "limitation": "BAT year and R&S unit conflicts; missing channels/stock/visitor adjustments remain. Original objects are previously verified, not freshly recovered; manufacturer/summary aliases share underlying returns. Fresh rendered BAT2025-linked PDF still states2024;raw bytes were not newly archived.",
       "dependence_group": "NZ_MOH_tobacco_returns",
       "target_likelihood_adopted": false
     },
@@ -168,6 +168,38 @@
       "reported_numbers": {},
       "limitation": "No target incremental cost extracted. Whole-agency expenditure or lost excise cannot substitute for the proposed policy/study resource costs.",
       "dependence_group": "NZ_Vote_Customs_2025",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "NZ_ACTIONPLAN_RIS_2021",
+      "url": "https://www.health.govt.nz/system/files/2021-12/ris-smokefree-aotearoa-action-plan-mar24.pdf",
+      "locator": "Finalised3November2021;printedp30 marginal costs table;pp32-33 cost/recovery and enforcement",
+      "access": "primary_rendered_sections",
+      "estimand": "Prospective bundled-package regulator costs over four years",
+      "reported_numbers": {
+        "regulator_establishment_maintenance_nzd_million": 13.5,
+        "compliance_enforcement_nzd_million": 16,
+        "sum_nzd_million": 29.5,
+        "horizon_years": 4
+      },
+      "limitation": "Modelled package-wide cost benchmark,not a confidence range,600-cap incremental cost or study cost. Total monetised costs not calculated;future implementation scope/cost work explicitly required. No conversion to normalised M2 units.",
+      "dependence_group": "NZ_ActionPlan_2021_costing",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "NZ_BASELINE_REPORT_2022",
+      "url": "https://www.health.govt.nz/system/files/2023-10/report-on-illicit-tobacco-trade-baseline-report-oct23.v3.pdf",
+      "locator": "Printedpp22-25,Table3 and4;pp28-30 limitations",
+      "access": "primary_rendered_sections",
+      "estimand": "Historical consumption-gap arithmetic in reported cigarette-equivalent units",
+      "reported_numbers": {
+        "reported_pre_uplift_total": 1306992000,
+        "reported_lawful": 1555851255,
+        "assumed_uplift": 1.3,
+        "reported_gap": 143238345
+      },
+      "limitation": "Reuses MOH/NZHS inputs and fixed uplift,not an independent observed illicit count or causal effect. Survey/calendar/product/0.7g conventions and stock/border error remain;no current-target transport.",
+      "dependence_group": "NZ_MOH_tobacco_returns+NZHS+Phyo_shared_inputs",
       "target_likelihood_adopted": false
     }
   ],
@@ -303,7 +335,7 @@
     {
       "id": "causal_outcomes",
       "category": "additional_data_or_implementation",
-      "requirement": "Matched policy-response,mitigation/replacement and incremental-harm outcomes with a defensible counterfactual,including held-out target predictions;existing linked records may suffice if available."
+      "requirement": "Matched policy-response,mitigation/replacement and incremental-harm outcomes with a defensible counterfactual,including held-out target predictions;existing linked records may suffice if available. Transparent expert elicitation can support a conditional analysis but requires human responses and does not supply empirical validation."
     },
     {
       "id": "resources",
@@ -315,5 +347,17 @@
       "category": "human_decision",
       "requirement": "Maori governance/permissible use,equitable coverage,privacy/access decisions and normative health/crime/cost trade-offs."
     }
-  ]
+  ],
+  "historical_gap": {
+    "source_id": "NZ_BASELINE_REPORT_2022",
+    "raw_total": 1306992000,
+    "lawful": 1555851255,
+    "uplift_support": [
+      1,
+      1.3
+    ],
+    "role": "analyst_stress_source_arithmetic_not_empirical_interval",
+    "unit": "source_reported_cigarette_equivalents/year",
+    "scope": "Historical2022-labelled table;survey/calendar/product transport remains unqualified"
+  }
 }

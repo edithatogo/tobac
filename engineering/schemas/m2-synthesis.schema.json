@@ -172,6 +172,51 @@
           "requirement"
         ]
       }
+    },
+    "historical_gap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "raw_total",
+        "lawful",
+        "uplift_support",
+        "role",
+        "unit",
+        "scope"
+      ],
+      "properties": {
+        "source_id": {
+          "const": "NZ_BASELINE_REPORT_2022"
+        },
+        "raw_total": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "lawful": {
+          "type": "number",
+          "minimum": 0
+        },
+        "uplift_support": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number",
+            "minimum": 1
+          }
+        },
+        "role": {
+          "const": "analyst_stress_source_arithmetic_not_empirical_interval"
+        },
+        "unit": {
+          "const": "source_reported_cigarette_equivalents/year"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
     }
   },
   "required": [
@@ -182,6 +227,7 @@
     "sources",
     "scenarios",
     "scenario_role",
-    "residual_requirements"
+    "residual_requirements",
+    "historical_gap"
   ]
 }

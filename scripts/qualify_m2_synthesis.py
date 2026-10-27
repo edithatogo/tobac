@@ -165,6 +165,46 @@ def historical_prediction(replay: Path) -> dict[str, Any]:
     }
 
 
+def historical_gap(case: dict[str, Any]) -> dict[str, Any]:
+    """Challenge a published fixed uplift without making its gap an observation."""
+    spec = case["historical_gap"]
+    sources = [s for s in case["sources"] if s["id"] == spec["source_id"]]
+    if len(sources) != 1:
+        msg = "Historical gap requires its declared source"
+        raise ValueError(msg)
+    source = sources[0]["reported_numbers"]
+    raw, lawful = Decimal(str(spec["raw_total"])), Decimal(str(spec["lawful"]))
+    if not raw.is_finite() or not lawful.is_finite() or raw <= 0 or lawful < 0:
+        msg = "Finite physical source quantities required"
+        raise ValueError(msg)
+    if raw != Decimal(str(source["reported_pre_uplift_total"])) or lawful != Decimal(
+        str(source["reported_lawful"])
+    ):
+        msg = "Historical quantities differ from source extraction"
+        raise ValueError(msg)
+    reproduced = raw * Decimal(str(source["assumed_uplift"])) - lawful
+    if reproduced != Decimal(str(source["reported_gap"])):
+        msg = "Published source arithmetic does not reproduce"
+        raise ValueError(msg)
+    support = Interval(*spec["uplift_support"])
+    return {
+        "source_id": spec["source_id"],
+        "role": spec["role"],
+        "unit": spec["unit"],
+        "scope": spec["scope"],
+        "raw_total": str(raw),
+        "lawful": str(lawful),
+        "uplift_support": asdict(support),
+        "gap_support": [str(raw * Decimal(str(x)) - lawful) for x in (support.lower, support.upper)],
+        "zero_gap_uplift": float(lawful / raw),
+        "published_arithmetic_reproduced": True,
+        "qualification": (
+            "Signed discrepancy under an analyst uplift stress set; "
+            "not physical illicit bounds,CI or independent evidence"
+        ),
+    }
+
+
 def build_report(root: Path, replay: Path) -> dict[str, Any]:
     """Bind documentary sources and executed reference outputs to a bounded synthesis."""
     case = read(checked(root, MANIFEST))
@@ -231,6 +271,7 @@ def build_report(root: Path, replay: Path) -> dict[str, Any]:
             "equal-intensity structure; marginal q,d supports are not a joint rectangle"
         ),
         "supply": supply_summary(root),
+        "historical_gap": historical_gap(case),
         "conditional_voi": conditional_voi(root, replay),
         "historical_prediction": historical_prediction(replay),
         "residual_requirements": case["residual_requirements"],

@@ -19,6 +19,8 @@ This is not a systematic review or proof that no other evidence exists.
 | ANABASINE_YIELD_2026: [primary study](https://doi.org/10.1093/ntr/ntag042) | Preliminary human excretion evidence; literature gap is narrower than 'no yield evidence' | Selected cigarette-user subset; inherited metabolite/machine calibration; observed range is not population coverage or a confidence interval. Vaping contribution is unresolved. |
 | NZ_RETURNS_2025 and NZHS_202425 | Native-unit reporting and existing historical reference data | Products, channels, stock, visitors, resident exposure/intensity and observation windows do not match automatically. |
 | NZ_CUSTOMS_CASE_2025 and AU_CRIME_INQUIRY_2026 | Offence occurrence and contextual harm mechanisms | Cases, testimony, market turnover, profits and seizures are not incremental NZ harm under the cap. The Australian inquiry is limited indexed discovery, not a quantitative causal extraction. |
+| NZ_ACTIONPLAN_RIS_2021: [primary RIS](https://www.health.govt.nz/system/files/2021-12/ris-smokefree-aotearoa-action-plan-mar24.pdf) | Historical package-wide regulator/enforcement cost benchmark | Not current600-cap or study costs; total monetised costs were not calculated and further implementation costing was explicitly required. |
+| NZ_BASELINE_REPORT_2022: [primary report](https://www.health.govt.nz/system/files/2023-10/report-on-illicit-tobacco-trade-baseline-report-oct23.v3.pdf) | Reproduce consumption-gap arithmetic and challenge its fixed uplift | Shares MOH/NZHS inputs with the later Phyo summary; not another independent illicit observation or a causal contrast. |
 | NZ_CUSTOMS_BUDGET_2025 | Identify an existing public cost source and its scope | Whole-agency appropriations and excise losses are not target-specific incremental resource costs. No monetary coefficient is imported. |
 
 The source ledger records the verified numerical extracts. No pooled effect, foreign
@@ -62,6 +64,8 @@ one quantity, never two additive observations. The BAT document year produces a
 separate conditional cohort case; a filename is not permission to relabel 2024 as2025.
 Both conflicts are therefore usable as alternatives without pretending they are resolved.
 
+A fresh rendered review of the [currently linked BAT PDF](https://www.health.govt.nz/system/files/2026-08/BAT-Sales-RYO-2025.pdf) still shows2024 in its heading. This is fresh source-text verification, not a new raw-byte capture.
+
 The generated report includes the R&S interpretation width and the BAT-year case.
 These are reported-subset comparisons, not national bounds or probabilities over
 interpretations. Unknown reporting/channel coverage prevents a justified finite
@@ -79,6 +83,19 @@ signed, unrecorded is an absolute amount, and no component silently defaults to 
 Cartesian projection preserves a negative accounting residual as a discrepancy.
 It is not automatically a physical illicit-consumption interval. A justified joint
 error set may narrow the projection; prose independence does not establish such a set.
+
+## Historical source arithmetic and uplift sensitivity
+
+The baseline2022 report's Table3 supplies a reported pre-uplift consumption total,
+lawful release total and fixed underreporting uplift. The runner verifies the exact
+published gap arithmetic with Decimal and reproduces a signed gap over the analyst
+stress support uplift[1,1.3]. This support is not an empirical confidence interval.
+It reports the zero-gap uplift threshold: below it the observed discrepancy is negative.
+That is a source/accounting challenge, not evidence of negative illicit consumption.
+No forecast/posterior or derived gap is bought as another observation; all original
+MOH/NZHS dependencies, survey/calendar/product conventions and source-to-target
+transport remain explicit. Published numerical inputs and calculated outputs are
+retained in the ledger/receipt rather than rounded into a new market-size claim.
 
 ## Partial-identification contract and proof
 
@@ -150,6 +167,10 @@ The machine-readable residual register in the source ledger distinguishes:
 - suitable causal response/mitigation/incremental-harm and held-out outcome data;
 - target-specific incremental resource costs and adoption/timing information;
 - Māori governance, permissible use, privacy/equity constraints and normative trade-offs.
+
+Expert elicitation may support a conditional analysis where observational identification
+is unavailable, but human expert responses are new information and do not establish
+empirical causal validity or operational permission.
 
 These are data or substantive decisions. Literature access limitations are recorded
 as review scope, not mislabeled as requirements for a new field study. Optional

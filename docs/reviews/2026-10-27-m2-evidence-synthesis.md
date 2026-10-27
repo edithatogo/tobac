@@ -25,7 +25,7 @@ Owner explicitly authorised autonomous review and fixes; independent review is n
   generated-reference hashes; validates complete unique configured scenario/design tables. Added
   guards for failed numerical validation, future leakage, missing reserved diagnostics and
   nonfinite study values. Historical model-year rows are explicitly not independent observations.
-- `evidence/m2/synthesis_20261027.json`: eleven documentary sources have locators, access level,
+- `evidence/m2/synthesis_20261027.json`: thirteen documentary sources have locators, access level,
   actual endpoint, limitations and dependence group. CVS studies share one policy event; human
   anabasine yield shares inherited calibration inputs. No target likelihood is adopted. The
   source's reported plus/minus dispersion is not assumed to be CI/SE; selected observed range
@@ -51,3 +51,13 @@ converted into evidence of a preferred policy. No external contact/data-access a
 
 To be filled from actual committed-source Nox execution and native PR/receiving-main readback.
 The initial strict run failed on one line-length diagnostic; that was fixed, not suppressed.
+
+## Additional primary-source review
+
+A fresh official BAT PDF still prints2024 despite the2025 link. Historical ActionPlan
+RIS costs are package-wide prospective estimates,not current target/study costs.
+The2022 baseline report shares MOH/NZHS inputs with Phyo; a new Decimal-based
+source-arithmetic/uplift sensitivity check reproduces its gap while preserving
+negative discrepancies and refusing mismatched source quantities. The original
+366f37b milestone passed978 tests/five skips,92% coverage and all five Nox gates
+(peak797.6MiB). Final verification must include this added source-arithmetic code.
