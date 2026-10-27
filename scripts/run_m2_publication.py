@@ -306,6 +306,9 @@ def figures(out: Path, tables: dict[str, list[Report]]) -> None:
     fig.savefig(out / "study_value_slice.png", dpi=180)  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     fig.savefig(out / "study_value_slice.svg", metadata={"Date": None})  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     plt.close(fig)
+    for path in out.glob("*.svg"):
+        text = "\n".join(line.rstrip() for line in path.read_text(encoding="utf-8").splitlines())
+        path.write_text(text + "\n", encoding="utf-8")
 
 
 def validated_inputs(root: Path, spec: Report) -> tuple[Report, Report]:
