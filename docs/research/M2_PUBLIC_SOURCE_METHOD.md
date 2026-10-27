@@ -175,3 +175,25 @@ dashes and calculates arithmetic mean and sample SD (n−1 denominator). It give
 rounding; do not substitute rounded-table estimates or assert an unreported SD label.
 Urinary total-anabasine limits0.1/0.2µg/L and supplement censoring replacements remain
 urine-specific and cannot resolve a raw-wastewater method threshold.
+
+
+## 8. Final visible-result audit
+
+A title-length cap in the initial local parser omitted five visible search results.
+The corrective audit removed the cap, re-enumerated every saved title/URL line,
+reassigned visible batch ranks and rebuilt candidate/citation links. All five are
+now dispositioned: clinical anabasine abstract, US flavour-policy review, older
+Treasury advice compilation, Hungarian laboratory abstract alias and a fluorescence
+materials-sensor paper. Four public objects were retrieved; the ACS route failed
+and that materials assay does not qualify target sewage recovery or excretion.
+No numerical model input changed. Current counts are213candidate dispositions and
+35document records. search-parse-audit.json records every batch match/count/hash,
+while the prior31-document manifest remains pre-audit-map-manifest.json.
+
+Completeness is checked against the saved visible batches with no title-length
+limit and with parentheses permitted inside URLs; it is not an engine-recall or
+per-query completeness claim. Candidate IDs now reflect the complete visible
+batch order. The clinical abstract has a vendor-affiliated author and no verified
+complete funding disclosure. The flavour review reports Truth Initiative support
+to RTI and no conflicts; flavour-product policies are not retailer-number caps.
+The Hungarian institutional abstract reproduces the same study, not new evidence.

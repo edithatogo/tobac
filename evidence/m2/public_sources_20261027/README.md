@@ -7,7 +7,7 @@ or prepared by this completion phase. Earlier letters remain withdrawn.
 [completion report](../../../docs/research/M2_PUBLIC_SOURCE_COMPLETION.md) define
 coverage and limitations. This is not an exhaustive systematic review.
 
-- [Source index](source_index.csv): 31 document records, including the two retrieved
+- [Source index](source_index.csv): 35 document records, including the two retrieved
   human-yield supplements; documents and repeated releases are not independent studies.
 - [Source table](source_table.csv): design, funding, populations/products/periods,
   shared data, applicability and explicit current access limits for every record.
@@ -16,7 +16,7 @@ coverage and limitations. This is not an exhaustive systematic review.
 - [Assumptions](assumption_table.csv): 10 source/analyst assumptions and failure consequences.
 - [Parameters](parameter_table.csv): nine linked constructions/checks; none is adopted.
 - [Searches](search_log.csv) / [screening](screening.csv): 48 queries across 12 combined
-  batches, 208 candidate dispositions including the 19 initial seeds. Visible result
+  batches, 213 candidate dispositions including the 19 initial seeds. Visible result
   ranks belong to batches; per-query counts and result attribution were not exposed.
 - [Citation rounds](citation_rounds.csv) / [edges](citation_edges.csv): six seeds,
   57 native references (34 human-yield, 23 CVS purchasing), plus labelled indexed
@@ -26,7 +26,7 @@ coverage and limitations. This is not an exhaustive systematic review.
 
 Original CAS objects, WARCs, text and page renderings remain local under ignored
 outputs/engineering/m2-public-source-capture/ and outputs/engineering/m2-public-completion/.
-The initial six PDF objects and 17 additional usable objects (including HTML aliases)
+The initial six PDF objects and 21 additional usable objects (including HTML aliases)
 have byte/WARC-payload verification. Counts are objects, not unique studies. Native
 WARC dates remain missing. Do not infer a capture date from the review date. Receipts
 and hashes are tracked; a clean checkout without local payloads has metadata only.

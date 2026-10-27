@@ -11,16 +11,16 @@
     "no signed transient URLs tracked"
   ],
   "counts": {
-    "source_index": 31,
-    "source_table": 31,
+    "source_index": 35,
+    "source_table": 35,
     "extraction_table": 82,
     "assumption_table": 10,
     "parameter_table": 9,
     "search_log": 48,
-    "screening": 208,
+    "screening": 213,
     "citation_rounds": 6,
-    "citation_edges": 431,
-    "retrieval_outcomes": 39
+    "citation_edges": 435,
+    "retrieval_outcomes": 44
   },
   "derivation_checks": {
     "P:HTP_SUM": "2646.5",
@@ -33,5 +33,5 @@
   "rounded_factor_mean": 9.026315789473685,
   "rounded_factor_sample_sd": 4.957804409353349,
   "limitation": "Native byte verification and rendered source review are local evidence;clean-checkout metadata is not possession of originals;no empirical target acceptance",
-  "task_script_sha256": "98245eb0a406b7ae9b5af460f2942681f9ab33d80b557b10e0b2fca85d9db17c"
+  "task_script_sha256": "0b220e8437bb86a40bdae71c0bb7eb856e587340268c5b5191d71cfb46acbdb6"
 }

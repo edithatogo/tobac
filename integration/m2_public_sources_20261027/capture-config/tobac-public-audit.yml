@@ -1,0 +1,23 @@
+name: tobac-public-audit
+description: Bounded public-source acquisition for M2 source mapping; local preservation only.
+enabled: true
+adapters:
+- web
+schedule: manual
+rights_class: source_specific_review_required
+output_preservation_policy:
+  format: warc_and_manifest
+  compression: none
+  cas_hash_algorithm: sha256
+  retention: permanent_subject_to_rights_review
+publication_policy:
+  huggingface:
+    enabled: false
+  zenodo:
+    enabled: false
+targets:
+- https://www.treasury.govt.nz/sites/default/files/2024-10/oia-20240568.pdf
+- https://www.eglab.hu/hu_hu/the-impact-of-regulatory-tightening-of-the-hungarian-tobacco-retail-market-on-availability-access-and-cigarette-smoking-prevalence-of-adolescents/
+- https://oup.silverchair-cdn.com/article-minimal/3059233
+- https://oup.silverchair-cdn.com/article-minimal/6370828
+- https://pubs.acs.org/doi/full/10.1021/acs.analchem.5c05171

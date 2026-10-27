@@ -1,0 +1,73 @@
+{
+  "captured_count": 4,
+  "command": "capture",
+  "errors": [
+    "https://pubs.acs.org/doi/full/10.1021/acs.analchem.5c05171: terminal_status"
+  ],
+  "failed_count": 1,
+  "note": "Adapter-based sources without activated credentials or discovery infrastructure are recorded as capability_pending and tracked by conductor track multi_source_capture_activation_20260824.",
+  "pending_adapters": [],
+  "schema_version": "archive-govt-nz.cli/v1",
+  "source_set": "tobac-public-audit",
+  "source_type": "tobac-public-audit",
+  "status": "partial",
+  "targets": [
+    {
+      "byte_count": 1768196,
+      "sha256": "68e72cd0dfda1f57edad4006f1c1c732a4f529d3575ec7b3f94699227883e407",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.treasury.govt.nz/sites/default/files/2024-10/oia-20240568.pdf",
+      "warc": {
+        "byte_count": 1768882,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/audit-warcs/tobac-public-audit-0.warc",
+        "record_id": "urn:uuid:aaa80e03-f0b9-46a9-9939-eb095b15c3bc",
+        "sha256": "73ce36ca02cccdd2679917d2bfa637e971f3a42824b0d8cac9d18c45a068969a"
+      }
+    },
+    {
+      "byte_count": 77365,
+      "sha256": "29d16af198dfc9bd5b4a34777b1491a7ef108c3190347efb9e738b13329f1b8e",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.eglab.hu/hu_hu/the-impact-of-regulatory-tightening-of-the-hungarian-tobacco-retail-market-on-availability-access-and-cigarette-smoking-prevalence-of-adolescents/",
+      "warc": {
+        "byte_count": 78062,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/audit-warcs/tobac-public-audit-1.warc",
+        "record_id": "urn:uuid:c68a9baa-c1e0-4b10-8f7b-46b8720cfc67",
+        "sha256": "b16c5ac907884569b40d7fcb9dfd09e94b48ce26be78eca4e3953e656f4d491d"
+      }
+    },
+    {
+      "byte_count": 15989,
+      "sha256": "6593d0de2f420a5f980932ea86dda72571d5fb4723e9e6dae8067853acb63bd1",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://oup.silverchair-cdn.com/article-minimal/3059233",
+      "warc": {
+        "byte_count": 16643,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/audit-warcs/tobac-public-audit-2.warc",
+        "record_id": "urn:uuid:ee526155-aa42-450d-83ac-4f49a8b1a35b",
+        "sha256": "be97d397f86c002b9008fa7c1ab86c28d0a68512eb58b90225c56b1ff39a8857"
+      }
+    },
+    {
+      "byte_count": 323551,
+      "sha256": "8c06cd8a3f8a90e68cf2a57fac492356caa56501149584624609d997caa35624",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://oup.silverchair-cdn.com/article-minimal/6370828",
+      "warc": {
+        "byte_count": 324206,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/audit-warcs/tobac-public-audit-3.warc",
+        "record_id": "urn:uuid:211239fd-10a4-49e9-b570-23f79014f435",
+        "sha256": "b5b0c74a36313bac79812af28bf891a1ac67dd19a2f7a3aa3e998364d6e1b90f"
+      }
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://pubs.acs.org/doi/full/10.1021/acs.analchem.5c05171"
+    }
+  ]
+}

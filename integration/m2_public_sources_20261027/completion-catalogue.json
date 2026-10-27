@@ -364,6 +364,62 @@
       "text_sha256": "0af93a28981078107d824d42a942bf63e0f335adb2d3e33fd2439501a56c9fa6",
       "usable_source_content": false,
       "qualification": "Original bytes and WARC payload verified; usable=false marks challenge/stub,not article content"
+    },
+    {
+      "uri": "https://www.treasury.govt.nz/sites/default/files/2024-10/oia-20240568.pdf",
+      "object_path": "outputs/engineering/m2-public-completion/cas/sha256/68/68e72cd0dfda1f57edad4006f1c1c732a4f529d3575ec7b3f94699227883e407",
+      "sha256": "68e72cd0dfda1f57edad4006f1c1c732a4f529d3575ec7b3f94699227883e407",
+      "warc_path": "outputs/engineering/m2-public-completion/audit-warcs/tobac-public-audit-0.warc",
+      "warc_sha256": "73ce36ca02cccdd2679917d2bfa637e971f3a42824b0d8cac9d18c45a068969a",
+      "native_capture_timestamp": null,
+      "format": "PDF",
+      "title": "",
+      "text_path": "outputs/engineering/m2-public-completion/text/audit-0.txt",
+      "text_sha256": "b7e18c08daaf050d192c87903737b5464b1da75df5a6b845d37d9164392c4846",
+      "usable_source_content": true,
+      "qualification": "Original bytes and WARC payload verified; usable=false marks challenge/stub,not article content"
+    },
+    {
+      "uri": "https://www.eglab.hu/hu_hu/the-impact-of-regulatory-tightening-of-the-hungarian-tobacco-retail-market-on-availability-access-and-cigarette-smoking-prevalence-of-adolescents/",
+      "object_path": "outputs/engineering/m2-public-completion/cas/sha256/29/29d16af198dfc9bd5b4a34777b1491a7ef108c3190347efb9e738b13329f1b8e",
+      "sha256": "29d16af198dfc9bd5b4a34777b1491a7ef108c3190347efb9e738b13329f1b8e",
+      "warc_path": "outputs/engineering/m2-public-completion/audit-warcs/tobac-public-audit-1.warc",
+      "warc_sha256": "b16c5ac907884569b40d7fcb9dfd09e94b48ce26be78eca4e3953e656f4d491d",
+      "native_capture_timestamp": null,
+      "format": "HTML",
+      "title": "The Impact of Regulatory Tightening of the Hungarian Tobacco Retail Market on Availability, Access and Cigarette Smoking Prevalence of Adolescents \u2013 Eg\u00e9szs\u00e9gbiztons\u00e1g Nemzeti Laborat\u00f3rium",
+      "text_path": "outputs/engineering/m2-public-completion/text/audit-1.txt",
+      "text_sha256": "22600b2ae448e7b230005115fec64a3f076709053180c462a1a222c5d726b719",
+      "usable_source_content": true,
+      "qualification": "Original bytes and WARC payload verified; usable=false marks challenge/stub,not article content"
+    },
+    {
+      "uri": "https://oup.silverchair-cdn.com/article-minimal/3059233",
+      "object_path": "outputs/engineering/m2-public-completion/cas/sha256/65/6593d0de2f420a5f980932ea86dda72571d5fb4723e9e6dae8067853acb63bd1",
+      "sha256": "6593d0de2f420a5f980932ea86dda72571d5fb4723e9e6dae8067853acb63bd1",
+      "warc_path": "outputs/engineering/m2-public-completion/audit-warcs/tobac-public-audit-2.warc",
+      "warc_sha256": "be97d397f86c002b9008fa7c1ab86c28d0a68512eb58b90225c56b1ff39a8857",
+      "native_capture_timestamp": null,
+      "format": "HTML",
+      "title": "",
+      "text_path": "outputs/engineering/m2-public-completion/text/audit-2.txt",
+      "text_sha256": "637ca376d704caae7093316d8511a6c9ebb4340a5e4b1ff5540eee433b118bb6",
+      "usable_source_content": true,
+      "qualification": "Original bytes and WARC payload verified; usable=false marks challenge/stub,not article content"
+    },
+    {
+      "uri": "https://oup.silverchair-cdn.com/article-minimal/6370828",
+      "object_path": "outputs/engineering/m2-public-completion/cas/sha256/8c/8c06cd8a3f8a90e68cf2a57fac492356caa56501149584624609d997caa35624",
+      "sha256": "8c06cd8a3f8a90e68cf2a57fac492356caa56501149584624609d997caa35624",
+      "warc_path": "outputs/engineering/m2-public-completion/audit-warcs/tobac-public-audit-3.warc",
+      "warc_sha256": "b5b0c74a36313bac79812af28bf891a1ac67dd19a2f7a3aa3e998364d6e1b90f",
+      "native_capture_timestamp": null,
+      "format": "HTML",
+      "title": "",
+      "text_path": "outputs/engineering/m2-public-completion/text/audit-3.txt",
+      "text_sha256": "ddd9fc342a6ac0f4e5317296f252547fa4346f7aae958a0bd6684f2e0691599b",
+      "usable_source_content": true,
+      "qualification": "Original bytes and WARC payload verified; usable=false marks challenge/stub,not article content"
     }
   ],
   "scope": "Captured public objects,not proof all are article content;see usable_source_content"
