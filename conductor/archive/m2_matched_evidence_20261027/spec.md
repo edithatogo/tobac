@@ -1,4 +1,4 @@
-# Issue #3: real regulatory contrast and matched evidence pathway
+# M2 matched evidence feasibility and prospective protocol
 
 Owner authorised autonomous implementation, blocker resolution and self-review on
 27 October 2026. Base: 4ebc4af5f0b4fa7620b06052f124b0b20f6eade9.

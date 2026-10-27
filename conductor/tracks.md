@@ -45,7 +45,9 @@ mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remai
 ## Voiage Polars consumer qualification
 
 Status: bounded macOS baseline/candidate implementation complete; published-3.0
-acceptance blocked externally. Track: `conductor/tracks/voiage_polars_qualification_20261026/`.
+acceptance blocked externally.
+
+Track: `conductor/tracks/voiage_polars_qualification_20261026/`.
 Published Voiage 3.0.0 remains unavailable; no upstream-release success is claimed.
 
 Current receipt: integration/voiage_polars_consumer_20261027.json. Default producer

@@ -8,5 +8,6 @@
   "completed_at": "2026-10-27",
   "implementation_commit": "0bdb6ad25628ec4f21ef4a6942130b45c3b6bcc1",
   "scope": "bounded metadata audit, source feasibility and prospective protocol; issue3 empirical acceptance open",
-  "verification": "integration/m2_matched_pathway_20261027.json"
+  "verification": "integration/m2_matched_pathway_20261027.json",
+  "title": "M2 matched evidence feasibility and prospective protocol"
 }
