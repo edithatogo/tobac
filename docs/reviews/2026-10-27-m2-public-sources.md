@@ -1,5 +1,9 @@
 # Conductor self-review — M2 public-source map
 
+Historical PR#56 snapshot. The subsequent [search audit](2026-10-27-m2-search-audit.md)
+corrects five omitted long-title results and supersedes its screening-completeness
+counts/claim. Original software verification remains evidence for unchanged code.
+
 Scope: current main805f7db3 plus local public-only decisions c20cc78/initial map5bdf6f0
 and the completed bounded search/retrieval/extraction revisions. The owner authorised
 implementation, review, fixes, commit, checks and merge autonomously. This is a single-

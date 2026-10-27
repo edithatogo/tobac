@@ -43,12 +43,12 @@ and visual extraction qualification remain pending in phase B. No outreach/new O
 
 ## Completion receipt — 27 October 2026
 
-48queries/12combined batches;208candidate dispositions;6bounded citation rounds,
-57native references plus labelled indexed co-discoveries.31document records,82extracts,
+48queries/12combined batches;213candidate dispositions;6bounded citation rounds,
+57native references plus labelled indexed co-discoveries.35document records,82extracts,
 10assumptions,9constructed checks. Two human-yield supplements retrieved as realPDFs;
 all critical accessible tables checked visually or in native fullHTML/primary abstracts.
 Unavailable originals and legacy values retain explicit ineligibility. Initial6PDFs
-and17additional usable objects byte/WARC verified;null native dates preserved.
+and21additional usable objects byte/WARC verified;null native dates preserved.
 No model input, likelihood, covariance or dependency changes. No requests or contacts.
 
 Methods:docs/research/M2_PUBLIC_SOURCE_METHOD.md. Findings/access limits:
@@ -66,3 +66,13 @@ Local macOS Python3.15.1 five-session verification passed:981tests/5capability s
 Source-map foreign keys/hash/arithmetic checks pass. No changed production interfaces
 or model inputs. PR native checks carry exact-head/receiving-main outcomes;this
 receipt does not predeclare their success. Scientific residuals remain in research-gates.md.
+
+
+Corrective audit against receiving-main00012735f640f74dfeea6cde23af1e64c628ad1a:
+five long search-result titles omitted by the first local parser are now screened.
+Current35documents/213candidate dispositions,435citation rows and44additional
+retrieval outcomes. Four more public originals/abstracts saved;no new numeric input.
+The parser cap is removed;all saved visible batches,IDs and links mechanically
+rechecked. Review:docs/reviews/2026-10-27-m2-search-audit.md. First mergePR#56 remains
+historical;corrective publication carries its own exact-head/main native checks.
+The track remains complete within bounded public/index/access limits;no requests.

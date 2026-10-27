@@ -10,7 +10,7 @@ uncompleted request programme.
 
 The [methods](M2_PUBLIC_SOURCE_METHOD.md) and linked
 [tables](../../evidence/m2/public_sources_20261027/README.md) record 48 queries in
-12 combined batches, 208 candidate dispositions and six bounded citation rounds.
+12 combined batches, 213 candidate dispositions and six bounded citation rounds.
 This includes official MOH/NZHS, Customs/Treasury, publication/repository, retail
 policy, assay validation, economic report and supplement searches. Earlier targeted
 search history is labelled seed history, not retrospectively made systematic.
@@ -25,9 +25,9 @@ not complete citation graphs. Every indexed co-discovery is labelled as such; it
 is not asserted to cite its batch seed. Contextual one-hop references are appraised
 without recursively retrieving every reference or attachment they contain.
 
-The initial six PDFs plus 17 additional usable objects were saved locally with CAS
+The initial six PDFs plus 21 additional usable objects were saved locally with CAS
 SHA256s, WARCs and text hashes. Additional objects include aliases/full HTML and are
-not 17 independent studies. Exact WARC response-payload equality was checked. All
+not 21 independent studies. Exact WARC response-payload equality was checked. All
 native WARC dates are missing and stay null. Failed retrievals and HTTP200 challenges
 are recorded in retrieval_outcomes.csv; no challenge is classified as an article or
 supplement. Raw objects/search bodies remain local; tracked supplement URLs omit
@@ -100,3 +100,19 @@ They are source-access limitations, not evidence of absence and not instructions
 contact anyone. Reuse public releases if they later become available; no background
 monitor or new request is created. The public-source track can close while these
 scientific limits remain open in Conductor research-gates.md.
+
+
+## Corrective visible-result audit
+
+After PR#56, a final audit found five long titles omitted by the local screening
+parser. The follow-up removes its180-character cap, checks every saved result
+against the ledger and rebuilds batch ranks/citation candidate IDs. Current totals
+are213dispositions,35documents and44additional retrieval attempts:30captured
+objects,of which21are usable and9are rejected challenges/stubs;14routes failed.
+Four new public objects comprise a Treasury20240568 advice compilation, a Hungarian
+laboratory abstract alias, a clinical urine-validation abstract and a US flavour-
+policy review. None supplies a matched NZcap effect or raw-wastewater calibration.
+The ACS fluorescence-sensor paper is outside the target method/transport scope
+and its public route failed. No additional numeric parameter or input was adopted.
+All prior public-access/scientific limits above remain. The earlier31-document
+map and its manifest remain in Git and pre-audit-map-manifest.json.

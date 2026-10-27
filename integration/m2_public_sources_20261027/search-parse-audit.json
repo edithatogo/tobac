@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-27",
+  "issue": "Original local parser limited titles to180characters and missed5results;no scientific input used these exclusions",
+  "fix": "No title-length cap;all complete title+URL lines parsed and batch ranks/citation candidate links rebuilt",
+  "batches": [
+    {
+      "batch": "B02",
+      "all_title_url_matches": 20,
+      "distinct_canonical_candidates": 20,
+      "local_raw_sha256": "8d1e871689a894784b8d37f943ffc3805c47c2076e7dd1f1369960a204bbe042"
+    },
+    {
+      "batch": "B03",
+      "all_title_url_matches": 20,
+      "distinct_canonical_candidates": 20,
+      "local_raw_sha256": "92b08f753ef92cc4d0e0f9226034f1a4dcf531d88c01a5ee71dd173dde72f91a"
+    },
+    {
+      "batch": "B04",
+      "all_title_url_matches": 19,
+      "distinct_canonical_candidates": 19,
+      "local_raw_sha256": "78716b183178fc1a56531e236d5465edf6fa6ceedb70f7ad5ba6df536e46aa80"
+    },
+    {
+      "batch": "B05",
+      "all_title_url_matches": 19,
+      "distinct_canonical_candidates": 19,
+      "local_raw_sha256": "20073613d2575c8f1e1a6bc96d07944d2e609835e8321c7697d870391147137f"
+    },
+    {
+      "batch": "B06",
+      "all_title_url_matches": 18,
+      "distinct_canonical_candidates": 18,
+      "local_raw_sha256": "1efba9796b1ee924bd9b42aac5757882f8b4ea9c81dc0996028e199bacb34059"
+    },
+    {
+      "batch": "B07",
+      "all_title_url_matches": 13,
+      "distinct_canonical_candidates": 13,
+      "local_raw_sha256": "e417b5c89fca464450ec25531d15925075c927a9b5d79f236c18775912a4a79b"
+    },
+    {
+      "batch": "B08",
+      "all_title_url_matches": 24,
+      "distinct_canonical_candidates": 24,
+      "local_raw_sha256": "59db4ba9bed44cf0a00cc759200a6532dd97c615ccd59ea468e642ce23777b14"
+    },
+    {
+      "batch": "B09",
+      "all_title_url_matches": 15,
+      "distinct_canonical_candidates": 15,
+      "local_raw_sha256": "3f7219844bc39a9bf33fd465e8d5e5f7b7dfc2142d9b57d10060b0a649a7e6b4"
+    },
+    {
+      "batch": "B10",
+      "all_title_url_matches": 16,
+      "distinct_canonical_candidates": 16,
+      "local_raw_sha256": "3636dc298bd835d84fd26fa9887eefe7b3ea451cbbec47747ff444bed87fc737"
+    },
+    {
+      "batch": "B11",
+      "all_title_url_matches": 17,
+      "distinct_canonical_candidates": 15,
+      "local_raw_sha256": "002cd515ddb5e77a6aa4dc953156908ffb0bcb371398d9e689bc4bf28f6a29ad"
+    },
+    {
+      "batch": "B12",
+      "all_title_url_matches": 15,
+      "distinct_canonical_candidates": 15,
+      "local_raw_sha256": "565c79aed8c773d3ee0a43bd73e3b477ad003807e4322aab54ce1d4bdb05ad08"
+    }
+  ],
+  "additional_dispositions": [
+    {
+      "batch": "B03",
+      "url": "https://academic.oup.com/ajcp/article/147/suppl_2/S159/3059233",
+      "title_characters": 227,
+      "source_id": "CLINICAL_ANBA_ABSTRACT_2017",
+      "disposition": "include_context_or_alias"
+    },
+    {
+      "batch": "B04",
+      "url": "https://academic.oup.com/ntr/article/24/4/433/6370828",
+      "title_characters": 192,
+      "source_id": "FLAVOUR_REVIEW_2021",
+      "disposition": "include_context_or_alias"
+    },
+    {
+      "batch": "B05",
+      "url": "https://www.treasury.govt.nz/sites/default/files/2024-10/oia-20240568.pdf",
+      "title_characters": 193,
+      "source_id": "NZ_TREASURY_OIA_20240568",
+      "disposition": "include_context_or_alias"
+    },
+    {
+      "batch": "B09",
+      "url": "https://www.eglab.hu/hu_hu/the-impact-of-regulatory-tightening-of-the-hungarian-tobacco-retail-market-on-availability-access-and-cigarette-smoking-prevalence-of-adolescents/",
+      "title_characters": 187,
+      "source_id": "HUNGARY_YOUTH_2024_WEB",
+      "disposition": "include_context_or_alias"
+    },
+    {
+      "batch": "B11",
+      "url": "https://pubs.acs.org/doi/full/10.1021/acs.analchem.5c05171",
+      "title_characters": 182,
+      "source_id": "",
+      "disposition": "exclude_method_transport_scope"
+    }
+  ],
+  "total_screening_rows": 213,
+  "native_reference_edges": 57,
+  "all_citation_rows": 435,
+  "duplicate_edge_ids": false,
+  "regex": "^(.+) \\((https?://\\S+)\\)$",
+  "scope": "Completeness against saved visible batches only;not engine recall or per-query result attribution"
+}
