@@ -50,3 +50,16 @@ reviewed;neither supplies current target illicit volume or a new policy/study co
 Reserved release diagnostics covered 5/9 model-year intervals over 3 distinct years;
 this does not establish 95% coverage or target-policy validity. No-data q,d supports
 remain [0,1] under the declared M2a structure,not uniform priors.
+
+## Existing-record applicability assessment — 27 October 2026
+
+[Assessment](../docs/research/M2_EXISTING_RECORDS_ASSESSMENT.md) and
+`evidence/m2/existing_records_20261027.json` narrow the access/collection boundary.
+Repeated NZ wastewater baseline records already exist; raw data are offered on request.
+NZHS core IDI access excludes module data, and target vintages/fields need confirmation.
+Historical funding and actual application-fee receipts are available but do not identify
+current incremental policy/study resource costs. Interceptions are not automatically seizures.
+No unconditional new collection is justified before existing raw records are assessed
+against a selected target. Custodian access, target applicability, causal counterfactual,
+current costs and human governance/value decisions remain open. No restricted database
+was accessed, request sent or empirical likelihood adopted.

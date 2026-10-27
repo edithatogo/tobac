@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "assessed_on": "2026-10-27",
+  "base_commit": "b5155ca49803e07e7022211b6dec9e8b83b13756",
+  "role": "existing_record_applicability_and_access_assessment",
+  "local_sha256": {
+    "integration/evidence_inventory_20261025.json": "85ea0e647e1d29e8c21c29735f311ddf0934bc8367bb19a03810e098204095f2",
+    "integration/reconciliation_2025/product-extractions.json": "f63896ec4db3134b4f8de20a34f038abef7c8e5b8bb42439d752249bc1122804",
+    "evidence/m2/synthesis_20261027.json": "d9d8f61ebfb3ac724c9575f6499b0e7dada59c93fe115403cb62c20539f01401",
+    "evidence/prior_work/v2.9.0/requests/empirical_20261024/assay_data_request_fields.csv": "e0d903c18c39f1bb69cf9142375d36ca0bfe9eabc39d38895f9f9cc112711f2b",
+    "evidence/prior_work/v2.9.0/requests/empirical_20261024/R05_ASSAY_PERFORMANCE_ADDENDUM_v2.6.0.md": "92ebf7c34c4e59cff318e124c185475b4822f215654f058a573779ebf2f68e9c",
+    "evidence/prior_work/v2.9.0/requests/empirical_20261024/supply_data_request_fields.csv": "c3fabb3e1caec5e96c479d1e5517a4fb3a86db1e8d312953ffb285acd495279e",
+    "evidence/prior_work/v2.9.0/requests/empirical_20261024/operational_action_request_fields.csv": "b1062c4521d382ece10c906848743b155b45e0136d15f97f08b8ddef1d2fa972",
+    "docs/research/M2_EXISTING_RECORDS_ASSESSMENT.md": "aa22afbe477ab4817e361a5cfe1dee963478849b30e4eb76aadf9d872ea95847"
+  },
+  "sources": [
+    {
+      "id": "NZHS_ACCESS",
+      "url": "https://www.health.govt.nz/monitoring-statistics/surveys/access-to-survey-microdata",
+      "access": "rendered",
+      "finding": "Older CURF vintages and core IDI route; module data excluded from IDI route; target vintage/field access unverified.",
+      "new_byte_capture": false,
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "NZHS_MODULE",
+      "url": "https://www.health.govt.nz/publications/questionnaires-and-content-guide-202425-new-zealand-health-survey",
+      "access": "rendered",
+      "finding": "2024/25 tobacco/vaping module content is not raw answers or proof of microdata release.",
+      "new_byte_capture": false,
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "NZ_WASTEWATER_2025",
+      "url": "https://doi.org/10.1016/j.scitotenv.2025.181223",
+      "access": "indexed_primary_fulltext",
+      "finding": "142 baseline samples at 12 plants in nine settlements during May-October 2023; supplementary tables referenced, not retrieved; raw data on request.",
+      "new_byte_capture": false,
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "ANABASINE_YIELD_2026",
+      "url": "https://doi.org/10.1093/ntr/ntag042",
+      "access": "indexed_primary_manuscript",
+      "finding": "Raw data on request; target transport remains unqualified.",
+      "new_byte_capture": false,
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "REGIME_FUNDING_2023",
+      "url": "https://www.health.govt.nz/system/files/2023-12/cabinet_material_establishing_the_smoked_tobacco_regulatory_regime_black_box_watermarked.pdf",
+      "access": "rendered_and_indexed",
+      "finding": "NZD30.7m four-year funding; planned regime scope, not actual incremental target cost.",
+      "new_byte_capture": false,
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "REGIME_APPLICATIONS_2024",
+      "url": "https://www.health.govt.nz/system/files/2024-02/options_to_repeal_amendments_to_smokefree_env_.act_assoc_regs_black_box_pr.pdf",
+      "access": "rendered",
+      "finding": "Paragraph20: 439 paid,334 completed unpaid applications as at 1 December 2023; fees are receipts,not resource costs or operating outlets.",
+      "new_byte_capture": false,
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "CUSTOMS_ENDPOINTS",
+      "url": "https://www.customs.govt.nz/about-us/statistics/non-drug-interceptions",
+      "access": "indexed_primary",
+      "finding": "Interception,detention,seizure differ; detection denominators and causal harm not identified.",
+      "new_byte_capture": false,
+      "target_likelihood_adopted": false
+    }
+  ],
+  "historical_fee_arithmetic": {
+    "paid_applications": 439,
+    "fee_nzd_ex_gst": "1475",
+    "total_nzd_ex_gst": "647525",
+    "gst_arithmetic_assumption": "0.15",
+    "total_nzd_inc_gst": "744653.75",
+    "role": "historical_receipts_not_incremental_resource_cost"
+  },
+  "restricted_databases_accessed": false,
+  "external_requests_sent": false,
+  "supplier_quotes_received": 0,
+  "new_raw_assays_received": 0,
+  "new_field_collection_required_now": false,
+  "collection_requirement_interpretation": "No unconditional collection requirement established; assess existing raw records against selected target first. This is not proof that existing records suffice.",
+  "conditioned": false,
+  "target_empirically_identified": false,
+  "remaining_requirement_types": [
+    "human_contrast_selection",
+    "custodian_access_and_linkage_decisions",
+    "material_source_clarification",
+    "target_validation_if_existing_records_inadequate",
+    "causal_counterfactual_and_outcomes",
+    "current_incremental_cost_information",
+    "governance_and_normative_choices"
+  ]
+}
