@@ -62,3 +62,10 @@ bypass same-scope comparator rejection. A new regression first failed with an
 empty gap list; the fix compares parsed windows plus geography/population/unit.
 Failure-only rerun passed (one selected,26 deselected). The previous950-test receipt
 remains dated evidence; updated committed-source verification is required below.
+
+Final review fix committed at4c1f818. All five Nox sessions passed again:951 passed,
+five capability skips,92% coverage; zero strict diagnostics, clean-package and
+security pass. Peak790.9MiB. All805 M2 invariants and482 retained-table numerical
+comparisons pass. Current receipt:integration/m2_matched_pathway_review_20261027.json.
+Exact-head hosted and receiving-main proof are retained in PR#52; they are not
+inferred from the earlier head's sixteen successful checks.

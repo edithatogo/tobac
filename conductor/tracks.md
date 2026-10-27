@@ -10,7 +10,7 @@ qualified the ecosystem, evidence interchange and Polars 2 boundary. PR #49 qual
 Renovate profile discovery and four-profile lock candidates. [PR #51](https://github.com/edithatogo/tobac/pull/51)
 merged at `b012758` with all 15 executable PR checks and all 13 receiving-main jobs
 passing, including macOS Python 3.15.1, signed artifacts and native graph readback.
-Ruff covers 112 maintained Python files; formatting, five exact preview rules,
+Ruff covers 115 maintained Python files; formatting, five exact preview rules,
 process-group resource budgets and two-worker mutation are enforced.
 
 The only unchecked track task is the upstream managed parser's Python 3.15 support
@@ -57,7 +57,7 @@ Current receipt: integration/voiage_polars_consumer_20261027.json. Default produ
 ## Issue #3 bounded pathway implementation
 
 The source-feasibility audit and prospective matched-consumption protocol are implemented
-and self-reviewed at 0bdb6ad. [Completed plan](archive/m2_matched_evidence_20261027/plan.md).
+and self-reviewed at 0bdb6ad, with final review fix 4c1f818. [Completed plan](archive/m2_matched_evidence_20261027/plan.md).
 The applied issue remains open: all eight matched consumption cells are missing,
 with no causal/empirical posterior or deployment acceptance. Current requirements
 remain in [research gates](research-gates.md) and issue #3.

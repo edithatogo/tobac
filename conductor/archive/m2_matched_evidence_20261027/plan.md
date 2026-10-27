@@ -28,3 +28,14 @@ field assay/measurement, mitigation/replacement, incremental crime, monetary cos
 held-out prediction and Māori governance remain empirical requirements. This archive
 closes only the bounded software/protocol scope; it does not close issue #3.
 Hosted exact-head and receiving-main results are maintained in the publication PR.
+
+## Final review fix
+
+- [x] Reject self-comparators with alternate ISO date spellings in 4c1f818.
+- [x] Re-execute five Nox sessions:951 passed/five skips,92% coverage; strict,
+  reproduction, clean-package and security pass. Peak790.9MiB. M2:805 invariants;
+  482 retained-table numerical comparisons pass unchanged tolerances.
+
+Current receipt: integration/m2_matched_pathway_review_20261027.json; the original
+receipt is retained. Publication and receiving-main proof:
+https://github.com/edithatogo/tobac/pull/52. Empirical issue #3 remains open.
