@@ -18,7 +18,7 @@ whose distribution version is 2.2.0.
 - [x] Preserve the default compatibility producer and pandas/xarray dependencies.
 - [x] Add hosted macOS qualification with 4 GiB/time budgets, two build workers,
   pinned Actions and unchanged existing required checks.
-- [x] Complete local verification: 923 passed/five capability skips, 92% coverage;
+- [x] Complete local verification: 924 passed/five capability skips, 92% coverage;
   97 baseline and 69 candidate component tests, 90 API comparisons per wheel;
   all eleven Nox sessions pass. Record exact source/wheel/commands and self-review.
 

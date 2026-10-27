@@ -52,21 +52,24 @@ def test_probe_rejects_an_unqualified_python_before_reading_wheel(tmp_path, monk
         module.qualify(tmp_path / "missing.whl", "2.2.0")
 
 
-def test_probe_checks_installed_member_bytes_even_without_installer_archive_hash(tmp_path) -> None:
+@pytest.mark.parametrize("replacement", [b"value = 2\n", b"value = 1\r\n"])
+def test_probe_checks_installed_member_bytes_even_without_installer_archive_hash(
+    tmp_path, replacement
+) -> None:
     from zipfile import ZipFile  # noqa: PLC0415 -- Synthetic archive boundary, not candidate execution.
 
     module = load()
     wheel = tmp_path / "fixture.whl"
     with ZipFile(wheel, "w") as archive:
-        archive.writestr("package/module.py", "value = 1\n")
+        archive.writestr("package/module.py", b"value = 1\n")
         archive.writestr("fixture.dist-info/RECORD", "installer rewrites this")
     installed = tmp_path / "installed"
     member = installed / "package/module.py"
     member.parent.mkdir(parents=True)
-    member.write_text("value = 1\n")
+    member.write_bytes(b"value = 1\n")
     package = types.SimpleNamespace(locate_file=lambda name: installed / name)
     assert module.verify_installed_files(wheel, package) == 1
-    member.write_text("value = 2\n")
+    member.write_bytes(replacement)
     with pytest.raises(RuntimeError, match="Installed wheel member differs"):
         module.verify_installed_files(wheel, package)
 

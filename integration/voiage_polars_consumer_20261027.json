@@ -229,7 +229,7 @@
     "voiage_polars_candidate": "success"
   },
   "full_tests": {
-    "passed": 923,
+    "passed": 924,
     "skipped": 5,
     "coverage_display_percent": 92
   },
@@ -357,5 +357,14 @@
     "atol": 1e-10,
     "limits": "Exact installed consumer qualification only; no release, EVSI or empirical claim"
   },
-  "final_focused_tests": 14
+  "final_focused_tests": 15,
+  "hosted_fixture_fix": {
+    "run": 40445039993,
+    "job": 121994174591,
+    "cause": "Windows text-mode fixture writing translated LF to CRLF; strict byte-identity checker correctly rejected it",
+    "fix": "Use binary fixture writes and retain explicit rejection of both changed values and LF/CRLF differences",
+    "production_checker_changed": false,
+    "focused_tests_passed": 15,
+    "full_tests_passed": 924
+  }
 }

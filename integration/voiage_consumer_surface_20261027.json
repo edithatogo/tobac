@@ -75,7 +75,7 @@
     "tests/engineering/test_scipy_supply.py": "3ff27281965fa411d1a17f6b9df061f3a192d1d97ba4102769bcd9dc0c75d8e2",
     "tests/engineering/test_security_findings.py": "eff23d44c64b79d4790c531278de0b828f4be8a7672a2c83e1534003ec87ee77",
     "tests/engineering/test_source_handoff.py": "6de8954293b66380bff3da26dd20f7095974ea90cbae9c88c90740e0040f82a4",
-    "tests/engineering/test_voiage_consumer_probe.py": "8a3fee9cc8b59d2d48d5af9199cbd914625ced5f81ea243a4b2018bf67f514b2",
+    "tests/engineering/test_voiage_consumer_probe.py": "83bfd95edf9e1b960360c98bf75e2c4a54a74f159d5fad242c8bfc3ebba69120",
     "tests/engineering/test_voiage_consumer_surface.py": "0427a02e7ac69cefb3b352277cd2726bd5eb0b946cd859dfc35b918adefc1e41",
     "tests/engineering/test_voiage_installed.py": "5c063783e3905d2ac78f608ec3250a8aeabe0005d7ff215ad782a9125d71e951"
   },
