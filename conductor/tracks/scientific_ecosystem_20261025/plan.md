@@ -236,6 +236,7 @@ and the four-profile candidate workflow must pass before guarded publication.
 
 ## Ruff coverage and resource controls — 27 October 2026
 
+- [x] Implement and self-review Ruff/resource controls in commit 8a444b6.
 - [x] Extend ALL-rule linting and stable formatter checks to tests and Nox tooling;
   provide root discovery, document pytest-specific exceptions and qualify five
   exact preview rules with real counterexamples.
