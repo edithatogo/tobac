@@ -1,0 +1,43 @@
+{
+  "schema": "tobac.renovate-provider-policy.v1",
+  "date": "2026-10-27",
+  "base_main": "63432f506da12e2de4c5d0d64752f81cf2098884",
+  "provider": "Renovate GitHub App; already operational before this change",
+  "dashboard": "https://github.com/edithatogo/tobac/issues/7",
+  "config_sha256": "b5c4cf8ccbac315dd954d045df662000fd7e364904d05ef26f17485048353eae",
+  "lock_workflow_sha256": "1fcaffb84f8d1aaf1ef3a561061cced28f6627b0312f52734da63517c7a91153",
+  "native_validation": {
+    "renovate": "44.186.4",
+    "node": "24.11.0",
+    "re2": "1.27.0",
+    "strict_config": "passed with native RE2; no fallback warning",
+    "extract_only": "passed; local platform; no credentials supplied or remote branches created",
+    "pip_files": [
+      "engineering/audit.in",
+      "engineering/build-requirements.txt",
+      "engineering/ecosystem.in",
+      "engineering/reference-requirements.txt",
+      "engineering/requirements.in",
+      "engineering/test-requirements.txt",
+      "engineering/tools-requirements.txt",
+      "engineering/voiage-build-requirements.txt",
+      "engineering/voiage.in"
+    ],
+    "all_four_profiles_detected": true
+  },
+  "local_checks": {
+    "full_tests_passed": 884,
+    "capability_skips": 5,
+    "coverage_display_percent": 92,
+    "nox": [
+      "tests",
+      "quality",
+      "security"
+    ],
+    "result": "passed",
+    "scientific_reference_hashes": 38
+  },
+  "settings_scope": "No repository visibility/security settings mutated. Dependabot update PRs already disabled; no version-update configuration exists. Existing vulnerability alerts disabled at baseline, so no Renovate vulnerability-alert automation claim. Graph and supported submission retained.",
+  "remaining_work": "External managed graph parser limitation, scientific/data/decision gates, deferred roadmap and draft future Voiage qualification remain separate.",
+  "publication": "Required existing hosted checks and four-profile candidate workflow must pass; receiving refs/results linked from the resulting PR."
+}

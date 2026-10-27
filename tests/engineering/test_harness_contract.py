@@ -92,3 +92,30 @@ def test_release_requires_reviewed_lock_and_is_not_public_publication():
     assert 'workflow_dispatch' in text and 'engineering/requirements.lock' in text
     assert 'id-token: write' not in text and 'pypa/gh-action-pypi-publish' not in text
     assert 'git push' not in text
+
+
+def test_renovate_covers_profile_inputs_and_keeps_review_gates():
+    data = json.loads((ROOT / 'renovate.json').read_text())
+    assert data['enabled'] is True
+    assert data['dependencyDashboard'] is True
+    patterns = data['pip_requirements']['managerFilePatterns']
+    profiles = ['requirements', 'audit', 'voiage', 'ecosystem']
+    for profile in profiles:
+        path = f'engineering/{profile}.in'
+        assert any(re.search(pattern[1:-1], path) for pattern in patterns)
+    assert not any(re.search(pattern[1:-1], 'conductor/archive/example.in') for pattern in patterns)
+    assert not (ROOT / '.github/dependabot.yml').exists()
+    assert not (ROOT / '.github/dependabot.yaml').exists()
+    assert data['automerge'] is False
+    assert all(rule.get('automerge') is not True for rule in data['packageRules'])
+    assert any({'polars', 'pyarrow', 'patito', 'msgspec'} <= set(rule.get('matchPackageNames', []))
+               for rule in data['packageRules'])
+
+
+def test_dependency_lock_candidates_cover_all_qualified_profiles():
+    data = yaml.load((ROOT / '.github/workflows/dependency-lock.yml').read_text(), Loader=yaml.BaseLoader)
+    job = data['jobs']['resolve']
+    assert set(job['strategy']['matrix']['profile']) == {'runtime', 'audit', 'voiage', 'ecosystem'}
+    assert data['permissions'] == {'contents': 'read'}
+    assert set(data['on']) == {'workflow_dispatch'}
+    assert any('scripts/lock_receipt.py generate' in step.get('run', '') for step in job['steps'])

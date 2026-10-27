@@ -22,3 +22,9 @@ The optional `interchange` extra uses PyArrow 26.0.0, Polars 2.0.0, Patito 0.8.6
 and msgspec 0.22.0 to transport the existing evidence contract. Required test and
 clean-package environments exercise it; the numerical runtime remains unchanged.
 See docs/engineering/EVIDENCE_INTERCHANGE.md for schema, ownership and hash limits.
+
+Renovate is the sole dependency-update PR provider. It detects the four .in
+profiles and groups evidence-transport compatibility updates; all four manual
+lock candidates are generated through the existing verified helper. See
+docs/engineering/DEPENDENCY_MAINTENANCE.md. GitHub's internal Dependabot graph
+parser is separate; graph submission and security audits remain intact.
