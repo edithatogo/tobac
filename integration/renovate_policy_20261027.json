@@ -5,7 +5,7 @@
   "provider": "Renovate GitHub App; already operational before this change",
   "dashboard": "https://github.com/edithatogo/tobac/issues/7",
   "config_sha256": "b5c4cf8ccbac315dd954d045df662000fd7e364904d05ef26f17485048353eae",
-  "lock_workflow_sha256": "1fcaffb84f8d1aaf1ef3a561061cced28f6627b0312f52734da63517c7a91153",
+  "lock_workflow_sha256": "c8be796160849af6bbda668fce2f4d60e07f7acdf44d00ebbfc2c3074a710027",
   "native_validation": {
     "renovate": "44.186.4",
     "node": "24.11.0",
@@ -39,5 +39,10 @@
   },
   "settings_scope": "No repository visibility/security settings mutated. Dependabot update PRs already disabled; no version-update configuration exists. Existing vulnerability alerts disabled at baseline, so no Renovate vulnerability-alert automation claim. Graph and supported submission retained.",
   "remaining_work": "External managed graph parser limitation, scientific/data/decision gates, deferred roadmap and draft future Voiage qualification remain separate.",
-  "publication": "Required existing hosted checks and four-profile candidate workflow must pass; receiving refs/results linked from the resulting PR."
+  "publication": "Required existing hosted checks and four-profile candidate workflow must pass; receiving refs/results linked from the resulting PR.",
+  "first_native_failure": {
+    "run": 40428239594,
+    "cause": "bare runner Python did not meet declared 3.15.1; actual assertion failed",
+    "fix": "uv-created explicit repo-local .venv-lock; assertion retained; rerun required"
+  }
 }

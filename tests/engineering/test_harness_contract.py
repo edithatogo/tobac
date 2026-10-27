@@ -119,3 +119,13 @@ def test_dependency_lock_candidates_cover_all_qualified_profiles():
     assert data['permissions'] == {'contents': 'read'}
     assert set(data['on']) == {'workflow_dispatch'}
     assert any('scripts/lock_receipt.py generate' in step.get('run', '') for step in job['steps'])
+
+
+def test_lock_candidates_use_selected_repo_local_python():
+    data = yaml.load((ROOT / '.github/workflows/dependency-lock.yml').read_text(), Loader=yaml.BaseLoader)
+    run = next(step['run'] for step in data['jobs']['resolve']['steps']
+               if 'scripts/lock_receipt.py generate' in step.get('run', ''))
+    assert 'uv venv --python 3.15.1 .venv-lock' in run
+    assert run.count('.venv-lock/bin/python') == 2
+    assert 'assert sys.version_info[:3] == (3, 15, 1)' in run
+    assert '\n          python ' not in run

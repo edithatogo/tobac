@@ -36,3 +36,11 @@ when the graph is enabled; removing that capability would not be an equivalent
 updater switch. Retain the graph, supported submission and explicit external gate.
 Vulnerability-alert automation was disabled at inspection and is not claimed active.
 Scientific/data gates, the roadmap and draft PR #41 remain open in their own scopes.
+
+### High — setup-uv selection did not select bare python (resolved)
+
+The first native four-profile dispatch failed its new version assertion. The
+existing workflow declared Python 3.15.1 but invoked the runner's bare python.
+Create .venv-lock with uv's explicit 3.15.1 selection and invoke its interpreter
+for both the assertion and resolver helper. A regression case protects the
+explicit interpreter. First failure: native run 40428239594; no assertion removed.
