@@ -170,5 +170,10 @@
   "execution_log_sha256": "2175686db382d3175027e3842bcb9f242c1112c01d8f4757e4fe739a737457ed",
   "review": "docs/reviews/2026-10-27-m2-matched-pathway.md",
   "issue_3": "open; no matched observations/causal response/assay/calibration/cost/governance acceptance claimed",
-  "hosted": "Not yet executed for publication; final-head/receiving-main evidence will be maintained in the PR."
+  "hosted": "Not yet executed for publication; final-head/receiving-main evidence will be maintained in the PR.",
+  "conductor_validation": {
+    "command": ".nox/tests/bin/python scripts/check_conductor_track_names.py",
+    "result": "12/12 tracks consistent",
+    "scope": "registry/archive metadata and specification title consistency only"
+  }
 }

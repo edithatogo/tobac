@@ -42,7 +42,7 @@ or a commissioning recommendation. Source/forecast identities and data-once guar
 [Roadmap](roadmap.md): non-macOS qualification, optional advisory promotion and explicitly optional
 mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remain required.
 
-## Voiage Polars consumer qualification
+## Voiage 3.0.0 Polars consumer qualification
 
 Status: bounded macOS baseline/candidate implementation complete; published-3.0
 acceptance blocked externally.

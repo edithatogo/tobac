@@ -51,3 +51,8 @@ M2 passed 805 invariants; 482 retained-table numerical comparisons pass rtol=ato
 CSV line endings and expected floating roundoff differ; no numerical claim of byte equality.
 Results and receipts: integration/m2_matched_pathway_20261027.json. Hosted final-head and
 receiving-main verification remain required before publication is described as complete.
+
+Conductor close-out check found a missing title on the new archive metadata and a
+pre-existing Voiage registry pointer/title mismatch. Corrected both without
+changing either track's scientific or release scope. Native naming check:12/12
+tracks consistent. These documentation repairs introduce no runtime changes.
