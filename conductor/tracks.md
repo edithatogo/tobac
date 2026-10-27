@@ -71,3 +71,11 @@ signed historical uplift sensitivity and conditional study-cost ceilings are
 qualified. Existing records,needed target validation and substantive human
 decisions are distinguished in [research gates](research-gates.md). Issue #3
 remains open;no empirical target posterior or deployment approval is supplied.
+
+## M2 selected decisions and unsent record requests
+
+**Status: [~] In progress — owner authorised 27 October 2026.**
+Track: `conductor/tracks/m2_record_requests_20261027/`.
+
+Record selected staged recommendations and prepare local unsent requests.
+Issue #3 remains open for data access, empirical applicability and governance.
