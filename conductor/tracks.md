@@ -71,3 +71,13 @@ signed historical uplift sensitivity and conditional study-cost ceilings are
 qualified. Existing records,needed target validation and substantive human
 decisions are distinguished in [research gates](research-gates.md). Issue #3
 remains open;no empirical target posterior or deployment approval is supplied.
+
+## M2 selected decisions and unsent record requests
+
+**Status: [x] Bounded preparation and self-review complete — 27 October 2026.**
+Track: `conductor/tracks/m2_record_requests_20261027/`.
+
+Selected directions and four local unsent requests are recorded at c1e86e5.
+All five local Nox sessions pass; exact-head and receiving-main publication evidence
+is maintained in the PR. No unexecuted hosted check is implied by local completion.
+Issue #3 remains open for data access, empirical applicability and governance.

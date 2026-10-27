@@ -35,3 +35,6 @@
 
 - [M2 evidence synthesis and partial identification](./archive/m2_evidence_synthesis_20261027/plan.md):
   completed bounded evidence/method review;empirical/data/decision gates remain explicit.
+
+- [M2 selected decisions and unsent requests](./tracks/m2_record_requests_20261027/plan.md):
+  owner-selected preparation scope; issue #3 empirical acceptance remains open.
