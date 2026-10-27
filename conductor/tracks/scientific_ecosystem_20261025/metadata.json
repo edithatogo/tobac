@@ -48,5 +48,12 @@
     "review": "docs/reviews/2026-10-27-polars2-pr48.md",
     "local": "882 tests passed, 5 skips, 92% coverage; 99 native tests; all six Nox gates passed",
     "publication": "all existing final-head hosted checks required before guarded merge; receiving ref linked from PR #48"
+  },
+  "dependency_update_provider": {
+    "provider": "Renovate",
+    "dashboard_issue": 7,
+    "verification": "integration/renovate_policy_20261027.json",
+    "policy": "docs/engineering/DEPENDENCY_MAINTENANCE.md",
+    "scope": "update PRs only; internal GitHub graph parser gate retained"
   }
 }

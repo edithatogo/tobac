@@ -218,3 +218,18 @@ or Python 3.15.1 requirement changes.
 Review: docs/reviews/2026-10-27-polars2-pr48.md. Artifact and verification:
 integration/voiage_polars2_compatibility_20261027.json. The root managed parser
 service gate remains open; no track is falsely archived or check waived.
+
+## Renovate provider policy — 27 October 2026
+
+- [x] Explicitly retain Renovate as the sole update-PR provider; cover all four
+  .in profiles, group compatibility-sensitive transport libraries, preserve
+  manual merge/release-age/SHA controls and expand manual lock candidates to
+  all four profiles with an actual Python 3.15.1 assertion.
+
+Native Renovate 44.186.4/Node 24.11.0/RE2 validation and extract-only detection
+passed. Local tests: 884 passed, five capability skips, 92% coverage; quality
+and security passed. Receipt: integration/renovate_policy_20261027.json.
+No security or visibility setting changes. The internal managed graph parser
+is distinct from the update bot and remains an external gate; switching update
+policy is not evidence that it supports Python 3.15. All existing hosted checks
+and the four-profile candidate workflow must pass before guarded publication.

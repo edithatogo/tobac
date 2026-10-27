@@ -1,12 +1,68 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests"
+  ],
   "automerge": false,
   "minimumReleaseAge": "3 days",
   "prConcurrentLimit": 3,
   "packageRules": [
-    {"matchPackageNames": ["numpy", "scipy", "pandas", "matplotlib", "voiage"], "groupName": "scientific stack qualification", "automerge": false},
-    {"matchManagers": ["github-actions"], "groupName": "verified action pins", "automerge": false},
-    {"matchPackageNames": ["ruff", "basedpyright", "nox", "hypothesis", "pip-audit", "zizmor", "mutmut", "scalene"], "groupName": "engineering tools", "automerge": false}
+    {
+      "matchPackageNames": [
+        "numpy",
+        "scipy",
+        "pandas",
+        "matplotlib",
+        "voiage"
+      ],
+      "groupName": "scientific stack qualification",
+      "automerge": false
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "groupName": "verified action pins",
+      "automerge": false
+    },
+    {
+      "matchPackageNames": [
+        "ruff",
+        "basedpyright",
+        "nox",
+        "hypothesis",
+        "pip-audit",
+        "zizmor",
+        "mutmut",
+        "scalene"
+      ],
+      "groupName": "engineering tools",
+      "automerge": false
+    },
+    {
+      "matchPackageNames": [
+        "polars",
+        "polars-runtime-32",
+        "pyarrow",
+        "patito",
+        "msgspec",
+        "pydantic",
+        "xarray"
+      ],
+      "groupName": "evidence transport qualification",
+      "automerge": false
+    }
+  ],
+  "enabled": true,
+  "dependencyDashboard": true,
+  "pip_requirements": {
+    "managerFilePatterns": [
+      "/^engineering/(requirements|audit|voiage|ecosystem)\\.in$/"
+    ]
+  },
+  "prBodyNotes": [
+    "Renovate is the sole dependency-update PR provider. Update canonical declarations and matching engineering profiles together.",
+    "After dependency-input changes, regenerate and review all four source-bound locks (runtime, audit, voiage, ecosystem) with scripts/lock_receipt.py. Existing Python, native-library, security and hosted checks must pass before merge."
   ]
 }

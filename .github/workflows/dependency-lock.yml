@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        profile: [runtime, audit]
+        profile: [runtime, audit, voiage, ecosystem]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -26,7 +26,10 @@ jobs:
       - name: Resolve from real package metadata
         env:
           LOCK_PROFILE: ${{ matrix.profile }}
-        run: python scripts/lock_receipt.py generate --profile "$LOCK_PROFILE" --path outputs/engineering/lock-candidate
+        run: |
+          uv venv --python 3.15.1 .venv-lock
+          .venv-lock/bin/python -c "import sys; print(sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          .venv-lock/bin/python scripts/lock_receipt.py generate --profile "$LOCK_PROFILE" --path outputs/engineering/lock-candidate
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: success()
         with:
