@@ -74,8 +74,10 @@ remains open;no empirical target posterior or deployment approval is supplied.
 
 ## M2 selected decisions and unsent record requests
 
-**Status: [~] In progress — owner authorised 27 October 2026.**
+**Status: [x] Bounded preparation and self-review complete — 27 October 2026.**
 Track: `conductor/tracks/m2_record_requests_20261027/`.
 
-Record selected staged recommendations and prepare local unsent requests.
+Selected directions and four local unsent requests are recorded at c1e86e5.
+All five local Nox sessions pass; exact-head and receiving-main publication evidence
+is maintained in the PR. No unexecuted hosted check is implied by local completion.
 Issue #3 remains open for data access, empirical applicability and governance.
