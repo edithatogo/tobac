@@ -634,3 +634,142 @@ def recovery(session: nox.Session) -> None:
     """Actual runner interruption/resume and immutable-receipt comparison."""
     environment(session)
     session.run("python", "scripts/qualify_recovery.py", "--out", str(OUT / "recovery" / uuid4().hex))
+
+
+@nox.session(python="3.15.1")
+def voiage_polars_candidate(session: nox.Session) -> None:
+    """Build and qualify one immutable unpatched upstream container candidate."""
+    pin = json.loads((ROOT / "engineering/voiage-polars-candidate.json").read_text())
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run(
+        "python",
+        "scripts/lock_receipt.py",
+        "verify",
+        "--profile",
+        "voiage",
+        "--path",
+        "engineering/voiage.lock",
+    )
+    python = str(Path(session.bin).resolve() / "python")
+    session.env.update(
+        OPENBLAS_NUM_THREADS="1",
+        POLARS_MAX_THREADS="2",
+        RAYON_NUM_THREADS="2",
+        CARGO_BUILD_JOBS="2",
+        PYTHONHASHSEED="0",
+    )
+    session.run(
+        "uv", "pip", "sync", "--python", python, "--require-hashes", "engineering/voiage.lock", external=True
+    )
+    session.install("--no-deps", "--no-build-isolation", "-e", ".")
+    base = (
+        Path(session.posargs[0]).resolve()
+        if session.posargs
+        else (ROOT / OUT / "voiage-polars-candidate").resolve()
+    )
+    run = base / uuid4().hex
+    source, wheels = run / "source", run / "wheels"
+    run.mkdir(parents=True)
+    session.run("git", "init", str(source), external=True)
+    session.run(
+        "git",
+        "-C",
+        str(source),
+        "-c",
+        "credential.helper=",
+        "fetch",
+        "--depth=1",
+        pin["repository"],
+        pin["revision"],
+        external=True,
+    )
+    session.run("git", "-C", str(source), "checkout", "--detach", "FETCH_HEAD", external=True)
+    actual = session.run("git", "-C", str(source), "rev-parse", "HEAD", silent=True, external=True)
+    if not isinstance(actual, str) or actual.strip() != pin["revision"]:
+        session.error("Candidate source differs from the immutable reviewed revision")
+    session.env["CARGO_TARGET_DIR"] = str(run / "cargo-target")
+    session.run(
+        "uv",
+        "build",
+        "--python",
+        python,
+        "--build-constraint",
+        str(ROOT / "engineering/voiage-build-requirements.txt"),
+        "--wheel",
+        "--out-dir",
+        str(wheels),
+        str(source),
+        external=True,
+    )
+    session.run("git", "-C", str(source), "diff", "--exit-code", "HEAD", external=True)
+    (wheel,) = wheels.glob("*.whl")
+    # Actual metadata resolution and installer hash enforcement, with no dependency bypass.
+    wheel_requirement = run / "wheel-requirement.txt"
+    wheel_requirement.write_text(
+        "voiage @ "
+        + wheel.as_uri()
+        + " --hash=sha256:"
+        + hashlib.sha256(wheel.read_bytes()).hexdigest()
+        + "\n",
+        encoding="utf-8",
+    )
+    session.run(
+        "uv",
+        "pip",
+        "install",
+        "--python",
+        python,
+        "--no-index",
+        "--require-hashes",
+        "--reinstall-package",
+        "voiage",
+        "-r",
+        "engineering/voiage.lock",
+        "-r",
+        str(wheel_requirement),
+        external=True,
+    )
+    session.run("uv", "pip", "check", "--python", python, external=True)
+    destination = OUT / "voiage-polars-candidate" / "receipts" / run.name
+    destination.mkdir(parents=True)
+    session.run(
+        "python",
+        "scripts/qualify_voiage_consumer.py",
+        "--wheel",
+        str(wheel),
+        "--expected-version",
+        pin["expected_version"],
+        "--out",
+        str(destination / "consumer.json"),
+    )
+    session.run(
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_workstream_integration.py",
+        "tests/m3/test_research.py",
+        "tests/engineering/test_voiage_consumer_surface.py",
+    )
+    surface = session.run("python", "scripts/voiage_consumer_surface.py", silent=True)
+    if not isinstance(surface, str):
+        session.error("Consumer surface inventory did not return JSON")
+    (destination / "surface.json").write_text(surface, encoding="utf-8")
+    record = {
+        "source_revision": actual.strip(),
+        "candidate_pin_sha256": hashlib.sha256(
+            (ROOT / "engineering/voiage-polars-candidate.json").read_bytes()
+        ).hexdigest(),
+        "source_pyproject_sha256": hashlib.sha256((source / "pyproject.toml").read_bytes()).hexdigest(),
+        "dependency_lock_sha256": hashlib.sha256((ROOT / "engineering/voiage.lock").read_bytes()).hexdigest(),
+        "source_unpatched": True,
+        "wheel": wheel.name,
+        "wheel_sha256": hashlib.sha256(wheel.read_bytes()).hexdigest(),
+        "kind": pin["kind"],
+        "published_3_0_qualification": "unexecuted; release unavailable",
+        "reference_producer": "retained; candidate is an opt-in qualification lane",
+    }
+    (destination / "build.json").write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+    shutil.copyfile(wheel, destination / wheel.name)
+    shutil.rmtree(source)
+    shutil.rmtree(run / "cargo-target", ignore_errors=True)
