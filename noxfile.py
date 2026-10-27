@@ -287,6 +287,12 @@ def reproduce(session: nox.Session) -> None:
     )
     session.run("python", "scripts/verify.py")
     replay_root = OUT / "replays" / uuid4().hex
+    session.run(
+        "python",
+        "scripts/qualify_m2_pathway.py",
+        "--out",
+        str(replay_root / "m2-pathway.json"),
+    )
     for module, destination in [("tobac.run", "m1"), ("tobac.m2", "m2"), ("tobac.research.runner", "m3")]:
         args = ["python", "-m", module, "--out", str(replay_root / destination)]
         if module == "tobac.m2":

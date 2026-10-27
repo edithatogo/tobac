@@ -10,13 +10,13 @@ qualified the ecosystem, evidence interchange and Polars 2 boundary. PR #49 qual
 Renovate profile discovery and four-profile lock candidates. [PR #51](https://github.com/edithatogo/tobac/pull/51)
 merged at `b012758` with all 15 executable PR checks and all 13 receiving-main jobs
 passing, including macOS Python 3.15.1, signed artifacts and native graph readback.
-Ruff covers 112 maintained Python files; formatting, five exact preview rules,
+Ruff covers 115 maintained Python files; formatting, five exact preview rules,
 process-group resource budgets and two-worker mutation are enforced.
 
 The only unchecked track task is the upstream managed parser's Python 3.15 support
 ([dependabot-core #16524](https://github.com/dependabot/dependabot-core/issues/16524)).
 Supported dependency submission and graph readback pass; the failed managed parser
-is not hidden or marked successful. [Draft PR #41](https://github.com/edithatogo/tobac/pull/41)
+is not hidden or marked successful. [Merged PR #41](https://github.com/edithatogo/tobac/pull/41)
 implements separate exact-candidate qualification; published-3.0 acceptance remains open.
 
 [PR #50](https://github.com/edithatogo/tobac/pull/50) qualifies Hypothesis 6.170.9:
@@ -26,7 +26,7 @@ Its verification and receiving-main publication are recorded in the PR and
 
 ## Completed work
 
-Eight completed tracks are archived, including seven moved out of the active registry
+Nine completed tracks are archived, including seven moved out of the active registry
 on 26 October and the earlier longitudinal archive. See
 [the archive index](archive/index.md) for their specifications, plans and dated receipts.
 
@@ -42,12 +42,22 @@ or a commissioning recommendation. Source/forecast identities and data-once guar
 [Roadmap](roadmap.md): non-macOS qualification, optional advisory promotion and explicitly optional
 mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remain required.
 
-## Voiage Polars consumer qualification
+## Voiage 3.0.0 Polars consumer qualification
 
 Status: bounded macOS baseline/candidate implementation complete; published-3.0
-acceptance blocked externally. Track: `conductor/tracks/voiage_polars_qualification_20261026/`.
+acceptance blocked externally.
+
+Track: `conductor/tracks/voiage_polars_qualification_20261026/`.
 Published Voiage 3.0.0 remains unavailable; no upstream-release success is claimed.
 
 Current receipt: integration/voiage_polars_consumer_20261027.json. Default producer
 2.2.0+tobac3151.2 retained; unpatched candidate at 6c28ac5 is unreleased version
 2.2.0. pandas/xarray remain required. Hosted/receiving-main execution is recorded in PR #41.
+
+## Issue #3 bounded pathway implementation
+
+The source-feasibility audit and prospective matched-consumption protocol are implemented
+and self-reviewed at 0bdb6ad, with final review fix 4c1f818. [Completed plan](archive/m2_matched_evidence_20261027/plan.md).
+The applied issue remains open: all eight matched consumption cells are missing,
+with no causal/empirical posterior or deployment acceptance. Current requirements
+remain in [research gates](research-gates.md) and issue #3.

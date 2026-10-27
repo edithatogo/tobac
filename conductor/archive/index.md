@@ -49,3 +49,10 @@ See [plan](research_m3_20261025/plan.md) and [specification](research_m3_2026102
 Track: `conductor/archive/workstream_sync_20261024/`
 
 See [plan](workstream_sync_20261024/plan.md) and [specification](workstream_sync_20261024/spec.md).
+
+## M2 matched evidence feasibility and prospective protocol
+
+Track: `conductor/archive/m2_matched_evidence_20261027/`
+
+[Plan](m2_matched_evidence_20261027/plan.md) and [specification](m2_matched_evidence_20261027/spec.md).
+Bounded implementation complete; issue #3 empirical acceptance remains open.
