@@ -128,4 +128,4 @@ def test_lock_candidates_use_selected_repo_local_python():
     assert 'uv venv --python 3.15.1 .venv-lock' in run
     assert run.count('.venv-lock/bin/python') == 2
     assert 'assert sys.version_info[:3] == (3, 15, 1)' in run
-    assert '\n          python ' not in run
+    assert re.search(r'(?m)^\s*python(?:3)?\s', run) is None
