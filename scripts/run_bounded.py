@@ -13,6 +13,7 @@ import os
 import shutil
 import signal
 import subprocess
+import sys
 import time
 
 LOGGER = logging.getLogger(__name__)
@@ -134,6 +135,8 @@ def main() -> int:
     parser.add_argument("--poll", type=positive, default=0.5)
     parser.add_argument("command", nargs=argparse.REMAINDER)
     args = parser.parse_args()
+    if sys.version_info[:3] != (3, 15, 1):
+        parser.error("Resource guard requires the qualified Python 3.15.1 runtime")
     command = args.command[1:] if args.command[:1] == ["--"] else args.command
     if not command:
         parser.error("Supply a command after --")

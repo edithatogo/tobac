@@ -30,7 +30,7 @@ jobs:
           version: '0.13.5'
           python-version: ${{ matrix.python }}
           enable-cache: false
-      - run: python -c "from pathlib import Path; Path('outputs/engineering').mkdir(parents=True, exist_ok=True)"
+      - run: uv run --python 3.15.1 --no-project python -c "import sys; assert sys.version_info[:3] == (3, 15, 1); from pathlib import Path; Path('outputs/engineering').mkdir(parents=True, exist_ok=True)"
       - if: runner.os == 'macOS'
         run: uv run --python 3.15.1 --no-project scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python '${{ matrix.python }}' --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s tests
       - if: runner.os != 'macOS'

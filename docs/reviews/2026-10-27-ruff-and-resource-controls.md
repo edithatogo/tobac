@@ -61,3 +61,7 @@ Final local sampled peak was 830.7 MiB with a 4 GiB guard; 37 protected input/lo
 files match the base byte-for-byte. Editor discovery and explicit Nox discovery
 cover the same 108 Python files. The root policy is authoritative and the legacy
 engineering config extends it, avoiding relative-glob drift between entry points.
+
+Final bootstrap review replaced the workflow mkdir helper's bare Python with explicit
+3.15.1 selection and an actual version assertion. The guard likewise rejects any other
+runtime before launching a child. Thirty focused guard/policy/workflow tests pass.

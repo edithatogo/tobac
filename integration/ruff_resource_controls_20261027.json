@@ -74,7 +74,7 @@
     "outputs/engineering/ruff-guards-final.log"
   ],
   "source_sha256": {
-    ".github/workflows/engineering.yml": "7d8052c65a879fe556e5eb7b599713c0011fd4a38e27153977e47e28851de437",
+    ".github/workflows/engineering.yml": "2220bd0d4974cc7ed8c9a01ed9e74c4b99bd77220b66127e714d59d2c20ab358",
     "AGENTS.md": "1e87d2aa23b3f35a05e1e0cfe039d0ab183058d3eb8e81c0d610eba7a6727bee",
     "docs/engineering/READINESS.md": "2f7216e2834a65f8561f3a9066d622513235a92d46c2c86c73e4b43666c0d4c5",
     "engineering/context/engineering.json": "4ec9e0d9a83dfc8bb0f2d4d6f82bc46851cfb1bad901235b7cf0e28414a4e8a2",
@@ -91,7 +91,7 @@
     "scripts/qualify_ecosystem.py": "93fad5e52d57b5324076a7e89c5f184efc4b3c6517628929bc4ad9c7a79525a5",
     "scripts/qualify_interchange.py": "bfa3029e42224f4d4bf8f1fad24f32b4f4e0bbfc7d88e1f3fda0487d8b7a1b9a",
     "scripts/qualify_recovery.py": "d3c77f288a4536c35eff7e74d100045c7bd0aa50612ef45ea1d0b0bb47624040",
-    "scripts/run_bounded.py": "21744fab86ac3f95ac4cbbcb6a551f3f9a5a77dd1384c6e315e7f203922d5169",
+    "scripts/run_bounded.py": "629c2aedfc2a747f95a0b9669798fef838bf2f9b12926a30ff1f7ab6cd654bcd",
     "scripts/run_empirical_longitudinal.py": "8438f919585e359701751445370fb0ccd8019e48f2c03d7d3ba5afc3f3e6a14c",
     "scripts/verify_empirical_longitudinal.py": "d0d1d67a24bbfa82fd0a79c8a46685aa0ef32a512ced21365a06686ce8f37a70",
     "scripts/verify_prior_work.py": "ee3881532f3e54accc5d4373f6c313d03ad5fab62d7a4e007b7587776adf82cd",
@@ -149,5 +149,7 @@
     "tests/test_validation_boundaries.py": "84e1aa8199d383fc5fc96a103a956bbec02f53a321131541635e37649e80f687",
     "tests/test_workstream_integration.py": "e5254ea325fed8082b1f9e95904340e99dba774f0d4a73943ba25055bad9e578"
   },
-  "publication": "Existing hosted checks and exact receiving-main verification remain required; no external parser or scientific gate waived"
+  "publication": "Existing hosted checks and exact receiving-main verification remain required; no external parser or scientific gate waived",
+  "publication_focused_tests": 30,
+  "actual_guard_runtime_assertion": "sys.version_info[:3] must equal (3, 15, 1) before execution"
 }
