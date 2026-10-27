@@ -4,6 +4,7 @@ Requires the optional ``interchange`` dependencies. Digests detect corruption,
 not authenticity or scientific validity. Export and reconstruction copy numeric
 values; only the Arrow/C-stream/Polars float64 view can share buffers.
 """
+
 from __future__ import annotations
 
 import hashlib
@@ -95,9 +96,13 @@ def _hash(envelope: object, values: object) -> str:
 
 
 def to_arrow(  # noqa: PLR0913  # Explicit supplied provenance is never inferred from packet identifiers.
-    packet: EvidencePacket, *, captured_at: datetime | None = None,
-    supply_basis: SupplyBasis | None = None, covariance: object | None = None,
-    observation_ids: tuple[str, ...] = (), covariance_unit: str = "",
+    packet: EvidencePacket,
+    *,
+    captured_at: datetime | None = None,
+    supply_basis: SupplyBasis | None = None,
+    covariance: object | None = None,
+    observation_ids: tuple[str, ...] = (),
+    covariance_unit: str = "",
     producer_revision: str | None = None,
 ) -> object:
     """Export an owned Arrow table; missing capture time remains null."""
@@ -112,8 +117,11 @@ def to_arrow(  # noqa: PLR0913  # Explicit supplied provenance is never inferred
         if matrix.dtype != np.float64:
             msg = "Covariance must be explicit float64, without coercion"
             raise ValueError(msg)
-        covariance_wire = {"observation_ids": observation_ids, "unit": covariance_unit,
-                           "values": matrix.tolist()}
+        covariance_wire = {
+            "observation_ids": observation_ids,
+            "unit": covariance_unit,
+            "values": matrix.tolist(),
+        }
     elif observation_ids or covariance_unit:
         msg = "Covariance labels require a covariance matrix"
         raise ValueError(msg)
@@ -121,19 +129,29 @@ def to_arrow(  # noqa: PLR0913  # Explicit supplied provenance is never inferred
     fields = asdict(packet)
     del fields["log_likelihood"]
     envelope = msgspec.convert(
-        {"version": 1, **fields, "captured_at": timestamp, "digest": "",
-         "supply_basis": None if supply_basis is None else asdict(supply_basis),
-         "covariance": covariance_wire, "producer_revision": producer_revision}, type=_Envelope, strict=True,
+        {
+            "version": 1,
+            **fields,
+            "captured_at": timestamp,
+            "digest": "",
+            "supply_basis": None if supply_basis is None else asdict(supply_basis),
+            "covariance": covariance_wire,
+            "producer_revision": producer_revision,
+        },
+        type=_Envelope,
+        strict=True,
     )
     _validate_provenance(envelope)
     envelope = msgspec.structs.replace(envelope, digest=_hash(envelope, packet.log_likelihood))
     values = np.array(packet.log_likelihood, dtype="<f8", copy=True)
     values.setflags(write=False)
-    table = pa.table({
-        "state_id": pa.array(packet.state_ids, type=pa.large_string()),
-        "log_likelihood": pa.array(values, type=pa.float64()),
-        "captured_at": pa.array([captured_at] * len(values), type=pa.timestamp("us", "UTC")),
-    }).replace_schema_metadata({_KEY: msgspec.json.encode(envelope)})
+    table = pa.table(
+        {
+            "state_id": pa.array(packet.state_ids, type=pa.large_string()),
+            "log_likelihood": pa.array(values, type=pa.float64()),
+            "captured_at": pa.array([captured_at] * len(values), type=pa.timestamp("us", "UTC")),
+        }
+    ).replace_schema_metadata({_KEY: msgspec.json.encode(envelope)})
     from_arrow(table)
     return table
 
@@ -142,9 +160,16 @@ def from_arrow(table: object) -> EvidencePacket:
     """Validate exact schema, order, metadata and digest; never cast or reorder."""
     value = cast("Any", table)
     expected = [pa.large_string(), pa.float64(), pa.timestamp("us", "UTC")]
-    if not isinstance(value, pa.Table) or value.column_names != [
-        "state_id", "log_likelihood", "captured_at",
-    ] or value.schema.types != expected:
+    if (
+        not isinstance(value, pa.Table)
+        or value.column_names
+        != [
+            "state_id",
+            "log_likelihood",
+            "captured_at",
+        ]
+        or value.schema.types != expected
+    ):
         msg = "Evidence requires the exact version-1 Arrow schema"
         raise ValueError(msg)
     metadata = value.schema.metadata
@@ -175,8 +200,10 @@ def from_arrow(table: object) -> EvidencePacket:
         msg = "Capture metadata requires UTC"
         raise ValueError(msg)
     if (
-        value.column(0).null_count or value.column(1).null_count
-        or ids != envelope.state_ids or any(t != expected_time for t in times)
+        value.column(0).null_count
+        or value.column(1).null_count
+        or ids != envelope.state_ids
+        or any(t != expected_time for t in times)
         or _hash(envelope, values) != envelope.digest
     ):
         msg = "Evidence values, order or metadata changed"
@@ -235,9 +262,15 @@ def _validate_provenance(envelope: _Envelope) -> None:
     if covariance is not None:
         ids = covariance.observation_ids
         matrix = np.array(covariance.values, dtype=np.float64)
-        if (not ids or any(not name.strip() for name in ids) or len(set(ids)) != len(ids)
-            or not covariance.unit.strip() or matrix.shape != (len(ids), len(ids))
-            or not np.isfinite(matrix).all() or not np.array_equal(matrix, matrix.T)):
+        if (
+            not ids
+            or any(not name.strip() for name in ids)
+            or len(set(ids)) != len(ids)
+            or not covariance.unit.strip()
+            or matrix.shape != (len(ids), len(ids))
+            or not np.isfinite(matrix).all()
+            or not np.array_equal(matrix, matrix.T)
+        ):
             msg = "Covariance requires aligned unique observations, units and finite symmetric values"
             raise ValueError(msg)
         try:
@@ -255,6 +288,9 @@ def read_metadata(table: object) -> dict[str, Any]:
     """
     from_arrow(table)
     value = cast("Any", table)
-    return cast("dict[str, Any]", msgspec.to_builtins(
-        msgspec.json.decode(value.schema.metadata[_KEY], type=_Envelope, strict=True),
-    ))
+    return cast(
+        "dict[str, Any]",
+        msgspec.to_builtins(
+            msgspec.json.decode(value.schema.metadata[_KEY], type=_Envelope, strict=True),
+        ),
+    )

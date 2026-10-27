@@ -52,8 +52,7 @@ def validate(  # noqa: C901  # Keep accountable dispositions and proof checks vi
                     path.is_symlink()
                     or not path.resolve().is_relative_to(root.resolve())
                     or not path.is_file()
-                    or hashlib.sha256(path.read_bytes()).hexdigest()
-                    != artifact["sha256"]
+                    or hashlib.sha256(path.read_bytes()).hexdigest() != artifact["sha256"]
                 ):
                     msg = "Security fix verification artifact missing or changed"
                     raise ValueError(msg)
@@ -64,9 +63,7 @@ def validate(  # noqa: C901  # Keep accountable dispositions and proof checks vi
 
 def main() -> None:
     """Check the maintained registry without changing security settings."""
-    record = json.loads(
-        (ROOT / "engineering/security-findings.json").read_text(encoding="utf-8")
-    )
+    record = json.loads((ROOT / "engineering/security-findings.json").read_text(encoding="utf-8"))
     if record["schema"] != "tobac.security-findings.v1":
         msg = "Unsupported security findings schema"
         raise ValueError(msg)

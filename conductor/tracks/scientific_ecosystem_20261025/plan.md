@@ -233,3 +233,26 @@ No security or visibility setting changes. The internal managed graph parser
 is distinct from the update bot and remains an external gate; switching update
 policy is not evidence that it supports Python 3.15. All existing hosted checks
 and the four-profile candidate workflow must pass before guarded publication.
+
+## Ruff coverage and resource controls — 27 October 2026
+
+- [x] Implement and self-review Ruff/resource controls in commit 8a444b6.
+- [x] Extend ALL-rule linting and stable formatter checks to tests and Nox tooling;
+  provide root discovery, document pytest-specific exceptions and qualify five
+  exact preview rules with real counterexamples.
+- [x] Fix findings, strengthen 153 exception contexts, preserve source formulas,
+  reference inputs and Python 3.15.1; self-review the large mechanical diff.
+- [x] Add macOS process-group RSS/time budgets, termination/descendant cleanup,
+  two-worker mutation limits and real memory/cleanup tests; no leak claim from
+  snapshots or successful tests alone.
+- [x] Local tests: 903 passed, five skips, 92% coverage; all nine Nox sessions
+  qualified, plus nine real Ruff policy tests. Mutation: 114/131 killed. Receipt:
+  integration/ruff_resource_controls_20261027.json.
+- [x] Publish the reviewed implementation as [PR #51](https://github.com/edithatogo/tobac/pull/51).
+  Required hosted and receiving-main verification, guarded merge identity and
+  final execution results are maintained in that PR publication record.
+  This dated local-acceptance entry does not assert an unexecuted hosted job.
+
+Policy: docs/engineering/RUFF_POLICY.md. Review:
+docs/reviews/2026-10-27-ruff-and-resource-controls.md. The existing external
+managed-parser gate remains open; this scope does not archive the active track.

@@ -45,9 +45,7 @@ def qualify(out: Path) -> dict[str, Any]:
                 "stderr": result.stderr,
             }
         )
-        (out / "commands.json").write_text(
-            json.dumps(records, indent=2) + "\n", encoding="utf-8"
-        )
+        (out / "commands.json").write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8")
         result.check_returncode()
 
     run(
@@ -136,9 +134,7 @@ def qualify(out: Path) -> dict[str, Any]:
             [str(python), "-I", "-m", "tobac.run", "--quick", "--out", "result"],
             external,
         )
-        validation = json.loads(
-            (external / "result/validation.json").read_text(encoding="utf-8")
-        )
+        validation = json.loads((external / "result/validation.json").read_text(encoding="utf-8"))
         shutil.copytree(external / "result", out / "installed-cli-result")
     result = {
         "schema": "tobac.clean-package.v1",
@@ -153,9 +149,7 @@ def qualify(out: Path) -> dict[str, Any]:
         "installed_cli_validation": validation,
         "scope": "wheel install/API/quick M1 CLI and sdist-to-wheel build; no external scientific approval",
     }
-    (out / "receipt.json").write_text(
-        json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
-    )
+    (out / "receipt.json").write_text(json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     return result
 
 

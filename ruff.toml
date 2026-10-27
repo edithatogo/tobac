@@ -1,0 +1,30 @@
+target-version = "py315"
+line-length = 110
+include = ["src/**/*.py", "src/**/*.pyi", "scripts/**/*.py", "tests/**/*.py", "engineering/typings/**/*.pyi", "noxfile.py"]
+extend-exclude = ["vendor", "outputs", "evidence"]
+[lint]
+select = ["ALL"]
+preview = true
+explicit-preview-rules = true
+extend-select = ["PLW1514", "RUF039", "RUF031", "PLC1901", "FURB113"]
+# Conflicting docstring conventions and formatter-compatible trailing commas.
+ignore = ["D203", "D213", "COM812", "CPY001"]
+[lint.per-file-ignores]
+# JSON interchange is dynamic; fixed Git argv is deliberately shell-free; readable CLI/errors.
+# Single-file CLI scripts remain standalone entry points.
+"**/context_bundle.py" = ["ANN401", "S603", "S607", "TRY003", "EM101", "EM102", "T201", "INP001", "CPY001"]
+# A single-file CLI pass/fail gate: prints its verdict and exits; no shebang install path.
+"**/check_mutation_score.py" = ["EXE001", "CPY001", "T201"]
+
+# These are direct CLI entry points, not installed Python packages.
+"**/scripts/*.py" = ["INP001"]
+
+# Pytest discovers namespace test directories, injects dynamically parametrized arguments,
+# and uses asserts and literal expected values as its native specification language.
+# Fixture factories and execution doubles may return heterogeneous runtime objects.
+# Descriptive test names are the executable documentation; helpers may use docstrings.
+"tests/**/*.py" = ["S101", "PLR2004", "INP001", "ANN001", "ANN002", "ANN003", "ANN201", "ANN202", "D103"]
+
+[format]
+# Experimental lint rules are qualified separately from formatter style changes.
+preview = false

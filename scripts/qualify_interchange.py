@@ -1,4 +1,5 @@
 """Measure the bounded native evidence transport; never calibrate observations."""
+
 from __future__ import annotations
 
 import argparse
@@ -35,15 +36,29 @@ def qualify(destination: Path) -> None:
     destination.mkdir(parents=True, exist_ok=False)
     basis = SupplyBasis(source_ids=("synthetic:source",), observation_years=(2024,))
     scope = Scope(basis.geography, "synthetic adults", "2024-01-01", "2024-12-31", basis.unit)
-    covariance = np.array([[2., .5], [.5, 1.]])
+    covariance = np.array([[2.0, 0.5], [0.5, 1.0]])
     packet = EvidencePacket(
-        "synthetic:joint", ("synthetic:data",), basis.source_ids, ("state:a", "state:b"),
-        release_loglikelihood([3., 4.], [[2., 4.], [4., 5.]], covariance), scope, scope,
+        "synthetic:joint",
+        ("synthetic:data",),
+        basis.source_ids,
+        ("state:a", "state:b"),
+        release_loglikelihood([3.0, 4.0], [[2.0, 4.0], [4.0, 5.0]], covariance),
+        scope,
+        scope,
         "synthetic Gaussian with supplied off-diagonal covariance",
     )
-    table = cast("Any", to_arrow(packet, captured_at=datetime(2026, 10, 26, tzinfo=UTC), supply_basis=basis,
-                     covariance=covariance, observation_ids=("o1", "o2"),
-                     covariance_unit="cigarette_equivalents^2", producer_revision="synthetic-fixture-v1"))
+    table = cast(
+        "Any",
+        to_arrow(
+            packet,
+            captured_at=datetime(2026, 10, 26, tzinfo=UTC),
+            supply_basis=basis,
+            covariance=covariance,
+            observation_ids=("o1", "o2"),
+            covariance_unit="cigarette_equivalents^2",
+            producer_revision="synthetic-fixture-v1",
+        ),
+    )
     chunks = pa.concat_tables([table.slice(0, 1), table.slice(1, 1)])
     logical_digest = read_metadata(table)["digest"]
     if logical_digest != read_metadata(chunks)["digest"]:
@@ -60,8 +75,11 @@ def qualify(destination: Path) -> None:
         raise AssertionError(msg)
     for name, value in (("contiguous.arrow", table), ("chunked.arrow", chunks)):
         write_ipc(destination / name, value)
-    prior = Belief(DecisionProblem(np.array([[0., 4.], [3., 0.]]),
-                           ("a", "b"), "score", np.array([.75, .25])), packet.state_ids, scope)
+    prior = Belief(
+        DecisionProblem(np.array([[0.0, 4.0], [3.0, 0.0]]), ("a", "b"), "score", np.array([0.75, 0.25])),
+        packet.state_ids,
+        scope,
+    )
     original = condition(prior, packet)
     restored = from_arrow(table)
     np.testing.assert_array_equal(restored.log_likelihood, packet.log_likelihood)
@@ -74,22 +92,32 @@ def qualify(destination: Path) -> None:
     actual = installed_evpi(restored_belief.problem)
     np.testing.assert_allclose(actual["value"], exact_evpi(original.problem), rtol=1e-12, atol=1e-12)
     receipt = {
-        "schema": "tobac.interchange-qualification.v1", "status": "passed",
-        "python": sys.version, "platform": platform.platform(),
+        "schema": "tobac.interchange-qualification.v1",
+        "status": "passed",
+        "python": sys.version,
+        "platform": platform.platform(),
         "versions": {name: version(name) for name in ("pyarrow", "polars", "patito", "msgspec", "voiage")},
         "source_sha256": hashlib.sha256((ROOT / "src/tobac/interchange.py").read_bytes()).hexdigest(),
-        "scope": asdict(scope), "logical_sha256_v1": logical_digest,
-        "ipc_sha256": {path.name: hashlib.sha256(path.read_bytes()).hexdigest()
-                       for path in destination.glob("*.arrow")},
-        "float64_view": {"source_address": source_buffer, "view_address": view_buffer,
-                         "arrow_pool_before": allocated_before, "arrow_pool_after": allocated_after,
-                         "survives_source_gc": True, "length": 2, "offset": 0},
+        "scope": asdict(scope),
+        "logical_sha256_v1": logical_digest,
+        "ipc_sha256": {
+            path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in destination.glob("*.arrow")
+        },
+        "float64_view": {
+            "source_address": source_buffer,
+            "view_address": view_buffer,
+            "arrow_pool_before": allocated_before,
+            "arrow_pool_after": allocated_after,
+            "survives_source_gc": True,
+            "length": 2,
+            "offset": 0,
+        },
         "producer": actual,
         "limits": "Synthetic fixture only. Export/reconstruction copy. "
-                  "No string, whole-table or process-wide "
-                  "zero-allocation claim; Arrow pool counters exclude other allocators. "
-                  "Digests are not signatures. "
-                  "No empirical or Voiage 3 qualification.",
+        "No string, whole-table or process-wide "
+        "zero-allocation claim; Arrow pool counters exclude other allocators. "
+        "Digests are not signatures. "
+        "No empirical or Voiage 3 qualification.",
     }
     (destination / "receipt.json").write_text(json.dumps(receipt, indent=2, allow_nan=False) + "\n")
 

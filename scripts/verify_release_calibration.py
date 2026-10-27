@@ -49,7 +49,7 @@ def _report(errors: list[str], sources: int, artifacts: int) -> dict[str, Any]:
 
 def _load(path: Path) -> tuple[dict[str, Any] | None, str | None]:
     try:
-        loaded = json.loads(path.read_text())
+        loaded = json.loads(path.read_text(encoding="utf-8"))
     except OSError as exc:
         return None, f"Unreadable {path}: {exc}"
     except json.JSONDecodeError as exc:

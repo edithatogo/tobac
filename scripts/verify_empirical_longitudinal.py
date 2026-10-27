@@ -32,7 +32,7 @@ REQUIRED = (
 
 def _read_json(path: Path, errors: list[str], label: str) -> Any:  # noqa: ANN401  # Raw JSON may have any root shape; callers validate the required schema.
     try:
-        return json.loads(path.read_text())
+        return json.loads(path.read_text(encoding="utf-8"))
     except FileNotFoundError:
         errors.append(f"Missing {label}: {path.name}")
     except json.JSONDecodeError as exc:

@@ -69,7 +69,7 @@ def _is_numeric_column(*columns: list[str]) -> bool:
     """
     for column in columns:
         for text in column:
-            if text == "":
+            if not text:
                 continue
             try:
                 float(text)
@@ -80,7 +80,7 @@ def _is_numeric_column(*columns: list[str]) -> bool:
 
 def _as_float(text: str) -> float:
     """Parse a cell already known to be numeric; an empty cell is NaN."""
-    return math.nan if text == "" else float(text)
+    return math.nan if not text else float(text)
 
 
 def _cell_difference(expected: str, actual: str) -> tuple[bool, str, float]:

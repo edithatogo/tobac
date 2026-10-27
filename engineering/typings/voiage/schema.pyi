@@ -1,5 +1,6 @@
 from collections.abc import Sequence
 from typing import Self
+
 from numpy.typing import ArrayLike
 
 class ValueArray:

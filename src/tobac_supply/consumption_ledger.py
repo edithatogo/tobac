@@ -49,7 +49,6 @@ def _array(values: Iterable[float], name: str, length: int, *, signed: bool = Fa
     return a
 
 
-
 MIN_CALENDAR_YEAR = 1
 MAX_CALENDAR_YEAR = 9998
 

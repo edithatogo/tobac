@@ -149,24 +149,24 @@ def run(config_path: str | Path, out: str | Path, quick: bool = False) -> Report
                     science.extend(
                         (dict(base, design=design, target=target, **v) for target, v in r["targets"].items())
                     )
-                    science.append(
-                        dict(
-                            base,
-                            design=design,
-                            target="current_illicit_volume_ge_150",
-                            resolution_probability=rc["resolution_probability"],
-                            prior_event_probability=rc["prior_event_probability"],
-                            event_brier_risk=rc["event_brier_risk"],
-                        )
-                    )
-                    science.append(
-                        dict(
-                            base,
-                            design=design,
-                            target="policy_causes_material_absolute_illicit_growth",
-                            resolution_probability=r["resolution_probability"],
-                            prior_event_probability=r["prior_event_probability"],
-                            event_brier_risk=r["event_brier_risk"],
+                    science.extend(
+                        (
+                            dict(
+                                base,
+                                design=design,
+                                target="current_illicit_volume_ge_150",
+                                resolution_probability=rc["resolution_probability"],
+                                prior_event_probability=rc["prior_event_probability"],
+                                event_brier_risk=rc["event_brier_risk"],
+                            ),
+                            dict(
+                                base,
+                                design=design,
+                                target="policy_causes_material_absolute_illicit_growth",
+                                resolution_probability=r["resolution_probability"],
+                                prior_event_probability=r["prior_event_probability"],
+                                event_brier_risk=r["event_brier_risk"],
+                            ),
                         )
                     )
                 if name == "balanced" and weight == 1:
@@ -186,8 +186,12 @@ def run(config_path: str | Path, out: str | Path, quick: bool = False) -> Report
                             }
                             for cost in c["conditional_study_cost_grid_nzd"]
                         )
-                checks.append(r["evsi"] >= -INVARIANT_ATOL and r["evsi"] <= ep + 1e-10)
-                checks.append(r["posterior_martingale_max_error"] < INVARIANT_ATOL)
+                checks.extend(
+                    (
+                        r["evsi"] >= -INVARIANT_ATOL and r["evsi"] <= ep + 1e-10,
+                        r["posterior_martingale_max_error"] < INVARIANT_ATOL,
+                    )
+                )
             incremental.extend(
                 (
                     dict(

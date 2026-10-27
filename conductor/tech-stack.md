@@ -28,3 +28,9 @@ profiles and groups evidence-transport compatibility updates; all four manual
 lock candidates are generated through the existing verified helper. See
 docs/engineering/DEPENDENCY_MAINTENANCE.md. GitHub's internal Dependabot graph
 parser is separate; graph submission and security audits remain intact.
+
+Ruff ALL-rule linting and stable formatting cover maintained source, scripts, tests
+and Nox tooling. Five exact preview rules are qualified independently; pytest-specific
+exceptions are documented in docs/engineering/RUFF_POLICY.md. macOS verification runs
+under sampled process-group RSS/time budgets with owned-child cleanup; mutation is
+limited to two workers. Budgets do not establish absence of memory leaks.
