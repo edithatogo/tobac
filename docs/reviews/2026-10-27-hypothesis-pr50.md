@@ -13,9 +13,12 @@ current main. No force push, scientific dependency change or security waiver.
 - [x] Style compliance: Ruff and formatting pass for the changed Python files.
 - [x] New tests: ecosystem receipt binds its source, included Voiage inputs and rejects undeclared includes.
 - [x] Existing checks retained: committed-source snapshot identity is unchanged.
-- [~] Final qualification: rerun full tests after committing lock bytes, then require
-  existing hosted checks and guarded receiving-main verification; actual results
-  are linked from PR #50 and integration/hypothesis_pr50_20261027.json.
+- [x] Local qualification: committed-source failure-only rerun passed, followed by
+  909 full-suite passes/five capability skips and 92% coverage; 97 native ecosystem
+  cases passed. All ten Nox sessions passed; final combined peak sampled RSS 621.1 MiB.
+- [x] Publication contract: existing final-head hosted checks and guarded receiving-main
+  verification remain mandatory; actual results are maintained in PR #50.
+  Local receipt: integration/hypothesis_pr50_20261027.json.
 
 ## Iterative self-review
 
@@ -42,3 +45,8 @@ Conductor summaries now reference PR #51's actual receiving-main acceptance,
 108-file Ruff coverage and resource controls. Optional mutation follow-up uses its
 12 survivors; old counts remain dated evidence. Draft #41 and scientific/data gates
 remain separate. The external managed parser remains open, so the track is retained.
+
+Final self-review found no unresolved implementation findings. The real macOS
+ecosystem environment installed the new hash lock, verified the unchanged qualified
+Voiage wheel and passed pip check, native JAX/interchange probes and all 97 selected
+cases. No failure was waived or made into a new skip.

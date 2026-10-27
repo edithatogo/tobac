@@ -256,3 +256,20 @@ and the four-profile candidate workflow must pass before guarded publication.
 Policy: docs/engineering/RUFF_POLICY.md. Review:
 docs/reviews/2026-10-27-ruff-and-resource-controls.md. The existing external
 managed-parser gate remains open; this scope does not archive the active track.
+
+
+## Hypothesis PR #50 qualification and Conductor refresh — 27 October 2026
+
+- [x] Preserve original PR commit 8240f66 and integrate current main b012758 by merge.
+- [x] Implement/review complete ecosystem input binding and regenerate all four
+  genuine uv locks in d98b1c2; only Hypothesis changes from 6.170.8 to 6.170.9.
+- [x] Qualify Python 3.15.1: 909 passed/five capability skips, 92% coverage; ten
+  Nox sessions and 97 native ecosystem cases pass. Committed-source lock identity
+  protection remains enforced; the initial uncommitted-byte failure is retained.
+- [x] Refresh current macOS summaries, eight archived tracks, optional follow-up
+  measurements and the separate external parser/draft Voiage boundaries.
+
+Receipt: integration/hypothesis_pr50_20261027.json. Review:
+docs/reviews/2026-10-27-hypothesis-pr50.md. Mandatory hosted and receiving-main
+publication results/merge identity are maintained in [PR #50](https://github.com/edithatogo/tobac/pull/50).
+The sole unchecked external managed-parser task stays open; no false archival.

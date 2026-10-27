@@ -1,0 +1,80 @@
+{
+  "schema": "tobac.hypothesis-pr50-qualification.v1",
+  "date": "2026-10-27",
+  "pull_request": 50,
+  "base_main": "b0127584afc31709da945bdc9711383c81c32eae",
+  "preserved_original_pr_commit": "8240f66d9c168a7fdb54cb8e5a124976a64faf72",
+  "implementation_commit": "d98b1c2468c62fb7266635ccbdf719667439a07b",
+  "python": "3.15.1",
+  "dependency_change": {
+    "hypothesis": [
+      "6.170.8",
+      "6.170.9"
+    ],
+    "all_other_lock_declarations": "identical package/version/marker multisets to main in all four profiles"
+  },
+  "lock_generation": "Genuine scripts/lock_receipt.py generate through uv; generated receipts adopted unchanged",
+  "locks": {
+    "runtime": {
+      "lock_sha256": "2e5c39c45648697f2fe6d45f8a1db9ad30f0dc45926359dfa034e323333f8cc0",
+      "inputs_verified": 6,
+      "resolver": "uv 0.13.5 (Homebrew 2026-10-22 aarch64-apple-darwin)",
+      "hypothesis": "6.170.9"
+    },
+    "audit": {
+      "lock_sha256": "14f43b1394dd003797799f196002974148ce596ab7a69b0cd2cccbb6100fb7b4",
+      "inputs_verified": 8,
+      "resolver": "uv 0.13.5 (Homebrew 2026-10-22 aarch64-apple-darwin)",
+      "hypothesis": "6.170.9"
+    },
+    "voiage": {
+      "lock_sha256": "b08ff89758d33958c48fb94d14c70440d4ef5b2df97443764767d9f51a4883b6",
+      "inputs_verified": 8,
+      "resolver": "uv 0.13.5 (Homebrew 2026-10-22 aarch64-apple-darwin)",
+      "hypothesis": "6.170.9"
+    },
+    "ecosystem": {
+      "lock_sha256": "48893a4bb1bc7af3e72e7a34b58bdce41a6b3049998ba0b6294dc064de205b53",
+      "inputs_verified": 9,
+      "resolver": "uv 0.13.5 (Homebrew 2026-10-22 aarch64-apple-darwin)",
+      "hypothesis": "6.170.9"
+    }
+  },
+  "ecosystem_binding_fix": "Own .in and included Voiage inputs now bound; closed include graph checked",
+  "regressions_added": 5,
+  "local_tests": {
+    "passed": 909,
+    "skipped": 5,
+    "coverage_display_percent": 92,
+    "failure_only_committed_snapshot_rerun": "one passed; full suite then passed"
+  },
+  "native_ecosystem_tests": 97,
+  "sessions": {
+    "tests": "success",
+    "quality": "success",
+    "strict_all": "success",
+    "security": "success",
+    "reproduce": "success",
+    "package": "success",
+    "mutation": "success",
+    "clean_package": "success",
+    "recovery": "success",
+    "ecosystem": "success"
+  },
+  "resource_peak_sampled_group_rss_mib": 621.1,
+  "guard_budget_mib": 4096,
+  "mutation": {
+    "killed": 114,
+    "total": 131,
+    "survived": 17,
+    "percent": 87.0
+  },
+  "native_wheel_sha256": "dc3230ceaa66292a87d021984c210dba3ef470feef951c660e9f4c2be699eb42",
+  "initial_failure_retained": "Snapshot test correctly rejected uncommitted generated locks; successful fresh committed-source rerun required and obtained",
+  "scope": "No scientific implementation, input, dependency, Python runtime, security policy or threshold change; no independent review gate",
+  "publication": "Exact final-head hosted and guarded receiving-main results maintained in https://github.com/edithatogo/tobac/pull/50",
+  "source_sha256": {
+    "scripts/lock_receipt.py": "d6e8c15b5696417ecf89c13d1c4eb3053f71826fd5e6cd9fbcba4263af68d147",
+    "tests/engineering/test_lock_receipts.py": "4d606177ca86076107ba21e5ac98dc6b519b94d667c5b11923eea78929cb0d65"
+  }
+}
