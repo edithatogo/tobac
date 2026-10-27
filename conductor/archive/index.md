@@ -56,3 +56,10 @@ Track: `conductor/archive/m2_matched_evidence_20261027/`
 
 [Plan](m2_matched_evidence_20261027/plan.md) and [specification](m2_matched_evidence_20261027/spec.md).
 Bounded implementation complete; issue #3 empirical acceptance remains open.
+
+## M2 evidence synthesis and partial identification
+
+Track: `conductor/archive/m2_evidence_synthesis_20261027/`
+
+[Plan](m2_evidence_synthesis_20261027/plan.md) and [specification](m2_evidence_synthesis_20261027/spec.md).
+Bounded source/method implementation complete;issue#3 target data/governance remain open.

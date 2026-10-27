@@ -1,0 +1,363 @@
+{
+  "schema_version": "tobac.m2-synthesis.v1",
+  "review_date": "2026-10-27",
+  "method": "Targeted primary-source synthesis,not systematic review;rendered/indexed access distinguished from retained raw-byte verification. No new empirical likelihood or prior adopted.",
+  "input_sha256": {
+    "integration/reconciliation_2025/generated/report.json": "1f2c39bd96612741fbd479e64767ec2d85fe51d2754ecfd9d38598a77ae54519",
+    "integration/reconciliation_2025/product-extractions.json": "f63896ec4db3134b4f8de20a34f038abef7c8e5b8bb42439d752249bc1122804",
+    "integration/reconciliation_2025/source-assets.json": "42586509ab6760e8c0fe7388df164546ace22d6e7be9a472ba451d2294613657",
+    "integration/archive/moh-workbook-qualification_20261026.json": "b26f31443677e90f156cfae6953a05f4fd9a18245b33ba665c33e6f2519985f6",
+    "configs/m2_retail.json": "925746a584e0f986e22b7848bd8fac50ae7fb6ae5e06a1cd8d4bad2742192b3f",
+    "docs/research/M2_MATCHED_PATHWAY.md": "14d0b2b2775696a08c21cc142f69051a023ae03b18b42944bb214fc15093058a"
+  },
+  "sources": [
+    {
+      "id": "DUTCH_RETAIL_2026",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41748428/",
+      "locator": "Abstract Methods/Results; DOI10.1136/tc-2025-059985",
+      "access": "primary_indexed_abstract",
+      "estimand": "Compliance and nearby points of sale, three Dutch cities,2021/2025",
+      "reported_numbers": {
+        "supermarkets": 114,
+        "radius_m": 200,
+        "alternative_pos_irr": 0.69,
+        "irr_ci95": [
+          0.61,
+          0.77
+        ]
+      },
+      "limitation": "Pre/post retail availability is not tobacco consumption, illicit switching or a NZ600-outlet causal effect. Specialist substitution and access measures differ from outlet counts.",
+      "dependence_group": "Dutch_supermarket_ban",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "CVS_PURCHASE_2017",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28207340/",
+      "locator": "Abstract Methods/Results; DOI10.2105/AJPH.2016.303612",
+      "access": "primary_indexed_abstract",
+      "estimand": "US cigarette purchasing after pharmacy removal;13 intervention/3 control states",
+      "reported_numbers": {
+        "change_packs_per_smoker_month": -0.14,
+        "ci95": [
+          -0.22,
+          -0.06
+        ]
+      },
+      "limitation": "Purchasing cessation is not smoking cessation or illicit origin. Authors affiliated with CVS; observational comparison/market exposure and NZ transport require review.",
+      "dependence_group": "CVS_removal_2014",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "CVS_BEHAVIOUR_2020",
+      "url": "https://bpb-us-e2.wpmucdn.com/sites.wustl.edu/dist/e/1037/files/2011/11/Romehetal_TobaccofreePharmacies-1.pdf",
+      "locator": "Author-hosted primary PDF Methods and Table3;percentage-point probability margins; DOI10.1016/j.amepre.2019.09.003",
+      "access": "primary_rendered_sections",
+      "estimand": "Adult quit attempts, BRFSS difference-in-differences",
+      "reported_numbers": {
+        "quit_attempt_change_percentage_points": 2.21,
+        "ci95_percentage_points": [
+          0.08,
+          4.33
+        ]
+      },
+      "limitation": "Quit attempts are not net cessation; daily/nondaily smoking did not change detectably. Shares the CVS intervention with purchase study; do not pool as independent policy replications.",
+      "dependence_group": "CVS_removal_2014",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "HUNGARY_YOUTH_2024",
+      "url": "https://tobaccocontrol.bmj.com/content/34/4/430",
+      "locator": "Results; Limitations and strengths; DOI10.1136/tc-2023-058232",
+      "access": "primary_rendered_sections",
+      "estimand": "National retailer licensing and youth smoking/access;multiple surveys",
+      "reported_numbers": {
+        "retail_units_before_approx": 40000,
+        "retail_units_after": 6046
+      },
+      "limitation": "Single-country pre/post design and concurrent controls limit causal attribution; youth prevalence and proxy purchasing do not identify adult NZ switching. Survey waves are not independent policy experiments.",
+      "dependence_group": "Hungary_licensing_2013",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "NZ_WASTEWATER_2025",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0048969725028657",
+      "locator": "Table1;target analytes;limitations; DOI10.1016/j.scitotenv.2025.181223",
+      "access": "primary_rendered_sections",
+      "estimand": "Analytical nicotine/tobacco biomarkers across NZ wastewater plants",
+      "reported_numbers": {
+        "anabasine_lod_reported_ng_per_ml": 0.5,
+        "anabasine_loq_reported_ng_per_ml": 2.5,
+        "raw_wastewater_equivalent": null
+      },
+      "limitation": "Reported method concentration is retained without a raw-sewage conversion. Few samples exceeded ANBA quantification. Yield, sample processing, mixed-product sources and temporal coverage must be qualified before volume inference.",
+      "dependence_group": "NZ_wastewater_181223",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "ANABASINE_YIELD_2026",
+      "url": "https://academic.oup.com/ntr/article/28/8/1357/8494659",
+      "locator": "Results:Anabasine excretion factor;Figure3;Discussion; DOI10.1093/ntr/ntag042",
+      "access": "primary_rendered_sections",
+      "estimand": "24-hour urinary excretion as percent estimated absorbed anabasine,selected cigarette users",
+      "reported_numbers": {
+        "study_n": 72,
+        "cigarette_group_n": 22,
+        "yield_subset_n": 19,
+        "mean_percent": 9.02,
+        "reported_plus_minus_percent": 4.95,
+        "plus_minus_type": "not independently established; not used as CI/SE",
+        "observed_range_percent": [
+          2.67,
+          18.36
+        ]
+      },
+      "limitation": "Preliminary selected sample; relies on COT+3HC excretion72.12% and smoking-machine absorption. Observed range is not target coverage. Vaping contribution/excretion is not zero or identified; not a direct wastewater conversion.",
+      "dependence_group": "Weng_ntag042_and_shared_calibration",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "NZ_RETURNS_2025",
+      "url": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+      "locator": "Retained nine-asset reconciliation and workbook receipt",
+      "access": "retained_verified_extractions",
+      "estimand": "Calendar2025 reported retail releases in native sticks and tonnes",
+      "reported_numbers": {},
+      "limitation": "BAT year and R&S unit conflicts; missing channels/stock/visitor adjustments remain. Original objects are previously verified, not freshly recovered; manufacturer/summary aliases share underlying returns. Fresh rendered BAT2025-linked PDF still states2024;raw bytes were not newly archived.",
+      "dependence_group": "NZ_MOH_tobacco_returns",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "NZHS_202425",
+      "url": "https://www.health.govt.nz/publications/annual-update-of-key-results-202425-new-zealand-health-survey",
+      "locator": "Collection period and smoking definitions",
+      "access": "primary_rendered_sections",
+      "estimand": "Resident15+ smoking prevalence,July2024-July2025",
+      "reported_numbers": {},
+      "limitation": "Prevalence is not total/lawful volume or calendar2025 matched data. Need intensity/product/population mapping and underlying repeated observations; reused NZHS summaries are not new data.",
+      "dependence_group": "NZHS",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "NZ_CUSTOMS_CASE_2025",
+      "url": "https://www.customs.govt.nz/about-us/news/our-stories/four-sentenced-in-gisborne-tobacco-case",
+      "locator": "23April2025 case report",
+      "access": "primary_rendered_sections",
+      "estimand": "Detected importing/sales offences and court dispositions",
+      "reported_numbers": {},
+      "limitation": "Observed offences establish occurrence, not population incidence, prevented consumption or incremental harm under the cap. No causal harm coefficient or sampling denominator supplied.",
+      "dependence_group": "NZ_Customs_Gisborne_case",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "AU_CRIME_INQUIRY_2026",
+      "url": "https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/Tobacco2025/Report/Chapter_2_-_Impacts_of_the_illegal_tobacco_market",
+      "locator": "Chapter2 inquiry evidence;indexed text only",
+      "access": "primary_indexed_sections",
+      "estimand": "Australian inquiry testimony about illicit-market harms",
+      "reported_numbers": {},
+      "limitation": "Full-page fetch denied; limited discovery only. Reported incidents/testimony are not a NZ marginal-harm estimate or a causal effect of600-retailer restriction.",
+      "dependence_group": "AU_Tobacco2025_inquiry",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "NZ_CUSTOMS_BUDGET_2025",
+      "url": "https://www.budget.govt.nz/budget/pdfs/estimates/v3/est25-v3-cust.pdf",
+      "locator": "VoteCustoms Estimates2025/26;indexed scope",
+      "access": "primary_indexed_sections",
+      "estimand": "Agency appropriations rather than cap-specific resource use",
+      "reported_numbers": {},
+      "limitation": "No target incremental cost extracted. Whole-agency expenditure or lost excise cannot substitute for the proposed policy/study resource costs.",
+      "dependence_group": "NZ_Vote_Customs_2025",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "NZ_ACTIONPLAN_RIS_2021",
+      "url": "https://www.health.govt.nz/system/files/2021-12/ris-smokefree-aotearoa-action-plan-mar24.pdf",
+      "locator": "Finalised3November2021;printedp30 marginal costs table;pp32-33 cost/recovery and enforcement",
+      "access": "primary_rendered_sections",
+      "estimand": "Prospective bundled-package regulator costs over four years",
+      "reported_numbers": {
+        "regulator_establishment_maintenance_nzd_million": 13.5,
+        "compliance_enforcement_nzd_million": 16,
+        "sum_nzd_million": 29.5,
+        "horizon_years": 4
+      },
+      "limitation": "Modelled package-wide cost benchmark,not a confidence range,600-cap incremental cost or study cost. Total monetised costs not calculated;future implementation scope/cost work explicitly required. No conversion to normalised M2 units.",
+      "dependence_group": "NZ_ActionPlan_2021_costing",
+      "target_likelihood_adopted": false
+    },
+    {
+      "id": "NZ_BASELINE_REPORT_2022",
+      "url": "https://www.health.govt.nz/system/files/2023-10/report-on-illicit-tobacco-trade-baseline-report-oct23.v3.pdf",
+      "locator": "Printedpp22-25,Table3 and4;pp28-30 limitations",
+      "access": "primary_rendered_sections",
+      "estimand": "Historical consumption-gap arithmetic in reported cigarette-equivalent units",
+      "reported_numbers": {
+        "reported_pre_uplift_total": 1306992000,
+        "reported_lawful": 1555851255,
+        "assumed_uplift": 1.3,
+        "reported_gap": 143238345
+      },
+      "limitation": "Reuses MOH/NZHS inputs and fixed uplift,not an independent observed illicit count or causal effect. Survey/calendar/product/0.7g conventions and stock/border error remain;no current-target transport.",
+      "dependence_group": "NZ_MOH_tobacco_returns+NZHS+Phyo_shared_inputs",
+      "target_likelihood_adopted": false
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "no_matched_observations",
+      "total": null,
+      "lawful": null,
+      "total_bias": [
+        1,
+        1
+      ],
+      "lawful_bias": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "total_only_fixture",
+      "total": [
+        0.9,
+        0.9
+      ],
+      "lawful": null,
+      "total_bias": [
+        1,
+        1
+      ],
+      "lawful_bias": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "matched_exact_fixture",
+      "total": [
+        0.9,
+        0.9
+      ],
+      "lawful": [
+        0.72,
+        0.72
+      ],
+      "total_bias": [
+        1,
+        1
+      ],
+      "lawful_bias": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "matched_10percent_bias_fixture",
+      "total": [
+        0.9,
+        0.9
+      ],
+      "lawful": [
+        0.72,
+        0.72
+      ],
+      "total_bias": [
+        0.9,
+        1.1
+      ],
+      "lawful_bias": [
+        0.9,
+        1.1
+      ]
+    },
+    {
+      "id": "matched_25percent_bias_fixture",
+      "total": [
+        0.9,
+        0.9
+      ],
+      "lawful": [
+        0.72,
+        0.72
+      ],
+      "total_bias": [
+        0.75,
+        1.25
+      ],
+      "lawful_bias": [
+        0.75,
+        1.25
+      ]
+    },
+    {
+      "id": "incompatible_structure_fixture",
+      "total": [
+        0.5,
+        0.6
+      ],
+      "lawful": [
+        0.8,
+        0.9
+      ],
+      "total_bias": [
+        1,
+        1
+      ],
+      "lawful_bias": [
+        1,
+        1
+      ]
+    }
+  ],
+  "scenario_role": "assumption_demonstrations_not_NZ_observations",
+  "residual_requirements": [
+    {
+      "id": "contrast",
+      "category": "human_decision",
+      "requirement": "Select legally feasible policy/implementation,actual timing,catchments and credible comparison;the600-cap has no observed NZ implementation."
+    },
+    {
+      "id": "records",
+      "category": "existing_data_access_first",
+      "requirement": "Obtain matched raw assay/flow/population and lawful supply/stock/visitor/border/intensity records;seek existing administrative/laboratory records before commissioning new collection."
+    },
+    {
+      "id": "clarifications",
+      "category": "source_owner_information",
+      "requirement": "Resolve BAT year,R&S pack/carton and unreported-channel ambiguities if point totals are decision-relevant;alternatives can remain for robust analysis."
+    },
+    {
+      "id": "validation",
+      "category": "new_measurements_if_existing_records_inadequate",
+      "requirement": "Target-applicable near-limit recovery,censoring,yield/product absorption and vaping contribution;new laboratory/field validation only where existing validation records cannot support transport."
+    },
+    {
+      "id": "causal_outcomes",
+      "category": "additional_data_or_implementation",
+      "requirement": "Matched policy-response,mitigation/replacement and incremental-harm outcomes with a defensible counterfactual,including held-out target predictions;existing linked records may suffice if available. Transparent expert elicitation can support a conditional analysis but requires human responses and does not supply empirical validation."
+    },
+    {
+      "id": "resources",
+      "category": "target_specific_resource_data",
+      "requirement": "Actual policy/study resource quantities,unit costs and adoption/timing;existing cost records or supplier estimates before new observational research."
+    },
+    {
+      "id": "governance",
+      "category": "human_decision",
+      "requirement": "Maori governance/permissible use,equitable coverage,privacy/access decisions and normative health/crime/cost trade-offs."
+    }
+  ],
+  "historical_gap": {
+    "source_id": "NZ_BASELINE_REPORT_2022",
+    "raw_total": 1306992000,
+    "lawful": 1555851255,
+    "uplift_support": [
+      1,
+      1.3
+    ],
+    "role": "analyst_stress_source_arithmetic_not_empirical_interval",
+    "unit": "source_reported_cigarette_equivalents/year",
+    "scope": "Historical2022-labelled table;survey/calendar/product transport remains unqualified"
+  }
+}

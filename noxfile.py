@@ -311,6 +311,14 @@ def reproduce(session: nox.Session) -> None:
         "--releases",
         str(replay_root / "release_calibration"),
     )
+    session.run(
+        "python",
+        "scripts/qualify_m2_synthesis.py",
+        "--replay",
+        str(replay_root),
+        "--out",
+        str(replay_root / "m2-synthesis.json"),
+    )
 
 
 @nox.session(python="3.15.1")

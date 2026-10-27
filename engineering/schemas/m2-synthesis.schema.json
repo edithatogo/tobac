@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "tobac.m2-synthesis.v1"
+    },
+    "review_date": {
+      "type": "string",
+      "minLength": 1
+    },
+    "method": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_sha256": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "access": {
+            "type": "string",
+            "minLength": 1
+          },
+          "estimand": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reported_numbers": {
+            "type": "object"
+          },
+          "limitation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dependence_group": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_likelihood_adopted": {
+            "const": false
+          }
+        },
+        "required": [
+          "id",
+          "url",
+          "locator",
+          "access",
+          "estimand",
+          "reported_numbers",
+          "limitation",
+          "dependence_group",
+          "target_likelihood_adopted"
+        ]
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lawful": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "total_bias": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "lawful_bias": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "required": [
+          "id",
+          "total",
+          "lawful",
+          "total_bias",
+          "lawful_bias"
+        ]
+      }
+    },
+    "scenario_role": {
+      "const": "assumption_demonstrations_not_NZ_observations"
+    },
+    "residual_requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requirement": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "category",
+          "requirement"
+        ]
+      }
+    },
+    "historical_gap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "raw_total",
+        "lawful",
+        "uplift_support",
+        "role",
+        "unit",
+        "scope"
+      ],
+      "properties": {
+        "source_id": {
+          "const": "NZ_BASELINE_REPORT_2022"
+        },
+        "raw_total": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "lawful": {
+          "type": "number",
+          "minimum": 0
+        },
+        "uplift_support": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number",
+            "minimum": 1
+          }
+        },
+        "role": {
+          "const": "analyst_stress_source_arithmetic_not_empirical_interval"
+        },
+        "unit": {
+          "const": "source_reported_cigarette_equivalents/year"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "review_date",
+    "method",
+    "input_sha256",
+    "sources",
+    "scenarios",
+    "scenario_role",
+    "residual_requirements",
+    "historical_gap"
+  ]
+}
