@@ -1,0 +1,40 @@
+{
+  "track_id": "voiage_polars_qualification_20261026",
+  "title": "Voiage 3.0.0 Polars consumer qualification",
+  "status": "in_progress",
+  "description": "Bounded tobac consumer qualification for Voiage's removal of the xarray contract. Planning registration only; no runtime, dependency or scientific claim is made.",
+  "base_commit": "f55edb1b3aecdfc2c8afc243b8659e69614b2f13",
+  "voiage_base": "ca3f05cc8adcc74b99fe236152327d0cd3679553",
+  "source_date": "2026-10-26",
+  "owned_paths": [],
+  "planned_paths": [
+    "integration/",
+    "engineering/voiage.in",
+    "engineering/voiage.lock"
+  ],
+  "current_qualification": {
+    "upstream_revision": "7af563c8cb373057d30662650b3f332f39e05b83",
+    "patch_sha256": "a6a5dadc914ec96079d1450289c6c74df3540708352370a5dfc74c35ae687b12",
+    "derived_revision": "8aaed9c59f2a012dbf34b50be855bc19be30fbde",
+    "wheel": "voiage-2.2.0+tobac3151.2-cp312-abi3-macosx_11_0_arm64.whl",
+    "wheel_sha256": "dc3230ceaa66292a87d021984c210dba3ef470feef951c660e9f4c2be699eb42",
+    "scope": "Metadata-only compatibility build; unchanged Voiage implementation and native code",
+    "environment": "Using Python 3.15.1 environment at: .nox/voiage\nannotated-doc==0.0.5\nannotated-types==0.8.0\nattrs==26.1.0\nclick==8.5.0\ncloudpickle==3.1.2\ncontourpy==1.4.0\ncoverage==7.17.0\ncycler==0.12.1\nfonttools==4.67.0\nhypothesis==6.170.8\niniconfig==2.3.1\njoblib==1.6.0\njsonschema==4.26.0\njsonschema-specifications==2025.9.1\nkiwisolver==1.5.1\nmarkdown-it-py==4.2.0\nmatplotlib==3.11.2\nmdurl==0.1.2\nmsgspec==0.22.0\nnarwhals==2.27.1\nnumpy==2.5.4\npackaging==26.3\npandas==3.1.0\npatito==0.8.6\npillow==13.0.0\npluggy==1.7.0\npolars==2.0.0\npolars-runtime-32==2.0.0\npyarrow==26.0.0\npydantic==2.14.1\npydantic-core==2.50.1\npygments==2.21.0\npyparsing==3.3.3\npytest==9.1.1\npython-dateutil==3.0.0\npyyaml==6.0.3\nreferencing==0.37.0\nrich==15.0.0\nrpds-py==2026.9.1\nscikit-learn==1.9.1\nscipy==1.18.1\nsetuptools==84.2.1\nshellingham==1.5.4\nsix==1.17.0\nsortedcontainers==2.4.0\nthreadpoolctl==3.7.0\n-e file:///Users/doughnut/.codex/worktrees/engineering-hardening/tobac\ntyper==0.27.3\ntyping-extensions==4.16.0\ntyping-inspection==0.4.4\ntzdata==2026.5\nvoiage @ file:///Volumes/PortableSSD/cache/tobac-polars2-qualification/20261027/e5254398e1974f39a80b20a4aad614d2/wheels/voiage-2.2.0+tobac3151.2-cp312-abi3-macosx_11_0_arm64.whl\nxarray==2026.9.0\n",
+    "receipt": "integration/voiage_polars2_compatibility_20261027.json"
+  },
+  "voiage_tracks": [
+    "conductor/tracks/tabular_contract_v3_20261026",
+    "conductor/tracks/polars_container_20261026",
+    "conductor/tracks/pandas_free_io_20261026",
+    "conductor/tracks/translation_reference_20261026"
+  ],
+  "distinct_from": {
+    "track": "voiage:conductor/tracks/tobac_consumer_qualification_20261025",
+    "reason": "That track registers weighted and structure-only VOI capability ownership. This track qualifies only the container break and the dependency base."
+  },
+  "authorization": {
+    "scope": "Review and complete remaining macOS qualification, refresh Conductor, commit, verify and merge; no release publication or upstream mutation",
+    "source": "Direct owner request 27 October 2026"
+  },
+  "external_gate": "Published unpatched Voiage 3.0.0 absent from PyPI/GitHub releases at discovery"
+}

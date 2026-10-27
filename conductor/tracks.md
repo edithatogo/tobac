@@ -41,3 +41,9 @@ or a commissioning recommendation. Source/forecast identities and data-once guar
 
 [Roadmap](roadmap.md): non-macOS qualification, optional advisory promotion and explicitly optional
 mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remain required.
+
+## Voiage Polars consumer qualification
+
+Status: implementation authorised 27 October 2026; macOS baseline/candidate
+qualification in progress. Track: `conductor/tracks/voiage_polars_qualification_20261026/`.
+Published Voiage 3.0.0 remains unavailable; no upstream-release success is claimed.
