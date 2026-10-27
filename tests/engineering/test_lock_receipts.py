@@ -88,7 +88,7 @@ def test_missing_and_changed_receipts_fail_closed(tmp_path) -> None:
     receipt.unlink()
     with pytest.raises(
         ValueError,
-        match=(r"^(?:Required\ file\ missing:\ engineering/requirements\.lock\.json)"),
+        match=(r"^Required file missing: engineering[/\\]requirements\.lock\.json$"),
     ):
         m.verify(tmp_path, lock, "runtime")
     m, lock = fixture(tmp_path)

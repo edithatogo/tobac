@@ -105,7 +105,7 @@
     "tests/engineering/test_archive_bindings.py": "c8a795dd6240a71c9d839a1325d70e2a784d271248d0465ef5eedf13969cc334",
     "tests/engineering/test_backend_contract.py": "23f9469f2e03b917f8b5ea501981f71f217ff5ab348c65557a00f20732451127",
     "tests/engineering/test_conductor_archive.py": "1361499a3d542089108e9918a0b910043a487ead07cb66d9da0e98a6d055b921",
-    "tests/engineering/test_context_bundle.py": "c821813aaf382716a9fefc31338ecaeb2151416eec8429c0451d63d108178495",
+    "tests/engineering/test_context_bundle.py": "ef9453d7a0d2aa6f02426a4d1ef40dfeb934b89a5622eda724c915569e02d997",
     "tests/engineering/test_core_maintenance.py": "97f87199e14287f084d7f102419a470f09e3afae77f0fa09487b992f056970c6",
     "tests/engineering/test_dependency_graph_manifests.py": "a2adef9d8179054bae3f2b00f579cea7b462b900f9291ccff5cb10950827e7b6",
     "tests/engineering/test_dependency_snapshot.py": "d883d29abe95204bb98da06b44e60b57953f6e7789f5631cf7fab3911ddee27a",
@@ -113,7 +113,7 @@
     "tests/engineering/test_evidence_interchange.py": "8f3614866ae10be6680a072aa9b7cbd0ee3673efbec9587168c885afcce08db1",
     "tests/engineering/test_execution_contracts.py": "af3d0d827035fdc637304d122c9e4f365509fc7fb564cfbbd5c50a9deba803c5",
     "tests/engineering/test_harness_contract.py": "1f1f16d6e97bfa1922437dde77bfcb59169428c2a3a4ff22ebcefb1d94d30f9f",
-    "tests/engineering/test_lock_receipts.py": "44f0ae27472a2a617570bd88d4b1f0d91b4b73f5f852753f6175768a4f007d89",
+    "tests/engineering/test_lock_receipts.py": "d8a96df0d7614c57950fd551acf235a2f7bd83135c864a7ae69cd437109e5588",
     "tests/engineering/test_moh_qualification.py": "a1c9dc5ada23a053ca6a2f953a35bab13fc71d4cef260df0dabe1005a8588777",
     "tests/engineering/test_mutation_gate.py": "9d612dbaeea6b7b1f7b9e2dbaeb99bbf5ac2e678c3d88cff06159e7129b2bc7b",
     "tests/engineering/test_product_reconciliation.py": "6ba9cb45f18109704d5baf5dd302f46cd44a7d85b119016fbe95919cc7318489",
@@ -151,5 +151,14 @@
   },
   "publication": "Existing hosted checks and exact receiving-main verification remain required; no external parser or scientific gate waived",
   "publication_focused_tests": 30,
-  "actual_guard_runtime_assertion": "sys.version_info[:3] must equal (3, 15, 1) before execution"
+  "actual_guard_runtime_assertion": "sys.version_info[:3] must equal (3, 15, 1) before execution",
+  "hosted_portability_fix": {
+    "run": 40435570677,
+    "job": 121963405325,
+    "cause": "Two newly strengthened test regexes assumed POSIX path classification/separators",
+    "fix": "Platform-aware exact rejected path/reason and portable exact lock receipt filename",
+    "focused_tests_passed": 56,
+    "other_14_executable_pr_checks": "success on 4b36b61187dcdacf932207a22277e29ef1770dd4",
+    "fresh_exact_head_required": true
+  }
 }

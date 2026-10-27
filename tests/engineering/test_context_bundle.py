@@ -2,6 +2,7 @@
 
 import importlib.util
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -81,26 +82,13 @@ def test_paths_fail_closed(repo, path) -> None:
     m = load()
     c = cfg()
     c["paths"] = [path]
-    with pytest.raises(
-        ValueError,
-        match=(
-            r"^(?:"
-            r"Disallowed\ context\ path:\ \.\./outside"
-            r"|"
-            r"Disallowed\ context\ path:\ \.env"
-            r"|"
-            r"Disallowed\ context\ path:\ \.env\.local"
-            r"|"
-            r"Disallowed\ context\ path:\ \.git/config"
-            r"|"
-            r"Disallowed\ context\ path:\ /etc/passwd"
-            r"|"
-            r"Disallowed\ context\ path:\ docs/\.\./AGENTS\.md"
-            r"|"
-            r"Disallowed\ context\ path:\ id_rsa"
-            r")"
-        ),
-    ):
+    # A POSIX root path is drive-relative on Windows and fails the later escape guard.
+    reason = (
+        "Missing or escaping context file"
+        if path == "/etc/passwd" and not Path(path).is_absolute()
+        else "Disallowed context path"
+    )
+    with pytest.raises(ValueError, match="^" + re.escape(f"{reason}: {path}") + "$"):
         m.build(repo, c)
 
 

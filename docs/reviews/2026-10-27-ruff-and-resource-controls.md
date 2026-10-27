@@ -65,3 +65,9 @@ engineering config extends it, avoiding relative-glob drift between entry points
 Final bootstrap review replaced the workflow mkdir helper's bare Python with explicit
 3.15.1 selection and an actual version assertion. The guard likewise rejects any other
 runtime before launching a child. Thirty focused guard/policy/workflow tests pass.
+
+Hosted Windows tests caught two POSIX assumptions in the newly strengthened message
+assertions. The path reason now accounts for Windows drive-relative parsing; the
+receipt regex accepts either path separator while retaining the exact filename.
+Fifty-six affected tests pass locally. The other 14 executable PR checks, including
+macOS tests/qualification, passed on 4b36b61; fresh final-head checks remain required.
