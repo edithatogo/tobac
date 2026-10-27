@@ -38,3 +38,7 @@
 
 - [M2 selected decisions and unsent requests](./tracks/m2_record_requests_20261027/plan.md):
   owner-selected preparation scope; issue #3 empirical acceptance remains open.
+
+- [M2 public-source map](./tracks/m2_public_sources_20261027/plan.md):
+  methods,local capture catalogue and linked extraction/assumption/parameter tables;
+  complete search and source-review work remains in progress.

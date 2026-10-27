@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "objects": [
+    {
+      "uri": "https://www.treasury.govt.nz/sites/default/files/2025-07/oia-20250377.pdf",
+      "object_path": "outputs/engineering/m2-public-source-capture/cas/sha256/69/69c71ac857cba94395486559a679b343351e47e7b834a9ee792682288c912a72",
+      "sha256": "69c71ac857cba94395486559a679b343351e47e7b834a9ee792682288c912a72",
+      "warc_path": "outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-0.warc",
+      "warc_sha256": "c8f317d558f13370181d54e281edd3316a7631220b19aadc3ccc750f9a6aeabb",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-public-source-capture/text/0.txt",
+      "text_sha256": "60af10ef3b8b99714698c8bd4334439cae73158de0953e642e32660c24bacfc1",
+      "verification": "PDF signature, object hash, WARC hash and exact WARC payload equality; text is a derived extraction, not original bytes"
+    },
+    {
+      "uri": "https://www.customs.govt.nz/media/up4pimtv/oia-25-395-_.pdf",
+      "object_path": "outputs/engineering/m2-public-source-capture/cas/sha256/f5/f5e0588978fa7bb4684a47925b9039ea122afabf76abe0cf43dcb84aac338304",
+      "sha256": "f5e0588978fa7bb4684a47925b9039ea122afabf76abe0cf43dcb84aac338304",
+      "warc_path": "outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-1.warc",
+      "warc_sha256": "bfec7865fc9fc8549c58952c506d13d3de89e57a3478a7d7f7178724e944610b",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-public-source-capture/text/1.txt",
+      "text_sha256": "f32b3a9b01ade6093c39d840ad68afb3c7fa32b8087b7569bd766f464c81ab59",
+      "verification": "PDF signature, object hash, WARC hash and exact WARC payload equality; text is a derived extraction, not original bytes"
+    },
+    {
+      "uri": "https://www.health.govt.nz/system/files/2021-12/ris-smokefree-aotearoa-action-plan-mar24.pdf",
+      "object_path": "outputs/engineering/m2-public-source-capture/cas/sha256/44/441c7a1f0f48fc4b62831476a2f2fe719ca60f1fa94eb156a6cf486156fdeb67",
+      "sha256": "441c7a1f0f48fc4b62831476a2f2fe719ca60f1fa94eb156a6cf486156fdeb67",
+      "warc_path": "outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-2.warc",
+      "warc_sha256": "8b3cc6c339d5b9f412881e5cf7fbab636bc3d3a1f313cd56ff03fb7bc5ebea52",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-public-source-capture/text/2.txt",
+      "text_sha256": "966d014957fcc11e7f93ed529a9319f2ee728a711d6b6a79822525281c0ace82",
+      "verification": "PDF signature, object hash, WARC hash and exact WARC payload equality; text is a derived extraction, not original bytes"
+    },
+    {
+      "uri": "https://www.health.govt.nz/system/files/2023-10/report-on-illicit-tobacco-trade-baseline-report-oct23.v3.pdf",
+      "object_path": "outputs/engineering/m2-public-source-capture/cas/sha256/5b/5ba300b33c74432f0d9387979614cdb8ad73d66f4f60225cb9bc12e4bb6d715a",
+      "sha256": "5ba300b33c74432f0d9387979614cdb8ad73d66f4f60225cb9bc12e4bb6d715a",
+      "warc_path": "outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-3.warc",
+      "warc_sha256": "dd55e5a3af48d709baa7e0429a3e99da6097cc408f68188ef2543851f10ae78e",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-public-source-capture/text/3.txt",
+      "text_sha256": "772628e86a3a012eaf5472546abf1ddc4831a3675eae79ed07c98835fcb7f97f",
+      "verification": "PDF signature, object hash, WARC hash and exact WARC payload equality; text is a derived extraction, not original bytes"
+    },
+    {
+      "uri": "https://www.health.govt.nz/system/files/2023-12/cabinet_material_establishing_the_smoked_tobacco_regulatory_regime_black_box_watermarked.pdf",
+      "object_path": "outputs/engineering/m2-public-source-capture/cas/sha256/83/8366bf5a952fae571cbd85417840a367f6a79bc0c0833fc47dd5472656abc136",
+      "sha256": "8366bf5a952fae571cbd85417840a367f6a79bc0c0833fc47dd5472656abc136",
+      "warc_path": "outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-4.warc",
+      "warc_sha256": "779b4fc61a17ab157781a46adf41d2a40e6c475bb4b6c8dce9d8da947b3c3d93",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-public-source-capture/text/4.txt",
+      "text_sha256": "bf26d2f594536f47d312dae4dc6b61c8392fa1d432e7db13b337f152813d4502",
+      "verification": "PDF signature, object hash, WARC hash and exact WARC payload equality; text is a derived extraction, not original bytes"
+    },
+    {
+      "uri": "https://www.health.govt.nz/system/files/2024-02/options_to_repeal_amendments_to_smokefree_env_.act_assoc_regs_black_box_pr.pdf",
+      "object_path": "outputs/engineering/m2-public-source-capture/cas/sha256/b8/b8ed3e165be73350f1e69f9dcf940fc79c4d1faa7c9a16da402ff970d814cc0e",
+      "sha256": "b8ed3e165be73350f1e69f9dcf940fc79c4d1faa7c9a16da402ff970d814cc0e",
+      "warc_path": "outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-5.warc",
+      "warc_sha256": "2239304251a08c4375d83e50255f584396012152a0ea5bdc1e476af49781f500",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-public-source-capture/text/5.txt",
+      "text_sha256": "d27422b98b617aa49f952ba5232758d3277c767bacf3ed7ef5044671f517d129",
+      "verification": "PDF signature, object hash, WARC hash and exact WARC payload equality; text is a derived extraction, not original bytes"
+    }
+  ],
+  "not_captured": [
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://academic.oup.com/ntr/article/28/8/1357/8494659"
+    }
+  ],
+  "retention": "Local ignored CAS/WARC; no source payloads published",
+  "command": "qualified archive producer capture, then SHA256/WARC payload verification and pdftotext -layout"
+}

@@ -1,0 +1,99 @@
+{
+  "captured_count": 6,
+  "command": "capture",
+  "errors": [
+    "https://academic.oup.com/ntr/article/28/8/1357/8494659: terminal_status"
+  ],
+  "failed_count": 1,
+  "note": "Adapter-based sources without activated credentials or discovery infrastructure are recorded as capability_pending and tracked by conductor track multi_source_capture_activation_20260824.",
+  "pending_adapters": [],
+  "schema_version": "archive-govt-nz.cli/v1",
+  "source_set": "tobac-public-evidence",
+  "source_type": "tobac-public-evidence",
+  "status": "partial",
+  "targets": [
+    {
+      "byte_count": 1886705,
+      "sha256": "69c71ac857cba94395486559a679b343351e47e7b834a9ee792682288c912a72",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.treasury.govt.nz/sites/default/files/2025-07/oia-20250377.pdf",
+      "warc": {
+        "byte_count": 1887391,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-0.warc",
+        "record_id": "urn:uuid:9701b013-785d-450e-88cc-6478d47349a6",
+        "sha256": "c8f317d558f13370181d54e281edd3316a7631220b19aadc3ccc750f9a6aeabb"
+      }
+    },
+    {
+      "byte_count": 2294107,
+      "sha256": "f5e0588978fa7bb4684a47925b9039ea122afabf76abe0cf43dcb84aac338304",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.customs.govt.nz/media/up4pimtv/oia-25-395-_.pdf",
+      "warc": {
+        "byte_count": 2294779,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-1.warc",
+        "record_id": "urn:uuid:1284a8c5-1e9d-48f6-a908-af986e750400",
+        "sha256": "bfec7865fc9fc8549c58952c506d13d3de89e57a3478a7d7f7178724e944610b"
+      }
+    },
+    {
+      "byte_count": 565829,
+      "sha256": "441c7a1f0f48fc4b62831476a2f2fe719ca60f1fa94eb156a6cf486156fdeb67",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.health.govt.nz/system/files/2021-12/ris-smokefree-aotearoa-action-plan-mar24.pdf",
+      "warc": {
+        "byte_count": 566483,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-2.warc",
+        "record_id": "urn:uuid:3442edf4-ef77-4d93-833b-2188478ee322",
+        "sha256": "8b3cc6c339d5b9f412881e5cf7fbab636bc3d3a1f313cd56ff03fb7bc5ebea52"
+      }
+    },
+    {
+      "byte_count": 650301,
+      "sha256": "5ba300b33c74432f0d9387979614cdb8ad73d66f4f60225cb9bc12e4bb6d715a",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.health.govt.nz/system/files/2023-10/report-on-illicit-tobacco-trade-baseline-report-oct23.v3.pdf",
+      "warc": {
+        "byte_count": 650971,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-3.warc",
+        "record_id": "urn:uuid:2c7e7b2a-a507-449d-bed5-aa5004645d55",
+        "sha256": "dd55e5a3af48d709baa7e0429a3e99da6097cc408f68188ef2543851f10ae78e"
+      }
+    },
+    {
+      "byte_count": 2667970,
+      "sha256": "8366bf5a952fae571cbd85417840a367f6a79bc0c0833fc47dd5472656abc136",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.health.govt.nz/system/files/2023-12/cabinet_material_establishing_the_smoked_tobacco_regulatory_regime_black_box_watermarked.pdf",
+      "warc": {
+        "byte_count": 2668673,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-4.warc",
+        "record_id": "urn:uuid:d2b7b2a4-766b-450e-bd50-a35ef2096184",
+        "sha256": "779b4fc61a17ab157781a46adf41d2a40e6c475bb4b6c8dce9d8da947b3c3d93"
+      }
+    },
+    {
+      "byte_count": 1828591,
+      "sha256": "b8ed3e165be73350f1e69f9dcf940fc79c4d1faa7c9a16da402ff970d814cc0e",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.health.govt.nz/system/files/2024-02/options_to_repeal_amendments_to_smokefree_env_.act_assoc_regs_black_box_pr.pdf",
+      "warc": {
+        "byte_count": 1829280,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-source-capture/warcs/tobac-public-evidence-5.warc",
+        "record_id": "urn:uuid:68e1e2a3-109e-4cf4-9ac2-f5aee30118e2",
+        "sha256": "2239304251a08c4375d83e50255f584396012152a0ea5bdc1e476af49781f500"
+      }
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://academic.oup.com/ntr/article/28/8/1357/8494659"
+    }
+  ]
+}

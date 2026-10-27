@@ -1,0 +1,20 @@
+candidate_id,batch_id,url,source_id,disposition,reason
+C01,B01,https://www.sciencedirect.com/science/article/pii/S0048969725028657,NZ_WASTEWATER_2025,include_seed,Primary assay study; full-text indexed sections; supplement followup pending
+C02,B01,https://doi.org/10.1093/ntr/ntag042,ANABASINE_YIELD_2026,canonicalise_ephemeral_result,"Temporary signed PDF URL omitted; preserve stable DOI identity, not access token"
+C03,B01,https://pmc.ncbi.nlm.nih.gov/articles/PMC13389531/,ANABASINE_YIELD_2026,include_alias_supplement_discovery,Same primary study; two indexed supplements; browser challenge is not captured full text
+C04,B01,https://pubmed.ncbi.nlm.nih.gov/41447812/,NZ_WASTEWATER_2025,alias_not_independent,Primary abstract/author metadata; not another study
+C05,B01,https://www.customs.govt.nz/business/import/importing-tobacco,,pending_context_review,Official product/channel definitions; no numerical tax parameter adopted
+C06,B01,https://www.health.govt.nz/system/files/2021-12/ris-smokefree-aotearoa-action-plan-mar24.pdf,NZ_ACTIONPLAN_RIS_2021,include_seed,Historical modelled package costs; not current target spending
+C07,B01,https://www.customs.govt.nz/media/up4pimtv/oia-25-395-_.pdf,NZ_CUSTOMS_OIA_25_395,include_new_extraction,"Published public OIA; native HTP import quantities, product limits explicit"
+C08,B01,https://www.customs.govt.nz/media/xvojxjkb/25-826-response-letter_.pdf,,pending_fulltext_review,Additional public OIA candidate; financial-year coverage may differ
+C09,B01,https://www.treasury.govt.nz/publications/risa/regulatory-impact-statement-increase-tobacco-excise-and-equivalent-duties,,pending_context_review,Historical excise assumption source; not automatically contemporary
+C10,B01,https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025,NZ_RETURNS_2025,include_seed,Administrative releases; inherited conflicts/coverage retained
+C11,B01,https://www.tdb.co.nz/wp-content/uploads/2023/04/TDB-Infometrics-Smoked-Tobacco-Amendment-Act-Review.2023.pdf,,pending_fulltext_appraisal,Primary commissioned modelling candidate; inspect funding/assumptions without automatic exclusion
+C12,B01,https://www.health.govt.nz/news/new-policies-will-help-reach-smokefree-goal-and-address-increase-in-youth-vaping,,pending_historical_context,Historical announcement is not proof policy was implemented
+C13,B01,https://figure.nz/chart/tErPPeXnWw9UlYtS-5IfpPqskxhuRmm7k,,locator_only,Locate Stats NZ original trade data; value-for-duty not native consumption volume
+C14,B01,https://www.tdb.co.nz/cost-effectiveness-review-of-tobacco-regulation/,,duplicate_landing,Same commissioned report candidate; not independent evidence
+C15,B01,https://b2bnews.co.nz/news/nz-illicit-tobacco-market-costs-225m-in-lost-excise-revenue/,,exclude_quantitative_use,Secondary commentary; upstream public primary material needed
+C16,B01,https://www.nzherald.co.nz/nz/officials-urge-associate-health-minister-casey-costello-to-retain-parts-of-smokefree-laws/WT6AP6SMNRDGFCOKTVKAARCJG4/,,locator_only,Secondary news; locate released official briefings instead
+C17,B01,https://www.mpi.govt.nz/legal/regulatory-impact-statements-ris,,exclude_scope,"General unrelated regulator definition, not tobacco evidence"
+C18,B01,https://en.wikipedia.org/wiki/Smoke-free_Environments_Amendment_Act_2003,,exclude_scope_secondary,Different policy period and secondary overview
+C19,B01,https://en.wikipedia.org/wiki/Smokefree_Environments_and_Regulated_Products_%28Smoked_Tobacco%29_Amendment_Act_2022,,locator_only,"Use primary law/official chronology, not quantitative extraction"

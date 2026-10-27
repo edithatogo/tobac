@@ -1,0 +1,5 @@
+query_id,batch_id,run_date,platform,exact_query,engine_date_filter,engine_language_filter,result_limit,query_specific_count,result_record,note
+Q1,B01,2026-10-27,web_search,site.health.govt.nz tobacco retail reduction regulatory impact statement costs 600,none,none,engine_default_combined_response,not_exposed,screening.csv,Exact queries executed; combined results cannot be assigned per-query counts
+Q2,B01,2026-10-27,web_search,site.customs.govt.nz tobacco excise OIA imports 2025,none,none,engine_default_combined_response,not_exposed,screening.csv,Exact queries executed; combined results cannot be assigned per-query counts
+Q3,B01,2026-10-27,web_search,"""Understanding nicotine consumption habits in Aotearoa New Zealand"" supplementary data",none,none,engine_default_combined_response,not_exposed,screening.csv,Exact queries executed; combined results cannot be assigned per-query counts
+Q4,B01,2026-10-27,web_search,"""Exploring anabasine excretion factor"" supplementary data",none,none,engine_default_combined_response,not_exposed,screening.csv,Exact queries executed; combined results cannot be assigned per-query counts

@@ -85,3 +85,13 @@ remain open; no evidence or policy effect is inferred from the owner's direction
 draft. Use public reports/publications/supplements/datasets and already-released
 OIA records only. No new OIA, author/custodian contact, application or collection.
 Older access requirements describe scientific limits, not authorised next actions.
+
+## Public-source methods and table linkage — 27 October 2026
+
+[Methods](../docs/research/M2_PUBLIC_SOURCE_METHOD.md) prescribe explicit search
+streams,screening,local capture,source IDs,extraction locators,assumption provenance
+and formula/input links. [Initial tables](../evidence/m2/public_sources_20261027/README.md)
+retain imported versus fresh extracts,missing values,shared-data groups and an
+unresolved rounded-source arithmetic discrepancy. No new model input is adopted.
+Remaining full-search,supplement,visual-review and appraisal tasks are tracked in
+`tracks/m2_public_sources_20261027/plan.md`;source indexing is not empirical acceptance.

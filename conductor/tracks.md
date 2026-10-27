@@ -85,3 +85,11 @@ Issue #3 remains open for data access, empirical applicability and governance.
 The subsequent [public-only direction](decisions/m2_public_only_20261027.md)
 withdraws all four request drafts; none was sent. Existing published OIA releases
 may be reviewed, but no new OIA or other request is authorised.
+
+## M2 public-source map and traceable extraction
+
+**Status: [~] In progress — public sources only.**
+Track: `conductor/tracks/m2_public_sources_20261027/`.
+
+Methods and seed tables are being constructed. Full search/supplement/visual-review
+completion remains explicit in the plan; no data requests or empirical claims.
