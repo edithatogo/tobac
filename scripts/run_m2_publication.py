@@ -374,6 +374,9 @@ def run(root: Path, out: Path, *, specification: Report | None = None, quit_poin
         "value_unit": VALUE_UNIT,
         "conditioned": False,
         "empirically_validated": False,
+        "ethics_status": (
+            "Desk assessment only;formal applicability undetermined;no approval or exemption claimed"
+        ),
         "equity_effects_identified": False,
         "decision_rows": len(tables["decisions"]),
         "study_rows": len(tables["study_value"]),
@@ -401,6 +404,7 @@ def run(root: Path, out: Path, *, specification: Report | None = None, quit_poin
         spec["ethics_assessment"],
         "evidence/m2/source_review.json",
         "evidence/m2/publication_20261028/model_input_check.json",
+        "evidence/m2/publication_20261028/parameter_provenance.csv",
         "integration/m2_publication_20261028/guidance-catalogue.json",
         "integration/m2_publication_20261028/model-source-catalogue.json",
         f"{spec['source_map']}/manifest.json",
@@ -432,6 +436,19 @@ def resolution_table(
     return mapping
 
 
+def information_optima(
+    mapping: dict[tuple[str, ...], dict[str, str]], statistic: str, label: str
+) -> dict[tuple[str, ...], tuple[str, ...]]:
+    """Retain all co-optimal gross-information designs or finite parameter groups."""
+    grouped: dict[tuple[str, ...], list[dict[str, str]]] = {}
+    for key, row in mapping.items():
+        grouped.setdefault(key[:3], []).append(row)
+    return {
+        key: tuple(sorted(rows[i][label] for i in optimal_indices([float(r[statistic]) for r in rows])))
+        for key, rows in grouped.items()
+    }
+
+
 def resolution_comparison(first: Path, second: Path) -> Report:
     """Compare identical scenario/value supports under two finite cessation grids."""
     reports = [read(folder / "report.json") for folder in (first, second)]
@@ -449,7 +466,11 @@ def resolution_comparison(first: Path, second: Path) -> Report:
         "quit_points": [r["specification"]["quit_points"] for r in reports],
         "scope": "Finite-resolution diagnostic,not proof of continuous convergence or empirical validity",
     }
-    for name, statistic, extra in (("decisions", "evpi", ()), ("study_value", "evsi", ("design",))):
+    for name, statistic, extra in (
+        ("decisions", "evpi", ()),
+        ("study_value", "evsi", ("design",)),
+        ("grouped_evppi", "evppi", ("group",)),
+    ):
         columns = ("case", "crime_weight", "resource_weight", *extra)
         indexed: list[dict[tuple[str, ...], dict[str, str]]] = []
         for folder in (first, second):
@@ -471,6 +492,12 @@ def resolution_comparison(first: Path, second: Path) -> Report:
                 for key, row in indexed[0].items()
             )
             result["compared_value_profiles"] = len(indexed[0])
+        else:
+            label = "design" if name == "study_value" else "group"
+            optima = [information_optima(index, statistic, label) for index in indexed]
+            result[f"changed_{label}_cooptimal_sets"] = sum(
+                optima[0][key] != optima[1][key] for key in optima[0]
+            )
     return result
 
 

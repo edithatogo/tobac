@@ -86,10 +86,15 @@ def test_resolution_diagnostic_checks_keys_hashes_and_fixed_inputs(runner, tmp_p
             f"c,1,1,{'a' if i == 0 else 'b'},{1 + i * 0.1}\n"
         )
         (path / "study_value.csv").write_text("case,crime_weight,resource_weight,design,evsi\nc,1,1,none,0\n")
+        (path / "grouped_evppi.csv").write_text(
+            "case,crime_weight,resource_weight,group,evppi\nc,1,1,market,0\n"
+        )
         files = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in path.iterdir()}
         (path / "manifest.json").write_text(json.dumps({"outputs": files}))
     result = runner.resolution_comparison(*paths)
     assert result["changed_cooptimal_sets"] == 1
+    assert result["changed_design_cooptimal_sets"] == 0
+    assert result["changed_group_cooptimal_sets"] == 0
     assert result["maximum_absolute_evpi_difference"] == pytest.approx(0.1)
     with (paths[0] / "decisions.csv").open("a") as stream:
         stream.write("c,1,1,a,1\n")

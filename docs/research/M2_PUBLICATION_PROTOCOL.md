@@ -119,3 +119,8 @@ Any study cost must be mapped to the same declared objective before comparison;
 no division by a zero resource weight or conversion to NZD is performed.
 Consequence summaries average state-specific illicit fractions separately from
 volume averages;these are not national illicit-market shares.
+
+The resolution diagnostic also compares co-optimal gross-EVSI design sets and grouped
+EVPPI priorities,including ties. These are gross-information rankings before study
+costs,not funding decisions. The coarse2-node pilot differed from4nodes at one
+near-zero-value design comparison;this is reported rather than hidden.

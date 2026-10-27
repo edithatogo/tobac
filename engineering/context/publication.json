@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "profile": "publication",
+  "max_bytes": 80000,
+  "paths": [
+    "AGENTS.md",
+    "conductor/workflow.md",
+    "conductor/tracks.md",
+    "docs/evidence_interface.md",
+    "docs/research/M2_PUBLICATION_PROTOCOL.md",
+    "docs/research/M2_PUBLICATION_ETHICS.md",
+    "src/tobac/retail_case.py",
+    "src/tobac/value_sensitivity.py",
+    "scripts/run_m2_publication.py",
+    "configs/m2_publication.json"
+  ],
+  "base_commit": null,
+  "required_paths": [
+    "AGENTS.md",
+    "docs/evidence_interface.md"
+  ]
+}
