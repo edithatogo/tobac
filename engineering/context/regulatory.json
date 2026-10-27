@@ -8,11 +8,10 @@
     "conductor/tracks.md",
     "docs/evidence_interface.md",
     "docs/m2_retail_contract.md",
-    "src/tobac/evidence.py",
-    "src/tobac/supply.py",
-    "docs/research/M2_MATCHED_PATHWAY.md",
     "src/tobac/matched.py",
-    "evidence/m2/matched_pathway_20261027.json"
+    "docs/research/M2_EVIDENCE_SYNTHESIS.md",
+    "src/tobac/partial_identification.py",
+    "evidence/m2/synthesis_20261027.json"
   ],
   "base_commit": null,
   "required_paths": [
