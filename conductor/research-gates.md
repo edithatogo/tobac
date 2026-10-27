@@ -55,11 +55,16 @@ remain [0,1] under the declared M2a structure,not uniform priors.
 
 [Assessment](../docs/research/M2_EXISTING_RECORDS_ASSESSMENT.md) and
 `evidence/m2/existing_records_20261027.json` narrow the access/collection boundary.
-Repeated NZ wastewater baseline records already exist; raw data are offered on request.
-NZHS core IDI access excludes module data, and target vintages/fields need confirmation.
+Repeated NZ wastewater baseline observations already exist; authors offer data on request,
+but required raw-field coverage and access remain unverified.
+The dated NZHS access page excludes module data from its core IDI route; current refresh
+and target vintages/fields need confirmation.
 Historical funding and actual application-fee receipts are available but do not identify
 current incremental policy/study resource costs. Interceptions are not automatically seizures.
 No unconditional new collection is justified before existing raw records are assessed
 against a selected target. Custodian access, target applicability, causal counterfactual,
 current costs and human governance/value decisions remain open. No restricted database
 was accessed, request sent or empirical likelihood adopted.
+
+Owner decision options: [issue #3 decisions](../docs/research/M2_DECISIONS.md).
+Recommendations remain unadopted until the owner selects them.

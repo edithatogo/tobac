@@ -24,8 +24,11 @@ access/review limitations, not proof that new field sampling is needed.
 ## Administrative records
 
 The [official survey access page](https://www.health.govt.nz/monitoring-statistics/surveys/access-to-survey-microdata)
-(last updated 6 November 2025) identifies CURFs managed by Stats NZ and continuous
-NZHS core data in the IDI. It explicitly excludes module data from that IDI route;
+(last updated 6 November 2025) identifies confidentialised unit record files (CURFs)
+managed by Stats NZ and continuous New Zealand Health Survey (NZHS) core data in the
+Integrated Data Infrastructure (IDI). The page states that module data are excluded
+from that IDI route;
+this is a dated documented route, not a verified inventory of the current IDI refresh;
 linkage depends on consent and controlled researcher/project access. Its table lists
 older survey vintages, so the public 2024/25 results do not prove current microdata
 availability. The [2024/25 content guide landing page](https://www.health.govt.nz/publications/questionnaires-and-content-guide-202425-new-zealand-health-survey)
@@ -59,12 +62,15 @@ records would need a credible counterfactual; national totals cannot supply one.
 
 The [NZ wastewater study](https://doi.org/10.1016/j.scitotenv.2025.181223)
 reports 142 samples, 12 treatment plants and nine settlements, May–October 2023,
-with paired weekday/weekend sampling. It locates per-day/site metabolite loads in
-Tables S13/S15 and figures S22/S23; data are available on request. These repeated
+with a weekday/weekend sampling design. Complete pairing is not established here.
+It locates per-day/site metabolite loads in
+Tables S13/S15 and figures S22/S23; the authors offer data on request.
+Availability of every required raw field, quality control (QC) record and retained
+aliquot is unconfirmed. These repeated
 baseline observations already exist. They are not observations of the unimplemented
 600-retailer policy. Derived loads reuse flow/population and calibration inputs;
 obtain native concentration/censoring, sample/batch pairing, QC, flow and denominator
-records before covariance fitting. Published ANBA quantification is sparse; a larger
+records before covariance fitting. Published anabasine (ANBA) quantification is sparse; a larger
 number of existing specimens does not repair poor near-limit quantification.
 
 The [human anabasine study](https://doi.org/10.1093/ntr/ntag042) also states that data
@@ -73,8 +79,10 @@ is useful existing validation, not a target-wide product/absorption factor. Obta
 raw paired measurements and calibration dependencies before considering additional
 participants. Neither request statement supplies access approval or actual raw files.
 
-The R05 proposed LOQ of 2 ng/L original influent is a procurement target, not a
-published method qualification. New laboratory validation is necessary only if
+The R05 proposed limit of quantification (LOQ) of 2 ng/L original influent is a
+procurement target, not a
+published method qualification. LOQ is the reporting threshold, not a guarantee of accuracy.
+Additional laboratory validation would be needed if an empirical claim is pursued and
 existing sample/batch records cannot establish adequate original-matrix performance,
 recovery, stability, product mixture and vaping contributions for the selected target.
 Stored aliquot reanalysis may suffice if availability and storage stability are verified;
@@ -95,7 +103,8 @@ paragraph 20 / PDF page 4, records 439 paid applications at NZD1475 plus GST and
 is NZD647525 excluding GST, or NZD744653.75 with an explicit 15% GST arithmetic
 assumption, consistent with the source's over-NZD744000 description. These are
 historical application receipts, not approved/operating outlets, labour/resource costs,
-or a complete retailer census. The same release's PDF page 43 notes ESR product
+or a complete retailer census. The same release's PDF page 43 notes Institute of Environmental Science and
+Research (ESR) product
 nicotine-testing methodology work; product compliance testing does not validate
 wastewater anabasine recovery or human excretion.
 
@@ -117,7 +126,8 @@ additional social resource consumption.
    permissions and linkage first. Resolve source year/unit conflicts only if material.
 3. Additional validation or observations only for fields/target performance that those
    records cannot support: near-limit accuracy, product/yield/vaping transport, shared
-   errors and held-out outcomes. No specific new sample count is justified yet.
+   errors and held-out outcomes. No specific new sample count is justified yet. A conditional/no-study analysis
+   remains permissible instead of pursuing an empirical claim.
 4. Matched behavioural, replacement/mitigation and incremental-harm outcomes with a
    credible counterfactual if an empirical causal claim is required. Suitable existing
    linked records may suffice for an actually implemented contrast. Expert elicitation
@@ -132,6 +142,7 @@ additional social resource consumption.
 Reviewed source dates, access modes, endpoints, repeated-data identity and units against
 M2's existing shared-evidence contract. Kept planned funding, receipts and economic costs
 separate; kept baseline, prospective policy response and product/wastewater validation
-separate. No data-once boundary or model input changed. The original synthesis manifest
+separate. No data-once boundary or model input changed. The decision options in `M2_DECISIONS.md` are recommendations for the owner,
+not adopted policy, access authority or new elicited evidence. The original synthesis manifest
 and its source count remain immutable. The companion assessment ledger records this
 follow-on rather than presenting a new numerical model qualification.
