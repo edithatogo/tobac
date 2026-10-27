@@ -5,7 +5,8 @@ Style Guide.
 
 ## 1. Python Language Rules
 
--   **Linting:** Run `pylint` on your code to catch bugs and style issues.
+-   **Linting:** Use the pinned Ruff policy and Nox `strict_all`, including tests/tooling
+    and `ruff format --check`; see `docs/engineering/RUFF_POLICY.md`.
 -   **Imports:** Use `import x` for packages/modules. Use `from x import y` only
     when `y` is a submodule.
 -   **Exceptions:** Use built-in exception classes. Do not use bare `except:`
@@ -22,7 +23,7 @@ Style Guide.
 
 ## 2. Python Style Rules
 
--   **Line Length:** Maximum 80 characters.
+-   **Line Length:** Maximum 110 characters, matching the maintained Ruff configuration.
 -   **Indentation:** 4 spaces per indentation level. Never use tabs.
 -   **Blank Lines:** Two blank lines between top-level definitions (classes,
     functions). One blank line between method definitions.

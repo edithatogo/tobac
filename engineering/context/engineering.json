@@ -9,7 +9,9 @@
     "docs/engineering/READINESS.md",
     "docs/engineering/LIBRARY_REUSE_REVIEW.md",
     "pyproject.toml",
-    "noxfile.py"
+    "noxfile.py",
+    "ruff.toml",
+    "engineering/ruff.toml"
   ],
   "base_commit": null,
   "required_paths": [

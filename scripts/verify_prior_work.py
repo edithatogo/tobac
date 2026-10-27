@@ -102,7 +102,7 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict[str, Any]:  #
             not isinstance(item.get("role"), str)
             or not item["role"].strip()
             or item.get("transformation") not in TRANSFORMS
-            or any(not re.fullmatch("[0-9a-f]{64}", item.get(k, "")) for k in ("sha256", "archive_sha256"))
+            or any(not re.fullmatch(r"[0-9a-f]{64}", item.get(k, "")) for k in ("sha256", "archive_sha256"))
         ):
             msg = "Missing/invalid role, transformation or hash"
             raise ValueError(msg)
@@ -126,7 +126,7 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict[str, Any]:  #
             rows_total += len(records)
             for row in records:
                 for key in ("source_id", "source_ids", "legal_context_source_ids"):
-                    tokens.update(t.strip() for t in re.split("[;|]", row.get(key, "")) if t.strip())
+                    tokens.update(t.strip() for t in re.split(r"[;|]", row.get(key, "")) if t.strip())
                 for key in ("current_raw_observation", "admissible_as_current_nz_raw_assay"):
                     if key in row and row[key].lower() != "false":
                         msg = "Historical evidence presented as current raw observation"

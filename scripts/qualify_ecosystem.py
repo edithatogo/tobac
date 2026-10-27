@@ -42,12 +42,8 @@ def qualify(out: Path) -> dict[str, Any]:  # noqa: C901, PLR0912, PLR0915  # Kee
             expected = exact_evpi(p)
             actual = evpi(p, backend="jax")
             np.testing.assert_allclose(actual, expected, rtol=1e-12, atol=1e-12)
-            permuted = DecisionProblem(
-                values[::-1], ("a", "b"), "score", np.array(weights)[::-1]
-            )
-            np.testing.assert_allclose(
-                evpi(permuted, backend="jax"), expected, rtol=1e-12, atol=1e-12
-            )
+            permuted = DecisionProblem(values[::-1], ("a", "b"), "score", np.array(weights)[::-1])
+            np.testing.assert_allclose(evpi(permuted, backend="jax"), expected, rtol=1e-12, atol=1e-12)
             checks.append(
                 {
                     "weights": weights,
@@ -144,8 +140,7 @@ def qualify(out: Path) -> dict[str, Any]:  # noqa: C901, PLR0912, PLR0915  # Kee
                 "operand_warm_seconds": kernel_seconds,
                 "warm_seconds": samples,
                 "compile_boundary": (
-                    "producer combines primitive compilation and execution; "
-                    "not separately measured"
+                    "producer combines primitive compilation and execution; not separately measured"
                 ),
             }
         )
@@ -175,19 +170,15 @@ def qualify(out: Path) -> dict[str, Any]:  # noqa: C901, PLR0912, PLR0915  # Kee
         "arrow": {
             "float_buffer_shared": before == after,
             "lifetime_verified": True,
-            "logical_chunk_content_sha256": hashlib.sha256(
-                json.dumps(logical).encode()
-            ).hexdigest(),
+            "logical_chunk_content_sha256": hashlib.sha256(json.dumps(logical).encode()).hexdigest(),
             "scope": (
-                "tested float64 column path only; string columns may copy; "
-                "metadata contract not adopted"
+                "tested float64 column path only; string columns may copy; metadata contract not adopted"
             ),
         },
         "timings": timings,
         "peak_rss_process_bytes": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
         "performance_policy": (
-            "retain NumPy default; no surrogate or optimisation "
-            "without demonstrated benefit"
+            "retain NumPy default; no surrogate or optimisation without demonstrated benefit"
         ),
         "scientific_qualification": False,
     }

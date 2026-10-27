@@ -77,9 +77,7 @@ def qualify(out: Path) -> None:
         "qualifier_sha256": replay.sha(Path(__file__)),
         "command": [sys.executable, *sys.argv],
     }
-    (out / "receipt.json").write_text(
-        json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8"
-    )
+    (out / "receipt.json").write_text(json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8")
 
 
 def main() -> None:

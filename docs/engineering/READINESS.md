@@ -8,6 +8,13 @@ workflow definitions and checks remain intact; they may still execute, and their
 reported accurately. This scope change does not mark deferred checks as passed or remove them
 from repository protection settings.
 
+## Ruff expansion and resource controls — 27 October 2026
+
+Maintained tests, Nox tooling and type stubs now share source/script linting and
+stable formatting enforcement. Five exact preview rules and bounded macOS process
+groups are documented in [RUFF_POLICY.md](RUFF_POLICY.md). Dated acceptance evidence
+is recorded separately; historical counts below retain their original scope.
+
 ## Current macOS acceptance — complete, 26 October 2026
 
 The owner selected retaining full-SHA GitHub Actions pins and closing the rejected

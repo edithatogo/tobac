@@ -69,9 +69,7 @@ def canonical(config: dict[str, Any]) -> bytes:
     # JSON serialization rejects nonfinite values and executable configuration.
     raw = json.dumps(config, sort_keys=True, allow_nan=False)
     result = validate_config(json.loads(raw))
-    return json.dumps(
-        result, sort_keys=True, allow_nan=False, separators=(",", ":")
-    ).encode("utf-8")
+    return json.dumps(result, sort_keys=True, allow_nan=False, separators=(",", ":")).encode("utf-8")
 
 
 def save_parameters(config: dict[str, Any], path: Path) -> str:
@@ -96,10 +94,7 @@ def load_parameters(path: Path) -> dict[str, Any]:
     if set(record) != expected:
         msg = "Unexpected parameter envelope fields"
         raise ValueError(msg)
-    if (
-        record["schema"] != "tobac.parameters.v1"
-        or record["model"] != "tobac.regulatory-milestone.v1"
-    ):
+    if record["schema"] != "tobac.parameters.v1" or record["model"] != "tobac.regulatory-milestone.v1":
         msg = "Unsupported parameter/model schema"
         raise ValueError(msg)
     content = canonical(record["parameters"])

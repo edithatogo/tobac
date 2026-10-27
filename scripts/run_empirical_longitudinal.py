@@ -119,7 +119,7 @@ def declared_basis(table: pd.DataFrame) -> SupplyBasis:
     same MOH/NZHS source are distinguishable at the ledger layer.
     """
     if "source_id" not in table or table["source_id"].isna().any():
-        msg = ("Source table must carry a non-empty source_id on every row to declare the basis")
+        msg = "Source table must carry a non-empty source_id on every row to declare the basis"
         raise ValueError(msg)
     ids = sorted({str(value).strip() for value in table["source_id"].unique()})
     if not ids or any(not value for value in ids):

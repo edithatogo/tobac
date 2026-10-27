@@ -33,21 +33,14 @@ def packages(path: Path) -> dict[str, Any]:
             continue
         requirement = Requirement(line)
         specs = list(requirement.specifier)
-        if (
-            len(specs) != 1
-            or specs[0].operator != "=="
-            or "*" in specs[0].version
-            or requirement.url
-        ):
+        if len(specs) != 1 or specs[0].operator != "==" or "*" in specs[0].version or requirement.url:
             msg = "Require exact resolved lock versions"
             raise ValueError(msg)
         name = canonicalize_name(requirement.name)
         if name in result:
             msg = "Ambiguous duplicate lock package"
             raise ValueError(msg)
-        result[name] = {
-            "package_url": f"pkg:pypi/{quote(name, safe='')}@{quote(specs[0].version, safe='')}"
-        }
+        result[name] = {"package_url": f"pkg:pypi/{quote(name, safe='')}@{quote(specs[0].version, safe='')}"}
     if not result:
         msg = "No resolved lock packages"
         raise ValueError(msg)
@@ -82,10 +75,7 @@ def snapshot(sha: str, ref: str, job: str) -> dict[str, Any]:
         committed = subprocess.check_output(  # noqa: S603  # Fixed local Git object read.
             [git, "-C", str(ROOT), "show", f"{sha}:{location}"], timeout=15
         )
-        if (
-            hashlib.sha256(committed).hexdigest()
-            != hashlib.sha256(path.read_bytes()).hexdigest()
-        ):
+        if hashlib.sha256(committed).hexdigest() != hashlib.sha256(path.read_bytes()).hexdigest():
             msg = "Resolved lock differs from the committed snapshot source"
             raise ValueError(msg)
         manifests[location] = {

@@ -36,14 +36,9 @@ def identities(root: Path) -> dict[str, Any]:
                     raise ValueError(msg)
                 inputs[path.relative_to(root).as_posix()] = sha(path)
     package = Path(__file__).resolve().parent
-    models = {
-        p.relative_to(package).as_posix(): sha(p) for p in sorted(package.rglob("*.py"))
-    }
+    models = {p.relative_to(package).as_posix(): sha(p) for p in sorted(package.rglob("*.py"))}
     versions = {d: importlib.metadata.version(d) for d in ("numpy", "scipy")}
-    locks = {
-        str(p.relative_to(root)): sha(p)
-        for p in sorted((root / "engineering").glob("*.lock*"))
-    }
+    locks = {str(p.relative_to(root)): sha(p) for p in sorted((root / "engineering").glob("*.lock*"))}
     return {
         "inputs": inputs,
         "model_sources": models,
@@ -160,9 +155,7 @@ def execute(  # noqa: C901  # Keep stage persistence and fail-closed recovery in
             msg = "Inputs changed during replay"
             raise RuntimeError(msg)
         artifacts = {
-            p.relative_to(folder).as_posix(): sha(p)
-            for p in sorted(folder.rglob("*"))
-            if p.is_file()
+            p.relative_to(folder).as_posix(): sha(p) for p in sorted(folder.rglob("*")) if p.is_file()
         }
         receipt = {
             "schema": "tobac.replay.v1",
@@ -191,9 +184,7 @@ def main() -> None:
     parser.add_argument("--quick", action="store_true")
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
-    result = execute(
-        args.root, args.out, args.stages, quick=args.quick, resume=args.resume
-    )
+    result = execute(args.root, args.out, args.stages, quick=args.quick, resume=args.resume)
     sys.stdout.write(json.dumps(result, indent=2, allow_nan=False) + "\n")
 
 
