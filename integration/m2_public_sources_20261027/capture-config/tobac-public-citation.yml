@@ -1,0 +1,26 @@
+name: tobac-public-citation
+description: Bounded public-source acquisition for M2 source mapping; local preservation only.
+enabled: true
+adapters:
+- web
+schedule: manual
+rights_class: source_specific_review_required
+output_preservation_policy:
+  format: warc_and_manifest
+  compression: none
+  cas_hash_algorithm: sha256
+  retention: permanent_subject_to_rights_review
+publication_policy:
+  huggingface:
+    enabled: false
+  zenodo:
+    enabled: false
+targets:
+- https://digital.library.adelaide.edu.au/server/api/core/bitstreams/ffbdeb7d-07dd-41a8-a6de-8e2881493462/content
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC4094486/
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC7882145/
+- https://aspireaotearoa.org.nz/sites/default/files/2022-06/asap-evidence-feasibilty-review-for-web-final-24-aug.pdf
+- https://www.health.govt.nz/system/files/2024-05/evaluation-tobacco-excise-increases-final-27-nov2018.pdf
+- https://pubmed.ncbi.nlm.nih.gov/39228169/?format=pubmed
+- https://pubmed.ncbi.nlm.nih.gov/32653706/?format=pubmed
+- https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2844813

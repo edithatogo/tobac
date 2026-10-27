@@ -1,6 +1,6 @@
 # M2 public-source mapping, extraction and estimation protocol
 
-Version 1, 27 October 2026. Scope: hypothetical NZ 600-retailer conditional research,
+Version 2, 27 October 2026; version 1 remains in Git history. Scope: hypothetical NZ 600-retailer conditional research,
 NZ residents aged 15+ using cigarettes/roll-your-own, with societal and regulator-budget
 consequences kept separate. Heated-tobacco records are contextual unless a product-
 compatible estimand is explicitly specified. Public material only; no outreach or OIA
@@ -24,7 +24,7 @@ batch rather than query-specific counts; do not invent those counts. Save the sc
 candidate URLs/outcomes in `screening.csv`. Later batches must preserve the visible
 result order and retrieved snippets locally, sanitising transient signed URLs.
 
-For the next comprehensive pass: cover each stream above, using tobacco/cigarette/RYO,
+Executed completion pass (48 queries, 12 combined batches): cover each stream above, using tobacco/cigarette/RYO,
 retail availability/reduction, switching/cessation/illicit, anabasine/cotinine, validation/
 recovery/censoring, and cost/expenditure/excise terms; record every exact executed
 combination. No publication-date exclusion initially. English discovery is an explicit
@@ -95,7 +95,10 @@ forecasts, intermediate calculations and qualitative claims.
 Initial legacy numbers are explicitly labelled imports from the earlier synthesis
 ledger; they have not all been re-extracted from newly saved originals. New Customs
 and Treasury rows are checked against locally captured PDF text with printed locators.
-Their final visual/table review remains explicit. No row enters a model automatically.
+Critical Treasury/Customs/RIS/baseline/funding/application tables were subsequently
+checked against page renderings; human-yield and CVS full HTML were checked against
+native sections. Inaccessible foreign/wastewater source numbers retain their explicit
+limited-access or unverified status; none is promoted into a numerical model. No row enters a model automatically.
 
 Check signs, percentage versus percentage points, SD versus SE versus confidence interval,
 original-matrix versus extract concentrations, row/column totals, missing months and
@@ -140,6 +143,35 @@ or explicitly unavailable; source/assumption/extraction/parameter tables linked;
 locators and critical values rechecked; arithmetic and uncertainty checked; exclusions,
 funding limitations, shared inputs and remaining public-only gaps reported.
 
-Current deliverable is the protocol plus seeded, cross-referenced tables and a bounded
-capture/extraction pass. Outstanding search, supplement and visual-review work stays
-unchecked in Conductor. No full systematic-review or empirical-acceptance claim is made.
+The bounded completion pass and access dispositions are recorded in
+M2_PUBLIC_SOURCE_COMPLETION.md and the completed Conductor plan. Source unavailability
+is a qualified outcome, not verified extraction. One citation round used native reference
+lists where accessible and exact-DOI searches elsewhere; forward search coverage is
+index-limited. No exhaustive systematic-review or empirical-acceptance claim is made.
+
+
+## 7. Executed search and retrieval limits
+
+B01 is the four-query initial map; B02-B12 execute 44 additional queries, with no
+engine date/language filter and English terms. Preserve exact spelling, including
+B02's literal site.health.govt.nz queries (not a valid site: restriction) and B08Q1's
+unhelpful quoted site:repository phrase. B04/B05 use proper site: constraints and
+B11Q2 supplies a real Auckland repository query. Do not retroactively claim the
+malformed queries were domain-restricted searches. Search snippets/full responses
+are local; canonical candidate URLs, batch ranks, decisions and query logs are tracked.
+The engine returns combined results; a batch result cannot be attributed to a single
+seed/query or prove a forward-citation edge. Repeated batch appearances are retained.
+
+Backward lists were checked for all 34 human-yield and 23 CVS-purchase references.
+For the four other seeds, limited indexed primary sections/abstracts and exact-DOI
+searches replace inaccessible native reference lists; completeness is not asserted.
+One-hop contextual documents were retrieved where available; their entire reference
+and supplement trees are outside this bounded round. Context-only reviews/validation
+papers do not supply unverified numeric inputs. No automatic iterative expansion.
+
+The human-yield S2D reconstruction uses 19 reported one-decimal factors, excludes three
+dashes and calculates arithmetic mean and sample SD (n−1 denominator). It gives
+9.02631578947 and4.95780440935 percentage points. Compare with source9.02±4.95 under
+rounding; do not substitute rounded-table estimates or assert an unreported SD label.
+Urinary total-anabasine limits0.1/0.2µg/L and supplement censoring replacements remain
+urine-specific and cannot resolve a raw-wastewater method threshold.

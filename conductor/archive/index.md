@@ -63,3 +63,10 @@ Track: `conductor/archive/m2_evidence_synthesis_20261027/`
 
 [Plan](m2_evidence_synthesis_20261027/plan.md) and [specification](m2_evidence_synthesis_20261027/spec.md).
 Bounded source/method implementation complete;issue#3 target data/governance remain open.
+
+## M2 public-source map and traceable extraction
+
+Track: `conductor/archive/m2_public_sources_20261027/`
+
+See [plan](m2_public_sources_20261027/plan.md): completed bounded searches,citations,
+supplements and source review with explicit access/scientific limits;no requests.

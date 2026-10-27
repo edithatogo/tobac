@@ -1,0 +1,40 @@
+{
+  "captured_count": 2,
+  "command": "capture",
+  "errors": [],
+  "failed_count": 0,
+  "note": "Adapter-based sources without activated credentials or discovery infrastructure are recorded as capability_pending and tracked by conductor track multi_source_capture_activation_20260824.",
+  "pending_adapters": [],
+  "schema_version": "archive-govt-nz.cli/v1",
+  "source_set": "tobac-public-supplements",
+  "source_type": "tobac-public-supplements",
+  "status": "captured",
+  "targets": [
+    {
+      "byte_count": 593424,
+      "sha256": "93f6377fdb86dc1318d2c37e09f03b4332019fc932cfa330025d0993fa1ec026",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/ntr/28/8/10.1093_ntr_ntag042/3/supplementary_file_1_12nov2025_ntag042.pdf",
+      "warc": {
+        "byte_count": 594171,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/supp-warcs/tobac-public-supplements-0.warc",
+        "record_id": "urn:uuid:a031a518-c505-4321-aa42-91087e3bd9e0",
+        "sha256": "d33cd3bafbe78489b623a94ebd4a7354e8d69f0ab03c79403cc5519a09f7814b"
+      }
+    },
+    {
+      "byte_count": 99336,
+      "sha256": "e67a52a6ce07abf12c1682d22d2a5d1f535e9f64cc6ab6a76ba3777ef604288c",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/ntr/28/8/10.1093_ntr_ntag042/3/supplementary_file_2_12nov2025_ntag042.pdf",
+      "warc": {
+        "byte_count": 100082,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/supp-warcs/tobac-public-supplements-1.warc",
+        "record_id": "urn:uuid:dcd6c65c-c54a-4458-9884-c169b328f739",
+        "sha256": "705f685fa9d97f66d5e8cba309b305613ce8eb3231a95fb00e2e088c90b8cd3c"
+      }
+    }
+  ]
+}

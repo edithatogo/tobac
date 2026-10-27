@@ -1,44 +1,41 @@
 # M2 public-source index and linked tables
 
-Methods: [public-source protocol](../../../docs/research/M2_PUBLIC_SOURCE_METHOD.md).
-Plan: [Conductor](../../../conductor/tracks/m2_public_sources_20261027/plan.md).
-Public sources only; no author/custodian requests or new OIA submissions.
+Completed bounded map, 27 October 2026. Public sources only; no requests were sent
+or prepared by this completion phase. Earlier letters remain withdrawn.
 
-- [Source index](source_index.csv): 19 document records, comprising 17 source records
-  and two candidate supplements. Six originals freshly captured and byte-verified;
-  others explicitly uncaptured, failed or pending. Document count is not study count.
-- [Source table](source_table.csv): applicability, source/group identity, access and
-  review limitations. Structured study-design/funding appraisal remains pending.
-- [Extraction table](extraction_table.csv): 72 reported-value/statement rows, each
-  linked to a document and locator; old ledger imports distinguished from new text checks.
-- [Assumption table](assumption_table.csv): eight analyst/source assumptions with role,
-  alternatives and failure consequences. Supports are not automatically distributions.
-- [Parameter table](parameter_table.csv): seven constructions/checks with input IDs,
-  formulas, units, uncertainty method and permitted use. None adopted into a model.
-- [Search log](search_log.csv) and [screening](screening.csv): four executed queries,
-  one combined batch and 19 candidate dispositions. Earlier seed-search history is
-  not reconstructed. No complete systematic-review count or coverage claim is made.
+[Methods](../../../docs/research/M2_PUBLIC_SOURCE_METHOD.md) and
+[completion report](../../../docs/research/M2_PUBLIC_SOURCE_COMPLETION.md) define
+coverage and limitations. This is not an exhaustive systematic review.
 
-Fresh local payloads, WARC records and derived text are under the ignored
-`outputs/engineering/m2-public-source-capture/` directory. Resolve each exact path
-through source_index.csv or the [local catalogue](../../../integration/m2_public_sources_20261027/local-catalogue.json).
-Hashes are tracked; source bytes are local, not committed/published. A fresh checkout
-without those payloads does not have locally verified originals merely because receipts
-are present. Reverify held objects before further extraction; preserve missing WARC dates.
+- [Source index](source_index.csv): 31 document records, including the two retrieved
+  human-yield supplements; documents and repeated releases are not independent studies.
+- [Source table](source_table.csv): design, funding, populations/products/periods,
+  shared data, applicability and explicit current access limits for every record.
+- [Extracts](extraction_table.csv): 82 values/statements, native locators and review status.
+  Inaccessible legacy extracts remain ineligible for numerical adoption.
+- [Assumptions](assumption_table.csv): 10 source/analyst assumptions and failure consequences.
+- [Parameters](parameter_table.csv): nine linked constructions/checks; none is adopted.
+- [Searches](search_log.csv) / [screening](screening.csv): 48 queries across 12 combined
+  batches, 208 candidate dispositions including the 19 initial seeds. Visible result
+  ranks belong to batches; per-query counts and result attribution were not exposed.
+- [Citation rounds](citation_rounds.csv) / [edges](citation_edges.csv): six seeds,
+  57 native references (34 human-yield, 23 CVS purchasing), plus labelled indexed
+  co-discoveries. Co-discovery is not evidence of a citation relationship.
+- [Retrieval outcomes](retrieval_outcomes.csv): every additional attempted route,
+  including failed routes and HTTP200 challenge/download stubs rejected as originals.
 
-Initial arithmetic checks reproduce the available-month HTP total and fee arithmetic.
-The Treasury rounded 2025 forecast rows imply a difference one NZD million away from
-its printed difference: both are retained as an unresolved source-precision discrepancy.
-This does not establish an error in unrounded Treasury calculations. HTP imports,
-forecasts, fee receipts and signed historical gaps are different quantities, and none
-identifies the hypothetical cap's causal effect or current illicit consumption.
+Original CAS objects, WARCs, text and page renderings remain local under ignored
+outputs/engineering/m2-public-source-capture/ and outputs/engineering/m2-public-completion/.
+The initial six PDF objects and 17 additional usable objects (including HTML aliases)
+have byte/WARC-payload verification. Counts are objects, not unique studies. Native
+WARC dates remain missing. Do not infer a capture date from the review date. Receipts
+and hashes are tracked; a clean checkout without local payloads has metadata only.
+Public signed supplement links were followed as published; transient query signatures
+are omitted from tracked URLs. Raw local HTML/WARC preserve original responses.
 
-The capture verification initially failed because a temporary verifier consumed WARC
-streams before reading payloads. The stream-lifetime fix was applied and all six
-payloads then matched their CAS hashes. Both diagnostic logs remain local. No source
-bytes, resource budget or archive implementation were changed to pass verification.
-
-[Table manifest](manifest.json) binds the CSVs, methods and capture evidence. Cross-reference
-and arithmetic verification is documentary/computational evidence, not source validity.
-Further search streams, citation rounds, supplement acquisition and visual table review
-remain unchecked in Conductor. Tables must be revised with provenance, not silently filled.
+The 2025 Treasury rounding discrepancy is retained. The 19 rounded supplement factors
+produce mean9.0263 and sampleSD4.9578, consistent within rounding with9.02±4.95 but
+not an exact reproduction or an explicitly established author uncertainty label.
+All values remain contextual; no model likelihood, prior, input or covariance changed.
+[Manifest](manifest.json) binds current tables, methods and receipts; the initial manifest
+is preserved separately in integration/m2_public_sources_20261027/initial-map-manifest.json.

@@ -88,8 +88,9 @@ may be reviewed, but no new OIA or other request is authorised.
 
 ## M2 public-source map and traceable extraction
 
-**Status: [~] In progress — public sources only.**
-Track: `conductor/tracks/m2_public_sources_20261027/`.
+**Status: [x] Complete — bounded public-source map; scientific gates remain.**
+Track: `conductor/archive/m2_public_sources_20261027/`.
 
-Methods and seed tables are being constructed. Full search/supplement/visual-review
-completion remains explicit in the plan; no data requests or empirical claims.
+Searches, citation round, published supplements, extraction and self-review complete
+with explicit access limits. See docs/research/M2_PUBLIC_SOURCE_COMPLETION.md.
+No requests or model adoption; issue #3 scientific gates remain open.

@@ -1,0 +1,218 @@
+{
+  "captured_count": 11,
+  "command": "capture",
+  "errors": [
+    "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=PMC13389531: terminal_status",
+    "https://www.sciencedirect.com/science/article/pii/S0048969725028657: terminal_status",
+    "https://about.uq.edu.au/experts-publication/49869/4748: terminal_status",
+    "https://tobaccocontrol.bmj.com/content/tobaccocontrol/early/2026/02/26/tc-2025-059985.full.pdf: terminal_status",
+    "https://tobaccocontrol.bmj.com/content/tobaccocontrol/early/2026/03/05/tc-2025-059985/DC2/embed/inline-supplementary-material-2.pdf?download=true: terminal_status",
+    "https://tobaccocontrol.bmj.com/content/34/4/430: terminal_status",
+    "https://cpb-us-w2.wpmucdn.com/sites.wustl.edu/dist/e/1037/files/2011/11/Romehetal_TobaccofreePharmacies.pdf: terminal_status",
+    "https://escholarship.org/content/qt0j61d0br/qt0j61d0br_noSplash_ce0530b0ad236ede31f4b9cfd283469a.pdf: terminal_status",
+    "https://www.treasury.govt.nz/publications/oia-response/projected-tobacco-excise-revenue-oia-20260249: terminal_status",
+    "https://www.health.govt.nz/monitoring-statistics/surveys/new-zealand-health-survey/publications/202425-survey-publications/trends-in-smoking-and-vaping: terminal_status"
+  ],
+  "failed_count": 10,
+  "note": "Adapter-based sources without activated credentials or discovery infrastructure are recorded as capability_pending and tracked by conductor track multi_source_capture_activation_20260824.",
+  "pending_adapters": [],
+  "schema_version": "archive-govt-nz.cli/v1",
+  "source_set": "tobac-public-completion",
+  "source_type": "tobac-public-completion",
+  "status": "partial",
+  "targets": [
+    {
+      "byte_count": 193515,
+      "sha256": "5e1fb037c6f3cdbecf37be25fde6fbea11a46c7b79c746a4726a0f38cbbf391b",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13389531/",
+      "warc": {
+        "byte_count": 194090,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/warcs/tobac-public-completion-0.warc",
+        "record_id": "urn:uuid:41f22f6a-c56a-410d-a954-e073af84d7f3",
+        "sha256": "4eb34205a838ebf95568a4234bb97e834b006a4b86719106ecb1bf4cea6ca9b3"
+      }
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=PMC13389531"
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://www.sciencedirect.com/science/article/pii/S0048969725028657"
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://about.uq.edu.au/experts-publication/49869/4748"
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://tobaccocontrol.bmj.com/content/tobaccocontrol/early/2026/02/26/tc-2025-059985.full.pdf"
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://tobaccocontrol.bmj.com/content/tobaccocontrol/early/2026/03/05/tc-2025-059985/DC2/embed/inline-supplementary-material-2.pdf?download=true"
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://tobaccocontrol.bmj.com/content/34/4/430"
+    },
+    {
+      "byte_count": 162667,
+      "sha256": "e697142dc96d9cefb145bc7093ba4bacd6f2cf55c8cee06f98006af549a3e7c6",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5343689/",
+      "warc": {
+        "byte_count": 163241,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/warcs/tobac-public-completion-7.warc",
+        "record_id": "urn:uuid:de010fda-67d9-4e17-9ed6-dcf50d4327a4",
+        "sha256": "1eca357dc96d96496e8bad1fe9028fe5c352a998b3dd16aa6d5a6e0173153b86"
+      }
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://cpb-us-w2.wpmucdn.com/sites.wustl.edu/dist/e/1037/files/2011/11/Romehetal_TobaccofreePharmacies.pdf"
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://escholarship.org/content/qt0j61d0br/qt0j61d0br_noSplash_ce0530b0ad236ede31f4b9cfd283469a.pdf"
+    },
+    {
+      "byte_count": 5590,
+      "sha256": "9c3ad0e9ccb3021c1540b32e02746f183dadd61cf46fc894d273ab2beb2724af",
+      "status": "captured",
+      "status_code": 203,
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/33082285/",
+      "warc": {
+        "byte_count": 6154,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/warcs/tobac-public-completion-10.warc",
+        "record_id": "urn:uuid:0a5fc6c7-ba18-4f01-afee-6e0a895bcc2b",
+        "sha256": "c4c05336580681aafa5840d78fdc1ef0c78995eeecfb8dde9dd27901e823842a"
+      }
+    },
+    {
+      "byte_count": 5590,
+      "sha256": "6776a3d9e474fd5f47e2c9faab84f2ea609f133dbcafd08fbaef44be43c3cec0",
+      "status": "captured",
+      "status_code": 203,
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/32653706/",
+      "warc": {
+        "byte_count": 6154,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/warcs/tobac-public-completion-11.warc",
+        "record_id": "urn:uuid:ef6f85ea-9572-4977-820e-ee535a2f5f43",
+        "sha256": "a64d496e75ff343c9ac6fe81674b0434c38cb198ab7920848a984c382540c811"
+      }
+    },
+    {
+      "byte_count": 5590,
+      "sha256": "ff58ed16bb11fc28e8f1c8df6993f9efdc02c0f0942cf3682b9cbe44aa9691ac",
+      "status": "captured",
+      "status_code": 203,
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/39228169/",
+      "warc": {
+        "byte_count": 6154,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/warcs/tobac-public-completion-12.warc",
+        "record_id": "urn:uuid:e8eea561-df2a-42e4-89d9-37234fbfcc29",
+        "sha256": "9601e7f7e14266c8658bb24eb3d4a97767cbf656407a114125099e9b0b191895"
+      }
+    },
+    {
+      "byte_count": 510636,
+      "sha256": "9445be9d1e2d767976042b293918808f0266c1e5ccc16d95faaaa0c2b14e7bc6",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2023.975065/pdf",
+      "warc": {
+        "byte_count": 511316,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/warcs/tobac-public-completion-13.warc",
+        "record_id": "urn:uuid:03e2facd-e665-475a-9b76-eeedc6d51f52",
+        "sha256": "1296f4f846ca9b082515bc85733f980e490973da35e3c27815bac7a4e3aa711f"
+      }
+    },
+    {
+      "byte_count": 778966,
+      "sha256": "014689826c4f2144ec34aef3af998480fe333e35ddaf7cbb737aa042d977e41b",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.customs.govt.nz/media/xvojxjkb/25-826-response-letter_.pdf",
+      "warc": {
+        "byte_count": 779647,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/warcs/tobac-public-completion-14.warc",
+        "record_id": "urn:uuid:f55a093b-af2f-411c-b6d8-df11681c87ec",
+        "sha256": "34917f0e3bbe0ecc13d76e8c07dbf9921f3f55bc07e9c6871e3ebf9b57d74db3"
+      }
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://www.treasury.govt.nz/publications/oia-response/projected-tobacco-excise-revenue-oia-20260249"
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://www.health.govt.nz/monitoring-statistics/surveys/new-zealand-health-survey/publications/202425-survey-publications/trends-in-smoking-and-vaping"
+    },
+    {
+      "byte_count": 528020,
+      "sha256": "8e28bad2725a38d13492ec19022a145e3aa481e1c6ad7919317c811f8249033c",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.health.govt.nz/system/files/2025-11/content-guide-2024-25.pdf",
+      "warc": {
+        "byte_count": 528655,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/warcs/tobac-public-completion-17.warc",
+        "record_id": "urn:uuid:3554264d-be41-4f5c-b063-5fe11754fc75",
+        "sha256": "7ce116d3c6889bb3789f31df1eea0bec5a61d8d8480eb484634b0baa4ba6e0d7"
+      }
+    },
+    {
+      "byte_count": 3908502,
+      "sha256": "35ba7eb1db67c4f689040b7dd4a63fc168010bfeb08745e15f3d38e918746a78",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.tdb.co.nz/wp-content/uploads/2023/04/TDB-Infometrics-Smoked-Tobacco-Amendment-Act-Review.2023.pdf",
+      "warc": {
+        "byte_count": 3909174,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/warcs/tobac-public-completion-18.warc",
+        "record_id": "urn:uuid:165416e4-fe7c-456e-b563-246dc621987c",
+        "sha256": "79109bfd295348a7eeeca94276552fcaa688040b80214ffbbf407f43a2de046e"
+      }
+    },
+    {
+      "byte_count": 4129955,
+      "sha256": "ed1f3a4fee5cf9abd971c2df5110376324e15634f3c2738ab2a16c4671abdf45",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.customs.govt.nz/media/squnnrax/new-zealand-customs-service-annual-report-2025.pdf",
+      "warc": {
+        "byte_count": 4130661,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/warcs/tobac-public-completion-19.warc",
+        "record_id": "urn:uuid:d454890f-50e2-4650-b34e-8af16f027d28",
+        "sha256": "f63ed605ba15b345c11b906966e97a7252498dc0942838729a224ac3239e0903"
+      }
+    },
+    {
+      "byte_count": 1307447,
+      "sha256": "273d3cfd9cba8ff23fe77a2e064457225e4937cf54c6726bb097e20430ae0887",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.customs.govt.nz/media/tw2jic5a/excise-and-excise-equivalent-duties-table-tobacco-products-indexation-amendment-order-2025-cabinet-material.pdf",
+      "warc": {
+        "byte_count": 1308214,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/warcs/tobac-public-completion-20.warc",
+        "record_id": "urn:uuid:da0807fd-46a0-4f84-89ff-3cced8f3b586",
+        "sha256": "515a2d24a797eccbb9e43effda618b67509dc709acde60c7a87ca99396623151"
+      }
+    }
+  ]
+}

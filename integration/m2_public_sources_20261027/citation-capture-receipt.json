@@ -1,0 +1,112 @@
+{
+  "captured_count": 7,
+  "command": "capture",
+  "errors": [
+    "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2844813: terminal_status"
+  ],
+  "failed_count": 1,
+  "note": "Adapter-based sources without activated credentials or discovery infrastructure are recorded as capability_pending and tracked by conductor track multi_source_capture_activation_20260824.",
+  "pending_adapters": [],
+  "schema_version": "archive-govt-nz.cli/v1",
+  "source_set": "tobac-public-citation",
+  "source_type": "tobac-public-citation",
+  "status": "partial",
+  "targets": [
+    {
+      "byte_count": 833663,
+      "sha256": "b6b7402a66a987eb453c2935356bb38655ff647ee0ab085832e2e92ef3e25a88",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://digital.library.adelaide.edu.au/server/api/core/bitstreams/ffbdeb7d-07dd-41a8-a6de-8e2881493462/content",
+      "warc": {
+        "byte_count": 834416,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/citation-warcs/tobac-public-citation-0.warc",
+        "record_id": "urn:uuid:e186333b-b778-4555-b47b-a5fd9fc39c14",
+        "sha256": "ddeb90402215d305215f8810c53fa305c432a3f6c44cb72786ed9e0306a6ca82"
+      }
+    },
+    {
+      "byte_count": 262087,
+      "sha256": "6d7437d136c1e330fa7a220b2bc3a5bb3a8f706213b61cf16f03a764e4c87e79",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4094486/",
+      "warc": {
+        "byte_count": 262661,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/citation-warcs/tobac-public-citation-1.warc",
+        "record_id": "urn:uuid:c3115ae3-1bfd-4a24-b996-8d5857dc571a",
+        "sha256": "b99a46eeeaceef3373f466d5f5c61d4f221dcb3ae55e7724df84e181f670b6f2"
+      }
+    },
+    {
+      "byte_count": 294875,
+      "sha256": "f081983efc17a85d4e401159f5d1e8ca04d8ba22474e887381ff8d3c80939b24",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7882145/",
+      "warc": {
+        "byte_count": 295449,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/citation-warcs/tobac-public-citation-2.warc",
+        "record_id": "urn:uuid:03aff332-e1a6-4eb3-a5de-bc3a8edb6b13",
+        "sha256": "3876eb25a58d59dedfaa55ad7b1ad0e741b0aa1807552a9785bb51e7ae546bb0"
+      }
+    },
+    {
+      "byte_count": 370582,
+      "sha256": "129b622ff4f54be8c98b2b28fb720d748ac87ee438efe0f036814252661f5fbd",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://aspireaotearoa.org.nz/sites/default/files/2022-06/asap-evidence-feasibilty-review-for-web-final-24-aug.pdf",
+      "warc": {
+        "byte_count": 371311,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/citation-warcs/tobac-public-citation-3.warc",
+        "record_id": "urn:uuid:b36b14c3-c491-4baf-af89-6d20f4ceeb9c",
+        "sha256": "eee7a77aef797090fbe4855263d342f1eed693c2d70b292c629769c1f6d9d25e"
+      }
+    },
+    {
+      "byte_count": 6311875,
+      "sha256": "a294e59dd4f2f610404a6e16cbf1541b2b4054670961445b764dea72c7207ec2",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.health.govt.nz/system/files/2024-05/evaluation-tobacco-excise-increases-final-27-nov2018.pdf",
+      "warc": {
+        "byte_count": 6312542,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/citation-warcs/tobac-public-citation-4.warc",
+        "record_id": "urn:uuid:30c8f708-7aa9-437c-8256-e42e5c6c116d",
+        "sha256": "b8e913388e8ebd37f713ae12181037c89d2e692b0c69ca113648a1aae28557fc"
+      }
+    },
+    {
+      "byte_count": 5590,
+      "sha256": "488347ae8efd5cb491657f056635f0c514b83f6bcd7f0acac5a9a45eea34bd0e",
+      "status": "captured",
+      "status_code": 203,
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/39228169/?format=pubmed",
+      "warc": {
+        "byte_count": 6154,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/citation-warcs/tobac-public-citation-5.warc",
+        "record_id": "urn:uuid:4973d334-ad26-4b9d-92bb-be725b4fc2c6",
+        "sha256": "1880383228af8fcb7c8571eea387227d7581748ebf705de68e31a849762c2e13"
+      }
+    },
+    {
+      "byte_count": 5590,
+      "sha256": "aa5f2ad95735e40bfd5d8455bf870f742949a9b4a96b96e4e69997bbb8939e39",
+      "status": "captured",
+      "status_code": 203,
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/32653706/?format=pubmed",
+      "warc": {
+        "byte_count": 6154,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-public-completion/citation-warcs/tobac-public-citation-6.warc",
+        "record_id": "urn:uuid:76e62c09-0ec1-4b69-ba14-695b81d9c487",
+        "sha256": "75a9099e3efe7cd4a37ba341d997e8ee6d0029c595941d77453836490489d18d"
+      }
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2844813"
+    }
+  ]
+}
