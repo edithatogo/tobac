@@ -110,11 +110,12 @@ def _comparison_gaps(index: dict[tuple[str, str], MatchedObservation]) -> list[s
             )
             if treated is not None and comparator is not None and treated.scope and comparator.scope:
                 a, b = treated.scope, comparator.scope
-                if a == b:
-                    gaps.append(f"{period}:comparison_scope_identical")
-                if tuple(map(date.fromisoformat, (a.start, a.end))) != tuple(
+                same_window = tuple(map(date.fromisoformat, (a.start, a.end))) == tuple(
                     map(date.fromisoformat, (b.start, b.end))
-                ):
+                )
+                if same_window and (a.geography, a.population, a.unit) == (b.geography, b.population, b.unit):
+                    gaps.append(f"{period}:comparison_scope_identical")
+                if not same_window:
                     gaps.append(f"{period}:comparison_window_mismatch")
                 if (a.population, a.unit, set(treated.products)) != (
                     b.population,

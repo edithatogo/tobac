@@ -56,3 +56,9 @@ Conductor close-out check found a missing title on the new archive metadata and 
 pre-existing Voiage registry pointer/title mismatch. Corrected both without
 changing either track's scientific or release scope. Native naming check:12/12
 tracks consistent. These documentation repairs introduce no runtime changes.
+
+A final artifact review found that equivalent compact/extended ISO spellings could
+bypass same-scope comparator rejection. A new regression first failed with an
+empty gap list; the fix compares parsed windows plus geography/population/unit.
+Failure-only rerun passed (one selected,26 deselected). The previous950-test receipt
+remains dated evidence; updated committed-source verification is required below.

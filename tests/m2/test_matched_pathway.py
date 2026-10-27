@@ -227,3 +227,11 @@ def test_command_refuses_overwrite(runner_case, monkeypatch) -> None:
     with pytest.raises(FileExistsError):
         runner.main()
     assert output.read_bytes() == before
+
+
+def test_date_spelling_cannot_disguise_a_self_comparator() -> None:
+    rows = fixtures()
+    for i in range(4):
+        scope = rows[i].scope
+        rows[i + 4] = replace(rows[i + 4], scope=replace(scope, start=scope.start.replace("-", "")))
+    assert "before:comparison_scope_identical" in audit_pathway(rows)["gaps"]
