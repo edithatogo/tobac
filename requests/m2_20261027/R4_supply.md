@@ -1,5 +1,7 @@
 # R4 — Contingent lawful-supply metadata enquiry
 
+WITHDRAWN: public-existing-data-only direction supersedes this historical draft. Do not send.
+
 LOCAL UNSENT DRAFT; not a first-wave request. Proposed routing: Ministry of Health
 smoked-tobacco returns custodian. Individual recipient/address and sender identity
 remain to be selected before sending. Trigger: useful period/product matching is shown.

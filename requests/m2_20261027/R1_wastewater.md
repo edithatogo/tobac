@@ -1,5 +1,7 @@
 # R1 — NZ wastewater record feasibility
 
+WITHDRAWN: public-existing-data-only direction supersedes this historical draft. Do not send.
+
 LOCAL UNSENT DRAFT. Proposed routing: Lisa I. Pilkington,
 lisa.pilkington@auckland.ac.nz, published author contact in
 [PMID41447812](https://pubmed.ncbi.nlm.nih.gov/41447812/); confirm current custody

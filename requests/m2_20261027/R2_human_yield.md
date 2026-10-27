@@ -1,5 +1,7 @@
 # R2 — Human anabasine calibration record feasibility
 
+WITHDRAWN: public-existing-data-only direction supersedes this historical draft. Do not send.
+
 LOCAL UNSENT DRAFT. Proposed routing: Qiuda Zheng, q.zheng@uq.edu.au,
 [published corresponding author](https://doi.org/10.1093/ntr/ntag042).
 Confirm current custody/address before any owner-authorised sending.

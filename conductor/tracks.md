@@ -81,3 +81,7 @@ Selected directions and four local unsent requests are recorded at c1e86e5.
 All five local Nox sessions pass; exact-head and receiving-main publication evidence
 is maintained in the PR. No unexecuted hosted check is implied by local completion.
 Issue #3 remains open for data access, empirical applicability and governance.
+
+The subsequent [public-only direction](decisions/m2_public_only_20261027.md)
+withdraws all four request drafts; none was sent. Existing published OIA releases
+may be reviewed, but no new OIA or other request is authorised.

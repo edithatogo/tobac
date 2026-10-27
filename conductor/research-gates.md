@@ -78,3 +78,10 @@ These supersede the earlier unadopted recommendations for preparation scope only
 [Requests](../requests/m2_20261027/README.md) are local unsent drafts. Actual contact,
 restricted access/linkage, weights, new collection, costs and Māori/custodian governance
 remain open; no evidence or policy effect is inferred from the owner's direction.
+
+## Superseding public-only direction — 27 October 2026
+
+[Public-only decision](decisions/m2_public_only_20261027.md) withdraws every request
+draft. Use public reports/publications/supplements/datasets and already-released
+OIA records only. No new OIA, author/custodian contact, application or collection.
+Older access requirements describe scientific limits, not authorised next actions.
