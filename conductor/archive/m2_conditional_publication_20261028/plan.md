@@ -37,12 +37,15 @@ regression checks,field applicability and external approvals remain distinct.
 ## Implementation and review evidence
 
 Implementation: fb997b3. Numerical/source-role fixes: 5371fea. Ethics/figure fixes:
-cc2fbd1. Full executed snapshot uses the latter computational commit; subsequent
+cc2fbd1. Final SVG serialization fix: 7990b78. The refreshed executed snapshot uses that
+computational commit; subsequent
 manuscript/Conductor commits do not relabel it. All declared input/output hashes
 verify. 125 profiles, 750 study values, 875 grouped-information rows, 90 EIG rows,
 19 isolated primary-grid switches; 2/4/8-node diagnostics retain the one coarse-grid
 gross-design tie change. No continuous-convergence or empirical-validity claim.
-Primary analysis guard peak 503.8 MiB, exit 0; sampled RSS is not leak proof.
+Primary analysis initial peak 503.8 MiB; final SVG-normalised replay 586.9 MiB,
+both exit 0. Every numerical CSV, report value and PNG is unchanged; all six SVGs
+parse and have clean whitespace. Sampled RSS is not leak proof.
 53 targeted component/integration tests passed. The full qualification found the
 missing mandatory workstream-contract path in the new context profile; this was
 corrected without changing its test or budget. Final local/native outcomes follow.
@@ -72,3 +75,13 @@ jobs, numerical qualification artifact, accepted graph snapshot and signed packa
 provenance. This archive records completed local work; it does not predeclare any
 unexecuted native check or merge successful. Owner's autonomous task continues
 through that native acceptance; no request or journal/ethics submission is authorised.
+
+
+Final post-SVG five-session qualification also passes in full on macOS Python
+3.15.1: tests 1008 passed / 5 capability skips, 93% coverage; strict_all, reproduce,
+clean_package and security pass. Guard peak 806.0 MiB, exit 0, unchanged 4096 MiB /
+2400-second limits. Log: outputs/engineering/m2-publication-qualification-final.log.
+Final refreshed analysis is bound to computational commit 7990b78, not the earlier
+cc2fbd1 snapshot. All numerical CSVs, scientific report values and PNGs are unchanged;
+SVG whitespace is normalised and XML parses. Final asset-inclusive diff-check passes.
+Native publication acceptance: https://github.com/edithatogo/tobac/pull/58.

@@ -22,7 +22,8 @@ boundaries coherent after the fixes below; final qualification is recorded below
 ## Review scope and applied corrections
 
 Base e35b5abc5bf184c66b8d5c7540735bd0175f15ed through implementation cc2fbd1,
-then manuscript/results/context/Conductor packaging. The >300-line change was
+then manuscript/results/context/Conductor packaging and SVG serialization fix
+7990b78. The >300-line change was
 reviewed iteratively by file group under the owner's autonomous review/fix direction.
 No independent reviewer or external scientific endorsement is implied.
 
@@ -46,7 +47,11 @@ No independent reviewer or external scientific endorsement is implied.
 5. Figures/results: inspected both figures. Fixed the legend overlap on panel five;
    grid points and connecting lines do not imply continuous EVSI frontiers. Source
    values, policy examples, threshold, table counts and resolution deltas cross-check.
-6. Full-suite context contract: the new profile initially omitted the mandatory
+6. Final asset diff: Matplotlib SVG path lines had trailing whitespace. Normalised
+   serialization in the exporter and regenerated all bound outputs. All numerical
+   tables, scientific report values and PNGs are byte-identical to the preceding
+   run; six SVGs parse and have no trailing whitespace.
+7. Full-suite context contract: the new profile initially omitted the mandatory
    workstream-contract path. Restored the path within the existing 80,000-byte
    budget. Original failing evidence is preserved; tests and limits unchanged.
 
@@ -76,3 +81,13 @@ formal ethics requirements remain unresolved exactly as stated in the report.
 The associated PR is the native acceptance record for its exact reviewed head,
 guarded merge, receiving-main qualification, graph snapshot and provenance. Those
 outcomes are verified after this local commit, not assumed in advance.
+
+
+Final post-SVG five-session qualification also passes in full on macOS Python
+3.15.1: tests 1008 passed / 5 capability skips, 93% coverage; strict_all, reproduce,
+clean_package and security pass. Guard peak 806.0 MiB, exit 0, unchanged 4096 MiB /
+2400-second limits. Log: outputs/engineering/m2-publication-qualification-final.log.
+Final refreshed analysis is bound to computational commit 7990b78, not the earlier
+cc2fbd1 snapshot. All numerical CSVs, scientific report values and PNGs are unchanged;
+SVG whitespace is normalised and XML parses. Final asset-inclusive diff-check passes.
+Native publication acceptance: https://github.com/edithatogo/tobac/pull/58.
