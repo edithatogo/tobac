@@ -29,6 +29,7 @@ def inputs(root) -> None:
         "engineering/build-requirements.txt",
         "engineering/audit.in",
         "engineering/tools-requirements.txt",
+        "engineering/ecosystem.in",
         "engineering/voiage.in",
         "engineering/voiage-build-requirements.txt",
     ]
@@ -58,7 +59,7 @@ def fixture(root, profile="runtime"):
     return m, lock
 
 
-@pytest.mark.parametrize("profile", ["runtime", "audit", "voiage"])
+@pytest.mark.parametrize("profile", ["runtime", "audit", "voiage", "ecosystem"])
 def test_valid_receipt_binds_exact_inputs_and_lock(tmp_path, profile) -> None:
     m, lock = fixture(tmp_path, profile)
     assert m.verify(tmp_path, lock, profile)["status"] == "pass"
@@ -384,3 +385,27 @@ def test_voiage_dependency_changes_invalidate_receipt(tmp_path) -> None:
     (tmp_path / "engineering/voiage.in").write_text("pyarrow==26.0.0\n")
     with pytest.raises(ValueError, match="input"):
         m.verify(tmp_path, lock, "voiage")
+
+
+@pytest.mark.parametrize(
+    "target",
+    ["engineering/ecosystem.in", "engineering/voiage.in", "engineering/voiage-build-requirements.txt"],
+)
+def test_ecosystem_receipt_binds_its_complete_profile(tmp_path, target) -> None:
+    m, lock = fixture(tmp_path, "ecosystem")
+    (tmp_path / target).write_text("changed")
+    with pytest.raises(ValueError, match="Dependency input hashes differ"):
+        m.verify(tmp_path, lock, "ecosystem")
+
+
+def test_ecosystem_closed_include_graph_is_checked(tmp_path) -> None:
+    m = load()
+    inputs(tmp_path)
+    (tmp_path / "engineering/ecosystem.in").write_text("-r voiage.in\n")
+    (tmp_path / "engineering/voiage.in").write_text("-r requirements.in\n")
+    expected = m.input_hashes(tmp_path, "ecosystem")
+    assert "engineering/ecosystem.in" in expected
+    assert "engineering/voiage.in" in expected
+    (tmp_path / "engineering/ecosystem.in").write_text("-r unrecorded.in\n")
+    with pytest.raises(ValueError, match="Undeclared dependency include"):
+        m.input_hashes(tmp_path, "ecosystem")
