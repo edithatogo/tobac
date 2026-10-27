@@ -57,3 +57,12 @@ Full local and hosted execution receipts are recorded in the review/PR; no unexe
 job is successful. Publication uses expected-head merge and receiving-main readback.
 Issue#3 retains scientific identification and human value/governance limits, not an
 authorised access/request programme. Previous plans/decisions are retained in Git.
+
+
+Implementation commit:32788f2482faef8a2dc053b9320c7b7776c71143 (after seed5bdf6f0
+and public-only decision c20cc78). Publication:[PR#56](https://github.com/edithatogo/tobac/pull/56).
+Local macOS Python3.15.1 five-session verification passed:981tests/5capability skips,
+92%coverage;strict_all,reproduce,clean_package,security pass;guard peak722.3MiB/exit0.
+Source-map foreign keys/hash/arithmetic checks pass. No changed production interfaces
+or model inputs. PR native checks carry exact-head/receiving-main outcomes;this
+receipt does not predeclare their success. Scientific residuals remain in research-gates.md.
