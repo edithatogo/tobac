@@ -61,3 +61,8 @@ and self-reviewed at 0bdb6ad, with final review fix 4c1f818. [Completed plan](ar
 The applied issue remains open: all eight matched consumption cells are missing,
 with no causal/empirical posterior or deployment acceptance. Current requirements
 remain in [research gates](research-gates.md) and issue #3.
+
+## M2 evidence synthesis and partial identification
+
+Status:[~] In progress; autonomous evidence synthesis, bounded inference, review and merge authorised.
+Track: `conductor/tracks/m2_evidence_synthesis_20261027/`.
