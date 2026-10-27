@@ -28,3 +28,7 @@
 - [Scientific ecosystem modernisation](./tracks/scientific_ecosystem_20261025/index.md): autonomous implementation and review authorised 26 October 2026.
 
 - [Voiage Polars consumer qualification](./tracks/voiage_polars_qualification_20261026/plan.md): exact unreleased macOS candidate authorised 27 October; published-3.0 gate retained.
+
+- [M2 matched evidence pathway](./tracks/m2_matched_evidence_20261027/plan.md):
+  autonomous issue #3 source qualification, feasibility audit and self-review;
+  empirical acceptance remains in research-gates.md.

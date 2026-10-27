@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "tobac.m2-pathway.v1"
+    },
+    "review_date": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contrast": {
+      "type": "string",
+      "minLength": 1
+    },
+    "protocol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_sha256": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "review": {
+            "type": "string",
+            "minLength": 1
+          },
+          "raw_capture": {
+            "enum": [
+              "not_obtained",
+              "retained_prior_verified_workbook"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "url",
+          "locator",
+          "review",
+          "raw_capture"
+        ]
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "observation_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cell": {
+            "enum": [
+              "treated_before",
+              "treated_after",
+              "comparator_before",
+              "comparator_after",
+              "unassigned"
+            ]
+          },
+          "quantity": {
+            "enum": [
+              "total_consumption",
+              "lawful_consumption",
+              "prevalence",
+              "releases"
+            ]
+          },
+          "scope": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "geography": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "population": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "start": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "end": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "unit": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "geography",
+                  "population",
+                  "start",
+                  "end",
+                  "unit"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "data_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "observation_id",
+          "cell",
+          "quantity",
+          "scope",
+          "products",
+          "data_ids",
+          "role",
+          "source_id"
+        ]
+      }
+    },
+    "research_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "review_date",
+    "contrast",
+    "protocol",
+    "input_sha256",
+    "sources",
+    "observations",
+    "research_gaps"
+  ]
+}
