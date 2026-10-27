@@ -250,7 +250,7 @@ def figures(out: Path, tables: dict[str, list[Report]]) -> None:
     mpl.rcParams["svg.hashsalt"] = "tobac-m2-publication-20261028"
     colours = ("#555555", "#e69f00", "#0072b2", "#009e73")
     cases = list(dict.fromkeys(str(row["case"]) for row in tables["decisions"]))
-    fig, axes = plt.subplots(1, len(cases), figsize=(18, 4), sharey=True, squeeze=False)
+    fig, axes = plt.subplots(1, len(cases), figsize=(18, 6), sharey=True, squeeze=False)
     axes = axes[0]
     for ax, case in zip(axes, cases, strict=True):
         for row in tables["decisions"]:
@@ -269,10 +269,10 @@ def figures(out: Path, tables: dict[str, list[Report]]) -> None:
     for action, colour in zip(ACTIONS, colours, strict=True):
         axes[-1].scatter([], [], color=colour, marker="s", label=action.replace("_", " "))
     axes[-1].scatter([], [], color="#cc79a7", marker="s", label="co-optimal tie")
-    axes[-1].legend(loc="upper center", bbox_to_anchor=(0.5, -0.28), fontsize=7)
+    handles, labels = axes[-1].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=5, fontsize=9)  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     fig.suptitle("Declared value-grid choices: points are scenarios, not preference probabilities")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
-    fig.tight_layout()
-    fig.subplots_adjust(bottom=0.38)
+    fig.tight_layout(rect=(0, 0.13, 1, 0.94))
     fig.savefig(out / "decision_grid.png", dpi=180)  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     fig.savefig(out / "decision_grid.svg", metadata={"Date": None})  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     plt.close(fig)

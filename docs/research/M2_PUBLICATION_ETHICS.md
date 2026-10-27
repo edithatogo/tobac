@@ -60,3 +60,29 @@ Sources and retrieval outcomes are recorded in integration/m2_publication_202610
 Official pages reviewed:ethics.health.govt.nz/HDEC scope and FAQ;NEAC Research and Māori;
 ISPOR CHEERS2022;ISPOR-SMDM Model Transparency and Validation. Captured originals remain
 local with hashes. Review date is distinct from any absent native WARC capture timestamp.
+
+
+## Source-linked assessment matrix
+
+| Topic | Observed project fact | Desk conclusion and unresolved item |
+| --- | --- | --- |
+| Participants and tissue | No recruitment, intervention or physical samples in this project. | These HDEC inclusion routes are not demonstrated by the current activities; this is not a formal scope ruling. |
+| Health information | Public aggregates and published de-identified tables; no external person linkage. | No identifying information is used by the model. Formal applicability still depends on the full institutional/site context. |
+| Institution and journal | Neither is specified for this publication. | Their requirements cannot be declared satisfied or waived. |
+| Māori relevance | A NZ tobacco-policy question is relevant to Māori; no Māori-specific effect or preference is estimated. | Aggregation does not remove cultural considerations. No consultation, cultural review or endorsement is claimed. |
+| Value scenarios | Analyst-selected weights, with no elicitation. | They are sensitivity assumptions, not representative social or Māori preferences. |
+| Submissions | Repository implementation/merge only. | No ethics form, journal submission or request is prepared or sent. |
+
+Primary guidance: [HDEC scope](https://ethics.health.govt.nz/hdec-reviews-and-approvals/find-out-if-your-study-requires-hdec-review/)
+(participants, tissue and health-information criteria);
+[HDEC FAQ](https://ethics.health.govt.nz/frequently-asked-questions/)
+(out-of-scope studies, institutional review and timing);
+[NEAC Research and Māori](https://neac.health.govt.nz/national-ethical-standards/part-two/3-research-and-maori/)
+(cultural rigour, general-population relevance and degrees of consultation);
+[CHEERS 2022](https://www.ispor.org/heor-resources/good-practices/cheers)
+(reporting rather than methods-quality certification);
+[ISPOR-SMDM validation guidance](https://www.ispor.org/docs/default-source/resources/outcomes-research-guidelines-index/model_transparency_and_validation-7.pdf?sfvrsn=24168dfb_0).
+
+Public guidance does not itself constitute a determination for this project. Any
+required institutional or cultural review cannot be replaced by an analyst's claim
+of exemption. This assessment records that limit without initiating a request.
