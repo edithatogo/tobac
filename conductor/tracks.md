@@ -97,7 +97,9 @@ No requests or model adoption; issue #3 scientific gates remain open.
 
 ## M2 conditional publication and value sensitivity
 
-**Status: [~] In progress.**
-Track: `conductor/tracks/m2_conditional_publication_20261028/`.
+**Status: [x] Bounded implementation and self-review complete.**
+Track: `conductor/archive/m2_conditional_publication_20261028/`.
 
-Public-only conditional analysis and desk ethics assessment;no requests/submissions.
+Executed conditional analysis and documentary ethics assessment. Full local five-session
+qualification passes; native exact-head/receiving-main acceptance is recorded in the
+associated PR. Issue #3 empirical/formal submission-readiness gates remain. No requests/submissions.

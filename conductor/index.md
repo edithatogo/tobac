@@ -44,5 +44,6 @@
   bounded public-search/citation/supplement/source review complete with access limits;
   issue #3 scientific gates remain open.
 
-- [M2 conditional publication](./tracks/m2_conditional_publication_20261028/plan.md):
-  autonomous value-sensitivity analysis,ethics desk assessment and repository merge authorised.
+- [M2 conditional publication](./archive/m2_conditional_publication_20261028/plan.md):
+  executed value-sensitivity analysis and desk ethics assessment; bounded work archived,
+  native repository acceptance recorded in its PR, empirical/publication gates retained.

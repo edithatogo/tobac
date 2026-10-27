@@ -1,0 +1,128 @@
+{
+  "passed": true,
+  "python": "3.15.1",
+  "checkout": {
+    "commit": "cc2fbd1c4c37ec68290a38b2f8bda58705efbeac",
+    "tracked_status": ""
+  },
+  "scientific_status": "Analyst-declared conditional scenarios; not observed NZ efficacy, elicited public preferences, empirical posterior or a funding recommendation",
+  "value_unit": "normalised decision units; not NZD or QALYs",
+  "conditioned": false,
+  "empirically_validated": false,
+  "ethics_status": "Desk assessment only;formal applicability undetermined;no approval or exemption claimed",
+  "equity_effects_identified": false,
+  "decision_rows": 125,
+  "study_rows": 750,
+  "threshold_rows": 19,
+  "source_audit": {
+    "documents": 35,
+    "extracts": 82,
+    "conditioned": false,
+    "scope": "Metadata fixity/eligibility only;not fresh raw-object verification or target calibration"
+  },
+  "transported_model_input": {
+    "source_id": "SHINE_RETAIL_TABLE2",
+    "doi": "10.1136/tc-2022-057655",
+    "locator": "Table2 Retail outlet restriction;CS to former-smoker transitions;one-off net cessation paragraph",
+    "alpha": 23.4,
+    "beta": 97.2,
+    "role": "transported_published_model_input_not_observed_NZ_effect",
+    "construction": "Earlier travel-cost modelling and stated intentions;different outlet cap/horizon;equal-intensity transport assumed",
+    "current_original_sha256": "c97875c489e6759776aebf1b7d948603120c46914b13440493128ade93bcdd64",
+    "derived_text_sha256": "103b56f0f091701b98ab0cbe3d2399aed33cf22bb3526766e24aaed841cc0804",
+    "catalogue": "integration/m2_publication_20261028/model-source-catalogue.json",
+    "legacy_ledger_sha256": "42941c8fcd2aebfe7d17c429ffb41bcd6ebd4aa8960b1e61f8c6297c625d292f",
+    "independent_empirical_observation": false,
+    "review_date": "2026-10-28"
+  },
+  "scientific_information_rows": 90,
+  "supply": {
+    "scope": "Audited reported subset under existing nonoverlap declarations; not national consumption bounds",
+    "factory_made_known_sticks": "736488410.000",
+    "factory_made_with_one_RS_interpretation_sticks": [
+      "736564810.000",
+      "737252410.000"
+    ],
+    "RS_interpretation_width_sticks": "687600",
+    "ryo_known_tonnes": "109.60010",
+    "ryo_if_BAT_2025_year_confirmed_tonnes": "215.00010",
+    "national_upper_bound": null,
+    "national_lower_bound": null,
+    "national_cigarette_equivalents": null,
+    "reason": "Unknown coverage/channels, BAT year and physical conversions; do not sum RS alternatives or replace null with zero",
+    "underlying_data_group": "NZ_MOH_tobacco_returns"
+  },
+  "cooptimal_across_cases_and_continuous_box": [],
+  "specification": {
+    "schema": "tobac.m2-publication.v1",
+    "retail_config": "configs/m2_retail.json",
+    "health_weight": 1,
+    "crime_weights": [
+      0,
+      0.5,
+      1,
+      2,
+      4
+    ],
+    "resource_weights": [
+      0,
+      0.5,
+      1,
+      2,
+      4
+    ],
+    "groups": [
+      "market",
+      "behaviour",
+      "criminal_harm",
+      "health_consequences",
+      "implementation",
+      "measurement",
+      "baseline_reachable"
+    ],
+    "designs": [
+      "none",
+      "panel_supply",
+      "better_quantification_supply",
+      "calibration_panel_supply",
+      "causal_matched_total_and_lawful",
+      "criminal_harm_study"
+    ],
+    "source_map": "evidence/m2/public_sources_20261027",
+    "protocol": "docs/research/M2_PUBLICATION_PROTOCOL.md",
+    "ethics_assessment": "docs/research/M2_PUBLICATION_ETHICS.md",
+    "scientific_status": "Analyst-declared conditional scenarios; not observed NZ efficacy, elicited public preferences, empirical posterior or a funding recommendation",
+    "quit_points": 4
+  },
+  "no_requests_or_submissions": true,
+  "grid_check": {
+    "two_to_four": {
+      "quit_points": [
+        2,
+        4
+      ],
+      "scope": "Finite-resolution diagnostic,not proof of continuous convergence or empirical validity",
+      "maximum_absolute_evpi_difference": 0.0007335847112128757,
+      "changed_cooptimal_sets": 0,
+      "compared_value_profiles": 125,
+      "maximum_absolute_evsi_difference": 0.0005768745667406247,
+      "changed_design_cooptimal_sets": 1,
+      "maximum_absolute_evppi_difference": 0.0018109644732278649,
+      "changed_group_cooptimal_sets": 0
+    },
+    "four_to_eight": {
+      "quit_points": [
+        4,
+        8
+      ],
+      "scope": "Finite-resolution diagnostic,not proof of continuous convergence or empirical validity",
+      "maximum_absolute_evpi_difference": 0.0003123164022831304,
+      "changed_cooptimal_sets": 0,
+      "compared_value_profiles": 125,
+      "maximum_absolute_evsi_difference": 0.0002949024749121943,
+      "changed_design_cooptimal_sets": 0,
+      "maximum_absolute_evppi_difference": 0.0003899851386795581,
+      "changed_group_cooptimal_sets": 0
+    }
+  }
+}

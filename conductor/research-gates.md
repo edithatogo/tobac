@@ -117,3 +117,29 @@ is authorised or required as an active task. Bounded track archived;issue#3 stay
 The final visible-result audit corrected five omitted long titles,adding four
 context/abstract captures. It changes catalogue completeness,not the scientific
 identification boundary or any numerical input;see the completion-report audit.
+
+
+## Conditional publication and value sensitivity — 28 October 2026
+
+[Owner direction](decisions/m2_publication_20261028.md) authorises a conditional
+modelling article, explicit value-sensitivity scenarios and a desk ethics assessment.
+[Executed analysis](../docs/research/M2_CONDITIONAL_PUBLICATION.md) crosses five
+existing structures/priors with 25 normative profiles. Every action can be preferred
+under different weights with the same factual assumptions; no action is co-optimal
+throughout the full declared continuous rectangle. These are conditional model
+findings, not population preferences, observed policy efficacy or priced studies.
+
+This resolves the need to select a single social weight before examining its impact.
+No public/Māori preference distribution, equity constraint or community endorsement
+is invented. The source map remains context-only; the inherited cessation Beta input
+was rechecked against its original paper but is not a new empirical observation.
+Issue #3's causal/measurement/transport/cost and external-validation gaps stay open.
+They are limitations on stronger claims, not an authorised data-request programme.
+
+[Ethics assessment](../docs/research/M2_PUBLICATION_ETHICS.md) records actual public
+and synthetic data use, official HDEC/NEAC guidance and absence of recruitment,
+identifiable-record access or external person linkage. Formal applicability remains
+undetermined without institutional/site/journal context; no exemption, approval,
+cultural review or consultation is claimed. If review applies, it must precede
+in-scope work. Author identities, funding/conflicts and journal-specific disclosures
+remain author-level submission-readiness matters. No request or submission occurred.
