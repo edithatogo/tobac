@@ -16,6 +16,6 @@ hypothesis==6.170.9
 
 # Qualified optional interchange; exercised in required package/test environments.
 pyarrow==26.0.0
-polars==2.0.0
+polars==2.1.0
 patito==0.8.6
 msgspec==0.22.0
