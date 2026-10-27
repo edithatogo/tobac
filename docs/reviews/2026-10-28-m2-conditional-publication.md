@@ -91,3 +91,15 @@ Final refreshed analysis is bound to computational commit 7990b78, not the earli
 cc2fbd1 snapshot. All numerical CSVs, scientific report values and PNGs are unchanged;
 SVG whitespace is normalised and XML parses. Final asset-inclusive diff-check passes.
 Native publication acceptance: https://github.com/edithatogo/tobac/pull/58.
+
+
+Hosted fixture correction: PR head e053dbe passed macOS tests but the existing
+Windows job exposed OS-native backslashes in a new synthetic manifest. Corrected
+only the test fixture to emit canonical POSIX manifest paths with as_posix();
+production source validation and the rejection assertions remain unchanged.
+This is a fixture correction, not new platform development. Scientific outputs,
+computational commit 7990b78 and all previously passing local production checks
+remain unchanged; the package binding is refreshed for the edited test file.
+Focused runner/integration verification: 31 passed, peak 248.6 MiB, exit 0.
+Ruff/format pass after wrapping the canonical-path comprehension. Native final-head
+checks are required again; no failure is treated as a pass.

@@ -64,7 +64,7 @@
     "results/m2_publication_20261028/thresholds.csv": "8ac0941672594a8245f8b3e9e711cc660dc1e793d86ed97065d5b4591bef62ee",
     "scripts/run_m2_publication.py": "62c1f6197d7b7dc2b7fbabd312b945ed34e6cce682aa0e2c86c5c9ea430319b6",
     "src/tobac/value_sensitivity.py": "173aaa01420754c93d8a20d94b4f4cd0e5a8ba23ad1bd64796780fa5baf9497a",
-    "tests/m2/test_publication_runner.py": "7dc63d49f61fe708596113c16fb5b422e4d4431df5d461deead99a297614436d",
+    "tests/m2/test_publication_runner.py": "eb527913db91d45a28c3e3ebe9d68e7cb30454be477fc144be8e0198c969718d",
     "tests/m2/test_value_sensitivity.py": "7507b720db74b2676a815ea037a678e0ec9367ee628780a92cd61512fc3c2665"
   }
 }

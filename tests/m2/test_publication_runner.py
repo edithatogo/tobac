@@ -39,14 +39,15 @@ def test_rehashed_adoption_or_document_mismatch_is_rejected(runner, tmp_path) ->
     }.items():
         (folder / name).write_text(text)
     hashes = {
-        str(p.relative_to(tmp_path)): hashlib.sha256(p.read_bytes()).hexdigest() for p in folder.iterdir()
+        p.relative_to(tmp_path).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+        for p in folder.iterdir()
     }
     (folder / "manifest.json").write_text(json.dumps({"sha256": hashes}))
     with pytest.raises(ValueError, match="document"):
         runner.source_audit(tmp_path, "map")
     path = folder / "extraction_table.csv"
     path.write_text(path.read_text().replace("wrong,false", "d1,true"))
-    hashes[str(path.relative_to(tmp_path))] = hashlib.sha256(path.read_bytes()).hexdigest()
+    hashes[path.relative_to(tmp_path).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
     (folder / "manifest.json").write_text(json.dumps({"sha256": hashes}))
     with pytest.raises(ValueError, match="adoption"):
         runner.source_audit(tmp_path, "map")
