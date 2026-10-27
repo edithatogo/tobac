@@ -16,7 +16,7 @@ process-group resource budgets and two-worker mutation are enforced.
 The only unchecked track task is the upstream managed parser's Python 3.15 support
 ([dependabot-core #16524](https://github.com/dependabot/dependabot-core/issues/16524)).
 Supported dependency submission and graph readback pass; the failed managed parser
-is not hidden or marked successful. [Draft PR #41](https://github.com/edithatogo/tobac/pull/41)
+is not hidden or marked successful. [Merged PR #41](https://github.com/edithatogo/tobac/pull/41)
 implements separate exact-candidate qualification; published-3.0 acceptance remains open.
 
 [PR #50](https://github.com/edithatogo/tobac/pull/50) qualifies Hypothesis 6.170.9:
@@ -26,7 +26,7 @@ Its verification and receiving-main publication are recorded in the PR and
 
 ## Completed work
 
-Eight completed tracks are archived, including seven moved out of the active registry
+Nine completed tracks are archived, including seven moved out of the active registry
 on 26 October and the earlier longitudinal archive. See
 [the archive index](archive/index.md) for their specifications, plans and dated receipts.
 
@@ -52,8 +52,10 @@ Current receipt: integration/voiage_polars_consumer_20261027.json. Default produ
 2.2.0+tobac3151.2 retained; unpatched candidate at 6c28ac5 is unreleased version
 2.2.0. pandas/xarray remain required. Hosted/receiving-main execution is recorded in PR #41.
 
-## M2 matched evidence pathway
+## Issue #3 bounded pathway implementation
 
-Status: [~] In progress; autonomous implementation and self-review authorised 27 October 2026.
-Track: `conductor/tracks/m2_matched_evidence_20261027/`. Issue #3 remains the applied
-research acceptance gate; software validation does not supply missing observations.
+The source-feasibility audit and prospective matched-consumption protocol are implemented
+and self-reviewed at 0bdb6ad. [Completed plan](archive/m2_matched_evidence_20261027/plan.md).
+The applied issue remains open: all eight matched consumption cells are missing,
+with no causal/empirical posterior or deployment acceptance. Current requirements
+remain in [research gates](research-gates.md) and issue #3.

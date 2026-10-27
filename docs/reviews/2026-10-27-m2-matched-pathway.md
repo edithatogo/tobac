@@ -45,5 +45,9 @@ is introduced. Primary-source rendered review is distinct from raw capture; deni
 
 Initial bounded milestone: tests/strict_all/reproduce/clean_package passed, sampled peak827.9MiB.
 Post-review strict_all/security passed, sampled peak756.7MiB. Full runs use 4GiB/2400-second budgets;
-these are execution controls, not proof of absence of leaks. Final committed-source results and
-numerical receipts are recorded in integration/m2_matched_pathway_20261027.json after execution.
+these are execution controls, not proof of absence of leaks. Final committed-source tests, strict_all, reproduce, clean_package and security passed at
+0bdb6ad: 950 passed/five skips, 92% coverage, zero strict diagnostics, peak681.0MiB.
+M2 passed 805 invariants; 482 retained-table numerical comparisons pass rtol=atol=1e-10.
+CSV line endings and expected floating roundoff differ; no numerical claim of byte equality.
+Results and receipts: integration/m2_matched_pathway_20261027.json. Hosted final-head and
+receiving-main verification remain required before publication is described as complete.

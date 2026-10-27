@@ -23,7 +23,7 @@ priors, numerical outputs and security checks remain unchanged.
 
 ## Issue #3 pathway assessment — 27 October 2026
 
-The bounded implementation in conductor/tracks/m2_matched_evidence_20261027/
+The bounded implementation in conductor/archive/m2_matched_evidence_20261027/
 adds a source-bound metadata audit and prospective protocol. The current public
 NZHS prevalence and MOH release sources supply none of the eight matched
 consumption cells. No empirical likelihood is fitted or regulatory belief updated.

@@ -1,0 +1,12 @@
+{
+  "track_id": "m2_matched_evidence_20261027",
+  "type": "research",
+  "status": "completed",
+  "created_at": "2026-10-27",
+  "issue": 3,
+  "base_commit": "4ebc4af5f0b4fa7620b06052f124b0b20f6eade9",
+  "completed_at": "2026-10-27",
+  "implementation_commit": "0bdb6ad25628ec4f21ef4a6942130b45c3b6bcc1",
+  "scope": "bounded metadata audit, source feasibility and prospective protocol; issue3 empirical acceptance open",
+  "verification": "integration/m2_matched_pathway_20261027.json"
+}

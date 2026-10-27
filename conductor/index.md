@@ -29,6 +29,6 @@
 
 - [Voiage Polars consumer qualification](./tracks/voiage_polars_qualification_20261026/plan.md): exact unreleased macOS candidate authorised 27 October; published-3.0 gate retained.
 
-- [M2 matched evidence pathway](./tracks/m2_matched_evidence_20261027/plan.md):
-  autonomous issue #3 source qualification, feasibility audit and self-review;
+- [M2 matched evidence pathway](./archive/m2_matched_evidence_20261027/plan.md):
+  completed issue #3 bounded source-feasibility audit and self-review;
   empirical acceptance remains in research-gates.md.

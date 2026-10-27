@@ -1,0 +1,174 @@
+{
+  "schema_version": "tobac.m2-pathway-qualification.v1",
+  "review_date": "2026-10-27",
+  "implementation_commit": "0bdb6ad25628ec4f21ef4a6942130b45c3b6bcc1",
+  "baseline": "4ebc4af5f0b4fa7620b06052f124b0b20f6eade9",
+  "platform": "macOS arm64",
+  "python": "3.15.1",
+  "command": ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python .nox/tests/bin/python --from nox==2026.10.20 nox -r -s tests strict_all reproduce clean_package security",
+  "sessions": {
+    "tests": "passed",
+    "strict_all": "passed",
+    "reproduce": "passed",
+    "clean_package": "passed",
+    "security": "passed"
+  },
+  "tests": {
+    "passed": 950,
+    "skipped": 5,
+    "coverage_percent_displayed": 92,
+    "strict_diagnostics": 0,
+    "new_cases": 26
+  },
+  "resource_budget": {
+    "max_rss_mib": 4096,
+    "timeout_seconds": 2400,
+    "peak_sampled_rss_mib": 681.0,
+    "scope": "owned process group; sampled monitor, not proof of leak absence"
+  },
+  "audit": {
+    "schema_version": "tobac.m2-pathway-report.v1",
+    "status": "blocked",
+    "gaps": [
+      "MOH_releases_2025:causal_cell_unassigned",
+      "MOH_releases_2025:quantity_not_consumption",
+      "NZHS_daily_smoking_202425:causal_cell_unassigned",
+      "NZHS_daily_smoking_202425:products_unknown",
+      "NZHS_daily_smoking_202425:quantity_not_consumption",
+      "NZHS_daily_smoking_202425:scope_unknown"
+    ],
+    "missing_cells": [
+      "treated_before:total_consumption",
+      "treated_before:lawful_consumption",
+      "treated_after:total_consumption",
+      "treated_after:lawful_consumption",
+      "comparator_before:total_consumption",
+      "comparator_before:lawful_consumption",
+      "comparator_after:total_consumption",
+      "comparator_after:lawful_consumption"
+    ],
+    "empirically_qualified": false,
+    "conditioned": false,
+    "limitation": "Metadata only; no causal identification, fitted covariance, governance or posterior",
+    "python": "3.15.1",
+    "input_sha256": {
+      "docs/m2_retail_contract.md": "f00f25aa7dbb91daac8574e9e79a24c90b8be87c6be61aba6523010d1f59c6fc",
+      "docs/MOH_OBSERVATION_PATHWAY.md": "a75887dd078461cdb9b2e3d7c7ee5fb91ce44d676683e841d134ee72a044dc2d",
+      "evidence/m2/source_review.json": "42941c8fcd2aebfe7d17c429ffb41bcd6ebd4aa8960b1e61f8c6297c625d292f",
+      "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "integration/archive/moh-workbook-qualification_20261026.json": "b26f31443677e90f156cfae6953a05f4fd9a18245b33ba665c33e6f2519985f6",
+      "evidence/m2/matched_pathway_20261027.json": "6c2984fc44c414e0091a9e400bb054587d8d0a3d5d031f03b0a8f6641cd9e33b",
+      "engineering/schemas/m2-pathway.schema.json": "6b7b0607e630aa7bee559619917b263cd86a9e8d74d38654857c75841438ddf5",
+      "docs/research/M2_MATCHED_PATHWAY.md": "14d0b2b2775696a08c21cc142f69051a023ae03b18b42944bb214fc15093058a",
+      "src/tobac/matched.py": "ef27e87adb644786c419b30c1479f26c1d5f3c2566965a1ffc4905e604702012",
+      "scripts/qualify_m2_pathway.py": "ed5fd1140e80935d55c343ac4093f8652882168cfc1eaf965065d2e34af0c46f"
+    },
+    "sources": [
+      {
+        "id": "MOH_REGIME_20261027",
+        "url": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco",
+        "locator": "Smoked tobacco regulatory regime",
+        "review": "Rendered primary page states approved retailer scheme repealed. The historical 600-outlet proposal is retained in source_review.json; no prospective commencement or authority verified.",
+        "raw_capture": "not_obtained"
+      },
+      {
+        "id": "MOH_RETURNS_2025",
+        "url": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+        "locator": "Highlights; tonnes chart; annual returns",
+        "review": "Calendar-2025 national retail releases; heated tobacco reported separately, tonnes chart excludes cigars/cigarillos. Previously verified workbook retains 755 tonnes; not resident lawful consumption. Product/channel reconciliation remains open.",
+        "raw_capture": "retained_prior_verified_workbook"
+      },
+      {
+        "id": "NZHS_202425",
+        "url": "https://www.health.govt.nz/monitoring-statistics/surveys/new-zealand-health-survey/publications/202425-survey-publications/trends-in-smoking-and-vaping",
+        "locator": "Things to consider; Total population",
+        "review": "Daily smoking prevalence 6.8% for people aged 15+; collection described as July2024 to July2025. Exact endpoint days are not asserted. Snapshot cannot identify cause/effect or total consumption volume.",
+        "raw_capture": "not_obtained"
+      }
+    ],
+    "research_gaps": [
+      "Prospective legal authority, commencement and contemporary outlet/catchment roster not obtained",
+      "Actual matched total/lawful treated/comparator before/after observations not obtained",
+      "Factory-made counts/RYO mass, intensity and biological-yield conversions unqualified",
+      "Stock, visitor, duty-free, wastage, reporting bias and shared measurement covariance unqualified",
+      "Causal counterfactual, source transport, mitigation/replacement and held-out prediction unqualified",
+      "Near-limit raw-scale assay, incremental criminal harms and real costs unqualified",
+      "Maori governance, permissible use and equity constraints unresolved"
+    ],
+    "next_action": "Resolve feasible legal contrast and matched field access before fitting or study optimisation",
+    "checkout": {
+      "commit": "0bdb6ad25628ec4f21ef4a6942130b45c3b6bcc1",
+      "tracked_status": ""
+    },
+    "command": [
+      "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/.nox/reproduce/bin/python",
+      "scripts/qualify_m2_pathway.py",
+      "--out",
+      "outputs/engineering/replays/a7b18999fb394f1dbf7e766aeac84467/m2-pathway.json"
+    ]
+  },
+  "m2_validation": {
+    "passed": true,
+    "checks": 805,
+    "cases": 5,
+    "designs": 15,
+    "quit_nodes": 4,
+    "scientific_event": {
+      "name": "restriction_adds_at_least_5_percent_of_baseline_total_to_illicit_volume",
+      "minimum_absolute_growth_fraction": 0.05,
+      "confidence": 0.9
+    },
+    "state_count_reference": 20480,
+    "python": "3.15.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scope": "exact conditional finite calculation; transported model input; no empirical posterior, national funding or continuous-convergence claim"
+  },
+  "numerical_comparison": {
+    "summary.csv": {
+      "rows": 15,
+      "numerical_comparisons": 75,
+      "max_absolute_difference": 5.551115123125783e-16,
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "passed": true
+    },
+    "reference_grouped_evppi.csv": {
+      "rows": 7,
+      "numerical_comparisons": 14,
+      "max_absolute_difference": 3.9898639947466563e-16,
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "passed": true
+    },
+    "reference_study_value.csv": {
+      "rows": 15,
+      "numerical_comparisons": 105,
+      "max_absolute_difference": 2.000888343900442e-11,
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "passed": true
+    },
+    "reference_scientific_learning.csv": {
+      "rows": 60,
+      "numerical_comparisons": 240,
+      "max_absolute_difference": 1.1102230246251565e-15,
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "passed": true
+    },
+    "grid_check.csv": {
+      "rows": 12,
+      "numerical_comparisons": 48,
+      "max_absolute_difference": 1.8041124150158794e-16,
+      "rtol": 1e-10,
+      "atol": 1e-10,
+      "passed": true
+    }
+  },
+  "numerical_qualification": "482 numeric comparisons across retained M2 summary/reference/grid tables pass rtol=atol=1e-10; CSV newline and floating roundoff differ; no source formula, prior or published table changed",
+  "execution_log_sha256": "2175686db382d3175027e3842bcb9f242c1112c01d8f4757e4fe739a737457ed",
+  "review": "docs/reviews/2026-10-27-m2-matched-pathway.md",
+  "issue_3": "open; no matched observations/causal response/assay/calibration/cost/governance acceptance claimed",
+  "hosted": "Not yet executed for publication; final-head/receiving-main evidence will be maintained in the PR."
+}
