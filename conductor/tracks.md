@@ -2,7 +2,7 @@
 
 ## Scientific ecosystem modernisation
 
-**Status: [~] In progress — implementation/review authorised 26 October 2026.**
+**Status: [~] Externally blocked — macOS implementation complete; rechecked 28 October 2026.**
 Track: `conductor/tracks/scientific_ecosystem_20261025/`.
 
 The agreed macOS engineering implementation is complete. PRs #43, #47 and #48
@@ -10,10 +10,10 @@ qualified the ecosystem, evidence interchange and Polars 2 boundary. PR #49 qual
 Renovate profile discovery and four-profile lock candidates. [PR #51](https://github.com/edithatogo/tobac/pull/51)
 merged at `b012758` with all 15 executable PR checks and all 13 receiving-main jobs
 passing, including macOS Python 3.15.1, signed artifacts and native graph readback.
-Ruff covers 119 maintained Python files; formatting, five exact preview rules,
+Ruff covers maintained Python source, tests and tooling; formatting, five exact preview rules,
 process-group resource budgets and two-worker mutation are enforced.
 
-The only unchecked track task is the upstream managed parser's Python 3.15 support
+The remaining external acceptance task is the upstream managed parser's Python 3.15 support
 ([dependabot-core #16524](https://github.com/dependabot/dependabot-core/issues/16524)).
 Supported dependency submission and graph readback pass; the failed managed parser
 is not hidden or marked successful. [Merged PR #41](https://github.com/edithatogo/tobac/pull/41)
@@ -26,8 +26,8 @@ Its verification and receiving-main publication are recorded in the PR and
 
 ## Completed work
 
-Ten completed tracks are archived, including seven moved out of the active registry
-on 26 October and the earlier longitudinal archive. See
+Fourteen completed tracks are archived, including the completed two-article
+preparation. The completed withdrawn-request preparation remains unarchived. See
 [the archive index](archive/index.md) for their specifications, plans and dated receipts.
 
 ## Research gates
@@ -122,3 +122,8 @@ Track: `conductor/archive/m2_two_articles_20261028/`.
 
 Distinct MDM research article and NZMJ Viewpoint focused on wastewater, factual
 disagreement and conditional decision value. No requests or submissions.
+
+Scientific ecosystem recheck: [receipt](../integration/ecosystem/managed-parser-recheck_20261028.json).
+Current native graph contains all 113 submitted PURLs; upstream PR #16525 remains
+unmerged. Root-parser acceptance remains blocked, with explicit closure criteria;
+no check, interpreter or security capability is relaxed to close the track.

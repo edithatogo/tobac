@@ -17,8 +17,8 @@ facts below differ from recommendations and externally documented library capabi
 | Time/source/units/identity, inventory and lawful-channel accounting | Pydantic/Pandera/Pint and schemas | Retain domain invariants. Add schema validation at new machine-ingress boundaries; JSON Schema is used for context profiles now. A dimensional-units package cannot verify population, period, RYO convention or once-only MOH/NZHS evidence. Plan tabular schema migration with no-coercion tests before accepting it. |
 | Costly nested VOI regression | Dylan's mars-earth/pymars or established sklearn estimators | Conditional candidate only, not installed. The repository identifies active beta status. Use cross-fitting and independent decision/regret error, not training R-squared, before adoption. |
 | Citation identity/extraction | Dylan's Sourceright/CiteWeft | Keep existing genuine executable qualification jobs. Structural CSL validity is not DOI/provider resolution, claim support, numerical extraction or empirical applicability. Do not replace missing executions with a similarly named local helper. |
-| Custom task/environment orchestration | Nox with uv | New isolated sessions and bounded workflows; nox/uv are tools, not another scientific inference layer. Online execution and universal lock resolution remain open locally. |
-| Handwritten property/mutation harnesses | Hypothesis, mutmut, pytest/coverage | Add real property tests and a bounded focused mutmut campaign. Local Hypothesis/mutmut execution is unavailable; hardened CI explicitly imports Hypothesis before collection. No mutation score is fabricated. |
+| Custom task/environment orchestration | Nox with uv | New isolated sessions and bounded workflows; nox/uv are tools, not another scientific inference layer. Local and hosted Nox/uv lock verification, numerical replay and clean-package execution are qualified; current receipts are in Conductor. |
+| Handwritten property/mutation harnesses | Hypothesis, mutmut, pytest/coverage | Add real property tests and a bounded focused mutmut campaign. Local and hosted Hypothesis/mutmut execution is qualified; dated mutation measurements retain their exact scope and denominator. No mutation score is fabricated. |
 | Performance guesses / blanket Rust rewrite | Scalene; existing Rust-backed uv/Ruff/zizmor and qualified voiage kernels | Profile first. Do not build a second Rust statistical engine solely for novelty. PyO3/maturin becomes relevant only for a measured kernel with parity/error/provenance tests. |
 | Ad hoc context stuffing | Small scoped AGENTS/skill profiles, jsonschema, hash-bound envelopes | Implemented/tested. Explicit local allowlists, budgets, stale-content detection, no automatic external fetching or model calls. It is not a secret scanner, prompt-injection proof or agent sandbox. |
 
@@ -30,7 +30,7 @@ on the complete checkout; local interface tests are not a new funding analysis.
 ## Why the reference scientific pins are retained
 Latest software belongs in a separate compatibility lane before it becomes the reproducible
 scientific baseline. The Python 3.15.1 reference stack uses NumPy 2.5.4, SciPy 1.18.1,
-pandas 3.0.6 and Matplotlib 3.11.2. Newer/pre-release numerical packages remain in a separate source-only
+pandas 3.1.0 and Matplotlib 3.11.2. Newer/pre-release numerical packages remain in a separate source-only
 scheduled canary. It cannot silently update reference results, lockfiles or published conclusions.
 An observed compatible release can be promoted in a reviewed change with output tolerances,
 platform logs and changelog.
@@ -51,3 +51,13 @@ page reflects the absolute latest patch. Use Renovate proposals, no automatic sc
 
 README capability claims inform candidates, not independent validation of those libraries or
 assurance of this project's empirical validity. M3's ongoing changes are coordinated on #1.
+
+## Current acceptance note — 28 October 2026
+
+Older implementation notes are dated evidence, not current tool-unavailability
+claims. MacOS Python 3.15.1 tests, strict checks, reproduction, package/security,
+mutation and recovery have executed; PR #60 verifies the current checked base.
+The remaining ecosystem gate is GitHub's externally managed root parser, whose
+service runtime is not controlled by the project. See DEPENDENCY_MAINTENANCE.md
+and the managed-parser recheck receipt. No new library or numerical engine is
+needed to change that service's deployed Python support.
