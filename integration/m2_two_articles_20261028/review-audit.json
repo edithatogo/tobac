@@ -1,0 +1,46 @@
+{
+  "input_sha256": {
+    "docs/research/M2_DISAGREEMENT_SCOPE.md": "ec574a657289ad136ba44408aa8466bbfc97ad1e5bd40046829afbd492f482bc",
+    "docs/research/M2_MDM_ARTICLE.md": "686ecc465391fbbac98687b6b7e0fed2b69adf3a8e3cf202f4f6293309d5ad03",
+    "docs/research/M2_NZMJ_VIEWPOINT.md": "0738f4e995627620b8ddf644b30d339f530a10b0a52dd6efd01d01ed354a922c",
+    "docs/research/M2_TWO_ARTICLE_DECLARATIONS.md": "e4fef5e5c0031558e974b6c77128c27082e09d6e5f8fc27ce40a24c4f6508b8b",
+    "docs/research/M2_TWO_ARTICLE_STRATEGY.md": "1c756f0eee004b4a071e2e8370506803c75c2c4c620440f0dcb6d6d51f39daed",
+    "evidence/m2/two_articles_20261028/README.md": "3371425f97389911f65c2ec6c8e0bf7af9e80df9a43742bfe9ef21df37c645f6",
+    "evidence/m2/two_articles_20261028/assumption_table.csv": "d9be6ec455c13f46dcac2f30400127c62d0b066aa2f4a560c94eb07566e93d4f",
+    "evidence/m2/two_articles_20261028/claim_table.csv": "acbebcec207f4e7a6b3163e24b8eb89d014aba3f6788fd04f6643f62cc192d11",
+    "evidence/m2/two_articles_20261028/mdm_reporting_crosswalk.csv": "df0f8dab38d275fb59cf65a010fe80b6d922bc8a906d0c1da7286434112bbd1c",
+    "evidence/m2/two_articles_20261028/search_log.csv": "1b04ea2086d8c6c783e952c5ddf322bb6f058cb266926894263ff47df365b557",
+    "evidence/m2/two_articles_20261028/source_index.csv": "a9dfa060448e571516d48e4813a405a6625169d85c2a6d3474d78d4948464a08",
+    "evidence/m2/two_articles_20261028/source_table.csv": "f4d27cc21f4c97e42e46a65e32773e9208cc2d818a29148ef20c081520eac1dd"
+  },
+  "tracked_dirty": false,
+  "review_date": "2026-10-28",
+  "source_commit": "53aca6a9c3d591e3d2e928637e5a691e4790484e",
+  "scope": "Document/source/formula verification; no new NZ observations or fitted disagreement model",
+  "source_entries": 14,
+  "claim_links": 12,
+  "reporting_topics": 34,
+  "local_links_verified": 16,
+  "nzmj_words_excluding_references_including_title_headings_table": 1400,
+  "nzmj_words_including_references": 1571,
+  "nzmj_reference_count": 7,
+  "nzmj_tables": 1,
+  "nzmj_figures": 0,
+  "mdm_body_words_conservative_including_tables_and_declarations": 3383,
+  "mdm_results_text_identical_to_immutable_original": true,
+  "both_original_package_hash_sets_unchanged": true,
+  "uptake_fixture": {
+    "scope": "synthetic verification only; not a new manuscript empirical result",
+    "evsi": 0.5,
+    "independent_p_gross_deltas": {
+      "0.0": 0.0,
+      "0.25": 0.125,
+      "0.5": 0.25,
+      "1.0": 0.5
+    },
+    "report_dependent_actual_delta": 0.5,
+    "incorrect_average_p_prediction": 0.25
+  },
+  "passed": true,
+  "no_requests_or_submissions": true
+}

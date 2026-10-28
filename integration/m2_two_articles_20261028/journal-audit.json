@@ -1,0 +1,44 @@
+{
+  "review_date": "2026-10-28",
+  "scope": "Primary journal guidance reviewed for preparation only; no request/submission",
+  "sources": [
+    {
+      "url": "https://nzmj.org.nz/contribute",
+      "native_source_id": "NZMJ_GUIDE",
+      "requirements": {
+        "viewpoint_words": 2000,
+        "references": 30,
+        "tables": 1,
+        "figures": 1,
+        "subheadings": false
+      },
+      "author_formal_gates": "Author facts, disclosures and applicable ethics context remain unresolved"
+    },
+    {
+      "url": "https://www.journals.smdm.org/manuscript-requirements/",
+      "native_source_id": "MDM_GUIDE",
+      "requirements": [
+        "separate title page",
+        "separate declarations",
+        "anonymised information page",
+        "anonymised main document",
+        "structured abstract",
+        "format-free initial style"
+      ]
+    },
+    {
+      "url": "https://www.journals.smdm.org/manuscript-types/",
+      "access": "primary-page provider review; native byte capture not claimed",
+      "requirements": {
+        "selected_category": "original research",
+        "body_words_less_than": 5000
+      }
+    },
+    {
+      "url": "https://www.journals.smdm.org/manuscript-submission/",
+      "native_source_id": "MDM_OVERLAP",
+      "requirements": "Transparent disclosure of shared data/related manuscripts; no duplicate or simultaneous submission of the same work"
+    }
+  ],
+  "no_requests_or_submissions": true
+}
