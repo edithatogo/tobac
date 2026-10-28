@@ -1,0 +1,99 @@
+{
+  "captured_count": 6,
+  "command": "capture",
+  "errors": [
+    "https://www.health.govt.nz/news/refunds-for-applicants-to-the-smoked-tobacco-retail-scheme: terminal_status"
+  ],
+  "failed_count": 1,
+  "note": "Adapter-based sources without activated credentials or discovery infrastructure are recorded as capability_pending and tracked by conductor track multi_source_capture_activation_20260824.",
+  "pending_adapters": [],
+  "schema_version": "archive-govt-nz.cli/v1",
+  "source_set": "tobac-two-articles",
+  "source_type": "tobac-two-articles",
+  "status": "partial",
+  "targets": [
+    {
+      "byte_count": 204400,
+      "sha256": "67375368465b9cc82a907ca67a6965f27e1975bb8aad704f237ccdf3adbc0ec2",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://nzmj.org.nz/contribute",
+      "warc": {
+        "byte_count": 204955,
+        "path": "outputs/engineering/m2-two-articles-sources-qualified/warcs/tobac-two-articles-0.warc",
+        "record_id": "urn:uuid:85962f41-dc81-40c2-ad48-03dd8bcf0688",
+        "sha256": "2364f82cff73a349363793c2e54d9493e888e59b03d57536dccf044e2c2aa572"
+      }
+    },
+    {
+      "byte_count": 154071,
+      "sha256": "787eaa749189d4abef1649c5b50479895577bc3f4850d96fcac84419719efa8e",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.journals.smdm.org/manuscript-requirements/",
+      "warc": {
+        "byte_count": 154650,
+        "path": "outputs/engineering/m2-two-articles-sources-qualified/warcs/tobac-two-articles-1.warc",
+        "record_id": "urn:uuid:1abbb425-7eec-46b6-85e6-f5d9ef8fce6a",
+        "sha256": "4c786165a9730212f292dc76b0e4d4075c14da41d8f9cb4778b4db5ed311350a"
+      }
+    },
+    {
+      "byte_count": 129930,
+      "sha256": "02140019e78ccd8a65e6ec568dca37fd4c90cf37047ed3458235dda06dbaaf2d",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.journals.smdm.org/manuscript-submission/",
+      "warc": {
+        "byte_count": 130507,
+        "path": "outputs/engineering/m2-two-articles-sources-qualified/warcs/tobac-two-articles-2.warc",
+        "record_id": "urn:uuid:cc6af92b-d243-4bd9-9b76-7044e057ab95",
+        "sha256": "6751c4a72ce100da9a6bfc2da0d64b6afc33b0565bcf1b5dc35774f3237508ec"
+      }
+    },
+    {
+      "error": "terminal_status",
+      "status": "failed",
+      "uri": "https://www.health.govt.nz/news/refunds-for-applicants-to-the-smoked-tobacco-retail-scheme"
+    },
+    {
+      "byte_count": 121933,
+      "sha256": "7b6d31053b40d0d1ac7e65b78fc4d41935af32c191aefed23d0738e14b0b0308",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10410746/",
+      "warc": {
+        "byte_count": 122508,
+        "path": "outputs/engineering/m2-two-articles-sources-qualified/warcs/tobac-two-articles-4.warc",
+        "record_id": "urn:uuid:9d627451-f1b2-454d-98b1-50098ea7593a",
+        "sha256": "dcba1c75b68fb573c6a07263ca7735928f6a357d38651a2750d682812bebe3cb"
+      }
+    },
+    {
+      "byte_count": 557548,
+      "sha256": "a1304ef4695a5095330bdf95001343ce1827b2659339696e7417e808d68da978",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://scholarsbank.uoregon.edu/bitstreams/d3effff0-dd73-484d-872c-2b637ae350e6/download",
+      "warc": {
+        "byte_count": 558294,
+        "path": "outputs/engineering/m2-two-articles-sources-qualified/warcs/tobac-two-articles-5.warc",
+        "record_id": "urn:uuid:363f86d9-2d90-45f0-88f7-d1f67ac0d8d0",
+        "sha256": "dbd7f2e8c8a2b1f28a0ca9856028384b348810b99c2bc240f4dbe545e09dbcb4"
+      }
+    },
+    {
+      "byte_count": 278969,
+      "sha256": "23bcb6f9ac9de737954575a1096fb43be14a22bfe2e6950fafc180307cac70d0",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.michaelnicholasstagnaro.com/uploads/1/5/1/4/151430782/number.pdf",
+      "warc": {
+        "byte_count": 279673,
+        "path": "outputs/engineering/m2-two-articles-sources-qualified/warcs/tobac-two-articles-6.warc",
+        "record_id": "urn:uuid:165af65a-8d5b-48af-aaef-ff6ad3581008",
+        "sha256": "086509a83e2fd12f9fbcab30ca3a6043e498d6556a7ef186f66c92eb231e8250"
+      }
+    }
+  ]
+}

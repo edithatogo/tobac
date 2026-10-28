@@ -1,0 +1,9 @@
+assumption_id,assumption,basis,limitation
+A1,Fixed evaluation objective,existing declared value profiles,Not a common social welfare function
+A2,Hypothetical prior and report likelihood,unchanged model/configurations,Not measured actor beliefs or qualified target assay performance
+A3,Optimal response to information,existing EVSI,Not actual evidence uptake or adoption
+A4,Independent binary response probability p,prospective analytical bridge only,Unknown; same across reports/states; no estimated range
+A5,Compatible incremental study/delay cost,prospective bridge only,Unknown; same utility/population/horizon; no NZD conversion
+A6,No extra action path when not responding,prospective bridge only,Otherwise return to fixed current optimal action; general uptake may differ
+A7,Measurement narrows factual disagreement,Viewpoint hypothesis,Not observed depolarisation or public consensus
+A8,Jurisdiction and author declarations,author facts unresolved,"No formal ethics exemption, funding or contributor consent inferred"

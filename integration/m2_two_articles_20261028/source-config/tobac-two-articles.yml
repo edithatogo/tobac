@@ -1,0 +1,22 @@
+name: tobac-two-articles
+description: Bounded original-remit and journal source refresh; no external publishing.
+enabled: true
+adapters: [web]
+schedule: manual
+rights_class: source_specific_review_required
+output_preservation_policy:
+  format: warc_and_manifest
+  compression: none
+  cas_hash_algorithm: sha256
+  retention: permanent_subject_to_rights_review
+publication_policy:
+  huggingface: {enabled: false}
+  zenodo: {enabled: false}
+targets:
+- https://nzmj.org.nz/contribute
+- https://www.journals.smdm.org/manuscript-requirements/
+- https://www.journals.smdm.org/manuscript-submission/
+- https://www.health.govt.nz/news/refunds-for-applicants-to-the-smoked-tobacco-retail-scheme
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC10410746/
+- https://scholarsbank.uoregon.edu/bitstreams/d3effff0-dd73-484d-872c-2b637ae350e6/download
+- https://www.michaelnicholasstagnaro.com/uploads/1/5/1/4/151430782/number.pdf

@@ -1,0 +1,42 @@
+[
+  {
+    "doi": "10.1002/dta.2874",
+    "url": "https://api.crossref.org/works/10.1002%2Fdta.2874",
+    "local_object": "outputs/engineering/m2-two-articles-metadata/metadata-0.json",
+    "sha256": "bbbf119906ffdf18bd058e14414a03f197b744caac7fcf8df2493db922c27b51",
+    "role": "bibliographic metadata only; not claim support",
+    "review_date": "2026-10-28"
+  },
+  {
+    "doi": "10.1017/bpp.2016.2",
+    "url": "https://api.crossref.org/works/10.1017%2Fbpp.2016.2",
+    "local_object": "outputs/engineering/m2-two-articles-metadata/metadata-1.json",
+    "sha256": "02f716292612b9d2c4f401c7da8f3eccc2c6d9cd48d0eba5ea1482cb3e0d599f",
+    "role": "bibliographic metadata only; not claim support",
+    "review_date": "2026-10-28"
+  },
+  {
+    "doi": "10.1073/pnas.2301491120",
+    "url": "https://api.crossref.org/works/10.1073%2Fpnas.2301491120",
+    "local_object": "outputs/engineering/m2-two-articles-metadata/metadata-2.json",
+    "sha256": "f595f3438f46ff9642b5fbf2b46e41b88177416b1027857de488e8eff78ec22f",
+    "role": "bibliographic metadata only; not claim support",
+    "review_date": "2026-10-28"
+  },
+  {
+    "doi": "10.1016/j.jval.2020.01.004",
+    "url": "https://api.crossref.org/works/10.1016%2Fj.jval.2020.01.004",
+    "local_object": "outputs/engineering/m2-two-articles-metadata/metadata-3.json",
+    "sha256": "5f3690eba8838eab33c29c800ef303a5b57b8f5c305e915fc7c3dd4eecd7701f",
+    "role": "bibliographic metadata only; not claim support",
+    "review_date": "2026-10-28"
+  },
+  {
+    "doi": "10.1146/annurev-statistics-040120-010730",
+    "url": "https://api.crossref.org/works/10.1146%2Fannurev-statistics-040120-010730",
+    "local_object": "outputs/engineering/m2-two-articles-metadata/metadata-4.json",
+    "sha256": "f174a1ed1e3c2abf52069fdcb371be2dab5ab58f11d480ffa1392831943ca8f5",
+    "role": "bibliographic metadata only; not claim support",
+    "review_date": "2026-10-28"
+  }
+]
