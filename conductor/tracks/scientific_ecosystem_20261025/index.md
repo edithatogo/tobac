@@ -1,6 +1,7 @@
 # Scientific ecosystem modernisation
 
-**Implementation and review in progress; authorised 26 October 2026.**
+**macOS implementation reviewed and complete; external managed-parser acceptance blocked.**
+Rechecked 29 October 2026; see the latest receipt and review in metadata.json.
 Current dispositions and remaining external gates are in the plan.
 
 - [Specification](spec.md)

@@ -25,7 +25,7 @@
 
 ## Active implementation
 
-- [Scientific ecosystem modernisation](./tracks/scientific_ecosystem_20261025/index.md): macOS implementation complete; managed root-parser acceptance externally blocked, rechecked 28 October 2026.
+- [Scientific ecosystem modernisation](./tracks/scientific_ecosystem_20261025/index.md): macOS implementation complete; managed root-parser acceptance externally blocked, rechecked 29 October 2026.
 
 - [Voiage Polars consumer qualification](./tracks/voiage_polars_qualification_20261026/plan.md): merged unreleased candidate with caller-buffer isolation requalified 28 October; candidate qualification remains on macOS, with Linux/Windows runtime tests added by PR #66; published-3.0 gate externally blocked.
 

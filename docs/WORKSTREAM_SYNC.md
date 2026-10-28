@@ -78,3 +78,17 @@ scientific validity. Preserve and investigate failures rather than weakening gat
 
 Execution receipt: `integration/workstream_sync_verification.json`.
 Record the publication commit and verification scope in the relevant Conductor track.
+
+## Scientific ecosystem blocker recheck — 29 October 2026
+
+Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` owns the bounded managed-parser
+recheck and its Conductor/review receipts in
+`/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`, branch
+`codex/ecosystem-parser-20261029`, base `428bced`. This is the writing lane for
+these status and engineering context-selection updates; existing scientific-consumer,
+source-binding, lineage and producer assignments remain separate. No scientific source, runtime, lock,
+authentication or native graph-writing operation is assigned to this recheck.
+Checkpoint: native recheck, local review and fixes complete; full tests pass
+(1,063 passed/13 capability skips, 92% coverage), then 55 focused tests pass.
+Next operation: guarded source publication and exact-head/receiving-ref readback.
+The external managed root-parser gate remains open; no native graph write is assigned.
