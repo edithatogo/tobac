@@ -27,7 +27,9 @@
 
 - [Scientific ecosystem modernisation](./tracks/scientific_ecosystem_20261025/index.md): macOS implementation complete; managed root-parser acceptance externally blocked, rechecked 28 October 2026.
 
-- [Voiage Polars consumer qualification](./tracks/voiage_polars_qualification_20261026/plan.md): merged unreleased candidate with caller-buffer isolation requalified 28 October; macOS-only CI scope recorded in the plan and roadmap; published-3.0 gate externally blocked.
+- [Voiage Polars consumer qualification](./tracks/voiage_polars_qualification_20261026/plan.md): merged unreleased candidate with caller-buffer isolation requalified 28 October; candidate qualification remains on macOS, with Linux/Windows runtime tests added by PR #66; published-3.0 gate externally blocked.
+
+- [Native archival provenance and transformation lineage](./tracks/native_archival_lineage_20261026/index.md): Phase 1 foundations implemented/reviewed; frozen producer capability probes and a current derived asset inventory retain explicit native integration gaps.
 
 - [M2 matched evidence pathway](./archive/m2_matched_evidence_20261027/plan.md):
   completed issue #3 bounded source-feasibility audit and self-review;

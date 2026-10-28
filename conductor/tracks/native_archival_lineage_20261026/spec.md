@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage
 
-Status: approved specification; track registered; implementation not started.
+Status: Phase 1 foundations implemented/reviewed; native integration remains open.
 Type: Feature. Date: 26 October 2026 (Australia/Brisbane).
 Track ID: `native_archival_lineage_20261026`.
 Planning base: tobac `59bb0e4ebaf1881158849df1702a1d3101aad58f`.
@@ -22,7 +22,8 @@ The maintainer selected:
    runs remain available and cannot be counted as qualified runs.
 
 The specification and implementation plan are approved, and the track is registered.
-Runtime implementation still requires a separate implementation handoff.
+The maintainer authorised implementation on 29 October 2026; the producer owner
+retains active files/operations. The Phase 1 checkpoint records actual scope and gaps.
 
 ## Existing work, dependencies and ownership
 

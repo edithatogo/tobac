@@ -135,6 +135,83 @@ def verify_inventory(root: Path, inputs: dict[str, Any]) -> dict[str, Any]:
     return inventory
 
 
+def lineage_file(root: Path, name: str, legacy: dict[str, Any]) -> dict[str, Any]:
+    """Describe approved bytes and explicit row metadata without inferring observation status."""
+    path = checked(root, name)
+    category = "evidence_metadata_or_extract"
+    if name.startswith("results/"):
+        category = "reference_output_not_observation"
+    elif name.startswith("configs/"):
+        category = "parameter_or_scenario_declaration"
+    elif name.startswith("evidence/prior_work/"):
+        category = "preserved_legacy_evidence"
+    elif name.endswith(".csl.json"):
+        category = "bibliography_not_observation"
+    item: dict[str, Any] = {
+        "path": name,
+        "sha256": digest(path),
+        "bytes": path.stat().st_size,
+        "category": category,
+        "source_references": legacy.get(name, {}).get("source_references", []),
+        "native_lineage_verified": False,
+    }
+    if path.suffix == ".csv":
+        with path.open(newline="", encoding="utf-8") as stream:
+            reader = csv.DictReader(stream)
+            rows = list(reader)
+            item.update(rows=len(rows), columns=reader.fieldnames)
+        item["declared_row_metadata"] = {
+            field: sorted({row[field] for row in rows if row.get(field)})
+            for field in ("source_id", "role", "evidence_status", "dependency_group", "source_dependency")
+            if rows and field in rows[0]
+        }
+    return item
+
+
+def lineage_inventory(root: Path = ROOT) -> dict[str, Any]:
+    """Export a current inventory from the existing register and reviewed public tree.
+
+    The export is a coverage superset, not a second source authority or an executed
+    dependency graph. Missing registered bytes fail; new approved evidence assets
+    remain visible even where their native source relationships are unknown.
+    """
+    aliases, captures, legacy = archive_index(root)
+    policy = read(checked(root, "engineering/publication-policy.json"))
+    names = policy["public_paths"]
+    files = [
+        lineage_file(root, name, legacy)
+        for name in sorted(names)
+        if name.startswith(("data/", "configs/", "evidence/", "results/"))
+    ]
+    implementation = {
+        name: digest(checked(root, name))
+        for name in sorted(names)
+        if name.endswith(".py") and (name.startswith(("src/", "scripts/")) or name == "noxfile.py")
+    }
+    return {
+        "schema_version": "tobac.lineage-foundation-inventory.v1",
+        "register": "integration/archive/source-register.json",
+        "register_sha256": digest(checked(root, "integration/archive/source-register.json")),
+        "source_identities": len(captures),
+        "bibliography_aliases": len(aliases),
+        "legacy_csv_inputs": len(legacy),
+        "source_states": [
+            {
+                "archive_id": identity,
+                "recorded_capture_statuses": sorted({item["status"] for item in source["captures"]}),
+                "native_objects_verified_this_run": False,
+            }
+            for identity, source in sorted(captures.items())
+        ],
+        "files": files,
+        "implementation_sha256": implementation,
+        "scope": "approved_local_assets_and_implementation_superset_not_executed_dependency_closure",
+        "native_lineage_verified": False,
+        "scientific_qualification": False,
+        "automatically_conditions_live_model": False,
+    }
+
+
 def object_verified(objects: Path | None, sha: str) -> bool:
     """Check an explicitly staged flat digest-named object directory; never fetch data."""
     if objects is None or re.fullmatch(r"[0-9a-f]{64}", sha) is None:
@@ -340,6 +417,9 @@ def build_report(
 def main() -> None:
     """Write a reviewable report; expected scientific gaps are distinct from invalid inputs."""
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--inventory", action="store_true", help="Export current lineage foundation inventory"
+    )
     parser.add_argument("--proposal", type=Path, default=ROOT / PROPOSAL)
     parser.add_argument(
         "--objects",
@@ -348,10 +428,22 @@ def main() -> None:
     )
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
-    report = build_report(ROOT, read(args.proposal), args.objects)
+    if args.inventory and (args.objects is not None or args.proposal != ROOT / PROPOSAL):
+        parser.error("--inventory cannot be combined with observation proposal or object staging")
+    if args.out.exists() or args.out.is_symlink():
+        parser.error("Refusing to overwrite an existing handoff receipt")
+    report = (
+        lineage_inventory(ROOT) if args.inventory else build_report(ROOT, read(args.proposal), args.objects)
+    )
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    sys.stdout.write(f"{report['status']}: {len(report['observations'])} rows; no conditioning performed\n")
+    with args.out.open("x", encoding="utf-8") as stream:
+        stream.write(json.dumps(report, indent=2, allow_nan=False) + "\n")
+    if args.inventory:
+        sys.stdout.write(f"Inventory: {len(report['files'])} files; no native or scientific qualification\n")
+    else:
+        sys.stdout.write(
+            f"{report['status']}: {len(report['observations'])} rows; no conditioning performed\n"
+        )
 
 
 if __name__ == "__main__":

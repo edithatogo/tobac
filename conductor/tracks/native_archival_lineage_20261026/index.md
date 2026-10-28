@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage
 
-Status: **in progress** — Phase 1 foundations; implementation authorised 29 October 2026.
+Status: **in progress** — Phase 1 foundations implemented and reviewed; native integration open.
 Track ID: `native_archival_lineage_20261026`. Type: Feature.
 
 Trace every current and future dataset through native archival preservation,
@@ -20,7 +20,7 @@ its scientific transformations and consumer integration. Existing file owners
 retain their assignments. No duplicate provenance system is introduced.
 
 Coordination: [issue #1](https://github.com/edithatogo/tobac/issues/1).
-Runtime implementation requires a separate handoff. Planning approval and
+The original planning approval required a separate implementation handoff. Planning approval and
 registration do not constitute native execution, scientific or archival acceptance.
 
 Implementation handoff: the maintainer's 29 October instruction to proceed
@@ -33,3 +33,7 @@ planning branch. Its baseline and producer interfaces must be reconciled against
 current revisions before implementation. Current user direction permits public
 sources only and prohibits requests, contacts, access applications and submissions;
 older plan language does not override that direction. Issue #1 is historical.
+
+Phase 1 checkpoint: [capability and inventory map](../../../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md).
+Four foundation tasks are complete; 28 native implementation/acceptance tasks remain.
+Local full qualification was interrupted; required hosted checks remain the publication gate.

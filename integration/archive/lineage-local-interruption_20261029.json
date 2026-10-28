@@ -1,0 +1,18 @@
+{
+  "schema_version": "tobac.local-qualification-interruption.v1",
+  "status": "interrupted_not_qualified",
+  "command": "repo-local Python 3.15.1 scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- repo-local nox --report outputs/native-lineage-local-nox-20261029.json -s tests strict_all source_handoff reproduce package security clean_package recovery",
+  "exit_code": 138,
+  "completed_nox_sessions": [],
+  "not_reached": ["strict_all", "source_handoff", "reproduce", "package", "security", "clean_package", "recovery"],
+  "test_session": "interrupted before pytest result and coverage summary",
+  "diagnostic": {
+    "macos_exception": "EXC_BAD_ACCESS",
+    "signal": "SIGBUS",
+    "subtype": "KERN_MEMORY_ERROR in mapped executable memory",
+    "cause_established": false,
+    "host_data_volume_available_gib_at_inspection": 1.7,
+    "owned_descendants_remaining_at_inspection": false
+  },
+  "disposition": "Retain failed local evidence and require complete hosted qualification; no automatic local retry, runtime downgrade, limit increase or check relaxation. Raw OS crash report stays private."
+}
