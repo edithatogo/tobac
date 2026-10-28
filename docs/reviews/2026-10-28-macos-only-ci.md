@@ -27,7 +27,9 @@ and on main; remove duplicate branch-push executions and cancel superseded
 scientific runs through per-ref concurrency. Preserve the Linux-only
 manual locked-release and lock-generation definitions byte-for-byte under the roadmap;
 they cannot execute there. Their original locked-release contract remains tested,
-not re-labelled as native macOS locked-release acceptance. Branch protection/rulesets
+not re-labelled as native macOS locked-release acceptance. Defer the scheduled
+lock session as well, since it resolves the Linux audit profile. Preserve native
+security, strict, mutation, profiling and canary execution. Branch protection/rulesets
 were inspected; neither is configured for main, and no settings were changed.
 
 ### High: published SourceRight asset name misstates its architecture

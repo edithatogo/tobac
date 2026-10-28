@@ -25,7 +25,10 @@ the upstream asset filename misleadingly says x86_64.
 The original Linux-specific manual workflows are retained, inactive, in
 `conductor/roadmap/deferred-workflows/`: `release-candidate.yml` and
 `dependency-lock.yml`. Their Linux audit-lock and source/hash requirements remain
-unchanged. Reconsider and requalify them only when non-macOS work is reprioritised.
+unchanged. The scheduled `lock` session, which also resolves the Linux audit
+profile, is deferred here as well; security/strict/mutation/profile/canary remain
+active on macOS. Reconsider and requalify these generators only when non-macOS work
+is reprioritised.
 The native macOS audit lane is not the Linux hash-locked release profile; no
 locked-release acceptance is inferred from this platform deferral. Existing locks
 and their receipts remain committed and verified by the active macOS checks.

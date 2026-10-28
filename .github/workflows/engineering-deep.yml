@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        session: [security, strict_all, mutation, profile, lock]
+        session: [security, strict_all, mutation, profile]
     runs-on: macos-latest
     timeout-minutes: 45
     steps:

@@ -5,7 +5,7 @@
   "owner_direction": "Defer Windows and Linux; stick with macOS",
   "active_workflow_sha256": {
     ".github/workflows/ci.yml": "e8cb776294792eb9fd0154895196f660c41849c7577bcd0cbffb31c58545b892",
-    ".github/workflows/engineering-deep.yml": "5f66f710ca51c286a8a22068b3e366812716b5959940cb3ebc606a8954785fe0",
+    ".github/workflows/engineering-deep.yml": "7f14887746a0bac454e7f6e607d011999ba51d7870ed4994384d44aed17eedf7",
     ".github/workflows/engineering.yml": "dae0f9834538eb2d341c1ba258a045bf20a8677751a64eba4cd3a23aac33ada1",
     ".github/workflows/longitudinal.yml": "77b77be86a86ca799d014ce7fec47208ef053a4f7e8edfc1b47be5b79e48b5f5",
     ".github/workflows/research-m3.yml": "ac5e57190cb1402826886e5a236177289bc9e43c9c7b52ada8d01e35557f31d6"
@@ -120,5 +120,12 @@
     "reason": "General engineering context exceeded 80 kB; explicitly narrowed to current platform work without raising a budget",
     "build": "passed",
     "schema_test": "passed"
+  },
+  "scheduled_lock_generation": "Deferred: resolves Linux audit metadata; native security/strict/mutation/profile/canary retained",
+  "scheduled_deferral_verification": {
+    "tests_passed": 12,
+    "tests_log_sha256": "234a8bbb1a4546dc2108f35971d13a55d606aafcfa9878bc55cf05cd047545f4",
+    "workflow_security": "passed",
+    "security_log_sha256": "14a69974ecf7e7243da99e8a552fdc49e6c51d027955151a74d8669bde1dfeb2"
   }
 }

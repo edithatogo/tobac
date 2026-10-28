@@ -175,6 +175,7 @@ def test_active_ci_is_macos_only_with_checked_local_python_and_resource_guards()
         if "push" in data["on"]:
             assert data["on"]["push"]["branches"] == ["main"], path
         for job in data["jobs"].values():
+            assert "lock" not in job.get("strategy", {}).get("matrix", {}).get("session", [])
             runner = job["runs-on"]
             if runner == "${{ matrix.os }}":
                 assert {entry["os"] for entry in job["strategy"]["matrix"]["include"]} == {"macos-latest"}
