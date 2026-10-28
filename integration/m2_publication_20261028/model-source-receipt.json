@@ -1,0 +1,27 @@
+{
+  "captured_count": 1,
+  "command": "capture",
+  "errors": [],
+  "failed_count": 0,
+  "note": "Adapter-based sources without activated credentials or discovery infrastructure are recorded as capability_pending and tracked by conductor track multi_source_capture_activation_20260824.",
+  "pending_adapters": [],
+  "schema_version": "archive-govt-nz.cli/v1",
+  "source_set": "tobac-publication-model-source",
+  "source_type": "tobac-publication-model-source",
+  "status": "captured",
+  "targets": [
+    {
+      "byte_count": 236088,
+      "sha256": "c97875c489e6759776aebf1b7d948603120c46914b13440493128ade93bcdd64",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11672025/",
+      "warc": {
+        "byte_count": 236663,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-publication-guidance/model-warcs/tobac-publication-model-source-0.warc",
+        "record_id": "urn:uuid:c9c3d220-6e2e-4eee-990f-8ffe05d2520c",
+        "sha256": "87beca06e4b82c487c53fd1dfc2a189fc5506674eb437cbfafb521ef651e952e"
+      }
+    }
+  ]
+}

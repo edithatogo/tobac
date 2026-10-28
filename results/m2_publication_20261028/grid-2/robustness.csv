@@ -1,0 +1,6 @@
+case,cooptimal_across_continuous_box,crime_lower,crime_upper,resource_lower,resource_upper
+null_effect,,0,4,0,4
+attenuated_transport,,0,4,0,4
+source_shape_partial_replacement,,0,4,0,4
+source_shape_no_replacement,,0,4,0,4
+source_shape_full_replacement,,0,4,0,4

@@ -320,6 +320,10 @@ def reproduce(session: nox.Session) -> None:
         str(replay_root / "m2-synthesis.json"),
     )
 
+    publication = str(replay_root / "m2_publication")
+    session.run("python", "scripts/run_m2_publication.py", "--out", publication, "--grid-check")
+    session.run("python", "scripts/verify.py", publication)
+
 
 @nox.session(python="3.15.1")
 def security(session: nox.Session) -> None:

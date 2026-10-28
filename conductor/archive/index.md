@@ -70,3 +70,14 @@ Track: `conductor/archive/m2_public_sources_20261027/`
 
 See [plan](m2_public_sources_20261027/plan.md): completed bounded searches,citations,
 supplements and source review with explicit access/scientific limits;no requests.
+
+
+## M2 conditional publication and value sensitivity
+
+Track: `conductor/archive/m2_conditional_publication_20261028/`
+
+[Plan](m2_conditional_publication_20261028/plan.md) and
+[specification](m2_conditional_publication_20261028/spec.md). Bounded executed
+analysis, public-source role audit, desk ethics assessment and self-review complete.
+Issue #3 empirical and formal submission-readiness gates remain; native repository
+acceptance is recorded in the associated PR. No requests or submissions.

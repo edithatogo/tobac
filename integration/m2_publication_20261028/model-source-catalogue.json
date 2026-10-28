@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "source_id": "SHINE_RETAIL_TABLE2",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11672025/",
+      "title": "\n            Tobacco endgame intervention impacts on health gains and M\u0101ori:non-M\u0101ori health inequity: a simulation study of the Aotearoa/New Zealand Tobacco Action Plan - PMC\n        ",
+      "format": "HTML",
+      "object_path": "outputs/engineering/m2-publication-guidance/cas/sha256/c9/c97875c489e6759776aebf1b7d948603120c46914b13440493128ade93bcdd64",
+      "sha256": "c97875c489e6759776aebf1b7d948603120c46914b13440493128ade93bcdd64",
+      "warc_path": "outputs/engineering/m2-publication-guidance/model-warcs/tobac-publication-model-source-0.warc",
+      "warc_sha256": "87beca06e4b82c487c53fd1dfc2a189fc5506674eb437cbfafb521ef651e952e",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-publication-guidance/model-text/0.txt",
+      "text_sha256": "103b56f0f091701b98ab0cbe3d2399aed33cf22bb3526766e24aaed841cc0804",
+      "review_date": "2026-10-28",
+      "scope": "Official source bytes/WARC verified;not an ethics determination or approval"
+    }
+  ],
+  "native_date_qualification": "review date is not any missing native WARC timestamp"
+}

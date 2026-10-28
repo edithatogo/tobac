@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "health_weight",
+    "crime_weights",
+    "resource_weights",
+    "groups",
+    "designs",
+    "retail_config",
+    "source_map",
+    "protocol",
+    "ethics_assessment",
+    "scientific_status"
+  ],
+  "properties": {
+    "schema": {
+      "const": "tobac.m2-publication.v1"
+    },
+    "health_weight": {
+      "const": 1
+    },
+    "crime_weights": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "minItems": 2,
+      "maxItems": 20,
+      "uniqueItems": true
+    },
+    "resource_weights": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "minItems": 2,
+      "maxItems": 20,
+      "uniqueItems": true
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "maxItems": 20,
+      "uniqueItems": true
+    },
+    "designs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "maxItems": 20,
+      "uniqueItems": true
+    },
+    "retail_config": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_map": {
+      "type": "string",
+      "minLength": 1
+    },
+    "protocol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ethics_assessment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scientific_status": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

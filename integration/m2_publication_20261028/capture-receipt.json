@@ -1,0 +1,79 @@
+{
+  "captured_count": 5,
+  "command": "capture",
+  "errors": [],
+  "failed_count": 0,
+  "note": "Adapter-based sources without activated credentials or discovery infrastructure are recorded as capability_pending and tracked by conductor track multi_source_capture_activation_20260824.",
+  "pending_adapters": [],
+  "schema_version": "archive-govt-nz.cli/v1",
+  "source_set": "tobac-publication-guidance",
+  "source_type": "tobac-publication-guidance",
+  "status": "captured",
+  "targets": [
+    {
+      "byte_count": 37717,
+      "sha256": "5e0a3ae146ae17fdaf869fb3a16c0e8cb90cc9e20c91b53e8b99325f558431d7",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://ethics.health.govt.nz/hdec-reviews-and-approvals/find-out-if-your-study-requires-hdec-review/",
+      "warc": {
+        "byte_count": 38389,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-publication-guidance/warcs/tobac-publication-guidance-0.warc",
+        "record_id": "urn:uuid:f5bb1969-02a3-4a7c-8a49-8c7bd68d831e",
+        "sha256": "9a8e2cc9a131e8676d471f180cfee0fd4f8ec11f320c7197d96cf2c9b02c4890"
+      }
+    },
+    {
+      "byte_count": 54766,
+      "sha256": "5e9b33462b3cf27aad109a9108b6073c3d769b73e68d192fa821dd2dde4c9847",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://ethics.health.govt.nz/frequently-asked-questions/",
+      "warc": {
+        "byte_count": 55394,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-publication-guidance/warcs/tobac-publication-guidance-1.warc",
+        "record_id": "urn:uuid:19f06b6f-7674-4bcc-bc77-ee9ac39b0ab4",
+        "sha256": "9fdac8fa4a8866cd16de34425e9c2ed273a597cdd5980d08bde769087ae5eea3"
+      }
+    },
+    {
+      "byte_count": 45220,
+      "sha256": "5fc6d054513763cd79de5c921bd70071829b8f74643e03b22949bd4ba625327d",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://neac.health.govt.nz/national-ethical-standards/part-two/3-research-and-maori/",
+      "warc": {
+        "byte_count": 45876,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-publication-guidance/warcs/tobac-publication-guidance-2.warc",
+        "record_id": "urn:uuid:ac50a966-380e-4c48-a965-95c7aa8921c8",
+        "sha256": "7c98ef7a4060fe35cf5b42dfd3cc2401f8a515291154f3f20f6548c8e094c0ba"
+      }
+    },
+    {
+      "byte_count": 86632,
+      "sha256": "84764b353e18c19f9e799d7abc6ac975fd7cc8fa762624621ca7c097a2e7e48d",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.ispor.org/heor-resources/good-practices/cheers",
+      "warc": {
+        "byte_count": 87237,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-publication-guidance/warcs/tobac-publication-guidance-3.warc",
+        "record_id": "urn:uuid:e52418fb-f2a1-4c2d-b9e2-6b84c6e07aa7",
+        "sha256": "696e413e94ba0e5ca478ca9e04aa79abc00fdad4ee81699214969072e1c03ba3"
+      }
+    },
+    {
+      "byte_count": 183796,
+      "sha256": "61cceb27701209e3a94a0556271e38ec48acaaf8c481a3e35d76c851dc957235",
+      "status": "captured",
+      "status_code": 200,
+      "uri": "https://www.ispor.org/docs/default-source/resources/outcomes-research-guidelines-index/model_transparency_and_validation-7.pdf?sfvrsn=24168dfb_0",
+      "warc": {
+        "byte_count": 184508,
+        "path": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/m2-publication-guidance/warcs/tobac-publication-guidance-4.warc",
+        "record_id": "urn:uuid:908efd0c-eac8-4408-bdba-2e966bd8a5de",
+        "sha256": "23eac343dd0fb517fb887e562046fbd9aa004c8364a2f7512d3e6b3ded8eebf0"
+      }
+    }
+  ]
+}

@@ -20,3 +20,16 @@ its earlier review state; it is superseded for the six preparation directions he
 [Withdrawn historical requests](../../requests/m2_20261027/README.md) are not sent,
 received evidence, applications, quotations or a permission grant. Existing model
 inputs/results and all normative sensitivity cases remain unchanged.
+
+
+## Publication direction — 28 October 2026
+
+[Current Conductor decision](../../conductor/decisions/m2_publication_20261028.md)
+authorises conditional publication analysis, analyst-declared value sensitivity and
+an ethics desk assessment. [Results](M2_CONDITIONAL_PUBLICATION.md) examine how
+choices change without selecting representative social/Māori preferences or claiming
+an empirical policy effect. The earlier statement that normative cases are unchanged
+is historical; the new crime/resource sensitivity grid is explicit and separate
+from empirical state/prior assumptions. No request, application or submission is
+authorised. Institutional/site/journal requirements, authorship and final submission
+remain unresolved author matters; formal ethics approval or exemption is not claimed.

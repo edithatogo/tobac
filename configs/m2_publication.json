@@ -1,0 +1,13 @@
+{
+  "schema": "tobac.m2-publication.v1",
+  "retail_config": "configs/m2_retail.json",
+  "health_weight": 1,
+  "crime_weights": [0, 0.5, 1, 2, 4],
+  "resource_weights": [0, 0.5, 1, 2, 4],
+  "groups": ["market", "behaviour", "criminal_harm", "health_consequences", "implementation", "measurement", "baseline_reachable"],
+  "designs": ["none", "panel_supply", "better_quantification_supply", "calibration_panel_supply", "causal_matched_total_and_lawful", "criminal_harm_study"],
+  "source_map": "evidence/m2/public_sources_20261027",
+  "protocol": "docs/research/M2_PUBLICATION_PROTOCOL.md",
+  "ethics_assessment": "docs/research/M2_PUBLICATION_ETHICS.md",
+  "scientific_status": "Analyst-declared conditional scenarios; not observed NZ efficacy, elicited public preferences, empirical posterior or a funding recommendation"
+}

@@ -1,0 +1,23 @@
+name: tobac-publication-guidance
+description: Bounded public-source acquisition for M2 source mapping; local preservation only.
+enabled: true
+adapters:
+- web
+schedule: manual
+rights_class: source_specific_review_required
+output_preservation_policy:
+  format: warc_and_manifest
+  compression: none
+  cas_hash_algorithm: sha256
+  retention: permanent_subject_to_rights_review
+publication_policy:
+  huggingface:
+    enabled: false
+  zenodo:
+    enabled: false
+targets:
+- https://ethics.health.govt.nz/hdec-reviews-and-approvals/find-out-if-your-study-requires-hdec-review/
+- https://ethics.health.govt.nz/frequently-asked-questions/
+- https://neac.health.govt.nz/national-ethical-standards/part-two/3-research-and-maori/
+- https://www.ispor.org/heor-resources/good-practices/cheers
+- https://www.ispor.org/docs/default-source/resources/outcomes-research-guidelines-index/model_transparency_and_validation-7.pdf?sfvrsn=24168dfb_0
