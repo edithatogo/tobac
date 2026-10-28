@@ -4,10 +4,10 @@
   "base_main": "94c47124f7dd17b53a1353009ec7442971b64748",
   "owner_direction": "Defer Windows and Linux; stick with macOS",
   "active_workflow_sha256": {
-    ".github/workflows/ci.yml": "3f3418a558b9bd791eb9d7d0ed13b5ad2976e4bfd931610bb9010bdb67351c92",
+    ".github/workflows/ci.yml": "e8cb776294792eb9fd0154895196f660c41849c7577bcd0cbffb31c58545b892",
     ".github/workflows/engineering-deep.yml": "5f66f710ca51c286a8a22068b3e366812716b5959940cb3ebc606a8954785fe0",
     ".github/workflows/engineering.yml": "dae0f9834538eb2d341c1ba258a045bf20a8677751a64eba4cd3a23aac33ada1",
-    ".github/workflows/longitudinal.yml": "b5b7f1e23022d7831938421c23e955c186567d03bc1bc9f28aaa2314623c448d",
+    ".github/workflows/longitudinal.yml": "77b77be86a86ca799d014ce7fec47208ef053a4f7e8edfc1b47be5b79e48b5f5",
     ".github/workflows/research-m3.yml": "ac5e57190cb1402826886e5a236177289bc9e43c9c7b52ada8d01e35557f31d6"
   },
   "deferred_workflows": {
@@ -92,7 +92,9 @@
     ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/macos-ci-local-nox.json -s tests strict_all",
     ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/tests/bin/python -m pytest -q --lf --last-failed-no-failures=none tests/incorporation/test_evidence_execution.py tests/engineering/test_harness_contract.py",
     ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/macos-ci-final-nox.json -s tests security",
-    "PATH=\"$PWD/outputs/engineering/macos-sourceright:$PATH\" .nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/tests/bin/python scripts/qualify_integrations.py --mode sourceright --all-csl --out outputs/engineering/macos-sourceright/local-qualification.json"
+    "PATH=\"$PWD/outputs/engineering/macos-sourceright:$PATH\" .nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/tests/bin/python scripts/qualify_integrations.py --mode sourceright --all-csl --out outputs/engineering/macos-sourceright/local-qualification.json",
+    ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/tests/bin/python -m pytest -q tests/engineering/test_harness_contract.py tests/incorporation/test_evidence_execution.py::test_scientific_workflows_gate_preservation_and_cover_every_citation_collection",
+    ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/security/bin/zizmor --offline .github/workflows"
   ],
   "numerical_evidence_reused": {
     "source_commit": "ee258d0cf77fc5a007356d60559392790a2eef4e",
@@ -102,5 +104,14 @@
     "reason": "src/scripts/Nox/dependency inputs/locks unchanged; new hosted replay remains required"
   },
   "native_acceptance": "New-head and receiving-main macOS evidence maintained in the linked platform-scope PR; superseded mixed-platform cancellations are not passes",
-  "external_gate": "Published Voiage 3.0.0 acceptance remains unexecuted"
+  "external_gate": "Published Voiage 3.0.0 acceptance remains unexecuted",
+  "duplicate_runs": "Scientific workflows run on PR and main push, not an extra branch-push run; per-ref concurrency cancels superseded runs",
+  "post_dedup_focused_tests": {
+    "passed": 13,
+    "log_sha256": "ab029812cf8df6094f0169710027ced938e36f2282da0bb0c88b29d7ad1247ed"
+  },
+  "post_dedup_workflow_security": {
+    "status": "passed",
+    "log_sha256": "857f97c75dde83571b1685057a15e6264de7730a0cceb3ab806b1a575a18e1bd"
+  }
 }

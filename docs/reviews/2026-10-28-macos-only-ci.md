@@ -22,7 +22,9 @@ continue on macOS with Python 3.15.1 and existing pass thresholds.
 The previous roadmap deferred non-macOS development while active CI still required
 Windows/Linux runners. Remove those matrix entries and move quality, scientific,
 longitudinal, M3 and scheduled audit/canary execution to macOS. Keep every substantive
-command, full-SHA Action pin and scientific/security threshold. Preserve the Linux-only
+command, full-SHA Action pin and scientific/security threshold. Run once per PR
+and on main; remove duplicate branch-push executions and cancel superseded
+scientific runs through per-ref concurrency. Preserve the Linux-only
 manual locked-release and lock-generation definitions byte-for-byte under the roadmap;
 they cannot execute there. Their original locked-release contract remains tested,
 not re-labelled as native macOS locked-release acceptance. Branch protection/rulesets

@@ -172,6 +172,8 @@ def test_lock_candidates_use_selected_repo_local_python() -> None:
 def test_active_ci_is_macos_only_with_checked_local_python_and_resource_guards() -> None:
     for path in (ROOT / ".github/workflows").glob("*.yml"):
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
+        if "push" in data["on"]:
+            assert data["on"]["push"]["branches"] == ["main"], path
         for job in data["jobs"].values():
             runner = job["runs-on"]
             if runner == "${{ matrix.os }}":
