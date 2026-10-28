@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 import jsonschema
 import numpy as np
 from qualify_m2_pathway import checkout_identity
-from run_m2_publication import source_audit, write_table
+from run_m2_publication import source_audit, validated_inputs, write_table
 from source_handoff import digest, read
 
 from tobac._core import DecisionProblem, exact_evpi, exact_partial_information
@@ -136,7 +136,7 @@ def case_rows(
     physical = retail_components(states, config, lawful_replacement=case["lawful_replacement"])
     table = Consequences(physical["health_gain"], physical["criminal_harm_change"], physical["resource_cost"])
     channels = retail_channels(states, config)
-    original_reports = retail_studies(channels)
+    original_reports = challenge_reports(channels, prior, dict(challenge, information_retained=1))
     reports = challenge_reports(channels, prior, challenge)
     reports = {name: reports[name] for name in designs}
     rows: dict[str, list[Report]] = {
@@ -162,11 +162,13 @@ def case_rows(
             expected = prior @ problem.values
             optima = optimal_indices(expected)
             reference = baseline.get(profile_key(key))
-            previous = (
-                optima
-                if reference is None
-                else tuple(ACTIONS.index(a) for a in str(reference["cooptimal_actions"]).split(";"))
-            )
+            if challenge["id"] == "baseline":
+                previous = optima
+            elif reference is None:
+                msg = "Complete baseline profile identity required before challenge regret"
+                raise ValueError(msg)
+            else:
+                previous = tuple(ACTIONS.index(a) for a in str(reference["cooptimal_actions"]).split(";"))
             low, high = tie_regret(expected, previous)
             evpi = exact_evpi(problem)
             row = dict(
@@ -181,7 +183,7 @@ def case_rows(
             if challenge["id"] == "baseline":
                 baseline[profile_key(key)] = row
             group_rows, studies = profile_information(problem, key, labels, reports)
-            if challenge["id"] == "half_information":
+            if challenge.get("information_retained", 1) < 1:
                 check_garbling(problem, studies, original_reports)
             rows["grouped_evppi"].extend(group_rows)
             rows["study_value"].extend(studies)
@@ -252,8 +254,8 @@ def run(root: Path, out: Path, *, specification: Report | None = None) -> Report
         raise FileExistsError(msg)
     spec = read(root / CONFIG) if specification is None else specification
     validate_spec(root, spec)
-    retail = read(root / "configs/m2_retail.json")
     publication = read(root / "configs/m2_publication.json")
+    retail, _ = validated_inputs(root, publication)
     audit, _ = source_audit(root, publication["source_map"])
     base = load_config(root / retail["base_config"])
     tables: dict[str, list[Report]] = {
@@ -285,7 +287,9 @@ def run(root: Path, out: Path, *, specification: Report | None = None) -> Report
     inputs = [
         CONFIG,
         SCHEMA,
-        "configs/m2_retail.json",
+        publication["retail_config"],
+        "evidence/m2/source_review.json",
+        "evidence/m2/publication_20261028/model_input_check.json",
         "configs/m2_publication.json",
         retail["base_config"],
         "docs/research/M2_READINESS_PROTOCOL.md",

@@ -134,7 +134,8 @@ R is an illustrative fixed real-resource score. This is a restricted consequence
 perspective, not a fully measured societal or regulator-budget economic evaluation.
 Lawful-volume changes are reported separately and are not tax revenue or social costs.
 
-The objective is U=H−wC C−wR R. Health weight is one; crime and resource weights each
+The objective is U=H−wC C−wR R. Expected utility is maximised for each
+declared objective; no risk-averse criterion is evaluated. Health weight is one; crime and resource weights each
 take 0,0.5,1,2,4. These are analyst stress supports, not representative social/Māori
 preferences, willingness-to-pay estimates or probabilities. Zero resource weight
 removes the score from this objective without removing real-world resource needs.
@@ -251,7 +252,7 @@ is distinct from external validation
 ### 3.1 Values change choices under identical factual assumptions
 
 In the source-shape/partial-replacement case, health weight one with crime/resource
-weights 0/0 favours restriction with support;0/1 favours retail restriction;1/1 favours
+weights 0/0 favours restriction with support; 0/1 favours retail restriction; 1/1 favours
 expanded cessation; and 0/4 favours reference. Those profiles vary only values, not
 state probabilities. No action is co-optimal across the full continuous 0–4 rectangle
 in any original case. The source-case retail/expanded-cessation switch at resource
@@ -309,7 +310,7 @@ unchanged research rankings when their joint dependence changes.
 The combined specification changes 29 policy sets and 80 gross-design sets. Its largest
 regret from retaining a baseline-optimal action is approximately 0.1670 normalised
 units; this is a constructed current-objective loss, not a measured welfare loss.
-The baseline challenge reproduces all 125 primary decision rows,875 grouped-information
+The baseline challenge reproduces all 125 primary decision rows, 875 grouped-information
 rows and 750 study rows with maximum absolute numerical difference zero.
 
 ### 3.3 Learning, decision value and numerical resolution

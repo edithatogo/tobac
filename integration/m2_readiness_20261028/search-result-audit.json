@@ -1,0 +1,55 @@
+{
+  "batches": [
+    {
+      "batch": "outputs/engineering/m2-readiness-search-batch.json",
+      "sha256": "2b04dea9d60ef8af34e2e53c03745fd114e09657c22110f65b54c907b96387e7",
+      "visible_results": 17,
+      "urls": [
+        "https://cris.leibniz-zmt.de/id/eprint/5238/1/Haag_Chennu_2023_Assessing_whether_decisions_Omega_with_SI.pdf",
+        "https://www.ispor.org/docs/default-source/resources/outcomes-research-guidelines-index/model_parameter_estimation_and_uncertainty-6.pdf?sfvrsn=8bc10c8e_0",
+        "https://www.ispor.org/publications/journals/value-in-health/abstract/Volume-15--Issue-6/Model-Parameter-Estimation-and-Uncertainty--A-Report-of-the-ISPOR-SMDM-Modeling-Good-Research-Practices-Task-Force-6",
+        "https://cris.leibniz-zmt.de/id/eprint/5238/",
+        "https://doi.org/10.1016/j.omega.2023.102936",
+        "https://www.ispor.org/docs/default-source/student-newsletters/november-2023-ispor-student-newsletter.pdf?sfvrsn=a57516b5_1",
+        "https://www.ispor.org/heor-resources/good-practices/methodological-statistical-research",
+        "https://www.valueinhealthjournal.com/article/S1098301523030310/pdf",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612319/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8160067/",
+        "https://www.valueinhealthjournal.com/article/S1098-3015%2823%2903031-0/fulltext",
+        "https://equator-network.org/reporting-guidelines/cheers-voi/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7319287/",
+        "https://www.researchgate.net/publication/374987170_Adding_Value_to_CHEERS_New_Reporting_Standards_for_Value_of_Information_Analyses",
+        "https://scispace.com/papers/assessing-whether-decisions-are-more-sensitive-to-preference-369w1tz4",
+        "https://www.storkapp.me/pubpaper/32197720",
+        "https://en.wikipedia.org/wiki/ISPOR"
+      ]
+    },
+    {
+      "batch": "outputs/engineering/m2-readiness-trace-batch.json",
+      "sha256": "47ad5db5dc6a9459badf2fc318c0733a99079c1293fe650699b66c2c199340c6",
+      "visible_results": 18,
+      "urls": [
+        "https://eprints.whiterose.ac.uk/id/eprint/227190/1/s41366-025-01804-7.pdf",
+        "https://www.valueinhealthjournal.com/article/S1098301523030310/pdf",
+        "https://www.valueinhealthjournal.com/article/S1098-3015%2823%2903031-0/fulltext",
+        "https://www.york.ac.uk/media/che/documents/papers/researchsummaries/Summary15.pdf",
+        "https://kups.ub.uni-koeln.de/80103/1/s40258-025-00968-7.pdf",
+        "https://eprints.whiterose.ac.uk/id/eprint/213108/1/dijk-et-al-2024-making-drug-approval-decisions-in-the-face-of-uncertainty-cumulative-evidence-versus-value-of.pdf",
+        "https://ris.utwente.nl/ws/portalfiles/portal/321016205/1-s2.0-S1098301523030310-main.pdf",
+        "https://pure.york.ac.uk/portal/en/publications/reporting-economic-evaluations-with-value-of-information-analyses/",
+        "https://www.nature.com/articles/s41366-025-01804-7",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13014996/",
+        "https://alpha.rankless.org/authors/claire-rothery",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11862817/",
+        "https://www.researchgate.net/publication/374987170_Adding_Value_to_CHEERS_New_Reporting_Standards_for_Value_of_Information_Analyses",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11283736/",
+        "https://www.swatchgroup.com/de/services/archiv/2024/swatch-faces-x-biennale-arte-2024",
+        "https://link.springer.com/article/10.1007/s41245-023-00194-w",
+        "https://tecki.vn/p1.297982828.8347865242-cheers-ao-crop-tay-dai-smocking",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11780794/"
+      ]
+    }
+  ],
+  "unique_url_count": 32,
+  "scope": "All native visible result blocks in the two retained batches; not all20 query outputs"
+}

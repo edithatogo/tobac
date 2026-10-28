@@ -11,8 +11,8 @@ Status: [~] In progress. Base: 4a6246c690ced7d9cd7e1758b5a91f0689aec442.
 - [x] Write affected tests with independent small numerical oracles and adversarial cases.
 - [x] Implement bounded prior/dependence/report-performance challenges using existing engine.
 - [x] Execute challenge and policy/information ranking comparisons; preserve primary outputs.
-- [ ] Implement and execute a fresh-checkout paper-specific replay with hashes and semantic comparisons.
-- [ ] Phase verification: affected tests and workstream integration, outputs and assumption roles.
+- [x] Implement and execute a fresh-checkout paper-specific replay with hashes and semantic comparisons.
+- [x] Phase verification: affected tests and workstream integration, outputs and assumption roles.
 
 ## C: Manuscript and reporting
 - [x] Develop literature positioning, methods, results/discussion, references and supplement.
@@ -50,3 +50,12 @@ Replay implementation amendment:existing runner requires actual Git metadata; us
 an independent local clone without hardlinks, with exact commit/tree/import checks,
 rather than an archive that could discover its parent checkout. This leaves the
 frozen numerical challenge protocol and supports unchanged.
+
+
+Initial clean-source replay atb47b6e5 passed all29 CSV tables and all scientific
+report fields:zero numerical difference, peak717.2MiB, exit0. Shallow-source clone
+operation identity also passed, peak70.4MiB. Review fixes reuse primary source-ledger
+validation, bind transitive inputs, reject missing baseline profiles and check garbling
+for combined as well as standalone challenges. Focused33tests pass, peak394.5MiB.
+Initial generated artifacts remain in Git history and are preserved locally before
+refresh; primary snapshot remains immutable. Final full qualification is pending.

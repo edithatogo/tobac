@@ -39,12 +39,16 @@ def test_source_bound_small_challenge_run_and_new_directory(runner, tmp_path) ->
         quit_points=1,
         crime_weights=[0, 1],
         resource_weights=[0, 1],
-        challenges=[{"id": "baseline"}, {"id": "half_information", "information_retained": 0.5}],
+        challenges=[
+            {"id": "baseline"},
+            {"id": "half_information", "information_retained": 0.5},
+            {"id": "combined_stress", "report_dependence": 0.8, "information_retained": 0.5, "coupling": 0.8},
+        ],
     )
     report = runner.run(ROOT, tmp_path / "new", specification=spec)
-    assert report["row_counts"]["decisions"] == 40
-    assert report["row_counts"]["study_value"] == 240
-    assert report["row_counts"]["grouped_evppi"] == 280
+    assert report["row_counts"]["decisions"] == 60
+    assert report["row_counts"]["study_value"] == 360
+    assert report["row_counts"]["grouped_evppi"] == 420
     assert report["summary"][0]["changed_policy_sets"] == 0
     assert report["summary"][1]["changed_policy_sets"] == 0
     assert report["conditioned"] is False
@@ -68,3 +72,20 @@ def test_invalid_and_duplicate_challenge_specs_rejected(runner) -> None:
     spec["challenges"].append({"id": "invented", "target_effect": 0.1})
     with pytest.raises(jsonschema.ValidationError, match="Additional properties"):
         runner.validate_spec(ROOT, spec)
+
+
+def test_challenge_regret_requires_the_actual_baseline_profile(runner) -> None:
+    from tobac.regulation import load_config  # noqa: PLC0415 -- Fixed finite reference setup.
+
+    spec = json.loads((ROOT / "configs/m2_robustness.json").read_text())
+    spec.update(quit_points=1, crime_weights=[0, 1], resource_weights=[0, 1])
+    retail = json.loads((ROOT / "configs/m2_retail.json").read_text())
+    publication = json.loads((ROOT / "configs/m2_publication.json").read_text())
+    with pytest.raises(ValueError, match="Complete baseline"):
+        runner.case_rows(
+            (load_config(ROOT / "configs/regulatory.json"), retail, spec),
+            retail["cases"][0],
+            {"id": "other"},
+            {},
+            publication,
+        )
