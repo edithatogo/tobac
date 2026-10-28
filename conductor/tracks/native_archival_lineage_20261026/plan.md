@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage — implementation plan
 
-Status: approved implementation plan; track registered; implementation has not started.
+Status: Phase 1 foundations in progress; implementation authorised 29 October 2026.
 Specification: [approved spec](spec.md), approved by the maintainer on 26 October 2026.
 Planning base: tobac `59bb0e4ebaf1881158849df1702a1d3101aad58f`.
 Method: [shared workflow](../../workflow.md). Tests and reference comparisons precede
@@ -40,7 +40,7 @@ Owner: tobac integration owner with the existing archive producer owner.
 Depends on: approved specification and implementation handoff.
 Covers: R01, R02, R09, R11, R12; AC01, AC02, AC11, AC14.
 
-- [ ] Task: P1.1 — Establish current revisions, ownership and execution baselines.
+- [~] Task: P1.1 — Establish current revisions, ownership and execution baselines.
   - [ ] Re-read both repositories' instructions/tracks and issue #1; inspect current
     PR #21, archive PR #776 and ecosystem PR #23 states and exact receiving revisions.
   - [ ] Select bounded context profiles; record HEAD/source hashes, dirty state,

@@ -121,7 +121,7 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [ ] Approved plan integrated; implementation remains unstarted.**
+**Status: [~] Phase 1 foundations in progress; implementation authorised 29 October 2026.**
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
 Reconcile the 26 October plan with current producer contracts and ownership before
