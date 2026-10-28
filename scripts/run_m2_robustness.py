@@ -292,7 +292,6 @@ def run(root: Path, out: Path, *, specification: Report | None = None) -> Report
         "evidence/m2/publication_20261028/model_input_check.json",
         "configs/m2_publication.json",
         retail["base_config"],
-        "docs/research/M2_READINESS_PROTOCOL.md",
         "scripts/run_m2_robustness.py",
         "scripts/run_m2_publication.py",
         "evidence/m2/public_sources_20261027/manifest.json",

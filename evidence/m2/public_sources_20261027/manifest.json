@@ -15,8 +15,6 @@
     "retrieval_outcomes": 44
   },
   "sha256": {
-    "docs/research/M2_PUBLIC_SOURCE_COMPLETION.md": "0fdecd953cbab2ddbb7fd10887e508fb3eeedfd445347332e912be2110bda20f",
-    "docs/research/M2_PUBLIC_SOURCE_METHOD.md": "d437a28484e5af6b4abf28a916b224b6c506c791af278054ccf09679b0e3c329",
     "evidence/m2/public_sources_20261027/README.md": "fbc86ff0c8e1ff85796e714686a6d1dc71f2abbf3cb5fbcd62f143570ce37b23",
     "evidence/m2/public_sources_20261027/assumption_table.csv": "ab8aa1eb09927ac68216c55c7c20bb237dc67f85fa8942b52f698b95d6101239",
     "evidence/m2/public_sources_20261027/citation_edges.csv": "77c85dc8972f1e540a30cb31ce2009980b52754ed9a29c93410c45ada2c34328",
@@ -59,5 +57,9 @@
   "outreach_or_new_OIA": false,
   "native_capture_timestamps": "missing;not reconstructed",
   "initial_snapshot": "integration/m2_public_sources_20261027/initial-map-manifest.json",
-  "local_verification_script_sha256": "0b220e8437bb86a40bdae71c0bb7eb856e587340268c5b5191d71cfb46acbdb6"
+  "local_verification_script_sha256": "0b220e8437bb86a40bdae71c0bb7eb856e587340268c5b5191d71cfb46acbdb6",
+  "local_only_sha256_not_verified": {
+    "docs/research/M2_PUBLIC_SOURCE_COMPLETION.md": "0fdecd953cbab2ddbb7fd10887e508fb3eeedfd445347332e912be2110bda20f",
+    "docs/research/M2_PUBLIC_SOURCE_METHOD.md": "d437a28484e5af6b4abf28a916b224b6c506c791af278054ccf09679b0e3c329"
+  }
 }

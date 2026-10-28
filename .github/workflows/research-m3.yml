@@ -11,6 +11,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   numerical:
+    name: numerical
     runs-on: macos-latest
     timeout-minutes: 20
     steps:
@@ -28,14 +29,21 @@ jobs:
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s research_m3
       - run: .nox/research_m3/bin/python scripts/unpack_m3_results.py --out outputs/saved_m3
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/research-m3-1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: success()
         with:
           name: m3-numerical-receipts
-          path: outputs/
+          path: artifact-exports/research-m3-1/
           if-no-files-found: warn
           retention-days: 14
   voiage-released-parity:
+    name: voiage-released-parity
     runs-on: macos-latest
     timeout-minutes: 30
     steps:
@@ -53,10 +61,16 @@ jobs:
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Build and qualify pinned Voiage Python 3.15.1 compatibility candidate
         run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s voiage
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/research-m3-2
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: success()
         with:
           name: m3-actual-voiage-parity
-          path: outputs/engineering/voiage-receipts-*/
+          path: artifact-exports/research-m3-2/
           if-no-files-found: warn
           retention-days: 14

@@ -6,11 +6,11 @@
     "AGENTS.md",
     "docs/WORKSTREAM_SYNC.md",
     "docs/evidence_interface.md",
-    "docs/research/M2_READINESS_PROTOCOL.md",
     "configs/m2_robustness.json",
     "src/tobac/robustness.py",
     "scripts/run_m2_robustness.py",
-    "scripts/qualify_publication_replay.py"
+    "scripts/qualify_publication_replay.py",
+    "configs/m2_publication.json"
   ],
   "base_commit": null,
   "required_paths": [

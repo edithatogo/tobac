@@ -6,11 +6,7 @@
     "AGENTS.md",
     "docs/WORKSTREAM_SYNC.md",
     "docs/evidence_interface.md",
-    "docs/research/M2_MDM_ARTICLE.md",
-    "docs/research/M2_NZMJ_VIEWPOINT.md",
-    "docs/research/M2_DISAGREEMENT_SCOPE.md",
-    "docs/research/M2_TWO_ARTICLE_STRATEGY.md",
-    "docs/research/M2_TWO_ARTICLE_DECLARATIONS.md"
+    "configs/m2_publication.json"
   ],
   "base_commit": null,
   "required_paths": [

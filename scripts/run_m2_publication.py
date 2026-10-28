@@ -403,8 +403,6 @@ def run(root: Path, out: Path, *, specification: Report | None = None, quit_poin
         SCHEMA,
         spec["retail_config"],
         retail["base_config"],
-        spec["protocol"],
-        spec["ethics_assessment"],
         "evidence/m2/source_review.json",
         "evidence/m2/publication_20261028/model_input_check.json",
         "evidence/m2/publication_20261028/parameter_provenance.csv",

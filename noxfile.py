@@ -337,7 +337,7 @@ def security(session: nox.Session) -> None:
     run_all_checks(
         session,
         [
-            ["zizmor", "--offline", ".github/workflows"],
+            ["zizmor", "--offline", "--persona", "pedantic", ".github/workflows"],
             [
                 "pip-audit",
                 "--skip-editable",
@@ -348,6 +348,14 @@ def security(session: nox.Session) -> None:
             ],
         ],
     )
+
+
+@nox.session(python="3.15.1")
+def publication(session: nox.Session) -> None:
+    """Qualify the public boundary and pinned native macOS scanners."""
+    environment(session)
+    session.run("python", "-m", "pytest", "-q", "tests/engineering/test_publication_boundary.py")
+    session.run("python", "scripts/check_publication_security.py")
 
 
 @nox.session(python="3.15.1")

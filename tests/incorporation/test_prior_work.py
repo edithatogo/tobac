@@ -42,8 +42,8 @@ def test_real_preserved_payload() -> None:
     result = load().verify(ROOT)
     manifest = json.loads((ROOT / "integration/prior_work_manifest.json").read_text())
     assert result["status"] == "pass"
-    assert result["files"] == 19
-    assert result["files"] == len(manifest["files"])
+    assert result["files"] == 17
+    assert result["catalogued_files"] == len(manifest["files"])
     # The 298-row total is a golden number that is also restated in the receipts and
     # docs; asserting it against the verifier's own recount of the ACTUAL files (not
     # the manifest's rows fields) breaks a coordinated file+manifest drift: changing
@@ -53,7 +53,7 @@ def test_real_preserved_payload() -> None:
     assert result["bibliography_records"] == 28
     assert result["bibliography_records"] == len(manifest["source_ids"])
     assert result["automatically_conditions_live_model"] is False
-    assert result["scope"] == "preservation_and_internal_linkage_not_scientific_validation"
+    assert result["scope"] == "public_preservation_and_internal_linkage_local_documents_not_verified"
 
 
 def test_missing_file_fails(snapshot) -> None:

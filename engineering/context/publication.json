@@ -8,8 +8,6 @@
     "conductor/tracks.md",
     "docs/WORKSTREAM_SYNC.md",
     "docs/evidence_interface.md",
-    "docs/research/M2_PUBLICATION_PROTOCOL.md",
-    "docs/research/M2_PUBLICATION_ETHICS.md",
     "src/tobac/retail_case.py",
     "src/tobac/value_sensitivity.py",
     "scripts/run_m2_publication.py",

@@ -17,6 +17,14 @@ PREFIX = "evidence/prior_work/v2.9.0/"
 MANIFEST = "integration/prior_work_manifest.json"
 SUBSET = "subset_by_source_ID_exact_record_objects_reformatted"
 SUBSET_CANONICAL_DOI = "subset_by_source_ID_exact_record_objects_reformatted_canonical_doi"
+LOCAL_DOCUMENTS = {
+    "evidence/prior_work/v2.9.0/requests/LONGITUDINAL_DATA_ADDENDUM_v2.7.0.md": (
+        "95b92297b51f251873a18adcf2e0c2bd25d13a042e2713f1dcef9b77cbfd2e1d"
+    ),
+    "evidence/prior_work/v2.9.0/requests/empirical_20261024/R05_ASSAY_PERFORMANCE_ADDENDUM_v2.6.0.md": (
+        "92ebf7c34c4e59cff318e124c185475b4822f215654f058a573779ebf2f68e9c"
+    ),
+}
 TRANSFORMS = {"none", "CRLF_to_LF_only", SUBSET, SUBSET_CANONICAL_DOI}
 
 
@@ -88,6 +96,7 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict[str, Any]:  #
         raise ValueError(msg)
     entries = cast("list[dict[str, Any]]", entries)
     seen: set[str] = set()
+    local_documents: list[str] = []
     rows_total = 0
     tokens: set[str] = set()
     references: list[dict[str, Any]] | None = None
@@ -106,6 +115,12 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict[str, Any]:  #
         ):
             msg = "Missing/invalid role, transformation or hash"
             raise ValueError(msg)
+        if name in LOCAL_DOCUMENTS:
+            if item["sha256"] != LOCAL_DOCUMENTS[name]:
+                msg = "Local document historical binding changed"
+                raise ValueError(msg)
+            local_documents.append(name)
+            continue
         data = checked_file(root, name).read_bytes()
         if sha(data) != item["sha256"]:
             msg = f"Content hash mismatch: {name}"
@@ -141,7 +156,7 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict[str, Any]:  #
     actual = {
         p.relative_to(root).as_posix() for p in (root / PREFIX).rglob("*") if p.is_file() or p.is_symlink()
     }
-    if actual != seen:
+    if actual != seen - set(local_documents):
         msg = "Unregistered or missing snapshot files"
         raise ValueError(msg)
     if references is None:
@@ -168,6 +183,8 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict[str, Any]:  #
                 if sha(raw) != item["archive_sha256"]:
                     msg = "Source member hash differs"
                     raise ValueError(msg)
+                if item["path"] in LOCAL_DOCUMENTS:
+                    continue
                 copied = checked_file(root, item["path"]).read_bytes()
                 if item["transformation"] in {SUBSET, SUBSET_CANONICAL_DOI}:
                     original = read_json(raw.decode("utf-8"))
@@ -192,12 +209,14 @@ def verify(root: Path = ROOT, archive: Path | None = None) -> dict[str, Any]:  #
         archive_checked = True
     return {
         "status": "pass",
-        "files": len(entries),
+        "files": len(entries) - len(local_documents),
+        "catalogued_files": len(entries),
+        "local_documents_not_verified": local_documents,
         "csv_rows": rows_total,
         "bibliography_records": len(ids),
         "source_archive_checked": archive_checked,
         "automatically_conditions_live_model": False,
-        "scope": "preservation_and_internal_linkage_not_scientific_validation",
+        "scope": "public_preservation_and_internal_linkage_local_documents_not_verified",
     }
 
 

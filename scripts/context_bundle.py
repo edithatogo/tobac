@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from jsonschema import Draft202012Validator
+from publication_boundary import POLICY, load_policy
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = ROOT / "engineering/context.schema.json"
@@ -49,6 +50,14 @@ def _path(root: Path, name: str) -> Path:
     return current
 
 
+def validate_public_paths(root: Path, names: list[str]) -> None:
+    """Keep local document paths out of public context profiles."""
+    if (root / POLICY).exists():
+        policy = load_policy(root)
+        if any(name not in policy.public_paths for name in names):
+            raise ValueError("Context path is not classified public")
+
+
 def build(root: Path, config: dict[str, Any]) -> tuple[dict[str, Any], str]:
     """Create a complete profile or fail; a budget overrun never truncates evidence."""
     schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
@@ -58,6 +67,7 @@ def build(root: Path, config: dict[str, Any]) -> tuple[dict[str, Any], str]:
     if not set(config.get("required_paths", [])) <= set(config["paths"]):
         raise ValueError("Context is missing required contracts")
     root = root.resolve()
+    validate_public_paths(root, config["paths"])
     commit = _git(root, "rev-parse", "HEAD")
     base = config["base_commit"]
     if base is not None and base != commit:
@@ -79,6 +89,11 @@ def build(root: Path, config: dict[str, Any]) -> tuple[dict[str, Any], str]:
         files.append({"path": name, "bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()})
         text += f"\n## {name}\n\n{content}\n"
     # Detect ordinary checkout changes during construction; not an adversarial filesystem lock.
+    if len(text.encode("utf-8")) > config["max_bytes"]:
+        raise ValueError("Serialized context byte budget exceeded")
+    for item in files:
+        if hashlib.sha256(_path(root, item["path"]).read_bytes()).hexdigest() != item["sha256"]:
+            raise ValueError("Source changed while building context")
     if _git(root, "rev-parse", "HEAD") != commit:
         raise ValueError("Checkout changed while building context")
     manifest = {

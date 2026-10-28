@@ -11,6 +11,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   longitudinal:
+    name: longitudinal
     runs-on: macos-latest
     timeout-minutes: 20
     env:
@@ -39,9 +40,15 @@ jobs:
       - run: python scripts/verify_empirical_longitudinal.py outputs/longitudinal_empirical
       - name: Compare regenerated tables with the checked-in results
         run: python scripts/check_longitudinal_results.py --empirical outputs/longitudinal_empirical --releases outputs/longitudinal_releases
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/longitudinal-1
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: success()
         with:
           name: empirical-longitudinal-results
-          path: outputs/
+          path: artifact-exports/longitudinal-1/
           if-no-files-found: warn
