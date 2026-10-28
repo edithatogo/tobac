@@ -113,5 +113,12 @@
   "post_dedup_workflow_security": {
     "status": "passed",
     "log_sha256": "857f97c75dde83571b1685057a15e6264de7730a0cceb3ab806b1a575a18e1bd"
+  },
+  "context_profile": {
+    "path": "engineering/context/macos-ci.json",
+    "max_bytes": 40000,
+    "reason": "General engineering context exceeded 80 kB; explicitly narrowed to current platform work without raising a budget",
+    "build": "passed",
+    "schema_test": "passed"
   }
 }

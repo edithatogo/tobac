@@ -61,3 +61,7 @@ the completed longitudinal run was preserved. Those cancellations are not failur
 of executed tests and are not passes. Exact new-head and receiving-main macOS jobs,
 artifact readback, signed package provenance and dependency submission are recorded
 in the platform-scope PR. The separate published Voiage 3.0.0 gate remains open.
+
+The general engineering context exceeded its 80 kB budget after documentation growth.
+A dedicated macos-ci profile selects this task's sources within 40 kB; its actual
+build and existing profile-schema test pass. No context or process limit was raised.

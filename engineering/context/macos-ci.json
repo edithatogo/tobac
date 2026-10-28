@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "profile": "macos-ci",
+  "max_bytes": 40000,
+  "paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md",
+    "conductor/roadmap.md",
+    "conductor/tracks/voiage_polars_qualification_20261026/plan.md",
+    ".github/workflows/engineering.yml",
+    ".github/workflows/engineering-deep.yml",
+    ".github/workflows/ci.yml",
+    ".github/workflows/longitudinal.yml",
+    ".github/workflows/research-m3.yml"
+  ],
+  "base_commit": null,
+  "required_paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md"
+  ]
+}
