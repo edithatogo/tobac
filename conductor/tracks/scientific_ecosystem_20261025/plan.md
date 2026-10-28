@@ -273,3 +273,44 @@ Receipt: integration/hypothesis_pr50_20261027.json. Review:
 docs/reviews/2026-10-27-hypothesis-pr50.md. Mandatory hosted and receiving-main
 publication results/merge identity are maintained in [PR #50](https://github.com/edithatogo/tobac/pull/50).
 The sole unchecked external managed-parser task stays open; no false archival.
+
+## Managed-parser recheck and review — 28 October 2026
+
+Current resumption base: 1df7680 (PR #60). Local macOS engineering implementation
+is complete. The unchecked service gate above remains unchecked; track status is
+externally blocked, not complete. This bounded recheck does not reopen deferred
+non-macOS work or invent an upstream/deployed-runtime success.
+
+- [x] Recheck latest root-inclusive managed run, pinned upstream source and PR state.
+- [x] Verify current supported snapshot acceptance and all submitted PURLs in native export.
+- [x] Review/apply current-status documentation fixes and execute local qualification 3ee5111.
+
+[Evidence](../../../integration/ecosystem/managed-parser-recheck_20261028.json):
+latest observed root-inclusive run 40446023419 failed at historical head 4ebc4af,
+rejecting >=3.15.1,<3.16 with tool_version_not_supported. It is not a new current-head
+probe. Inspected upstream main lists through 3.14.9. PR #16525 is open/out of draft
+and its pinned candidate lists 3.15.2; it is not merged or qualified as deployed.
+No project runtime patch is changed by inspecting a service-owned version list.
+
+The supported snapshot at base 1df7680 returned SUCCESS (115181647). All 113
+submitted PURLs appear in the current 124-PURL native export, none missing. The
+first export read returned HTTP500 generation timeout; one deliberate repeat of
+the same read-only target succeeded, with both outcomes retained. All 14 base-main
+checks pass, including eight macOS qualification sessions; exact native evidence
+is in PR #60. This does not make the managed root-parser failure successful.
+
+Closure requires deployed support and an actual fresh root-inclusive job accepting
+the unchanged requirement at reviewed current inputs, followed by receiving-identity
+and graph-content verification. Do not rerun obsolete graph-writing jobs against
+old commits or fabricate a root success from an engineering-directory job. No
+external message or service-setting change is authorised or performed by this recheck.
+
+Local full tests/strict_all/security at 3ee5111 pass: 1,030 tests, five capability
+skips, 92% coverage; zero typing diagnostics and no known audited vulnerabilities.
+Sampled guard peak 810.7 MiB, exit 0, unchanged 4 GiB/40-minute budgets. Review fixes
+correct source/status attribution, macOS scope and obsolete issue #1 coordination
+language. Runtime, library inputs, locks, scientific code/results, full-SHA pins and
+workflows remain unchanged; their exact-base reproduction/clean-package/recovery
+and artifact evidence at 1df7680 is reused. Final-head native acceptance and guarded
+publication are recorded after execution in the associated PR; no root success is
+inferred. This is a blocked external-service track, not a completed/archived track.

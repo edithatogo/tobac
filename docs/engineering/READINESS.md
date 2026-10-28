@@ -345,3 +345,17 @@ still lacks Python 3.15 support (run 40325526891, upstream issue 16524); a later
 engineering-directory graph success does not prove root-parser compatibility.
 The supported resolved-lock snapshot submission and complete native graph readback
 remain qualified. No check or runtime requirement is waived.
+
+## Current managed-parser acceptance recheck — 28 October 2026
+
+The bounded macOS ecosystem implementation remains qualified. At main 1df7680,
+all 14 project checks and eight macOS sessions passed. Supported dependency snapshot
+115181647 was accepted; all 113 submitted PURLs are in the current 124-PURL native
+export. [Current evidence](../../integration/ecosystem/managed-parser-recheck_20261028.json).
+
+The latest observed root-inclusive managed-parser run is 40446023419, a historical
+head failing the unchanged >=3.15.1,<3.16 requirement. Upstream PR #16525 is now out
+of draft but unmerged; its listed interpreter is not deployed-service acceptance.
+A fresh root-inclusive service run and graph readback remain required to close the
+Scientific ecosystem track. Older engineering-only successes and the supported
+submission route must not be relabelled as that root-service success.

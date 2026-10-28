@@ -1,0 +1,57 @@
+{
+  "schema": "tobac.ecosystem-parser-local-qualification.v1",
+  "source_commit": "3ee5111a7090e24de18c53afbe64667243fc4327",
+  "python": "3.15.1",
+  "sessions": [
+    {
+      "args": {},
+      "name": "tests",
+      "result": "success",
+      "result_code": 1,
+      "reason": null,
+      "signatures": [
+        "tests",
+        "tests-3.15.1"
+      ],
+      "duration": 54.17709204199946
+    },
+    {
+      "args": {},
+      "name": "strict_all",
+      "result": "success",
+      "result_code": 1,
+      "reason": null,
+      "signatures": [
+        "strict_all",
+        "strict_all-3.15.1"
+      ],
+      "duration": 7.691036707999956
+    },
+    {
+      "args": {},
+      "name": "security",
+      "result": "success",
+      "result_code": 1,
+      "reason": null,
+      "signatures": [
+        "security",
+        "security-3.15.1"
+      ],
+      "duration": 9.931808416999957
+    }
+  ],
+  "pytest": {
+    "passed": 1030,
+    "skipped": 5,
+    "coverage_percent": 92
+  },
+  "basedpyright": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "sampled_peak_mib": 810.7,
+  "exit_status": 0,
+  "log_sha256": "599bc4cfc440f4eb6e6c14b0ee107250088f7de734bcf215c5654c499fe2c694",
+  "nox_report_sha256": "d01cac568888c167d07cbbabe26e73b1530ac97ec403ff6d8c5fdf2a1138c425",
+  "scope": "Full tests, strict lint/format/type and security executed. Numerical/model/lock/workflow bytes unchanged; prior exact-base native reproduction/clean-package/recovery and signed artifacts reused. Later fixes change only status documentation/review records. Final-head hosted qualification remains in associated PR; root service gate stays blocked."
+}

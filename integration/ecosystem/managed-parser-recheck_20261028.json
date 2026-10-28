@@ -1,0 +1,105 @@
+{
+  "schema": "tobac.ecosystem-parser-recheck.v1",
+  "review_date": "2026-10-28",
+  "checked_repository_main": "1df7680edbe64d483357e2fc9c59549760acfc89",
+  "scope": "Read-only service/upstream/graph recheck and status corrections; no runtime, dependency, security setting or workflow changes",
+  "current_project_python": "3.15.1",
+  "requirement": ">=3.15.1,<3.16",
+  "root_managed_parser": {
+    "run": 40446023419,
+    "url": "https://github.com/edithatogo/tobac/actions/runs/40446023419",
+    "head_sha": "4ebc4af5f0b4fa7620b06052f124b0b20f6eade9",
+    "conclusion": "failure",
+    "is_current_repository_head": false,
+    "claim": "Latest observed root-inclusive managed run; historical head, not a newly executed current-head probe",
+    "error": "tool_version_not_supported",
+    "supported_versions_in_log": "3.10.*, 3.11.*, 3.12.*, 3.13.*, 3.14.*",
+    "log_sha256": "13d03c091becce63f3289609e41e5ab49bc920559d4ad952a7d0e59550ca6224"
+  },
+  "upstream_issue": {
+    "url": "https://github.com/dependabot/dependabot-core/issues/16524",
+    "state": "open",
+    "updated_at": "2026-10-25T16:54:23Z"
+  },
+  "upstream_pull_request": {
+    "base": "619c4911bdbf0a22203881410976d5bb716e9d65",
+    "draft": false,
+    "head": "db5c232f1259f7a667622834eaedc1088643c06d",
+    "mergeable_state": "behind",
+    "merged": false,
+    "state": "open",
+    "updated_at": "2026-10-27T20:28:10Z",
+    "url": "https://github.com/dependabot/dependabot-core/pull/16525"
+  },
+  "upstream_main": {
+    "commit": "510dd5e861be74ddc533083fe8b9953a66670f2f",
+    "blob_sha": "bd38cce5a9a381dd0180f25a98f4a3aafece2d96",
+    "file_sha256": "6db7958bd72e06e7e1e322d1588029239c7e650eeecd9fc433f073c6c286362a",
+    "versions": [
+      "3.14.9",
+      "3.13.17",
+      "3.12.13",
+      "3.11.15",
+      "3.10.20"
+    ],
+    "path": "outputs/engineering/ecosystem-parser-upstream/main-language.rb"
+  },
+  "upstream_candidate": {
+    "commit": "db5c232f1259f7a667622834eaedc1088643c06d",
+    "blob_sha": "5d845bfb67145493e27dfc1aee39cccdcc7ec519",
+    "file_sha256": "f339920928ed1ccd86f9b0747d85e7e013f825f6ffe7cd0ca9c155b5ea6575d4",
+    "versions": [
+      "3.15.2",
+      "3.14.9",
+      "3.13.17",
+      "3.12.13",
+      "3.11.15",
+      "3.10.20"
+    ],
+    "path": "outputs/engineering/ecosystem-parser-upstream/candidate-language.rb"
+  },
+  "upstream_boundary": "Candidate preinstalled version list includes 3.15.2, but PR unmerged; neither source listing nor future merge establishes deployment in GitHub managed graph service or qualifies the project on another Python patch.",
+  "supported_snapshot": {
+    "source_sha": "1df7680edbe64d483357e2fc9c59549760acfc89",
+    "ref": "refs/heads/main",
+    "job": {
+      "id": "40655753746",
+      "correlator": "tobac-resolved-python315-locks"
+    },
+    "python": "3.15.1",
+    "response": {
+      "id": 115181647,
+      "created_at": "2026-10-28T08:19:50.845Z",
+      "result": "SUCCESS",
+      "message": "Dependency results for the repo have been successfully updated."
+    },
+    "profiles": [
+      "engineering/audit.lock",
+      "engineering/ecosystem.lock",
+      "engineering/requirements.lock",
+      "engineering/voiage.lock"
+    ],
+    "submitted_purls": 113,
+    "native_export_purls": 124,
+    "missing_submitted_purls": [],
+    "snapshot_sha256": "0a01ef116db67bcb070aad99070de2407ba0f1b4b7ca3807c5575490e244444b",
+    "native_export_sha256": "57c032dbf9af8d04ff3c4ca54ed05826396c948c9f500ce8c7442d5e9ee4d0a2",
+    "initial_export_read": "HTTP500 server generation timeout, retained separately; one deliberate repeat of same read-only target succeeded",
+    "initial_export_error_sha256": "e3bf9392b63b06f42e4b7f0ec7c3a3da62d5521de626b76cda4364316dbe3bfe",
+    "scope": "Native export contains every submitted locked PURL; no claim of inferred edges, runtime-only scope, active alerts or root-parser success",
+    "committed_lock_bytes_verified": true
+  },
+  "checked_base_jobs": {
+    "checks": 14,
+    "success": 14,
+    "engineering_run": 40655753746,
+    "macos_eight_sessions": "success at exact checked base; native artifact/attestation readback in PR60"
+  },
+  "unchanged_security_policy": "Renovate remains sole update-PR provider; full-SHA Action pins, audits, graph and all existing checks retained. No settings writes or external messages.",
+  "closure_criteria": [
+    "Upstream support must be deployed in the managed service; a merged source PR alone is insufficient.",
+    "A fresh root-inclusive managed job must successfully handle the unchanged project Python requirement at a reviewed current commit.",
+    "Verify the receiving SHA/input identities and actual graph contents, preserving supported snapshot submission and audits."
+  ],
+  "disposition": "Local macOS implementation complete; external managed-parser acceptance remains blocked. Do not check off or archive this track as fully complete."
+}
