@@ -56,3 +56,9 @@ The local SIGBUS event is retained in
 established. No owned descendants remained, and no failed run was relabelled as
 a pass. Full qualification continues on the existing hosted platform jobs.
 No requests, contacts, captures, scientific input changes or submissions occurred.
+
+The first pre-push hook also terminated with SIGBUS before completion. The old
+checkout bootstrap environment was preserved; a fresh checkout-local `.venv`
+using the already-installed Homebrew Python 3.15.1 passed its version and bounded
+stdlib/publication-module probe. Global runtimes and other environments were not
+modified. The ordinary pre-push guard is retained and must succeed before push.
