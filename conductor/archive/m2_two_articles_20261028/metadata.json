@@ -1,0 +1,11 @@
+{
+  "track_id": "m2_two_articles_20261028",
+  "title": "M2 two-article development and original-remit assessment",
+  "type": "research",
+  "status": "completed",
+  "created_at": "2026-10-28",
+  "base_commit": "460aa8a289ea03cb0330a0b4568bc30effb4690c",
+  "issue": 3,
+  "completed_at": "2026-10-28",
+  "completion_scope": "bounded two-article preparation, original-remit assessment, self-review and recorded local qualification; native repository acceptance in associated PR"
+}

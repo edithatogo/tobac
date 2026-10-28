@@ -4,25 +4,26 @@
 
 The two manuscript sources make distinct contributions and preserve the original
 wastewater/disagreement remit with an explicit partial-support boundary; review
-fixes are applied and final full qualification remains to be executed.
+fixes are applied and all five local session scopes pass across the recorded runs; native outcomes follow in the associated PR.
 
 ## Verification Checks
 
 - [x] **Plan Compliance**: Yes. MDM research article, NZMJ Viewpoint, remit/assumption
   assessment, source/claim tables, overlap matrix and author/formal gaps are explicit.
 - [x] **Style Compliance**: Plain scientific prose, no new source code or dependency,
-  measured article limits and standalone scope; final strict checks pending.
+  measured article limits and standalone scope; strict lint/format/type checks pass.
 - [x] **New Tests**: No production tests added for documentary changes. An independent
   finite enumeration verifies the new conditional algebra and its failure boundary.
 - [x] **Test Coverage**: Numerical results/core/configuration/interfaces remain unchanged;
   complete original package hash sets and identical MDM results prose verified.
-- [ ] **Test Results**: Full five-session local qualification pending after final commit.
+- [x] **Test Results**: 1,030 passed, five capability skips, 92% coverage. All five
+  local session scopes verified; the failed guard invocation is retained explicitly.
 
 ## Findings and applied fixes
 
 ### Medium: preserve the original remit without claiming measured depolarisation
 
-- **File**: docs/research/M2_NZMJ_VIEWPOINT.md; M2_MDM_ARTICLE.md section 4.2.
+- **File**: docs/research/M2_NZMJ_VIEWPOINT.md; M2_MDM_ARTICLE.md lines 345–369.
 - **Context**: A generic evidence-audit commentary would miss the owner's purpose;
   calling existing EVSI the value of ending ideology would overstate the analysis.
 - **Suggestion applied**: centre the wastewater/disagreement/decision-value argument,
@@ -31,7 +32,7 @@ fixes are applied and final full qualification remains to be executed.
 
 ### Medium: conditional uptake and study worth
 
-- **File**: docs/research/M2_DISAGREEMENT_SCOPE.md, prospective bridge.
+- **File**: docs/research/M2_DISAGREEMENT_SCOPE.md lines 31–65; NZMJ Viewpoint lines 110–124.
 - **Context**: Multiplying gross EVSI by a generic uptake probability is invalid when
   response depends on the report/state or changes the fallback policy. Normalised
   scores cannot be compared to a laboratory invoice.
@@ -81,3 +82,30 @@ Author facts, personal final approval and applicable institutional/formal determ
 remain open; neither software verification nor a Viewpoint label supplies them.
 No requests, contacts, registrations, deposits, journal/ethics submissions or consent
 claims. Final full local and native repository outcomes are recorded after execution.
+
+## Executed final qualification
+
+At b86ca97, tests and strict_all passed (1,030 tests, five capability skips, 92%
+coverage; zero BasedPyright errors/warnings; Ruff and formatting pass). The overall
+first guard invocation then failed closed when its native ps probe exceeded the
+fixed five-second timeout during reproduction, at 844.8 MiB sampled RSS; it was
+not a memory/time budget breach. Owned descendants were cleaned. Three subsequent
+exact ps probes returned in 0.043–0.047 seconds; OS load and swap readbacks are
+retained without claiming a proven deeper cause. No unrelated process was stopped.
+
+After diagnosis, one deliberate bounded invocation ran the unfinished reproduce,
+clean_package and security sessions successfully, at the same source and unchanged
+4 GiB/40-minute limits. Peak 687.8 MiB, exit 0. The original failure is not marked
+successful. No automatic retry or resource-budget increase was used. Security audit:
+no known vulnerabilities; existing workflow policy passes. Whole-paper clean-source
+replay matches all 29 CSV tables and scientific JSON fields with zero difference.
+
+[Executed local receipt](../../integration/m2_two_articles_20261028/local-qualification.json)
+and [monitor diagnosis](../../integration/m2_two_articles_20261028/resource-probe-diagnosis.json).
+Committed-source manuscript/formula audit at 53aca6a passes, 53.9 MiB peak. NZMJ:
+1,400 words before references, 1,571 including references; seven references, one table,
+no figure/subheadings. MDM conservative body count 3,383. Fourteen source IDs, twelve
+claim links, eight assumptions, 34 reporting topics and 16 local links cross-check.
+All original package hashes remain unchanged. There are no unresolved self-review
+findings; author facts/personal approval and any applicable formal determinations
+remain external publication-readiness matters, not silently completed gates.

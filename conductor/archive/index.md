@@ -90,3 +90,13 @@ literature, 13-specification robustness, all 34 reporting topics and independent
 reproduction complete. Five local qualification sessions pass; native repository
 acceptance recorded in associated PR. Author/formal matters and issue #3 empirical
 gates remain open. No requests or submissions.
+
+## M2 two-article development and original-remit assessment
+
+[Plan](m2_two_articles_20261028/plan.md) and
+[specification](m2_two_articles_20261028/spec.md). Distinct MDM research article and
+NZMJ Viewpoint prepared and self-reviewed. Wastewater/factual-disagreement remit
+preserved; actual ideological convergence and its societal benefit are not estimated.
+All five local qualification scopes pass across recorded runs, with the initial
+monitor timeout/failure preserved. Native acceptance recorded in associated PR.
+No requests/submissions; empirical and author/formal readiness gaps remain.

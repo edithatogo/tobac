@@ -1,0 +1,33 @@
+{
+  "review_date": "2026-10-28",
+  "failed_run": "outputs/engineering/m2-two-articles-local.log",
+  "failure": "ps RSS probe timed out after fixed 5 seconds; resource guard returned 1 and cleaned owned process group",
+  "sampled_peak_before_failure_mib": 844.8,
+  "memory_budget_mib": 4096,
+  "elapsed_budget_seconds": 2400,
+  "budget_breach": false,
+  "root_cause": "One native ps timeout observed; deeper OS cause not established. Subsequent exact probes respond normally.",
+  "exact_probe_readback": [
+    {
+      "seconds": 0.04418754100015576,
+      "rows": 1524,
+      "exit_status": 0
+    },
+    {
+      "seconds": 0.043325499999809836,
+      "rows": 1526,
+      "exit_status": 0
+    },
+    {
+      "seconds": 0.04688175000001138,
+      "rows": 1525,
+      "exit_status": 0
+    }
+  ],
+  "host_readback": {
+    "load": "17:57  up  1:56, 1 user, load averages: 54.29 88.77 92.19",
+    "memory": "The system has 34359738368 (2097152 pages with a page size of 16384).\nSystem-wide memory free percentage: 41%",
+    "swap": "vm.swapusage: total = 26624.00M  used = 24978.12M  free = 1645.88M  (encrypted)"
+  },
+  "continuation": "One deliberate continuation of unfinished read-only reproduce/clean_package/security after diagnostics, unchanged limits; completed tests/strict_all evidence reused. No automatic retry, native mutation retry or unrelated process termination."
+}

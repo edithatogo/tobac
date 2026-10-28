@@ -1,0 +1,268 @@
+{
+  "schema": "tobac.m2-two-articles-local-qualification.v1",
+  "source_commit": "b86ca97108a3b8ef3c2b04f37f40355708051628",
+  "python": "3.15.1",
+  "completed_sessions_in_initial_failed_guard_run": [
+    "tests",
+    "strict_all"
+  ],
+  "initial_overall_guard_status": 1,
+  "initial_failure": "Native ps sampling probe timeout; no budget breach. See resource-probe-diagnosis.json.",
+  "initial_peak_before_failure_mib": 844.8,
+  "continuation_sessions": [
+    {
+      "args": {},
+      "name": "reproduce",
+      "result": "success",
+      "result_code": 1,
+      "reason": null,
+      "signatures": [
+        "reproduce",
+        "reproduce-3.15.1"
+      ],
+      "duration": 237.13106533300015
+    },
+    {
+      "args": {},
+      "name": "clean_package",
+      "result": "success",
+      "result_code": 1,
+      "reason": null,
+      "signatures": [
+        "clean_package",
+        "clean_package-3.15.1"
+      ],
+      "duration": 26.6820588329997
+    },
+    {
+      "args": {},
+      "name": "security",
+      "result": "success",
+      "result_code": 1,
+      "reason": null,
+      "signatures": [
+        "security",
+        "security-3.15.1"
+      ],
+      "duration": 12.960877749999781
+    }
+  ],
+  "continuation_guard_peak_mib": 687.8,
+  "continuation_guard_status": 0,
+  "pytest": {
+    "passed": 1030,
+    "skipped": 5,
+    "coverage_percent": 92
+  },
+  "typing_errors": 0,
+  "typing_warnings": 0,
+  "all_five_session_scopes_verified_across_recorded_runs": true,
+  "no_limit_change_or_native_mutation_retry": true,
+  "paper_replay": {
+    "passed": true,
+    "source_commit": "b86ca97108a3b8ef3c2b04f37f40355708051628",
+    "source_tree": "4367b8c22f008fd7faff6a863eace0500d8203c4",
+    "clone_commit": "b86ca97108a3b8ef3c2b04f37f40355708051628",
+    "clone_tree": "4367b8c22f008fd7faff6a863eace0500d8203c4",
+    "python": "3.15.1",
+    "interpreter": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/.nox/reproduce/bin/python",
+    "imported_source": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/replays/fa4602d274de4475a9df19d3e1195b77/paper_replay/source/src/tobac/__init__.py",
+    "absolute_tolerance": 1e-10,
+    "comparisons": {
+      "primary": {
+        "tables": [
+          {
+            "table": "consequences.csv",
+            "rows": 20,
+            "maximum_absolute_difference": 0.0,
+            "path": "consequences.csv"
+          },
+          {
+            "table": "decisions.csv",
+            "rows": 125,
+            "maximum_absolute_difference": 0.0,
+            "path": "decisions.csv"
+          },
+          {
+            "table": "consequences.csv",
+            "rows": 20,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/consequences.csv"
+          },
+          {
+            "table": "decisions.csv",
+            "rows": 125,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/decisions.csv"
+          },
+          {
+            "table": "grouped_evppi.csv",
+            "rows": 875,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/grouped_evppi.csv"
+          },
+          {
+            "table": "robustness.csv",
+            "rows": 5,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/robustness.csv"
+          },
+          {
+            "table": "scientific_information.csv",
+            "rows": 90,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/scientific_information.csv"
+          },
+          {
+            "table": "source_use.csv",
+            "rows": 35,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/source_use.csv"
+          },
+          {
+            "table": "study_value.csv",
+            "rows": 750,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/study_value.csv"
+          },
+          {
+            "table": "thresholds.csv",
+            "rows": 19,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/thresholds.csv"
+          },
+          {
+            "table": "consequences.csv",
+            "rows": 20,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/consequences.csv"
+          },
+          {
+            "table": "decisions.csv",
+            "rows": 125,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/decisions.csv"
+          },
+          {
+            "table": "grouped_evppi.csv",
+            "rows": 875,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/grouped_evppi.csv"
+          },
+          {
+            "table": "robustness.csv",
+            "rows": 5,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/robustness.csv"
+          },
+          {
+            "table": "scientific_information.csv",
+            "rows": 90,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/scientific_information.csv"
+          },
+          {
+            "table": "source_use.csv",
+            "rows": 35,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/source_use.csv"
+          },
+          {
+            "table": "study_value.csv",
+            "rows": 750,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/study_value.csv"
+          },
+          {
+            "table": "thresholds.csv",
+            "rows": 19,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/thresholds.csv"
+          },
+          {
+            "table": "grouped_evppi.csv",
+            "rows": 875,
+            "maximum_absolute_difference": 0.0,
+            "path": "grouped_evppi.csv"
+          },
+          {
+            "table": "robustness.csv",
+            "rows": 5,
+            "maximum_absolute_difference": 0.0,
+            "path": "robustness.csv"
+          },
+          {
+            "table": "scientific_information.csv",
+            "rows": 90,
+            "maximum_absolute_difference": 0.0,
+            "path": "scientific_information.csv"
+          },
+          {
+            "table": "source_use.csv",
+            "rows": 35,
+            "maximum_absolute_difference": 0.0,
+            "path": "source_use.csv"
+          },
+          {
+            "table": "study_value.csv",
+            "rows": 750,
+            "maximum_absolute_difference": 0.0,
+            "path": "study_value.csv"
+          },
+          {
+            "table": "thresholds.csv",
+            "rows": 19,
+            "maximum_absolute_difference": 0.0,
+            "path": "thresholds.csv"
+          }
+        ],
+        "maximum_report_difference": 0
+      },
+      "robustness": {
+        "tables": [
+          {
+            "table": "decisions.csv",
+            "rows": 1625,
+            "maximum_absolute_difference": 0.0,
+            "path": "decisions.csv"
+          },
+          {
+            "table": "grouped_evppi.csv",
+            "rows": 11375,
+            "maximum_absolute_difference": 0.0,
+            "path": "grouped_evppi.csv"
+          },
+          {
+            "table": "scientific_information.csv",
+            "rows": 1170,
+            "maximum_absolute_difference": 0.0,
+            "path": "scientific_information.csv"
+          },
+          {
+            "table": "study_value.csv",
+            "rows": 9750,
+            "maximum_absolute_difference": 0.0,
+            "path": "study_value.csv"
+          },
+          {
+            "table": "summary.csv",
+            "rows": 13,
+            "maximum_absolute_difference": 0.0,
+            "path": "summary.csv"
+          }
+        ],
+        "maximum_report_difference": 0
+      }
+    },
+    "scope": "Fresh committed sources; no source-download command during replay. Reuses qualified dependencies; not a fresh/offline install or OS network isolation.",
+    "no_requests_or_submissions": true
+  },
+  "log_sha256": {
+    "outputs/engineering/m2-two-articles-local.log": "fe0c8ff53a3b560d4dee7401963f3adcb7c66d986d931df74279f6dee1753871",
+    "outputs/engineering/m2-two-articles-local-continuation.log": "15e98221b043a44a48ffba24bb8b3d37d8bc2734f1d1b41de181a3da60bcf4a1",
+    "outputs/engineering/m2-two-articles-local-continuation-nox.json": "fedc3d15435b0850c603e1c00d34510976aea27e9c43dd4eb7266f8411db28f4",
+    "outputs/engineering/replays/fa4602d274de4475a9df19d3e1195b77/paper_replay/receipt.json": "abffa4d21d22d86a01ae752a7384e97ce254e4e2c4566a119711e29d72c39a2d"
+  },
+  "scope": "Executed local qualification; first guard failure retained, completed tests/strict evidence reused and three unfinished read-only sessions deliberately executed once after diagnostics. Later documentary closeout reuses unchanged evidence; exact-head/main native acceptance in associated PR.",
+  "no_requests_or_submissions": true
+}

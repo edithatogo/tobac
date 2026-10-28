@@ -52,5 +52,6 @@
   bounded manuscript, public literature, robustness, reporting and reproduction complete;
   author/formal matters and issue #3 empirical gates remain explicit.
 
-- [M2 two-article development](./tracks/m2_two_articles_20261028/plan.md):
-  original-remit assessment, distinct MDM article and NZMJ Viewpoint.
+- [M2 two-article development](./archive/m2_two_articles_20261028/plan.md):
+  completed original-remit assessment, distinct MDM article and NZMJ Viewpoint;
+  author/formal facts and empirical identification remain open.

@@ -1,6 +1,6 @@
 # Implementation plan
 
-Status: [~] In progress. Base: 460aa8a289ea03cb0330a0b4568bc30effb4690c.
+Status: [x] Bounded manuscript development and self-review complete. Base: 460aa8a289ea03cb0330a0b4568bc30effb4690c.
 
 ## A: Remit and sources
 - [x] Record the original-remit capability assessment and article separation.
@@ -15,9 +15,9 @@ Status: [~] In progress. Base: 460aa8a289ea03cb0330a0b4568bc30effb4690c.
 
 ## C: Review and qualification
 - [x] Iterative Conductor self-review and fixes.
-- [ ] Full bounded local tests, strict_all, reproduce, clean_package and security.
-- [ ] Record executed scope, commits and remaining gaps; archive completed bounded track.
-- [ ] Prepare guarded publication and native acceptance record in associated PR.
+- [x] Full bounded local tests, strict_all, reproduce, clean_package and security.
+- [x] Record executed scope, commits and remaining gaps; archive completed bounded track.
+- [x] Prepare guarded publication and native acceptance record in associated PR.
 
 Native exact-head/receiving-main checks and artifact acceptance are recorded after
 execution, not predeclared here. No requests or submissions.
@@ -34,3 +34,20 @@ both original package hash sets preserved and MDM results prose exactly identica
 NZMJ draft remains below 2,000 words even including references. Independent uptake
 fixture passes at four probabilities and rejects a report-dependent average shortcut.
 All author/formal gaps remain explicit. Full local qualification follows.
+
+Final local qualification at b86ca97: tests/strict_all completed successfully before
+an initial ps sampling timeout stopped the guard (status 1, peak 844.8 MiB). This
+failure remains retained. After exact native probes recovered, one deliberate
+unchanged-budget continuation passed reproduce/clean_package/security (687.8 MiB,
+exit 0). All five session scopes verified across these recorded invocations; not
+claimed as one successful five-session run. Full suite 1,030 passed/five capability
+skips, coverage 92%; lint/format/type/security pass. Clean-source replay: 29 tables
+and scientific report fields match exactly. No code/runtime/security changes.
+
+Review fixes 53aca6a, bound preparation/audit b86ca97. This closeout changes only
+Conductor/review/qualification records. Product purpose, stack and guidelines need
+no substantive change. The bounded completed track is archived; empirical issue #3
+and author/formal readiness remain open. Guarded PR publication and native exact-head/
+receiving-main checks, graph and signed package readback are terminal operations
+recorded in the associated PR after execution; none is predeclared passed here.
+No requests or submissions.

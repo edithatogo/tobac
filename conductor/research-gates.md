@@ -161,3 +161,23 @@ Issue #3 remains open for empirical identification and stronger applied claims.
 Authorship/order/contributions/affiliations, actual funding/interests, final journal
 and applicable institutional/site/cultural determinations remain author/formal
 matters. No requests, contacts, submissions, deposits or invented approvals.
+
+## Two-article direction and original remit — 28 October 2026
+
+The owner selected [MDM research](../docs/research/M2_MDM_ARTICLE.md) and a distinct
+[NZMJ Viewpoint](../docs/research/M2_NZMJ_VIEWPOINT.md). The latter centres on whether
+tobacco wastewater testing could narrow factual disagreement and how a decision
+model could assess the conditional worth of information. This supersedes a generic
+evidence-audit-only NZMJ framing and the earlier unselected-target status for these
+drafts. [Strategy and overlap](../docs/research/M2_TWO_ARTICLE_STRATEGY.md) distinguish
+contributions; all numerical results belong to the MDM paper.
+
+Existing EVSI does not estimate ideological convergence, persuasion, actual evidence
+uptake or societal gains from consensus. The [prospective uptake/cost bridge](../docs/research/M2_DISAGREEMENT_SCOPE.md)
+is explicitly conditional algebra; no uptake probability, actual study/delay costs
+or common welfare objective is fitted. Issue #3's empirical identification gaps
+remain. [Author/formal facts](../docs/research/M2_TWO_ARTICLE_DECLARATIONS.md), personal
+final approval and applicable institutional/cultural determinations remain open.
+Local manuscript/source/formula and qualification evidence is retained; native
+exact-head/main acceptance is recorded in the associated PR. No requests, contacts,
+registrations, deposits or journal/ethics submissions.
