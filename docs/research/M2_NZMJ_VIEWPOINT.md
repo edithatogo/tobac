@@ -91,8 +91,8 @@ decision value if it concerns a quantity that does not affect the choice. A less
 precise measurement can have greater value if it distinguishes states requiring
 different actions. Information gain and policy value are therefore separate criteria.
 
-A companion conditional analysis, identified in the preparation record, applies
-this reasoning to synthetic tobacco-policy choices. It examines how policy and
+A companion manuscript, *Value-sensitive research priorities for tobacco regulation:
+a conditional decision analysis* (unpublished), applies this reasoning to synthetic tobacco-policy choices. It examines how policy and
 research priorities depend on values, uncertain consequences and hypothetical
 report performance. It does not fit an empirical New Zealand likelihood or model
 political actors. Its numerical results belong to that research article; this
@@ -142,6 +142,13 @@ Wastewater testing is therefore best considered as a potentially useful componen
 of a decision-linked evidence strategy. Its value depends on what it can identify,
 which decisions it could improve and the cost of doing so. That is a more limited,
 but testable, proposition than expecting a measurement to resolve ideology.
+
+## Transparency
+
+AI assistance was used for literature discovery, source-checking support and drafting.
+Sources were checked against public originals where accessible, with access limits
+recorded separately. Human authors retain responsibility for verification and final
+approval. No new participant data were collected for this Viewpoint.
 
 ## References
 

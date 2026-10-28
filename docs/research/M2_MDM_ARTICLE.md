@@ -28,7 +28,7 @@ The challenge baseline exactly reproduced primary decision and information table
 
 **Conclusions.** Conditional research priorities depend on value judgments and on
 assumptions about latent states and reports. The analysis provides an auditable
-illustration of that dependence, rather than a new VOI theorem, an observed NZ policy
+illustration of that dependence, rather than a new VOI theorem, an observed New Zealand policy
 effect, representative preferences or a recommendation to commission a study.
 
 ## 1. Introduction
@@ -61,7 +61,7 @@ what empirical information would be valuable, and reports the differences betwee
 
 ### 1.2 Applied context and contribution
 
-The motivating context is a hypothetical NZ tobacco-retailer reduction and its associated
+The motivating context is a hypothetical New Zealand (NZ) tobacco-retailer reduction and its associated
 research questions. The earlier source map found important mismatches between national
 supply releases, resident consumption, laboratory calibration and causal policy response.
 The historical approximately 600-retailer scheme did not supply an implemented,
@@ -82,7 +82,7 @@ uncertainty guidance ([Briggs et al., 2012](https://doi.org/10.1016/j.jval.2012.
 ### 2.1 Design and analysis sequence
 
 This is a synthetic, conditional decision analysis using published context and
-inherited model inputs. Earlier M 1/M 2/M 3 analyses predate the
+inherited model inputs. Earlier M1/M2/M3 analyses predate the
 [primary protocol](M2_PUBLICATION_PROTOCOL.md). The
 [readiness protocol](M2_READINESS_PROTOCOL.md) fixes the new challenge design before
 its execution and identifies its post-primary status. Neither protocol is preregistered.

@@ -32,20 +32,23 @@ new audience alone does not establish a second contribution. Related manuscripts
 any shared material must be disclosed in any later authorised submission, with copies
 and cross-references appropriate to status and blinded-review requirements. Do not
 claim that an unpublished companion is peer-reviewed or accepted. The current NZMJ
-source refers to the companion as an unpublished analysis through the preparation
-record; update the formal reference when actual bibliographic details exist.
+source identifies the companion by title as an unpublished manuscript; update the formal reference when actual bibliographic details exist.
 
-## Journal preparation audit — 28 October 2026
+## Journal preparation audit, 28 October 2026
 
 MDM guidance: format-free initial style, structured abstract, separate identifiable
 title page, declarations page, anonymised information page and anonymised main text.
 The current Markdown files are maintained manuscript/preparation sources, not a
-completed Word/TeX upload bundle. Public repository provenance means anonymity is
+completed Word/TeX upload bundle. Original research is the selected MDM category
+(<5,000 body words under the current category guidance), rather than an explainer
+or a case study claiming actual policy implementation. Public repository provenance means anonymity is
 not guaranteed by removing the title page. No repository visibility change follows.
 
 NZMJ Viewpoint: at most 2,000 words, 30 references, one table and one figure, a small
 number of headings and no subheadings. The draft has one table, no figure and seven
-references; measured word count and final audit are recorded after review. The
+references. Conservative whitespace counts, including headings and the table, are
+recorded in the executed review audit; the whole draft including references is
+also below 2,000 words. The
 argument is not recategorised as original research or a systematic review. No
 abstract is added as a claimed Viewpoint requirement. Numerical supplement belongs
 to the MDM paper, rather than being used to bypass Viewpoint limits.
@@ -64,3 +67,6 @@ The original M2_MANUSCRIPT.md and its package manifest remain immutable historic
 artifacts; the MDM article is its expressly identified revision, not another planned
 publication. Original numerical/configuration/core/M3 files are unchanged. The new
 package manifest binds the two maintained drafts and their provenance separately.
+
+Additional category guidance: https://www.journals.smdm.org/manuscript-types/
+(provider-reviewed primary page; not a newly captured native original).

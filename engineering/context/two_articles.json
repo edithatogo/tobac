@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "profile": "two_articles",
+  "max_bytes": 80000,
+  "paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md",
+    "docs/evidence_interface.md",
+    "docs/research/M2_MDM_ARTICLE.md",
+    "docs/research/M2_NZMJ_VIEWPOINT.md",
+    "docs/research/M2_DISAGREEMENT_SCOPE.md",
+    "docs/research/M2_TWO_ARTICLE_STRATEGY.md",
+    "docs/research/M2_TWO_ARTICLE_DECLARATIONS.md"
+  ],
+  "base_commit": null,
+  "required_paths": [
+    "AGENTS.md",
+    "docs/evidence_interface.md"
+  ]
+}

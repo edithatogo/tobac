@@ -6,6 +6,10 @@ an executed empirical model of political convergence or a new observation likeli
 
 ## Existing calculation
 
+Expected value of sample information (EVSI) measures decision value under a fixed
+objective. It is distinct from expected net benefit of sampling (ENBS), which also
+requires compatible incremental research costs.
+
 For a fixed objective u, prior p(theta), actions a and report Y with an explicitly
 specified likelihood:
 

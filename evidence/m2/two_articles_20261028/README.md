@@ -1,7 +1,7 @@
 # Two-article source and assumption tables
 
 Targeted public-source refresh on 28 October 2026, six search queries and seven
-capture targets. Thirteen source/document entries, twelve claim links, eight
+capture targets. Fourteen source/document entries, twelve claim links, eight
 explicit assumptions and the 34-topic MDM reporting crosswalk. This is not a new
 systematic literature review or a new empirical calibration. Source IDs join
 claim_table to source_index; DOI bibliographic checks are separately catalogued.
