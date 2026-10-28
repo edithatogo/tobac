@@ -18,7 +18,7 @@ Status: [~] In progress. Base: 4a6246c690ced7d9cd7e1758b5a91f0689aec442.
 - [x] Develop literature positioning, methods, results/discussion, references and supplement.
 - [x] Resolve synthetic numerical target versus applied target and audit all claim-to-output links.
 - [x] Complete applicable reporting crosswalks and explicit author/external readiness items.
-- [ ] Phase verification: substantive self-review of manuscript, bibliography, units and numerical claims.
+- [x] Phase verification: substantive self-review of manuscript, bibliography, units and numerical claims.
 
 ## D: Qualification and repository publication
 - [ ] Iterative Conductor review and fixes; full bounded five-session local qualification.
@@ -59,3 +59,8 @@ validation, bind transitive inputs, reject missing baseline profiles and check g
 for combined as well as standalone challenges. Focused33tests pass, peak394.5MiB.
 Initial generated artifacts remain in Git history and are preserved locally before
 refresh; primary snapshot remains immutable. Final full qualification is pending.
+
+Reviewed challenge execution at e950c51 passed, peak 614.6 MiB, exit 0.
+All five CSV files and scientific report fields exactly match the initial snapshot.
+Updated manifests bind source-ledger validation; original snapshot retained locally
+and in Git history. Manuscript, units, reporting and source references self-reviewed.

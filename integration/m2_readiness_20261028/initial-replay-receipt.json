@@ -194,7 +194,7 @@
   },
   "scope": "Fresh committed sources; no source-download command during replay. Reuses qualified dependencies; not a fresh/offline install or OS network isolation.",
   "no_requests_or_submissions": true,
-  "command": ".nox/tests/bin/python scripts/run_bounded.py --timeout2400 -- .nox/tests/bin/python scripts/qualify_publication_replay.py --out outputs/engineering/m2-readiness-first-paper-replay",
+  "command": ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/tests/bin/python scripts/qualify_publication_replay.py --out outputs/engineering/m2-readiness-first-paper-replay",
   "sampled_peak_mib": 717.2,
   "exit_status": 0,
   "actual_receipt_sha256": "afba3ed765d0c2bc58685596b4e4140fd656f964ca28de91be60f55fb2abbcb1",

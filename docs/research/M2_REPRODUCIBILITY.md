@@ -41,5 +41,11 @@ tracked checkout are refused. Private untracked metadata is not copied or delete
 The parent resource guard owns children and retains command logs. A resource breach
 is a failed run; sampled peaks are not evidence that memory leaks are impossible.
 
-Execution receipt and measured differences will be recorded after the first run.
+The first replay at b47b6e5 passed all 24 primary and five robustness CSV tables
+and every scientific report field, with zero numerical difference and a sampled
+peak of 717.2 MiB. The compact receipt is retained in
+[integration](../../integration/m2_readiness_20261028/initial-replay-receipt.json).
+A later reviewed robustness run at e950c51 also passed (614.6 MiB); all five
+CSV files and scientific report fields matched the initial snapshot exactly.
+Final local and hosted qualification are recorded separately after execution.
 No original-source request, external service, upload, deposit or submission.
