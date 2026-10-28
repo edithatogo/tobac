@@ -36,6 +36,57 @@ def test_current_inputs_remain_blocked_and_shared_returns_are_detected() -> None
     assert all(not row["metadata_compatible"] for row in rows.values())
 
 
+def test_lineage_inventory_covers_reviewed_assets_without_promoting_results() -> None:
+    report = module().lineage_inventory(ROOT)
+    policy = json.loads((ROOT / "engineering/publication-policy.json").read_text())
+    expected = {
+        path
+        for path in policy["public_paths"]
+        if path.startswith(("data/", "configs/", "evidence/", "results/"))
+    }
+    assert {item["path"] for item in report["files"]} == expected
+    assert report["native_lineage_verified"] is False
+    assert report["automatically_conditions_live_model"] is False
+    assert report["legacy_csv_inputs"] == 18
+    for item in report["files"]:
+        assert item["sha256"] == hashlib.sha256((ROOT / item["path"]).read_bytes()).hexdigest()
+        if item["path"].startswith("results/"):
+            assert item["category"] == "reference_output_not_observation"
+    assert "src/tobac/research/runner.py" in report["implementation_sha256"]
+
+
+def test_lineage_inventory_includes_new_evidence_without_inventing_native_source(synthetic) -> None:
+    root, _proposal, _objects = synthetic
+    path = root / "evidence/new-extract.csv"
+    path.parent.mkdir(exist_ok=True)
+    path.write_text("source_id,role,value\nnew-source,assumption,3\n")
+    policy = root / "engineering/publication-policy.json"
+    policy.parent.mkdir(exist_ok=True)
+    policy.write_text(json.dumps({"public_paths": ["evidence/new-extract.csv"]}))
+    item = module().lineage_inventory(root)["files"][0]
+    assert item["source_references"] == []
+    assert item["declared_row_metadata"]["role"] == ["assumption"]
+    assert item["native_lineage_verified"] is False
+
+
+def test_lineage_inventory_fails_on_missing_approved_asset(synthetic) -> None:
+    root, _proposal, _objects = synthetic
+    policy = root / "engineering/publication-policy.json"
+    policy.parent.mkdir(exist_ok=True)
+    policy.write_text(json.dumps({"public_paths": ["evidence/missing.csv"]}))
+    with pytest.raises(ValueError, match="Missing input"):
+        module().lineage_inventory(root)
+
+
+def test_inventory_cli_preserves_existing_receipt(tmp_path, monkeypatch) -> None:
+    output = tmp_path / "receipt.json"
+    output.write_text("retained evidence")
+    monkeypatch.setattr("sys.argv", ["source_handoff.py", "--inventory", "--out", str(output)])
+    with pytest.raises(SystemExit, match="2"):
+        module().main()
+    assert output.read_text() == "retained evidence"
+
+
 @pytest.fixture
 def synthetic(tmp_path):
     """Build a fully declared one-row fixture for testing software compatibility only."""

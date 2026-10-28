@@ -272,7 +272,7 @@ def source_handoff(session: nox.Session) -> None:
         "python",
         "scripts/source_handoff.py",
         "--out",
-        "outputs/engineering/source-handoff.json",
+        str(OUT / f"source-handoff-{uuid4().hex}.json"),
         *session.posargs,
     )
 
@@ -283,7 +283,10 @@ def reproduce(session: nox.Session) -> None:
     verify_evidence(session, "reproduce")
     environment(session)
     session.run(
-        "python", "scripts/source_handoff.py", "--out", "outputs/engineering/source-handoff-reproduction.json"
+        "python",
+        "scripts/source_handoff.py",
+        "--out",
+        str(OUT / f"source-handoff-reproduction-{uuid4().hex}.json"),
     )
     session.run("python", "scripts/verify.py")
     replay_root = OUT / "replays" / uuid4().hex

@@ -2,13 +2,14 @@
   "track_id": "native_archival_lineage_20261026",
   "title": "Native archival provenance and transformation lineage",
   "type": "feature",
-  "status": "new",
+  "status": "in_progress",
   "created_at": "2026-10-25T23:05:21Z",
-  "updated_at": "2026-10-25T23:05:21Z",
+  "updated_at": "2026-10-28T16:39:17.437811+00:00",
   "approval_date": "2026-10-26",
   "approval_timezone": "Australia/Brisbane",
   "base_commit": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
-  "implementation_authorized": false,
+  "implementation_authorized": true,
+  "implementation_authorization": "Maintainer instruction to proceed on 29 October 2026; public-source-only, no requests or submissions; preserve the active producer owner.",
   "owners": {
     "master": "tobac integration",
     "producer": "archive-govt-nz native preservation and provenance",
@@ -24,5 +25,13 @@
     "plan": "plan.md",
     "approvals": "approvals.json",
     "validation": "registration-validation.json"
-  }
+  },
+  "implementation_state": "phase1_foundations_implemented_reviewed_native_integration_open",
+  "completed_phases": [
+    1
+  ],
+  "next_phase": 2,
+  "producer_inspection_revision": "712420fbb84425f7c014246bf199217f731689bf",
+  "checkpoint": "docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md",
+  "local_full_qualification": "interrupted_exit_138_not_qualified"
 }

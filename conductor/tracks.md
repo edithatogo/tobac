@@ -44,7 +44,7 @@ or a commissioning recommendation. Source/forecast identities and data-once guar
 
 ## Deferred development
 
-[Roadmap](roadmap.md): non-macOS qualification, optional advisory promotion and explicitly optional
+[Roadmap](roadmap.md): non-macOS release/numerical qualification, optional advisory promotion and explicitly optional
 mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remain required.
 
 ## Voiage 3.0.0 Polars consumer qualification
@@ -60,9 +60,10 @@ Current receipt: integration/voiage_polars_consumer_20261028.json. Default produ
 2.2.0. Six caller-buffer isolation cases now supplement 90 numerical comparisons.
 The previous 6c28ac5 candidate failed the new ownership probe. pandas/xarray remain
 required. Published-3.0 acceptance remains unexecuted; historical proof remains in PR #41.
-The 28 October owner direction makes active CI macOS-only; Windows/Linux and their
-manual locked-release workflows are deferred to the roadmap. Platform receipt:
-integration/macos_ci_scope_20261028.json.
+The 28 October macOS-only direction is historical. PR #66 restored hosted Linux
+and Windows runtime tests at Python 3.15.1. Candidate qualification remains on
+macOS; the Linux-specific manual locked-release workflows remain deferred. Earlier
+platform receipt: integration/macos_ci_scope_20261028.json.
 
 ## Issue #3 bounded pathway implementation
 
@@ -121,11 +122,14 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [ ] Approved plan integrated; implementation remains unstarted.**
+**Status: [~] Phase 1 foundations implemented/reviewed; native integration remains open.**
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
-Reconcile the 26 October plan with current producer contracts and ownership before
-implementation. Public-source-only and no-request constraints continue to apply.
+The current inventory and frozen producer capability map are implemented. Four
+foundation tasks are complete; 28 native implementation/acceptance tasks remain.
+[Checkpoint](../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md). Local full
+qualification was interrupted; required hosted checks remain the publication gate.
+Public-source-only and no-request constraints continue to apply.
 
 ## Hosted Linux and Windows test qualification
 

@@ -1,0 +1,3351 @@
+{
+  "schema_version": "tobac.lineage-foundation-inventory.v1",
+  "register": "integration/archive/source-register.json",
+  "register_sha256": "9f18cf7767df2db7ba42437cea0b92f92db29d53bdc33865aa280a76ea491840",
+  "source_identities": 38,
+  "bibliography_aliases": 43,
+  "legacy_csv_inputs": 18,
+  "source_states": [
+    {
+      "archive_id": "tobac-05790f0b796014c5",
+      "recorded_capture_statuses": [
+        "retrieval_failed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-0b9d17c38666be28",
+      "recorded_capture_statuses": [
+        "identity_unverified"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-1487495c6f446674",
+      "recorded_capture_statuses": [
+        "retrieval_failed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-161d5ca9516fcdee",
+      "recorded_capture_statuses": [
+        "retrieval_failed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-21e5ac57790c9907",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only",
+        "source_html_identity_observed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-2d95e1cbd10671ab",
+      "recorded_capture_statuses": [
+        "retrieval_failed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-384f7a90f3fc0133",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only",
+        "source_html_identity_observed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-45820b66185001cd",
+      "recorded_capture_statuses": [
+        "retrieval_failed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-52fb080dad9b1459",
+      "recorded_capture_statuses": [
+        "retrieval_failed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-5601971f49deff67",
+      "recorded_capture_statuses": [
+        "source_html_identity_observed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-5988c3901a530650",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-62b1f22935ee89bd",
+      "recorded_capture_statuses": [
+        "source_html_identity_observed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-62f3f431b388649e",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-653a099a62934bb1",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-78830630d9ed6d6c",
+      "recorded_capture_statuses": [
+        "challenge_not_source"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "recorded_capture_statuses": [
+        "retrieval_failed",
+        "source_workbook_values_matched"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-855a41ac092cdd0a",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-86b88ce823d5a2c5",
+      "recorded_capture_statuses": [
+        "retrieval_failed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-912f6f818e46055e",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-91da5c77f9915eb3",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only",
+        "source_html_identity_observed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-920a4be1c51c0a89",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-9487badd2a06b849",
+      "recorded_capture_statuses": [
+        "retrieval_failed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-a0e764a08a2e49bd",
+      "recorded_capture_statuses": [
+        "source_html_identity_observed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-a1d364d2f2412e10",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-a892a52bb0ce2147",
+      "recorded_capture_statuses": [
+        "source_html_identity_observed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-bcc0c006961872e2",
+      "recorded_capture_statuses": [
+        "source_html_identity_observed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-bf7efcf2c111532e",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-c0f15e46211f48d9",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-c90b57a936c5c1eb",
+      "recorded_capture_statuses": [
+        "retrieval_failed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-dc2d41f13bad4122",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-dc3b98f881a03390",
+      "recorded_capture_statuses": [
+        "retrieval_failed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-dd9c3bf3d07dcc0a",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-ea4f96240c07fbb1",
+      "recorded_capture_statuses": [
+        "retrieval_failed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-f362d5809ccf2fa2",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only",
+        "source_html_identity_observed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-f4107b08100d71c4",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-f8ee1ad4c84cf1c7",
+      "recorded_capture_statuses": [
+        "source_html_identity_observed"
+      ],
+      "native_objects_verified_this_run": false
+    },
+    {
+      "archive_id": "tobac-fa4060e2c085d607",
+      "recorded_capture_statuses": [
+        "challenge_not_source",
+        "metadata_only"
+      ],
+      "native_objects_verified_this_run": false
+    }
+  ],
+  "files": [
+    {
+      "path": "configs/calibration_v2.8.0/model.json",
+      "sha256": "91c12ebf0e5216fcf2575b1cdc3c4dc9ca6b98972cbe0947c57d362f5e00bb0d",
+      "bytes": 1363,
+      "category": "parameter_or_scenario_declaration",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "configs/empirical_longitudinal_v2.9.0/model.json",
+      "sha256": "c067ff230546638a28b4edf3ad3555bea9f309a035ff723e8bcd48cb68e95f41",
+      "bytes": 2202,
+      "category": "parameter_or_scenario_declaration",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "configs/m2_publication.json",
+      "sha256": "79097969ba9d4c1c431745a1c542e080aaf44a9492ecd22a9eb24256c5088631",
+      "bytes": 824,
+      "category": "parameter_or_scenario_declaration",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "configs/m2_retail.json",
+      "sha256": "925746a584e0f986e22b7848bd8fac50ae7fb6ae5e06a1cd8d4bad2742192b3f",
+      "bytes": 939,
+      "category": "parameter_or_scenario_declaration",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "configs/m2_robustness.json",
+      "sha256": "67ebea51f7a16255832280ca185ae31bdedf58e058d63a48d1a6565f92fb3a14",
+      "bytes": 1211,
+      "category": "parameter_or_scenario_declaration",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "configs/m3_research.json",
+      "sha256": "23528a30122c5de6629b4ff4b9784a24c942d5ed9c28d11924a5427a670c6d8a",
+      "bytes": 2282,
+      "category": "parameter_or_scenario_declaration",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "configs/m3_research_refinement.json",
+      "sha256": "ce5be3a259130c196dd5f20154e73801a6bdfa305829b949d95ced99274e9bc7",
+      "bytes": 2282,
+      "category": "parameter_or_scenario_declaration",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "configs/regulatory.json",
+      "sha256": "8fff72e501726af284d5b07bf61a40e803bb6fc41da767f49f77ecc7ec4eaaa7",
+      "bytes": 6002,
+      "category": "parameter_or_scenario_declaration",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "data/calibration_20261024/raw/tobacco_returns_completion.txt",
+      "sha256": "b1ead4c90cacda71b50e8ccfcbbda3e416ace9ffc64173848741d11b21e8bcb5",
+      "bytes": 1916,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "bytes": 5777,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [
+        {
+          "source_id": "parallel-S08",
+          "archive_id": "tobac-297be26fc11cb7b3",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 12,
+      "columns": [
+        "year",
+        "source_id",
+        "source_locator",
+        "legal_sales_cigarette_equivalent",
+        "reported_upper_smoker_bound_consumption",
+        "reported_lower_smoker_bound_consumption",
+        "reported_signed_gap",
+        "reported_upper_scenario_gap_percent",
+        "unit",
+        "ryo_conversion_g_per_stick",
+        "uplift_factor",
+        "role",
+        "source_dependency",
+        "limitations"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "parallel-S08"
+        ],
+        "role": [
+          "historical_legal_supply_and_measurement_discrepancy_not_true_illicit_share"
+        ],
+        "source_dependency": [
+          "NZHS + MOH returns + fixed uplift assumption"
+        ]
+      }
+    },
+    {
+      "path": "data/empirical_longitudinal_20261024/source_record.json",
+      "sha256": "48368264e86ca0aeab7f329b4ec4aea419b6232c4711ad31f0770611081450b6",
+      "bytes": 1543,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "bytes": 8786,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [
+        {
+          "source_id": "long-nz-tobacco-tonnes-2025",
+          "archive_id": "tobac-7ee48855a1ed1c4b",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 16,
+      "columns": [
+        "series_id",
+        "year",
+        "period_start",
+        "period_end",
+        "value",
+        "unit",
+        "available_on",
+        "accessed_on",
+        "source_id",
+        "source_locator",
+        "evidence_status",
+        "uncertainty_status",
+        "dependency_group",
+        "limitations"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "long-nz-tobacco-tonnes-2025"
+        ],
+        "evidence_status": [
+          "official_published_table_browser_extraction"
+        ],
+        "dependency_group": [
+          "NZ_MOH_tobacco_returns"
+        ]
+      }
+    },
+    {
+      "path": "evidence/core_extraction_20261024.py",
+      "sha256": "79b76cae4dae52d81a22a71595bdf05be1bc5b4e599a62f03a90a01f8f05e27c",
+      "bytes": 8014,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/longitudinal/references.csl.json",
+      "sha256": "af0096485d5b8a82e77777a80f10fbd0f747eb217cf667e5f80ce5f106925001",
+      "bytes": 992,
+      "category": "bibliography_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/existing_records_20261027.json",
+      "sha256": "6eb606afb9812b9dd60bc1773beb61f679680a6ddcefbba180b123c8f80a6c41",
+      "bytes": 6691,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/matched_pathway_20261027.json",
+      "sha256": "c44a93a2fd7cfda05d93e0799e317383de52666526aac4a1734a7b161030c417",
+      "bytes": 4083,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/README.md",
+      "sha256": "fbc86ff0c8e1ff85796e714686a6d1dc71f2abbf3cb5fbcd62f143570ce37b23",
+      "bytes": 2977,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/assumption_table.csv",
+      "sha256": "ab8aa1eb09927ac68216c55c7c20bb237dc67f85fa8942b52f698b95d6101239",
+      "bytes": 4025,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 10,
+      "columns": [
+        "assumption_id",
+        "source_ids",
+        "extraction_ids",
+        "origin",
+        "statement",
+        "support_or_value",
+        "rationale",
+        "alternative_or_failure",
+        "target_empirical_status"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/citation_edges.csv",
+      "sha256": "77c85dc8972f1e540a30cb31ce2009980b52754ed9a29c93410c45ada2c34328",
+      "bytes": 182981,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 435,
+      "columns": [
+        "edge_id",
+        "parent_source_id",
+        "direction",
+        "relationship",
+        "candidate_doi",
+        "candidate_citation",
+        "disposition",
+        "reason",
+        "locator"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/citation_rounds.csv",
+      "sha256": "06c2ed0ed51c46e103c15a95d967f4fe1617519ced8a0e7ed7b67ff2252663b2",
+      "bytes": 2214,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 6,
+      "columns": [
+        "seed_source_id",
+        "doi",
+        "round",
+        "backward_coverage",
+        "forward_method",
+        "batches",
+        "status",
+        "limitation"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/extraction_table.csv",
+      "sha256": "963ef4e798823a05ea9fadcfd4b5649d347dc57b4021e0be4d028897007199ff",
+      "bytes": 41543,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 82,
+      "columns": [
+        "extraction_id",
+        "source_id",
+        "document_id",
+        "field",
+        "reported_value",
+        "missing_reason",
+        "unit",
+        "role",
+        "observation_or_forecast_period",
+        "locator",
+        "uncertainty_type",
+        "extraction_mode",
+        "review_status",
+        "note",
+        "target_input_adopted"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "ANABASINE_YIELD_2026",
+          "ANABASINE_YIELD_2026_S2",
+          "CVS_BEHAVIOUR_2020",
+          "CVS_PURCHASE_2017",
+          "DUTCH_RETAIL_2026",
+          "HUNGARY_YOUTH_2024",
+          "NZ_ACTIONPLAN_RIS_2021",
+          "NZ_BASELINE_REPORT_2022",
+          "NZ_CUSTOMS_OIA_25_395",
+          "NZ_CUSTOMS_OIA_25_826",
+          "NZ_REGIME_APPLICATIONS_2024",
+          "NZ_REGIME_FUNDING_2023",
+          "NZ_TREASURY_OIA_20250377",
+          "NZ_WASTEWATER_2025"
+        ],
+        "role": [
+          "administrative_fee",
+          "administrative_reported_count",
+          "administrative_reported_quantity",
+          "administrative_reported_total",
+          "missing_not_zero",
+          "source_assumption",
+          "source_costing_output",
+          "source_derived_historical_accounting",
+          "source_forecast",
+          "source_forecast_assumption",
+          "source_funding_allocation",
+          "source_modelled_historical_package_cost",
+          "source_policy_costing_assumption",
+          "source_qualification",
+          "source_reported_administrative_total",
+          "source_reported_descriptive",
+          "source_reported_estimate",
+          "source_reported_interval",
+          "source_scope_definition"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/manifest.json",
+      "sha256": "2686227343d5e94595c849c6edd3f9f1405905b736b5eada8c75a78022503e33",
+      "bytes": 5908,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/parameter_table.csv",
+      "sha256": "c5a47e8f1d55dfe4b5c6870dad07450fcce37e2ae7ba02374b696ecdfb6fb95b",
+      "bytes": 4386,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 9,
+      "columns": [
+        "parameter_id",
+        "extraction_ids",
+        "assumption_ids",
+        "formula",
+        "constructed_value",
+        "unit",
+        "quantity_role",
+        "uncertainty_method",
+        "rounding",
+        "permitted_use",
+        "model_input_adopted"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/retrieval_outcomes.csv",
+      "sha256": "597fab01ebcea90161ccd39ed5e5e18c4a1a580e1542fb6b1674e7deff5fede4",
+      "bytes": 11701,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 44,
+      "columns": [
+        "attempt_id",
+        "url",
+        "status",
+        "http_status",
+        "usable_source_content",
+        "reason",
+        "catalogue",
+        "object_sha256"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/screening.csv",
+      "sha256": "e792ed25e9151ccaa834593c8a0756eb19e0e6e0a095e7fd56654fec521e88d1",
+      "bytes": 68402,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 213,
+      "columns": [
+        "candidate_id",
+        "batch_id",
+        "url",
+        "source_id",
+        "disposition",
+        "reason",
+        "title",
+        "visible_batch_rank"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "ANABASINE_WW_2020",
+          "ANABASINE_YIELD_2026",
+          "BIOCHEM_VERIFICATION_2019",
+          "CLINICAL_ANBA_ABSTRACT_2017",
+          "CVS_PURCHASE_2017",
+          "DUTCH_RETAIL_2026",
+          "FLAVOUR_REVIEW_2021",
+          "HUNGARY_YOUTH_2024_WEB",
+          "NZHS_CONTENT_202425",
+          "NZ_ACTIONPLAN_RIS_2021",
+          "NZ_ASPIRE_FEASIBILITY",
+          "NZ_CUSTOMS_ANNUAL_2025",
+          "NZ_CUSTOMS_OIA_25_395",
+          "NZ_CUSTOMS_OIA_25_826",
+          "NZ_EXCISE_EVALUATION_2018",
+          "NZ_INDEXATION_CABINET_2025",
+          "NZ_RETURNS_2025",
+          "NZ_TDB_REVIEW_2023",
+          "NZ_TREASURY_OIA_20240568",
+          "NZ_TREASURY_OIA_20250377",
+          "NZ_WASTEWATER_2025",
+          "RETAIL_SCOPING_2023",
+          "URINARY_VALIDATION_2014"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/search_log.csv",
+      "sha256": "4bd823a4463b04b67d2f064a525ff45f6742fb84807d19f422b6d2001ad8cdb7",
+      "bytes": 14670,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 48,
+      "columns": [
+        "query_id",
+        "batch_id",
+        "run_date",
+        "platform",
+        "exact_query",
+        "engine_date_filter",
+        "engine_language_filter",
+        "result_limit",
+        "query_specific_count",
+        "result_record",
+        "note"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/source_index.csv",
+      "sha256": "4679bfa3b6b4faf36ad42b6600a45ec586d04acbcec51722a8906ab8bea79835",
+      "bytes": 23413,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 35,
+      "columns": [
+        "source_id",
+        "document_id",
+        "parent_source_id",
+        "underlying_data_group",
+        "canonical_url",
+        "discovery",
+        "capture_status",
+        "object_path",
+        "sha256",
+        "warc_path",
+        "warc_sha256",
+        "native_capture_timestamp",
+        "text_path",
+        "text_sha256",
+        "record_review_date",
+        "capture_date_qualification"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "ANABASINE_WW_2020",
+          "ANABASINE_YIELD_2026",
+          "ANABASINE_YIELD_2026_S1",
+          "ANABASINE_YIELD_2026_S2",
+          "AU_CRIME_INQUIRY_2026",
+          "BIOCHEM_VERIFICATION_2019",
+          "CLINICAL_ANBA_ABSTRACT_2017",
+          "CVS_BEHAVIOUR_2020",
+          "CVS_PURCHASE_2017",
+          "DUTCH_RETAIL_2026",
+          "FLAVOUR_REVIEW_2021",
+          "HUNGARY_YOUTH_2024",
+          "HUNGARY_YOUTH_2024_WEB",
+          "NZHS_202425",
+          "NZHS_CONTENT_202425",
+          "NZ_ACTIONPLAN_RIS_2021",
+          "NZ_ASPIRE_FEASIBILITY",
+          "NZ_BASELINE_REPORT_2022",
+          "NZ_CUSTOMS_ANNUAL_2025",
+          "NZ_CUSTOMS_BUDGET_2025",
+          "NZ_CUSTOMS_CASE_2025",
+          "NZ_CUSTOMS_OIA_25_395",
+          "NZ_CUSTOMS_OIA_25_826",
+          "NZ_EXCISE_EVALUATION_2018",
+          "NZ_INDEXATION_CABINET_2025",
+          "NZ_REGIME_APPLICATIONS_2024",
+          "NZ_REGIME_FUNDING_2023",
+          "NZ_RETURNS_2025",
+          "NZ_TDB_REVIEW_2023",
+          "NZ_TREASURY_OIA_20240568",
+          "NZ_TREASURY_OIA_20250377",
+          "NZ_TREASURY_OIA_20260249",
+          "NZ_WASTEWATER_2025",
+          "RETAIL_SCOPING_2023",
+          "URINARY_VALIDATION_2014"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/public_sources_20261027/source_table.csv",
+      "sha256": "0ca3e37d70f5e25b0adc491d3a45ea80423723ec7f7b4774ce9427e447dbd494",
+      "bytes": 28620,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 35,
+      "columns": [
+        "source_id",
+        "purpose_or_estimand",
+        "source_locator",
+        "access_for_previous_extracts",
+        "current_local_capture",
+        "design_population_product_period_review",
+        "funding_interest_appraisal",
+        "limitation",
+        "target_likelihood_adopted",
+        "underlying_data_group",
+        "geography",
+        "population_or_denominator",
+        "product_or_outcome",
+        "observation_or_forecast_window",
+        "design",
+        "publication_release_date",
+        "critical_visual_review"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "ANABASINE_WW_2020",
+          "ANABASINE_YIELD_2026",
+          "ANABASINE_YIELD_2026_S1",
+          "ANABASINE_YIELD_2026_S2",
+          "AU_CRIME_INQUIRY_2026",
+          "BIOCHEM_VERIFICATION_2019",
+          "CLINICAL_ANBA_ABSTRACT_2017",
+          "CVS_BEHAVIOUR_2020",
+          "CVS_PURCHASE_2017",
+          "DUTCH_RETAIL_2026",
+          "FLAVOUR_REVIEW_2021",
+          "HUNGARY_YOUTH_2024",
+          "HUNGARY_YOUTH_2024_WEB",
+          "NZHS_202425",
+          "NZHS_CONTENT_202425",
+          "NZ_ACTIONPLAN_RIS_2021",
+          "NZ_ASPIRE_FEASIBILITY",
+          "NZ_BASELINE_REPORT_2022",
+          "NZ_CUSTOMS_ANNUAL_2025",
+          "NZ_CUSTOMS_BUDGET_2025",
+          "NZ_CUSTOMS_CASE_2025",
+          "NZ_CUSTOMS_OIA_25_395",
+          "NZ_CUSTOMS_OIA_25_826",
+          "NZ_EXCISE_EVALUATION_2018",
+          "NZ_INDEXATION_CABINET_2025",
+          "NZ_REGIME_APPLICATIONS_2024",
+          "NZ_REGIME_FUNDING_2023",
+          "NZ_RETURNS_2025",
+          "NZ_TDB_REVIEW_2023",
+          "NZ_TREASURY_OIA_20240568",
+          "NZ_TREASURY_OIA_20250377",
+          "NZ_TREASURY_OIA_20260249",
+          "NZ_WASTEWATER_2025",
+          "RETAIL_SCOPING_2023",
+          "URINARY_VALIDATION_2014"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/publication_20261028/model_input_check.json",
+      "sha256": "60b207b80d400bfba3cda0d6b8e3a10b5c895e8d18d0ea0c1fe1a7a514283cba",
+      "bytes": 871,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/publication_20261028/parameter_provenance.csv",
+      "sha256": "24c2f10726028ffca61c766f7b260c0a6b5f608bec48c6fd5da857756df13051",
+      "bytes": 4214,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 18,
+      "columns": [
+        "parameter_id",
+        "binding",
+        "values",
+        "origin",
+        "unit",
+        "role",
+        "qualification"
+      ],
+      "declared_row_metadata": {
+        "role": [
+          "behaviour",
+          "criminal_harm",
+          "health_consequences",
+          "hypothetical_resource_intensity",
+          "implementation",
+          "market",
+          "measurement",
+          "transported_model_input_plus_null_and_attenuation",
+          "value_judgment_scenario_not_empirical_uncertainty"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/readiness_20261028/README.md",
+      "sha256": "2309145a77f6bce69881e1cce84627663ae06a4fbfd2ec954d9f67030beeee20",
+      "bytes": 1557,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/readiness_20261028/candidate_dispositions.csv",
+      "sha256": "7a4d9428acf0edba59aef4ab8e227c292dd98b16bb9f92b513c1138b3d7abdec",
+      "bytes": 11154,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 32,
+      "columns": [
+        "candidate_id",
+        "title",
+        "url",
+        "batch",
+        "source_id",
+        "decision",
+        "reason"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "METHOD_UNCERTAINTY",
+          "REPORTING_EQUATOR",
+          "REPORTING_VOI",
+          "VALUE_PREFERENCES"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/readiness_20261028/citation_edges.csv",
+      "sha256": "6df924c2a0281b83bed0dff14e2f3a4b18ecee9eeba56158cec989f292216bea",
+      "bytes": 163,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 3,
+      "columns": [
+        "seed",
+        "target",
+        "locator"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/m2/readiness_20261028/claim_table.csv",
+      "sha256": "4c6f34320e3a73f2382643314c56f274451d847fc5f88e30b0d8500e37728987",
+      "bytes": 1665,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 10,
+      "columns": [
+        "claim_id",
+        "source_id",
+        "locator",
+        "claim",
+        "numerical_input_adopted"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "CHEERS2022",
+          "HDEC_FAQ",
+          "ISPOR_VALIDATION",
+          "METHOD_UNCERTAINTY",
+          "NEAC_MAORI",
+          "REPORTING_VOI",
+          "SHINE_RETAIL_TABLE2",
+          "VALUE_PREFERENCES",
+          "VOI_METHODS",
+          "VOI_OVERVIEW"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/readiness_20261028/references.csl.json",
+      "sha256": "bca2c07e79e4b7acc2dfaccd10aaf5d1afa6aa6aa0c5237b70413898532db46c",
+      "bytes": 9697,
+      "category": "bibliography_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/readiness_20261028/reporting_crosswalk.csv",
+      "sha256": "883fdf147f420b3dd6d1b5545110ec194f33ab9c28b70c1c5283815af0c9f156",
+      "bytes": 6448,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 34,
+      "columns": [
+        "item_id",
+        "cheers2022_item",
+        "topic",
+        "status",
+        "manuscript_locator",
+        "reason",
+        "source_id",
+        "source_locator"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "REPORTING_VOI"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/readiness_20261028/search_log.csv",
+      "sha256": "614d763955f32191022f2f173f79c6dec1e59312a2d2c2974b2e57ef2f0144a0",
+      "bytes": 5987,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 20,
+      "columns": [
+        "query_id",
+        "phase",
+        "query",
+        "engine",
+        "date",
+        "language",
+        "date_filter",
+        "raw_batch",
+        "raw_batch_sha256",
+        "limit"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/m2/readiness_20261028/source_index.csv",
+      "sha256": "5a55ed04f2cf0b685b0abc151e93d1b19ddda1e586e57a18aaefb7a544d37839",
+      "bytes": 4823,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 11,
+      "columns": [
+        "source_id",
+        "document_id",
+        "title",
+        "year",
+        "doi",
+        "url",
+        "access",
+        "local_object",
+        "sha256",
+        "numerical_input_adopted"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "CHEERS2022",
+          "HDEC_FAQ",
+          "ISPOR_VALIDATION",
+          "METHOD_UNCERTAINTY",
+          "NEAC_MAORI",
+          "REPORTING_EQUATOR",
+          "REPORTING_VOI",
+          "SHINE_RETAIL_TABLE2",
+          "VALUE_PREFERENCES",
+          "VOI_METHODS",
+          "VOI_OVERVIEW"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/readiness_20261028/source_table.csv",
+      "sha256": "241056f212c3340cfb4ef5e316b23f57e11f84b94e7189903bc5152e7e483c3f",
+      "bytes": 3089,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 11,
+      "columns": [
+        "source_id",
+        "document_id",
+        "methodological_use",
+        "locator",
+        "appraisal",
+        "empirical_target_likelihood_adopted"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "CHEERS2022",
+          "HDEC_FAQ",
+          "ISPOR_VALIDATION",
+          "METHOD_UNCERTAINTY",
+          "NEAC_MAORI",
+          "REPORTING_EQUATOR",
+          "REPORTING_VOI",
+          "SHINE_RETAIL_TABLE2",
+          "VALUE_PREFERENCES",
+          "VOI_METHODS",
+          "VOI_OVERVIEW"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/references.csl.json",
+      "sha256": "ff5154f0a8c0cddc48bef7b9f62c7afc472fabc66e7c82ff4a4fd87ce3adfda7",
+      "bytes": 3566,
+      "category": "bibliography_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/source_review.json",
+      "sha256": "42941c8fcd2aebfe7d17c429ffb41bcd6ebd4aa8960b1e61f8c6297c625d292f",
+      "bytes": 4474,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/synthesis_20261027.json",
+      "sha256": "206e2685feab76d484b8eb6f3ad2e2f0ed68afaf93757d7a69702de64d62cb3d",
+      "bytes": 15676,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/two_articles_20261028/README.md",
+      "sha256": "3371425f97389911f65c2ec6c8e0bf7af9e80df9a43742bfe9ef21df37c645f6",
+      "bytes": 1501,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/m2/two_articles_20261028/assumption_table.csv",
+      "sha256": "d9be6ec455c13f46dcac2f30400127c62d0b066aa2f4a560c94eb07566e93d4f",
+      "bytes": 1024,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 8,
+      "columns": [
+        "assumption_id",
+        "assumption",
+        "basis",
+        "limitation"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/m2/two_articles_20261028/claim_table.csv",
+      "sha256": "acbebcec207f4e7a6b3163e24b8eb89d014aba3f6788fd04f6643f62cc192d11",
+      "bytes": 1886,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 12,
+      "columns": [
+        "claim_id",
+        "source_id",
+        "locator",
+        "claim",
+        "manuscript_locator"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "ANABASINE_WW_2020",
+          "ANABASINE_YIELD_2026",
+          "KAHAN_2017",
+          "MDM_GUIDE",
+          "MDM_OVERLAP",
+          "MODEL_RESULTS",
+          "MOH_REPEAL",
+          "NZMJ_GUIDE",
+          "STAGNARO_2023",
+          "UPTAKE_IDENTITY",
+          "VOI_METHODS",
+          "VOI_OVERVIEW"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/two_articles_20261028/mdm_reporting_crosswalk.csv",
+      "sha256": "df0f8dab38d275fb59cf65a010fe80b6d922bc8a906d0c1da7286434112bbd1c",
+      "bytes": 7094,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 34,
+      "columns": [
+        "item_id",
+        "cheers2022_item",
+        "topic",
+        "status",
+        "manuscript_locator",
+        "reason",
+        "source_id",
+        "source_locator"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "REPORTING_VOI"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/two_articles_20261028/search_log.csv",
+      "sha256": "1b04ea2086d8c6c783e952c5ddf322bb6f058cb266926894263ff47df365b557",
+      "bytes": 1685,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 6,
+      "columns": [
+        "query_id",
+        "review_date",
+        "query",
+        "scope",
+        "result_preservation"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/m2/two_articles_20261028/source_index.csv",
+      "sha256": "a9dfa060448e571516d48e4813a405a6625169d85c2a6d3474d78d4948464a08",
+      "bytes": 4184,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 14,
+      "columns": [
+        "source_id",
+        "url",
+        "access",
+        "local_object",
+        "sha256",
+        "role",
+        "numerical_input_adopted"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "ANABASINE_WW_2020",
+          "ANABASINE_YIELD_2026",
+          "KAHAN_2017",
+          "MDM_GUIDE",
+          "MDM_OVERLAP",
+          "MODEL_RESULTS",
+          "MOH_REPEAL",
+          "NZMJ_GUIDE",
+          "REPORTING_VOI",
+          "STAGNARO_2023",
+          "STAGNARO_PMC",
+          "UPTAKE_IDENTITY",
+          "VOI_METHODS",
+          "VOI_OVERVIEW"
+        ],
+        "role": [
+          "conditional derivation; not new observations",
+          "context/method only",
+          "journal guidance",
+          "measurement context; no new calibration",
+          "methods",
+          "reporting guidance; not numerical calibration"
+        ]
+      }
+    },
+    {
+      "path": "evidence/m2/two_articles_20261028/source_table.csv",
+      "sha256": "f4d27cc21f4c97e42e46a65e32773e9208cc2d818a29148ef20c081520eac1dd",
+      "bytes": 4870,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 14,
+      "columns": [
+        "source_id",
+        "role",
+        "locator",
+        "appraisal",
+        "funding_interests",
+        "new_numerical_adoption"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "ANABASINE_WW_2020",
+          "ANABASINE_YIELD_2026",
+          "KAHAN_2017",
+          "MDM_GUIDE",
+          "MDM_OVERLAP",
+          "MODEL_RESULTS",
+          "MOH_REPEAL",
+          "NZMJ_GUIDE",
+          "REPORTING_VOI",
+          "STAGNARO_2023",
+          "STAGNARO_PMC",
+          "UPTAKE_IDENTITY",
+          "VOI_METHODS",
+          "VOI_OVERVIEW"
+        ],
+        "role": [
+          "conditional derivation; not new observations",
+          "context/method only",
+          "journal guidance",
+          "measurement context; no new calibration",
+          "methods",
+          "reporting guidance; not numerical calibration"
+        ]
+      }
+    },
+    {
+      "path": "evidence/prior_work/README.md",
+      "sha256": "7b59064fc853a0143b75208a8173acedff69bc5f485047c33e08d6d45040b1b1",
+      "bytes": 1112,
+      "category": "preserved_legacy_evidence",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/empirical_intake_20261024/action_effect_components.csv",
+      "sha256": "125dc513041f102065e01a67a9d85aa44df94d60bd3049887335e1d053aecf75",
+      "bytes": 1706,
+      "category": "preserved_legacy_evidence",
+      "source_references": [
+        {
+          "source_id": "empirical-walker-2012",
+          "archive_id": "tobac-920a4be1c51c0a89",
+          "status": "mapped"
+        },
+        {
+          "source_id": "empirical-walker-2015",
+          "archive_id": "tobac-f4107b08100d71c4",
+          "status": "mapped"
+        },
+        {
+          "source_id": "empirical-walker-2020",
+          "archive_id": "tobac-21e5ac57790c9907",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 5,
+      "columns": [
+        "component_id",
+        "source_id",
+        "candidate_action_id",
+        "estimand",
+        "estimate",
+        "lower",
+        "upper",
+        "unit",
+        "status",
+        "population",
+        "can_use_as_national_action_effect",
+        "limitations"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "empirical-walker-2012",
+          "empirical-walker-2015",
+          "empirical-walker-2020"
+        ]
+      }
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/empirical_intake_20261024/action_evidence_coverage.csv",
+      "sha256": "17634aa1799e217689c86cd674ee82bd53c4025fc754013888558a5b5407d83c",
+      "bytes": 3962,
+      "category": "preserved_legacy_evidence",
+      "source_references": [
+        {
+          "source_id": "empirical-walker-2012",
+          "archive_id": "tobac-920a4be1c51c0a89",
+          "status": "mapped"
+        },
+        {
+          "source_id": "empirical-walker-2015",
+          "archive_id": "tobac-f4107b08100d71c4",
+          "status": "mapped"
+        },
+        {
+          "source_id": "empirical-walker-2020",
+          "archive_id": "tobac-21e5ac57790c9907",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 23,
+      "columns": [
+        "action_id",
+        "title",
+        "evidence_status",
+        "source_ids",
+        "national_effect_ready",
+        "cost_ready",
+        "remaining"
+      ],
+      "declared_row_metadata": {
+        "evidence_status": [
+          "VLNC_component_boundary_only",
+          "conditional_cessation_component_fit_only",
+          "empirical_consequence_not_populated"
+        ]
+      }
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/empirical_intake_20261024/cessation_trial_arms.csv",
+      "sha256": "52e9cca6e6457b6001dedec9336876cb8f015ad04253eb5c3a65960923c2ac04",
+      "bytes": 1378,
+      "category": "preserved_legacy_evidence",
+      "source_references": [
+        {
+          "source_id": "empirical-walker-2020",
+          "archive_id": "tobac-21e5ac57790c9907",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 3,
+      "columns": [
+        "trial_id",
+        "source_id",
+        "arm_id",
+        "label",
+        "successes",
+        "randomized",
+        "withdrawn_or_lost",
+        "outcome",
+        "followup_months",
+        "population",
+        "recruitment_period",
+        "analysis",
+        "source_locator",
+        "allowed_use",
+        "limitations"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "empirical-walker-2020"
+        ]
+      }
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/empirical_intake_20261024/measurement_evidence.csv",
+      "sha256": "144cded7b838487bf492496bd97936878689556a48d104c7bf95fa339514c73d",
+      "bytes": 13986,
+      "category": "preserved_legacy_evidence",
+      "source_references": [
+        {
+          "source_id": "empirical-vanwichelen-2026",
+          "archive_id": "tobac-912f6f818e46055e",
+          "status": "mapped"
+        },
+        {
+          "source_id": "parallel-S01",
+          "archive_id": "tobac-dd9c3bf3d07dcc0a",
+          "status": "mapped"
+        },
+        {
+          "source_id": "parallel-S02",
+          "archive_id": "tobac-384f7a90f3fc0133",
+          "status": "mapped"
+        },
+        {
+          "source_id": "parallel-S03",
+          "archive_id": "tobac-f362d5809ccf2fa2",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 36,
+      "columns": [
+        "evidence_id",
+        "source_id",
+        "measure",
+        "value",
+        "unit",
+        "observation_period",
+        "geography",
+        "population",
+        "matrix",
+        "statistic",
+        "lower",
+        "upper",
+        "dispersion",
+        "dispersion_type",
+        "sample_n",
+        "source_locator",
+        "dependency_cluster",
+        "allowed_use",
+        "admissible_as_current_nz_raw_assay",
+        "uncertainty_resolved",
+        "limitations"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "empirical-vanwichelen-2026",
+          "parallel-S01",
+          "parallel-S02",
+          "parallel-S03"
+        ]
+      }
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/au_wbe_longitudinal_summary.csv",
+      "sha256": "b22cd8013cae4c6d967a4aa7243c3860dda57e4b357f2c2399253340267bdae6",
+      "bytes": 2489,
+      "category": "preserved_legacy_evidence",
+      "source_references": [
+        {
+          "source_id": "parallel-S02",
+          "archive_id": "tobac-384f7a90f3fc0133",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 6,
+      "columns": [
+        "outcome",
+        "region",
+        "start",
+        "end",
+        "annual_change_percent",
+        "lower95",
+        "upper95",
+        "pooled_mean_mg_1000_day",
+        "pooled_sd",
+        "source_id",
+        "source_locator",
+        "method",
+        "dependency_group",
+        "limitations"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "parallel-S02"
+        ],
+        "dependency_group": [
+          "Wang_2026_AU_WBE"
+        ]
+      }
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/au_wbe_published_endpoints.csv",
+      "sha256": "a17770e609a96aa8b923da456d8c1c5f4b4a6db168dc06b9cdfc588627c9fc7e",
+      "bytes": 2371,
+      "category": "preserved_legacy_evidence",
+      "source_references": [
+        {
+          "source_id": "parallel-S02",
+          "archive_id": "tobac-384f7a90f3fc0133",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 6,
+      "columns": [
+        "year",
+        "outcome",
+        "value",
+        "lower95",
+        "upper95",
+        "unit",
+        "source_id",
+        "source_locator",
+        "evidence_status",
+        "dependency_group",
+        "limitations"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "parallel-S02"
+        ],
+        "evidence_status": [
+          "published_model_derived_not_raw_assay"
+        ],
+        "dependency_group": [
+          "Wang_2026_AU_WBE_plus_FTI_where_used"
+        ]
+      }
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/nz_historical_intensity_2012_2023.csv",
+      "sha256": "cb588ff94d193a3e778da09e6c5c76d40ef652416f608b59128a582ec2784049",
+      "bytes": 2877,
+      "category": "preserved_legacy_evidence",
+      "source_references": [
+        {
+          "source_id": "parallel-S08",
+          "archive_id": "tobac-297be26fc11cb7b3",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 12,
+      "columns": [
+        "year",
+        "cigarettes_per_daily_smoker_per_day",
+        "unit",
+        "source_id",
+        "source_locator",
+        "dependency_group",
+        "status",
+        "notes"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "parallel-S08"
+        ],
+        "dependency_group": [
+          "NZHS_repeated_cross_sections"
+        ]
+      }
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/nzhs_published_anchors.csv",
+      "sha256": "7beb5c727cee3f64f39e4d45bcc7ecdef332bba511ff2cc46f17ee5082665d34",
+      "bytes": 19948,
+      "category": "preserved_legacy_evidence",
+      "source_references": [
+        {
+          "source_id": "long-nz-hir-2024",
+          "archive_id": "tobac-45820b66185001cd",
+          "status": "mapped"
+        },
+        {
+          "source_id": "long-nzhs-2021",
+          "archive_id": "tobac-2d95e1cbd10671ab",
+          "status": "mapped"
+        },
+        {
+          "source_id": "long-nzhs-2022-corrected",
+          "archive_id": "tobac-dc3b98f881a03390",
+          "status": "mapped"
+        },
+        {
+          "source_id": "long-nzhs-2022-original",
+          "archive_id": "tobac-78830630d9ed6d6c",
+          "status": "mapped"
+        },
+        {
+          "source_id": "long-nzhs-2024",
+          "archive_id": "tobac-52fb080dad9b1459",
+          "status": "mapped"
+        },
+        {
+          "source_id": "long-nzhs-module-2015",
+          "archive_id": "tobac-ea4f96240c07fbb1",
+          "status": "mapped"
+        },
+        {
+          "source_id": "long-nzhs-trends-2025",
+          "archive_id": "tobac-1487495c6f446674",
+          "status": "mapped"
+        },
+        {
+          "source_id": "nz-key-results-2024-25",
+          "archive_id": "tobac-05790f0b796014c5",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 48,
+      "columns": [
+        "series_id",
+        "indicator",
+        "group",
+        "survey_year",
+        "period_start",
+        "period_end",
+        "period_precision",
+        "estimate_percent",
+        "lower95",
+        "upper95",
+        "available_on",
+        "source_id",
+        "source_locator",
+        "evidence_status",
+        "uncertainty_status",
+        "population_basis",
+        "dependency_group",
+        "notes"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "long-nz-hir-2024",
+          "long-nzhs-2021",
+          "long-nzhs-2022-corrected",
+          "long-nzhs-2022-original",
+          "long-nzhs-2024",
+          "long-nzhs-module-2015",
+          "long-nzhs-trends-2025",
+          "nz-key-results-2024-25"
+        ],
+        "evidence_status": [
+          "published",
+          "superseded"
+        ],
+        "dependency_group": [
+          "NZHS_repeated_cross_sections"
+        ]
+      }
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/parameter_estimates_v2.7.0.csv",
+      "sha256": "e5366806d524eb62586a892f4151f542a4a1e5ec235ba68ddca48018934c33e7",
+      "bytes": 26784,
+      "category": "preserved_legacy_evidence",
+      "source_references": [
+        {
+          "source_id": "empirical-walker-2020",
+          "archive_id": "tobac-21e5ac57790c9907",
+          "status": "mapped"
+        },
+        {
+          "source_id": "est-auckland-mash",
+          "archive_id": "tobac-a0e764a08a2e49bd",
+          "status": "mapped"
+        },
+        {
+          "source_id": "est-blakely-2015",
+          "archive_id": "tobac-91da5c77f9915eb3",
+          "status": "mapped"
+        },
+        {
+          "source_id": "est-gao-2018",
+          "archive_id": "tobac-62f3f431b388649e",
+          "status": "mapped"
+        },
+        {
+          "source_id": "est-gendall-2026",
+          "archive_id": "tobac-dc2d41f13bad4122",
+          "status": "mapped"
+        },
+        {
+          "source_id": "est-li-2017",
+          "archive_id": "tobac-fa4060e2c085d607",
+          "status": "mapped"
+        },
+        {
+          "source_id": "est-marsh-2016",
+          "archive_id": "tobac-c0f15e46211f48d9",
+          "status": "mapped"
+        },
+        {
+          "source_id": "long-nz-tobacco-tonnes-2025",
+          "archive_id": "tobac-7ee48855a1ed1c4b",
+          "status": "mapped"
+        },
+        {
+          "source_id": "parallel-S01",
+          "archive_id": "tobac-dd9c3bf3d07dcc0a",
+          "status": "mapped"
+        },
+        {
+          "source_id": "parallel-S02",
+          "archive_id": "tobac-384f7a90f3fc0133",
+          "status": "mapped"
+        },
+        {
+          "source_id": "parallel-S03",
+          "archive_id": "tobac-f362d5809ccf2fa2",
+          "status": "mapped"
+        },
+        {
+          "source_id": "parallel-S05",
+          "archive_id": "tobac-5988c3901a530650",
+          "status": "mapped"
+        },
+        {
+          "source_id": "parallel-S06",
+          "archive_id": "tobac-653a099a62934bb1",
+          "status": "mapped"
+        },
+        {
+          "source_id": "parallel-S08",
+          "archive_id": "tobac-297be26fc11cb7b3",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 76,
+      "columns": [
+        "parameter_id",
+        "value",
+        "unit",
+        "evidence_status",
+        "source_ids",
+        "basis",
+        "low",
+        "high",
+        "distribution",
+        "dependency_group",
+        "permitted_use",
+        "current_raw_observation",
+        "inherited_from",
+        "current_release",
+        "change_in_v2_7",
+        "review_trigger"
+      ],
+      "declared_row_metadata": {
+        "evidence_status": [
+          "Assumption",
+          "Carried analyst assumption",
+          "Carried planning assumption",
+          "Decision sensitivity",
+          "Method-informed planning assumption",
+          "Real-price convention",
+          "analyst_alignment_assumption",
+          "analyst_design_choice",
+          "analyst_external_transport_assumption",
+          "analyst_implementation_assumption",
+          "analyst_microcosting_assumption",
+          "analyst_planning_assumption",
+          "analyst_policy_scenario",
+          "analyst_programme_scale",
+          "analyst_range_from_experiment",
+          "analyst_structural_sensitivity",
+          "analyst_transport_assumption",
+          "derived_from_published_whole_tonne_totals",
+          "not_obtained",
+          "official_published_table_browser_extraction",
+          "proposed_procurement_requirement",
+          "published_facility_fee",
+          "published_historical_summary",
+          "published_method",
+          "published_model_assumption",
+          "published_preliminary_calibration",
+          "source_assumed_calibration",
+          "source_assumption",
+          "source_derived_historical_summary"
+        ],
+        "dependency_group": [
+          "ANBA_design",
+          "NZ2023_paired_aggregate",
+          "Weng_shared_calibration",
+          "ratio_uncertainty",
+          "shared_metabolite_drift"
+        ]
+      }
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/data/longitudinal_20261024/time_assumption_register.csv",
+      "sha256": "58b4f783c02b4b6de53a5453d126485224a44c10eec45a4ef18a4510b78832cf",
+      "bytes": 3030,
+      "category": "preserved_legacy_evidence",
+      "source_references": [
+        {
+          "source_id": "longitudinal_protocol",
+          "archive_id": null,
+          "status": "unresolved_or_internal_reference"
+        },
+        {
+          "source_id": "v2.6.0_parameter_estimates",
+          "archive_id": null,
+          "status": "unresolved_or_internal_reference"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 10,
+      "columns": [
+        "parameter_id",
+        "value",
+        "low",
+        "high",
+        "unit",
+        "evidence_status",
+        "rationale",
+        "source_ids",
+        "review_trigger"
+      ],
+      "declared_row_metadata": {
+        "evidence_status": [
+          "Assumption",
+          "Carried analyst assumption",
+          "Carried planning assumption",
+          "Decision sensitivity",
+          "Method-informed planning assumption",
+          "Real-price convention"
+        ]
+      }
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/docs/decision_contracts/INFORMATION_PORTFOLIOS_v2.4.0.csv",
+      "sha256": "ac5a9f91a48661eb3594d2e41f13eb6fb6280b223550fde02568744a6e324ce6",
+      "bytes": 3108,
+      "category": "preserved_legacy_evidence",
+      "source_references": [
+        {
+          "source_id": "parallel-S01",
+          "archive_id": "tobac-dd9c3bf3d07dcc0a",
+          "status": "mapped"
+        },
+        {
+          "source_id": "parallel-S02",
+          "archive_id": "tobac-384f7a90f3fc0133",
+          "status": "mapped"
+        },
+        {
+          "source_id": "parallel-S03",
+          "archive_id": "tobac-f362d5809ccf2fa2",
+          "status": "mapped"
+        }
+      ],
+      "native_lineage_verified": false,
+      "rows": 15,
+      "columns": [
+        "study_id",
+        "title",
+        "channels",
+        "design_rationale",
+        "sequential",
+        "marginal_cost_nzd_pv",
+        "cost_status",
+        "reporting_delay_days",
+        "sample_schedule",
+        "source_ids",
+        "empirical_precision_status"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/docs/decision_contracts/NZ_ACTION_CATALOGUE_v2.4.0.csv",
+      "sha256": "65830ca6835ded177c03b9613dc9e3a509d4ca16045cffe3e4ff1070b639500b",
+      "bytes": 8498,
+      "category": "preserved_legacy_evidence",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 23,
+      "columns": [
+        "action_id",
+        "title",
+        "scope",
+        "definition",
+        "potentially_informative_evidence",
+        "required_causal_evidence",
+        "authority_status",
+        "implementation_quantity",
+        "implementation_cost_nzd_pv",
+        "feasibility_confirmed",
+        "legal_context_source_ids",
+        "numerical_consequences_status"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/references.csl.json",
+      "sha256": "e0651f908676bec3e8c6296cb02dc4c06738da14100699a6fc14a3be688d41b3",
+      "bytes": 13266,
+      "category": "preserved_legacy_evidence",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/requests/empirical_20261024/assay_data_request_fields.csv",
+      "sha256": "e0d903c18c39f1bb69cf9142375d36ca0bfe9eabc39d38895f9f9cc112711f2b",
+      "bytes": 1388,
+      "category": "preserved_legacy_evidence",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 13,
+      "columns": [
+        "field_id",
+        "description",
+        "units",
+        "notes"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/requests/empirical_20261024/marginal_price_response_template.csv",
+      "sha256": "9ffaea9bc257d3c1b594d749881243336007ae91f30f78d3b767f666af7c3861",
+      "bytes": 1497,
+      "category": "preserved_legacy_evidence",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 10,
+      "columns": [
+        "item_id",
+        "description",
+        "quantity_basis",
+        "volume_tiers",
+        "currency",
+        "unit_price",
+        "GST_basis",
+        "fixed_setup_cost",
+        "incremental_collection_cost",
+        "turnaround_days",
+        "valid_until",
+        "inclusions",
+        "exclusions",
+        "assay_performance",
+        "quote_status"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/requests/empirical_20261024/operational_action_request_fields.csv",
+      "sha256": "b1062c4521d382ece10c906848743b155b45e0136d15f97f08b8ddef1d2fa972",
+      "bytes": 433,
+      "category": "preserved_legacy_evidence",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 6,
+      "columns": [
+        "item_id",
+        "request"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/prior_work/v2.9.0/requests/empirical_20261024/supply_data_request_fields.csv",
+      "sha256": "c3fabb3e1caec5e96c479d1e5517a4fb3a86db1e8d312953ffb285acd495279e",
+      "bytes": 444,
+      "category": "preserved_legacy_evidence",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 6,
+      "columns": [
+        "item_id",
+        "request"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "evidence/references.csl.json",
+      "sha256": "eb09f4d9feb1219665ba8e67be7d2e3affc349f4c9f1f8052873ca1790bb4e24",
+      "bytes": 2792,
+      "category": "bibliography_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "evidence/source_review.json",
+      "sha256": "65d67b3cd12690a9b526768cc6ece7470c930613054eb4b40227756b5b6ad367",
+      "bytes": 2368,
+      "category": "evidence_metadata_or_extract",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/longitudinal/README.md",
+      "sha256": "a01732e5e09612399b53bfc3575592115f307510ac12205db86542242ed35d94",
+      "bytes": 2032,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/longitudinal/empirical/latent_ratio_summary.csv",
+      "sha256": "0f8be86e8585dac3cedf79d133f47b55a775383fcc296f7292cbca67b82c8c20",
+      "bytes": 2522,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 14,
+      "columns": [
+        "year",
+        "time",
+        "mean_log",
+        "sd_log",
+        "median_ratio",
+        "lower_95_log",
+        "upper_95_log",
+        "lower_95_ratio",
+        "upper_95_ratio",
+        "period_role"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/longitudinal/empirical/source_audit.json",
+      "sha256": "8eba9d4febd2338025378f2710142a9bfdaf9f9a96cace7fd2d2e329c286ddbf",
+      "bytes": 1251,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/longitudinal/releases/forecast_summary.csv",
+      "sha256": "a3de837673ce6184334420412a3e2d2a655930bfb393af983ce1e43c20fe6b02",
+      "bytes": 2703,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 15,
+      "columns": [
+        "model",
+        "year",
+        "horizon",
+        "mean",
+        "lower_95",
+        "lower_80",
+        "median",
+        "upper_80",
+        "upper_95",
+        "probability_below_last_reported",
+        "estimand",
+        "unit"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/longitudinal/releases/predictive_scores.csv",
+      "sha256": "a15ea05e991f786251e16c178cfd36664d6577cddd422c7aa435ef7f71c25ca9",
+      "bytes": 777,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 6,
+      "columns": [
+        "model",
+        "stage",
+        "n",
+        "mean_log_predictive_density",
+        "mape_percent",
+        "coverage_95",
+        "mean_interval_score_95",
+        "rmse_tonnes"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/README.md",
+      "sha256": "7f6aa5a08de2d87523531b5569880cecdeb4733db54045d01dbc45d8e01d1cac",
+      "bytes": 2188,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/consequences.csv",
+      "sha256": "29bef965ec3cb00e782daec6df6ec186d9739459a99cf6a1d05b76484c05a545",
+      "bytes": 3619,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 20,
+      "columns": [
+        "case",
+        "action",
+        "total",
+        "legal",
+        "illicit",
+        "mean_state_illicit_share",
+        "health_gain",
+        "criminal_harm_change",
+        "resource_cost",
+        "fiscal_volume_change"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/decision_grid.png",
+      "sha256": "4aef09a6a1934174efe40baeffd67742ec1dd45ad9f232268dd82c67325b7294",
+      "bytes": 123632,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/decision_grid.svg",
+      "sha256": "a1a2eeedaa34f74ddb4d19fa2231ed484cd61918ba2d8dc9f8e21cf1d1019735",
+      "bytes": 116502,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/decisions.csv",
+      "sha256": "ab467b91c4f5214bf941d4a6ddc3eddde73f1fdc5cebb28e23e0d8e5a2224bf5",
+      "bytes": 10387,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 125,
+      "columns": [
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "cooptimal_actions",
+        "best_expected_value",
+        "evpi"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/consequences.csv",
+      "sha256": "c7d002fc7a7783a63841fd6d17e9e6c5a87b8266cf25083a3de99e041d7d8816",
+      "bytes": 3571,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 20,
+      "columns": [
+        "case",
+        "action",
+        "total",
+        "legal",
+        "illicit",
+        "mean_state_illicit_share",
+        "health_gain",
+        "criminal_harm_change",
+        "resource_cost",
+        "fiscal_volume_change"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/decision_grid.png",
+      "sha256": "4aef09a6a1934174efe40baeffd67742ec1dd45ad9f232268dd82c67325b7294",
+      "bytes": 123632,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/decision_grid.svg",
+      "sha256": "a1a2eeedaa34f74ddb4d19fa2231ed484cd61918ba2d8dc9f8e21cf1d1019735",
+      "bytes": 116502,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/decisions.csv",
+      "sha256": "f3bf4c56f2843eeff76798e901e9f3f568d6c8e5f38ef629e193f2a3d083dcb1",
+      "bytes": 10385,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 125,
+      "columns": [
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "cooptimal_actions",
+        "best_expected_value",
+        "evpi"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/grouped_evppi.csv",
+      "sha256": "535bd623f07c6d630c03138098f4effb1f7ba5863cd41373a51648d1533a3958",
+      "bytes": 47696,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 875,
+      "columns": [
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "group",
+        "evppi"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/manifest.json",
+      "sha256": "3556d78e1a8adffadd62456914996bcccda0d5bb833152d7c414c7aad72cf7ce",
+      "bytes": 4776,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/report.json",
+      "sha256": "b9491b3f33252ec884242cace6d1a1c8d2d06ffd3f8f2e7e8ae38e2aa7195cb2",
+      "bytes": 5630,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/robustness.csv",
+      "sha256": "41492cffcca35389d0c041cdc6a310a3091469262f47319ea7b6c074c4e6e374",
+      "bytes": 260,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 5,
+      "columns": [
+        "case",
+        "cooptimal_across_continuous_box",
+        "crime_lower",
+        "crime_upper",
+        "resource_lower",
+        "resource_upper"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/scientific_information.csv",
+      "sha256": "7794416d3b1ca9bb1a508ef1990c5f8f29b12b4b825176142803bcd6266c403b",
+      "bytes": 10263,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 90,
+      "columns": [
+        "case",
+        "design",
+        "target",
+        "prior_entropy_nats",
+        "expected_posterior_entropy_nats",
+        "eig_nats"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/source_use.csv",
+      "sha256": "abee1f93481de4bf253cac27bee37204580330ae71daf1855bcded992e3761bb",
+      "bytes": 10231,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 35,
+      "columns": [
+        "source_id",
+        "document_id",
+        "underlying_data_group",
+        "model_use",
+        "limitation"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "ANABASINE_WW_2020",
+          "ANABASINE_YIELD_2026",
+          "ANABASINE_YIELD_2026_S1",
+          "ANABASINE_YIELD_2026_S2",
+          "AU_CRIME_INQUIRY_2026",
+          "BIOCHEM_VERIFICATION_2019",
+          "CLINICAL_ANBA_ABSTRACT_2017",
+          "CVS_BEHAVIOUR_2020",
+          "CVS_PURCHASE_2017",
+          "DUTCH_RETAIL_2026",
+          "FLAVOUR_REVIEW_2021",
+          "HUNGARY_YOUTH_2024",
+          "HUNGARY_YOUTH_2024_WEB",
+          "NZHS_202425",
+          "NZHS_CONTENT_202425",
+          "NZ_ACTIONPLAN_RIS_2021",
+          "NZ_ASPIRE_FEASIBILITY",
+          "NZ_BASELINE_REPORT_2022",
+          "NZ_CUSTOMS_ANNUAL_2025",
+          "NZ_CUSTOMS_BUDGET_2025",
+          "NZ_CUSTOMS_CASE_2025",
+          "NZ_CUSTOMS_OIA_25_395",
+          "NZ_CUSTOMS_OIA_25_826",
+          "NZ_EXCISE_EVALUATION_2018",
+          "NZ_INDEXATION_CABINET_2025",
+          "NZ_REGIME_APPLICATIONS_2024",
+          "NZ_REGIME_FUNDING_2023",
+          "NZ_RETURNS_2025",
+          "NZ_TDB_REVIEW_2023",
+          "NZ_TREASURY_OIA_20240568",
+          "NZ_TREASURY_OIA_20250377",
+          "NZ_TREASURY_OIA_20260249",
+          "NZ_WASTEWATER_2025",
+          "RETAIL_SCOPING_2023",
+          "URINARY_VALIDATION_2014"
+        ]
+      }
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/study_value.csv",
+      "sha256": "9de5494f0c0ed81abd696d4fb8b303fa60db63a41d222fd197d6adb862e766f4",
+      "bytes": 68420,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 750,
+      "columns": [
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "design",
+        "evsi",
+        "evpi",
+        "gross_cost_ceiling"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/study_value_slice.png",
+      "sha256": "da7950ea2ff45019080709a7f93638e99f1c09f8170581f3925215f430cd1ec1",
+      "bytes": 124239,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/study_value_slice.svg",
+      "sha256": "fc2a89b27d7fa9e1630ca11b05218950c672c61ba7fc2d1291cdf515c9bdc1a7",
+      "bytes": 69183,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-2/thresholds.csv",
+      "sha256": "7ae5d612d5d58640bab6aa14cb8a76881fd4cd1716db6a2a0b0f928b5cfa11f6",
+      "bytes": 1679,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 19,
+      "columns": [
+        "case",
+        "resource_weight",
+        "crime_weight",
+        "cooptimal_actions"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/consequences.csv",
+      "sha256": "c3970a833cbfdd4c2eb7130cf2d4a28c9cbc0439c543577e60973981f5c08d74",
+      "bytes": 3622,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 20,
+      "columns": [
+        "case",
+        "action",
+        "total",
+        "legal",
+        "illicit",
+        "mean_state_illicit_share",
+        "health_gain",
+        "criminal_harm_change",
+        "resource_cost",
+        "fiscal_volume_change"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/decision_grid.png",
+      "sha256": "4aef09a6a1934174efe40baeffd67742ec1dd45ad9f232268dd82c67325b7294",
+      "bytes": 123632,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/decision_grid.svg",
+      "sha256": "a1a2eeedaa34f74ddb4d19fa2231ed484cd61918ba2d8dc9f8e21cf1d1019735",
+      "bytes": 116502,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/decisions.csv",
+      "sha256": "10dff4e32e19fdca1e460b28be7f0e1f20fc748bad90bfacb7f7563dd8597a4b",
+      "bytes": 10301,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 125,
+      "columns": [
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "cooptimal_actions",
+        "best_expected_value",
+        "evpi"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/grouped_evppi.csv",
+      "sha256": "a2ac93939192f51cc739ce690c7d1eb52b5d2bd91e41151858cf34823b85ee56",
+      "bytes": 47715,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 875,
+      "columns": [
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "group",
+        "evppi"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/manifest.json",
+      "sha256": "06d9ab1aa34f17ca80c7c623ac83708fa474d94ff7d54ce17052000a9ecba48d",
+      "bytes": 4776,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/report.json",
+      "sha256": "a6efa32842be2c8421d9e52484aeac880e759dfafce563813eee63580065ba25",
+      "bytes": 5023,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/robustness.csv",
+      "sha256": "41492cffcca35389d0c041cdc6a310a3091469262f47319ea7b6c074c4e6e374",
+      "bytes": 260,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 5,
+      "columns": [
+        "case",
+        "cooptimal_across_continuous_box",
+        "crime_lower",
+        "crime_upper",
+        "resource_lower",
+        "resource_upper"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/scientific_information.csv",
+      "sha256": "d518851b7096a5cee87989413dcdf8314a80ba0639679cac114c85a56b841ca9",
+      "bytes": 10183,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 90,
+      "columns": [
+        "case",
+        "design",
+        "target",
+        "prior_entropy_nats",
+        "expected_posterior_entropy_nats",
+        "eig_nats"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/source_use.csv",
+      "sha256": "abee1f93481de4bf253cac27bee37204580330ae71daf1855bcded992e3761bb",
+      "bytes": 10231,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 35,
+      "columns": [
+        "source_id",
+        "document_id",
+        "underlying_data_group",
+        "model_use",
+        "limitation"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "ANABASINE_WW_2020",
+          "ANABASINE_YIELD_2026",
+          "ANABASINE_YIELD_2026_S1",
+          "ANABASINE_YIELD_2026_S2",
+          "AU_CRIME_INQUIRY_2026",
+          "BIOCHEM_VERIFICATION_2019",
+          "CLINICAL_ANBA_ABSTRACT_2017",
+          "CVS_BEHAVIOUR_2020",
+          "CVS_PURCHASE_2017",
+          "DUTCH_RETAIL_2026",
+          "FLAVOUR_REVIEW_2021",
+          "HUNGARY_YOUTH_2024",
+          "HUNGARY_YOUTH_2024_WEB",
+          "NZHS_202425",
+          "NZHS_CONTENT_202425",
+          "NZ_ACTIONPLAN_RIS_2021",
+          "NZ_ASPIRE_FEASIBILITY",
+          "NZ_BASELINE_REPORT_2022",
+          "NZ_CUSTOMS_ANNUAL_2025",
+          "NZ_CUSTOMS_BUDGET_2025",
+          "NZ_CUSTOMS_CASE_2025",
+          "NZ_CUSTOMS_OIA_25_395",
+          "NZ_CUSTOMS_OIA_25_826",
+          "NZ_EXCISE_EVALUATION_2018",
+          "NZ_INDEXATION_CABINET_2025",
+          "NZ_REGIME_APPLICATIONS_2024",
+          "NZ_REGIME_FUNDING_2023",
+          "NZ_RETURNS_2025",
+          "NZ_TDB_REVIEW_2023",
+          "NZ_TREASURY_OIA_20240568",
+          "NZ_TREASURY_OIA_20250377",
+          "NZ_TREASURY_OIA_20260249",
+          "NZ_WASTEWATER_2025",
+          "RETAIL_SCOPING_2023",
+          "URINARY_VALIDATION_2014"
+        ]
+      }
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/study_value.csv",
+      "sha256": "4565cad7ab722c16506b4a137fd3b70e6ab4d6d3976f18d92749bb94f6508e3c",
+      "bytes": 68558,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 750,
+      "columns": [
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "design",
+        "evsi",
+        "evpi",
+        "gross_cost_ceiling"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/study_value_slice.png",
+      "sha256": "e04fcab33bb05c4a5d5f38a9cff39fe7625a4d42febf98b6d69f5d4a410cc709",
+      "bytes": 123886,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/study_value_slice.svg",
+      "sha256": "3d871ac5eef43be3ae4908c2ef2a7f9c54e6a9d65a790c2af84800b729b34456",
+      "bytes": 69186,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/grid-8/thresholds.csv",
+      "sha256": "4233183b947539c96c3a504dbdb58181b83b4f905728fcc43fa3e470d9b70196",
+      "bytes": 1683,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 19,
+      "columns": [
+        "case",
+        "resource_weight",
+        "crime_weight",
+        "cooptimal_actions"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/grouped_evppi.csv",
+      "sha256": "6b7334578d44ddb451fea6aa93e1d714dffa562425af272020983d04fcbef22f",
+      "bytes": 47674,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 875,
+      "columns": [
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "group",
+        "evppi"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/manifest.json",
+      "sha256": "d9862a8960102637d3b05caa40faf6f439800e49e62db2971790049a51c26174",
+      "bytes": 7558,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/report.json",
+      "sha256": "27b57702610e74c65c382641330f3e51d32af68ea4daded655746a8e1705a2df",
+      "bytes": 7265,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/robustness.csv",
+      "sha256": "41492cffcca35389d0c041cdc6a310a3091469262f47319ea7b6c074c4e6e374",
+      "bytes": 260,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 5,
+      "columns": [
+        "case",
+        "cooptimal_across_continuous_box",
+        "crime_lower",
+        "crime_upper",
+        "resource_lower",
+        "resource_upper"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/scientific_information.csv",
+      "sha256": "816d71344b3ba905373a13fff95e92cd669318c79702d66587af0fa70f2405bd",
+      "bytes": 10283,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 90,
+      "columns": [
+        "case",
+        "design",
+        "target",
+        "prior_entropy_nats",
+        "expected_posterior_entropy_nats",
+        "eig_nats"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/source_use.csv",
+      "sha256": "abee1f93481de4bf253cac27bee37204580330ae71daf1855bcded992e3761bb",
+      "bytes": 10231,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 35,
+      "columns": [
+        "source_id",
+        "document_id",
+        "underlying_data_group",
+        "model_use",
+        "limitation"
+      ],
+      "declared_row_metadata": {
+        "source_id": [
+          "ANABASINE_WW_2020",
+          "ANABASINE_YIELD_2026",
+          "ANABASINE_YIELD_2026_S1",
+          "ANABASINE_YIELD_2026_S2",
+          "AU_CRIME_INQUIRY_2026",
+          "BIOCHEM_VERIFICATION_2019",
+          "CLINICAL_ANBA_ABSTRACT_2017",
+          "CVS_BEHAVIOUR_2020",
+          "CVS_PURCHASE_2017",
+          "DUTCH_RETAIL_2026",
+          "FLAVOUR_REVIEW_2021",
+          "HUNGARY_YOUTH_2024",
+          "HUNGARY_YOUTH_2024_WEB",
+          "NZHS_202425",
+          "NZHS_CONTENT_202425",
+          "NZ_ACTIONPLAN_RIS_2021",
+          "NZ_ASPIRE_FEASIBILITY",
+          "NZ_BASELINE_REPORT_2022",
+          "NZ_CUSTOMS_ANNUAL_2025",
+          "NZ_CUSTOMS_BUDGET_2025",
+          "NZ_CUSTOMS_CASE_2025",
+          "NZ_CUSTOMS_OIA_25_395",
+          "NZ_CUSTOMS_OIA_25_826",
+          "NZ_EXCISE_EVALUATION_2018",
+          "NZ_INDEXATION_CABINET_2025",
+          "NZ_REGIME_APPLICATIONS_2024",
+          "NZ_REGIME_FUNDING_2023",
+          "NZ_RETURNS_2025",
+          "NZ_TDB_REVIEW_2023",
+          "NZ_TREASURY_OIA_20240568",
+          "NZ_TREASURY_OIA_20250377",
+          "NZ_TREASURY_OIA_20260249",
+          "NZ_WASTEWATER_2025",
+          "RETAIL_SCOPING_2023",
+          "URINARY_VALIDATION_2014"
+        ]
+      }
+    },
+    {
+      "path": "results/m2_publication_20261028/study_value.csv",
+      "sha256": "764580bd4f99b8dcb3cf21d5bc954a337b480901dd53fbfe6e08751d5aa08459",
+      "bytes": 68456,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 750,
+      "columns": [
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "design",
+        "evsi",
+        "evpi",
+        "gross_cost_ceiling"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_publication_20261028/study_value_slice.png",
+      "sha256": "0e60e94ecf86926ab33888f995fb5406d1b65cc24b7c670e1870dd3d8505de42",
+      "bytes": 124148,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/study_value_slice.svg",
+      "sha256": "8de7514f6addb7eb9455c055c632f690c7cbd93f0481723510449959de99ce99",
+      "bytes": 69188,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_publication_20261028/thresholds.csv",
+      "sha256": "8ac0941672594a8245f8b3e9e711cc660dc1e793d86ed97065d5b4591bef62ee",
+      "bytes": 1678,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 19,
+      "columns": [
+        "case",
+        "resource_weight",
+        "crime_weight",
+        "cooptimal_actions"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_readiness_20261028/README.md",
+      "sha256": "8a4549aa79b40b23ed9b5c431222e31da52415b92d49d88850021c45bab5f5d9",
+      "bytes": 1490,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_readiness_20261028/decisions.csv",
+      "sha256": "ebe74745eca4b95561cc3c327027a67a4c6e44747d67eb5b50d051f28e1704db",
+      "bytes": 177583,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 1625,
+      "columns": [
+        "challenge",
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "cooptimal_actions",
+        "best_expected_value",
+        "evpi",
+        "baseline_regret_min",
+        "baseline_regret_max"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_readiness_20261028/grouped_evppi.csv",
+      "sha256": "d3fad349173f9175e66e003370b941ab37719faefcbe03dfea3eb8ec2f841ce7",
+      "bytes": 799704,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 11375,
+      "columns": [
+        "challenge",
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "group",
+        "evppi"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_readiness_20261028/manifest.json",
+      "sha256": "b58464b6b0d0f2346729c728f4ac445081bba64cd633351e68c4142e9c4c4ccc",
+      "bytes": 3795,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_readiness_20261028/report.json",
+      "sha256": "31f6e3246846e9270f67959a795b90ae5146a1d069228cc13ffb9eb916ae6a7b",
+      "bytes": 6824,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/m2_readiness_20261028/scientific_information.csv",
+      "sha256": "c8e97b34a8663664df9888f512d5a487a2edb3c859cbc2cda5e3f6d334be2348",
+      "bytes": 152714,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 1170,
+      "columns": [
+        "challenge",
+        "case",
+        "design",
+        "target",
+        "prior_entropy_nats",
+        "expected_posterior_entropy_nats",
+        "eig_nats"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_readiness_20261028/study_value.csv",
+      "sha256": "4b1b6c2b98832a5b9a7ac52e1cb8fa793aa0a49262b239681679a71e217e4b48",
+      "bytes": 938714,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 9750,
+      "columns": [
+        "challenge",
+        "case",
+        "crime_weight",
+        "resource_weight",
+        "design",
+        "evsi",
+        "evpi"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/m2_readiness_20261028/summary.csv",
+      "sha256": "cf09fa234b1c9c245edd917ce0149d87e57cc1884054745f236bf32c45906be1",
+      "bytes": 1007,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 13,
+      "columns": [
+        "challenge",
+        "compared_profiles",
+        "changed_policy_sets",
+        "disjoint_policy_sets",
+        "changed_gross_design_sets",
+        "changed_group_sets",
+        "maximum_baseline_tie_regret",
+        "maximum_absolute_evsi_difference"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/milestone2/conditioning_fixtures.json",
+      "sha256": "9b4efe4fb94e6a07a401e09688806962c042ab511eec8d75a22c9ee2e27c811f",
+      "bytes": 1982,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/milestone2/grid_check.csv",
+      "sha256": "62ee4ab9786737c4ab1e2f78d88526a727fb5b1164488ebf59550e7a7bbbab1e",
+      "bytes": 744,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 12,
+      "columns": [
+        "quit_nodes",
+        "states",
+        "design",
+        "evpi",
+        "evsi"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/milestone2/incremental_information.csv",
+      "sha256": "a1e79f38d8a9589e8dc11ed7ae6520b8ff70cecd994300bd2cf79b0ab69f87a8",
+      "bytes": 638,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 3,
+      "columns": [
+        "first",
+        "next",
+        "first_evsi",
+        "joint_evsi",
+        "expected_conditional_evsi",
+        "chain_error",
+        "initial_evpi",
+        "expected_remaining_evpi",
+        "scope"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/milestone2/manifest.json",
+      "sha256": "6837877dbadfe2a922c4f8b9bf706f483e3834d6f705e8f2ed91e29479aa2168",
+      "bytes": 2314,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/milestone2/reference_grouped_evppi.csv",
+      "sha256": "20f077cb38b55040dc313580e65ebf7b185edfc1230a1e496e6e17b40a02467a",
+      "bytes": 498,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 7,
+      "columns": [
+        "case",
+        "crime_weight",
+        "group",
+        "evppi"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/milestone2/reference_scientific_learning.csv",
+      "sha256": "7ae3f9841e6796233da42c7ea647f53bf62a0e64aabbe789566708edb94427b8",
+      "bytes": 7915,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 60,
+      "columns": [
+        "case",
+        "crime_weight",
+        "design",
+        "target",
+        "prior_entropy_nats",
+        "expected_posterior_entropy_nats",
+        "eig_nats"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/milestone2/reference_study_value.csv",
+      "sha256": "d73ee447938ab87715caa5d5cb4cbd4e8bd27f4f539a6e6b4e0f8277e4ccc3ca",
+      "bytes": 2288,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 15,
+      "columns": [
+        "case",
+        "crime_weight",
+        "design",
+        "evsi",
+        "evpi",
+        "probability_action_changes",
+        "mean_effective_states",
+        "minimum_effective_states",
+        "resolution_probability"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/milestone2/summary.csv",
+      "sha256": "cb0d1372173bc3d4a2dfa30a7fd07d8d5e15ad0391cb32a7cc1a5e8c4c67c5da",
+      "bytes": 3496,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 15,
+      "columns": [
+        "case",
+        "crime_weight",
+        "states",
+        "quit_nodes",
+        "mean_net_cessation",
+        "evpi",
+        "preferred_action",
+        "value_unit",
+        "scope"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/milestone2/validation.json",
+      "sha256": "278c5ea41921f818610a3f3b543b6527e1f8efad36a3183fca18188d1fb906a4",
+      "bytes": 519,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/milestone3/archive/manifest.json",
+      "sha256": "af96cfdc027999f1302ce1d73b1cb46d8f583e2ab3aab97153c189756d7b1346",
+      "bytes": 803,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/milestone3/archive/part-001",
+      "sha256": "f4c9ef9334084a4197175a989fe833b1974b4faaf00434ebc8776cd06e1057d5",
+      "bytes": 7575,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/milestone3/archive/part-002",
+      "sha256": "7d3dee34f92186be294435f4f09b465f504ea42eb7f6f3c5356f651afd913ae3",
+      "bytes": 7575,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/milestone3/archive/part-003",
+      "sha256": "23abf6c6663da21511f8f4997daebbf3c1fb6a584b0e9b602222421f826b8f7d",
+      "bytes": 7590,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/milestone3/reference_portfolios.csv",
+      "sha256": "100334e16030ba413e8f9bf14dc42d582c105735445de5d180b62b40d261f66f",
+      "bytes": 2890,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 12,
+      "columns": [
+        "scenario",
+        "case",
+        "prior_high_illicit",
+        "crime_weight",
+        "design",
+        "evsi",
+        "cost",
+        "enbs",
+        "evpi",
+        "probability_action_changes",
+        "min_effective_states",
+        "value_unit"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/milestone3/reference_refinement.csv",
+      "sha256": "f6f27d002cce76e1ec753c14460b29bb2861bae719718b0bcccd2b225b87d57c",
+      "bytes": 883,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 12,
+      "columns": [
+        "design",
+        "evsi_2nodes",
+        "cost",
+        "enbs_2nodes",
+        "evsi_4nodes",
+        "enbs_4nodes"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/milestone3/validation.json",
+      "sha256": "2aa63cf7884147c2bf608f6b9828d6a94ccb2064805c7494f02aa1a33ecd4ef3",
+      "bytes": 602,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    },
+    {
+      "path": "results/published/comparison.csv",
+      "sha256": "f0db8dcbeb2be2ab51da986fa65565e6553ffbe098ed9f6f1c66f8ba3e905617",
+      "bytes": 10567,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 36,
+      "columns": [
+        "prior",
+        "crime_weight",
+        "prior_action",
+        "evpi",
+        "reference",
+        "retail_restriction",
+        "restriction_plus_support",
+        "expanded_cessation",
+        "evppi_baseline_reachable",
+        "evppi_behaviour",
+        "evppi_criminal_harm",
+        "evppi_health_consequences",
+        "evppi_implementation",
+        "evppi_market",
+        "evppi_measurement",
+        "evsi_anabasine",
+        "evsi_better_quantification_supply",
+        "evsi_calibration_panel_supply",
+        "evsi_causal_and_harm",
+        "evsi_causal_policy_study",
+        "evsi_composition_panel_supply",
+        "evsi_criminal_harm_study",
+        "evsi_linked_market_and_causal",
+        "evsi_nicotine",
+        "evsi_none",
+        "evsi_panel",
+        "evsi_panel_supply",
+        "evsi_supply"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/published/reference_learning.csv",
+      "sha256": "05142dfa5ecfde33863cf693f56213cff409277f6718773585efee46d9b22046",
+      "bytes": 1384,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 13,
+      "columns": [
+        "design",
+        "eig_nats_criminal_externality",
+        "eig_nats_current_illicit_share",
+        "eig_nats_current_illicit_volume",
+        "eig_nats_current_total_tobacco",
+        "eig_nats_future_diversion",
+        "p_resolution_current_illicit_volume_ge_150",
+        "p_resolution_policy_causes_material_absolute_illicit_growth"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/published/same_data_robustness.csv",
+      "sha256": "5bbb5b600d7bc808b974fa4f65a1b1c86dc79126d5eae078b0c7abeed2b90a99",
+      "bytes": 1582,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false,
+      "rows": 13,
+      "columns": [
+        "design",
+        "expected_probability_range",
+        "decision_agreement_probability",
+        "confident_agreement_probability",
+        "reference_distribution"
+      ],
+      "declared_row_metadata": {}
+    },
+    {
+      "path": "results/published/validation.json",
+      "sha256": "ab904b327589bb005ff28fa1eac44d4805e2c8443d7415e845d798220f9e8357",
+      "bytes": 508,
+      "category": "reference_output_not_observation",
+      "source_references": [],
+      "native_lineage_verified": false
+    }
+  ],
+  "implementation_sha256": {
+    "noxfile.py": "ed35318758d518840a4b32ae913d3f51215c28690dd48a584387c2296b7847db",
+    "scripts/actions_diagnostics.py": "df733b0bacccf119c9eb915600ee14a3ede9012492f19a29f13ea4a27ab25520",
+    "scripts/assess_publication_history.py": "89a3098f36ee6daeec6a3debb45d92d8e26204f82057de07a07a865530574602",
+    "scripts/check_conductor_track_names.py": "c6e6f8b634cfd323533560db5dc73432959792d95a7234f0b38a5f50b7941368",
+    "scripts/check_longitudinal_results.py": "88ffa20bbe5c36de0f9b3f945f4dfa09b376246024f7506403f02ff3097d5fdd",
+    "scripts/check_mutation_score.py": "5eec7f20038b5babb715ef14c091e3a487f8c8b7d3f98f6933b329cd2917e14f",
+    "scripts/check_publication_security.py": "a9b8815af7be2473705eba7f3866452403429c3fe0550ea45b15d1f8f9fa2eed",
+    "scripts/check_security_findings.py": "e673deed326358bc0342fdf3bfb0ddd3c277e741f2dfd736246c401af185fdb6",
+    "scripts/context_bundle.py": "a2cced0e8b96d5f48c3a634b2f945da569767a9cb8655a58c16adb982df92f07",
+    "scripts/dependency_snapshot.py": "dafbca7ca3944c5bb079807bacd349c20aad16180eff083720485ef47eef02c6",
+    "scripts/lock_receipt.py": "3e15bd5cf9a349b16cf6931a6f1be7adcb6fdf67e80847c97d5462ebe0d2e1a0",
+    "scripts/probe_archive_contract.py": "04f84c85610810356d701fa5fe0ad00911db0aa7340f26da59ebb56fbbd47d52",
+    "scripts/publication_boundary.py": "53003c40433f483fa0cb1d97dbf144c9f552f5ba54c6cf14d0988becef8485ee",
+    "scripts/qualify_clean_package.py": "f2ee6f1c2e22052be16393de0d671f1fc407dbab7943e8df6f0037cdb8e20284",
+    "scripts/qualify_ecosystem.py": "d941b648a960583b336608c3f1bc40508e0094f5288a7812dbbdb6707cdc9d95",
+    "scripts/qualify_integrations.py": "4563ef76cdfc98d925ee59ed062e45e0e0d272ed739c304b680a65c22fc88a4a",
+    "scripts/qualify_interchange.py": "cb35834b412874cadf3dcfd2a0b40b84cbbd896564185b79cf8e099762cba239",
+    "scripts/qualify_m2_pathway.py": "6624ea737865525d3728b831532434af2706674732042379c9504c81ea8a22b6",
+    "scripts/qualify_m2_synthesis.py": "563dc6acf9df0ba887248e6c19c5c318edf744c2dad8038ed9a2fd4b6aa33e34",
+    "scripts/qualify_moh_workbook.py": "24590bc79acfb7f2338037634c71068fc83400158ec6b45da5e69aba0acfc43b",
+    "scripts/qualify_publication_replay.py": "d546e54d16677c2e7a9b650ebd9d45f1036f6db6d76f6965a145aba71a17033d",
+    "scripts/qualify_recovery.py": "d3c77f288a4536c35eff7e74d100045c7bd0aa50612ef45ea1d0b0bb47624040",
+    "scripts/qualify_voiage_consumer.py": "b888309ee56229c1d107a2c715a1049a36eb3aecf88aac206dec6cfc6ae58f12",
+    "scripts/reconcile_products_2025.py": "1ecd1a61744461bbfa1b0bba337e9b1c67287181b90514d3d8ac5b1384175bbd",
+    "scripts/run_bounded.py": "638e409ed947e03bc961485b0cd687c9b88e19204221125654ac0404397da8bc",
+    "scripts/run_codeql.py": "6fa7d5ba6dc53f5b85c1ec4ba7a7b2dbcabcb03fd59c944266cbe132f781581c",
+    "scripts/run_empirical_longitudinal.py": "239602a4b7e42da3a1a51c4ad6b2255d76bd56b55971a262a67259b4d6bf40cf",
+    "scripts/run_m2_publication.py": "34f4ef6d831e8f14f8e09ea1fbc7257c9529d74a7be8979ff772edd2dfdb3d0f",
+    "scripts/run_m2_robustness.py": "9fdaf27fce547c634e57e06790bd47c8a5a0cca677c40034f121c2287351ec07",
+    "scripts/run_release_calibration.py": "7a28e90ff17ecdf6604d24009b203ea25836d4fb42b80eac7c488a5b14d3185b",
+    "scripts/source_handoff.py": "f60e5125327ca3106019d3892cafea15e37c21292c1fe1384a8928e09310dca1",
+    "scripts/unpack_m3_results.py": "6e54cf9494f73c5c37dec9d2dff5090cacc82947184cb824dac867058325b9dd",
+    "scripts/verify.py": "7fc555a88945abbc42d5c32043aa3b6bd67b9f8c377d22a54c1700c9edf25c10",
+    "scripts/verify_empirical_longitudinal.py": "d0d1d67a24bbfa82fd0a79c8a46685aa0ef32a512ced21365a06686ce8f37a70",
+    "scripts/verify_prior_work.py": "f9354a8bb1305a748ccc455c2b99283f84c0720360a29d2ae141862312c440a0",
+    "scripts/verify_product_assets.py": "cb16c32614ccb6f5d601bf68f4aab1463c559cabfa2e55f200a8d7b1b77859e9",
+    "scripts/verify_release_calibration.py": "463af75469ff5dd40279043f5ea8fbb683f2a49dc208ff71b89b3138846bb4a7",
+    "scripts/voiage_consumer_surface.py": "4b0f6e2fe153031db13466a045f6a247e322f5aa74097c85d24a1e5979071241",
+    "src/tobac/__init__.py": "438a1124a46dfc7a91b5424c8127a8ead3e01c0f34e45740a1238429aa54f94f",
+    "src/tobac/_core.py": "c2dae2df9d91d5143d7ffe5926fcc410f65fbfc6933a8e5bdabf3c8b61c5bcee",
+    "src/tobac/_typing.py": "ec3ebd6c74b4b7dbeed64c668984e432fa5366ab9ebadee07c597f4b6270ec2f",
+    "src/tobac/backend.py": "29fbd4523810e76d59aa9ccc0df35acf76dfc5db5077ba48a8f4b20bbe9074dc",
+    "src/tobac/config_validation.py": "1f9b31118eb2b45c1ff084bb84384fdd1fafc330e603457772b4a586d01f7fe8",
+    "src/tobac/evidence.py": "88dd31c846b88b547b9db5418565a1b78325c42074862aa6a6ae268017501602",
+    "src/tobac/information.py": "355e3fbef1cacdb783d96af5561bb150ef9958873abfb6a658b2a5a69bd7f5e8",
+    "src/tobac/integrations.py": "4a40996b1186fc4bf057797af0facffaeaf107a6d2e21cca94fa4d5e1372209c",
+    "src/tobac/interchange.py": "e479d5f36e7deec849e8dc796c693af47ef2830b3aa9adb027a162b0380289b3",
+    "src/tobac/m2.py": "269a3e302bcdf833deab9ec1e73bffe7a8d1f79601836eeed1978b6c69b8401f",
+    "src/tobac/matched.py": "471ec69eb30834de0145eaec6b13dc366cca8bb25bbdb4d7cf98c54632852edb",
+    "src/tobac/parameters.py": "58180da80bc9087a816f9058dd9e9c960059d27b8eb28ef475b6ee7dd9409d56",
+    "src/tobac/partial_identification.py": "34f528557b34f050036e52a4a5e66b189de75c14e24087b6d9bc85e60aee834c",
+    "src/tobac/regulation.py": "a1d361e300df331bb10810100f1e153f1f6faf4d8de4e5824b3702bc9fc517e5",
+    "src/tobac/replay.py": "19fac6aa53a3233f69837ad0c1d77d7909cfe6c1c0a7e5a787e0cc50e59a505c",
+    "src/tobac/research/__init__.py": "82c9f7c23f3f260b62ba6bb1b5065dbccee5509b09cbd92505803412e7c976dd",
+    "src/tobac/research/implementation.py": "a899abdcb222ae696fab116e8a774735692da6743e1b80a070cef8ee4d8cce0d",
+    "src/tobac/research/portfolio.py": "e054aaebeb09824bb305408b5defd79695398c4fd1d26c60f5719da7c0316c3d",
+    "src/tobac/research/qualification.py": "ecbd0956f8fc6bba386e24d2abf23269e615fd076d9c9c2c76b76f3d2e29239f",
+    "src/tobac/research/robust.py": "42cef714d35a3f28fa4ca006d91d13de84456ef938c5ed863c3566af9bc14275",
+    "src/tobac/research/runner.py": "cc254075be4498837843c18989aedae3826aa6c06beea65ed0e569e372168276",
+    "src/tobac/research/staged.py": "d6d2ca4ba7637d6401c110a4e27e8c896dd2c001b545a00d88fa02875b667ee6",
+    "src/tobac/research/structure.py": "add80ead9c7f07c4fa9230bf9a000f277c770631a52266f42eb74fc3d57b2ddf",
+    "src/tobac/research/voiage_adapter.py": "3020eca14c74d7dafb228385e37debddd4a517688b04095074aaeb5aee9eb8df",
+    "src/tobac/retail_case.py": "248ec4ed391440ce8277f4e31dc30ace0586cc30ab1ac8ced524b1dae8558ff5",
+    "src/tobac/robustness.py": "230e072b9405c9366037af291c3933beee3f2d75003f4533a0411a929051f336",
+    "src/tobac/run.py": "e741b366c649a27ef9ed59ac3cf3b8cb842f4fed3ad0a7f6dd3cf750055ea020",
+    "src/tobac/supply.py": "45261897fd11636492186c070fc6b0a77caf7dae3d9345ef2dec495ca169acfb",
+    "src/tobac/value_sensitivity.py": "173aaa01420754c93d8a20d94b4f4cd0e5a8ba23ad1bd64796780fa5baf9497a",
+    "src/tobac_supply/__init__.py": "16467a877d1de4de35636a768f89d2e62d6b8407efb0d95db031930c17052f6f",
+    "src/tobac_supply/consumption_ledger.py": "5b5370207d239ede06480d441f7c4fa9e8d4a3b3d2d237a4f01becb68789390b",
+    "src/tobac_supply/empirical_longitudinal.py": "efbf1c76bffb7e8a844f2d0420194e6a2208a655259b10f6d6de5686b27afa3a",
+    "src/tobac_supply/longitudinal.py": "3dae712734a760b077f06a7d2ed3acb5f2cbfe7580331fc3fe0d12d95b16bc34",
+    "src/tobac_supply/release_calibration.py": "74e56c210ea8f5cd59969298e3e00521d46885b3ecf7b31acd7d4c2069c8962a"
+  },
+  "scope": "approved_local_assets_and_implementation_superset_not_executed_dependency_closure",
+  "native_lineage_verified": false,
+  "scientific_qualification": false,
+  "automatically_conditions_live_model": false
+}

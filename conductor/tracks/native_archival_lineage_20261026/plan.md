@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage — implementation plan
 
-Status: approved implementation plan; track registered; implementation has not started.
+Status: Phase 1 foundations implemented and reviewed; native integration remains open.
 Specification: [approved spec](spec.md), approved by the maintainer on 26 October 2026.
 Planning base: tobac `59bb0e4ebaf1881158849df1702a1d3101aad58f`.
 Method: [shared workflow](../../workflow.md). Tests and reference comparisons precede
@@ -40,30 +40,30 @@ Owner: tobac integration owner with the existing archive producer owner.
 Depends on: approved specification and implementation handoff.
 Covers: R01, R02, R09, R11, R12; AC01, AC02, AC11, AC14.
 
-- [ ] Task: P1.1 — Establish current revisions, ownership and execution baselines.
-  - [ ] Re-read both repositories' instructions/tracks and issue #1; inspect current
+- [x] Task: P1.1 — Establish current revisions, ownership and execution baselines. 68423a8
+  - [x] Re-read both repositories' instructions/tracks and issue #1; inspect current
     PR #21, archive PR #776 and ecosystem PR #23 states and exact receiving revisions.
-  - [ ] Select bounded context profiles; record HEAD/source hashes, dirty state,
+  - [x] Select bounded context profiles; record HEAD/source hashes, dirty state,
     native schema/API versions and actual repo-local interpreter versions.
-  - [ ] Identify archive/source/scientific/runtime owners and declare the exact
+  - [x] Identify archive/source/scientific/runtime owners and declare the exact
     files each phase may change; preserve source snapshots and baseline artifacts.
-- [ ] Task: P1.2 — Inventory actual data and execution dependencies.
-  - [ ] Enumerate all consumed sources, datasets, agent notes, transformations,
+- [x] Task: P1.2 — Inventory actual data and execution dependencies. 68423a8
+  - [x] Enumerate all consumed sources, datasets, agent notes, transformations,
     assumptions, runner inputs and declared outputs, including M1/M2/M3 and both
     longitudinal components. Classify unavailable, legacy and synthetic items.
-  - [ ] Reconcile the dated source-binding snapshot with this inventory; preserve
+  - [x] Reconcile the dated source-binding snapshot with this inventory; preserve
     source aliases, shared-data IDs, units, dates, product scope and dependency groups.
-- [ ] Task: P1.3 — Produce the native capability and compatibility map.
-  - [ ] Inspect `provenance.py`, `core/manifests.py`, native schemas, integrity
+- [x] Task: P1.3 — Produce the native capability and compatibility map. 68423a8
+  - [x] Inspect `provenance.py`, `core/manifests.py`, native schemas, integrity
     validation, capture and related reuse points. Map source/version/operation/
     derivative/run/result fields and all required relationships to native records.
-  - [ ] Record gaps such as URI conventions, incomplete relationship checks,
+  - [x] Record gaps such as URI conventions, incomplete relationship checks,
     transformation receipt fields and capture timestamps. Specify the smallest
     producer-owned extensions with versioning and consumer compatibility tests.
-  - [ ] Define qualified versus exploratory/legacy status transitions, output
+  - [x] Define qualified versus exploratory/legacy status transitions, output
     closure, row/field locators and the versioned producer artifact/API contract.
-- [ ] Task: P1.4 — Phase verification and checkpoint (refer to workflow.md).
-  - [ ] Review the inventory and contract against R01–R12/AC01–AC14, verify links,
+- [x] Task: P1.4 — Phase verification and checkpoint (refer to workflow.md). 68423a8
+  - [x] Review the inventory and contract against R01–R12/AC01–AC14, verify links,
     ownership and source revisions, and retain unresolved capability/runtime gates.
 
 ## Phase 2 — Use native source/version records and accurate capture evidence
@@ -283,3 +283,21 @@ registry. Runtime implementation requires a separate handoff; no task above has 
 The Conductor skill catalog was checked for this scope. Its Firebase/GCP entries
 do not match this track; no additional skill installation or environment activation
 is required for planning.
+
+## Foundations checkpoint — 29 October 2026
+
+Implementation resumption: `366a629`; consumer base `62056c5`; frozen producer
+`712420fbb84425f7c014246bf199217f731689bf`. P1.1–P1.4 inventory/capability review
+is complete. See [engineering checkpoint](../../../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md)
+and [review](../../../docs/reviews/2026-10-29-native-lineage-foundations.md).
+
+Scoped handoff/probe/workstream tests: 57 passed before the final receipt-preservation
+additions. Actual frozen native probes expose duplicate-ID, incomplete-receipt,
+strict-record interoperability and capture-date gaps. Their synthetic scope does not
+qualify original-source lineage. The local full Nox attempt was interrupted (exit
+138/SIGBUS); it is not a full-suite pass. Full hosted qualification is required
+before publication and retained in the implementation PR and receiving checks.
+
+The next producer-owned source/capture and native closure work remains open under
+P2/P3. The active producer checkout/estate is unchanged. No whole-track completion,
+new scientific observations, requests or submissions are claimed.

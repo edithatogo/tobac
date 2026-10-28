@@ -7,17 +7,19 @@ the work.
 
 ## Cross-platform engineering qualification
 
-Current engineering development is focused on macOS. The following work is deferred:
+Hosted Linux and Windows Python 3.15.1 runtime tests were restored and qualified by
+PR #66 at receiving main `62056c5`; macOS remains the full engineering/reference
+qualification platform. The following additional work is deferred:
 
 - Install and execute the source-bound Linux x86_64 audit lock under Python 3.15.1.
-- Qualify the engineering matrix on Linux and Windows and retain hosted results for each platform.
-- Diagnose and repair non-macOS hosted-runner failures using their actual annotations.
+- Extend non-macOS qualification beyond the now-passing hosted runtime test suites.
+- Diagnose future non-macOS hosted-runner failures using their actual annotations.
 - Verify packaging, dependency markers, paths, encodings and scientific reproduction behavior on
   supported non-macOS platforms.
-- Reconsider when cross-platform qualification should return to active tracks.
+- Reconsider when non-macOS release/audit and numerical qualification should return to active tracks.
 
-Owner decision, 28 October 2026: Windows and Linux results are not current
-acceptance gates. Active hosted jobs target macOS; retain the same scientific,
+Historical owner decision, 28 October 2026: Windows and Linux were not then
+acceptance gates. PR #66 supersedes that decision for runtime tests. Retain the same scientific,
 security, dependency-graph, provenance and numerical checks there. SourceRight
 uses its hash-verified published macOS ARM64 binary on an ARM64 macOS runner;
 the upstream asset filename misleadingly says x86_64.
