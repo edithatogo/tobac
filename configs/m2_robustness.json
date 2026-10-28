@@ -1,0 +1,22 @@
+{
+  "schema": "tobac.m2-robustness.v1",
+  "quit_points": 4,
+  "crime_weights": [0, 0.5, 1, 2, 4],
+  "resource_weights": [0, 0.5, 1, 2, 4],
+  "challenges": [
+    {"id": "baseline"},
+    {"id": "low_market", "high_probabilities": {"illicit": 0.2}},
+    {"id": "high_market", "high_probabilities": {"illicit": 0.8}},
+    {"id": "low_diversion", "high_probabilities": {"diversion": 0.2}},
+    {"id": "high_diversion", "high_probabilities": {"diversion": 0.8}},
+    {"id": "high_crime", "high_probabilities": {"crime": 0.8}},
+    {"id": "positive_market_diversion", "coupling": 0.8},
+    {"id": "negative_market_diversion", "coupling": -0.8},
+    {"id": "no_null_mass", "null_weight": 0},
+    {"id": "high_null_mass", "null_weight": 0.8},
+    {"id": "half_information", "information_retained": 0.5},
+    {"id": "shared_report_errors", "report_dependence": 0.8},
+    {"id": "combined_stress", "high_probabilities": {"illicit": 0.8, "diversion": 0.8, "crime": 0.8}, "null_weight": 0.8, "coupling": 0.8, "report_dependence": 0.8, "information_retained": 0.5}
+  ],
+  "scientific_status": "Post-primary analyst stress scenarios, not calibrated probabilities, empirical shared-error estimates or a worst-case guarantee"
+}
