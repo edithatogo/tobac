@@ -36,3 +36,19 @@ integration/voiage_polars_consumer_20261027.json.
 The owner explicitly accepted merging the bounded macOS candidate qualification
 while retaining these release gates. No upstream merge/release, pandas-free claim,
 generic EVSI qualification or empirical/scientific acceptance is implied.
+
+## Resumed candidate qualification: 28 October 2026
+
+- [x] Demonstrate caller-buffer aliasing on the previous 6c28ac5 candidate and
+  qualify merged PR #1202 revision 65c5e76 with mutation-isolation regression checks.
+- [x] Review and verify the updated unpatched candidate on macOS Python 3.15.1,
+  retaining the original default producer and published-release gate (17a2530).
+  Full suite: 1,032 passed/five capability skips, 92% coverage. Strict lint, formatting
+  and typing pass; candidate: 72 component tests, six ownership cases, 90 comparisons.
+- [x] Prepare the committed guarded-publication handoff. Exact-head checks, macOS
+  numerical replay and receiving-main verification remain required before merge;
+  actual hosted/receiving execution is maintained in the qualification PR.
+
+Review and receipt: docs/reviews/2026-10-28-voiage-merged-candidate.md and
+integration/voiage_polars_consumer_20261028.json. The complete track remains
+externally blocked, with all three published-release/archiving tasks above open.
