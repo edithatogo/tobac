@@ -2,7 +2,7 @@
   "schema_version": "tobac.m2-pathway.v1",
   "review_date": "2026-10-27",
   "contrast": "Prospective NZ national cap of 600 smoked-tobacco retailers versus unchanged availability; first full year after implementation; not an implemented treatment.",
-  "protocol": "docs/research/M2_MATCHED_PATHWAY.md",
+  "protocol": "docs/m2_retail_contract.md",
   "input_sha256": {
     "docs/m2_retail_contract.md": "f00f25aa7dbb91daac8574e9e79a24c90b8be87c6be61aba6523010d1f59c6fc",
     "docs/MOH_OBSERVATION_PATHWAY.md": "a75887dd078461cdb9b2e3d7c7ee5fb91ce44d676683e841d134ee72a044dc2d",

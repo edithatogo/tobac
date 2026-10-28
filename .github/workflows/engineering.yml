@@ -33,15 +33,25 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - run: uv run --python 3.15.1 --no-project python -c "import sys; assert sys.version_info[:3] == (3, 15, 1); from pathlib import Path; Path('outputs/engineering').mkdir(parents=True, exist_ok=True)"
-      - run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python '${{ matrix.python }}' --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s tests
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+      - name: Run bounded tests
+        env:
+          NOX_PYTHON: ${{ matrix.python }}
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python "$NOX_PYTHON" --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s tests
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: success()
         with:
           name: engineering-${{ matrix.os }}-${{ matrix.python }}
-          path: outputs/engineering/
+          path: artifact-exports/engineering-1/
           if-no-files-found: warn
           retention-days: 14
   quality:
+    name: quality
     runs-on: macos-latest
     timeout-minutes: 15
     steps:
@@ -59,11 +69,17 @@ jobs:
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - run: mkdir -p outputs/engineering
       - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s quality
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-2
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: success()
         with:
           name: engineering-quality
-          path: outputs/engineering/
+          path: artifact-exports/engineering-2/
           if-no-files-found: warn
           retention-days: 14
 
@@ -87,11 +103,17 @@ jobs:
       - run: mkdir -p outputs/engineering
       - name: Qualify the macOS engineering and numerical checks
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/macos-nox-report.json -s quality strict_all reproduce package security mutation clean_package recovery
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-3
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: success()
         with:
           name: macos-python3151-qualification
-          path: outputs/engineering/
+          path: artifact-exports/engineering-3/
           if-no-files-found: warn
           retention-days: 14
 
@@ -102,8 +124,8 @@ jobs:
     timeout-minutes: 20
     permissions:
       contents: read
-      id-token: write
-      attestations: write
+      id-token: write # Obtain OIDC identity for package attestations only.
+      attestations: write # Publish provenance for the exact package subjects.
     steps:
       - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2
         with:
@@ -139,12 +161,16 @@ jobs:
       - uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a
         with:
           subject-path: outputs/release-candidate/*
+      - name: Install checksum-pinned export scanner
+        if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-4
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: macos-package-provenance
-          path: |
-            outputs/release-candidate/
-            outputs/engineering/clean-package/
+          path: artifact-exports/engineering-4/
           if-no-files-found: error
           retention-days: 14
 
@@ -154,7 +180,7 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 10
     permissions:
-      contents: write
+      contents: write # Submit the dependency graph snapshot; no source mutation.
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -177,11 +203,17 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh api --method POST "repos/$GITHUB_REPOSITORY/dependency-graph/snapshots" --input outputs/dependency-graph/snapshot.json > outputs/dependency-graph/response.json
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-5
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: success()
         with:
           name: python315-dependency-submission
-          path: outputs/dependency-graph/
+          path: artifact-exports/engineering-5/
           if-no-files-found: error
           retention-days: 14
 
@@ -204,12 +236,16 @@ jobs:
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Qualify exact unpatched candidate without producer promotion
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 1500 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/voiage-candidate-nox.json -s voiage_polars_candidate
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-6
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: success()
         with:
           name: macos-voiage-polars-candidate
-          path: |
-            outputs/engineering/voiage-polars-candidate/receipts/
-            outputs/engineering/voiage-candidate-nox.json
+          path: artifact-exports/engineering-6/
           if-no-files-found: warn
           retention-days: 14

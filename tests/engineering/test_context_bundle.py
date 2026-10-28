@@ -1,5 +1,6 @@
 """Context envelopes must not hide stale files, overrun budgets or traverse secrets."""
 
+import hashlib
 import importlib.util
 import json
 import re
@@ -55,6 +56,44 @@ def cfg():
         "paths": ["AGENTS.md", "docs/scope.md"],
         "base_commit": None,
     }
+
+
+def test_read_allocation_is_bounded_even_for_large_source(tmp_path) -> None:
+    path = tmp_path / "large.txt"
+    path.write_bytes(b"x" * 10000)
+    assert len(load().read_context(path, 1024)) == 1025
+
+
+def test_context_git_never_enables_optional_daemon_even_without_outer_guard(repo) -> None:
+    module = load()
+    module.git_output(repo, "config", "--local", "core.fsmonitor", "true")
+    assert module.git_output(repo, "config", "--get", "core.fsmonitor") == "false"
+    assert module.git_output(repo, "config", "--local", "--get", "core.fsmonitor") == "true"
+
+
+def test_final_serialized_envelope_must_fit_budget(repo) -> None:
+    config = cfg()
+    config["max_bytes"] = 1024
+    (repo / "AGENTS.md").write_bytes(b"x" * 950)
+    with pytest.raises(ValueError, match="Serialized context"):
+        load().build(repo, config)
+
+
+def test_known_private_bytes_in_public_context_path_fail(repo) -> None:
+    config = cfg()
+    private = (repo / "AGENTS.md").read_bytes()
+    (repo / "engineering").mkdir()
+    (repo / "engineering/publication-policy.json").write_text(
+        json.dumps(
+            {
+                "public_paths": config["paths"],
+                "local_documents": {"docs/manuscript.md": hashlib.sha256(private).hexdigest()},
+                "legacy_baseline": "unused",
+            }
+        )
+    )
+    with pytest.raises(ValueError, match="Known local document"):
+        load().build(repo, config)
 
 
 def test_bundle_hashes_and_state(repo) -> None:
@@ -166,26 +205,26 @@ def test_wrong_base_is_rejected(repo) -> None:
 
 def test_growth_between_size_check_and_read_fails_closed(repo, monkeypatch) -> None:
     m = load()
-    original = Path.read_bytes
+    original = m.read_context
 
-    def changed(path):
+    def changed(path, budget):
         if path == repo / "AGENTS.md":
             return b"x" * 5000
-        return original(path)
+        return original(path, budget)
 
-    monkeypatch.setattr(Path, "read_bytes", changed)
+    monkeypatch.setattr(m, "read_context", changed)
     with pytest.raises(ValueError, match="while reading"):
         m.build(repo, cfg())
 
 
 def test_real_head_change_during_read_is_rejected(repo, monkeypatch) -> None:
     m = load()
-    original = Path.read_bytes
+    original = m.read_context
     committed = False
 
-    def changed(path):
+    def changed(path, budget):
         nonlocal committed
-        raw = original(path)
+        raw = original(path, budget)
         if path == repo / "AGENTS.md" and not committed:
             committed = True
             subprocess.run(  # noqa: S603 -- Fixed test/qualification argv and local fixture paths; no shell.
@@ -206,7 +245,7 @@ def test_real_head_change_during_read_is_rejected(repo, monkeypatch) -> None:
             )
         return raw
 
-    monkeypatch.setattr(Path, "read_bytes", changed)
+    monkeypatch.setattr(m, "read_context", changed)
     with pytest.raises(ValueError, match="Checkout changed"):
         m.build(repo, cfg())
 

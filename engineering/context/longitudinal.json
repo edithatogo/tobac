@@ -7,7 +7,6 @@
     "docs/WORKSTREAM_SYNC.md",
     "conductor/tracks.md",
     "docs/empirical_longitudinal/INTEGRATION.md",
-    "docs/empirical_longitudinal/METHODS_AND_ASSUMPTIONS_v2.9.0.md",
     "src/tobac_supply/consumption_ledger.py",
     "src/tobac_supply/empirical_longitudinal.py"
   ],

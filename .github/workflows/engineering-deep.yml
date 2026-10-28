@@ -10,6 +10,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   audit:
+    name: audit
     strategy:
       fail-fast: false
       matrix:
@@ -34,11 +35,17 @@ jobs:
         env:
           NOX_SESSION: ${{ matrix.session }}
         run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s "$NOX_SESSION"
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-deep-1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: success()
         with:
           name: deep-${{ matrix.session }}
-          path: outputs/
+          path: artifact-exports/engineering-deep-1/
           if-no-files-found: warn
           retention-days: 14
   canary:
@@ -60,10 +67,16 @@ jobs:
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - run: mkdir -p outputs/engineering
       - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s canary
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-deep-2
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: success()
         with:
           name: compatibility-canary-evidence
-          path: outputs/engineering/
+          path: artifact-exports/engineering-deep-2/
           if-no-files-found: warn
           retention-days: 14

@@ -8,7 +8,7 @@
     "integration/reconciliation_2025/source-assets.json": "42586509ab6760e8c0fe7388df164546ace22d6e7be9a472ba451d2294613657",
     "integration/archive/moh-workbook-qualification_20261026.json": "b26f31443677e90f156cfae6953a05f4fd9a18245b33ba665c33e6f2519985f6",
     "configs/m2_retail.json": "925746a584e0f986e22b7848bd8fac50ae7fb6ae5e06a1cd8d4bad2742192b3f",
-    "docs/research/M2_MATCHED_PATHWAY.md": "14d0b2b2775696a08c21cc142f69051a023ae03b18b42944bb214fc15093058a"
+    "evidence/m2/matched_pathway_20261027.json": "c44a93a2fd7cfda05d93e0799e317383de52666526aac4a1734a7b161030c417"
   },
   "sources": [
     {

@@ -17,6 +17,25 @@ import sys
 import time
 
 LOGGER = logging.getLogger(__name__)
+MAX_GIT_OVERRIDES = 128
+
+
+def child_environment() -> dict[str, str]:
+    """Preserve bindings while preventing Git's optional detached file watchers."""
+    environment = dict(os.environ)
+    try:
+        count = int(environment.get("GIT_CONFIG_COUNT", "0"))
+    except ValueError:
+        msg = "Invalid inherited Git configuration count"
+        raise RuntimeError(msg) from None
+    if not 0 <= count <= MAX_GIT_OVERRIDES:
+        msg = "Invalid inherited Git configuration count"
+        raise RuntimeError(msg)
+    for offset, key in enumerate(("core.fsmonitor", "core.untrackedCache")):
+        environment[f"GIT_CONFIG_KEY_{count + offset}"] = key
+        environment[f"GIT_CONFIG_VALUE_{count + offset}"] = "false"
+    environment["GIT_CONFIG_COUNT"] = str(count + 2)
+    return environment
 
 
 def group_rss_mib(group: int, ps: str) -> float:
@@ -83,7 +102,7 @@ def run(command: list[str], max_rss_mib: float, timeout: float, poll: float) -> 
     if ps is None or os.name != "posix":
         msg = "The RSS guard requires POSIX process groups and ps"
         raise RuntimeError(msg)
-    process = subprocess.Popen(command, start_new_session=True)  # noqa: S603 -- Explicit user argv, no shell.
+    process = subprocess.Popen(command, start_new_session=True, env=child_environment())  # noqa: S603 -- Explicit user argv, no shell; only optional Git watchers disabled in child environment.
     start = time.monotonic()
     peak = 0.0
     code = 1

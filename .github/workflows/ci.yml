@@ -11,6 +11,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   numerical:
+    name: numerical
     runs-on: macos-latest
     timeout-minutes: 40
     env:
@@ -39,12 +40,19 @@ jobs:
       - run: python scripts/verify.py outputs/ci_full
       - run: OPENBLAS_NUM_THREADS=1 .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m tobac.m2 --out outputs/ci_m2 --grid-check
       - run: python scripts/verify.py outputs/ci_m2
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/ci-1
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: success()
         with:
           name: exact-regulatory-results
-          path: outputs/
+          path: artifact-exports/ci-1/
   sourceright:
+    name: sourceright
     runs-on: macos-latest
     timeout-minutes: 20
     steps:
@@ -66,12 +74,19 @@ jobs:
           echo 'b405f4a4dc09ad8af03bfd49a84484df194aac8401a188a08510334a8aa77a5c  /tmp/sourceright' | shasum -a 256 -c -
           chmod +x /tmp/sourceright
       - run: PATH="/tmp:$PATH" .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python scripts/qualify_integrations.py --mode sourceright --all-csl --out outputs/sourceright.json
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/ci-2
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: success()
         with:
           name: sourceright-receipt
-          path: outputs/
+          path: artifact-exports/ci-2/
   voiage-parity:
+    name: voiage-parity
     runs-on: macos-latest
     timeout-minutes: 30
     steps:
@@ -89,10 +104,16 @@ jobs:
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Build and qualify pinned Voiage Python 3.15.1 compatibility candidate
         run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s voiage
-      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      - name: Install checksum-pinned export scanner
         if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public artifact files
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/ci-3
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: success()
         with:
           name: voiage-parity-receipt
-          path: outputs/engineering/voiage-receipts-*/
+          path: artifact-exports/ci-3/
           if-no-files-found: warn
           retention-days: 14

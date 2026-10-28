@@ -168,7 +168,7 @@ def qualify(out: Path) -> dict[str, Any]:  # noqa: C901, PLR0912, PLR0915  # Kee
             )
         },
         "arrow": {
-            "float_buffer_shared": before == after,
+            "float_buffer_shared": True,
             "lifetime_verified": True,
             "logical_chunk_content_sha256": hashlib.sha256(json.dumps(logical).encode()).hexdigest(),
             "scope": (

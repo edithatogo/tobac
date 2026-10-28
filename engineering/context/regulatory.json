@@ -9,9 +9,9 @@
     "docs/evidence_interface.md",
     "docs/m2_retail_contract.md",
     "src/tobac/matched.py",
-    "docs/research/M2_EVIDENCE_SYNTHESIS.md",
     "src/tobac/partial_identification.py",
-    "evidence/m2/synthesis_20261027.json"
+    "evidence/m2/synthesis_20261027.json",
+    "configs/m2_publication.json"
   ],
   "base_commit": null,
   "required_paths": [

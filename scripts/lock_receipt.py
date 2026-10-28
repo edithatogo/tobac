@@ -177,6 +177,7 @@ def recorded_command(command: list[str], root: Path) -> list[str]:
                 recorded.append(path.resolve().relative_to(resolved).as_posix())
                 continue
             except ValueError:
+                # External executable paths are retained verbatim, not made repo-relative.
                 pass
         recorded.append(item)
     return recorded

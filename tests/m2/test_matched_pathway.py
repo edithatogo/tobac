@@ -115,9 +115,9 @@ def test_real_manifest_reports_all_missing_cells_and_no_update(monkeypatch) -> N
     from pathlib import Path  # noqa: PLC0415 -- Keep runner imports at the tested boundary.
 
     monkeypatch.syspath_prepend(str(Path(__file__).parents[2] / "scripts"))
-    from qualify_m2_pathway import ROOT, build_report  # noqa: PLC0415 -- Standalone script boundary.
+    import qualify_m2_pathway as runner  # noqa: PLC0415 -- Standalone script boundary.
 
-    report = build_report(ROOT)
+    report = runner.build_report(runner.ROOT)
     assert report["status"] == "blocked"
     assert len(report["missing_cells"]) == 8
     assert not report["conditioned"]

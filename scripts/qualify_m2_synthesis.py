@@ -8,6 +8,7 @@ import json
 import math
 import platform
 import sys
+from abc import abstractmethod
 from dataclasses import asdict
 from decimal import Decimal
 from pathlib import Path
@@ -26,7 +27,10 @@ COHORT_YEAR = 2025
 
 
 class _Validator(Protocol):
-    def validate(self, instance: object) -> None: ...
+    @abstractmethod
+    def validate(self, instance: object) -> None:
+        """Validate against the bound schema using the implementing library."""
+        raise NotImplementedError
 
 
 def supply_summary(root: Path) -> dict[str, Any]:
@@ -216,7 +220,7 @@ def build_report(root: Path, replay: Path) -> dict[str, Any]:
         "integration/reconciliation_2025/source-assets.json",
         "integration/archive/moh-workbook-qualification_20261026.json",
         "configs/m2_retail.json",
-        "docs/research/M2_MATCHED_PATHWAY.md",
+        "evidence/m2/matched_pathway_20261027.json",
     }
     if set(case["input_sha256"]) != required_inputs:
         msg = "Complete documentary input bindings required"

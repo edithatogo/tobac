@@ -1,5 +1,6 @@
 """Exercise real bounded subprocesses; no unrelated process is signalled."""
 
+import importlib.util
 import os
 import signal
 import subprocess
@@ -23,6 +24,52 @@ def invoke(code: str, *budgets: str):
         timeout=10,
         check=False,
     )
+
+
+def test_child_environment_preserves_existing_git_and_auth_bindings(monkeypatch) -> None:
+    spec = importlib.util.spec_from_file_location("guard_environment", GUARD)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    monkeypatch.setenv("GIT_CONFIG_COUNT", "1")
+    monkeypatch.setenv("GIT_CONFIG_KEY_0", "fixture.marker")
+    monkeypatch.setenv("GIT_CONFIG_VALUE_0", "retained")
+    monkeypatch.setenv("FIXTURE_AUTH_BINDING", "retained")
+    environment = module.child_environment()
+    assert environment["GIT_CONFIG_COUNT"] == "3"
+    assert environment["GIT_CONFIG_KEY_0"] == "fixture.marker"
+    assert environment["GIT_CONFIG_VALUE_0"] == "retained"
+    assert environment["FIXTURE_AUTH_BINDING"] == "retained"
+    assert environment["GIT_CONFIG_KEY_1"] == "core.fsmonitor"
+    assert environment["GIT_CONFIG_KEY_2"] == "core.untrackedCache"
+    assert environment["GIT_CONFIG_VALUE_1"] == environment["GIT_CONFIG_VALUE_2"] == "false"
+    assert os.environ["GIT_CONFIG_COUNT"] == "1"
+
+
+@pytest.mark.parametrize("count", ["-1", "129", "not-a-count"])
+def test_invalid_inherited_git_config_count_fails_closed(monkeypatch, count) -> None:
+    spec = importlib.util.spec_from_file_location("guard_environment", GUARD)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    monkeypatch.setenv("GIT_CONFIG_COUNT", count)
+    with pytest.raises(RuntimeError, match="Invalid inherited Git configuration count"):
+        module.child_environment()
+
+
+def test_native_git_daemon_setting_disabled_without_persistent_config_change(tmp_path) -> None:
+    code = (
+        "import subprocess; "
+        f"root={str(tmp_path)!r}; "
+        "subprocess.run(['git','init','-q',root],check=True); "
+        "subprocess.run(['git','-C',root,'config','--local','core.fsmonitor','true'],check=True); "
+        "print(subprocess.check_output(['git','-C',root,'config','--get','core.fsmonitor'],"
+        "text=True).strip()); "
+        "print(subprocess.check_output(['git','-C',root,'config','--local','--get','core.fsmonitor'],"
+        "text=True).strip()); "
+        "subprocess.run(['git','-C',root,'status','--porcelain'],check=True)"
+    )
+    result = invoke(code)
+    assert result.returncode == 0, result.stderr
+    assert result.stdout.splitlines() == ["false", "true"]
 
 
 def assert_stopped(pid: int) -> None:

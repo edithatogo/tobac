@@ -4,7 +4,22 @@ import numpy as np
 import pytest
 
 from tobac._core import DecisionProblem, exact_evpi, exact_partial_information
-from tobac.information import evaluate, joint_likelihood, lognormal_bins, same_data_robustness, scalar_oracle
+from tobac.information import (
+    _likelihood,
+    evaluate,
+    joint_likelihood,
+    lognormal_bins,
+    same_data_robustness,
+    scalar_oracle,
+    validate_likelihood,
+)
+
+
+def test_established_likelihood_import_retains_identity_and_validation() -> None:
+    assert _likelihood is validate_likelihood
+    np.testing.assert_array_equal(_likelihood([[0.25, 0.75], [0.75, 0.25]], 2), [[0.25, 0.75], [0.75, 0.25]])
+    with pytest.raises(ValueError, match="stochastic"):
+        _likelihood([[0.25, 0.25]], 2)
 
 
 def problem():

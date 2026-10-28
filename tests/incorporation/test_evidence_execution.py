@@ -42,7 +42,7 @@ def test_inventory_cli_checks_actual_preserved_bytes_without_external_tools(tmp_
     assert result.returncode == 0, result.stderr
     receipt = json.loads(out.read_text())
     assert receipt["success"] is True
-    assert receipt["preservation"]["files"] == 19
+    assert receipt["preservation"]["files"] == 17
     assert receipt["preservation"]["csv_rows"] == 298
     assert receipt["collection_count"] >= 4
     assert receipt["record_occurrences"] >= 43
