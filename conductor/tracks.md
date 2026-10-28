@@ -24,6 +24,11 @@ all four source-bound locks are regenerated, with complete ecosystem input bindi
 Its verification and receiving-main publication are recorded in the PR and
 `integration/hypothesis_pr50_20261027.json`; no unexecuted check is implied complete.
 
+Scientific ecosystem recheck: [receipt](../integration/ecosystem/managed-parser-recheck_20261028.json).
+Current native graph contains all 113 submitted PURLs; upstream PR #16525 remains
+unmerged. Root-parser acceptance remains blocked, with explicit closure criteria;
+no check, interpreter or security capability is relaxed to close the track.
+
 ## Completed work
 
 Fourteen completed tracks are archived, including the completed two-article
@@ -122,8 +127,3 @@ Track: `conductor/archive/m2_two_articles_20261028/`.
 
 Distinct MDM research article and NZMJ Viewpoint focused on wastewater, factual
 disagreement and conditional decision value. No requests or submissions.
-
-Scientific ecosystem recheck: [receipt](../integration/ecosystem/managed-parser-recheck_20261028.json).
-Current native graph contains all 113 submitted PURLs; upstream PR #16525 remains
-unmerged. Root-parser acceptance remains blocked, with explicit closure criteria;
-no check, interpreter or security capability is relaxed to close the track.

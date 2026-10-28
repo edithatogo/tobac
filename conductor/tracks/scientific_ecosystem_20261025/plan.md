@@ -283,7 +283,7 @@ non-macOS work or invent an upstream/deployed-runtime success.
 
 - [x] Recheck latest root-inclusive managed run, pinned upstream source and PR state.
 - [x] Verify current supported snapshot acceptance and all submitted PURLs in native export.
-- [~] Review/apply current-status documentation fixes and execute local qualification.
+- [x] Review/apply current-status documentation fixes and execute local qualification 3ee5111.
 
 [Evidence](../../../integration/ecosystem/managed-parser-recheck_20261028.json):
 latest observed root-inclusive run 40446023419 failed at historical head 4ebc4af,
@@ -304,3 +304,13 @@ the unchanged requirement at reviewed current inputs, followed by receiving-iden
 and graph-content verification. Do not rerun obsolete graph-writing jobs against
 old commits or fabricate a root success from an engineering-directory job. No
 external message or service-setting change is authorised or performed by this recheck.
+
+Local full tests/strict_all/security at 3ee5111 pass: 1,030 tests, five capability
+skips, 92% coverage; zero typing diagnostics and no known audited vulnerabilities.
+Sampled guard peak 810.7 MiB, exit 0, unchanged 4 GiB/40-minute budgets. Review fixes
+correct source/status attribution, macOS scope and obsolete issue #1 coordination
+language. Runtime, library inputs, locks, scientific code/results, full-SHA pins and
+workflows remain unchanged; their exact-base reproduction/clean-package/recovery
+and artifact evidence at 1df7680 is reused. Final-head native acceptance and guarded
+publication are recorded after execution in the associated PR; no root success is
+inferred. This is a blocked external-service track, not a completed/archived track.
