@@ -1,0 +1,117 @@
+[
+  {
+    "source_id": "VALUE_PREFERENCES",
+    "doi": "10.1016/j.omega.2023.102936",
+    "url": "https://api.crossref.org/works/10.1016%2Fj.omega.2023.102936",
+    "local_path": "outputs/engineering/m2-readiness-sources/metadata/haag.json",
+    "sha256": "4da68166b356a0d1c36e3fe5ac120064df2260dc896fedc128611dedf5798258",
+    "title": "Assessing whether decisions are more sensitive to preference or prediction uncertainty with a value of information approach",
+    "published": {
+      "date-parts": [
+        [
+          2023,
+          12
+        ]
+      ]
+    },
+    "published_online": null,
+    "published_print": {
+      "date-parts": [
+        [
+          2023,
+          12
+        ]
+      ]
+    },
+    "scope": "Bibliographic metadata only; does not verify claim support or methodological validity"
+  },
+  {
+    "source_id": "SHINE_RETAIL_TABLE2",
+    "doi": "10.1136/tc-2022-057655",
+    "url": "https://api.crossref.org/works/10.1136%2Ftc-2022-057655",
+    "local_path": "outputs/engineering/m2-readiness-sources/metadata/retail.json",
+    "sha256": "611e6503a8935e2fe200b59c2058d44958585b1687a3979213c4a3c8848b6634",
+    "title": "Tobacco endgame intervention impacts on health gains and M\u0101ori:non-M\u0101ori health inequity: a simulation study of the Aotearoa/New Zealand Tobacco Action Plan",
+    "published": {
+      "date-parts": [
+        [
+          2023,
+          1,
+          10
+        ]
+      ]
+    },
+    "published_online": {
+      "date-parts": [
+        [
+          2023,
+          1,
+          10
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2024,
+          12
+        ]
+      ]
+    },
+    "scope": "Bibliographic metadata only; does not verify claim support or methodological validity"
+  },
+  {
+    "source_id": "REPORTING_VOI",
+    "doi": "10.1016/j.jval.2023.06.014",
+    "url": "https://api.crossref.org/works/10.1016%2Fj.jval.2023.06.014",
+    "local_path": "outputs/engineering/m2-readiness-sources/metadata/reporting.json",
+    "sha256": "dc4e4112a3dafa00d151583c624657272829fa6ad0ab9e7d27354230509b31dc",
+    "title": "Consolidated Health Economic Evaluation Reporting Standards - Value of Information (CHEERS-VOI): Explanation and Elaboration",
+    "published": {
+      "date-parts": [
+        [
+          2023,
+          10
+        ]
+      ]
+    },
+    "published_online": null,
+    "published_print": {
+      "date-parts": [
+        [
+          2023,
+          10
+        ]
+      ]
+    },
+    "scope": "Bibliographic metadata only; does not verify claim support or methodological validity"
+  },
+  {
+    "source_id": "VOI_OVERVIEW",
+    "doi": "10.1146/annurev-statistics-040120-010730",
+    "url": "https://api.crossref.org/works/10.1146%2Fannurev-statistics-040120-010730",
+    "local_path": "outputs/engineering/m2-readiness-sources/metadata/overview.json",
+    "sha256": "f174a1ed1e3c2abf52069fdcb371be2dab5ab58f11d480ffa1392831943ca8f5",
+    "title": "Value of Information Analysis in Models to Inform Health Policy",
+    "published": {
+      "date-parts": [
+        [
+          2022,
+          3,
+          7
+        ]
+      ]
+    },
+    "published_online": null,
+    "published_print": {
+      "date-parts": [
+        [
+          2022,
+          3,
+          7
+        ]
+      ]
+    },
+    "scope": "Bibliographic metadata only; does not verify claim support or methodological validity"
+  }
+]

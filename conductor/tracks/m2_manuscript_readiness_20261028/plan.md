@@ -3,21 +3,21 @@
 Status: [~] In progress. Base: 4a6246c690ced7d9cd7e1758b5a91f0689aec442.
 
 ## A: Protocol and literature
-- [ ] Freeze post-primary robustness design and public-search method.
-- [ ] Retrieve, catalogue and appraise primary methods/reporting sources with exact locators.
-- [ ] Phase verification: source identities, access limits and claim boundaries.
+- [x] Freeze post-primary robustness design and public-search method.
+- [x] Retrieve, catalogue and appraise primary methods/reporting sources with exact locators.
+- [x] Phase verification: source identities, access limits and claim boundaries.
 
 ## B: Robustness and reproducibility
-- [ ] Write affected tests with independent small numerical oracles and adversarial cases.
-- [ ] Implement bounded prior/dependence/report-performance challenges using existing engine.
-- [ ] Execute challenge and policy/information ranking comparisons; preserve primary outputs.
+- [x] Write affected tests with independent small numerical oracles and adversarial cases.
+- [x] Implement bounded prior/dependence/report-performance challenges using existing engine.
+- [x] Execute challenge and policy/information ranking comparisons; preserve primary outputs.
 - [ ] Implement and execute a fresh-checkout paper-specific replay with hashes and semantic comparisons.
 - [ ] Phase verification: affected tests and workstream integration, outputs and assumption roles.
 
 ## C: Manuscript and reporting
-- [ ] Develop literature positioning, methods, results/discussion, references and supplement.
-- [ ] Resolve synthetic numerical target versus applied target and audit all claim-to-output links.
-- [ ] Complete applicable reporting crosswalks and explicit author/external readiness items.
+- [x] Develop literature positioning, methods, results/discussion, references and supplement.
+- [x] Resolve synthetic numerical target versus applied target and audit all claim-to-output links.
+- [x] Complete applicable reporting crosswalks and explicit author/external readiness items.
 - [ ] Phase verification: substantive self-review of manuscript, bibliography, units and numerical claims.
 
 ## D: Qualification and repository publication
@@ -27,3 +27,26 @@ Status: [~] In progress. Base: 4a6246c690ced7d9cd7e1758b5a91f0689aec442.
 
 No requests or submissions. No independent-review requirement. Existing issue #3
 empirical acceptance remains open; software execution does not establish validity.
+
+
+## Execution evidence
+
+Protocol commit:9367699. Initial numerical/replay implementation:dedecd0.
+47 affected/component/integration tests pass, sampled peak382.4MiB. Full13-challenge
+execution:698.9MiB, exit0. Baseline exactly matches125 primary decision rows,
+875 grouped-information rows and750 study rows. No primary input/artifact changes.
+Five usable new originals, one rejected captured browser challenge, four failed
+routes; exact CAS/WARC payload verification retained, native timestamps null.
+11 indexed sources,10 critical claim links, three traced native reference edges;
+20 queries,32 URL dispositions only for the two retained batches, not all queries.
+34 displayed reporting topics are covered despite source prose stating33.
+
+Current manuscript and supplement separate synthetic1000-resident daily-rate model
+from the unqualified NZ15+ applied target. Authorship/funding/interests, final journal,
+and any applicable formal ethics/cultural requirements remain open. No requests,
+contacts, new observations, preference elicitation or submissions.
+
+Replay implementation amendment:existing runner requires actual Git metadata; use
+an independent local clone without hardlinks, with exact commit/tree/import checks,
+rather than an archive that could discover its parent checkout. This leaves the
+frozen numerical challenge protocol and supports unchanged.

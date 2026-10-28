@@ -1,4 +1,4 @@
-"""Regenerate the paper's finite outputs from a clean committed source archive."""
+"""Regenerate the paper's finite outputs from a clean committed source checkout."""
 
 from __future__ import annotations
 
@@ -11,7 +11,6 @@ import platform
 import shutil
 import subprocess
 import sys
-import tarfile
 from pathlib import Path
 from typing import TYPE_CHECKING, cast
 
@@ -167,15 +166,24 @@ def run(root: Path, out: Path) -> Report:
     commit = subprocess.check_output([git, "rev-parse", "HEAD"], cwd=root, text=True).strip()  # noqa: S603 -- Fixed local Git query.
     out.mkdir(parents=True, exist_ok=True)
     out = out.resolve()
-    archive = out / "source.tar"
-    with archive.open("wb") as stream:
-        subprocess.run([git, "archive", "HEAD"], cwd=root, stdout=stream, check=True)  # noqa: S603 -- Fixed committed source archive.
     source = out / "source"
-    source.mkdir()
-    with tarfile.open(archive) as stream:
-        stream.extractall(source, filter="data")
-    if (source / ".git").exists() or (source / ".nox").exists() or (source / "outputs").exists():
-        msg = "Source archive unexpectedly contains checkout/runtime artifacts"
+    command(
+        [git, "clone", "--no-checkout", "--no-hardlinks", str(root), str(source)],
+        cwd=root,
+        env=dict(os.environ),
+        log=out / "clone.log",
+    )
+    command([git, "checkout", "--detach", commit], cwd=source, env=dict(os.environ), log=out / "checkout.log")
+    clone_commit = subprocess.check_output([git, "rev-parse", "HEAD"], cwd=source, text=True).strip()  # noqa: S603 -- Fixed read-only query on the independently cloned source.
+    tree = subprocess.check_output([git, "rev-parse", "HEAD^{tree}"], cwd=root, text=True).strip()  # noqa: S603 -- Fixed read-only tree identity.
+    clone_tree = subprocess.check_output([git, "rev-parse", "HEAD^{tree}"], cwd=source, text=True).strip()  # noqa: S603 -- Fixed read-only tree identity.
+    if (
+        clone_commit != commit
+        or clone_tree != tree
+        or (source / ".nox").exists()
+        or (source / "outputs").exists()
+    ):
+        msg = "Independent checkout identity/runtime isolation failed"
         raise ValueError(msg)
     env = dict(
         os.environ,
@@ -209,7 +217,9 @@ def run(root: Path, out: Path) -> Report:
     report: Report = {
         "passed": True,
         "source_commit": commit,
-        "source_archive_sha256": digest(archive),
+        "source_tree": tree,
+        "clone_commit": clone_commit,
+        "clone_tree": clone_tree,
         "python": platform.python_version(),
         "interpreter": sys.executable,
         "imported_source": imported,

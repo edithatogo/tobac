@@ -1,0 +1,42 @@
+{
+  "schema": "tobac.run.v1",
+  "inputs": {
+    "src/tobac/config_validation.py": "1f9b31118eb2b45c1ff084bb84384fdd1fafc330e603457772b4a586d01f7fe8",
+    "src/tobac/run.py": "e741b366c649a27ef9ed59ac3cf3b8cb842f4fed3ad0a7f6dd3cf750055ea020",
+    "src/tobac/backend.py": "29fbd4523810e76d59aa9ccc0df35acf76dfc5db5077ba48a8f4b20bbe9074dc",
+    "src/tobac/information.py": "40a8bdc98768de8d721f6c8aef2a7a842cecbb219e8887916d963e401237e29f",
+    "src/tobac/m2.py": "269a3e302bcdf833deab9ec1e73bffe7a8d1f79601836eeed1978b6c69b8401f",
+    "src/tobac/_typing.py": "ec3ebd6c74b4b7dbeed64c668984e432fa5366ab9ebadee07c597f4b6270ec2f",
+    "src/tobac/partial_identification.py": "34f528557b34f050036e52a4a5e66b189de75c14e24087b6d9bc85e60aee834c",
+    "src/tobac/__init__.py": "438a1124a46dfc7a91b5424c8127a8ead3e01c0f34e45740a1238429aa54f94f",
+    "src/tobac/retail_case.py": "248ec4ed391440ce8277f4e31dc30ace0586cc30ab1ac8ced524b1dae8558ff5",
+    "src/tobac/regulation.py": "a1d361e300df331bb10810100f1e153f1f6faf4d8de4e5824b3702bc9fc517e5",
+    "src/tobac/matched.py": "471ec69eb30834de0145eaec6b13dc366cca8bb25bbdb4d7cf98c54632852edb",
+    "src/tobac/supply.py": "45261897fd11636492186c070fc6b0a77caf7dae3d9345ef2dec495ca169acfb",
+    "src/tobac/_core.py": "c2dae2df9d91d5143d7ffe5926fcc410f65fbfc6933a8e5bdabf3c8b61c5bcee",
+    "src/tobac/replay.py": "19fac6aa53a3233f69837ad0c1d77d7909cfe6c1c0a7e5a787e0cc50e59a505c",
+    "src/tobac/robustness.py": "230e072b9405c9366037af291c3933beee3f2d75003f4533a0411a929051f336",
+    "src/tobac/interchange.py": "e479d5f36e7deec849e8dc796c693af47ef2830b3aa9adb027a162b0380289b3",
+    "src/tobac/value_sensitivity.py": "173aaa01420754c93d8a20d94b4f4cd0e5a8ba23ad1bd64796780fa5baf9497a",
+    "src/tobac/parameters.py": "58180da80bc9087a816f9058dd9e9c960059d27b8eb28ef475b6ee7dd9409d56",
+    "src/tobac/evidence.py": "88dd31c846b88b547b9db5418565a1b78325c42074862aa6a6ae268017501602",
+    "src/tobac/integrations.py": "4a40996b1186fc4bf057797af0facffaeaf107a6d2e21cca94fa4d5e1372209c",
+    "configs/m2_robustness.json": "67ebea51f7a16255832280ca185ae31bdedf58e058d63a48d1a6565f92fb3a14",
+    "engineering/schemas/m2-robustness.schema.json": "eb4de536af1a789bc3b9a85bc8a658817c5c4aae5699be263de1ba634f0369a4",
+    "configs/m2_retail.json": "925746a584e0f986e22b7848bd8fac50ae7fb6ae5e06a1cd8d4bad2742192b3f",
+    "configs/m2_publication.json": "79097969ba9d4c1c431745a1c542e080aaf44a9492ecd22a9eb24256c5088631",
+    "configs/regulatory.json": "8fff72e501726af284d5b07bf61a40e803bb6fc41da767f49f77ecc7ec4eaaa7",
+    "docs/research/M2_READINESS_PROTOCOL.md": "f663528fdb66edeef5589c07cc53fa6d5cddcbb8d2906427ad3d81f62444b58b",
+    "scripts/run_m2_robustness.py": "31165d4168faec08454cca9ce82953f040c8de545587617e4aaa02ceff90f154",
+    "scripts/run_m2_publication.py": "62c1f6197d7b7dc2b7fbabd312b945ed34e6cce682aa0e2c86c5c9ea430319b6",
+    "evidence/m2/public_sources_20261027/manifest.json": "226ce940c935bb6935ccad86a32a926c52e0cf0ed8b58a59b8402b59a3cac46b"
+  },
+  "outputs": {
+    "summary.csv": "cf09fa234b1c9c245edd917ce0149d87e57cc1884054745f236bf32c45906be1",
+    "report.json": "66d88ba08cdfae8adffad0b026fc78aeba5a379d5b7357830dc3068d2dc8e432",
+    "scientific_information.csv": "c8e97b34a8663664df9888f512d5a487a2edb3c859cbc2cda5e3f6d334be2348",
+    "grouped_evppi.csv": "d3fad349173f9175e66e003370b941ab37719faefcbe03dfea3eb8ec2f841ce7",
+    "decisions.csv": "ebe74745eca4b95561cc3c327027a67a4c6e44747d67eb5b50d051f28e1704db",
+    "study_value.csv": "4b1b6c2b98832a5b9a7ac52e1cb8fa793aa0a49262b239681679a71e217e4b48"
+  }
+}

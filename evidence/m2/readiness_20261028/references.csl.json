@@ -1,0 +1,396 @@
+[
+  {
+    "id": "METHOD_UNCERTAINTY",
+    "type": "article-journal",
+    "title": "Model Parameter Estimation and Uncertainty: A Report of the ISPOR-SMDM Modeling Good Research Practices Task Force-6",
+    "author": [
+      {
+        "literal": "Briggs AH"
+      },
+      {
+        "literal": "Weinstein MC"
+      },
+      {
+        "literal": "Fenwick EAL"
+      },
+      {
+        "literal": "Karnon J"
+      },
+      {
+        "literal": "Sculpher MJ"
+      },
+      {
+        "literal": "Paltiel AD"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2012
+        ]
+      ]
+    },
+    "URL": "https://www.ispor.org/docs/default-source/resources/outcomes-research-guidelines-index/model_parameter_estimation_and_uncertainty-6.pdf?sfvrsn=8bc10c8e_0",
+    "note": "Normative professional guidance, not target data; source financial-support statement read; no other financial relationships disclosed",
+    "DOI": "10.1016/j.jval.2012.04.014"
+  },
+  {
+    "id": "VOI_METHODS",
+    "type": "article-journal",
+    "title": "Value of Information Analytical Methods: Report 2 of the ISPOR Value of Information Analysis Emerging Good Practices Task Force",
+    "author": [
+      {
+        "literal": "Rothery C"
+      },
+      {
+        "literal": "Strong M"
+      },
+      {
+        "literal": "Koffijberg H"
+      },
+      {
+        "literal": "Basu A"
+      },
+      {
+        "literal": "Ghabri S"
+      },
+      {
+        "literal": "Knies S"
+      },
+      {
+        "literal": "Murray J"
+      },
+      {
+        "literal": "Sanders Schmidler GD"
+      },
+      {
+        "literal": "Steuten L"
+      },
+      {
+        "literal": "Fenwick E"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2020
+        ]
+      ]
+    },
+    "URL": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7373630/",
+    "note": "Task-force guidance; authors volunteered, NIH-NHLBI support for Basu declared; no transport to NZ causal effects",
+    "DOI": "10.1016/j.jval.2020.01.004"
+  },
+  {
+    "id": "VOI_OVERVIEW",
+    "type": "article-journal",
+    "title": "Value of Information Analysis in Models to Inform Health Policy",
+    "author": [
+      {
+        "given": "Christopher H.",
+        "family": "Jackson"
+      },
+      {
+        "given": "Gianluca",
+        "family": "Baio"
+      },
+      {
+        "given": "Anna",
+        "family": "Heath"
+      },
+      {
+        "given": "Mark",
+        "family": "Strong"
+      },
+      {
+        "given": "Nicky J.",
+        "family": "Welton"
+      },
+      {
+        "given": "Edward C.F.",
+        "family": "Wilson"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "URL": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612603/",
+    "note": "Methods review, not a new observed data source; MRC support declared; finite exact analysis does not need surrogate estimators",
+    "DOI": "10.1146/annurev-statistics-040120-010730"
+  },
+  {
+    "id": "VALUE_PREFERENCES",
+    "type": "article-journal",
+    "title": "Assessing whether decisions are more sensitive to preference or prediction uncertainty with a value of information approach",
+    "author": [
+      {
+        "given": "Fridolin",
+        "family": "Haag"
+      },
+      {
+        "given": "Arjun",
+        "family": "Chennu"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "URL": "https://doi.org/10.1016/j.omega.2023.102936",
+    "note": "Full native PDF and repository page unavailable; metadata verified, conceptual comparison limited to indexed abstract; funding/conflicts not verified",
+    "DOI": "10.1016/j.omega.2023.102936"
+  },
+  {
+    "id": "REPORTING_VOI",
+    "type": "article-journal",
+    "title": "Consolidated Health Economic Evaluation Reporting Standards - Value of Information (CHEERS-VOI): Explanation and Elaboration",
+    "author": [
+      {
+        "given": "Natalia",
+        "family": "Kunst"
+      },
+      {
+        "given": "Annisa",
+        "family": "Siu"
+      },
+      {
+        "given": "Michael",
+        "family": "Drummond"
+      },
+      {
+        "given": "Sabine E.",
+        "family": "Grimm"
+      },
+      {
+        "given": "Janneke",
+        "family": "Grutters"
+      },
+      {
+        "given": "Don",
+        "family": "Husereau"
+      },
+      {
+        "given": "Hendrik",
+        "family": "Koffijberg"
+      },
+      {
+        "given": "Claire",
+        "family": "Rothery"
+      },
+      {
+        "given": "Edward C.F.",
+        "family": "Wilson"
+      },
+      {
+        "given": "Anna",
+        "family": "Heath"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "URL": "https://ris.utwente.nl/ws/portalfiles/portal/321016205/1-s2.0-S1098301523030310-main.pdf",
+    "note": "Guideline development, not design certification; grants/CRC support and editorial roles declared; prose33 vs displayed34 retained",
+    "DOI": "10.1016/j.jval.2023.06.014"
+  },
+  {
+    "id": "ISPOR_VALIDATION",
+    "type": "article-journal",
+    "title": "Model Transparency and Validation: A Report of the ISPOR-SMDM Modeling Good Research Practices Task Force-7",
+    "author": [
+      {
+        "literal": "Eddy DM"
+      },
+      {
+        "literal": "Hollingworth W"
+      },
+      {
+        "literal": "Caro JJ"
+      },
+      {
+        "literal": "Tsevat J"
+      },
+      {
+        "literal": "McDonald KM"
+      },
+      {
+        "literal": "Wong JB"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2012
+        ]
+      ]
+    },
+    "URL": "https://www.ispor.org/docs/default-source/resources/outcomes-research-guidelines-index/model_transparency_and_validation-7.pdf?sfvrsn=24168dfb_0",
+    "note": "Reused verified official PDF; software checks do not establish external validity",
+    "DOI": "10.1016/j.jval.2012.04.012"
+  },
+  {
+    "id": "SHINE_RETAIL_TABLE2",
+    "type": "article-journal",
+    "title": "Tobacco endgame intervention impacts on health gains and Māori:non-Māori health inequity: a simulation study of the Aotearoa/New Zealand Tobacco Action Plan",
+    "author": [
+      {
+        "given": "Driss",
+        "family": "Ait Ouakrim"
+      },
+      {
+        "given": "Tim",
+        "family": "Wilson"
+      },
+      {
+        "given": "Andrew",
+        "family": "Waa"
+      },
+      {
+        "given": "Raglan",
+        "family": "Maddox"
+      },
+      {
+        "given": "Hassan",
+        "family": "Andrabi"
+      },
+      {
+        "given": "Shiva Raj",
+        "family": "Mishra"
+      },
+      {
+        "given": "Jennifer A",
+        "family": "Summers"
+      },
+      {
+        "given": "Coral E",
+        "family": "Gartner"
+      },
+      {
+        "given": "Raymond",
+        "family": "Lovett"
+      },
+      {
+        "given": "Richard",
+        "family": "Edwards"
+      },
+      {
+        "given": "Nick",
+        "family": "Wilson"
+      },
+      {
+        "given": "Tony",
+        "family": "Blakely"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "URL": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11672025/",
+    "note": "Modelled300-outlet reduction differs from hypothetical600; print2024/online2023 distinguished; earlier modelling/stated intentions, equal-intensity transport assumption; primary metadata: online2023-01-10, print2024-12",
+    "DOI": "10.1136/tc-2022-057655"
+  },
+  {
+    "id": "CHEERS2022",
+    "type": "article-journal",
+    "title": "Consolidated Health Economic Evaluation Reporting Standards 2022 (CHEERS 2022) statement: updated reporting guidance for health economic evaluations",
+    "author": [
+      {
+        "literal": "Husereau D"
+      },
+      {
+        "literal": "Drummond M"
+      },
+      {
+        "literal": "Augustovski F"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "URL": "https://www.ispor.org/heor-resources/good-practices/cheers",
+    "note": "Not a full-calibrated-economic-evaluation claim; official checklist DOCX route failed; no missing author facts labelled inapplicable; abbreviated verified author list",
+    "DOI": "10.1136/bmj-2021-067975"
+  },
+  {
+    "id": "HDEC_FAQ",
+    "type": "webpage",
+    "title": "General frequently asked questions",
+    "author": [
+      {
+        "literal": "Health and Disability Ethics Committees"
+      }
+    ],
+    "URL": "https://ethics.health.govt.nz/frequently-asked-questions/",
+    "note": "Official desk guidance; no project ruling, approval or exemption",
+    "accessed": {
+      "date-parts": [
+        [
+          2026,
+          10,
+          28
+        ]
+      ]
+    }
+  },
+  {
+    "id": "NEAC_MAORI",
+    "type": "webpage",
+    "title": "Research and Māori",
+    "author": [
+      {
+        "literal": "National Ethics Advisory Committee"
+      }
+    ],
+    "URL": "https://neac.health.govt.nz/national-ethical-standards/part-two/3-research-and-maori/",
+    "note": "Official guidance, not consultation, governance approval or subgroup empirical evidence",
+    "accessed": {
+      "date-parts": [
+        [
+          2026,
+          10,
+          28
+        ]
+      ]
+    }
+  },
+  {
+    "id": "REPORTING_EQUATOR",
+    "type": "webpage",
+    "title": "CHEERS Value of Information reporting standards",
+    "author": [
+      {
+        "literal": "EQUATOR Network"
+      }
+    ],
+    "URL": "https://equator-network.org/reporting-guidelines/cheers-voi/",
+    "note": "Official index verified; not a second independent reporting guideline",
+    "accessed": {
+      "date-parts": [
+        [
+          2026,
+          10,
+          28
+        ]
+      ]
+    }
+  }
+]

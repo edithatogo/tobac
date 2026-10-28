@@ -1,0 +1,247 @@
+{
+  "passed": true,
+  "python": "3.15.1",
+  "checkout": {
+    "commit": "dedecd055385b97b7a92c3ac6b8f05c72ef5c6e6",
+    "tracked_status": ""
+  },
+  "specification": {
+    "schema": "tobac.m2-robustness.v1",
+    "quit_points": 4,
+    "crime_weights": [
+      0,
+      0.5,
+      1,
+      2,
+      4
+    ],
+    "resource_weights": [
+      0,
+      0.5,
+      1,
+      2,
+      4
+    ],
+    "challenges": [
+      {
+        "id": "baseline"
+      },
+      {
+        "id": "low_market",
+        "high_probabilities": {
+          "illicit": 0.2
+        }
+      },
+      {
+        "id": "high_market",
+        "high_probabilities": {
+          "illicit": 0.8
+        }
+      },
+      {
+        "id": "low_diversion",
+        "high_probabilities": {
+          "diversion": 0.2
+        }
+      },
+      {
+        "id": "high_diversion",
+        "high_probabilities": {
+          "diversion": 0.8
+        }
+      },
+      {
+        "id": "high_crime",
+        "high_probabilities": {
+          "crime": 0.8
+        }
+      },
+      {
+        "id": "positive_market_diversion",
+        "coupling": 0.8
+      },
+      {
+        "id": "negative_market_diversion",
+        "coupling": -0.8
+      },
+      {
+        "id": "no_null_mass",
+        "null_weight": 0
+      },
+      {
+        "id": "high_null_mass",
+        "null_weight": 0.8
+      },
+      {
+        "id": "half_information",
+        "information_retained": 0.5
+      },
+      {
+        "id": "shared_report_errors",
+        "report_dependence": 0.8
+      },
+      {
+        "id": "combined_stress",
+        "high_probabilities": {
+          "illicit": 0.8,
+          "diversion": 0.8,
+          "crime": 0.8
+        },
+        "null_weight": 0.8,
+        "coupling": 0.8,
+        "report_dependence": 0.8,
+        "information_retained": 0.5
+      }
+    ],
+    "scientific_status": "Post-primary analyst stress scenarios, not calibrated probabilities, empirical shared-error estimates or a worst-case guarantee"
+  },
+  "value_unit": "normalised decision units; not NZD or QALYs",
+  "conditioned": false,
+  "empirically_validated": false,
+  "source_audit": {
+    "documents": 35,
+    "extracts": 82,
+    "conditioned": false,
+    "scope": "Metadata fixity/eligibility only;not fresh raw-object verification or target calibration"
+  },
+  "row_counts": {
+    "decisions": 1625,
+    "grouped_evppi": 11375,
+    "study_value": 9750,
+    "scientific_information": 1170,
+    "summary": 13
+  },
+  "summary": [
+    {
+      "challenge": "baseline",
+      "compared_profiles": 125,
+      "changed_policy_sets": 0,
+      "disjoint_policy_sets": 0,
+      "changed_gross_design_sets": 0,
+      "changed_group_sets": 0,
+      "maximum_baseline_tie_regret": 0.0,
+      "maximum_absolute_evsi_difference": 0.0
+    },
+    {
+      "challenge": "low_market",
+      "compared_profiles": 125,
+      "changed_policy_sets": 3,
+      "disjoint_policy_sets": 3,
+      "changed_gross_design_sets": 5,
+      "changed_group_sets": 13,
+      "maximum_baseline_tie_regret": 0.035036746304762736,
+      "maximum_absolute_evsi_difference": 0.03221439398917883
+    },
+    {
+      "challenge": "high_market",
+      "compared_profiles": 125,
+      "changed_policy_sets": 14,
+      "disjoint_policy_sets": 14,
+      "changed_gross_design_sets": 7,
+      "changed_group_sets": 23,
+      "maximum_baseline_tie_regret": 0.05736341522033059,
+      "maximum_absolute_evsi_difference": 0.03348111365880346
+    },
+    {
+      "challenge": "low_diversion",
+      "compared_profiles": 125,
+      "changed_policy_sets": 26,
+      "disjoint_policy_sets": 26,
+      "changed_gross_design_sets": 2,
+      "changed_group_sets": 19,
+      "maximum_baseline_tie_regret": 0.10964426791996838,
+      "maximum_absolute_evsi_difference": 0.051220325939450445
+    },
+    {
+      "challenge": "high_diversion",
+      "compared_profiles": 125,
+      "changed_policy_sets": 4,
+      "disjoint_policy_sets": 4,
+      "changed_gross_design_sets": 15,
+      "changed_group_sets": 25,
+      "maximum_baseline_tie_regret": 0.03732333655463398,
+      "maximum_absolute_evsi_difference": 0.05836257444921014
+    },
+    {
+      "challenge": "high_crime",
+      "compared_profiles": 125,
+      "changed_policy_sets": 8,
+      "disjoint_policy_sets": 8,
+      "changed_gross_design_sets": 6,
+      "changed_group_sets": 13,
+      "maximum_baseline_tie_regret": 0.03545483551871636,
+      "maximum_absolute_evsi_difference": 0.06551360280577051
+    },
+    {
+      "challenge": "positive_market_diversion",
+      "compared_profiles": 125,
+      "changed_policy_sets": 3,
+      "disjoint_policy_sets": 3,
+      "changed_gross_design_sets": 7,
+      "changed_group_sets": 14,
+      "maximum_baseline_tie_regret": 0.012250652084120336,
+      "maximum_absolute_evsi_difference": 0.041865753355153155
+    },
+    {
+      "challenge": "negative_market_diversion",
+      "compared_profiles": 125,
+      "changed_policy_sets": 0,
+      "disjoint_policy_sets": 0,
+      "changed_gross_design_sets": 8,
+      "changed_group_sets": 14,
+      "maximum_baseline_tie_regret": 0.0,
+      "maximum_absolute_evsi_difference": 0.04126759332066331
+    },
+    {
+      "challenge": "no_null_mass",
+      "compared_profiles": 125,
+      "changed_policy_sets": 18,
+      "disjoint_policy_sets": 18,
+      "changed_gross_design_sets": 17,
+      "changed_group_sets": 11,
+      "maximum_baseline_tie_regret": 0.030299860748045387,
+      "maximum_absolute_evsi_difference": 0.019036885801725183
+    },
+    {
+      "challenge": "high_null_mass",
+      "compared_profiles": 125,
+      "changed_policy_sets": 18,
+      "disjoint_policy_sets": 18,
+      "changed_gross_design_sets": 27,
+      "changed_group_sets": 9,
+      "maximum_baseline_tie_regret": 0.07643550959786864,
+      "maximum_absolute_evsi_difference": 0.04560725965374904
+    },
+    {
+      "challenge": "half_information",
+      "compared_profiles": 125,
+      "changed_policy_sets": 0,
+      "disjoint_policy_sets": 0,
+      "changed_gross_design_sets": 57,
+      "changed_group_sets": 0,
+      "maximum_baseline_tie_regret": 0.0,
+      "maximum_absolute_evsi_difference": 0.0686935227299088
+    },
+    {
+      "challenge": "shared_report_errors",
+      "compared_profiles": 125,
+      "changed_policy_sets": 0,
+      "disjoint_policy_sets": 0,
+      "changed_gross_design_sets": 2,
+      "changed_group_sets": 0,
+      "maximum_baseline_tie_regret": 0.0,
+      "maximum_absolute_evsi_difference": 0.004465161242763526
+    },
+    {
+      "challenge": "combined_stress",
+      "compared_profiles": 125,
+      "changed_policy_sets": 29,
+      "disjoint_policy_sets": 29,
+      "changed_gross_design_sets": 80,
+      "changed_group_sets": 32,
+      "maximum_baseline_tie_regret": 0.16703337584983646,
+      "maximum_absolute_evsi_difference": 0.09726855137859312
+    }
+  ],
+  "no_requests_or_submissions": true
+}
