@@ -1,0 +1,22 @@
+{
+  "planning_base": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
+  "python": "3.15.1",
+  "specification_status": "approved_by_maintainer",
+  "approval_date": "2026-10-26",
+  "approval_message": "Approve",
+  "approved_draft_sha256": "ca37b31537976daa7b7e4d9288a8d69c0afa99c9ffa5ce0c2fdcd813bce85ad3",
+  "current_spec_sha256": "a068391494ec7d57f13a9a6fcefec508236d0474ef0cfb01110d6fe1c5015176",
+  "spec_change_since_approval": "Status line only; substantive specification unchanged",
+  "plan_status": "awaiting_maintainer_review",
+  "plan_sha256": "80e80fb78c25ca9c373ffdbe5aefd47f94aeb07f228f8111547fa9e28d5a8f31",
+  "validation": {
+    "local_links_valid": true,
+    "phases": 8,
+    "primary_tasks": 32,
+    "all_tasks_unstarted": true,
+    "phase_checkpoints": 8,
+    "acceptance_criteria_mapped": 14,
+    "catalog_checked": "Conductor native catalog: no scope-matching missing skills"
+  },
+  "scope": "Planning document validation only; implementation, numerical runs, native qualification and hosted checks not executed."
+}

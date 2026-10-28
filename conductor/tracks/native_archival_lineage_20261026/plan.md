@@ -1,0 +1,285 @@
+# Native archival provenance and transformation lineage — implementation plan
+
+Status: approved implementation plan; track registered; implementation has not started.
+Specification: [approved spec](spec.md), approved by the maintainer on 26 October 2026.
+Planning base: tobac `59bb0e4ebaf1881158849df1702a1d3101aad58f`.
+Method: [shared workflow](../../workflow.md). Tests and reference comparisons precede
+implementation; each phase ends with a verification and evidence checkpoint.
+
+## Ownership, dependencies and execution rules
+
+Archive owns preservation, native manifests/receipts, generic lineage validation,
+object storage and recovery interfaces. Tobac owns scientific extraction semantics,
+consumer preflight and model-input/run/result linkage. Existing regulatory,
+longitudinal, M3, packaging and runtime owners retain their files and contracts.
+
+Re-read main and issue #1 before work; use isolated worktrees and declare exact file
+scope. Reconcile source-binding PRs #21/#776 and ecosystem planning #23 before changes.
+The existing archive source track is the first home for producer tasks; create no
+duplicate track, ledger, crawler or independently maintained registry.
+
+P1 establishes the final producer/consumer API and scoped paths. Paths named below
+are current reuse points, not permission to overwrite another owner's work. This
+plan changes no scientific value, policy equation, likelihood or published result.
+Any detected numerical difference remains a reported gate for its scientific owner.
+
+Every active Python command must execute an explicitly selected repo-local Python
+3.15 interpreter at the newest qualified patch, currently required 3.15.1. Inspect
+existing Nox/runtime constraints before running sessions; coordinate corrections
+with their owner rather than executing an older runner or replacing an in-flight
+environment. Nox/uv remain the orchestrator/environment tools. Retain observed
+failures, use focused test selectors, and reuse unchanged evidence as instructed
+in AGENTS.md. Do not add a new task runner or retry native mutations through tests.
+
+All tasks and sub-tasks start unchecked. Planning approval does not mark a phase,
+native save/readback, replay, hosted check or scientific qualification complete.
+
+## Phase 1 — Reconcile foundations and agree the native contract
+
+Owner: tobac integration owner with the existing archive producer owner.
+Depends on: approved specification and implementation handoff.
+Covers: R01, R02, R09, R11, R12; AC01, AC02, AC11, AC14.
+
+- [ ] Task: P1.1 — Establish current revisions, ownership and execution baselines.
+  - [ ] Re-read both repositories' instructions/tracks and issue #1; inspect current
+    PR #21, archive PR #776 and ecosystem PR #23 states and exact receiving revisions.
+  - [ ] Select bounded context profiles; record HEAD/source hashes, dirty state,
+    native schema/API versions and actual repo-local interpreter versions.
+  - [ ] Identify archive/source/scientific/runtime owners and declare the exact
+    files each phase may change; preserve source snapshots and baseline artifacts.
+- [ ] Task: P1.2 — Inventory actual data and execution dependencies.
+  - [ ] Enumerate all consumed sources, datasets, agent notes, transformations,
+    assumptions, runner inputs and declared outputs, including M1/M2/M3 and both
+    longitudinal components. Classify unavailable, legacy and synthetic items.
+  - [ ] Reconcile the dated source-binding snapshot with this inventory; preserve
+    source aliases, shared-data IDs, units, dates, product scope and dependency groups.
+- [ ] Task: P1.3 — Produce the native capability and compatibility map.
+  - [ ] Inspect `provenance.py`, `core/manifests.py`, native schemas, integrity
+    validation, capture and related reuse points. Map source/version/operation/
+    derivative/run/result fields and all required relationships to native records.
+  - [ ] Record gaps such as URI conventions, incomplete relationship checks,
+    transformation receipt fields and capture timestamps. Specify the smallest
+    producer-owned extensions with versioning and consumer compatibility tests.
+  - [ ] Define qualified versus exploratory/legacy status transitions, output
+    closure, row/field locators and the versioned producer artifact/API contract.
+- [ ] Task: P1.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [ ] Review the inventory and contract against R01–R12/AC01–AC14, verify links,
+    ownership and source revisions, and retain unresolved capability/runtime gates.
+
+## Phase 2 — Use native source/version records and accurate capture evidence
+
+Owner: archive producer; tobac supplies source IDs and required scientific scope.
+Depends on: P1. Covers: R01–R03, R06, R11; AC01–AC03, AC08.
+
+- [ ] Task: P2.1 — Write source/capture contract tests before implementation.
+  - [ ] Cover real original bytes versus metadata/landing/challenge/error payloads,
+    duplicate source aliases, exact-edition reuse and incompatible URI/schema cases.
+  - [ ] Test capture/preservation/WARC timestamps, redirect/request identity,
+    immutable prior generations and unknown historical dates without fabrication.
+- [ ] Task: P2.2 — Implement the producer-owned native registration and capture gaps.
+  - [ ] Register the existing verified originals through native source,
+    observation/version, preservation and object records; verify real CAS/WARC bytes.
+  - [ ] Correct the native capture-time recording path for future acquisitions,
+    preserving historical WARC records and their missing-date status unchanged.
+  - [ ] Reuse exact verified estate objects first. Acquire only missing permitted
+    originals through native adapters; record unsuccessful attempts and rights gaps.
+- [ ] Task: P2.3 — Migrate source-binding exports to native-record-derived views.
+  - [ ] Make existing consumer aliases resolve to native IDs/revisions without
+    introducing a second authority; preserve metadata-only and unavailable states.
+  - [ ] Test compatibility with existing source-binding consumers and prior artifacts.
+- [ ] Task: P2.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [ ] Run affected capture/source/manifest tests and native readback on an actual
+    permitted source. Record current coverage and all unresolved required originals.
+
+## Phase 3 — Execute and validate native transformation provenance
+
+Owner: archive producer for generic contracts; tobac for domain operation declarations.
+Depends on: P1/P2. Covers: R04, R05, R10, R11; AC06, AC07, AC12.
+
+- [ ] Task: P3.1 — Write independent closure and failure tests first.
+  - [ ] Reject duplicate/dangling IDs, cycles, swapped or corrupt source objects,
+    stale operation code/configuration/environment, missing receipts and missing outputs.
+  - [ ] Cover multi-parent derivation, failed/interrupted execution, immutable completed
+    records, distinct attempt IDs and prevention of premature qualified status.
+- [ ] Task: P3.2 — Extend the existing native producer contracts where P1 proved gaps.
+  - [ ] Represent actual transformation execution with input/output IDs, operation
+    version, code revision, parameters, environment/lock, command, times and status.
+  - [ ] Extend native validation to verify actual objects and relationship closure;
+    do not equate receipt IDs or successful manifest serialization with validation.
+  - [ ] Package schemas and supported producer interfaces with explicit compatibility
+    and rollback rules; preserve existing callers and historical manifest versions.
+- [ ] Task: P3.3 — Verify integration through the producer's native public interface.
+  - [ ] Execute a bounded real operation, persist its native manifest/receipts,
+    reopen them, verify input/output bytes and trace the dependency closure.
+  - [ ] Exercise negative mutations against the actually imported implementation;
+    keep synthetic controls distinct from source-backed execution evidence.
+- [ ] Task: P3.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [ ] Run affected native tests/schema checks, record exact producer artifacts and
+    API revisions, and confirm tobac can consume the supported versioned interface.
+
+## Phase 4 — Re-extract real datasets and preserve historical lineage
+
+Owner: tobac source/extraction owners; archive stores native operation provenance.
+Depends on: P2/P3. Covers: R02, R04, R06, R09; AC04–AC06, AC08, AC11.
+
+- [ ] Task: P4.1 — Write extraction/parity tests and small independent oracles first.
+  - [ ] For the MOH workbook, assert all 16 year/value pairs, exact sheet/cell
+    locators, product label, row coverage and input/output fixity; reject wrong tables.
+  - [ ] Select a second current real extraction/derivation with different mechanics
+    after inspecting its actual source. Define source locators and preserved-value
+    comparisons independently; test multi-parent ancestry where genuinely consumed.
+- [ ] Task: P4.2 — Execute versioned extraction through native transformation receipts.
+  - [ ] Re-extract the MOH workbook with a maintained reader; persist source, operation,
+    output and validation relationships and verify the new stored output independently.
+  - [ ] Execute the second selected operation with its actual source and native
+    receipts; preserve uncertainty, selection, conversions and dependency assumptions.
+- [ ] Task: P4.3 — Account for and migrate every remaining current dataset.
+  - [ ] Preserve old extracts/notes/results; distinguish original records,
+    reconstructed evidence and unknown historical steps with reconstruction dates.
+  - [ ] For each required consumed input, execute or verify its transformation chain,
+    retain old/new identities and value/scope differences, and review with its owner.
+  - [ ] Keep unavailable required sources/transformations blocked; do not extrapolate
+    two successful pilots into qualification of the rest of the inventory.
+- [ ] Task: P4.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [ ] Run affected extraction tests, source fixity and native receipt readback;
+    reconcile every inventory item and retain baseline bytes and all open gates.
+
+## Phase 5 — Connect scientific inputs, executions and results
+
+Owner: tobac execution integration, with regulatory/longitudinal/M3 file owners.
+Depends on: P3/P4 for each required input closure; preserve separate scientific gates.
+Covers: R07, R09, R10; AC09, AC11, AC12.
+
+- [ ] Task: P5.1 — Write runner integration and lineage query tests first.
+  - [ ] Cover complete result-to-original traversal, forward changed-source impact,
+    parameters/scenarios, model/environment identity and the exact output inventory.
+  - [ ] Preserve shared MOH/NZHS identity, source/target scope, state ordering,
+    covariance and once-only evidence conditioning under the existing contracts.
+- [ ] Task: P5.2 — Integrate supported runners through their current execution layers.
+  - [ ] Reuse the parameter/model/execution workstream's contracts; keep archival I/O
+    outside scientific calculations and keep scientific meanings/values unchanged.
+  - [ ] Bind regulatory M1/M2, both longitudinal runners and M3 inputs/results to
+    native provenance through each owner's reviewed interface, with explicit status.
+  - [ ] Connect complete produced results to successful execution records; preserve
+    historical results as historical rather than manufacturing retrospective runs.
+- [ ] Task: P5.3 — Execute actual runner proof and trace/impact checks.
+  - [ ] Use qualified input closures for new runs; independently trace their actual
+    output artifacts back to originals and demonstrate changed-source impact sets.
+  - [ ] Compare scientific outputs against preserved references using current exact
+    or tolerance contracts; report drift rather than changing expected values.
+- [ ] Task: P5.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [ ] Run affected component tests and `tests/test_workstream_integration.py`;
+    record which numerical runners executed and retain unexecuted/blocked paths.
+
+## Phase 6 — Enforce qualification and future-addition requirements
+
+Owner: tobac execution/CI owner and archive validation owner.
+Depends on: P3/P5; coordinate shared Nox and workflow edits on issue #1.
+Covers: R02, R05, R08, R12; AC02, AC07, AC10, AC11.
+
+- [ ] Task: P6.1 — Write command-level qualification tests before wiring checks.
+  - [ ] Demonstrate that a missing/tampered required record prevents a qualified run,
+    while explicit exploratory/legacy mode produces visibly unqualified artifacts.
+  - [ ] Test changed/new datasets and operation revisions, stale input receipts,
+    incomplete outputs and attempts to promote legacy results without validation.
+- [ ] Task: P6.2 — Wire native and consumer checks into existing qualified paths.
+  - [ ] Extend existing preflight/inventory entrypoints such as
+    `scripts/qualify_integrations.py` through the agreed producer interface.
+    Retain Sourceright/CiteWeft and scientific checks under their existing meanings.
+  - [ ] Add actual validation calls to applicable Nox tests/reproduce/research/package
+    sessions and qualified CLI/CI/release paths; no new task runner or parallel ledger.
+  - [ ] Require lineage changes for new consumed data/operations and prevent implicit
+    mode fallback, automatic waivers or a qualified result from an incomplete run.
+- [ ] Task: P6.3 — Execute the selected entrypoints under positive and negative cases.
+  - [ ] Confirm call wiring with native receipt readback, command exit/status and
+    preserved failures, rather than import-only tests or workflow text inspection.
+- [ ] Task: P6.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [ ] Run focused integration and command tests, inspect mode labels and gate
+    effectiveness, and record exact workflow/Nox revisions and actual hosted outcomes.
+
+## Phase 7 — Prove replay, interruption recovery and independent preservation
+
+Owner: archive recovery owner and tobac release/execution owner.
+Depends on: P4–P6; any external raw-object write additionally needs a permitted destination.
+Covers: R10, R11; AC12, AC13.
+
+- [ ] Task: P7.1 — Write replay/recovery and clean-package failure tests first.
+  - [ ] Cover missing/corrupt originals or derivatives, incompatible schema/environment,
+    interrupted writes, stale checkpoints and undeclared editable/sibling imports.
+- [ ] Task: P7.2 — Execute reproducible replay and clean-package consumption.
+  - [ ] Build the owning artifacts, install them outside source/sibling checkouts,
+    verify import locations and reconstruct selected extraction-to-result closures.
+  - [ ] Verify exact source/manifest fixity and scientific comparison tolerances,
+    including interruption/restart without overwritten originals or false success.
+- [ ] Task: P7.3 — Qualify a permitted second-copy recovery of the declared closure.
+  - [ ] Inspect source rights and existing destination contracts/access; use a
+    separately stored copy with an identified failure domain. Another directory on
+    the same disk does not prove independent preservation.
+  - [ ] Restore and verify all required objects/manifests/receipts into a clean
+    location, then replay without the implementation worktrees. Keep absent
+    destinations, access and rights blocked; do not create consent/accounts or
+    publicly upload originals merely to close this criterion.
+- [ ] Task: P7.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [ ] Record native restore/readback, closure sizes/hashes, clean-package and replay
+    outcomes, exact recovery scope and every object that remains unqualified.
+
+## Phase 8 — Complete integration acceptance and guarded publication
+
+Owner: tobac master-track owner with producer, scientific and release owners.
+Depends on: completed required paths from P1–P7; blocked essentials prevent closeout.
+Covers: R01–R12; AC01–AC14.
+
+- [ ] Task: P8.1 — Assemble and independently check the acceptance evidence map.
+  - [ ] Map AC01–AC14 to actual native records, tested artifacts/revisions, commands,
+    exit results and remaining gates. Verify all current required paths, not only pilots.
+  - [ ] Review schema/API migration, rights, scientific invariants and operational
+    recovery separately; validate completed receipts and preserved historical records.
+- [ ] Task: P8.2 — Run coherent full qualification milestones on complete checkouts.
+  - [ ] Run the archive's `./scripts/validate.sh` (or native Windows counterpart) and
+    applicable package/security gates using the verified qualified environment.
+  - [ ] Run tobac's current Nox full tests and relevant numerical reproduction,
+    workstream integration, package and security sessions. Record any unavailable
+    library/runtime or inherited gate failure without weakening the gate.
+  - [ ] Verify hosted execution for changed workflows; retain local versus hosted
+    versus restored-source evidence as distinct outcomes.
+- [ ] Task: P8.3 — Publish through reviewed ownership and verify remote state.
+  - [ ] Re-read main/#1, reconcile concurrent changes and repeat affected checks;
+    use expected-head protection without force or dropping another workstream.
+  - [ ] Verify receiving refs/files and producer/consumer artifact compatibility;
+    update existing Conductor records and issue #1 with actual results and open gates.
+  - [ ] Document operation, exploration, migration, rollback and recovery. Mark full
+    completion only when every required acceptance criterion has executed evidence.
+- [ ] Task: P8.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [ ] Audit the final inventory, native dependency closure, qualification wiring,
+    test/replay/recovery receipts, published revisions and remaining scientific gates.
+
+## Acceptance-to-plan map
+
+This table names planned evidence; it is not an execution receipt.
+
+| Criterion | Primary tasks | Evidence required at acceptance |
+|---|---|---|
+| AC01 | P1.3, P2.2, P3.2 | Native capability map, actual APIs/schemas/revisions, no duplicate authority. |
+| AC02 | P1.2, P4.3, P6.1–P6.2 | Complete current inventory and executed new/change-entry rejection. |
+| AC03 | P2.1–P2.4 | Actual native originals/source versions, capture-time records and rejected-payload evidence. |
+| AC04 | P4.1–P4.2 | MOH original, exact 16-row comparison, cell locators and native transformation/validation records. |
+| AC05 | P4.1–P4.3 | Second real operation and actual multi-parent evidence where consumed. |
+| AC06 | P3.2–P3.3, P4.3 | Actual operation receipts and independent parent/output object validation for every qualified path. |
+| AC07 | P3.1, P6.1 | Retained negative/mutation failures against the code actually imported. |
+| AC08 | P2.2–P2.3, P4.3 | Retained legacy originals and explicit reconstruction/unknown/migration records. |
+| AC09 | P5.1–P5.3 | Each supported runner's actual input/result closure and reverse/impact query readback. |
+| AC10 | P6.1–P6.4 | Command/Nox/CI qualification failures and labelled exploratory/legacy output evidence. |
+| AC11 | P1.2, P4.3, P5.1, P5.4 | Existing scientific/shared-evidence invariants and actual workstream test outcomes. |
+| AC12 | P3.1, P5.3, P7.1–P7.4 | Real offline replay, interruption recovery and installed-artifact isolation. |
+| AC13 | P7.3–P7.4 | Permitted independent-copy restore with byte-verified complete declared closure. |
+| AC14 | P1.4, P8.1–P8.4 | Acceptance map, actual focused/full/native/package/security/hosted outcomes and remote readback. |
+
+## Review and handoff
+
+The specification and this plan were approved by the maintainer on 26 October 2026.
+Registration records the track metadata/index and approved documents in the Conductor
+registry. Runtime implementation requires a separate handoff; no task above has started.
+
+The Conductor skill catalog was checked for this scope. Its Firebase/GCP entries
+do not match this track; no additional skill installation or environment activation
+is required for planning.
