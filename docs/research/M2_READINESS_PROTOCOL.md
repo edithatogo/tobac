@@ -86,3 +86,18 @@ for executing the assumed model. Raw originals remain separately catalogued loca
 
 Author facts, final journal and applicable formal ethics/cultural requirements remain
 open. No requests, contacts, applications, registrations, deposits or submissions.
+
+
+## Administrative/source-reading amendments before challenge execution
+
+Visual review of the retrieved CHEERS-VOI Table2 (printed pp1464–1466) finds
+34 displayed topic identifiers: 1–28 and S1–S6. The article prose reports33.
+The crosswalk will retain every displayed identifier and this source discrepancy,
+rather than silently drop a row to satisfy the initial33-item description. This
+changes reporting bookkeeping, not any numerical challenge specification.
+
+Source-isolated replay invokes no source-download command. Operating-system network
+isolation is not implemented and is not claimed; qualified dependencies are reused.
+Five captured originals are usable; one captured PMC browser challenge is rejected,
+and four PDF/metadata/checklist retrieval routes failed across two capture batches.
+Those failures do not count as original-text review or justify an access bypass.

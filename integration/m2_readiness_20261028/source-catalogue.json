@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "source_id": "METHOD_UNCERTAINTY",
+      "url": "https://www.ispor.org/docs/default-source/resources/outcomes-research-guidelines-index/model_parameter_estimation_and_uncertainty-6.pdf?sfvrsn=8bc10c8e_0",
+      "status": "verified_original",
+      "format": "PDF",
+      "object_path": "outputs/engineering/m2-readiness-sources/cas/sha256/54/54fa8d791f751be90f63e31941aa1a4960e8f1446a0086e58f651289b92a7738",
+      "sha256": "54fa8d791f751be90f63e31941aa1a4960e8f1446a0086e58f651289b92a7738",
+      "warc_path": "outputs/engineering/m2-readiness-sources/warcs/tobac-manuscript-methods-0.warc",
+      "warc_sha256": "03727bd9485e4bd1709c240160d5a36812c3820872d180126482711c901007ab",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-readiness-sources/text/METHOD_UNCERTAINTY.txt",
+      "text_sha256": "1c351ab8c5ec773e56248418ba8101686cb7fbc3965f27b9c2c27fd75733073a",
+      "review_date": "2026-10-28"
+    },
+    {
+      "source_id": "VOI_METHODS",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7373630/",
+      "status": "verified_original",
+      "format": "HTML",
+      "object_path": "outputs/engineering/m2-readiness-sources/cas/sha256/15/15e94d1bfb39c28461b1e1ceb7a6b479d1be30304f983116546ab777c877a90c",
+      "sha256": "15e94d1bfb39c28461b1e1ceb7a6b479d1be30304f983116546ab777c877a90c",
+      "warc_path": "outputs/engineering/m2-readiness-sources/warcs/tobac-manuscript-methods-1.warc",
+      "warc_sha256": "2910dcaf6962a53838ec3fb102252bcea0e9463518cd0d621703d735ab24cf2a",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-readiness-sources/text/VOI_METHODS.txt",
+      "text_sha256": "e1aa5c3dac38d8589ed448fe1fc3a508d10abf2a4a070851ca8e1434b35242e1",
+      "review_date": "2026-10-28"
+    },
+    {
+      "source_id": "VOI_OVERVIEW",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612603/",
+      "status": "verified_original",
+      "format": "HTML",
+      "object_path": "outputs/engineering/m2-readiness-sources/cas/sha256/16/162b936c941a3a94fd58f1a77cf98fa10a52515fe6b1141542726c13e6ce6656",
+      "sha256": "162b936c941a3a94fd58f1a77cf98fa10a52515fe6b1141542726c13e6ce6656",
+      "warc_path": "outputs/engineering/m2-readiness-sources/warcs/tobac-manuscript-methods-2.warc",
+      "warc_sha256": "65a65e5ed238e16ddd76071e592bf6bd48362cc91af0af1ca4b2602b269eaf14",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-readiness-sources/text/VOI_OVERVIEW.txt",
+      "text_sha256": "8e6436356f34d7d771ac98b6de50bd85901b7b7b179250d68f882a95abdf0a33",
+      "review_date": "2026-10-28"
+    },
+    {
+      "source_id": "VOI_HEALTH_IMPACT",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612319/",
+      "status": "rejected_challenge_or_stub",
+      "format": "HTML",
+      "object_path": "outputs/engineering/m2-readiness-sources/cas/sha256/3f/3fe479731232bf6be144e977683ef6a3bdb893f98a24d034fb92bfbad4337217",
+      "sha256": "3fe479731232bf6be144e977683ef6a3bdb893f98a24d034fb92bfbad4337217",
+      "warc_path": "outputs/engineering/m2-readiness-sources/warcs/tobac-manuscript-methods-3.warc",
+      "warc_sha256": "488687c72df60d899daa27e51bde4b6aaa888f1cb8e2e7f507197a61e4d2f358",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-readiness-sources/text/VOI_HEALTH_IMPACT.txt",
+      "text_sha256": "bd2720a373ebd7bff5d9f54a00fd39272cd6e439952d925cd2ad247890473b70",
+      "review_date": "2026-10-28"
+    },
+    {
+      "source_id": "VALUE_PREFERENCES",
+      "url": "https://cris.leibniz-zmt.de/id/eprint/5238/1/Haag_Chennu_2023_Assessing_whether_decisions_Omega_with_SI.pdf",
+      "status": "failed",
+      "access_limit": "No native original verified by this route"
+    },
+    {
+      "source_id": "REPORTING_VOI",
+      "url": "https://ris.utwente.nl/ws/portalfiles/portal/321016205/1-s2.0-S1098301523030310-main.pdf",
+      "status": "verified_original",
+      "format": "PDF",
+      "object_path": "outputs/engineering/m2-readiness-sources/cas/sha256/d1/d179102c6a5fa6891354f3cf26f73f0b433d28e4448eed7725b50ec78ff71eaa",
+      "sha256": "d179102c6a5fa6891354f3cf26f73f0b433d28e4448eed7725b50ec78ff71eaa",
+      "warc_path": "outputs/engineering/m2-readiness-sources/warcs/tobac-manuscript-methods-5.warc",
+      "warc_sha256": "063454d04026eea250b7e51716d5a5d58bef431830d0675c042bc81905e9d4dd",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-readiness-sources/text/REPORTING_VOI.txt",
+      "text_sha256": "8148cb07616a78f966d5370ab063ce645dbb08aee0d5f0406dfbcbd326467224",
+      "review_date": "2026-10-28"
+    },
+    {
+      "source_id": "REPORTING_VOI_PUBLISHER",
+      "url": "https://www.valueinhealthjournal.com/article/S1098301523030310/pdf",
+      "status": "failed",
+      "access_limit": "No native original verified by this route"
+    },
+    {
+      "source_id": "REPORTING_EQUATOR",
+      "url": "https://equator-network.org/reporting-guidelines/cheers-voi/",
+      "status": "verified_original",
+      "format": "HTML",
+      "object_path": "outputs/engineering/m2-readiness-sources/cas/sha256/2f/2f334ed7ca988b24ad1d6779d77e980c340744e2b656bee1e53dd7ab6e53aeda",
+      "sha256": "2f334ed7ca988b24ad1d6779d77e980c340744e2b656bee1e53dd7ab6e53aeda",
+      "warc_path": "outputs/engineering/m2-readiness-sources/warcs/tobac-manuscript-methods-7.warc",
+      "warc_sha256": "1f6692c5a0bdd81b84f1479ba5b557ed988128df5104669eb6b23ac278eb59b9",
+      "native_capture_timestamp": null,
+      "text_path": "outputs/engineering/m2-readiness-sources/text/REPORTING_EQUATOR.txt",
+      "text_sha256": "5f77b4cd93f30c94de4af2e53f460290cc333bcb6ec6c9f8682ef292d82df603",
+      "review_date": "2026-10-28"
+    }
+  ],
+  "scope": "Native original/WARC payload fixity; not methodological endorsement or target observation"
+}

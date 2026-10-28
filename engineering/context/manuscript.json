@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "profile": "manuscript",
+  "max_bytes": 80000,
+  "paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md",
+    "docs/evidence_interface.md",
+    "docs/research/M2_READINESS_PROTOCOL.md",
+    "configs/m2_robustness.json",
+    "src/tobac/robustness.py",
+    "scripts/run_m2_robustness.py",
+    "scripts/qualify_publication_replay.py"
+  ],
+  "base_commit": null,
+  "required_paths": [
+    "AGENTS.md",
+    "docs/evidence_interface.md"
+  ]
+}
