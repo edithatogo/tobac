@@ -55,9 +55,11 @@ acceptance blocked externally.
 Track: `conductor/tracks/voiage_polars_qualification_20261026/`.
 Published Voiage 3.0.0 remains unavailable; no upstream-release success is claimed.
 
-Current receipt: integration/voiage_polars_consumer_20261027.json. Default producer
-2.2.0+tobac3151.2 retained; unpatched candidate at 6c28ac5 is unreleased version
-2.2.0. pandas/xarray remain required. Hosted/receiving-main execution is recorded in PR #41.
+Current receipt: integration/voiage_polars_consumer_20261028.json. Default producer
+2.2.0+tobac3151.2 retained; merged candidate at 65c5e76 is unreleased version
+2.2.0. Six caller-buffer isolation cases now supplement 90 numerical comparisons.
+The previous 6c28ac5 candidate failed the new ownership probe. pandas/xarray remain
+required. Published-3.0 acceptance remains unexecuted; historical proof remains in PR #41.
 
 ## Issue #3 bounded pathway implementation
 

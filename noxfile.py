@@ -759,6 +759,7 @@ def voiage_polars_candidate(session: nox.Session) -> None:
         "scripts/qualify_voiage_consumer.py",
         "--wheel",
         str(wheel),
+        "--buffer-ownership",
         "--expected-version",
         pin["expected_version"],
         "--out",

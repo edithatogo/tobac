@@ -72,3 +72,14 @@ Voiage's `tobac_consumer_qualification_20261025` (issue #1193, draft PR #1194) r
 ## Verification
 
 Freeze exact commands in the first task of each phase. Record source, environment, command, exit status, wheel and artifact digests, and stop on unresolved failure. Run the affected component tests and `tests/test_workstream_integration.py` per `AGENTS.md`. Unexecuted external gates remain open.
+
+## Resumed qualification: merged candidate, 28 October 2026
+
+PR #1202 is merged. Refresh the opt-in pin from 6c28ac5 to its immutable merged
+head 65c5e76fb8c206ae39049866a1e79482cafaafc3, still distribution version 2.2.0.
+The intervening upstream fix snapshots caller-owned NumPy and Polars buffers.
+Require six mutation-isolation cases across ValueArray/ParameterSet NumPy,
+from_polars and direct constructors, in addition to the existing 90 numerical
+comparisons and exact installed-wheel/native identity checks. The old candidate's
+aliasing failure is regression evidence; the default producer and published-3.0
+acceptance gates remain unchanged. No upstream mutation is authorised.
