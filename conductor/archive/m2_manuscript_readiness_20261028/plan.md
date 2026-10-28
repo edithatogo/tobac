@@ -1,6 +1,6 @@
 # Implementation plan
 
-Status: [~] In progress. Base: 4a6246c690ced7d9cd7e1758b5a91f0689aec442.
+Status: [x] Bounded implementation and self-review complete. Base: 4a6246c690ced7d9cd7e1758b5a91f0689aec442.
 
 ## A: Protocol and literature
 - [x] Freeze post-primary robustness design and public-search method.
@@ -21,9 +21,9 @@ Status: [~] In progress. Base: 4a6246c690ced7d9cd7e1758b5a91f0689aec442.
 - [x] Phase verification: substantive self-review of manuscript, bibliography, units and numerical claims.
 
 ## D: Qualification and repository publication
-- [ ] Iterative Conductor review and fixes; full bounded five-session local qualification.
-- [ ] Record commits, verified scope/interfaces/gaps and archive bounded track.
-- [ ] Prepare guarded PR publication; native exact-head and receiving-main acceptance recorded in PR.
+- [x] Iterative Conductor review and fixes; full bounded five-session local qualification.
+- [x] Record commits, verified scope/interfaces/gaps and archive bounded track.
+- [x] Prepare guarded PR publication; native exact-head and receiving-main acceptance recorded in PR.
 
 No requests or submissions. No independent-review requirement. Existing issue #3
 empirical acceptance remains open; software execution does not establish validity.
@@ -58,9 +58,20 @@ operation identity also passed, peak70.4MiB. Review fixes reuse primary source-l
 validation, bind transitive inputs, reject missing baseline profiles and check garbling
 for combined as well as standalone challenges. Focused33tests pass, peak394.5MiB.
 Initial generated artifacts remain in Git history and are preserved locally before
-refresh; primary snapshot remains immutable. Final full qualification is pending.
+refresh; primary snapshot remains immutable. At that checkpoint, full qualification was pending; completed results follow below.
 
 Reviewed challenge execution at e950c51 passed, peak 614.6 MiB, exit 0.
 All five CSV files and scientific report fields exactly match the initial snapshot.
 Updated manifests bind source-ledger validation; original snapshot retained locally
 and in Git history. Manuscript, units, reporting and source references self-reviewed.
+
+Final local qualification at 0a3f25a: all five Nox sessions pass, 1,030 tests pass
+with five capability skips and 92% coverage; strict lint/format/type checks pass,
+no known audited vulnerabilities. Independent source replay: all 29 tables and
+scientific report fields match exactly. Sampled peak 785.5 MiB, exit 0.
+Review and executed receipts are retained in docs/reviews and integration.
+The remaining change is documentary closeout; numerical sources stay unchanged.
+Guarded publication body and acceptance protocol are prepared. Exact-head/main
+checks, merge commit, native graph and signed package readback are mandatory
+terminal operations recorded in the associated PR after execution; none is
+predeclared successful here. This archive completes bounded research preparation.

@@ -143,3 +143,21 @@ undetermined without institutional/site/journal context; no exemption, approval,
 cultural review or consultation is claimed. If review applies, it must precede
 in-scope work. Author identities, funding/conflicts and journal-specific disclosures
 remain author-level submission-readiness matters. No request or submission occurred.
+
+## Manuscript robustness and reporting — 28 October 2026
+
+[Current manuscript](../docs/research/M2_MANUSCRIPT.md),
+[supplement](../docs/research/M2_MANUSCRIPT_SUPPLEMENT.md) and
+[submission-readiness record](../docs/research/M2_SUBMISSION_READINESS.md) complete
+the bounded public-only preparation. Thirteen prior/dependence/report challenges
+show conditional policy and study-ranking sensitivity; they do not supply empirical
+calibration, representative preferences or actual incremental costs. Primary outputs
+are preserved. All 34 displayed CHEERS-VOI topic IDs and their applicability limits
+are cross-referenced. Independent clean-source reproduction matches all 29 tables
+and scientific report fields. Local tests/strict/reproduction/package/security pass;
+native repository acceptance is recorded in the associated PR.
+
+Issue #3 remains open for empirical identification and stronger applied claims.
+Authorship/order/contributions/affiliations, actual funding/interests, final journal
+and applicable institutional/site/cultural determinations remain author/formal
+matters. No requests, contacts, submissions, deposits or invented approvals.

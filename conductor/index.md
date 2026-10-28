@@ -48,5 +48,6 @@
   executed value-sensitivity analysis and desk ethics assessment; bounded work archived,
   native repository acceptance recorded in its PR, empirical/publication gates retained.
 
-- [M2 manuscript readiness](./tracks/m2_manuscript_readiness_20261028/plan.md):
-  autonomous public-only literature, robustness, reporting and reproduction follow-on.
+- [M2 manuscript readiness](./archive/m2_manuscript_readiness_20261028/plan.md):
+  bounded manuscript, public literature, robustness, reporting and reproduction complete;
+  author/formal matters and issue #3 empirical gates remain explicit.

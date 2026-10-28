@@ -4,25 +4,26 @@
 
 Iterative single-developer self-review finds the manuscript and finite challenges
 coherent after the source-isolation, provenance and garbling corrections below;
-full final-head qualification remains to be recorded after execution.
+full local qualification passes; native exact-head/main outcomes are recorded in the associated PR.
 
 ## Verification Checks
 
 - [x] **Plan Compliance**: Yes — bounded literature/claim map, manuscript/supplement,
   all declared challenges, reporting crosswalk and actual independent-checkout replay.
 - [x] **Style Compliance**: Pass for touched code under unchanged Ruff ALL/format;
-  final whole-source strict verification remains a separate recorded gate.
+  whole-source strict verification passes with zero typing errors or warnings.
 - [x] **New Tests**: Yes — independent binary/Fréchet and conditional-report margins,
   garbling/scalar VOI parity, invalid supports, ties, source/identity and replay tampering.
-- [x] **Test Coverage**: Partial until final full suite; source numerical functions and
-  affected runner/comparator/integration paths executed, actual whole-paper replay executed.
-- [ ] **Test Results**: Pending final five-session qualification after review fixes.
+- [x] **Test Coverage**: Yes — full suite and 92% branch-inclusive source coverage;
+  component/integration paths and independent whole-paper replay executed.
+- [x] **Test Results**: All five local Nox sessions passed after review fixes;
+  1,030 tests passed, five capability skips.
 
 ## Findings — applied fixes
 
 ### Medium: preserve source roles and complete baseline identities
 
-- **File**: scripts/run_m2_robustness.py.
+- **File**: scripts/run_m2_robustness.py (lines 166–170, 258, 291–292).
 - **Context**: Reading the old retail config directly did not reuse its shared source
   ledger/model-input checks. A missing baseline row could silently use current optima,
   incorrectly manufacturing zero regret.
@@ -31,7 +32,8 @@ full final-head qualification remains to be recorded after execution.
 
 ### Medium: check garbling against the same coupled-report model
 
-- **File**: scripts/run_m2_robustness.py; tests/m2/test_robustness_runner.py.
+- **File**: scripts/run_m2_robustness.py (lines 139, 186–191);
+  tests/m2/test_robustness_runner.py (lines 36–56).
 - **Context**: The first invariant check covered only the named half-information
   challenge, not the combined specification; comparison there must retain the coupled
   joint report likelihood and prior, rather than compare to independent reports.
@@ -41,7 +43,8 @@ full final-head qualification remains to be recorded after execution.
 
 ### Medium: actual independent source identity
 
-- **File**: scripts/qualify_publication_replay.py; docs/research/M2_REPRODUCIBILITY.md.
+- **File**: scripts/qualify_publication_replay.py (lines 169–201);
+  docs/research/M2_REPRODUCIBILITY.md.
 - **Context**: A source archive lacks Git metadata required by the existing runner and,
   when nested in the parent checkout, could accidentally discover the parent's Git state.
 - **Suggestion applied**: independent local clone without hardlinks, detached at the
@@ -69,7 +72,8 @@ metadata/tables, manuscript/reporting and Nox integration groups. Generated CSVs
 reviewed through complete keys/counts/numerical comparisons, not treated as human observations.
 The original source/evidence/retail consequence core, M3 interfaces, dependencies,
 full-SHA Action pins, security policies and existing check definitions are unchanged.
-Four reproduction steps are added within the existing Nox session; no new task runner.
+Robustness generation/verification and whole-paper replay are added within the existing
+Nox session; no new task runner.
 
 The manuscript makes no first-VOI-method, empirical NZ policy, public-preference,
 equity or commissioning claim. Synthetic1000-resident daily rates are distinct from
@@ -101,3 +105,12 @@ Final local five-session and exact-head/receiving-main native outcomes follow ac
 execution. Guarded publication requires expected PR head and receiving-main tree, jobs,
 Dependency Graph acceptance and signed package provenance. No unexecuted check is
 successful. No requests, contacts, registrations, deposits or journal/ethics submissions.
+
+Final local qualification at 0a3f25a: tests, strict_all, reproduce, clean_package and
+security all pass. Resource guard: 785.5 MiB sampled peak, exit 0, below unchanged
+4 GiB/40-minute budgets. Full suite: 1,030 passed, five capability skips, 92% coverage.
+Ruff ALL/format: pass, 124 files; BasedPyright: zero errors/warnings. Pip audit reports
+no known vulnerabilities; unchanged zizmor policy passes. Whole-paper clean clone:
+29 tables and all scientific JSON fields match with zero numerical difference.
+[Executed receipt](../../integration/m2_readiness_20261028/local-qualification.json).
+No unresolved self-review findings; native publication remains separately verified.

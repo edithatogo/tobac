@@ -81,3 +81,12 @@ Track: `conductor/archive/m2_conditional_publication_20261028/`
 analysis, public-source role audit, desk ethics assessment and self-review complete.
 Issue #3 empirical and formal submission-readiness gates remain; native repository
 acceptance is recorded in the associated PR. No requests or submissions.
+
+## M2 manuscript robustness and publication readiness
+
+[Plan](m2_manuscript_readiness_20261028/plan.md) and
+[specification](m2_manuscript_readiness_20261028/spec.md). Manuscript, bounded methods
+literature, 13-specification robustness, all 34 reporting topics and independent-source
+reproduction complete. Five local qualification sessions pass; native repository
+acceptance recorded in associated PR. Author/formal matters and issue #3 empirical
+gates remain open. No requests or submissions.

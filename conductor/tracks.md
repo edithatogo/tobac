@@ -106,8 +106,11 @@ associated PR. Issue #3 empirical/formal submission-readiness gates remain. No r
 
 ## M2 manuscript robustness and publication readiness
 
-**Status: [~] In progress — autonomous implementation and review authorised.**
-Track: `conductor/tracks/m2_manuscript_readiness_20261028/`.
+**Status: [x] Bounded implementation, self-review and local qualification complete.**
+Track: `conductor/archive/m2_manuscript_readiness_20261028/`.
 
 Public-only literature, robustness, manuscript, reporting and fresh-checkout replay.
 No requests or submissions; author/formal requirements remain explicit.
+
+All five local Nox sessions pass. Native exact-head/receiving-main acceptance is
+recorded in the associated PR after execution. Issue #3 empirical gates remain open.
