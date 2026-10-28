@@ -58,3 +58,7 @@ preparation completion never substitutes for an unexecuted hosted or receiving-m
 Review: docs/reviews/2026-10-28-record-request-closeout.md. Current permissible work
 continues through the archived public-source map and active research-gates document;
 archiving this track does not establish empirical identification or publication approval.
+
+Supersession/archival review implementation: df37977. No request content, manifest,
+permission, model, dependency or workflow changes; new native publication evidence
+is maintained in the closeout PR rather than inferred from the historical receipts.
