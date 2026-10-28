@@ -52,3 +52,23 @@ generic EVSI qualification or empirical/scientific acceptance is implied.
 Review and receipt: docs/reviews/2026-10-28-voiage-merged-candidate.md and
 integration/voiage_polars_consumer_20261028.json. The complete track remains
 externally blocked, with all three published-release/archiving tasks above open.
+
+
+## macOS-only receiving qualification — owner direction, 28 October 2026
+
+- [x] Defer Windows/Linux jobs (b2a9353); move remaining semantic checks to macOS and retain
+  Linux-only manual workflow definitions in the roadmap. Preserve all security,
+  scientific and numerical thresholds, source-bound locks and full-SHA Actions.
+- [x] Review and verify the platform change with affected contracts, cross-workstream
+  integration, full tests and strict checks; reuse unchanged numerical evidence.
+  Final local: 1,033 passed/five capability skips, 92% coverage; security and strict
+  checks pass. SourceRight validates all five citation collections natively.
+  Follow-up trigger/concurrency contracts: 13 passed; workflow security passes.
+- [x] Prepare the committed macOS-only publication handoff. Fresh exact-head checks
+  and receiving-main artifacts, provenance and dependency-graph submission remain
+  required for acceptance and are recorded in the platform-scope PR. Superseded
+  mixed-platform main runs are not acceptance gates and are not recorded as passes.
+
+Platform review: docs/reviews/2026-10-28-macos-only-ci.md. Receipt:
+integration/macos_ci_scope_20261028.json. Windows/Linux return only through
+roadmap reprioritisation; the published Voiage 3.0.0 gate remains externally blocked.

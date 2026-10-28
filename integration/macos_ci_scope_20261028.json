@@ -1,0 +1,131 @@
+{
+  "schema": "tobac.macos-ci-scope.v1",
+  "date": "2026-10-28",
+  "base_main": "94c47124f7dd17b53a1353009ec7442971b64748",
+  "owner_direction": "Defer Windows and Linux; stick with macOS",
+  "active_workflow_sha256": {
+    ".github/workflows/ci.yml": "e8cb776294792eb9fd0154895196f660c41849c7577bcd0cbffb31c58545b892",
+    ".github/workflows/engineering-deep.yml": "7f14887746a0bac454e7f6e607d011999ba51d7870ed4994384d44aed17eedf7",
+    ".github/workflows/engineering.yml": "dae0f9834538eb2d341c1ba258a045bf20a8677751a64eba4cd3a23aac33ada1",
+    ".github/workflows/longitudinal.yml": "77b77be86a86ca799d014ce7fec47208ef053a4f7e8edfc1b47be5b79e48b5f5",
+    ".github/workflows/research-m3.yml": "ac5e57190cb1402826886e5a236177289bc9e43c9c7b52ada8d01e35557f31d6"
+  },
+  "deferred_workflows": {
+    "release-candidate.yml": "c019b3cd90596f4ec9cd788668797c8c8e6e4c648b23e68e3cc417035f761f43",
+    "dependency-lock.yml": "c8be796160849af6bbda668fce2f4d60e07f7acdf44d00ebbfc2c3074a710027"
+  },
+  "deferred_files_unchanged_from_base": true,
+  "source_right_asset": {
+    "asset_url": "https://github.com/edithatogo/sourceright/releases/download/v0.1.20/sourceright-macos-x86_64",
+    "sha256": "b405f4a4dc09ad8af03bfd49a84484df194aac8401a188a08510334a8aa77a5c",
+    "actual_binary_architecture": "arm64",
+    "file": "outputs/engineering/macos-sourceright/sourceright-macos-x86_64: Mach-O 64-bit executable arm64",
+    "runner": "macos-latest",
+    "native_hosted_execution": "pending"
+  },
+  "source_right_local_qualification": {
+    "success": true,
+    "scope_selection": "all_evidence_collections",
+    "external_tool_executed": true,
+    "scope": "CSL CLI exit-status validation, not provider-backed claim or numerical verification",
+    "executable_sha256": "b405f4a4dc09ad8af03bfd49a84484df194aac8401a188a08510334a8aa77a5c",
+    "inputs_unchanged": true,
+    "executable_unchanged": true
+  },
+  "source_right_collections": 5,
+  "focused_tests": {
+    "passed": 51,
+    "log_sha256": "022337c6e876d35a220d1ded88806eed2e4c5e1aeb0a0268af5fb53dd9b9154c"
+  },
+  "initial_full_suite": {
+    "failed": 1,
+    "passed": 1032,
+    "skipped": 5,
+    "cause": "Inventory-position contract assumed no interpreter bootstrap",
+    "log_sha256": "bfff92c82ee03e901c82a84cba608db09145768a2ed74f4f6dfc876294e41e5a"
+  },
+  "failure_only_rerun": {
+    "passed": 1,
+    "deselected": 40,
+    "log_sha256": "fede47172b7fce48c48308de459e324148782ba2ea747c08fa225c32194459c2"
+  },
+  "final_full_suite": {
+    "passed": 1033,
+    "skipped": 5,
+    "coverage_percent": 92
+  },
+  "strict_all": "passed; zero Ruff/format/typing errors and zero typing warnings",
+  "security": "passed; zizmor no findings, pip-audit no known vulnerabilities",
+  "final_local_nox": {
+    "result": 1,
+    "sessions": [
+      {
+        "args": {},
+        "name": "tests",
+        "result": "success",
+        "result_code": 1,
+        "reason": null,
+        "signatures": [
+          "tests",
+          "tests-3.15.1"
+        ],
+        "duration": 82.3318576670008
+      },
+      {
+        "args": {},
+        "name": "security",
+        "result": "success",
+        "result_code": 1,
+        "reason": null,
+        "signatures": [
+          "security",
+          "security-3.15.1"
+        ],
+        "duration": 29.292406750000737
+      }
+    ]
+  },
+  "final_local_log_sha256": "ce3394a2ed318a9f299bb0a59fe3104046e1b1b17531694b232ace7cd132d254",
+  "final_local_peak_sampled_group_rss_mib": 711.8,
+  "commands": [
+    ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/tests/bin/python -m pytest -q tests/engineering/test_harness_contract.py tests/engineering/test_execution_contracts.py tests/test_workstream_integration.py",
+    ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/macos-ci-local-nox.json -s tests strict_all",
+    ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/tests/bin/python -m pytest -q --lf --last-failed-no-failures=none tests/incorporation/test_evidence_execution.py tests/engineering/test_harness_contract.py",
+    ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/macos-ci-final-nox.json -s tests security",
+    "PATH=\"$PWD/outputs/engineering/macos-sourceright:$PATH\" .nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/tests/bin/python scripts/qualify_integrations.py --mode sourceright --all-csl --out outputs/engineering/macos-sourceright/local-qualification.json",
+    ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/tests/bin/python -m pytest -q tests/engineering/test_harness_contract.py tests/incorporation/test_evidence_execution.py::test_scientific_workflows_gate_preservation_and_cover_every_citation_collection",
+    ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/security/bin/zizmor --offline .github/workflows"
+  ],
+  "numerical_evidence_reused": {
+    "source_commit": "ee258d0cf77fc5a007356d60559392790a2eef4e",
+    "receiving_tree": "94c47124f7dd17b53a1353009ec7442971b64748",
+    "tables": 29,
+    "maximum_difference": 0.0,
+    "reason": "src/scripts/Nox/dependency inputs/locks unchanged; new hosted replay remains required"
+  },
+  "native_acceptance": "New-head and receiving-main macOS evidence maintained in the linked platform-scope PR; superseded mixed-platform cancellations are not passes",
+  "external_gate": "Published Voiage 3.0.0 acceptance remains unexecuted",
+  "duplicate_runs": "Scientific workflows run on PR and main push, not an extra branch-push run; per-ref concurrency cancels superseded runs",
+  "post_dedup_focused_tests": {
+    "passed": 13,
+    "log_sha256": "ab029812cf8df6094f0169710027ced938e36f2282da0bb0c88b29d7ad1247ed"
+  },
+  "post_dedup_workflow_security": {
+    "status": "passed",
+    "log_sha256": "857f97c75dde83571b1685057a15e6264de7730a0cceb3ab806b1a575a18e1bd"
+  },
+  "context_profile": {
+    "path": "engineering/context/macos-ci.json",
+    "max_bytes": 40000,
+    "reason": "General engineering context exceeded 80 kB; explicitly narrowed to current platform work without raising a budget",
+    "build": "passed",
+    "schema_test": "passed"
+  },
+  "scheduled_lock_generation": "Deferred: resolves Linux audit metadata; native security/strict/mutation/profile/canary retained",
+  "scheduled_deferral_verification": {
+    "tests_passed": 12,
+    "tests_log_sha256": "234a8bbb1a4546dc2108f35971d13a55d606aafcfa9878bc55cf05cd047545f4",
+    "workflow_security": "passed",
+    "security_log_sha256": "14a69974ecf7e7243da99e8a552fdc49e6c51d027955151a74d8669bde1dfeb2"
+  }
+}

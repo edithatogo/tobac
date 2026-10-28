@@ -60,6 +60,9 @@ Current receipt: integration/voiage_polars_consumer_20261028.json. Default produ
 2.2.0. Six caller-buffer isolation cases now supplement 90 numerical comparisons.
 The previous 6c28ac5 candidate failed the new ownership probe. pandas/xarray remain
 required. Published-3.0 acceptance remains unexecuted; historical proof remains in PR #41.
+The 28 October owner direction makes active CI macOS-only; Windows/Linux and their
+manual locked-release workflows are deferred to the roadmap. Platform receipt:
+integration/macos_ci_scope_20261028.json.
 
 ## Issue #3 bounded pathway implementation
 

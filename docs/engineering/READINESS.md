@@ -3,10 +3,11 @@
 ## Current development platform
 
 Current engineering development is focused on macOS. Linux, Windows and other non-macOS
-qualification work is deferred to [`conductor/roadmap.md`](../../conductor/roadmap.md). Existing
-workflow definitions and checks remain intact; they may still execute, and their results must be
-reported accurately. This scope change does not mark deferred checks as passed or remove them
-from repository protection settings.
+qualification work is deferred to [`conductor/roadmap.md`](../../conductor/roadmap.md). Active workflows target macOS only following the explicit 28 October decision.
+Windows/Linux qualification and the Linux-specific manual locked-release and lock-generation
+workflows are retained in the roadmap. Deferred/cancelled runs are not passes. Scientific,
+security, source-bound lock, dependency-graph and package-provenance checks remain active
+on macOS; no protection settings or thresholds are changed.
 
 ## Ruff expansion and resource controls — 27 October 2026
 
@@ -115,13 +116,13 @@ checks also both run, with no ignored advisories. Failed setup cannot be called 
 
 CI preserves Nox JSON reports, JUnit, environment, coverage and available audit outputs on
 failure. Python 3.15.1 is the required runtime across development, build, tests and CI. The
-Linux/macOS/Windows matrix uses the portable profile. The latest/pre-release canary remains
+macOS test job uses the portable profile. Windows/Linux matrix qualification is deferred. The latest/pre-release canary remains
 source-only, requires its test dependencies and cannot promote itself.
 Direct Actions remain full-SHA pinned, read-only, credential-free after checkout and bounded
 by concurrency, timeouts and retention. No pull_request_target or automatic scientific merging.
 Renovate's pending upgrades still require review; this change does not merge them.
 
-The internal-candidate workflow requires both lock/receipt pairs to be committed and verifies
+The deferred Linux internal-candidate workflow requires both lock/receipt pairs to be committed and verifies
 all their input hashes, then sets `TOBAC_REQUIRE_LOCK=1`. Tests, quality, whole-source strict
 lint/type audit, security, complete M1/M2/longitudinal replay and packaging must succeed.
 Failure evidence and successful packages have different artifact names. No PyPI upload,
@@ -359,3 +360,20 @@ of draft but unmerged; its listed interpreter is not deployed-service acceptance
 A fresh root-inclusive service run and graph readback remain required to close the
 Scientific ecosystem track. Older engineering-only successes and the supported
 submission route must not be relabelled as that root-service success.
+
+## macOS-only hosted qualification — 28 October 2026
+
+All active jobs now target macOS, including the scientific/longitudinal/M3 and
+scheduled deep-audit checks. The native audit semantics and pass thresholds are
+unchanged. Every job selects and actually checks a repo-local Python 3.15.1;
+expensive commands use the existing 4 GiB sampled-RSS/time guard. Mutation still
+uses at most two children. The two Linux-specific manual workflows are preserved
+unchanged under `conductor/roadmap/deferred-workflows/` and cannot run from there.
+
+SourceRight v0.1.20 provides a macOS asset named x86_64 with SHA-256
+`b405f4a4dc09ad8af03bfd49a84484df194aac8401a188a08510334a8aa77a5c`.
+Independent `file` inspection identifies its actual bytes as ARM64 Mach-O. Its CSL
+gate uses that exact asset on `macos-latest` ARM64, retaining hash verification.
+[Release assets](https://github.com/edithatogo/sourceright/releases/tag/v0.1.20)
+and [GitHub runner labels](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)
+identify the supported artifact and runner. Hosted execution remains a separate gate.

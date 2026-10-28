@@ -27,7 +27,7 @@
 
 - [Scientific ecosystem modernisation](./tracks/scientific_ecosystem_20261025/index.md): macOS implementation complete; managed root-parser acceptance externally blocked, rechecked 28 October 2026.
 
-- [Voiage Polars consumer qualification](./tracks/voiage_polars_qualification_20261026/plan.md): merged unreleased candidate with caller-buffer isolation requalified 28 October; published-3.0 gate externally blocked.
+- [Voiage Polars consumer qualification](./tracks/voiage_polars_qualification_20261026/plan.md): merged unreleased candidate with caller-buffer isolation requalified 28 October; macOS-only CI scope recorded in the plan and roadmap; published-3.0 gate externally blocked.
 
 - [M2 matched evidence pathway](./archive/m2_matched_evidence_20261027/plan.md):
   completed issue #3 bounded source-feasibility audit and self-review;
