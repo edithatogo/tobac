@@ -1,7 +1,8 @@
 # Implementation plan
 
-Status: [x] Bounded decision recording and request preparation/review complete;
-publication checks/readback remain mandatory in the PR. Issue #3 stays empirically open.
+Status: [x] Historical preparation complete; withdrawn by the public-data-only
+decision and archived on 28 October 2026. The original scope is not renewed.
+Issue #3 scientific gates remain open.
 
 ## A: Selected decisions and preparation
 - [x] Record the six owner-selected directions and explicit deferred permissions.
@@ -37,3 +38,27 @@ Review:docs/reviews/2026-10-27-m2-record-requests.md.
 
 Publication evidence is a separate mandatory readback,maintained in the PR so local
 preparation completion never substitutes for an unexecuted hosted or receiving-main job.
+
+
+## Supersession review and archive — 28 October 2026
+
+- [x] Confirm original preparation merged in PR #55 (805f7db), and public-only
+  supersession merged in PR #56 (0001273); do not reactivate historical outreach.
+- [x] Preserve all four withdrawn/unsent drafts, the field schedule and all thirteen
+  source-bound historical hashes at withdrawal commit 0001273. Twelve still match
+  current files; M2_DECISIONS.md changed in approved publication work at 4a6246c.
+  Preserve that distinction and the original manifest; do not claim thirteen current
+  matches. No contact, native draft or send operation is performed.
+- [x] Clarify the historical specification, current machine-readable disposition
+  and public-only successor; archive this completed track and repair navigation.
+- [x] Review the changes and run archive/name, manifest-fixity and integration checks.
+- [x] Prepare guarded publication; fresh macOS exact-head and receiving-main checks
+  remain mandatory and their actual results are recorded in the closeout PR.
+
+Review: docs/reviews/2026-10-28-record-request-closeout.md. Current permissible work
+continues through the archived public-source map and active research-gates document;
+archiving this track does not establish empirical identification or publication approval.
+
+Supersession/archival review implementation: df37977. No request content, manifest,
+permission, model, dependency or workflow changes; new native publication evidence
+is maintained in the closeout PR rather than inferred from the historical receipts.

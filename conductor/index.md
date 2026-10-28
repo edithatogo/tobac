@@ -36,8 +36,9 @@
 - [M2 evidence synthesis and partial identification](./archive/m2_evidence_synthesis_20261027/plan.md):
   completed bounded evidence/method review;empirical/data/decision gates remain explicit.
 
-- [M2 selected decisions and unsent requests](./tracks/m2_record_requests_20261027/plan.md):
-  withdrawn by the public-only decision; none sent. Issue #3 remains open.
+- [M2 selected decisions and unsent requests](./archive/m2_record_requests_20261027/plan.md):
+  archived after supersession review; four drafts remain withdrawn and unsent.
+  Public-existing-data-only direction remains in force. Issue #3 remains open.
 
 - [M2 public-source map](./archive/m2_public_sources_20261027/plan.md):
   methods,local capture catalogue and linked extraction/assumption/parameter tables;

@@ -1,5 +1,20 @@
 # M2 selected decisions and unsent record requests
 
+## Current disposition: superseded and archived — 28 October 2026
+
+The original preparation was completed and merged in PR #55. The owner's later
+[public-data-only decision](../../decisions/m2_public_only_20261027.md), implemented
+in PR #56, withdrew all four drafts. Selecting this track for implementation/review
+does not expressly revoke that decision. No further request preparation, recipient
+research, OIA submission, contact, commissioning or collection is authorised.
+
+The material below preserves the historical specification. The current work is
+status reconciliation, fixity/link review and archival. Request files and the
+manifest remain unchanged; their field schedule is only a public-source gap aid.
+Issue #3 empirical and publication gates remain open separately.
+
+## Historical specification
+
 Owner instruction on 27 October 2026 adopts the staged recommendations and authorises
 Conductor recording, request preparation, self-review, qualification and merge.
 Base: 443cf4d297b8f21da58fb9b3b95b87ce34678873.
