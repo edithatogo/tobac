@@ -1,0 +1,3 @@
+# Retain every upstream detection rule; no allowlists or ignored paths.
+[extend]
+useDefault = true

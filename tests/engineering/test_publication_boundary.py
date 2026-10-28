@@ -1,10 +1,12 @@
 """Publication guards reject staged copies, archives and replay checkouts before export."""
 
+import gzip
 import hashlib
 import io
 import json
 import subprocess
 import sys
+import tarfile
 import zipfile
 from pathlib import Path
 
@@ -145,3 +147,18 @@ def test_edited_private_path_beneath_archive_prefix_rejected(repository) -> None
         archive.writestr("package-v1/docs/manuscript.md", "edited manuscript")
     with pytest.raises(ValueError, match="Disallowed archive member"):
         boundary.inspect_bytes(stream.getvalue(), boundary.load_policy(repository))
+
+
+def test_gzip_expansion_budget_applies_before_tar_header_allocation(repository, monkeypatch) -> None:
+    monkeypatch.setattr(boundary, "MAX_ARCHIVE_BYTES", 128)
+    with pytest.raises(ValueError, match="Archive expansion budget"):
+        boundary.inspect_bytes(gzip.compress(b"x" * 1024), boundary.load_policy(repository))
+
+
+def test_safe_package_tar_gzip_is_inspected(repository) -> None:
+    stream = io.BytesIO()
+    with tarfile.open(fileobj=stream, mode="w:gz") as archive:
+        member = tarfile.TarInfo("package/README.md")
+        member.size = 2
+        archive.addfile(member, io.BytesIO(b"ok"))
+    boundary.inspect_bytes(stream.getvalue(), boundary.load_policy(repository))

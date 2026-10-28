@@ -41,7 +41,26 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: github/codeql-action/init@9b3254085494b55a0f7c4c2b3d2d52cc712ce370
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
+        with:
+          version: '0.13.5'
+          python-version: '3.15.1'
+          enable-cache: false
+      - name: Select repository-local Python for analysis
+        run: |
+          uv venv --python 3.15.1 .venv-ci
+          .venv-ci/bin/python -c 'import sys; assert sys.version_info[:3] == (3, 15, 1)'
+          echo "$GITHUB_WORKSPACE/.venv-ci/bin" >> "$GITHUB_PATH"
+      - uses: github/codeql-action/setup-codeql@9b3254085494b55a0f7c4c2b3d2d52cc712ce370
+        id: codeql
         with:
           languages: python,actions
-      - uses: github/codeql-action/analyze@9b3254085494b55a0f7c4c2b3d2d52cc712ce370
+          tools: linked
+      - name: Extract and analyze both languages within the resource budget
+        env:
+          CODEQL: ${{ steps.codeql.outputs.codeql-path }}
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/run_codeql.py --codeql "$CODEQL"
+      - uses: github/codeql-action/upload-sarif@9b3254085494b55a0f7c4c2b3d2d52cc712ce370
+        if: always()
+        with:
+          sarif_file: outputs/codeql-results

@@ -54,9 +54,27 @@ def main() -> None:
             "--ignore-gitleaks-allow",
             "--max-archive-depth",
             "3",
+            "--config",
+            str(ROOT / "engineering/gitleaks.toml"),
+            "--gitleaks-ignore-path",
+            "/dev/null",
         ]
     )
-    checked([gitleaks, "git", ".", "--staged", "--redact", "--no-banner", "--ignore-gitleaks-allow"])
+    checked(
+        [
+            gitleaks,
+            "git",
+            ".",
+            "--staged",
+            "--redact",
+            "--no-banner",
+            "--ignore-gitleaks-allow",
+            "--config",
+            str(ROOT / "engineering/gitleaks.toml"),
+            "--gitleaks-ignore-path",
+            "/dev/null",
+        ]
+    )
     checked([actionlint])
 
 

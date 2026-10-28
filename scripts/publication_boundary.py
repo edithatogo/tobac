@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import gzip
 import hashlib
 import io
 import json
@@ -101,7 +102,14 @@ def inspect_zip(stream: io.BytesIO, policy: Policy, depth: int) -> None:
 
 def inspect_tar(stream: io.BytesIO, policy: Policy, depth: int) -> None:
     """Inspect regular tar members without extracting paths onto disk."""
-    with tarfile.open(fileobj=stream, mode="r:*") as archive:
+    if stream.getvalue().startswith(b"\x1f\x8b"):
+        with gzip.GzipFile(fileobj=stream) as compressed:
+            raw = compressed.read(MAX_ARCHIVE_BYTES + 1)
+        if len(raw) > MAX_ARCHIVE_BYTES:
+            msg = "Archive expansion budget exceeded"
+            raise ValueError(msg)
+        stream = io.BytesIO(raw)
+    with tarfile.open(fileobj=stream, mode="r:") as archive:
         total = 0
         for member in archive:
             safe_name(member.name)
@@ -261,6 +269,10 @@ def scan_export(root: Path, destination: Path) -> None:
                 "--ignore-gitleaks-allow",
                 "--max-archive-depth",
                 "3",
+                "--config",
+                str(root / "engineering/gitleaks.toml"),
+                "--gitleaks-ignore-path",
+                "/dev/null",
             ],
             capture_output=True,
             check=False,

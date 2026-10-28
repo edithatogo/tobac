@@ -54,6 +54,17 @@ def test_real_preserved_payload() -> None:
     assert result["bibliography_records"] == len(manifest["source_ids"])
     assert result["automatically_conditions_live_model"] is False
     assert result["scope"] == "public_preservation_and_internal_linkage_local_documents_not_verified"
+    assert len(result["local_documents_not_verified"]) == 2
+
+
+def test_local_document_historical_hash_cannot_silently_change(snapshot) -> None:
+    def change(data):
+        row = next(f for f in data["files"] if f["path"].endswith(".md"))
+        row["sha256"] = "a" * 64
+
+    edit_manifest(snapshot, change)
+    with pytest.raises(ValueError, match="Local document historical binding"):
+        load().verify(snapshot)
 
 
 def test_missing_file_fails(snapshot) -> None:

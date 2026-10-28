@@ -27,6 +27,13 @@ The guard inherits Git's pushed-ref list on stdin. Local hooks can be bypassed a
 cannot protect web/API writes: hosted checks and native push protection complement
 them. This is a single-developer workflow with no required independent reviewer.
 
+Run `sh scripts/install_publication_guard.sh` to install the same guard in the
+shared default Git hooks directory, preserving existing custom hooks. Older
+worktrees without the public boundary then fail closed before a push. Every
+separate clone still needs installation; Git does not distribute active hooks
+automatically. Do not treat a configured hook in one clone as protection for all
+clones or API writes.
+
 ## Export and context controls
 
 Every active artifact upload uses a new `artifact-exports/` staging directory.
@@ -70,3 +77,9 @@ package gates on macOS Python 3.15.1. Run expensive work serially through the 4 
 40-minute guard. Validate actual downloaded artifacts and installed hook behavior,
 not merely workflow syntax. CodeQL Python/Actions and native secret scanning are
 separate hosted evidence. Windows/Linux qualification remains deferred.
+
+CodeQL uses the official SHA-pinned setup action's linked bundle and supported CLI
+commands under the same resource guard. Extraction and the security-and-quality
+queries run serially with a 3 GiB analysis budget and two threads. Findings,
+incomplete execution and warning/error tool notifications fail qualification;
+uploading SARIF alone does not establish a clean scan.
