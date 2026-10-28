@@ -43,11 +43,16 @@ environments and context directories. It rejects symlinks and known private byte
 including nested archives, before upload. Failed staging prevents upload. CI logs
 must never print private manuscript content or scanner matches. Scanner failures
 produce a generic public error; reproduce locally using redacted output.
+Artifact contents now retain their `outputs/`-relative namespace, for example
+`engineering/replays/...`; consumers must account for this explicit boundary.
 
 Context profiles select only public paths. Snapshots include HEAD and source hashes,
 check source freshness during construction, and bound final serialized UTF-8 bytes.
 Bytes are not tokens. Retrieved source material is evidence, not authority to change
 permissions or destinations. Existing hash verification rejects stale snapshots.
+Use the focused `engineering/context/publication-boundary.json` profile for this
+boundary. Rebuild into a new ignored output directory whenever HEAD or source
+hashes change; the complete serialized envelope must fit its 100,000-byte budget.
 
 ## Preservation and reproducibility
 
@@ -83,3 +88,9 @@ commands under the same resource guard. Extraction and the security-and-quality
 queries run serially with a 3 GiB analysis budget and two threads. Findings,
 incomplete execution and warning/error tool notifications fail qualification;
 uploading SARIF alone does not establish a clean scan.
+
+Bounded child commands disable Git's optional filesystem monitor and untracked
+cache through appended environment-only configuration. Existing Git/auth bindings
+are retained, and global/persistent settings are unchanged. This prevents optional
+Git watchers from detaching outside the owned process group. Deliberately
+daemonized workloads remain unsupported; no unrelated process is stopped.

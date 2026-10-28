@@ -38,7 +38,17 @@ class Policy:
 def git(root: Path, *args: str) -> bytes:
     """Run bounded fixed Git argv without a shell; never print blob contents."""
     return subprocess.check_output(  # noqa: S603 -- Fixed Git binary/argv, no shell.
-        [shutil.which("git") or "/usr/bin/git", "-C", str(root), *args], timeout=60
+        [
+            shutil.which("git") or "/usr/bin/git",
+            "-c",
+            "core.fsmonitor=false",
+            "-c",
+            "core.untrackedCache=false",
+            "-C",
+            str(root),
+            *args,
+        ],
+        timeout=60,
     )
 
 

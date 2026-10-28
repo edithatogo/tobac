@@ -64,6 +64,13 @@ def test_read_allocation_is_bounded_even_for_large_source(tmp_path) -> None:
     assert len(load().read_context(path, 1024)) == 1025
 
 
+def test_context_git_never_enables_optional_daemon_even_without_outer_guard(repo) -> None:
+    module = load()
+    module.git_output(repo, "config", "--local", "core.fsmonitor", "true")
+    assert module.git_output(repo, "config", "--get", "core.fsmonitor") == "false"
+    assert module.git_output(repo, "config", "--local", "--get", "core.fsmonitor") == "true"
+
+
 def test_final_serialized_envelope_must_fit_budget(repo) -> None:
     config = cfg()
     config["max_bytes"] = 1024

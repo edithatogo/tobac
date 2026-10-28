@@ -14,10 +14,11 @@ import math
 import platform
 import subprocess
 import sys
+import typing
 from dataclasses import asdict, replace
 from datetime import date
 from pathlib import Path
-from typing import Any, SupportsFloat, cast
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -329,7 +330,7 @@ def _finite(value: object, name: str) -> float:
     if (
         isinstance(value, bool)
         or not isinstance(value, (int, float, np.integer, np.floating))
-        or not math.isfinite(float(cast("SupportsFloat", value)))
+        or not math.isfinite(float(typing.cast("typing.SupportsFloat", value)))
     ):  # type: ignore[arg-type]
         msg = f"{name} must be a finite number; got {value!r}"
         raise ValueError(msg)

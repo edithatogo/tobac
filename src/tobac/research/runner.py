@@ -295,10 +295,10 @@ def run(config_path: str | Path, out: str | Path, *, quick: bool = False) -> Rep
     # shared assets.
     pilot_sources = [sources[k] for k in DESIGNS["panel_supply"]]
     next_sources = [sources[k] for k in DESIGNS["matched_causal"]]
-    _la = joint_likelihood(*(x.likelihood for x in pilot_sources))
-    _lb = joint_likelihood(*(x.likelihood for x in next_sources))
+    _ = joint_likelihood(*(x.likelihood for x in pilot_sources))
+    _ = joint_likelihood(*(x.likelihood for x in next_sources))
     ca = costs.price(pilot_sources)
-    _cb = costs.price(pilot_sources + next_sources) - ca
+    _ = costs.price(pilot_sources + next_sources) - ca
     for timing in cfg["stage_timings"]:
         for multiplier in cfg["stage_followup_cost_multipliers"]:
             r = staged_portfolio(

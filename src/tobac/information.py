@@ -84,7 +84,7 @@ def evaluate(
         msg = "Confidence must lie strictly between .5 and 1"
         raise ValueError(msg)
     p = cast("FloatArray", problem.prior_weights)
-    likelihood_matrix = validate_likelihood(likelihood, len(p))
+    likelihood_matrix = _likelihood(likelihood, len(p))
     q, post = _posterior(p, likelihood_matrix)
     a0 = int(np.argmax(p @ problem.values))
     contrast = problem.values - problem.values[:, a0, None]

@@ -9,11 +9,11 @@ import importlib
 import json
 import platform
 import sys
+import typing
 from dataclasses import asdict
 from datetime import UTC, datetime
 from importlib.metadata import version
 from pathlib import Path
-from typing import Any, cast
 
 import numpy as np
 
@@ -47,8 +47,8 @@ def qualify(destination: Path) -> None:
         scope,
         "synthetic Gaussian with supplied off-diagonal covariance",
     )
-    table = cast(
-        "Any",
+    table = typing.cast(
+        "typing.Any",
         to_arrow(
             packet,
             captured_at=datetime(2026, 10, 26, tzinfo=UTC),
@@ -69,7 +69,7 @@ def qualify(destination: Path) -> None:
     view = to_polars(stream)
     allocated_after = pa.total_allocated_bytes()
     source_buffer = table.column(1).chunk(0).buffers()[1].address
-    view_buffer = cast("Any", view.frame).to_arrow().column(1).chunk(0).buffers()[1].address
+    view_buffer = typing.cast("typing.Any", view.frame).to_arrow().column(1).chunk(0).buffers()[1].address
     if source_buffer != view_buffer:
         msg = "Float64 buffer was copied"
         raise AssertionError(msg)

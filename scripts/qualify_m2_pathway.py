@@ -6,6 +6,7 @@ import platform
 import shutil
 import subprocess
 import sys
+from abc import abstractmethod
 from pathlib import Path
 from typing import Any, Protocol, cast
 
@@ -21,7 +22,10 @@ DEFAULT = "evidence/m2/matched_pathway_20261027.json"
 
 
 class _Validator(Protocol):
-    def validate(self, instance: object) -> None: ...
+    @abstractmethod
+    def validate(self, instance: object) -> None:
+        """Validate against the bound schema using the implementing library."""
+        raise NotImplementedError
 
 
 def build_report(root: Path, manifest: str = DEFAULT) -> dict[str, Any]:

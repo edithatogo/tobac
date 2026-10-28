@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "profile": "publication-boundary",
+  "max_bytes": 100000,
+  "paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md",
+    "conductor/tracks.md",
+    "docs/engineering/PUBLICATION_BOUNDARY.md",
+    "engineering/publication-policy.json",
+    "scripts/publication_boundary.py",
+    "scripts/check_publication_security.py",
+    "scripts/run_codeql.py",
+    "scripts/run_bounded.py",
+    "scripts/context_bundle.py",
+    ".github/workflows/publication-security.yml",
+    ".githooks/pre-push",
+    "ruff.toml"
+  ],
+  "base_commit": null,
+  "required_paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md"
+  ]
+}

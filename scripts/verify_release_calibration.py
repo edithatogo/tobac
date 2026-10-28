@@ -11,8 +11,9 @@ import csv
 import hashlib
 import json
 import math
+import typing
 from pathlib import Path
-from typing import Any, SupportsFloat, cast
+from typing import Any, cast
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_ARTIFACTS = (
@@ -71,7 +72,7 @@ def _rows(path: Path) -> tuple[list[dict[str, str]] | None, str | None]:
 def _finite(value: object) -> float | None:
     """Return the finite float value, or None for missing, malformed or NaN/inf."""
     try:
-        number = float(cast("SupportsFloat | str", value))
+        number = float(typing.cast("typing.SupportsFloat | str", value))
     except TypeError, ValueError:
         return None
     return number if math.isfinite(number) else None

@@ -8,6 +8,7 @@ import json
 import math
 import platform
 import sys
+from abc import abstractmethod
 from dataclasses import asdict
 from decimal import Decimal
 from pathlib import Path
@@ -26,7 +27,10 @@ COHORT_YEAR = 2025
 
 
 class _Validator(Protocol):
-    def validate(self, instance: object) -> None: ...
+    @abstractmethod
+    def validate(self, instance: object) -> None:
+        """Validate against the bound schema using the implementing library."""
+        raise NotImplementedError
 
 
 def supply_summary(root: Path) -> dict[str, Any]:

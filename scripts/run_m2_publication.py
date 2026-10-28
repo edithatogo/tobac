@@ -6,6 +6,7 @@ import argparse
 import csv
 import json
 import platform
+from abc import abstractmethod
 from copy import deepcopy
 from itertools import product
 from pathlib import Path
@@ -40,7 +41,10 @@ SCHEMA = "engineering/schemas/m2-publication.schema.json"
 
 
 class _Validator(Protocol):
-    def validate(self, instance: object) -> None: ...
+    @abstractmethod
+    def validate(self, instance: object) -> None:
+        """Validate against the bound schema using the implementing library."""
+        raise NotImplementedError
 
 
 def write_table(path: Path, rows: list[Report]) -> None:
