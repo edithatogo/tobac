@@ -1,0 +1,283 @@
+{
+  "schema": "tobac.m2-readiness-qualification.v1",
+  "source_commit": "0a3f25a66bd852e887bcbd45b53e10d745f07978",
+  "python": "3.15.1",
+  "sessions": [
+    {
+      "args": {},
+      "name": "tests",
+      "result": "success",
+      "result_code": 1,
+      "reason": null,
+      "signatures": [
+        "tests",
+        "tests-3.15.1"
+      ],
+      "duration": 46.20421333400009
+    },
+    {
+      "args": {},
+      "name": "strict_all",
+      "result": "success",
+      "result_code": 1,
+      "reason": null,
+      "signatures": [
+        "strict_all",
+        "strict_all-3.15.1"
+      ],
+      "duration": 6.879979041998013
+    },
+    {
+      "args": {},
+      "name": "reproduce",
+      "result": "success",
+      "result_code": 1,
+      "reason": null,
+      "signatures": [
+        "reproduce",
+        "reproduce-3.15.1"
+      ],
+      "duration": 235.91465758400227
+    },
+    {
+      "args": {},
+      "name": "clean_package",
+      "result": "success",
+      "result_code": 1,
+      "reason": null,
+      "signatures": [
+        "clean_package",
+        "clean_package-3.15.1"
+      ],
+      "duration": 32.87865287499881
+    },
+    {
+      "args": {},
+      "name": "security",
+      "result": "success",
+      "result_code": 1,
+      "reason": null,
+      "signatures": [
+        "security",
+        "security-3.15.1"
+      ],
+      "duration": 11.635461290999956
+    }
+  ],
+  "pytest": {
+    "passed": 1030,
+    "skipped": 5,
+    "coverage_percent": 92
+  },
+  "strict_all": {
+    "ruff": "pass",
+    "format": "124 files unchanged",
+    "basedpyright_errors": 0,
+    "basedpyright_warnings": 0
+  },
+  "sampled_peak_mib": 785.5,
+  "exit_status": 0,
+  "paper_replay": {
+    "passed": true,
+    "source_commit": "0a3f25a66bd852e887bcbd45b53e10d745f07978",
+    "source_tree": "d7cd81fe8d641e1c6c845c6d820d50c015d657ed",
+    "clone_commit": "0a3f25a66bd852e887bcbd45b53e10d745f07978",
+    "clone_tree": "d7cd81fe8d641e1c6c845c6d820d50c015d657ed",
+    "python": "3.15.1",
+    "interpreter": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/.nox/reproduce/bin/python",
+    "imported_source": "/Users/doughnut/.codex/worktrees/engineering-hardening/tobac/outputs/engineering/replays/829856561d7c4200b675b9717d599362/paper_replay/source/src/tobac/__init__.py",
+    "absolute_tolerance": 1e-10,
+    "comparisons": {
+      "primary": {
+        "tables": [
+          {
+            "table": "consequences.csv",
+            "rows": 20,
+            "maximum_absolute_difference": 0.0,
+            "path": "consequences.csv"
+          },
+          {
+            "table": "decisions.csv",
+            "rows": 125,
+            "maximum_absolute_difference": 0.0,
+            "path": "decisions.csv"
+          },
+          {
+            "table": "consequences.csv",
+            "rows": 20,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/consequences.csv"
+          },
+          {
+            "table": "decisions.csv",
+            "rows": 125,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/decisions.csv"
+          },
+          {
+            "table": "grouped_evppi.csv",
+            "rows": 875,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/grouped_evppi.csv"
+          },
+          {
+            "table": "robustness.csv",
+            "rows": 5,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/robustness.csv"
+          },
+          {
+            "table": "scientific_information.csv",
+            "rows": 90,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/scientific_information.csv"
+          },
+          {
+            "table": "source_use.csv",
+            "rows": 35,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/source_use.csv"
+          },
+          {
+            "table": "study_value.csv",
+            "rows": 750,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/study_value.csv"
+          },
+          {
+            "table": "thresholds.csv",
+            "rows": 19,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-2/thresholds.csv"
+          },
+          {
+            "table": "consequences.csv",
+            "rows": 20,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/consequences.csv"
+          },
+          {
+            "table": "decisions.csv",
+            "rows": 125,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/decisions.csv"
+          },
+          {
+            "table": "grouped_evppi.csv",
+            "rows": 875,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/grouped_evppi.csv"
+          },
+          {
+            "table": "robustness.csv",
+            "rows": 5,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/robustness.csv"
+          },
+          {
+            "table": "scientific_information.csv",
+            "rows": 90,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/scientific_information.csv"
+          },
+          {
+            "table": "source_use.csv",
+            "rows": 35,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/source_use.csv"
+          },
+          {
+            "table": "study_value.csv",
+            "rows": 750,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/study_value.csv"
+          },
+          {
+            "table": "thresholds.csv",
+            "rows": 19,
+            "maximum_absolute_difference": 0.0,
+            "path": "grid-8/thresholds.csv"
+          },
+          {
+            "table": "grouped_evppi.csv",
+            "rows": 875,
+            "maximum_absolute_difference": 0.0,
+            "path": "grouped_evppi.csv"
+          },
+          {
+            "table": "robustness.csv",
+            "rows": 5,
+            "maximum_absolute_difference": 0.0,
+            "path": "robustness.csv"
+          },
+          {
+            "table": "scientific_information.csv",
+            "rows": 90,
+            "maximum_absolute_difference": 0.0,
+            "path": "scientific_information.csv"
+          },
+          {
+            "table": "source_use.csv",
+            "rows": 35,
+            "maximum_absolute_difference": 0.0,
+            "path": "source_use.csv"
+          },
+          {
+            "table": "study_value.csv",
+            "rows": 750,
+            "maximum_absolute_difference": 0.0,
+            "path": "study_value.csv"
+          },
+          {
+            "table": "thresholds.csv",
+            "rows": 19,
+            "maximum_absolute_difference": 0.0,
+            "path": "thresholds.csv"
+          }
+        ],
+        "maximum_report_difference": 0
+      },
+      "robustness": {
+        "tables": [
+          {
+            "table": "decisions.csv",
+            "rows": 1625,
+            "maximum_absolute_difference": 0.0,
+            "path": "decisions.csv"
+          },
+          {
+            "table": "grouped_evppi.csv",
+            "rows": 11375,
+            "maximum_absolute_difference": 0.0,
+            "path": "grouped_evppi.csv"
+          },
+          {
+            "table": "scientific_information.csv",
+            "rows": 1170,
+            "maximum_absolute_difference": 0.0,
+            "path": "scientific_information.csv"
+          },
+          {
+            "table": "study_value.csv",
+            "rows": 9750,
+            "maximum_absolute_difference": 0.0,
+            "path": "study_value.csv"
+          },
+          {
+            "table": "summary.csv",
+            "rows": 13,
+            "maximum_absolute_difference": 0.0,
+            "path": "summary.csv"
+          }
+        ],
+        "maximum_report_difference": 0
+      }
+    },
+    "scope": "Fresh committed sources; no source-download command during replay. Reuses qualified dependencies; not a fresh/offline install or OS network isolation.",
+    "no_requests_or_submissions": true
+  },
+  "nox_report_sha256": "4183aa51358315f6b0cb1f18738a882738b3aa261c0a9aa5733f09b377e8d905",
+  "paper_receipt_sha256": "8b9ecddd9f65f2a7ea0d5962dc7dae24187c6fe16f3cf07864ab154f3e37cc0f",
+  "scope": "Executed local macOS qualification at the named committed sources; later documentation-only closeout reuses unchanged evidence. Native exact-head/main outcomes recorded in associated PR.",
+  "no_requests_or_submissions": true
+}

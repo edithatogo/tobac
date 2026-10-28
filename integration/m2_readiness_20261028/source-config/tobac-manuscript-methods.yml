@@ -1,0 +1,23 @@
+name: tobac-manuscript-methods
+description: Bounded public primary-methods and reporting sources; no external publishing.
+enabled: true
+adapters: [web]
+schedule: manual
+rights_class: source_specific_review_required
+output_preservation_policy:
+  format: warc_and_manifest
+  compression: none
+  cas_hash_algorithm: sha256
+  retention: permanent_subject_to_rights_review
+publication_policy:
+  huggingface: {enabled: false}
+  zenodo: {enabled: false}
+targets:
+- https://www.ispor.org/docs/default-source/resources/outcomes-research-guidelines-index/model_parameter_estimation_and_uncertainty-6.pdf?sfvrsn=8bc10c8e_0
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC7373630/
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC7612603/
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC7612319/
+- https://cris.leibniz-zmt.de/id/eprint/5238/1/Haag_Chennu_2023_Assessing_whether_decisions_Omega_with_SI.pdf
+- https://ris.utwente.nl/ws/portalfiles/portal/321016205/1-s2.0-S1098301523030310-main.pdf
+- https://www.valueinhealthjournal.com/article/S1098301523030310/pdf
+- https://equator-network.org/reporting-guidelines/cheers-voi/

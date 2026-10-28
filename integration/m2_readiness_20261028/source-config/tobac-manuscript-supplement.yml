@@ -1,0 +1,17 @@
+name: tobac-manuscript-supplement
+description: Two targeted primary metadata/checklist fallbacks; no external publishing.
+enabled: true
+adapters: [web]
+schedule: manual
+rights_class: source_specific_review_required
+output_preservation_policy:
+  format: warc_and_manifest
+  compression: none
+  cas_hash_algorithm: sha256
+  retention: permanent_subject_to_rights_review
+publication_policy:
+  huggingface: {enabled: false}
+  zenodo: {enabled: false}
+targets:
+- https://cris.leibniz-zmt.de/id/eprint/5238/
+- https://www.ispor.org/docs/default-source/heor-resources-documents/cheers_checklist_final-v1.docx?sfvrsn=45d2fc27_14

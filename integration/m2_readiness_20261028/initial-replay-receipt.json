@@ -1,0 +1,208 @@
+{
+  "passed": true,
+  "source_commit": "b47b6e582c6369013977a85d6521070e0ae45bb3",
+  "source_tree": "1c02643e866e805aa1423316095ffc14498f121f",
+  "clone_commit": "b47b6e582c6369013977a85d6521070e0ae45bb3",
+  "clone_tree": "1c02643e866e805aa1423316095ffc14498f121f",
+  "python": "3.15.1",
+  "absolute_tolerance": 1e-10,
+  "comparisons": {
+    "primary": {
+      "tables": [
+        {
+          "table": "consequences.csv",
+          "rows": 20,
+          "maximum_absolute_difference": 0.0,
+          "path": "consequences.csv"
+        },
+        {
+          "table": "decisions.csv",
+          "rows": 125,
+          "maximum_absolute_difference": 0.0,
+          "path": "decisions.csv"
+        },
+        {
+          "table": "consequences.csv",
+          "rows": 20,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-2/consequences.csv"
+        },
+        {
+          "table": "decisions.csv",
+          "rows": 125,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-2/decisions.csv"
+        },
+        {
+          "table": "grouped_evppi.csv",
+          "rows": 875,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-2/grouped_evppi.csv"
+        },
+        {
+          "table": "robustness.csv",
+          "rows": 5,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-2/robustness.csv"
+        },
+        {
+          "table": "scientific_information.csv",
+          "rows": 90,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-2/scientific_information.csv"
+        },
+        {
+          "table": "source_use.csv",
+          "rows": 35,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-2/source_use.csv"
+        },
+        {
+          "table": "study_value.csv",
+          "rows": 750,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-2/study_value.csv"
+        },
+        {
+          "table": "thresholds.csv",
+          "rows": 19,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-2/thresholds.csv"
+        },
+        {
+          "table": "consequences.csv",
+          "rows": 20,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-8/consequences.csv"
+        },
+        {
+          "table": "decisions.csv",
+          "rows": 125,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-8/decisions.csv"
+        },
+        {
+          "table": "grouped_evppi.csv",
+          "rows": 875,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-8/grouped_evppi.csv"
+        },
+        {
+          "table": "robustness.csv",
+          "rows": 5,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-8/robustness.csv"
+        },
+        {
+          "table": "scientific_information.csv",
+          "rows": 90,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-8/scientific_information.csv"
+        },
+        {
+          "table": "source_use.csv",
+          "rows": 35,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-8/source_use.csv"
+        },
+        {
+          "table": "study_value.csv",
+          "rows": 750,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-8/study_value.csv"
+        },
+        {
+          "table": "thresholds.csv",
+          "rows": 19,
+          "maximum_absolute_difference": 0.0,
+          "path": "grid-8/thresholds.csv"
+        },
+        {
+          "table": "grouped_evppi.csv",
+          "rows": 875,
+          "maximum_absolute_difference": 0.0,
+          "path": "grouped_evppi.csv"
+        },
+        {
+          "table": "robustness.csv",
+          "rows": 5,
+          "maximum_absolute_difference": 0.0,
+          "path": "robustness.csv"
+        },
+        {
+          "table": "scientific_information.csv",
+          "rows": 90,
+          "maximum_absolute_difference": 0.0,
+          "path": "scientific_information.csv"
+        },
+        {
+          "table": "source_use.csv",
+          "rows": 35,
+          "maximum_absolute_difference": 0.0,
+          "path": "source_use.csv"
+        },
+        {
+          "table": "study_value.csv",
+          "rows": 750,
+          "maximum_absolute_difference": 0.0,
+          "path": "study_value.csv"
+        },
+        {
+          "table": "thresholds.csv",
+          "rows": 19,
+          "maximum_absolute_difference": 0.0,
+          "path": "thresholds.csv"
+        }
+      ],
+      "maximum_report_difference": 0
+    },
+    "robustness": {
+      "tables": [
+        {
+          "table": "decisions.csv",
+          "rows": 1625,
+          "maximum_absolute_difference": 0.0,
+          "path": "decisions.csv"
+        },
+        {
+          "table": "grouped_evppi.csv",
+          "rows": 11375,
+          "maximum_absolute_difference": 0.0,
+          "path": "grouped_evppi.csv"
+        },
+        {
+          "table": "scientific_information.csv",
+          "rows": 1170,
+          "maximum_absolute_difference": 0.0,
+          "path": "scientific_information.csv"
+        },
+        {
+          "table": "study_value.csv",
+          "rows": 9750,
+          "maximum_absolute_difference": 0.0,
+          "path": "study_value.csv"
+        },
+        {
+          "table": "summary.csv",
+          "rows": 13,
+          "maximum_absolute_difference": 0.0,
+          "path": "summary.csv"
+        }
+      ],
+      "maximum_report_difference": 0
+    }
+  },
+  "scope": "Fresh committed sources; no source-download command during replay. Reuses qualified dependencies; not a fresh/offline install or OS network isolation.",
+  "no_requests_or_submissions": true,
+  "command": ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/tests/bin/python scripts/qualify_publication_replay.py --out outputs/engineering/m2-readiness-first-paper-replay",
+  "sampled_peak_mib": 717.2,
+  "exit_status": 0,
+  "actual_receipt_sha256": "afba3ed765d0c2bc58685596b4e4140fd656f964ca28de91be60f55fb2abbcb1",
+  "observed_versions": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "jsonschema": "4.26.0"
+  },
+  "qualification": "Actual executed first replay at b47b6e5; later final-head verification remains separate"
+}

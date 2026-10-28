@@ -1,0 +1,11 @@
+claim_id,source_id,locator,claim,numerical_input_adopted
+C01,VOI_OVERVIEW,Introduction and Sections3–4,Finite VOI is established; information for estimating a quantity differs from action value.,false
+C02,VALUE_PREFERENCES,Indexed publisher abstract; verified DOI metadata,Prior work addresses preference and prediction uncertainty; this paper evaluates conditional value profiles and does not estimate the value of eliciting preferences.,false
+C03,VOI_METHODS,Characterization of uncertainty and report-likelihood methods,"Information values depend on the joint prior, decision criterion and assumed study model.",false
+C04,METHOD_UNCERTAINTY,VI-8–VI-15,Declared uncertainty/dependence choices require sensitivity analysis and transparent assumptions.,false
+C05,ISPOR_VALIDATION,Definitions and validation guidance,Numerical verification and empirical external validation are distinct.,false
+C06,REPORTING_VOI,Table2; Discussion,Reporting crosswalk is not a methods-quality certificate; all displayed topic IDs are retained.,false
+C07,SHINE_RETAIL_TABLE2,Table2 net cessation paragraph,"Beta23.4,97.2 is an inherited published model input, not measured NZ600-retailer efficacy.",false
+C08,HDEC_FAQ,Scope/institutional and retrospective-review FAQ,Formal applicability remains undetermined and retrospective approval is not assumed.,false
+C09,NEAC_MAORI,Section3,"No Māori-specific effects, elicited values, consultation or endorsement are inferred.",false
+C10,CHEERS2022,Official reporting page and CHEERS-VOI Table2 correspondence,Base28 reporting topics can be cross-referenced without mislabelling synthetic scores as a complete economic evaluation.,false

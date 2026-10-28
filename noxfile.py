@@ -323,6 +323,10 @@ def reproduce(session: nox.Session) -> None:
     publication = str(replay_root / "m2_publication")
     session.run("python", "scripts/run_m2_publication.py", "--out", publication, "--grid-check")
     session.run("python", "scripts/verify.py", publication)
+    robustness = str(replay_root / "m2_robustness")
+    session.run("python", "scripts/run_m2_robustness.py", "--out", robustness)
+    session.run("python", "scripts/verify.py", robustness)
+    session.run("python", "scripts/qualify_publication_replay.py", "--out", str(replay_root / "paper_replay"))
 
 
 @nox.session(python="3.15.1")
