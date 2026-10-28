@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   numerical:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -22,8 +22,12 @@ jobs:
           version: '0.13.5'
           python-version: '3.15.1'
           enable-cache: false
-      - run: uvx --python 3.15.1 --from nox==2026.10.20 nox -s research_m3
-      - run: python scripts/unpack_m3_results.py --out outputs/saved_m3
+      - name: Select repository-local Python 3.15.1
+        run: |
+          uv venv --python 3.15.1 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+      - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s research_m3
+      - run: .nox/research_m3/bin/python scripts/unpack_m3_results.py --out outputs/saved_m3
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
@@ -43,8 +47,12 @@ jobs:
           version: '0.13.5'
           python-version: '3.15.1'
           enable-cache: false
+      - name: Select repository-local Python 3.15.1
+        run: |
+          uv venv --python 3.15.1 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Build and qualify pinned Voiage Python 3.15.1 compatibility candidate
-        run: uvx --python 3.15.1 --from nox==2026.10.20 nox -s voiage
+        run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s voiage
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:

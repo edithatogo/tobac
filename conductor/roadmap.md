@@ -16,10 +16,24 @@ Current engineering development is focused on macOS. The following work is defer
   supported non-macOS platforms.
 - Reconsider when cross-platform qualification should return to active tracks.
 
-The existing workflow definitions and repository checks remain unchanged. They may still execute
-on non-macOS runners; this roadmap does not waive their failures, assert success, or change branch
-protection. Any returned work must use current `main`, preserve in-flight work, and record actual
-platform-specific verification.
+Owner decision, 28 October 2026: Windows and Linux results are not current
+acceptance gates. Active hosted jobs target macOS; retain the same scientific,
+security, dependency-graph, provenance and numerical checks there. SourceRight
+uses its hash-verified published macOS ARM64 binary on an ARM64 macOS runner;
+the upstream asset filename misleadingly says x86_64.
+
+The original Linux-specific manual workflows are retained, inactive, in
+`conductor/roadmap/deferred-workflows/`: `release-candidate.yml` and
+`dependency-lock.yml`. Their Linux audit-lock and source/hash requirements remain
+unchanged. Reconsider and requalify them only when non-macOS work is reprioritised.
+The native macOS audit lane is not the Linux hash-locked release profile; no
+locked-release acceptance is inferred from this platform deferral. Existing locks
+and their receipts remain committed and verified by the active macOS checks.
+
+Superseded mixed-platform runs for 94c4712 were cancelled where still active;
+the already completed longitudinal run is preserved. Cancellation is not a pass.
+Current acceptance requires fresh macOS runs of the revised workflows. No branch
+protection or repository ruleset changes are made.
 
 ## Advisory CI/CD, automation, quality and security lane
 

@@ -16,7 +16,18 @@ WORKFLOWS = ("engineering.yml", "engineering-deep.yml", "release-candidate.yml")
 
 @pytest.mark.parametrize("name", WORKFLOWS)
 def test_new_workflows_are_pinned_read_only_and_bounded(name) -> None:
-    data = yaml.load((ROOT / ".github/workflows" / name).read_text(), Loader=yaml.BaseLoader)
+    data = yaml.load(
+        (
+            ROOT
+            / (
+                "conductor/roadmap/deferred-workflows"
+                if name == "release-candidate.yml"
+                else ".github/workflows"
+            )
+            / name
+        ).read_text(),
+        Loader=yaml.BaseLoader,
+    )
     assert "pull_request_target" not in data["on"]
     assert data["permissions"] == {"contents": "read"}
     assert data["concurrency"]["group"]
@@ -102,7 +113,7 @@ def test_renovate_does_not_automerge_scientific_changes() -> None:
 
 
 def test_release_requires_reviewed_lock_and_is_not_public_publication() -> None:
-    text = (ROOT / ".github/workflows/release-candidate.yml").read_text()
+    text = (ROOT / "conductor/roadmap/deferred-workflows/release-candidate.yml").read_text()
     assert "workflow_dispatch" in text
     assert "engineering/requirements.lock" in text
     assert "id-token: write" not in text
@@ -131,7 +142,10 @@ def test_renovate_covers_profile_inputs_and_keeps_review_gates() -> None:
 
 
 def test_dependency_lock_candidates_cover_all_qualified_profiles() -> None:
-    data = yaml.load((ROOT / ".github/workflows/dependency-lock.yml").read_text(), Loader=yaml.BaseLoader)
+    data = yaml.load(
+        (ROOT / "conductor/roadmap/deferred-workflows/dependency-lock.yml").read_text(),
+        Loader=yaml.BaseLoader,
+    )
     job = data["jobs"]["resolve"]
     assert set(job["strategy"]["matrix"]["profile"]) == {"runtime", "audit", "voiage", "ecosystem"}
     assert data["permissions"] == {"contents": "read"}
@@ -140,7 +154,10 @@ def test_dependency_lock_candidates_cover_all_qualified_profiles() -> None:
 
 
 def test_lock_candidates_use_selected_repo_local_python() -> None:
-    data = yaml.load((ROOT / ".github/workflows/dependency-lock.yml").read_text(), Loader=yaml.BaseLoader)
+    data = yaml.load(
+        (ROOT / "conductor/roadmap/deferred-workflows/dependency-lock.yml").read_text(),
+        Loader=yaml.BaseLoader,
+    )
     run = next(
         step["run"]
         for step in data["jobs"]["resolve"]["steps"]
@@ -150,3 +167,26 @@ def test_lock_candidates_use_selected_repo_local_python() -> None:
     assert run.count(".venv-lock/bin/python") == 2
     assert "assert sys.version_info[:3] == (3, 15, 1)" in run
     assert re.search(r"(?m)^\s*python(?:3)?\s", run) is None
+
+
+def test_active_ci_is_macos_only_with_checked_local_python_and_resource_guards() -> None:
+    for path in (ROOT / ".github/workflows").glob("*.yml"):
+        data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
+        for job in data["jobs"].values():
+            runner = job["runs-on"]
+            if runner == "${{ matrix.os }}":
+                assert {entry["os"] for entry in job["strategy"]["matrix"]["include"]} == {"macos-latest"}
+            else:
+                assert runner in {"macos-latest", "macos-15-intel"}, (path, runner)
+            commands = [step.get("run", "") for step in job["steps"]]
+            assert any(
+                ".venv-ci/bin/python -c" in command and "assert sys.version_info[:3] == (3, 15, 1)" in command
+                for command in commands
+            ), path
+            for command in commands:
+                if "uvx " in command:
+                    assert ".venv-ci/bin/python scripts/run_bounded.py" in command, path
+    deferred = ROOT / "conductor/roadmap/deferred-workflows"
+    for name in ("release-candidate.yml", "dependency-lock.yml"):
+        assert (deferred / name).is_file()
+        assert not (ROOT / ".github/workflows" / name).exists()

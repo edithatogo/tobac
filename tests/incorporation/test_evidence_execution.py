@@ -348,7 +348,16 @@ def test_scientific_workflows_gate_preservation_and_cover_every_citation_collect
     )
     for workflow, name in [(root_workflow, "numerical"), (long_workflow, "longitudinal")]:
         commands = [s["run"] for s in workflow["jobs"][name]["steps"] if "run" in s]
-        assert "qualify_integrations.py --mode inventory" in commands[0]
+        inventory_at = next(
+            i for i, command in enumerate(commands) if "qualify_integrations.py --mode inventory" in command
+        )
+        # Interpreter selection may precede inventory; installs and models may not.
+        assert inventory_at < next(i for i, command in enumerate(commands) if "-m pip install" in command)
+        assert not any(
+            marker in command
+            for command in commands[:inventory_at]
+            for marker in ("-m pytest", "-m tobac.", "scripts/run_")
+        )
         assert any("pytest" in c for c in commands)
         assert not any("continue-on-error" in s for s in workflow["jobs"][name]["steps"])
     commands = [s.get("run", "") for s in root_workflow["jobs"]["sourceright"]["steps"]]

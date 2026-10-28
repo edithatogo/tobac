@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         session: [security, strict_all, mutation, profile, lock]
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -25,11 +25,15 @@ jobs:
           version: '0.13.5'
           python-version: '3.15.1'
           enable-cache: false
+      - name: Select repository-local Python 3.15.1
+        run: |
+          uv venv --python 3.15.1 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - run: mkdir -p outputs/engineering
       - name: Run selected bounded audit
         env:
           NOX_SESSION: ${{ matrix.session }}
-        run: uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s "$NOX_SESSION"
+        run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s "$NOX_SESSION"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
@@ -39,7 +43,7 @@ jobs:
           retention-days: 14
   canary:
     name: Python 3.15.1 ecosystem canary (not release qualification)
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -50,8 +54,12 @@ jobs:
           version: '0.13.5'
           python-version: '3.15.1'
           enable-cache: false
+      - name: Select repository-local Python 3.15.1
+        run: |
+          uv venv --python 3.15.1 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - run: mkdir -p outputs/engineering
-      - run: uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s canary
+      - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s canary
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:

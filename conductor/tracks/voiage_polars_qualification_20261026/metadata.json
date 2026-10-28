@@ -55,5 +55,19 @@
   "implementation_state": "merged_candidate_ownership_qualified_published_3_release_gate_open",
   "verification": "integration/voiage_polars_consumer_20261028.json",
   "review": "docs/reviews/2026-10-28-voiage-merged-candidate.md",
-  "publication": "Guarded publication and exact receiving-main native proof will be recorded in the linked qualification PR"
+  "publication": "Guarded publication and exact receiving-main native proof will be recorded in the linked qualification PR",
+  "platform_decision": {
+    "date": "2026-10-28",
+    "source": "Direct owner instruction: I do not need Windows or Linux to pass; defer them and stick with macOS",
+    "active_platform": "macOS",
+    "deferred": [
+      "Windows",
+      "Linux",
+      "Linux-specific manual locked release and lock generation"
+    ],
+    "security_checks": "retained on macOS; no thresholds or source-bound locks relaxed",
+    "superseded_receiving_main": "94c47124f7dd17b53a1353009ec7442971b64748; mixed-platform pending runs cancelled where active, not passes"
+  },
+  "platform_verification": "integration/macos_ci_scope_20261028.json",
+  "platform_review": "docs/reviews/2026-10-28-macos-only-ci.md"
 }
