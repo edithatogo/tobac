@@ -1,0 +1,38 @@
+{
+  "status": "draft_specification_not_approved",
+  "planning_base": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
+  "python": "3.15.1",
+  "spec_sha256": "ca37b31537976daa7b7e4d9288a8d69c0afa99c9ffa5ce0c2fdcd813bce85ad3",
+  "local_links_valid": true,
+  "requirements": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R12"
+  ],
+  "acceptance_criteria": [
+    "AC01",
+    "AC02",
+    "AC03",
+    "AC04",
+    "AC05",
+    "AC06",
+    "AC07",
+    "AC08",
+    "AC09",
+    "AC10",
+    "AC11",
+    "AC12",
+    "AC13",
+    "AC14"
+  ],
+  "checks": "Document structure and local-link validation only; no implementation or numerical execution."
+}

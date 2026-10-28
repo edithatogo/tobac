@@ -1,0 +1,20 @@
+{
+  "specification": {
+    "status": "approved",
+    "date": "2026-10-26",
+    "user_message": "Approve",
+    "approved_review_sha256": "a068391494ec7d57f13a9a6fcefec508236d0474ef0cfb01110d6fe1c5015176",
+    "approved_initial_draft_sha256": "ca37b31537976daa7b7e4d9288a8d69c0afa99c9ffa5ce0c2fdcd813bce85ad3"
+  },
+  "implementation_plan": {
+    "status": "approved",
+    "date": "2026-10-26",
+    "user_message": "Approve. Register and commit the track.",
+    "approved_review_sha256": "80e80fb78c25ca9c373ffdbe5aefd47f94aeb07f228f8111547fa9e28d5a8f31"
+  },
+  "registration": {
+    "status": "authorized",
+    "scope": "Register and locally commit the approved planning artifacts; no runtime implementation",
+    "presentation_changes": "Status and handoff wording only; substantive requirements, acceptance criteria and tasks unchanged."
+  }
+}

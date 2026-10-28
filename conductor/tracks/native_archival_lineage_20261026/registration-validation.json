@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "scope": "Conductor planning registration only",
+  "base_commit": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
+  "python": "3.15.1",
+  "checks": {
+    "core_context_exists": true,
+    "new_track_links_valid": true,
+    "registry_entry_unique": true,
+    "metadata_valid": true,
+    "approved_content_preserved": true,
+    "phases": 8,
+    "primary_tasks": 32,
+    "phase_checkpoints": 8,
+    "acceptance_criteria_mapped": 14,
+    "all_implementation_tasks_unstarted": true
+  },
+  "files": {
+    "approvals.json": "5b9dab9f7cae3af769e5d7109992b724bfc2fe7ca4a1cf18cab9b1824a20a011",
+    "draft-validation.json": "00655f10b28d241cc556a2ad6a9dbb7117075936f69dfcd9227134d5bf33e717",
+    "index.md": "c35ba29b52aa9236ee205204c4e928a284908a80c289585bc6ab3d6f12c2a67e",
+    "metadata.json": "daa631658e8c646a2f8bf4a665660f45b16ff61721f7c220963a1005d8d94bea",
+    "plan-review-validation.json": "cc559f4da132205678dcd00a71da56a9cf4cb05167d141054a81a2c8e5977193",
+    "plan.md": "f06454b0c2dd4a3a84704efa92a7a2df19fe8c1ef97ac977661ecfc95cad1fa5",
+    "spec.md": "97ceb64e85b05856089ccdeecd9c89d7fd3920a0681f0c3b93477b3eb203d50e"
+  },
+  "not_executed": [
+    "Runtime implementation",
+    "Scientific/numerical test suites",
+    "Native archival qualification",
+    "Hosted checks",
+    "Publication or merge"
+  ]
+}
