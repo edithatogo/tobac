@@ -169,11 +169,23 @@ def test_lock_candidates_use_selected_repo_local_python() -> None:
     assert re.search(r"(?m)^\s*python(?:3)?\s", run) is None
 
 
-def test_active_ci_is_macos_only_with_checked_local_python_and_resource_guards() -> None:
+def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
     for path in (ROOT / ".github/workflows").glob("*.yml"):
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
         if "push" in data["on"]:
             assert data["on"]["push"]["branches"] == ["main"], path
+        if path.name == "cross-platform.yml":
+            job = data["jobs"]["tests"]
+            assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
+            assert job["timeout-minutes"] == "40"
+            commands = [step.get("run", "") for step in job["steps"]]
+            assert any("assert sys.version_info[:3] == (3, 15, 1)" in command for command in commands)
+            assert any(
+                "scripts/run_bounded.py" in command and "nox -s tests" in command for command in commands
+            )
+            assert any("nox -s tests" in command for command in commands)
+            assert all("upload-artifact@" not in step.get("uses", "") for step in job["steps"])
+            continue
         for job in data["jobs"].values():
             assert "lock" not in job.get("strategy", {}).get("matrix", {}).get("session", [])
             runner = job["runs-on"]

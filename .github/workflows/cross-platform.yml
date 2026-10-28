@@ -1,0 +1,52 @@
+name: Cross-platform Python qualification
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cross-platform-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  tests:
+    name: Tests ${{ matrix.os }} Python 3.15.1
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: bash
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      POLARS_MAX_THREADS: '2'
+      RAYON_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          version: '0.13.5'
+          python-version: '3.15.1'
+          enable-cache: false
+      - name: Select and verify repository-local Python
+        run: |
+          uv venv --python 3.15.1 .venv-ci
+          if [ "$RUNNER_OS" = Windows ]; then
+            echo "PYTHON_LOCAL=$GITHUB_WORKSPACE/.venv-ci/Scripts/python.exe" >> "$GITHUB_ENV"
+          else
+            echo "PYTHON_LOCAL=$GITHUB_WORKSPACE/.venv-ci/bin/python" >> "$GITHUB_ENV"
+          fi
+      - name: Verify actual interpreter
+        run: '"$PYTHON_LOCAL" -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"'
+      - name: Run Linux tests with process-group guard
+        if: runner.os == 'Linux'
+        run: '"$PYTHON_LOCAL" scripts/run_bounded.py --max-rss-mib 4096 --timeout 2100 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s tests'
+      - name: Run Windows tests
+        if: runner.os == 'Windows'
+        run: uvx --python 3.15.1 --from nox==2026.10.20 nox -s tests

@@ -42,6 +42,7 @@
     ".githooks/pre-push",
     ".github/pull_request_template.md",
     ".github/workflows/ci.yml",
+    ".github/workflows/cross-platform.yml",
     ".github/workflows/engineering-deep.yml",
     ".github/workflows/engineering.yml",
     ".github/workflows/longitudinal.yml",
