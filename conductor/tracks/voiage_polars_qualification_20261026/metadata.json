@@ -1,7 +1,7 @@
 {
   "track_id": "voiage_polars_qualification_20261026",
   "title": "Voiage 3.0.0 Polars consumer qualification",
-  "status": "in_progress",
+  "status": "blocked",
   "description": "Owner-authorised macOS baseline and exact unreleased candidate qualification; published-3.0 gate retained",
   "base_commit": "f55edb1b3aecdfc2c8afc243b8659e69614b2f13",
   "voiage_base": "ca3f05cc8adcc74b99fe236152327d0cd3679553",
@@ -40,10 +40,10 @@
     "scope": "Review and complete remaining macOS qualification, refresh Conductor, commit, verify and merge; no release publication or upstream mutation",
     "source": "Direct owner request 27 October 2026"
   },
-  "external_gate": "Published unpatched Voiage 3.0.0 absent from PyPI/GitHub releases at discovery",
+  "external_gate": "PyPI 3.0.0 JSON HTTP 404; latest published PyPI/GitHub release remains 2.2.0, rechecked 28 October 2026",
   "candidate": {
     "repository": "https://github.com/edithatogo/voiage.git",
-    "revision": "6c28ac5787dbe261dfc918eb941c0f8e65c75f4d",
+    "revision": "65c5e76fb8c206ae39049866a1e79482cafaafc3",
     "expected_version": "2.2.0",
     "upstream_pull_request": 1202,
     "kind": "unreleased unpatched Polars-container candidate; not published Voiage 3.0.0",
@@ -51,9 +51,9 @@
     "release_gate": "Published 3.0.0 remains unavailable; no upstream release or default-producer promotion"
   },
   "owner_scope_decision": "Qualify candidate and retain release gate; direct reply 27 October 2026",
-  "updated_at": "2026-10-27",
-  "implementation_state": "macos_exact_candidate_complete_published_3_release_gate_open",
-  "verification": "integration/voiage_polars_consumer_20261027.json",
-  "review": "docs/reviews/2026-10-27-voiage-pr41.md",
-  "publication": "Exact-head and receiving-main native results maintained in https://github.com/edithatogo/tobac/pull/41"
+  "updated_at": "2026-10-28",
+  "implementation_state": "merged_candidate_ownership_qualified_published_3_release_gate_open",
+  "verification": "integration/voiage_polars_consumer_20261028.json",
+  "review": "docs/reviews/2026-10-28-voiage-merged-candidate.md",
+  "publication": "Guarded publication and exact receiving-main native proof will be recorded in the linked qualification PR"
 }

@@ -100,3 +100,34 @@ def test_probe_rejects_a_shadowed_native_module(tmp_path, monkeypatch) -> None:
     )
     with pytest.raises(RuntimeError, match="outside the verified wheel"):
         module.qualify(wheel, "2.2.0")
+
+
+@pytest.mark.parametrize("copy_buffers", [False, True])
+def test_buffer_probe_rejects_aliasing_and_accepts_snapshots(monkeypatch, copy_buffers) -> None:
+    import polars as pl  # noqa: PLC0415 -- Local synthetic container fixture.
+
+    module = load()
+
+    class Container:
+        def __init__(self, *, frame) -> None:
+            self.frame = pl.DataFrame(frame.to_numpy().copy()) if copy_buffers else frame
+
+        @classmethod
+        def from_numpy(cls, values, _names=None) -> Container:
+            return cls(frame=pl.DataFrame({str(i): values[:, i] for i in range(values.shape[1])}))
+
+        from_numpy_or_dict = from_numpy
+
+        @classmethod
+        def from_polars(cls, frame) -> Container:
+            return cls(frame=frame)
+
+    schema = types.SimpleNamespace(ValueArray=Container, ParameterSet=Container)
+    monkeypatch.setattr(
+        module.importlib, "import_module", lambda name: schema if name == "voiage.schema" else pl
+    )
+    if copy_buffers:
+        assert len(module.qualify_buffer_ownership()) == 6
+    else:
+        with pytest.raises(AssertionError):
+            module.qualify_buffer_ownership()

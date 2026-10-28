@@ -54,7 +54,34 @@ def verify_installed_files(wheel: Path, package: Distribution) -> int:
     return checked
 
 
-def qualify(wheel: Path, expected_version: str) -> dict[str, object]:
+def qualify_buffer_ownership() -> list[str]:
+    """Reject candidate containers that retain mutable caller-owned buffers."""
+    schema = importlib.import_module("voiage.schema")
+    polars = importlib.import_module("polars")
+    passed: list[str] = []
+    for kind in ("values", "parameters"):
+        container = schema.ValueArray if kind == "values" else schema.ParameterSet
+        for route in ("numpy", "polars", "constructor"):
+            # Fortran layout supplies contiguous columns that Polars may borrow.
+            source = np.array([[1.0, 4.0], [5.0, 2.0]], order="F")
+            expected = source.copy()
+            names = ["first", "second"]
+            if route == "numpy":
+                result = (
+                    container.from_numpy(source, names)
+                    if kind == "values"
+                    else container.from_numpy_or_dict(source)
+                )
+            else:
+                frame = polars.DataFrame({name: source[:, i] for i, name in enumerate(names)})
+                result = container.from_polars(frame) if route == "polars" else container(frame=frame)
+            source[:] = -999.0
+            np.testing.assert_array_equal(result.frame.to_numpy(), expected)
+            passed.append(f"{kind}:{route}")
+    return passed
+
+
+def qualify(wheel: Path, expected_version: str, *, buffer_ownership: bool = False) -> dict[str, object]:
     """Require exact installed wheel identity, native loading and numerical parity."""
     if sys.version_info[:3] != (3, 15, 1):
         msg = "Qualified Python 3.15.1 is required"
@@ -115,7 +142,9 @@ def qualify(wheel: Path, expected_version: str) -> dict[str, object]:
             np.testing.assert_allclose(weighted, expected_weighted, rtol=RTOL, atol=ATOL)
             np.testing.assert_allclose(partial, expected_partial, rtol=RTOL, atol=ATOL)
             differences.extend([abs(weighted - expected_weighted), abs(partial - expected_partial)])
+    ownership = qualify_buffer_ownership() if buffer_ownership else []
     return {
+        "buffer_ownership_cases": ownership,
         "schema": "tobac.voiage-installed-consumer.v1",
         "status": "passed",
         "python": sys.version,
@@ -144,12 +173,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--wheel", type=Path, required=True)
     parser.add_argument("--expected-version", required=True)
+    parser.add_argument("--buffer-ownership", action="store_true")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     if args.out.exists():
         msg = "Refusing to overwrite a qualification receipt"
         raise FileExistsError(msg)
-    result = qualify(args.wheel, args.expected_version)
+    result = qualify(args.wheel, args.expected_version, buffer_ownership=args.buffer_ownership)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with args.out.open("x", encoding="utf-8") as stream:
         json.dump(result, stream, indent=2, allow_nan=False)

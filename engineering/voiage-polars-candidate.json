@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/edithatogo/voiage.git",
-  "revision": "6c28ac5787dbe261dfc918eb941c0f8e65c75f4d",
+  "revision": "65c5e76fb8c206ae39049866a1e79482cafaafc3",
   "expected_version": "2.2.0",
   "upstream_pull_request": 1202,
   "kind": "unreleased unpatched Polars-container candidate; not published Voiage 3.0.0",
