@@ -129,6 +129,7 @@ Scientific gaps remain in conductor/research-gates.md; no data or empirical para
 ## Phase: Review Fixes
 
 - [x] Task: Apply review suggestions f617307 and 5bc6ae9; final hosted qualification remains in H3/H4.
+- [x] Task: Apply 29 October blocker/status/context review fixes f513bfe; external service gate remains open.
 
 Review: docs/reviews/2026-10-26-conductor-autonomous.md. Fixed coverage-store contamination,
 recovery log reuse, nested unknown parameters, archive registry validation and macOS path aliasing.
@@ -314,3 +315,56 @@ workflows remain unchanged; their exact-base reproduction/clean-package/recovery
 and artifact evidence at 1df7680 is reused. Final-head native acceptance and guarded
 publication are recorded after execution in the associated PR; no root success is
 inferred. This is a blocked external-service track, not a completed/archived track.
+
+## Managed-parser recheck and review — 29 October 2026
+
+Maintainer-authorised implementation/review resumption at `428bced` in the
+isolated worktree recorded in docs/WORKSTREAM_SYNC.md. Existing implementation
+reviews and unchanged numerical/package/security evidence are reused; this
+bounded recheck changes documentation, receipts and context selection only.
+
+- [x] Recheck upstream support, latest native root-parser history, exact-main
+  supported snapshot and graph contents; retain the external gate.
+- [x] Correct the track index's stale implementation-in-progress statement and
+  refresh current receipt/review pointers without overwriting earlier evidence.
+
+[Native evidence](../../../integration/ecosystem/managed-parser-recheck_20261029.json):
+upstream main `ba14f49` still lists Python through 3.14.9; PR #16525 is unmerged.
+The latest observed root-inclusive job remains historical failure 40446023419.
+No fresh root execution, graph write, service setting change or external message
+was performed. Existing closure criteria remain unchanged.
+
+Supported snapshot 115443786 at exact main `428bced` returned SUCCESS; all 113
+submitted PURLs appear in the 126-PURL native export. Every submitted lock is
+byte-identical to that commit and its receipt hash. All 16 checked-base native
+checks pass; these successes do not close the managed root-parser gate.
+
+The engineering context profile exceeded its 80,000-byte budget and was rejected.
+The existing bounded review profile built successfully; review then narrowed the
+engineering profile by removing the long historical readiness record from automatic
+retrieval. Required ownership contracts, library review, Nox and active configuration
+remain selected. Readiness remains a separately readable required workflow reference.
+Neither the budget nor content truncation was used as a workaround.
+Local execution and review evidence are recorded
+in the dated review after execution. The sole external service task stays
+unchecked, and the track remains active rather than archived.
+
+Local review fixes: `f513bfe`. Full local Nox tests: 1,063 passed, 13 capability
+skips, 92% coverage, exit 0; sampled peak 739.4 MiB. Final focused context,
+snapshot, archive and workstream integration checks: 55 passed, exit 0, 118.1 MiB
+sampled peak. Both runs retain 4 GiB/40-minute limits and zero retries.
+[Review](../../../docs/reviews/2026-10-29-ecosystem-parser-recheck.md) and
+[local execution receipt](../../../integration/ecosystem/managed-parser-local_20261029.json).
+Exact-head hosted and receiving-main outcomes will be retained in the publication
+PR after execution; none is assumed successful in advance.
+
+Publication review follow-up: the normal pre-push hook rejected the three new
+technical evidence paths before any remote update. Added their exact reviewed
+paths to the existing publication inventory, preserving private-document hashes
+and all guard behavior. The two unpublished owned commits were rebased normally
+to retain valid per-commit inventory; original local commits remain preserved on
+`codex/ecosystem-parser-before-inventory`. No force push or hook bypass is used.
+
+Publication-boundary follow-up tests: 14 passed, exit 0, sampled peak 49.4 MiB.
+Checksum-pinned native scanners were installed in this isolated worktree through
+the repository installer; no shared environment or hook configuration was changed.

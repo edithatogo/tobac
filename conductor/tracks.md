@@ -2,7 +2,7 @@
 
 ## Scientific ecosystem modernisation
 
-**Status: [~] Externally blocked — macOS implementation complete; rechecked 28 October 2026.**
+**Status: [~] Externally blocked — macOS implementation complete; rechecked 29 October 2026.**
 Track: `conductor/tracks/scientific_ecosystem_20261025/`.
 
 The agreed macOS engineering implementation is complete. PRs #43, #47 and #48
@@ -24,7 +24,7 @@ all four source-bound locks are regenerated, with complete ecosystem input bindi
 Its verification and receiving-main publication are recorded in the PR and
 `integration/hypothesis_pr50_20261027.json`; no unexecuted check is implied complete.
 
-Scientific ecosystem recheck: [receipt](../integration/ecosystem/managed-parser-recheck_20261028.json).
+Scientific ecosystem recheck: [receipt](../integration/ecosystem/managed-parser-recheck_20261029.json).
 Current native graph contains all 113 submitted PURLs; upstream PR #16525 remains
 unmerged. Root-parser acceptance remains blocked, with explicit closure criteria;
 no check, interpreter or security capability is relaxed to close the track.

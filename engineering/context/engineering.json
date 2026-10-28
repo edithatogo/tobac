@@ -6,7 +6,6 @@
     "AGENTS.md",
     "docs/WORKSTREAM_SYNC.md",
     "conductor/tracks.md",
-    "docs/engineering/READINESS.md",
     "docs/engineering/LIBRARY_REUSE_REVIEW.md",
     "pyproject.toml",
     "noxfile.py",

@@ -4,7 +4,7 @@
   "type": "refactor",
   "status": "blocked",
   "created_at": "2026-10-25T12:24:37.028925+00:00",
-  "updated_at": "2026-10-28",
+  "updated_at": "2026-10-29",
   "description": "Scientific ecosystem modernisation",
   "base_commit": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
   "approval_scope": "Autonomous macOS implementation, review, fixes and archival authorised 26 October 2026",
@@ -73,7 +73,7 @@
     "verification": "integration/hypothesis_pr50_20261027.json",
     "publication": "Exact final-head hosted and receiving-main results maintained in PR #50; no waived gates"
   },
-  "latest_recheck": "integration/ecosystem/managed-parser-recheck_20261028.json",
-  "latest_review": "docs/reviews/2026-10-28-ecosystem-parser-recheck.md",
-  "recheck_base": "1df7680edbe64d483357e2fc9c59549760acfc89"
+  "latest_recheck": "integration/ecosystem/managed-parser-recheck_20261029.json",
+  "latest_review": "docs/reviews/2026-10-29-ecosystem-parser-recheck.md",
+  "recheck_base": "428bced667c8a13aa322d869e09b730fb1e531c6"
 }

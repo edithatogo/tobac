@@ -1,0 +1,92 @@
+{
+  "schema": "tobac.ecosystem-parser-recheck.v1",
+  "review_date": "2026-10-29",
+  "checked_repository_main": "428bced667c8a13aa322d869e09b730fb1e531c6",
+  "scope": "Read-only upstream/service/snapshot recheck, documentation review and bounded context-selection fix; no native writes, scientific, runtime, lock or workflow changes",
+  "current_project_python": "3.15.1",
+  "requirement": ">=3.15.1,<3.16",
+  "root_managed_parser": {
+    "run": 40446023419,
+    "head_sha": "4ebc4af5f0b4fa7620b06052f124b0b20f6eade9",
+    "conclusion": "failure",
+    "created_at": "2026-10-27T03:46:23Z",
+    "is_current_repository_head": false,
+    "claim": "Latest observed root-inclusive managed run remains historical; no fresh current-head root run executed",
+    "prior_error_evidence": "integration/ecosystem/managed-parser-recheck_20261028.json"
+  },
+  "upstream_issue": {
+    "url": "https://github.com/dependabot/dependabot-core/issues/16524",
+    "state": "open",
+    "updated_at": "2026-10-25T16:54:23Z"
+  },
+  "upstream_pull_request": {
+    "url": "https://github.com/dependabot/dependabot-core/pull/16525",
+    "state": "open",
+    "merged": false,
+    "draft": false,
+    "head": "db5c232f1259f7a667622834eaedc1088643c06d",
+    "updated_at": "2026-10-28T12:18:21Z"
+  },
+  "upstream_main": {
+    "commit": "ba14f4921ecfe8d5d443d043becb2bdeac188fe1",
+    "blob_sha": "bd38cce5a9a381dd0180f25a98f4a3aafece2d96",
+    "file_sha256": "6db7958bd72e06e7e1e322d1588029239c7e650eeecd9fc433f073c6c286362a",
+    "versions": [
+      "3.14.9",
+      "3.13.17",
+      "3.12.13",
+      "3.11.15",
+      "3.10.20"
+    ]
+  },
+  "supported_snapshot": {
+    "source_sha": "428bced667c8a13aa322d869e09b730fb1e531c6",
+    "job": {
+      "id": "40732961493",
+      "correlator": "tobac-resolved-python315-locks"
+    },
+    "response": {
+      "id": 115443786,
+      "created_at": "2026-10-28T17:13:05.581Z",
+      "result": "SUCCESS",
+      "message": "Dependency results for the repo have been successfully updated."
+    },
+    "submitted_purls": 113,
+    "native_export_purls": 126,
+    "missing_submitted_purls": [],
+    "committed_lock_bytes_verified": true,
+    "scope": "Exact inventory coverage; no inferred edges, runtime-only scope or root-parser success"
+  },
+  "checked_base_jobs": {
+    "checks": 16,
+    "conclusions": {
+      "success": 16
+    },
+    "engineering_run": 40732961493
+  },
+  "raw_evidence_sha256": {
+    "managed-runs.json": "0f03ea66d314002ecd562406f11801e029140073b563903ac916d64495daa37f",
+    "base-checks.json": "6e164415178d1ad1a235bac975e9b67b44d4c45093734add448afc464aed6ddd",
+    "upstream-pr.json": "31cd3226bdfc86b001fe6c2c9e3b133bca69bf397de62449520ad9386b3fbdc5",
+    "native-sbom.json": "bfe43200b7abbae1aafac9e47644b74fd13249cf5807715768483672c902db61",
+    "upstream-issue.json": "4c52c79bab488047183eba38db2ab8bf69b6adce83c8df867c515e19c185bff4",
+    "upstream-language.json": "87b8e6ebbc86529ca985daa6b035771c1757a23c4de2872f3484f800b6e6090d",
+    "main-language.rb": "6db7958bd72e06e7e1e322d1588029239c7e650eeecd9fc433f073c6c286362a",
+    "base-jobs.json": "a62bc009b9a2a6b64a7afdc74de5e1a4a6d7415c0c7836b04663bc82ed6bf45a",
+    "snapshot/dependency-graph/snapshot.json": "fde01f3af51717ce319337dd7981bdd5ab697b69afb0667eb54511b27cb47e07",
+    "snapshot/dependency-graph/response.json": "3adef1ae19a2f450f92f7a68fb2fd760df8bea7bb66bbbe2a57592d91f0237fa"
+  },
+  "closure_criteria": [
+    "Deployed managed-service Python 3.15 support, not only an upstream source listing or merged PR",
+    "Fresh root-inclusive native success at unchanged Python constraint and reviewed current inputs",
+    "Receiving SHA/input verification and native graph-content readback"
+  ],
+  "disposition": "External managed-parser acceptance remains blocked; track stays active and is not archived",
+  "checked_at_utc": "2026-10-28T23:08:51.858122+00:00",
+  "context_review": {
+    "initial_engineering_profile": "rejected at unchanged 80000-byte budget",
+    "fix": "Remove historical-heavy READINESS.md from automatic engineering profile; retain ownership contracts, library review, Nox and active configuration; readiness remains a required separately read workflow reference",
+    "initial_fallback": "existing review profile built successfully",
+    "fixed_engineering_manifest": "outputs/engineering/parser-recheck-20261029/context-engineering-fixed/manifest.json"
+  }
+}

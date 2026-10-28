@@ -1,0 +1,38 @@
+{
+  "schema": "tobac.ecosystem-parser-local.v1",
+  "base_commit": "428bced667c8a13aa322d869e09b730fb1e531c6",
+  "scope": "Full local tests and bounded context-selection fix; unchanged exact-base hosted numerical/package/recovery/security evidence reused",
+  "python": "3.15.1",
+  "command": ".venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/parser-recheck-20261029/nox-report.json -s tests",
+  "tests": {
+    "passed": 1063,
+    "skipped": 13,
+    "coverage_percent": 92,
+    "exit_code": 0,
+    "sampled_process_group_peak_mib": 739.4,
+    "timeout_seconds": 2400,
+    "max_rss_mib": 4096
+  },
+  "nox_report_sha256": "d560788c2a4d0b0050fd4a7a360daae2d881f8b51fa817eccd2cc5c4eaa8336b",
+  "test_log_sha256": "3b39c127d9a228df172b9b5035aee4ad47b120525a57a8388084c07f41db90a9",
+  "hosted_baseline_run": 40732961493,
+  "hosted_baseline_checks": 16,
+  "current_head_hosted": "not executed at receipt creation",
+  "scientific_or_external_service_acceptance": false,
+  "focused": {
+    "command": ".venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .nox/tests/bin/python -m pytest -q tests/engineering/test_context_bundle.py tests/engineering/test_dependency_snapshot.py tests/engineering/test_conductor_archive.py tests/test_workstream_integration.py",
+    "passed": 55,
+    "exit_code": 0,
+    "sampled_process_group_peak_mib": 118.1,
+    "log_sha256": "fe8f26322670b86be6801e38978515b20a6490947abfdd6df63faa77257f823c"
+  },
+  "publication_boundary_followup": {
+    "passed": 14,
+    "exit_code": 0,
+    "sampled_process_group_peak_mib": 49.4,
+    "command": ".venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .nox/tests/bin/python -m pytest -q tests/engineering/test_publication_boundary.py",
+    "log_sha256": "9658d2b780f8873c5e02296f3b4d936f58d3067689924343c31451b30f690423",
+    "first_push": "rejected locally by ordinary hook: new paths missing from reviewed inventory; no remote update",
+    "fix": "exact three technical paths reviewed and classified in every outgoing commit; guards unchanged"
+  }
+}
