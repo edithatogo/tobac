@@ -103,3 +103,11 @@ Track: `conductor/archive/m2_conditional_publication_20261028/`.
 Executed conditional analysis and documentary ethics assessment. Full local five-session
 qualification passes; native exact-head/receiving-main acceptance is recorded in the
 associated PR. Issue #3 empirical/formal submission-readiness gates remain. No requests/submissions.
+
+## M2 manuscript robustness and publication readiness
+
+**Status: [~] In progress — autonomous implementation and review authorised.**
+Track: `conductor/tracks/m2_manuscript_readiness_20261028/`.
+
+Public-only literature, robustness, manuscript, reporting and fresh-checkout replay.
+No requests or submissions; author/formal requirements remain explicit.

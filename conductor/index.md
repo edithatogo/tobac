@@ -47,3 +47,6 @@
 - [M2 conditional publication](./archive/m2_conditional_publication_20261028/plan.md):
   executed value-sensitivity analysis and desk ethics assessment; bounded work archived,
   native repository acceptance recorded in its PR, empirical/publication gates retained.
+
+- [M2 manuscript readiness](./tracks/m2_manuscript_readiness_20261028/plan.md):
+  autonomous public-only literature, robustness, reporting and reproduction follow-on.
