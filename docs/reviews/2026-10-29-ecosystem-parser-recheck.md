@@ -18,6 +18,7 @@ context-selection fixes preserve the implementation and its existing acceptance 
   recovery and security behavior.
 - [x] **Test Results**: 1,063 passed, 13 capability skips; Nox tests succeeds on
   actual repo-local Python 3.15.1. Resource guard exits 0 at sampled peak 739.4 MiB.
+  Publication-boundary follow-up: 14 passed, exit 0, 49.4 MiB sampled peak.
   The full suite includes `tests/test_workstream_integration.py`. A final focused
   context/snapshot/archive/integration run passes 55 tests (exit 0, 118.1 MiB
   sampled peak). [Local receipt](../../integration/ecosystem/managed-parser-local_20261029.json).

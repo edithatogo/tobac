@@ -25,5 +25,14 @@
     "exit_code": 0,
     "sampled_process_group_peak_mib": 118.1,
     "log_sha256": "fe8f26322670b86be6801e38978515b20a6490947abfdd6df63faa77257f823c"
+  },
+  "publication_boundary_followup": {
+    "passed": 14,
+    "exit_code": 0,
+    "sampled_process_group_peak_mib": 49.4,
+    "command": ".venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .nox/tests/bin/python -m pytest -q tests/engineering/test_publication_boundary.py",
+    "log_sha256": "9658d2b780f8873c5e02296f3b4d936f58d3067689924343c31451b30f690423",
+    "first_push": "rejected locally by ordinary hook: new paths missing from reviewed inventory; no remote update",
+    "fix": "exact three technical paths reviewed and classified in every outgoing commit; guards unchanged"
   }
 }
