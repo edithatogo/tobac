@@ -1,0 +1,42 @@
+{
+  "schema": "tobac.record-request-closeout.v1",
+  "date": "2026-10-28",
+  "base_main": "a1d621e7be39a81163a422e731eeaca8a229bf2a",
+  "disposition": "withdrawn_superseded_archived",
+  "manifest": "requests/m2_20261027/manifest.json",
+  "manifest_sha256": "aa4d13a81bb2ac11975f3fe951730a0b9a2996aa82437c284c01be8a1724d4f6",
+  "historical_snapshot_commit": "00012735f640f74dfeea6cde23af1e64c628ad1a",
+  "historical_hashes_verified": 13,
+  "current_hashes_matching": 12,
+  "historical_only_hashes": [
+    {
+      "path": "docs/research/M2_DECISIONS.md",
+      "manifest_sha256": "6618f863a93a3105a5633d048f6afb6cff14c89beb89fd8e079d06906b815455",
+      "current_sha256": "e62ea38e3a8ee51e0dc9ea2f1d262875b1a0d362edd801850fb65b6901caa8bf"
+    }
+  ],
+  "document_update_commit": "4a6246c690ced7d9cd7e1758b5a91f0689aec442",
+  "withdrawn_unsent_drafts": 4,
+  "request_files_changed": false,
+  "new_requests_prepared": false,
+  "external_contact_performed": false,
+  "new_oia_submitted": false,
+  "public_data_only": true,
+  "link_checks": "passed",
+  "original_preparation_pr": 55,
+  "supersession_pr": 56,
+  "scope": "Historical scope/fixity/navigation review and archival; no scientific, source, permission or request changes",
+  "native_acceptance": "Exact-head and receiving-main macOS results recorded in closeout PR after actual execution",
+  "local_tests": {
+    "passed": 27,
+    "command": ".nox/tests/bin/python scripts/run_bounded.py --timeout 2400 -- .nox/tests/bin/python -m pytest -q tests/engineering/test_conductor_archive.py tests/test_workstream_integration.py",
+    "log_sha256": "ac235d3daeb2583d1a4142d4b673bef9b3a199db0d36ba4e5747361ce22751ac",
+    "peak_sampled_group_rss_mib": 119.4
+  },
+  "track_names": "18/18 consistent",
+  "unchanged_full_evidence": {
+    "main_commit": "a1d621e7be39a81163a422e731eeaca8a229bf2a",
+    "source": "https://github.com/edithatogo/tobac/pull/63",
+    "scope": "Existing software and numerical proof; scientific/code/dependency inputs unchanged, not new-head hosted acceptance"
+  }
+}

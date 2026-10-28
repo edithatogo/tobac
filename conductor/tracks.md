@@ -31,8 +31,8 @@ no check, interpreter or security capability is relaxed to close the track.
 
 ## Completed work
 
-Fourteen completed tracks are archived, including the completed two-article
-preparation. The completed withdrawn-request preparation remains unarchived. See
+Fifteen completed tracks are archived, including the two-article preparation and
+the superseded, withdrawn record-request preparation. No outreach is authorised. See
 [the archive index](archive/index.md) for their specifications, plans and dated receipts.
 
 ## Research gates
@@ -81,20 +81,6 @@ signed historical uplift sensitivity and conditional study-cost ceilings are
 qualified. Existing records,needed target validation and substantive human
 decisions are distinguished in [research gates](research-gates.md). Issue #3
 remains open;no empirical target posterior or deployment approval is supplied.
-
-## M2 selected decisions and unsent record requests
-
-**Status: [x] Bounded preparation and self-review complete — 27 October 2026.**
-Track: `conductor/tracks/m2_record_requests_20261027/`.
-
-Selected directions and four local unsent requests are recorded at c1e86e5.
-All five local Nox sessions pass; exact-head and receiving-main publication evidence
-is maintained in the PR. No unexecuted hosted check is implied by local completion.
-Issue #3 remains open for data access, empirical applicability and governance.
-
-The subsequent [public-only direction](decisions/m2_public_only_20261027.md)
-withdraws all four request drafts; none was sent. Existing published OIA releases
-may be reviewed, but no new OIA or other request is authorised.
 
 ## M2 public-source map and traceable extraction
 

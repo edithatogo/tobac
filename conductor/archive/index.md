@@ -100,3 +100,15 @@ preserved; actual ideological convergence and its societal benefit are not estim
 All five local qualification scopes pass across recorded runs, with the initial
 monitor timeout/failure preserved. Native acceptance recorded in associated PR.
 No requests/submissions; empirical and author/formal readiness gaps remain.
+
+
+## M2 selected decisions and unsent record requests
+
+Track: `conductor/archive/m2_record_requests_20261027/`
+
+[Plan](m2_record_requests_20261027/plan.md) and
+[specification](m2_record_requests_20261027/spec.md). Historical preparation merged
+in PR #55; withdrawn by the public-data-only decision in PR #56. Supersession and
+fixity review complete; four drafts remain withdrawn and unsent. No new request,
+OIA submission, contact, access application, commissioning or collection is authorised.
+Public-source successors and issue #3 empirical/publication gates remain explicit.
