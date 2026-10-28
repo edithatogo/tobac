@@ -1,0 +1,13 @@
+claim_id,source_id,locator,claim,manuscript_locator
+NZ01,MOH_REPEAL,publication 5 March 2024; suspension/repeal paragraph,Policy setting changed; not a measure of ideological division,NZMJ opening
+NZ02,ANABASINE_WW_2020,abstract and measurement discussion,Anabasine investigated as a tobacco wastewater marker; not origin classification,NZMJ measurement
+NZ03,ANABASINE_YIELD_2026,methods excretion factor; existing source appraisal and supplements,Human excretion inputs do not establish raw NZ sewage calibration,NZMJ measurement
+NZ04,KAHAN_2017,author manuscript abstract and results,Original experiment reports numeracy interaction in politicised interpretation,NZMJ evidence uptake
+NZ05,STAGNARO_2023,abstract and results; native author-hosted published PDF,Larger probability-sample study did not replicate that interaction; not NZ tobacco uptake,NZMJ evidence uptake
+NZ06,VOI_METHODS,EVSI and net benefit methods,Information value depends on decisions under a specified objective,NZMJ conditional worth
+NZ07,VOI_OVERVIEW,decision-theory discussion,Study information and decision utility are distinct,NZMJ conditional worth
+NZ08,UPTAKE_IDENTITY,prospective bridge; independence and same-scale assumptions,p times EVSI identity is conditional algebra; p and costs not fitted,NZMJ conditional worth
+MDM01,MODEL_RESULTS,primary and robustness reports; prior numerical receipts,Unchanged numerical results; no people-persuaded interpretation,MDM results and 4.2
+FORMAT01,NZMJ_GUIDE,Viewpoints format; AI and ethics sections,2000 words;30 references;one table/figure;no subheadings,strategy/declarations
+FORMAT02,MDM_GUIDE,manuscript components and declarations,Four-component preparation; author facts and anonymity unresolved,strategy/declarations
+OVERLAP01,MDM_OVERLAP,duplicate publication review,Disclose related work and actual overlap in any later authorised submission,strategy

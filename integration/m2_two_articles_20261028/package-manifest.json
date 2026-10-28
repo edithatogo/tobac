@@ -1,0 +1,28 @@
+{
+  "schema": "tobac.m2-two-articles-package.v1",
+  "review_date": "2026-10-28",
+  "reviewed_manuscript_commit": "53aca6a9c3d591e3d2e928637e5a691e4790484e",
+  "scope": "Two maintained manuscript revisions, method/source/assumption/reporting and preparation records; excludes this manifest and subsequent Conductor/review/native qualification receipts. Original numerical/manuscript packages unchanged.",
+  "no_requests_or_submissions": true,
+  "sha256": {
+    "docs/research/M2_DISAGREEMENT_SCOPE.md": "ec574a657289ad136ba44408aa8466bbfc97ad1e5bd40046829afbd492f482bc",
+    "docs/research/M2_MDM_ARTICLE.md": "686ecc465391fbbac98687b6b7e0fed2b69adf3a8e3cf202f4f6293309d5ad03",
+    "docs/research/M2_NZMJ_VIEWPOINT.md": "0738f4e995627620b8ddf644b30d339f530a10b0a52dd6efd01d01ed354a922c",
+    "docs/research/M2_TWO_ARTICLE_DECLARATIONS.md": "e4fef5e5c0031558e974b6c77128c27082e09d6e5f8fc27ce40a24c4f6508b8b",
+    "docs/research/M2_TWO_ARTICLE_STRATEGY.md": "1c756f0eee004b4a071e2e8370506803c75c2c4c620440f0dcb6d6d51f39daed",
+    "engineering/context/two_articles.json": "33cefd8d1caf35ae16d36e946418c67b8c02ff3a0179cec08e1ffdc6d65dad95",
+    "evidence/m2/two_articles_20261028/README.md": "3371425f97389911f65c2ec6c8e0bf7af9e80df9a43742bfe9ef21df37c645f6",
+    "evidence/m2/two_articles_20261028/assumption_table.csv": "d9be6ec455c13f46dcac2f30400127c62d0b066aa2f4a560c94eb07566e93d4f",
+    "evidence/m2/two_articles_20261028/claim_table.csv": "acbebcec207f4e7a6b3163e24b8eb89d014aba3f6788fd04f6643f62cc192d11",
+    "evidence/m2/two_articles_20261028/mdm_reporting_crosswalk.csv": "df0f8dab38d275fb59cf65a010fe80b6d922bc8a906d0c1da7286434112bbd1c",
+    "evidence/m2/two_articles_20261028/search_log.csv": "1b04ea2086d8c6c783e952c5ddf322bb6f058cb266926894263ff47df365b557",
+    "evidence/m2/two_articles_20261028/source_index.csv": "a9dfa060448e571516d48e4813a405a6625169d85c2a6d3474d78d4948464a08",
+    "evidence/m2/two_articles_20261028/source_table.csv": "f4d27cc21f4c97e42e46a65e32773e9208cc2d818a29148ef20c081520eac1dd",
+    "integration/m2_two_articles_20261028/capture-receipt.json": "30436f1d9e783cd713daabcae80527d6994cae09cd8a8d410a29cdb4a1b0f8ab",
+    "integration/m2_two_articles_20261028/journal-audit.json": "ad4ade9ff86c484c1564b6babc5abf56226e5fa6f9925b292c9c719fc24a0753",
+    "integration/m2_two_articles_20261028/metadata-catalogue.json": "a2808e8dec5a4ab0fbc3074abcccf8c5c0e7c31d7082a9580c366842aa1c7351",
+    "integration/m2_two_articles_20261028/review-audit.json": "86a116caa0748b2830c2d7eb805aecac7d0fe4d4781f245df5049e778a1efd61",
+    "integration/m2_two_articles_20261028/source-catalogue.json": "1d92c3ccbcc2aad82bd0b1a614ad0ab6ebea18d5a931dcd23488c1718ada90e8",
+    "integration/m2_two_articles_20261028/source-config/tobac-two-articles.yml": "97e2c866fe5024e89201112e55fcd5f5e831d797af212ee4a8379b3439d1e5bf"
+  }
+}

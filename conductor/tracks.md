@@ -114,3 +114,11 @@ No requests or submissions; author/formal requirements remain explicit.
 
 All five local Nox sessions pass. Native exact-head/receiving-main acceptance is
 recorded in the associated PR after execution. Issue #3 empirical gates remain open.
+
+## M2 two-article development and original-remit assessment
+
+**Status: [x] Bounded development, self-review and local qualification complete.**
+Track: `conductor/archive/m2_two_articles_20261028/`.
+
+Distinct MDM research article and NZMJ Viewpoint focused on wastewater, factual
+disagreement and conditional decision value. No requests or submissions.
