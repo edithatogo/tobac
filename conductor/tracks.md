@@ -126,3 +126,12 @@ Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
 Reconcile the 26 October plan with current producer contracts and ownership before
 implementation. Public-source-only and no-request constraints continue to apply.
+
+## Hosted Linux and Windows test qualification
+
+The cross-platform test workflow was qualified on PR #66 source commit `b05d0b5`:
+GitHub run 40712230697 passed on Python 3.15.1 with 1,056 passed / 13 skipped on
+Ubuntu and 1,041 passed / 28 skipped on Windows, each with 92% coverage. Linux used
+the process-group RSS guard; Windows used the hosted job timeout. Existing macOS
+and security checks remain in place. This evidence does not qualify the unexecuted
+platform-specific release or research jobs.
