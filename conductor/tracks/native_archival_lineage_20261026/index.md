@@ -43,3 +43,5 @@ clean-source numerical replay. Required hosted checks remain the publication gat
 Consumer checkpoint: [actual MOH native extraction](../../../docs/engineering/MOH_NATIVE_LINEAGE.md)
 and [execution summary](../../../integration/archive/moh-native-extraction_20261029.json).
 P4.1/P4.2 are partial; complete native archival lineage remains unqualified.
+
+Recovery continuation: [capture and same-device native rehearsal](../../../integration/archive/moh-recovery-rehearsal_20261029.json). The earlier private receipts are absent from the restored worktree; a new attempt and retained local copy do not satisfy independent preservation or native closure.

@@ -1,0 +1,67 @@
+{
+  "schema": "tobac.moh-recovery-checkpoint.v1",
+  "consumer_revision": "5ff282d06d9b04477266b26907fe039572e11877",
+  "native_producer_revision": "790044096f6946ff9a21662108f4d924cbad0ba2",
+  "producer_main_inspected": "75a8714d988f3d0e740d253caadc85f6ba8fe35a",
+  "inspected_interface_modules_unchanged": true,
+  "producer_wheel_sha256": "206e6474d155a6e0f7e0b6f70b5b59747fda473b8643193dc2a580bb7e98c640",
+  "source_sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+  "extracted_object_id": "sha256:c32cc03c62c153b7d0d042aee4f07c0909025a107d5054877be8fa24cd1d44b5",
+  "source_warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+  "source_warc_record_id": "urn:uuid:e12b1ebf-2794-486c-aa90-f874acb656c8",
+  "source_warc_date": null,
+  "source_capture_time": "unknown",
+  "source_warc_payload_matches_workbook": true,
+  "capture_receipt_sha256": "46227cfc16c508ac5a93e9ac1045c50590dbee8cc53508de4eac3109512a8821",
+  "restored_objects": 9,
+  "restored_bytes": 85329,
+  "native_inventory_sha256": "8c3a42f577a7ffe98032fb397c5c73f003cd145279866502270bf9dc929946f9",
+  "strict_records_reopened": 2,
+  "rows_replayed": 16,
+  "missing_and_corrupt_native_controls": "rejected",
+  "native_harness_empty_manifest": "passed_with_zero_records",
+  "native_harness_synthetic_controls": [
+    {
+      "case": "incorrect-root",
+      "native_status": "passed",
+      "records_checked": 9
+    },
+    {
+      "case": "duplicate-entry",
+      "native_status": "passed",
+      "records_checked": 10
+    }
+  ],
+  "consumer_guard_rejected": [
+    "empty",
+    "wrong-root",
+    "duplicate"
+  ],
+  "guard_scope": "Nine-object MOH exploratory rehearsal; native-verified inventory, expected identities, count, sizes, and inventory root.",
+  "recovery_copy_same_device": true,
+  "independent_preservation_qualified": false,
+  "native_source_registered": false,
+  "full_lineage_qualified": false,
+  "prior_worktree_private_receipts": "Absent from the restored managed worktree and receiving main checkout; this is a new execution, not restoration of the earlier receipts.",
+  "lock_portability": "Retained hash lock references the original local wheel path; offline clean reinstall remains unqualified.",
+  "scope": "Source WARC and capture bytes read back; native object restore rehearsal and scoped consumer guard. Complete capture registration, manifest relationship closure, independent backup and recovery remain open.",
+  "private_receipt_sha256": {
+    "rehearsal-summary.json": "6dfd045f83f3a16c2ccf4c256e2cbfcabf7d9c340d94ec4f2821373b34153cca",
+    "capture-readback.json": "16b5aadfe1040a875640c4195821251a38037f4b81e7186efc5bbbb295aed851",
+    "native-harness-controls.json": "b1e10b6fd211c6c09b323b7568c64cc25e230c00b97ed68b3360bde79e23c37d",
+    "guarded-readback.json": "da628dcebd4d8d3e08212001cf60a06fc9acca96e61962e8ce6fa531326e6663",
+    "tests-nox.json": "77eb796a18438a7f2d4339c80415f867a0fefc463f74862aefbc967e25718310",
+    "strict-corrected.log": "cf79c3079fdfbf519e12f0b2159099cc15224dcc559da4002df1db898a3a9f23",
+    "audit.log": "a5665c46ff7ed6aca4489892bc85ba2b1001a84104424aea2a3cca8b3cab0344"
+  },
+  "verification": {
+    "affected_tests_before_strict_corrections": 70,
+    "full_tests_passed": 1092,
+    "capability_skips": 13,
+    "branch_inclusive_coverage_percent": 92,
+    "strict_all": "passed after correcting initial typing and style findings",
+    "audited_dependency_components": 80,
+    "known_dependency_vulnerabilities": 0,
+    "producer_wheel_audited": false
+  }
+}

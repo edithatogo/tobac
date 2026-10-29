@@ -131,7 +131,9 @@ foundation tasks are complete; 28 native implementation/acceptance tasks remain.
 [MOH consumer checkpoint](../docs/engineering/MOH_NATIVE_LINEAGE.md). P4.1/P4.2
 are partial: actual extraction, native CAS/strict records and five negative controls
 pass. Full tests (1084/13 capability skips), strict/package/security/clean-package
-checks and clean-source numerical replay pass; hosted publication checks remain.
+checks and clean-source numerical replay pass. A new same-device recovery rehearsal
+and scoped inventory guard are recorded; native registration, graph closure and
+independent preservation remain open. Hosted checks apply to each publication.
 Public-source-only and no-request constraints continue to apply.
 
 ## Hosted Linux and Windows test qualification

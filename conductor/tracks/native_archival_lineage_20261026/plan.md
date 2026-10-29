@@ -203,7 +203,7 @@ Owner: archive recovery owner and tobac release/execution owner.
 Depends on: P4–P6; any external raw-object write additionally needs a permitted destination.
 Covers: R10, R11; AC12, AC13.
 
-- [ ] Task: P7.1 — Write replay/recovery and clean-package failure tests first.
+- [~] Task: P7.1 — Write replay/recovery and clean-package failure tests first.
   - [ ] Cover missing/corrupt originals or derivatives, incompatible schema/environment,
     interrupted writes, stale checkpoints and undeclared editable/sibling imports.
 - [ ] Task: P7.2 — Execute reproducible replay and clean-package consumption.
@@ -211,7 +211,7 @@ Covers: R10, R11; AC12, AC13.
     verify import locations and reconstruct selected extraction-to-result closures.
   - [ ] Verify exact source/manifest fixity and scientific comparison tolerances,
     including interruption/restart without overwritten originals or false success.
-- [ ] Task: P7.3 — Qualify a permitted second-copy recovery of the declared closure.
+- [~] Task: P7.3 — Qualify a permitted second-copy recovery of the declared closure.
   - [ ] Inspect source rights and existing destination contracts/access; use a
     separately stored copy with an identified failure domain. Another directory on
     the same disk does not prove independent preservation.
@@ -345,3 +345,41 @@ remain open. Scientific ecosystem remains open pending native managed-parser acc
 Hosted review fix: PR #71 CodeQL rejected five protocol ellipsis bodies. The
 consumer now uses the repository abstractmethod/raise convention, preserving
 all runtime calls and earlier native execution evidence. Hosted recheck required.
+
+## Native capture and recovery continuation — 29 October 2026
+
+Base `5ff282d`; producer current main `75a8714d988f3d0e740d253caadc85f6ba8fe35a`.
+The relevant frozen `79004409` record, manifest, CAS, WARC and recovery harness
+modules are unchanged. The old managed-worktree private execution files and
+runtime are absent from the restored worktree and receiving main checkout. The
+previous published technical summary remains, but no restoration of those old
+receipts is asserted. A new 3.15.1 consumer environment rebuilt the same pinned
+wheel hash and executed a new exploratory MOH attempt; its output object matches
+the prior output hash. The existing original WARC and capture receipt were read
+and retained in native CAS: the WARC response URI, status and payload match the
+workbook, while WARC-Date and historical capture time remain unknown.
+
+The producer's native recovery harness copied nine native objects (85,329 bytes)
+to a private same-device location outside the managed worktree and restored them
+into a new target. Both strict records reopened; all 16 workbook values replayed.
+Missing/corrupt source controls failed as expected. Separate synthetic controls
+show the native harness reports `passed` for an empty manifest, an incorrect root
+and a duplicate entry. The new consumer preflight checks nine unique declared
+identities, native-verified inventory root, counts and sizes before a scoped MOH
+rehearsal. It rejects all three cases and a guarded native restore passed. It is
+not a generic lineage validator and does not establish source registration or
+manifest/relationship closure. The retained lock references its original local
+wheel path, so clean offline reinstallation remains unqualified.
+
+The retained copy shares the original failure domain and is not an independent
+backup. P7.1/P7.3 are partial; P2/P3, P5/P6 and full recovery remain open. The
+producer owner retains the native contracts and estate. Scientific ecosystem
+remains open pending native managed-parser acceptance. Technical evidence:
+[recovery checkpoint](../../../integration/archive/moh-recovery-rehearsal_20261029.json).
+
+Verification: full suite 1092 passed / 13 capability skips, 92% coverage;
+`strict_all` passed after correcting initial style and typing findings. The
+review is recorded in `docs/reviews/2026-10-29-moh-native-consumer.md`.
+The local native dependency audit found no known vulnerabilities for its
+published auditable dependencies; the unpublished producer wheel was separately
+hash-verified and was not covered by that audit.

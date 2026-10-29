@@ -114,3 +114,32 @@ nine native objects, two strict records and five rejected negative controls.
 Full tests/strict/package/security/clean-package and clean-source numerical replay
 pass. No producer estate or source changed. Next: publish bounded consumer packet
 with hosted checks and receiving-ref readback; retain P2/P3/full track gates.
+
+## Native lineage recovery continuation — 29 October 2026
+
+Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` owns the consumer-only recovery
+continuation in `/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`,
+branch `codex/native-lineage-recovery-20261029`, base `5ff282d`. Scope: consumer
+recovery checks, native artifact readback, and the existing Conductor/review and
+handoff records. The active archive producer retains its checkout, source files,
+environments, canonical CAS and operations. Only frozen producer revisions and
+previously identified source bytes are read; any new native attempts are isolated
+in this worktree's private outputs. Scientific ecosystem remains open.
+
+The prior worktree's ignored execution directory and runtime environment are not
+present at continuation. Their committed summary survives but its referenced
+private receipt files have not been found. Rebuild the pinned wheel, make a new
+execution with new identity, and assess recoverability honestly; do not portray a
+new attempt as restoration of unavailable historical records. Next: verify native
+source/record contracts and perform bounded consumer-owned recovery controls.
+
+Native recovery terminal checkpoint: a new exploratory attempt reproduced all 16
+MOH values; original WARC payload and capture metadata were verified with capture
+time unknown. A private same-device copy outside the managed worktree retained
+nine verified objects, original WARC/capture bytes, and strict records. Native
+restore/replay passed; missing/corrupt controls failed. Native harness empty/root/
+duplicate false-success gaps are recorded, and the consumer MOH inventory preflight
+rejects those cases. The earlier private receipts remain absent; no independent
+backup, source registration or full native closure is claimed. Next: review and
+publish this bounded consumer checkpoint; producer ownership and Scientific
+managed-parser blocker remain unchanged.
