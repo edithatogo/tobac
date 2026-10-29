@@ -143,3 +143,18 @@ rejects those cases. The earlier private receipts remain absent; no independent
 backup, source registration or full native closure is claimed. Next: review and
 publish this bounded consumer checkpoint; producer ownership and Scientific
 managed-parser blocker remain unchanged.
+
+## Native lineage portable producer replay — 29 October 2026
+
+Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` owns this consumer-only evidence
+follow-up in `/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`,
+branch `codex/native-lineage-portable-replay-20261029`, base `74e52a2`. Scope is
+the existing native-lineage track, consumer documentation/review and technical
+summary. No archive producer source, estate or authentication is assigned.
+A new isolated repo-local Python environment installed the retained producer from
+a relative-wheel hash lock with `uv --offline` and the existing cache. Native
+records/objects and all 16 workbook values were verified from a working directory
+outside the checkout. The consumer itself remains uninstalled; the environment is
+inside the worktree and independent preservation remains open. Next: review and
+publish this bounded evidence after PR #72 receiving checks; Scientific ecosystem
+remains open pending native managed-parser acceptance.

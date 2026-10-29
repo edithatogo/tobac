@@ -63,5 +63,26 @@
     "audited_dependency_components": 80,
     "known_dependency_vulnerabilities": 0,
     "producer_wheel_audited": false
+  },
+  "portable_producer_replay": {
+    "producer_wheel_sha256": "206e6474d155a6e0f7e0b6f70b5b59747fda473b8643193dc2a580bb7e98c640",
+    "portable_lock_sha256": "8a98ef879743f02720a2d6801a76f8d40865072e826783a35404acb07ed69c85",
+    "original_lock_sha256": "3e57012d09df63e4bd319f077e8101f76c4bba7c7ef077f7342a2348566150d0",
+    "installed_producer_files_verified": 453,
+    "attempt_objects_verified": 9,
+    "capture_objects_verified": 2,
+    "strict_records_reopened": 2,
+    "source_values_matched": 16,
+    "install": "uv --offline, hash-locked, using pre-existing local package cache",
+    "python": "3.15.1",
+    "producer_import_location": "repo-local virtual environment; replay working directory outside checkout",
+    "consumer_installed": false,
+    "consumer_guard": "retained private script snapshot",
+    "os_network_isolation_proven": false,
+    "cache_independent": false,
+    "independent_preservation_qualified": false,
+    "native_lineage_qualified": false,
+    "private_replay_receipt_sha256": "a17f5eaea6128324d10e9d5919f95ba840ff5b8637f8f1c7d8d33dd5fa55897e",
+    "private_evidence_index_sha256": "dca91a5a1894c05e362dc933f699636c8286f477c231fececa8d07d61cb66f40"
   }
 }

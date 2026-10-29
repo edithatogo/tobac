@@ -39,5 +39,6 @@
   "native_consumer_evidence": "integration/archive/moh-native-extraction_20261029.json",
   "native_lineage_qualified": false,
   "recovery_checkpoint": "integration/archive/moh-recovery-rehearsal_20261029.json",
-  "prior_private_receipts": "Absent from restored worktree and receiving main; new attempt is distinct."
+  "prior_private_receipts": "Absent from restored worktree and receiving main; new attempt is distinct.",
+  "portable_producer_replay": "passed_with_relative_wheel_path_and_existing_local_cache_consumer_install_open"
 }
