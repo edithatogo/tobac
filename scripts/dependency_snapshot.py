@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
+import hmac
 import json
 import os
 import re
@@ -44,6 +46,78 @@ def packages(path: Path) -> dict[str, Any]:
     if not result:
         msg = "No resolved lock packages"
         raise ValueError(msg)
+    return result
+
+
+def verify_metadata_digest(data: bytes, algorithm: str, digest: str) -> None:
+    """Compare installed metadata bytes with their RECORD digest, not wheel provenance."""
+    actual = base64.urlsafe_b64encode(hashlib.sha256(data).digest()).rstrip(b"=").decode("ascii")
+    if algorithm != "sha256" or not digest or not hmac.compare_digest(actual, digest):
+        msg = "Installed metadata RECORD digest missing or mismatched"
+        raise ValueError(msg)
+
+
+def verify_installed_inventory(path: Path, versions: dict[str, str]) -> None:
+    """Match an installed environment against applicable exact lock entries."""
+    expected: dict[str, str] = {}
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip().removesuffix("\\").strip()
+        if not line or line.startswith(("#", "--hash=")):
+            continue
+        requirement = Requirement(line)
+        specs = list(requirement.specifier)
+        if len(specs) != 1 or specs[0].operator != "==" or "*" in specs[0].version or requirement.url:
+            msg = "Require exact resolved lock versions"
+            raise ValueError(msg)
+        name = canonicalize_name(requirement.name)
+        if requirement.marker is not None and not requirement.marker.evaluate({"extra": ""}):
+            continue
+        if name in expected:
+            msg = "Ambiguous applicable lock package"
+            raise ValueError(msg)
+        expected[name] = specs[0].version
+    actual = {canonicalize_name(name): version for name, version in versions.items()}
+    if not expected or len(actual) != len(versions) or actual != expected:
+        msg = "Installed inventory does not match applicable locked packages"
+        raise ValueError(msg)
+
+
+def installed_relationships(
+    versions: dict[str, str], requirements: dict[str, list[str]]
+) -> dict[str, list[str]]:
+    """Check no-extra relationships in the current environment, without submitting them."""
+    normalized = {canonicalize_name(name): version for name, version in versions.items()}
+    if len(normalized) != len(versions):
+        msg = "Ambiguous installed distribution names"
+        raise ValueError(msg)
+    normalized_requirements = {canonicalize_name(name): values for name, values in requirements.items()}
+    if (
+        len(normalized_requirements) != len(requirements)
+        or not normalized_requirements.keys() <= normalized.keys()
+    ):
+        msg = "Unknown or ambiguous requirement owner"
+        raise ValueError(msg)
+    if normalized_requirements.keys() != normalized.keys():
+        msg = "Missing installed package metadata owner"
+        raise ValueError(msg)
+    result: dict[str, list[str]] = {}
+    for name in normalized:
+        dependencies: set[str] = set()
+        for raw in normalized_requirements.get(name, []):
+            requirement = Requirement(raw)
+            if requirement.marker is not None and not requirement.marker.evaluate({"extra": ""}):
+                continue
+            if requirement.url or requirement.extras:
+                msg = "Direct references and requested extras require separate qualification"
+                raise ValueError(msg)
+            target = canonicalize_name(requirement.name)
+            if target not in normalized or not requirement.specifier.contains(
+                normalized[target], prereleases=True
+            ):
+                msg = "Installed dependency missing or incompatible"
+                raise ValueError(msg)
+            dependencies.add(target)
+        result[name] = sorted(dependencies)
     return result
 
 

@@ -33,8 +33,10 @@ graph to remove the Dependabot name would also remove a security capability and
 is not part of this maintenance policy.
 
 Keep the existing trusted, hash-verified dependency-submission job and native graph
-readback. The managed parser's Python 3.15 limitation remains an explicit external
-Conductor gate; it is not called successful or hidden. GitHub's existing vulnerability
+readback. The managed parser's Python 3.15 limitation remains documented and is not
+called successful or hidden. The active Conductor plan reviews the supported
+submitted-graph route as the acceptance path; the track remains open until its
+coverage and native readback are reviewed. GitHub's existing vulnerability
 alerts were disabled at inspection, so no claim is made that Renovate vulnerability-
 alert PRs are operational. Existing pip-audit and other security gates remain in force;
 no repository security or visibility setting is changed here.
@@ -73,3 +75,20 @@ qualification on a different patch. The project stays on qualified Python 3.15.1
 records exact revisions, hashes and closure conditions. The track remains externally
 blocked. No old graph-writing run is replayed against obsolete sources, no manifest
 is hidden, no runtime constraint is lowered, and no security setting is changed.
+
+
+## Submitted graph scope — 29 October 2026
+
+The submitted lock profiles describe resolved package inventories. They combine
+research, test, build and optional dependencies and are not a deployment inventory.
+They do not establish directness or package-to-package impact paths. The current
+GitHub export contained all 113 identifiers from the `b5e2214` submission, but
+that readback does not independently identify the source commit. Existing
+`pip-audit`, SBOM, workflow security and Renovate qualification remain independent
+checks. GitHub vulnerability alerts were disabled when last inspected; do not
+claim alert coverage or derive runtime exposure from inventory membership.
+
+A hash-installed macOS Python 3.15.1 environment provided an exploratory 37-edge
+no-extra relationship probe. This is not part of the submitted graph and cannot
+represent Linux, other profiles or extra-dependent paths. The open acceptance
+review must record which uses the inventory meets and any unmet graph requirement.
