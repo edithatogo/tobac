@@ -154,7 +154,28 @@ summary. No archive producer source, estate or authentication is assigned.
 A new isolated repo-local Python environment installed the retained producer from
 a relative-wheel hash lock with `uv --offline` and the existing cache. Native
 records/objects and all 16 workbook values were verified from a working directory
-outside the checkout. The consumer itself remains uninstalled; the environment is
-inside the worktree and independent preservation remains open. Next: review and
+outside the checkout. In that producer-only replay the consumer was not installed;
+the environment is inside the worktree and independent preservation remains open. Next: review and
 publish this bounded evidence after PR #72 receiving checks; Scientific ecosystem
 remains open pending native managed-parser acceptance.
+
+## Native lineage consumer-wheel replay and source candidate — 29 October 2026
+
+Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` owns this consumer-only follow-up
+in `/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`, branch
+`codex/native-lineage-consumer-wheel-replay-20261029`, base `3b41349`. Owned
+paths are the existing native-lineage Conductor records, MOH documentation/review
+and its existing technical summary. Native scope is read-only source assessment
+and private consumer/producer artifact replay; the archive producer's source,
+estate, active checkout and authentication remain with its existing owner.
+Next: record installed-library replay and the bounded SHINE candidate without
+promoting either to full lineage or scientific acceptance. Scientific ecosystem
+remains open pending native managed-parser acceptance.
+
+Consumer-wheel checkpoint: a second isolated local-cache replay installed both
+libraries, verified 36 consumer wheel files against committed source, and matched
+all 16 MOH values and output bytes. Script snapshots were run outside the checkout,
+but are not installed commands; the environment remains inside the worktree.
+A retained SHINE article was assessed read-only as a second-source candidate;
+its hash differs from the earlier referenced source copy. No new native
+transformation, source registration or scientific acceptance is asserted.

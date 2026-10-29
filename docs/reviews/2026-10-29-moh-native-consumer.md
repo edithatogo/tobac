@@ -92,3 +92,14 @@ repo-local Python 3.15.1 environment. Readback from outside the checkout verifie
 and all 16 workbook values. The guard is a retained private script; no clean
 installed-consumer or independent-backup qualification is implied. No source or
 scientific model change is part of this follow-up.
+
+## Installed consumer library and candidate assessment review
+
+A separate offline, local-cache environment installed the consumer and producer
+libraries. Thirty-six consumer wheel files and the licence/notice match committed
+source. Frozen script snapshots outside the checkout reproduced all 16 MOH values
+and output bytes from native CAS. The runnable extraction command is not packaged,
+the environment is inside the worktree and the cache is not an independent backup.
+A separate retained SHINE article was assessed as a second-extraction candidate;
+its source hash differs from the earlier referenced copy. No source-version
+identity, native transformation or scientific qualification is inferred.
