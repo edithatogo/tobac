@@ -401,3 +401,26 @@ wheelhouse, OS network isolation, clean installed-consumer replay, complete nati
 relationship closure or independent preservation is established. P7.2 remains
 partial and the track stays open. The prior PR #72 head and its evidence are
 unchanged; see `integration/archive/moh-recovery-rehearsal_20261029.json`.
+
+## Installed consumer library and second-source assessment — 29 October 2026
+
+A distinct local-cache offline replay installed the built consumer wheel alongside
+the pinned producer in a new repo-local Python 3.15.1 environment. All 36 consumer
+package files matched the exact committed source, and LICENSE and NOTICE matched.
+From a working directory outside the checkout, frozen extraction and guard script
+snapshots used both installed libraries to verify nine attempt objects, two
+capture objects and two strict records; all 16 values and the extracted output
+bytes matched. The environment remains inside the worktree and the extraction
+command itself is not installed by the consumer wheel. No cache independence,
+OS network isolation, full native closure or independent preservation is asserted.
+P7.2 remains partial.
+
+A read-only assessment identified retained `SHINE_RETAIL_TABLE2` HTML as a
+possible second extraction candidate with a Table 2 cessation-row locator. The
+captured source SHA-256 `9d8fe4fca0e55129ebc9325edb93e2daf539e5328e48cb11e45ff4dfd943217e`
+differs from the earlier referenced `c97875c489e6759776aebf1b7d948603120c46914b13440493128ade93bcdd64`;
+no source-version equivalence is assumed. Its published model input is not an
+independent empirical observation or observed intervention effectiveness. No
+model input changed. Parser tests, actual native transformation/receipt, source
+registration, edition reconciliation and applicability review remain required.
+P4.1/P4.2 remain partial; this assessment does not complete either task.

@@ -117,10 +117,23 @@ installed its 81 packages using `uv --offline` and the existing local cache.
 From a working directory outside the checkout, all 453 installed producer files
 matched the retained wheel; the native store reopened nine attempt objects, two
 capture objects and two strict records. All 16 workbook values matched the retained
-CSV. The guard came from a hash-verified private script, and the consumer package
-was not installed. The environment resides within the worktree.
+CSV. The guard came from a hash-verified private script; the consumer package was not
+installed in that producer-only replay. The environment resides within the worktree.
 
 This is not a cache-independent wheelhouse, OS-isolated replay, installed-consumer
 qualification or independent backup. The original execution lock still has its
 historical absolute wheel path. Full native source registration and relationship
 closure remain open. [Technical summary](../../integration/archive/moh-recovery-rehearsal_20261029.json).
+
+## Installed consumer library replay — 29 October 2026
+
+A separate local-cache offline environment installed the built consumer wheel and
+pinned producer wheel. All 36 consumer package files matched the exact committed
+source, and the wheel retained the committed LICENSE and NOTICE. From a working
+directory outside the checkout, frozen extraction and guard script snapshots used
+the installed libraries to verify both strict records and all eleven attempt and
+capture objects. The 16 values and extracted output bytes matched. The environment
+is inside the worktree; the extraction command itself remains outside the wheel.
+Cache independence, operating-system network isolation, native source/relationship
+closure and independent preservation remain open. The earlier producer-only replay
+is retained separately with its original consumer-not-installed result.

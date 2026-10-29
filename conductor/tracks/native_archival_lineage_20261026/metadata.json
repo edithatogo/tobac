@@ -40,5 +40,7 @@
   "native_lineage_qualified": false,
   "recovery_checkpoint": "integration/archive/moh-recovery-rehearsal_20261029.json",
   "prior_private_receipts": "Absent from restored worktree and receiving main; new attempt is distinct.",
-  "portable_producer_replay": "passed_with_relative_wheel_path_and_existing_local_cache_consumer_install_open"
+  "portable_producer_replay": "passed_with_relative_wheel_path_and_existing_local_cache_consumer_install_open",
+  "consumer_library_replay": "installed_libraries_pass_script_uninstalled_cache_and_full_closure_open",
+  "second_extraction_candidate": "SHINE_RETAIL_TABLE2_read_only_candidate_distinct_source_versions_unqualified"
 }

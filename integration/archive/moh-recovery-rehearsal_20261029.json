@@ -84,5 +84,29 @@
     "native_lineage_qualified": false,
     "private_replay_receipt_sha256": "a17f5eaea6128324d10e9d5919f95ba840ff5b8637f8f1c7d8d33dd5fa55897e",
     "private_evidence_index_sha256": "dca91a5a1894c05e362dc933f699636c8286f477c231fececa8d07d61cb66f40"
+  },
+  "installed_consumer_library_replay": {
+    "consumer_wheel_sha256": "ced75ea9831adafa54674509c50a99c4a13b995ffcb4e2140c5562c63180eb55",
+    "producer_wheel_sha256": "206e6474d155a6e0f7e0b6f70b5b59747fda473b8643193dc2a580bb7e98c640",
+    "consumer_wheel_files_verified_against_commit": 36,
+    "consumer_wheel_license_and_notice_matched": true,
+    "consumer_and_producer_installed": true,
+    "extraction_script_packaged": false,
+    "source_scripts": "hash-verified committed snapshots outside checkout",
+    "source_snapshot_commit": "74e52a2830a1c4a517cfa09682a8bbea2429123f",
+    "attempt_objects_verified": 9,
+    "capture_objects_verified": 2,
+    "strict_records_reopened": 2,
+    "source_values_matched": 16,
+    "extracted_output_byte_identical": true,
+    "install": "uv --offline with existing local cache; locally built consumer wheel installed without dependencies",
+    "environment": "repo-local Python 3.15.1; working directory outside checkout",
+    "cache_independent": false,
+    "os_network_isolation_proven": false,
+    "independent_preservation_qualified": false,
+    "native_lineage_qualified": false,
+    "private_replay_receipt_sha256": "372475ccd18a22f51f6607952652db815d29ab8229460a6fcb489319700e0f87",
+    "private_evidence_index_sha256": "d244b267afc0cf1208139a0525545da0b0a3d877221049b1cf5fd0d39f90194a",
+    "private_source_proof_sha256": "4f87a77c1f9f66ee573575e6ae37717fee1b667dab3e8547034a00df1582ea95"
   }
 }
