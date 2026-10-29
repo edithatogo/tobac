@@ -29,7 +29,8 @@ Include the existing audit tool's qualified `cyclonedx-python-lib` version in
 that private profile. Produce a complete CycloneDX 1.6 inventory through its
 maintained model/output APIs, retaining the unpublished wheel's actual hash.
 The command validates its schema through that library and compares every Python
-component with the actual environment. A pip-audit SBOM alone omits unpublished
+component with the actual execution import context, including the declared
+consumer source distribution. A pip-audit SBOM alone omits unpublished
 packages; its auditable-dependency result is retained separately.
 Keep the wheel, generated lock and command logs in ignored private storage. The
 interface descriptor must match the reviewed artifact before execution.
@@ -61,7 +62,7 @@ Native record timestamps describe this execution. Historical capture time remain
 as recorded, including null. WARC hashes are inherited metadata, explicitly not
 verified by this command. Changed legacy CSV bytes fail before execution; extraction
 does not overwrite or reclassify them. Native failed transformation records retain
-errors during extraction; an incomplete attempt cannot emit a successful receipt.
+the failed state during extraction; command logs retain the exception; an incomplete attempt cannot emit a successful receipt.
 
 ## Remaining acceptance gates
 
@@ -73,3 +74,14 @@ independent-copy restore. No `receipt_id` shim or second provenance engine is ad
 Second-operation, runner, qualification-mode and recovery tasks stay open in the
 existing native-lineage plan. Scientific ecosystem remains separately open for
 native managed-parser acceptance.
+
+## Executed checkpoint — 29 October 2026
+
+Implementation `6fa2306` passed the explicit native Nox operation: sixteen exact
+rows, nine verified CAS objects, strict transformation and validation records
+reopened from disk and CAS. Five actual native negative controls rejected corrupt
+source bytes, a missing output, missing SBOM, duplicate inputs and invalid state.
+Controls used disposable copies/in-memory records; successful originals remain intact.
+The execution inventory contains 82 components (81 installed plus declared consumer
+source). See [public technical summary](../../integration/archive/moh-native-extraction_20261029.json);
+original bytes, complete records/argv and private runtime artifacts stay ignored.

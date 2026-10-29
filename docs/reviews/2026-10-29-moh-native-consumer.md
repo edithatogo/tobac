@@ -16,8 +16,9 @@ lineage unqualified while advancing the MOH extraction and per-record interface.
 - [x] **Test Coverage**: 62 affected extraction/parity/workstream tests pass.
 - [x] **Test Results**: Full suite: 1084 passed, 13 capability skips, 92% coverage.
   Strict checks, package, security and clean-package sessions pass. Numerical
-  operations pass before clean-source publication replay correctly rejects the
-  staged tree; that final replay and persisted native operation follow this commit.
+  operations passed; the final primary/robustness clean-source replay passed from
+  commit `6fa2306` after the initial staged-tree rejection. Actual native execution
+  and five negative controls passed, with nine objects and two records reopened.
 
 ## Findings and applied fixes
 
@@ -49,3 +50,7 @@ name/version inventory matches the actual execution import context, including th
 declared consumer source distribution. The private environment audit reports no
 known vulnerabilities in 80 auditable installed dependencies; the unpublished
 producer artifact and consumer source are separately identified.
+
+No unresolved critical/high consumer findings remain in this bounded scope.
+The actual native receipt remains exploratory with full qualification false.
+Review does not close the outstanding track acceptance criteria.

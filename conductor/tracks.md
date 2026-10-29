@@ -127,8 +127,11 @@ Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
 The current inventory and frozen producer capability map are implemented. Four
 foundation tasks are complete; 28 native implementation/acceptance tasks remain.
-[Checkpoint](../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md). Local full
-qualification was interrupted; required hosted checks remain the publication gate.
+[Foundations](../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md);
+[MOH consumer checkpoint](../docs/engineering/MOH_NATIVE_LINEAGE.md). P4.1/P4.2
+are partial: actual extraction, native CAS/strict records and five negative controls
+pass. Full tests (1084/13 capability skips), strict/package/security/clean-package
+checks and clean-source numerical replay pass; hosted publication checks remain.
 Public-source-only and no-request constraints continue to apply.
 
 ## Hosted Linux and Windows test qualification

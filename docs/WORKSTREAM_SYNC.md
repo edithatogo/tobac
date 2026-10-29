@@ -108,3 +108,9 @@ Next operation: qualify the installed producer artifact, implement exact workboo
 extraction/native per-record receipts and review actual execution. Producer
 manifest/closure and historical capture-time gaps remain gates; per-record success
 cannot qualify the whole lineage. Scientific ecosystem remains open and blocked.
+
+Native consumer terminal checkpoint: implementation `6fa2306`; 16 exact MOH rows,
+nine native objects, two strict records and five rejected negative controls.
+Full tests/strict/package/security/clean-package and clean-source numerical replay
+pass. No producer estate or source changed. Next: publish bounded consumer packet
+with hosted checks and receiving-ref readback; retain P2/P3/full track gates.

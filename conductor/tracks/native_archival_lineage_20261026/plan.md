@@ -128,8 +128,8 @@ Depends on: P2/P3. Covers: R02, R04, R06, R09; AC04–AC06, AC08, AC11.
   - [ ] Select a second current real extraction/derivation with different mechanics
     after inspecting its actual source. Define source locators and preserved-value
     comparisons independently; test multi-parent ancestry where genuinely consumed.
-- [ ] Task: P4.2 — Execute versioned extraction through native transformation receipts.
-  - [ ] Re-extract the MOH workbook with a maintained reader; persist source, operation,
+- [~] Task: P4.2 — Execute versioned extraction through native transformation receipts.
+  - [x] Re-extract the MOH workbook with a maintained reader; persist source, operation,
     output and validation relationships and verify the new stored output independently.
   - [ ] Execute the second selected operation with its actual source and native
     receipts; preserve uncertainty, selection, conversions and dependency assumptions.
@@ -316,3 +316,28 @@ task retains its second-operation requirement. P2 source/capture registration,
 P3 full closure/manifest interoperability and P5–P8 remain open.
 See docs/engineering/MOH_NATIVE_LINEAGE.md and the dated consumer review.
 Scientific ecosystem remains open pending native managed-parser acceptance.
+
+## Consumer execution and review checkpoint — 29 October 2026
+
+Implementation `6fa23066332e1dff651413b4bba2ecaa8c919baf`; source and values
+unchanged. Actual installed producer execution retained 16 exact rows/cells, nine
+native CAS objects and two strict native records, reopened and byte verified.
+Five disposable-copy/in-memory negative controls rejected corruption, missing
+output, missing SBOM, duplicate inputs and invalid state. The original attempt
+remains intact. The execution SBOM covers 81 installed packages plus the declared
+consumer source; the separate audit reports no known vulnerabilities in 80
+currently auditable packages. Unpublished artifacts are separately identified.
+
+Full tests: 1084 passed, 13 capability skips, 92% coverage. strict_all, package,
+security and clean_package pass. Numerical operations passed; the final clean-source
+primary/robustness replay passed from the implementation commit after the initial
+staged-tree guard rejection. Successful unchanged checks were reused. The original
+full-session command therefore remains exit 1, with its failed final replay resolved
+by the separately retained successful clean-source execution, not relabelled.
+See [native execution summary](../../../integration/archive/moh-native-extraction_20261029.json)
+and [consumer review](../../../docs/reviews/2026-10-29-moh-native-consumer.md).
+
+P4.1/P4.2 remain partial because the second real operation is pending. Only Phase 1
+is complete. All full source registration, manifest/relationship closure, original
+capture dates, runner wiring, qualification-mode enforcement and recovery gates
+remain open. Scientific ecosystem remains open pending native managed-parser acceptance.
