@@ -16,6 +16,7 @@ import json
 import subprocess
 import sys
 import zipfile
+from abc import abstractmethod
 from datetime import UTC, datetime
 from decimal import Decimal
 from pathlib import Path
@@ -53,29 +54,34 @@ class NativeInventory(Protocol):
 class NativeStore(Protocol):
     """Existing producer operations used by this consumer."""
 
+    @abstractmethod
     def put_bytes(self, content: bytes) -> NativeObject:
         """Store actual bytes through the producer."""
-        ...
+        raise NotImplementedError
 
+    @abstractmethod
     def verify(self, object_id: str) -> NativeObject:
         """Verify actual stored bytes through the producer."""
-        ...
+        raise NotImplementedError
 
+    @abstractmethod
     def verified_inventory(self) -> NativeInventory:
         """Read the producer's verified object count."""
-        ...
+        raise NotImplementedError
 
 
 class NativeRecords(Protocol):
     """Existing strict native record operations."""
 
+    @abstractmethod
     def canonical_record_bytes(self, record: dict[str, Any]) -> bytes:
         """Validate and canonicalize a strict native record."""
-        ...
+        raise NotImplementedError
 
+    @abstractmethod
     def validate_archive_record(self, record: dict[str, Any]) -> None:
         """Revalidate a persisted native record."""
-        ...
+        raise NotImplementedError
 
 
 def verified_bytes(path: Path, expected: str | None = None) -> bytes:

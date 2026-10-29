@@ -341,3 +341,7 @@ P4.1/P4.2 remain partial because the second real operation is pending. Only Phas
 is complete. All full source registration, manifest/relationship closure, original
 capture dates, runner wiring, qualification-mode enforcement and recovery gates
 remain open. Scientific ecosystem remains open pending native managed-parser acceptance.
+
+Hosted review fix: PR #71 CodeQL rejected five protocol ellipsis bodies. The
+consumer now uses the repository abstractmethod/raise convention, preserving
+all runtime calls and earlier native execution evidence. Hosted recheck required.

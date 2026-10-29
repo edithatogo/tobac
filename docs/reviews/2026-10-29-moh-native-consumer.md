@@ -54,3 +54,8 @@ producer artifact and consumer source are separately identified.
 No unresolved critical/high consumer findings remain in this bounded scope.
 The actual native receipt remains exploratory with full qualification false.
 Review does not close the outstanding track acceptance criteria.
+
+Hosted CodeQL on PR #71 identified five ineffectual ellipsis bodies in the new
+protocols. Replaced them with the existing repository abstractmethod/raise pattern;
+no producer call or extraction behavior changed. Existing native execution is
+bound to `6fa2306` and reused for this typing-only correction.
