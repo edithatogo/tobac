@@ -146,3 +146,8 @@ Ubuntu and 1,041 passed / 28 skipped on Windows, each with 92% coverage. Linux u
 the process-group RSS guard; Windows used the hosted job timeout. Existing macOS
 and security checks remain in place. This evidence does not qualify the unexecuted
 platform-specific release or research jobs.
+
+---
+- [ ] **Track: voiage alignment follow-ups (tobac)**
+  *Link: [./tracks/voiage_alignment_followups_20261030/](./tracks/voiage_alignment_followups_20261030/)*
+  Planned; awaiting owner approval. [Issue #78](https://github.com/edithatogo/tobac/issues/78).
