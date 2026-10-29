@@ -36,4 +36,10 @@ older plan language does not override that direction. Issue #1 is historical.
 
 Phase 1 checkpoint: [capability and inventory map](../../../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md).
 Four foundation tasks are complete; 28 native implementation/acceptance tasks remain.
-Local full qualification was interrupted; required hosted checks remain the publication gate.
+The foundations local interruption remains historical. The consumer checkpoint
+now records 1084 passing tests, strict/package/security/clean-package checks and
+clean-source numerical replay. Required hosted checks remain the publication gate.
+
+Consumer checkpoint: [actual MOH native extraction](../../../docs/engineering/MOH_NATIVE_LINEAGE.md)
+and [execution summary](../../../integration/archive/moh-native-extraction_20261029.json).
+P4.1/P4.2 are partial; complete native archival lineage remains unqualified.

@@ -1,0 +1,89 @@
+{
+  "schema": "tobac.moh-native-extraction-summary.v1",
+  "execution_mode": "exploratory",
+  "producer_revision": "790044096f6946ff9a21662108f4d924cbad0ba2",
+  "producer_wheel_sha256": "206e6474d155a6e0f7e0b6f70b5b59747fda473b8643193dc2a580bb7e98c640",
+  "implementation_revision": "6fa23066332e1dff651413b4bba2ecaa8c919baf",
+  "implementation_sha256": "9d36a012d5fae969803185c64a58b7d914b8d2f531420c884ece3bf2fe0fd5a4",
+  "source_sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+  "consumer_sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+  "original_captured_at": null,
+  "source_capture_time_verified": false,
+  "extracted_object_id": "sha256:c32cc03c62c153b7d0d042aee4f07c0909025a107d5054877be8fa24cd1d44b5",
+  "transformation_object_id": "sha256:573fc22fccd7be27a6892fcf3eff76e0ed0d832c397c786b9c4381fc41c1d497",
+  "validation_object_id": "sha256:dc0bc9b14c55e6fd41613bde6720ca7ff15f2f09b379a9f8968c0286dbe7ab2c",
+  "environment_object_id": "sha256:e5489d65ce568b4b5fd03303709e2a1a43e7694ad293a103bd132f1b38f20f29",
+  "environment_sbom_object_id": "sha256:c67b559dc186f0a691b8b909d4cd9d46b3dd2bb19477c3c95e7801ff2399f828",
+  "native_object_count": 9,
+  "native_lineage_qualified": false,
+  "scientific_qualification": false,
+  "automatically_conditions_live_model": false,
+  "remaining_producer_gates": [
+    "native source/capture registration and WARC dates",
+    "complete manifest/strict-record interoperability and closure",
+    "independent-copy recovery"
+  ],
+  "scope": "Actual workbook extraction/native CAS/records; manifest and runner closure remain open",
+  "matched_rows": 16,
+  "source_locator": "Sheet1 A2:B17",
+  "execution_visible_components": 82,
+  "installed_packages": 81,
+  "auditable_packages": 80,
+  "known_vulnerabilities": 0,
+  "native_readback": {
+    "native_records_reopened": 2,
+    "native_cas_objects_verified": 9,
+    "negative_controls": [
+      {
+        "control": "corrupt-source",
+        "rejected": true,
+        "error_class": "object_corrupt"
+      },
+      {
+        "control": "missing-output",
+        "rejected": true,
+        "error_class": "object_missing"
+      },
+      {
+        "control": "missing-sbom",
+        "rejected": true,
+        "error_class": "schema_validation"
+      },
+      {
+        "control": "duplicate-input",
+        "rejected": true,
+        "error_class": "schema_validation"
+      },
+      {
+        "control": "invalid-state",
+        "rejected": true,
+        "error_class": "schema_validation"
+      }
+    ],
+    "original_attempt_unchanged": true
+  },
+  "verification": {
+    "affected_tests_passed": 62,
+    "full_tests_passed": 1084,
+    "capability_skips": 13,
+    "branch_inclusive_coverage_percent": 92,
+    "sessions_passed": [
+      "tests",
+      "strict_all",
+      "package",
+      "security",
+      "clean_package"
+    ],
+    "numerical_reproduction": "Preceding numerical operations passed; final clean-source primary/robustness replay passed from implementation commit after initial staged-tree rejection.",
+    "native_session": "native_moh_lineage passed",
+    "scientific_inputs_changed": false
+  },
+  "private_evidence_sha256": {
+    "final-nox.json": "e8c9bd6326537bfc72272dc1913647292964dae17e8016ccb27f0278b5345f05",
+    "clean-source-replay/receipt.json": "f988b7fd40bdf14df47d09d52bb9b6f170c2e8fe4204bf8a9b6e93375ddadedf",
+    "native-execution-nox.json": "97dbbd93642aa768c0b92d1c7dfe1e6b2e1612e31d5875fb88bc865a02227038",
+    "native-readback.json": "b40ed2227982baedaa919875ceee1c23cb6af81bd7035ab69bf8b531dd8eea18",
+    "native-with-sbom.lock": "037813a62e9baa0c77b8daa8a195d1146862cfffe0d5fc51e0bce9dcae71ef4c",
+    "execution-environment-sbom.json": "c67b559dc186f0a691b8b909d4cd9d46b3dd2bb19477c3c95e7801ff2399f828"
+  }
+}

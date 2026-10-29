@@ -122,14 +122,14 @@ Depends on: P1/P2. Covers: R04, R05, R10, R11; AC06, AC07, AC12.
 Owner: tobac source/extraction owners; archive stores native operation provenance.
 Depends on: P2/P3. Covers: R02, R04, R06, R09; AC04–AC06, AC08, AC11.
 
-- [ ] Task: P4.1 — Write extraction/parity tests and small independent oracles first.
-  - [ ] For the MOH workbook, assert all 16 year/value pairs, exact sheet/cell
+- [~] Task: P4.1 — Write extraction/parity tests and small independent oracles first.
+  - [x] For the MOH workbook, assert all 16 year/value pairs, exact sheet/cell
     locators, product label, row coverage and input/output fixity; reject wrong tables.
   - [ ] Select a second current real extraction/derivation with different mechanics
     after inspecting its actual source. Define source locators and preserved-value
     comparisons independently; test multi-parent ancestry where genuinely consumed.
-- [ ] Task: P4.2 — Execute versioned extraction through native transformation receipts.
-  - [ ] Re-extract the MOH workbook with a maintained reader; persist source, operation,
+- [~] Task: P4.2 — Execute versioned extraction through native transformation receipts.
+  - [x] Re-extract the MOH workbook with a maintained reader; persist source, operation,
     output and validation relationships and verify the new stored output independently.
   - [ ] Execute the second selected operation with its actual source and native
     receipts; preserve uncertainty, selection, conversions and dependency assumptions.
@@ -278,7 +278,8 @@ This table names planned evidence; it is not an execution receipt.
 
 The specification and this plan were approved by the maintainer on 26 October 2026.
 Registration records the track metadata/index and approved documents in the Conductor
-registry. Runtime implementation requires a separate handoff; no task above has started.
+registry. At registration runtime implementation had not started; the authorized
+29 October implementation checkpoints below supersede that planning state.
 
 The Conductor skill catalog was checked for this scope. Its Firebase/GCP entries
 do not match this track; no additional skill installation or environment activation
@@ -301,3 +302,46 @@ before publication and retained in the implementation PR and receiving checks.
 The next producer-owned source/capture and native closure work remains open under
 P2/P3. The active producer checkout/estate is unchanged. No whole-track completion,
 new scientific observations, requests or submissions are claimed.
+
+## Consumer continuation — 29 October 2026
+
+Base `346421b`; frozen producer `790044096f6946ff9a21662108f4d924cbad0ba2`.
+The existing producer owner remains active; no producer source or estate changes.
+MOH extraction tests and a consumer native CAS/strict-record operation are
+implemented. 62 affected tests, 1084 full tests (13 capability skips), strict_all,
+package, security and clean_package pass. Numerical operations pass before the
+clean-source publication replay rejects the staged tree; that replay and actual
+persisted execution follow the implementation commit. The complete P4.1
+task retains its second-operation requirement. P2 source/capture registration,
+P3 full closure/manifest interoperability and P5–P8 remain open.
+See docs/engineering/MOH_NATIVE_LINEAGE.md and the dated consumer review.
+Scientific ecosystem remains open pending native managed-parser acceptance.
+
+## Consumer execution and review checkpoint — 29 October 2026
+
+Implementation `6fa23066332e1dff651413b4bba2ecaa8c919baf`; source and values
+unchanged. Actual installed producer execution retained 16 exact rows/cells, nine
+native CAS objects and two strict native records, reopened and byte verified.
+Five disposable-copy/in-memory negative controls rejected corruption, missing
+output, missing SBOM, duplicate inputs and invalid state. The original attempt
+remains intact. The execution SBOM covers 81 installed packages plus the declared
+consumer source; the separate audit reports no known vulnerabilities in 80
+currently auditable packages. Unpublished artifacts are separately identified.
+
+Full tests: 1084 passed, 13 capability skips, 92% coverage. strict_all, package,
+security and clean_package pass. Numerical operations passed; the final clean-source
+primary/robustness replay passed from the implementation commit after the initial
+staged-tree guard rejection. Successful unchanged checks were reused. The original
+full-session command therefore remains exit 1, with its failed final replay resolved
+by the separately retained successful clean-source execution, not relabelled.
+See [native execution summary](../../../integration/archive/moh-native-extraction_20261029.json)
+and [consumer review](../../../docs/reviews/2026-10-29-moh-native-consumer.md).
+
+P4.1/P4.2 remain partial because the second real operation is pending. Only Phase 1
+is complete. All full source registration, manifest/relationship closure, original
+capture dates, runner wiring, qualification-mode enforcement and recovery gates
+remain open. Scientific ecosystem remains open pending native managed-parser acceptance.
+
+Hosted review fix: PR #71 CodeQL rejected five protocol ellipsis bodies. The
+consumer now uses the repository abstractmethod/raise convention, preserving
+all runtime calls and earlier native execution evidence. Hosted recheck required.
