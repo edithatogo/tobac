@@ -2,8 +2,8 @@
 
 ## Scientific ecosystem modernisation
 
-**Status: [~] Implementation complete; submitted-graph acceptance review planned — 29 October 2026.**
-Track: `conductor/tracks/scientific_ecosystem_20261025/`.
+**Status: [x] Bounded implementation closed by owner — 29 October 2026.**
+Track: `conductor/archive/scientific_ecosystem_20261025/`.
 
 The agreed macOS engineering implementation is complete. PRs #43, #47 and #48
 qualified the ecosystem, evidence interchange and Polars 2 boundary. PR #49 qualified
@@ -25,10 +25,11 @@ Its verification and receiving-main publication are recorded in the PR and
 `integration/hypothesis_pr50_20261027.json`; no unexecuted check is implied complete.
 
 Scientific ecosystem recheck: [receipt](../integration/ecosystem/managed-parser-recheck_20261029.json).
-The historical native graph contained all 113 submitted PURLs; this does not establish
-dependency edges or current-head coverage. The revised plan requires a fresh coverage
-review, source-bound submission and native readback before acceptance. Upstream PR
-#16525 remains unmerged; its parser failure remains recorded, not reported as a pass.
+The submission and native inventory readback were verified at source revision `62a4712`;
+they do not establish dependency edges or deployment exposure. The subsequent `00fb336`
+changes only documentation; its receiving-main CI and new submission were queued at
+closure, and remain unverified. Upstream PR #16525 remains unmerged; its parser failure
+remains recorded, not reported as a pass.
 
 ## Completed work
 
