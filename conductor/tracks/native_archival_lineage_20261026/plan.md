@@ -206,7 +206,7 @@ Covers: R10, R11; AC12, AC13.
 - [~] Task: P7.1 — Write replay/recovery and clean-package failure tests first.
   - [ ] Cover missing/corrupt originals or derivatives, incompatible schema/environment,
     interrupted writes, stale checkpoints and undeclared editable/sibling imports.
-- [ ] Task: P7.2 — Execute reproducible replay and clean-package consumption.
+- [~] Task: P7.2 — Execute reproducible replay and clean-package consumption.
   - [ ] Build the owning artifacts, install them outside source/sibling checkouts,
     verify import locations and reconstruct selected extraction-to-result closures.
   - [ ] Verify exact source/manifest fixity and scientific comparison tolerances,
@@ -383,3 +383,21 @@ review is recorded in `docs/reviews/2026-10-29-moh-native-consumer.md`.
 The local native dependency audit found no known vulnerabilities for its
 published auditable dependencies; the unpublished producer wheel was separately
 hash-verified and was not covered by that audit.
+
+## Portable producer replay — 29 October 2026
+
+A derivative private hash lock changes only the producer wheel location to a
+relative path; the original historical lock remains unchanged. A new repo-local
+Python 3.15.1 environment installed all 81 packages with `uv --offline` using the
+existing local cache. From a working directory outside the source checkout, all
+453 installed producer package files matched the pinned wheel; nine attempt
+objects, two capture objects and both strict records reopened, and all 16 workbook
+values matched the retained CSV. The original WARC still has no capture date.
+The guard was loaded from its hash-verified private script snapshot; the consumer
+package was not installed. The virtual environment itself resides in the worktree.
+
+This establishes an installed-producer, local-cache replay only. No cache-independent
+wheelhouse, OS network isolation, clean installed-consumer replay, complete native
+relationship closure or independent preservation is established. P7.2 remains
+partial and the track stays open. The prior PR #72 head and its evidence are
+unchanged; see `integration/archive/moh-recovery-rehearsal_20261029.json`.

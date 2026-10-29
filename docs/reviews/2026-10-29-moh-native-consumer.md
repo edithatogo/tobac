@@ -82,3 +82,13 @@ preflight script import/stream-handling errors were corrected before their nativ
 mutations; their original logs are retained. Full suite: 1092 passed, 13 capability
 skips, 92% coverage. Corrected `strict_all` passed. These establish the stated
 consumer scope only; no scientific or archival acceptance is asserted.
+
+## Installed producer replay review
+
+The derivative lock changes only the local wheel reference and preserves the
+historical lock. Actual `uv --offline` installation used the existing cache and a
+repo-local Python 3.15.1 environment. Readback from outside the checkout verifies
+453 producer files, nine attempt objects, two capture objects, two strict records
+and all 16 workbook values. The guard is a retained private script; no clean
+installed-consumer or independent-backup qualification is implied. No source or
+scientific model change is part of this follow-up.

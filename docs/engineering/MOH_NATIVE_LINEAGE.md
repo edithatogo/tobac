@@ -108,3 +108,19 @@ worktree cleanup, not an independent backup. Its hash lock still contains the ol
 local wheel path; offline clean reinstall is unqualified. No source registration,
 complete relationship closure or historical receipt restoration is asserted. See
 [technical checkpoint](../../integration/archive/moh-recovery-rehearsal_20261029.json).
+
+## Installed producer replay — 29 October 2026
+
+A separate private derivative lock makes the wheel path relative, retaining all
+other pinned versions and hashes. A fresh repo-local Python 3.15.1 environment
+installed its 81 packages using `uv --offline` and the existing local cache.
+From a working directory outside the checkout, all 453 installed producer files
+matched the retained wheel; the native store reopened nine attempt objects, two
+capture objects and two strict records. All 16 workbook values matched the retained
+CSV. The guard came from a hash-verified private script, and the consumer package
+was not installed. The environment resides within the worktree.
+
+This is not a cache-independent wheelhouse, OS-isolated replay, installed-consumer
+qualification or independent backup. The original execution lock still has its
+historical absolute wheel path. Full native source registration and relationship
+closure remain open. [Technical summary](../../integration/archive/moh-recovery-rehearsal_20261029.json).
