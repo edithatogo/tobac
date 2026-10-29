@@ -558,3 +558,16 @@ The managed parser's historical failure is not a pass. Before any track closure,
 review the implementation and full tests, and verify the final receiving revision
 and its source-bound submission and native readback. The previously observed
 `b5e2214` result does not prove a later receiving revision.
+
+### Receiving-main verification after PR #75 — 29 October 2026
+
+PR #75 merged as `62a47123aae4186514f37b58d665da1ecae91998`. All 16 receiving
+check runs succeeded. Engineering run `40852340333` submitted the exact receiving
+SHA; GitHub returned SUCCESS, and the native aggregate export contained all 113
+submitted PURLs. The payload, API response and export are retained privately at
+`/Users/doughnut/Documents/tobac-native-lineage-private/20261029-graph-62a4712/`.
+This verifies submitted inventory coverage, not package dependency edges, actual
+deployment, GitHub vulnerability alerts, or managed-parser success. The
+managed-parser limitation and published Voiage 3.0 gate remain recorded separately.
+Final acceptance and archival review remains open pending review and publication
+of this evidence update.
