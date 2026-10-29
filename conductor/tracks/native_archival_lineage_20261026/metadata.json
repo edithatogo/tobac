@@ -26,7 +26,7 @@
     "approvals": "approvals.json",
     "validation": "registration-validation.json"
   },
-  "implementation_state": "phase1_complete_moh_consumer_native_extraction_reviewed_full_closure_open",
+  "implementation_state": "phase1_complete_moh_exploratory_registration_and_same_device_recovery_partial",
   "completed_phases": [
     1
   ],
@@ -37,5 +37,7 @@
   "historical_local_interruption": "Foundations checkpoint exit 138 remains historical; no pass claimed for that attempt.",
   "consumer_implementation_commit": "6fa23066332e1dff651413b4bba2ecaa8c919baf",
   "native_consumer_evidence": "integration/archive/moh-native-extraction_20261029.json",
-  "native_lineage_qualified": false
+  "native_lineage_qualified": false,
+  "recovery_checkpoint": "integration/archive/moh-recovery-rehearsal_20261029.json",
+  "prior_private_receipts": "Absent from restored worktree and receiving main; new attempt is distinct."
 }

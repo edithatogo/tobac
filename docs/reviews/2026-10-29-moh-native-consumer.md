@@ -59,3 +59,26 @@ Hosted CodeQL on PR #71 identified five ineffectual ellipsis bodies in the new
 protocols. Replaced them with the existing repository abstractmethod/raise pattern;
 no producer call or extraction behavior changed. Existing native execution is
 bound to `6fa2306` and reused for this typing-only correction.
+
+## Recovery continuation review — 29 October 2026
+
+The native producer harness reports success for empty manifests, mismatched roots
+and duplicate entries. The bounded consumer preflight was added for the MOH
+rehearsal and rejects those cases against a native-verified nine-object inventory.
+It is explicitly called before the guarded native rehearsal; it does not change
+or independently qualify the producer's general harness or full source graph.
+
+A new extraction and native restore/replay passed with nine objects and 16 exact
+rows. Missing/corrupt object controls failed as expected. The actual original WARC
+payload matches the workbook and has no WARC-Date. The private rehearsal copy is
+on the same device and its local-path lock does not prove clean offline install.
+The previous execution's private receipts were absent from the restored worktree
+and main checkout, so they are not represented as recovered. Source registration,
+full native closure and independent recovery remain open.
+
+The consumer guard, targeted tests, source readback, native controls, ownership
+and publication boundaries were reviewed. Initial strict style/type findings and
+preflight script import/stream-handling errors were corrected before their native
+mutations; their original logs are retained. Full suite: 1092 passed, 13 capability
+skips, 92% coverage. Corrected `strict_all` passed. These establish the stated
+consumer scope only; no scientific or archival acceptance is asserted.

@@ -85,3 +85,26 @@ Controls used disposable copies/in-memory records; successful originals remain i
 The execution inventory contains 82 components (81 installed plus declared consumer
 source). See [public technical summary](../../integration/archive/moh-native-extraction_20261029.json);
 original bytes, complete records/argv and private runtime artifacts stay ignored.
+
+## Capture and recovery continuation — 29 October 2026
+
+The prior managed worktree's ignored private execution and runtime files were not
+present on continuation; its published technical summary remains. A new execution
+of the same pinned producer and source reproduced the prior extracted object hash.
+Original WARC/capture bytes were verified: HTTP 200, target URI and payload match;
+`WARC-Date` is absent and capture time stays unknown. These bytes and the new
+attempt are retained in a private directory outside the managed worktree.
+
+The native recovery harness copied and restored nine objects and replayed all 16
+rows. It failed missing/corrupt-object controls, but passed synthetic empty,
+incorrect-root and duplicate-entry manifests. Before a scoped MOH rehearsal,
+`scripts/check_moh_rehearsal.py` compares the native-verified inventory with the
+nine expected identities, record counts/sizes and this rehearsal's inventory root.
+A guarded restore and these three rejections were executed. This preflight must be
+called explicitly; it does not replace or repair the producer's generic harness.
+
+The retained copy is on the same device. It is a resilience improvement against
+worktree cleanup, not an independent backup. Its hash lock still contains the old
+local wheel path; offline clean reinstall is unqualified. No source registration,
+complete relationship closure or historical receipt restoration is asserted. See
+[technical checkpoint](../../integration/archive/moh-recovery-rehearsal_20261029.json).
