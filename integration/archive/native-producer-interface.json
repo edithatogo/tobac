@@ -1,0 +1,20 @@
+{
+  "schema": "tobac.native-archive-interface.v1",
+  "producer_repository": "https://github.com/edithatogo/archive-govt-nz",
+  "producer_revision": "790044096f6946ff9a21662108f4d924cbad0ba2",
+  "distribution": "archive-govt-nz",
+  "version": "0.1.0",
+  "wheel_sha256": "206e6474d155a6e0f7e0b6f70b5b59747fda473b8643193dc2a580bb7e98c640",
+  "module_sha256": {
+    "archive_govt_nz": "a4d31a096067c58b9fbc24ca3bdc638e91c93cc4ec811d0b1da23bd09f18a82a",
+    "archive_govt_nz.records": "8ead1d7b34bef57dfc294b9f1a9792c838560232079224a8b35ecb680accb5c3",
+    "archive_govt_nz.object_store": "271296055f92cdc7824f1389db7d8a41fefabd0f0128b62869df4e97f68efdc4"
+  },
+  "scope": "Unreleased frozen producer wheel; selected native CAS and strict per-record consumer interface only",
+  "native_lineage_qualified": false,
+  "remaining_producer_gates": [
+    "native source/capture registration and WARC dates",
+    "complete manifest/strict-record interoperability and closure",
+    "independent-copy recovery"
+  ]
+}

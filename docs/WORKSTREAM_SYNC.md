@@ -92,3 +92,19 @@ Checkpoint: native recheck, local review and fixes complete; full tests pass
 (1,063 passed/13 capability skips, 92% coverage), then 55 focused tests pass.
 Next operation: guarded source publication and exact-head/receiving-ref readback.
 The external managed root-parser gate remains open; no native graph write is assigned.
+
+## Native lineage consumer continuation — 29 October 2026
+
+Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` now owns the consumer extraction
+continuation in `/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`,
+branch `codex/native-lineage-consumer-20261029`, base `346421b`. Owned paths are
+the MOH extraction helper/tests, its optional Nox entrypoint, consumer interface
+pins and the existing lineage Conductor/review records. Producer code is frozen
+at `790044096f6946ff9a21662108f4d924cbad0ba2`; its active writer, checkout,
+environment, captures and canonical CAS remain unchanged. Only identified frozen
+originals are read and copied into consumer-owned private staging. No acquisition,
+request, external submission or scientific-input replacement is assigned.
+Next operation: qualify the installed producer artifact, implement exact workbook
+extraction/native per-record receipts and review actual execution. Producer
+manifest/closure and historical capture-time gaps remain gates; per-record success
+cannot qualify the whole lineage. Scientific ecosystem remains open and blocked.

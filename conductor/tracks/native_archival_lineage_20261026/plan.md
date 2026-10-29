@@ -122,8 +122,8 @@ Depends on: P1/P2. Covers: R04, R05, R10, R11; AC06, AC07, AC12.
 Owner: tobac source/extraction owners; archive stores native operation provenance.
 Depends on: P2/P3. Covers: R02, R04, R06, R09; AC04–AC06, AC08, AC11.
 
-- [ ] Task: P4.1 — Write extraction/parity tests and small independent oracles first.
-  - [ ] For the MOH workbook, assert all 16 year/value pairs, exact sheet/cell
+- [~] Task: P4.1 — Write extraction/parity tests and small independent oracles first.
+  - [x] For the MOH workbook, assert all 16 year/value pairs, exact sheet/cell
     locators, product label, row coverage and input/output fixity; reject wrong tables.
   - [ ] Select a second current real extraction/derivation with different mechanics
     after inspecting its actual source. Define source locators and preserved-value
@@ -278,7 +278,8 @@ This table names planned evidence; it is not an execution receipt.
 
 The specification and this plan were approved by the maintainer on 26 October 2026.
 Registration records the track metadata/index and approved documents in the Conductor
-registry. Runtime implementation requires a separate handoff; no task above has started.
+registry. At registration runtime implementation had not started; the authorized
+29 October implementation checkpoints below supersede that planning state.
 
 The Conductor skill catalog was checked for this scope. Its Firebase/GCP entries
 do not match this track; no additional skill installation or environment activation
@@ -301,3 +302,17 @@ before publication and retained in the implementation PR and receiving checks.
 The next producer-owned source/capture and native closure work remains open under
 P2/P3. The active producer checkout/estate is unchanged. No whole-track completion,
 new scientific observations, requests or submissions are claimed.
+
+## Consumer continuation — 29 October 2026
+
+Base `346421b`; frozen producer `790044096f6946ff9a21662108f4d924cbad0ba2`.
+The existing producer owner remains active; no producer source or estate changes.
+MOH extraction tests and a consumer native CAS/strict-record operation are
+implemented. 62 affected tests, 1084 full tests (13 capability skips), strict_all,
+package, security and clean_package pass. Numerical operations pass before the
+clean-source publication replay rejects the staged tree; that replay and actual
+persisted execution follow the implementation commit. The complete P4.1
+task retains its second-operation requirement. P2 source/capture registration,
+P3 full closure/manifest interoperability and P5–P8 remain open.
+See docs/engineering/MOH_NATIVE_LINEAGE.md and the dated consumer review.
+Scientific ecosystem remains open pending native managed-parser acceptance.
