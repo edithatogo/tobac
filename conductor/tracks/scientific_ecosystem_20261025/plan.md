@@ -146,7 +146,7 @@ At the PR #43 checkpoint C3/C4/C6 remained unchecked. The later close-out below 
 
 PR #44 merged at `0940c595ce06f4142467de3f687dea881dae8ea2` after 15 successful PR checks and two expected trusted-write skips. Native default-branch snapshot `114186314` returned SUCCESS; 113 submitted PURLs appear in the 123-PURL native export, with every previous PURL retained. Receipt: `integration/ecosystem/dependency-submission_20261026.json`.
 
-- [ ] External service gate: managed root Dependabot parser Python 3.15 support (upstream issue 16524). The supported submission route is qualified; the failed managed run is not hidden or called successful.
+- [ ] Submitted-graph acceptance: perform the revised current-head coverage, submission and readback checks described below. The managed parser failure remains an upstream limitation, not a successful check.
 
 ## Implementation resume — 26 October 2026
 
@@ -368,3 +368,193 @@ to retain valid per-commit inventory; original local commits remain preserved on
 Publication-boundary follow-up tests: 14 passed, exit 0, sampled peak 49.4 MiB.
 Checksum-pinned native scanners were installed in this isolated worktree through
 the repository installer; no shared environment or hook configuration was changed.
+
+
+## Revised graph acceptance plan — 29 October 2026
+
+Owner direction selects Renovate as the update provider and the supported submitted
+resolved-graph route as the planned acceptance path. Earlier parser-specific closure
+statements above are historical and superseded by this plan. The track stays open
+until the work below is actually executed and reviewed.
+
+- [ ] Define the required current graph coverage: relevant manifests, source-bound
+  locks, runtime and development scopes, package identities and whether direct or
+  transitive edges are required. Identify any missing coverage and its consequences.
+- [ ] On the reviewed receiving SHA and unchanged Python 3.15 constraint, run the
+  existing supported snapshot submission and retain its exact input hashes, run,
+  response and native graph readback. Verify the required coverage, not merely a
+  successful API response or a count of package identifiers.
+- [ ] If required coverage or relationships are missing, improve and qualify the
+  existing submission route, then repeat the current-head verification. Do not claim
+  edges or scopes the native readback does not establish.
+- [ ] Review evidence and update the acceptance map and receiving-main record; close
+  only when the revised criteria and existing applicable checks are satisfied.
+
+The earlier 113-PURL readback is historical inventory evidence, not current-head
+acceptance or proof of complete edges. The Python 3.15 managed-parser failure and
+upstream issue 16524 / PR 16525 remain visible as unresolved upstream limitations;
+they are not reported as passes. Renovate remains the sole update-PR provider. No
+GitHub settings, alerts, runtime constraints or security checks are changed by this
+plan. Published Voiage 3.0 acceptance remains a separate track.
+
+### Receiving-main graph evidence — 29 October 2026
+
+Receiving main `b5e221476a9c26d314249ab716f4f5c01dd80ec5` ran the existing
+[engineering workflow](https://github.com/edithatogo/tobac/actions/runs/40835460374);
+its submitted snapshot reports that SHA, and GitHub returned success (snapshot
+115698659). Snapshot lock hashes match the four committed lock blobs: requirements
+(39 entries), audit (96), voiage (51), and ecosystem (60). The current native SBOM
+export contains all 113 distinct submitted PURLs, with none missing. Inputs cover
+resolved profile inventories; they do not identify directness, profile membership
+in the exported aggregate, or authoritative package-to-package relationships.
+The native export was observed after submission but does not independently identify
+the source SHA. The source-bound submission and aggregate readback are different
+evidence. Native payload, response and readback were retained privately at
+`/Users/doughnut/Documents/tobac-native-lineage-private/20261029-graph-acceptance/`.
+
+Acceptance remains open: explicitly review whether inventory-only coverage meets
+the required security and dependency-impact uses, independently assess root project
+metadata and missing relationship/scope semantics, and record that decision before
+closing. The historical managed-parser failure remains unresolved and is not a pass.
+
+### Root declarations and graph-use review — 29 October 2026
+
+The `b5e2214` root project declares two runtime packages (NumPy and SciPy),
+seven optional runtime/engineering packages (PyArrow, Polars, Patito, msgspec,
+pandas, matplotlib and jsonschema), and setuptools as a build prerequisite.
+Every declared name appears in the 113 submitted PURLs. This is a name-coverage
+check, not proof of root-manifest registration, version applicability to a target
+platform, directness or dependency edges. The requirements profile explicitly
+combines reference, tests, build and Voiage inputs; the other three represent audit,
+Voiage and ecosystem qualification profiles. These are resolved environment
+inventories, not a production deployment inventory.
+
+A package inventory is useful for broad potential-vulnerability triage and Renovate
+update discovery, but cannot alone prove exploitability, actual installation,
+project-root direct dependencies, or paths for dependency-impact analysis. Existing
+pip-audit and other locked security checks continue independently. GitHub alerts
+were disabled at the last exact-target check, and no alert coverage is asserted.
+For the graph acceptance review, compare actual declared versions and source-bound
+profile membership against the payload and native export; retain a graph relationship
+limitation if trusted package-to-package edges cannot be recovered. Do not infer
+relationships from co-occurrence in a lock. Whether inventory-only evidence satisfies
+the intended dependency-impact use remains open pending that review.
+
+### Exact root version and profile comparison — 29 October 2026
+
+Using repo-local Python 3.15.1 and packaging 26.3, the committed root project
+requirements were parsed as PEP 508 requirements and compared with the actual
+`b5e2214` submitted payload and the retained native SBOM. Each of the two exact
+runtime pins and all seven exact optional pins appears at its declared version in
+each of the four submitted profiles and in the aggregate native export. The
+resolved setuptools 84.2.1 also satisfies the root build requirement `>=77` in
+each profile and appears in the export. This establishes matching package versions
+for these declarations, not that every optional group is installed or deployed.
+
+The universal locks contain `# via` annotations that identify resolver provenance;
+they also include conditional markers and reference-file inputs. These annotations
+are potential evidence for further investigation, not yet a validated platform- and
+extras-correct dependency graph. The existing snapshot deliberately omits edges;
+its tests assert that omission. Do not promote annotations as authoritative native
+relationships without a tested mapping, target scope and native readback.
+
+### Environment graph qualification in progress — 29 October 2026
+
+A new isolated Python 3.15.1 environment is being reconstructed from the exact
+`engineering/requirements.lock` using hash verification, to compare installed
+metadata with universal lock provenance on the current macOS target. Offline
+installation failed because the Polars runtime wheel was absent from the local
+cache; the separate network-enabled installation completed under the repository
+resource guard (exit 0, peak sampled RSS 70.1 MiB). No relationship or target-platform conclusion is asserted until
+that operation completes and the actual environment is examined. Audit lock
+metadata targets Linux and cannot be inferred from a macOS installation.
+
+### macOS installed-metadata relationship probe — 29 October 2026
+
+A fresh repo-local Python 3.15.1 environment installed 38 applicable packages
+from the hash-verified `engineering/requirements.lock`; its SHA-256 equals the
+lock blob at `b5e2214` (`290067c0eb932ad150b1b0e1317ce0b44c629686390a59c5ba709fb2`).
+`uv pip tree --strict` completed successfully. An independent `Requires-Dist`
+probe evaluated markers on this macOS environment with no extras selected: 37
+unique package-to-package edges had installed versions satisfying their declared
+constraints, and none were unresolved. Examples include SciPy to NumPy and Patito
+to Polars and Pydantic. Logs and tree are privately retained at
+`/Users/doughnut/Documents/tobac-native-lineage-private/20261029-graph-runtime/`;
+the tree SHA-256 is `b7c54440fa1bc50c29af1f12f85b4d6bd3c83af985606378a87fe367a93f7b30`.
+
+This is evidence for that installed target only: no selected-extra dependency
+closure, Linux audit environment, other profiles, production deployment or GitHub
+native relationship readback is demonstrated. The tree is not itself a submitted
+snapshot. Next qualify mapping, extras and environment identity with negative
+controls before any proposed graph submission; do not replace the universal
+inventory with a host-specific graph.
+
+### Reusable installed-relationship validation — 29 October 2026
+
+The local snapshot helper now exposes a no-extra, current-environment relationship
+validator for review, without altering snapshot submission. It rejects missing or
+incompatible targets, duplicate normalized distribution identities, unknown owners,
+active direct references and requested dependency extras. Marker evaluation is bound
+to the host environment; it is not a universal graph or a deployment claim. Seven
+synthetic negative/control cases and existing snapshot tests pass (13 tests); the
+prior workstream-inclusive run passed 37 tests before the final two reject cases
+were added. Ruff checks and formatting pass. Running the final helper against the
+hash-installed macOS environment reproduces 38 packages and 37 edges. Further work
+must bind actual installed metadata and environment identities into a versioned
+artifact, qualify extras and other platforms/profiles, and verify any native
+relationship submission and readback before declaring graph acceptance.
+
+### Installed environment lock binding — 29 October 2026
+
+The local verifier now matches the complete installed distribution inventory to
+exact lock pins applicable under the running environment's markers. It rejects
+missing, unexpected or changed packages and ambiguous applicable identities.
+Focused snapshot tests pass (14 tests), including marker and drift controls; Ruff
+passes. The actual isolated Python 3.15.1 macOS installation matches all 38
+applicable packages and its no-extra relationship validator returns 37 edges.
+The previously verified lock SHA matches `b5e2214`. This is an environment
+comparison, not installed-wheel provenance, extra closure, other-platform
+qualification, or a submitted native graph; the track remains open.
+
+### Installed metadata completeness control — 29 October 2026
+
+The relationship validator now rejects a missing metadata-owner entry instead of
+silently treating it as a package with no dependencies. Synthetic tests preserve
+independent checks for missing targets, incompatible versions, ambiguous names,
+unsupported active extras and direct references. The focused suite passes 15
+tests, Ruff passes, and the actual bound macOS environment still yields 38 packages
+and 37 no-extra edges. Metadata collection must still distinguish an actually
+empty `Requires-Dist` from unavailable or altered metadata and prove wheel/source
+identity before these results can be promoted to native graph evidence.
+
+### Installed METADATA integrity probe — 29 October 2026
+
+A tested helper checks SHA-256 METADATA bytes against installed RECORD hashes and
+rejects missing, unsupported or mismatched hashes. The focused suite passes 16
+tests and Ruff passes. All 38 top-level installed distribution METADATA files
+matched their RECORD digests in the reconstructed macOS environment. A first probe
+correctly stopped on setuptools because its wheel lists 13 METADATA files, including
+vendored distributions; a bounded second read selected only the owning top-level
+`.dist-info/METADATA` and verified all 38. This is internal consistency only:
+RECORD and METADATA could be changed together, and the probe does not prove wheel
+identity, install provenance or safe selection for every distribution. No native
+relationship submission or acceptance is claimed.
+
+### Submitted-inventory acceptance assessment — 29 October 2026
+
+The reviewed graph submission's demonstrated use is a broad inventory of resolved
+package identifiers for the four source-bound qualification profiles. The current
+root runtime and optional pins are present at their declared versions, the snapshot
+is bound to `b5e2214` and the native aggregate contains every submitted PURL. This
+is sufficient evidence for that inventory use at the reviewed source revision.
+Renovate remains responsible for update discovery, while the existing security
+session separately runs pip-audit and generates an environment SBOM.
+
+The same evidence is insufficient for deployment exposure, profile membership in
+the native aggregate, or package-to-package dependency-impact paths. These are
+explicitly unqualified uses; the inventory must not be represented as proving
+them. The local no-extra macOS experiment is not part of the submitted snapshot.
+The managed parser's historical failure is not a pass. Before any track closure,
+review the implementation and full tests, and verify the final receiving revision
+and its source-bound submission and native readback. The previously observed
+`b5e2214` result does not prove a later receiving revision.

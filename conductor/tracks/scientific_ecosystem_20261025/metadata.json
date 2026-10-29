@@ -2,14 +2,14 @@
   "track_id": "scientific_ecosystem_20261025",
   "title": "Scientific ecosystem modernisation",
   "type": "refactor",
-  "status": "blocked",
+  "status": "in_progress",
   "created_at": "2026-10-25T12:24:37.028925+00:00",
   "updated_at": "2026-10-29",
   "description": "Scientific ecosystem modernisation",
   "base_commit": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
   "approval_scope": "Autonomous macOS implementation, review, fixes and archival authorised 26 October 2026",
   "implementation_authorized": true,
-  "implementation_state": "macos_implementation_complete_external_managed_parser_gate_blocked",
+  "implementation_state": "macos_implementation_complete_submitted_graph_acceptance_pending",
   "github_issue": "https://github.com/edithatogo/tobac/issues/22",
   "github_cross_reference": {
     "issue": "https://github.com/edithatogo/tobac/issues/22"
@@ -19,7 +19,8 @@
   "verification": "integration/ecosystem/verification_20261026.json",
   "review": "docs/reviews/2026-10-26-conductor-autonomous.md",
   "remaining_gates": [
-    "External managed root Dependabot parser must accept unchanged >=3.15.1,<3.16; upstream PR16525 is unmerged and deployed support is unqualified"
+    "Review current required graph coverage and verify a fresh source-bound submitted dependency snapshot and native readback for the current receiving SHA; document missing relationships and scope before acceptance",
+    "Review and record the revised acceptance decision and complete the track verification and publication checkpoints"
   ],
   "publication": {
     "pull_request": 43,
@@ -54,7 +55,7 @@
     "dashboard_issue": 7,
     "verification": "integration/renovate_policy_20261027.json",
     "policy": "docs/engineering/DEPENDENCY_MAINTENANCE.md",
-    "scope": "update PRs only; internal GitHub graph parser gate retained"
+    "scope": "Renovate for update PRs; submitted dependency graph is the planned acceptance route"
   },
   "current_macos_acceptance": {
     "pull_request": 51,

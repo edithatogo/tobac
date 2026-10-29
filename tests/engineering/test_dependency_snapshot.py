@@ -63,3 +63,63 @@ def test_invalid_source_identity_fails_closed() -> None:
         match=(r"^(?:Require\ Python\ 3\.15\.1\ and\ exact\ source/job\ identity)"),
     ):
         module().snapshot("short", "refs/heads/main", "test")
+
+
+def test_installed_relationships_apply_markers_and_validate_constraints() -> None:
+    packages = {"alpha": "1.0", "beta": "2.0", "gamma": "3.0"}
+    requirements = {
+        "alpha": ["beta>=2", "gamma; python_version < '3'", "gamma; extra == 'fast'"],
+        "beta": [],
+        "gamma": [],
+    }
+    assert module().installed_relationships(packages, requirements) == {
+        "alpha": ["beta"],
+        "beta": [],
+        "gamma": [],
+    }
+
+
+@pytest.mark.parametrize(
+    ("packages", "requirements"),
+    [
+        ({"alpha": "1.0"}, {"alpha": ["beta>=2"]}),
+        ({"alpha": "1.0", "beta": "1.0"}, {"alpha": ["beta>=2"], "beta": []}),
+        ({"Alpha": "1.0", "alpha": "1.0"}, {}),
+        ({"alpha": "1.0"}, {"unknown": ["alpha"]}),
+        ({"alpha": "1.0", "beta": "2.0"}, {"alpha": ["beta[fast]>=2"], "beta": []}),
+        ({"alpha": "1.0", "beta": "2.0"}, {"alpha": ["beta @ https://example.org/beta.whl"], "beta": []}),
+    ],
+)
+def test_installed_relationships_reject_inconsistent_inputs(packages, requirements) -> None:
+    with pytest.raises(ValueError, match=r"Ambiguous|Unknown|missing or incompatible|Direct references"):
+        module().installed_relationships(packages, requirements)
+
+
+def test_installed_inventory_is_bound_to_applicable_lock_entries(tmp_path) -> None:
+    path = tmp_path / "lock.txt"
+    path.write_text("alpha==1.0\nbeta==2.0 ; python_version < '3'\n")
+    module().verify_installed_inventory(path, {"Alpha": "1.0"})
+    for wrong in ({}, {"alpha": "2.0"}, {"alpha": "1.0", "unexpected": "1.0"}):
+        with pytest.raises(ValueError, match="Installed inventory"):
+            module().verify_installed_inventory(path, wrong)
+
+
+def test_relationships_reject_missing_metadata_owner() -> None:
+    with pytest.raises(ValueError, match="metadata"):
+        module().installed_relationships({"alpha": "1.0", "beta": "2.0"}, {"alpha": ["beta>=2"]})
+
+
+def test_metadata_record_hash_detects_changes_and_missing_digest() -> None:
+    import base64  # noqa: PLC0415
+    import hashlib  # noqa: PLC0415
+
+    data = b"Metadata-Version: 2.4\nName: example\nVersion: 1.0\n\n"
+    digest = base64.urlsafe_b64encode(hashlib.sha256(data).digest()).rstrip(b"=").decode()
+    module().verify_metadata_digest(data, "sha256", digest)
+    for payload, algorithm, value in (
+        (data + b"x", "sha256", digest),
+        (data, "md5", digest),
+        (data, "sha256", ""),
+    ):
+        with pytest.raises(ValueError, match="metadata"):
+            module().verify_metadata_digest(payload, algorithm, value)
