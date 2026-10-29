@@ -571,3 +571,17 @@ deployment, GitHub vulnerability alerts, or managed-parser success. The
 managed-parser limitation and published Voiage 3.0 gate remain recorded separately.
 Final acceptance and archival review remains open pending review and publication
 of this evidence update.
+
+### Owner-directed closeout — 29 October 2026
+
+The owner directed closure of the implemented track. The reviewed implementation,
+full local suite and receiving-main submission/readback at `62a4712` remain the
+acceptance evidence for the bounded resolved-inventory use described above.
+PR #76 merged the evidence record at `00fb336`; its tree matches its reviewed PR
+and differs from `62a4712` only in this plan. The receiving-main workflows for
+`00fb336` had not completed at closeout; engineering run 40858830878 was queued. Their
+results and a new native submission/readback are not claimed. Earlier unchecked
+current-revision tasks remain unchecked as a record of those pending checks.
+The native managed parser failure, missing dependency edges, GitHub alert status,
+and separate published Voiage 3.0 acceptance remain unresolved. Closure does not
+assert these passed or change security settings.

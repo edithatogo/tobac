@@ -2,6 +2,12 @@
 
 Archived plans preserve their bounded completion scope and dated evidence. Research gates remain active separately; archival does not qualify an empirical conclusion.
 
+## Scientific ecosystem modernisation
+
+[Plan](scientific_ecosystem_20261025/plan.md) and [specification](scientific_ecosystem_20261025/spec.md).
+Bounded implementation closed by the owner; the managed-parser limitation and
+receiving-main verification remain unresolved as recorded in the plan.
+
 ## Archival source integration
 
 Track: `conductor/archive/archive_sources_20261025/`

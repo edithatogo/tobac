@@ -1,6 +1,6 @@
 # Scientific ecosystem modernisation
 
-**macOS implementation reviewed and complete; external managed-parser acceptance blocked.**
+**Bounded implementation closed by owner; external managed-parser acceptance remains unverified.**
 Rechecked 29 October 2026; see the latest receipt and review in metadata.json.
 Current dispositions and remaining external gates are in the plan.
 
