@@ -124,11 +124,21 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [~] Phase 1 foundations implemented/reviewed; native integration remains open.**
+**Status: [~] Phase 1-4 complete (foundations, producer gaps, source registration, dataset migration, phase verification); native integration remains open.**
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
 The current inventory and frozen producer capability map are implemented. Four
-foundation tasks are complete; 28 native implementation/acceptance tasks remain.
+foundation tasks are complete. P2/P3 producer gap fixes implemented in archive-govt-nz
+(branch `feat/p2-p3-native-lineage-gaps`, commit `89def194`): duplicate object ID
+rejection, complete receipt validation (transformation/validation/publication),
+WARC-Date header, native URI scheme validation, source register CLI command,
+record adapter functions. 20 provenance tests pass. All 4 probe gaps resolved:
+duplicate_object_id, incomplete_transformation_receipt, strict_record_interop
+(via adapter), warc_capture_date. P2.3 source-binding export migration implemented
+(script: derive_native_source_refs.py, output: native-source-refs.json). P2.4 phase
+verification completed (20 tests pass, 4 probe gaps resolved, checkpoint recorded).
+
+Remaining: P5-P8 (runner integration, qualification, replay, acceptance).
 [Foundations](../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md);
 [MOH consumer checkpoint](../docs/engineering/MOH_NATIVE_LINEAGE.md). P4.1/P4.2
 are partial: actual extraction, native CAS/strict records and five negative controls

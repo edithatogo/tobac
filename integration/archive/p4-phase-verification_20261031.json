@@ -1,0 +1,49 @@
+{
+  "schema": "tobac.p4-phase-verification.v1",
+  "phase": "P4.4",
+  "phase_title": "Phase 4 verification and checkpoint",
+  "track_id": "native_archival_lineage_20261026",
+  "consumer_commit": "46b29a6",
+  "date": "2026-10-31",
+  "verification": {
+    "extraction_tests_run": [
+      "tests/engineering/test_moh_native_extraction.py",
+      "tests/engineering/test_shine_table.py",
+      "tests/engineering/test_moh_rehearsal_preflight.py"
+    ],
+    "source_fixity_verified": true,
+    "native_receipt_readback": "exploratory (native_lineage_qualified: false)",
+    "inventory_reconciliation": {
+      "total_items": 145,
+      "migrated": 145,
+      "unresolved": 0,
+      "blocked": 0,
+      "categories": {
+        "preserved_legacy_evidence": 18,
+        "reference_output_not_observation": 76,
+        "evidence_metadata_or_extract": 39,
+        "parameter_or_scenario_declaration": 8,
+        "bibliography_not_observation": 4
+      }
+    },
+    "extraction_pilots": {
+      "moh_workbook": "exploratory (16 values, native CAS, strict records, 5 negative controls)",
+      "shine_table2": "exploratory (beta(23.4, 97.2), strict table locator, consumer comparison)"
+    },
+    "baseline_bytes_retained": true,
+    "open_gates": [
+      "native source/capture registration (producer P2.2)",
+      "complete manifest/strict-record interoperability (partially resolved via adapters)",
+      "independent-copy recovery (not demonstrated)",
+      "native lineage qualification (false)",
+      "scientific qualification (false)"
+    ],
+    "native_lineage_qualified": false,
+    "scientific_qualification": false,
+    "automatically_conditions_live_model": false
+  },
+  "scope": "P4.4 verification checkpoint: all 145 inventoried items accounted for and migrated. Legacy evidence preserved with reconstructed labels. Reference outputs verified for fixity. Evidence extracts and parameters verified. No extrapolation from 2 exploratory pilots to full qualification. Native lineage qualification requires producer P2/P3 work.",
+  "scientific_qualification": false,
+  "native_lineage_qualified": false,
+  "automatically_conditions_live_model": false
+}
