@@ -26,7 +26,7 @@
     "approvals": "approvals.json",
     "validation": "registration-validation.json"
   },
-  "implementation_state": "phase1_complete_moh_exploratory_registration_and_same_device_recovery_partial",
+  "implementation_state": "phase1_complete_moh_exploratory_registration_same_device_recovery_partial_shine_tests_implemented",
   "completed_phases": [
     1
   ],
@@ -42,5 +42,10 @@
   "prior_private_receipts": "Absent from restored worktree and receiving main; new attempt is distinct.",
   "portable_producer_replay": "passed_with_relative_wheel_path_and_existing_local_cache_consumer_install_open",
   "consumer_library_replay": "installed_libraries_pass_script_uninstalled_cache_and_full_closure_open",
-  "second_extraction_candidate": "SHINE_RETAIL_TABLE2_read_only_candidate_distinct_source_versions_unqualified"
+  "second_extraction_candidate": "SHINE_RETAIL_TABLE2_parser_tests_and_exploratory_comparison_implemented",
+  "shine_extraction_scripts": [
+    "scripts/qualify_shine_table.py",
+    "tests/engineering/test_shine_table.py"
+  ],
+  "shine_plan_section": "SHINE Table 2 consumer comparison — 29 October 2026"
 }
