@@ -10,7 +10,7 @@
     "engineering/voiage.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/engineering/lock-candidate-87/voiage.lock",
+    "outputs/engineering/lock-candidate-88/voiage.lock",
     "--python-version",
     "3.15",
     "--python-platform",
@@ -20,13 +20,13 @@
   "inputs": {
     "pyproject.toml": "2b34aae27610adbfcba3b0a9cdea35447adbd06876c748d3c781a32302ba3f20",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
-    "engineering/reference-requirements.txt": "e629d721538c18109be6b9ec8b4faf3d8459731d8489a5247cedbdccb3fefe47",
+    "engineering/reference-requirements.txt": "ee4a0fae35f4e6764c31428a2ade91decc83e90671f808b384d275a8032fb815",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
     "engineering/test-requirements.txt": "aad99922ffbb72dded04118a6a9815be60c7634be925e4fac9d64b51720f6678",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/voiage.in": "95956f53a227749aba89248d67d3374ff3ac0ec1e0588637c06cea21b01bb76a",
     "engineering/voiage-build-requirements.txt": "83bbc382d9b7eb67400eb55f0a6815185532edcdeb709878ccfc68955043effa"
   },
-  "lock_sha256": "70e0dd449e2842f1c8330127209f6996e456145da10085814c99d4f430e38a1e",
+  "lock_sha256": "0c4b5e69af45a3845157278c6a01693d474d1dd6d8ba4aad9996b5d427ffed51",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
