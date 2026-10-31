@@ -10,7 +10,7 @@
     "engineering/ecosystem.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/engineering/lock-candidate-70/ecosystem.lock",
+    "outputs/engineering/lock-candidate-86/ecosystem.lock",
     "--universal",
     "--python-version",
     "3.15"
@@ -25,8 +25,8 @@
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/voiage.in": "95956f53a227749aba89248d67d3374ff3ac0ec1e0588637c06cea21b01bb76a",
     "engineering/voiage-build-requirements.txt": "83bbc382d9b7eb67400eb55f0a6815185532edcdeb709878ccfc68955043effa",
-    "engineering/ecosystem.in": "a5a44b63679b030179b4c69a671cf9fbb3c056794caf621208d3e504534ae95b"
+    "engineering/ecosystem.in": "7786596395d7154072a96af4b110b979338fcc1d9995aed8d15fb414f7670978"
   },
-  "lock_sha256": "4d57327db2e1eebec4ed154798a755f7be8867e9214703ebdf6f246213283763",
+  "lock_sha256": "be8ad11d3ce5e2ea76601b518b2849111aa725d9e50a8332f7dcbf6a34539b83",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
