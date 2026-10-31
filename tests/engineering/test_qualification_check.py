@@ -1,0 +1,126 @@
+"""P6.1-P6.4: Qualification enforcement tests."""
+
+import json
+lazy from pathlib import Path
+
+from scripts.qualification_check import qualification_check, run_qualification
+
+
+def make_manifest(tmp_path: Path, *, complete: bool = True, tampered: bool = False) -> Path:
+    """Create a test manifest."""
+    manifest = {
+        "schema_version": "archive-govt-nz.manifest/v1",
+        "archive_id": "test-archive",
+        "observations": [{"observation_id": "o1"}],
+        "objects": [{"object_id": "sha256:a"}],
+        "versions": [{"version_id": "v1", "observation_id": "o1"}],
+        "receipts": {
+            "transformations": [],
+            "validations": [],
+            "publications": [],
+        },
+        "context": {},
+    }
+
+    if tampered:
+        manifest["objects"] = [{"object_id": "sha256:a"}, {"object_id": "sha256:a"}]
+
+    if not complete:
+        del manifest["receipts"]
+
+    path = tmp_path / "manifest.json"
+    path.write_text(json.dumps(manifest, indent=2))
+    return path
+
+
+def test_qualified_mode_passes_complete_manifest(tmp_path: Path) -> None:
+    """Complete manifest qualifies in qualified mode."""
+    manifest = make_manifest(tmp_path, complete=True)
+    result = run_qualification(manifest, "qualified")
+    assert result["qualified"] is True
+    assert result["mode"] == "qualified"
+    assert result["errors"] == []
+
+
+def test_qualified_mode_fails_incomplete_manifest(tmp_path: Path) -> None:
+    """Incomplete manifest fails in qualified mode."""
+    manifest = make_manifest(tmp_path, complete=False)
+    result = run_qualification(manifest, "qualified")
+    assert result["qualified"] is False
+    assert "missing_field:receipts" in result["errors"]
+    assert result["mode"] == "fail_closed"
+
+
+def test_qualified_mode_fails_tampered_manifest(tmp_path: Path) -> None:
+    """Tampered manifest fails in qualified mode."""
+    manifest = make_manifest(tmp_path, tampered=True)
+    result = run_qualification(manifest, "qualified")
+    assert result["qualified"] is False
+    assert any("duplicate_object_id" in e for e in result["errors"])
+
+
+def test_qualified_mode_fails_missing_manifest(tmp_path: Path) -> None:
+    """Missing manifest fails in qualified mode."""
+    manifest = tmp_path / "nonexistent.json"
+    result = run_qualification(manifest, "qualified")
+    assert result["qualified"] is False
+    assert "manifest_missing" in result["errors"]
+
+
+def test_exploratory_mode_unqualified(tmp_path: Path) -> None:
+    """Exploratory mode produces visibly unqualified artifact."""
+    manifest = make_manifest(tmp_path, complete=True)
+    result = run_qualification(manifest, "exploratory")
+    assert result["qualified"] is False
+    assert result["native_lineage_qualified"] is False
+    assert result["mode"] == "exploratory_unqualified"
+    assert "Exploratory mode" in result["note"]
+
+
+def test_legacy_mode_unqualified(tmp_path: Path) -> None:
+    """Legacy mode produces visibly unqualified artifact."""
+    manifest = make_manifest(tmp_path, complete=True)
+    result = run_qualification(manifest, "legacy")
+    assert result["qualified"] is False
+    assert result["native_lineage_qualified"] is False
+    assert result["mode"] == "legacy_unqualified"
+    assert "Legacy mode" in result["note"]
+
+
+def test_no_implicit_mode_fallback(tmp_path: Path) -> None:
+    """Qualified mode does not fall back to exploratory."""
+    manifest = make_manifest(tmp_path, complete=False)
+    result = run_qualification(manifest, "qualified")
+    assert result["qualified"] is False
+    assert result["mode"] == "fail_closed"
+    assert result["execution_mode"] == "qualified"
+
+
+def test_no_automatic_waivers(tmp_path: Path) -> None:
+    """Incomplete manifest cannot be waived to qualified."""
+    manifest = make_manifest(tmp_path, complete=False)
+    result = run_qualification(manifest, "qualified")
+    assert result["qualified"] is False
+    assert result["native_lineage_qualified"] is False
+    assert result["scientific_qualification"] is False
+
+
+def test_qualification_check_returns_error_details(tmp_path: Path) -> None:
+    """Qualification check returns detailed error information."""
+    manifest = make_manifest(tmp_path, complete=False)
+    result = qualification_check(manifest)
+    assert "errors" in result
+    assert len(result["errors"]) > 0
+    assert "checked_fields" in result
+    assert "object_count" in result
+    assert "observation_count" in result
+    assert "version_count" in result
+    assert "receipt_counts" in result
+
+
+def test_qualification_check_no_scientific_qualification(tmp_path: Path) -> None:
+    """Qualification never claims scientific qualification."""
+    manifest = make_manifest(tmp_path, complete=True)
+    result = qualification_check(manifest)
+    assert result["scientific_qualification"] is False
+    assert result["automatically_conditions_live_model"] is False

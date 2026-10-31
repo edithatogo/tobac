@@ -1,0 +1,27 @@
+{
+  "schema": "tobac.p6-phase-verification.v1",
+  "phase": "P6.4",
+  "phase_title": "Phase 6 verification and checkpoint",
+  "track_id": "native_archival_lineage_20261026",
+  "date": "2026-10-31",
+  "verification": {
+    "qualification_modes": ["qualified", "exploratory", "legacy"],
+    "fail_closed_on_missing_lineage": true,
+    "exploratory_mode_unqualified": true,
+    "legacy_mode_unqualified": true,
+    "no_implicit_mode_fallback": true,
+    "no_automatic_waivers": true,
+    "tests_run": [
+      "tests/engineering/test_qualification_check.py"
+    ],
+    "tests_passed": 10,
+    "tests_failed": 0,
+    "native_lineage_qualified": false,
+    "scientific_qualification": false,
+    "automatically_conditions_live_model": false
+  },
+  "scope": "P6.1-P6.4: Qualification enforcement implemented. Fail-closed on missing/tampered lineage. Exploratory and legacy modes produce visibly unqualified artifacts. No implicit mode fallback or automatic waivers. Full qualification requires P7/P8.",
+  "scientific_qualification": false,
+  "native_lineage_qualified": false,
+  "automatically_conditions_live_model": false
+}
