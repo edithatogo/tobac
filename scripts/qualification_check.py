@@ -11,7 +11,7 @@ import json
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -20,7 +20,7 @@ def read_json(path: Path) -> dict[str, Any]:
     if not isinstance(result, dict):
         msg = f"Expected JSON object in {path}"
         raise TypeError(msg)
-    return result
+    return cast("dict[str, Any]", result)
 
 
 def digest(path: Path) -> str:
@@ -87,27 +87,30 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
         errors.append("invalid_receipts_structure")
         qualified = False
     else:
+        receipts = cast("dict[str, Any]", receipts)
         for receipt_type in ("transformations", "validations", "publications"):
-            entries = receipts.get(receipt_type, [])
+            entries: Any = receipts.get(receipt_type, [])
             if not isinstance(entries, list):
                 errors.append(f"invalid_receipts_type:{receipt_type}")
                 qualified = False
                 continue
+            entries = cast("list[Any]", entries)
             for entry in entries:
                 if not isinstance(entry, dict):
                     errors.append(f"invalid_receipt_entry:{receipt_type}")
                     qualified = False
                     continue
+                entry = cast("dict[str, Any]", entry)
                 if not entry.get("receipt_id"):
                     errors.append(f"missing_receipt_id:{receipt_type}")
                     qualified = False
 
-    objects = manifest.get("objects", [])
+    objects: list[dict[str, Any]] = cast("list[dict[str, Any]]", manifest.get("objects", []))
     if not objects:
         errors.append("no_objects")
         qualified = False
     else:
-        seen_ids = set()
+        seen_ids: set[str] = set()
         for obj in objects:
             oid = obj.get("object_id")
             if not oid:
@@ -119,7 +122,7 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
             else:
                 seen_ids.add(oid)
 
-    observations = manifest.get("observations", [])
+    observations: list[dict[str, Any]] = cast("list[dict[str, Any]]", manifest.get("observations", []))
     if not observations:
         errors.append("no_observations")
         qualified = False
@@ -129,7 +132,7 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
                 errors.append("missing_observation_id")
                 qualified = False
 
-    versions = manifest.get("versions", [])
+    versions: list[dict[str, Any]] = cast("list[dict[str, Any]]", manifest.get("versions", []))
     obs_ids = {o.get("observation_id") for o in observations}
     for ver in versions:
         if not ver.get("version_id"):
@@ -149,6 +152,10 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
 
     mode = "qualified" if qualified and not errors else "fail_closed"
 
+    receipt_counts: dict[str, int] = {}
+    for key, value in receipts.items():
+        receipt_counts[key] = len(cast("list[Any]", value)) if isinstance(value, list) else 0
+
     return {
         "schema_version": "tobac.qualification-check.v1",
         "manifest_path": str(manifest_path),
@@ -159,7 +166,7 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
         "object_count": len(objects),
         "observation_count": len(observations),
         "version_count": len(versions),
-        "receipt_counts": {k: len(v) if isinstance(v, list) else 0 for k, v in receipts.items()},
+        "receipt_counts": receipt_counts,
         "native_lineage_qualified": qualified and not errors,
         "scientific_qualification": False,
         "automatically_conditions_live_model": False,
