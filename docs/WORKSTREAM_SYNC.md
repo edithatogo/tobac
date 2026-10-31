@@ -179,3 +179,25 @@ but are not installed commands; the environment remains inside the worktree.
 A retained SHINE article was assessed read-only as a second-source candidate;
 its hash differs from the earlier referenced source copy. No new native
 transformation, source registration or scientific acceptance is asserted.
+
+## SHINE extraction continuation — 29 October 2026
+
+Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` owns a bounded second-source
+consumer extraction in `/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`,
+branch `codex/native-lineage-shine-extraction-20261029`, base `b5e2214`. Scope:
+SHINE Table 2 parser/parity tests and exploratory consumer evidence; the archive
+producer's source, estate and active native operations remain with its owner.
+Only the already-retained source bytes and committed consumer metadata are read.
+Source capture and the earlier referenced edition remain distinct; no model input
+or scientific conclusion is changed. Next: test a strict locator and compare the
+published model-input parameters with the existing configuration. Scientific
+ecosystem remains open pending native managed-parser acceptance.
+
+The focused SHINE and workstream checks passed (48 tests), and a comparison of
+retained source bytes to committed consumer metadata was saved privately at
+`/Users/doughnut/Documents/tobac-native-lineage-private/20261029-shine-consumer-comparison/`.
+The source copy and earlier reference have distinct hashes and unknown capture
+equivalence. No native source registration, transformation receipt or scientific
+qualification has been claimed. The next consumer operation is a separately
+reviewed native transformation and strict record readback after the implementation
+is committed; producer registration and closure remain with the producer owner.
