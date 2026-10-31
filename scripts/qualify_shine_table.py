@@ -82,6 +82,8 @@ class TableParser(HTMLParser):
             self.in_body = False
         elif tag == "section":
             self.depth -= 1
+
+
 def _capture(pattern: str, text: str) -> tuple[str, ...]:
     found = list(re.finditer(pattern, text, re.IGNORECASE))
     if len(found) != 1:
@@ -107,8 +109,7 @@ def extract_table(raw: bytes) -> dict[str, Any]:
     selected = [
         (i, row)
         for i, row in enumerate(parser.rows[start:end], start=start)
-        if len(row) == ROW_CELLS
-        and row[0].rstrip().endswith(TRANSITION)
+        if len(row) == ROW_CELLS and row[0].rstrip().endswith(TRANSITION)
     ]
     if len(selected) != 1:
         msg = "SHINE cessation row is missing or duplicated"
