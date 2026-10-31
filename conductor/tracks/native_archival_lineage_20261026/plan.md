@@ -424,3 +424,18 @@ independent empirical observation or observed intervention effectiveness. No
 model input changed. Parser tests, actual native transformation/receipt, source
 registration, edition reconciliation and applicability review remain required.
 P4.1/P4.2 remain partial; this assessment does not complete either task.
+
+## SHINE Table 2 consumer comparison — 29 October 2026
+
+The retained SHINE HTML (SHA-256 `9d8fe4fca0e55129ebc9325edb93e2daf539e5328e48cb11e45ff4dfd943217e`)
+was compared with the retail model configuration using a strict table and row
+locator and independently retained expected values. The cessation model input is
+beta(23.4, 97.2); this is a published model input, not observed effectiveness or
+an independent new observation. The earlier referenced source copy has SHA-256
+`c97875c489e6759776aebf1b7d948603120c46914b13440493128ade93bcdd64`;
+no equivalence of capture or edition is assumed. Capture time remains unknown.
+Focused extraction and workstream tests passed (48 tests). The retained comparison
+and source bytes are private. P4.1 and P4.2 remain open: this comparison has not
+created a native transformation receipt, registered the source, or established
+native relationship closure. Scientific ecosystem remains open pending native
+managed-parser acceptance.
