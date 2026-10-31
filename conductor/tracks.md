@@ -124,7 +124,7 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [~] Phase 1-4 complete (foundations, producer gaps, source registration, dataset migration, phase verification); native integration remains open.**
+**Status: [~] Phase 1-6 complete (foundations, producer gaps, source registration, dataset migration, runner provenance, qualification enforcement); replay and acceptance remain open.**
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
 The current inventory and frozen producer capability map are implemented. Four
@@ -138,7 +138,11 @@ duplicate_object_id, incomplete_transformation_receipt, strict_record_interop
 (script: derive_native_source_refs.py, output: native-source-refs.json). P2.4 phase
 verification completed (20 tests pass, 4 probe gaps resolved, checkpoint recorded).
 
-Remaining: P5-P8 (runner integration, qualification, replay, acceptance).
+P5 runner provenance integration and P6 fail-closed qualification enforcement are
+implemented with explicit exploratory/legacy unqualified modes. P5 and P6 receipts
+record six runner interfaces and ten qualification tests. Native lineage and
+scientific qualification remain false until the P7 replay and P8 acceptance gates
+are executed.
 [Foundations](../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md);
 [MOH consumer checkpoint](../docs/engineering/MOH_NATIVE_LINEAGE.md). P4.1/P4.2
 are partial: actual extraction, native CAS/strict records and five negative controls
