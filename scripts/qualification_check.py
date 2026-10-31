@@ -49,7 +49,6 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
 
     if not manifest_path.is_file():
         errors.append("manifest_missing")
-        qualified = False
         return {
             "schema_version": "tobac.qualification-check.v1",
             "manifest_path": str(manifest_path),
@@ -65,7 +64,6 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
         manifest = read_json(manifest_path)
     except (json.JSONDecodeError, OSError, TypeError) as exc:
         errors.append(f"manifest_parse_error: {exc}")
-        qualified = False
         return {
             "schema_version": "tobac.qualification-check.v1",
             "manifest_path": str(manifest_path),
