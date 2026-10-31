@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any, cast
 
 ROOT = Path(__file__).resolve().parents[1]
+INVENTORY_DEFAULT = ROOT / "integration/archive/lineage-foundations-inventory_20261029.json"
 OUTPUT_DEFAULT = ROOT / "integration/archive/p4-dataset-migration_20261031.json"
 
 
@@ -32,10 +33,15 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def migrate_datasets(root: Path) -> dict[str, Any]:  # noqa: C901, PLR0912, PLR0915
+def migrate_datasets(  # noqa: C901, PLR0912, PLR0915
+    root: Path, inventory_path: Path | None = None
+) -> dict[str, Any]:
     """Classify every inventoried dataset by fixity and lineage status."""
     root = root.resolve()
-    inventory = read_json(root / "integration/archive/lineage-foundations-inventory_20261029.json")
+    inventory_path = (
+        inventory_path or root / "integration/archive/lineage-foundations-inventory_20261029.json"
+    )
+    inventory = read_json(inventory_path)
 
     items = inventory.get("files", [])
     migrated: list[dict[str, Any]] = []
@@ -126,22 +132,26 @@ def migrate_datasets(root: Path) -> dict[str, Any]:  # noqa: C901, PLR0912, PLR0
     pilots = {
         "moh_workbook": {
             "status": "exploratory",
-            "native_receipts": False,
+            "native_receipts": True,
             "native_source_registered": False,
-            "note": "MOH workbook extraction exists as exploratory only",
+            "note": "MOH workbook extraction has exploratory native CAS/strict records only",
         },
         "shine_table2": {
             "status": "exploratory",
-            "native_receipts": False,
+            "native_receipts": True,
             "native_source_registered": False,
-            "note": "SHINE Table 2 comparison exists as exploratory only",
+            "note": "SHINE Table 2 comparison has exploratory native CAS/strict records only",
         },
     }
 
     return {
         "schema_version": "tobac.p4-dataset-migration.v1",
         "derived_at": datetime.now(UTC).isoformat(),
-        "inventory_source": "integration/archive/lineage-foundations-inventory_20261029.json",
+        "inventory_source": (
+            str(inventory_path.relative_to(root))
+            if inventory_path.is_relative_to(root)
+            else str(inventory_path)
+        ),
         "total_items": len(items),
         "migrated_count": len(migrated),
         "unresolved_count": len(unresolved),
@@ -168,10 +178,11 @@ def migrate_datasets(root: Path) -> dict[str, Any]:  # noqa: C901, PLR0912, PLR0
 def main() -> None:
     """Write a dataset migration receipt."""
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--inventory", type=Path, default=INVENTORY_DEFAULT)
     parser.add_argument("--out", type=Path, default=OUTPUT_DEFAULT)
     args = parser.parse_args()
 
-    result = migrate_datasets(ROOT)
+    result = migrate_datasets(ROOT, args.inventory)
     if args.out.exists() or args.out.is_symlink():
         parser.error("Refusing to overwrite an existing migration receipt")
     args.out.parent.mkdir(parents=True, exist_ok=True)

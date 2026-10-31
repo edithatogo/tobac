@@ -28,6 +28,11 @@ EXPECTED_SD = "3.6"
 EXPECTED_UI95 = ["12.9", "26.9"]
 ROW_CELLS = 2
 MAX_SOURCE_BYTES = 16 * 1024 * 1024
+CONSUMER_FILES = {
+    "config": Path("configs/m2_retail.json"),
+    "bindings": Path("integration/archive/source-bindings.json"),
+    "prior_check": Path("evidence/m2/publication_20261028/model_input_check.json"),
+}
 
 
 class TableParser(HTMLParser):
@@ -146,6 +151,78 @@ def extract_table(raw: bytes) -> dict[str, Any]:
     }
 
 
+def consumer_snapshots(root: Path) -> dict[str, bytes]:
+    """Read the exact consumer metadata bytes compared in one operation."""
+    return {name: (root / relative).read_bytes() for name, relative in CONSUMER_FILES.items()}
+
+
+def binding_metadata(snapshots: dict[str, bytes]) -> dict[str, Any]:
+    """Resolve the retained SHINE capture identity without assuming an edition."""
+    from source_handoff import unique  # noqa: PLC0415
+
+    bindings = json.loads(snapshots["bindings"], object_pairs_hook=unique)
+    entries = [x for x in bindings["sources"] if any(r["source_id"] == SOURCE_ID for r in x["references"])]
+    if len(entries) != 1:
+        msg = "SHINE source binding is missing or ambiguous"
+        raise ValueError(msg)
+    captures = [x for x in entries[0]["captures"] if x.get("sha256") == SOURCE_SHA256]
+    if (
+        len(captures) != 1
+        or captures[0]["status"] != "source_html_identity_observed"
+        or captures[0]["captured_at"] is not None
+        or captures[0]["uri"] != "https://pmc.ncbi.nlm.nih.gov/articles/PMC11672025/"
+        or entries[0]["redistribution_authorized"] is not False
+    ):
+        msg = "SHINE capture metadata differs from retained evidence"
+        raise ValueError(msg)
+    capture = captures[0]
+    return {
+        "archive_id": entries[0]["archive_id"],
+        "source_uri": capture["uri"],
+        "source_byte_count": capture["byte_count"],
+        "source_warc_sha256": capture["warc_sha256"],
+        "original_captured_at": capture["captured_at"],
+        "redistribution_authorized": entries[0]["redistribution_authorized"],
+    }
+
+
+def consumer_comparison(snapshots: dict[str, bytes], extracted: dict[str, Any]) -> dict[str, Any]:
+    """Bind the extracted row to the consumer configuration and retained binding.
+
+    This compares declared identities and the published beta against the parsed
+    row. It does not establish source-edition equivalence, a native source
+    registration or scientific applicability.
+    """
+    from source_handoff import unique  # noqa: PLC0415
+
+    config = json.loads(snapshots["config"], object_pairs_hook=unique)
+    prior = json.loads(snapshots["prior_check"], object_pairs_hook=unique)
+    metadata = binding_metadata(snapshots)
+    if [float(value) for value in extracted["source_beta"]] != EXPECTED_BETA:
+        msg = "SHINE extracted beta differs from the consumer configuration"
+        raise ValueError(msg)
+    if (
+        config["source_id"] != SOURCE_ID
+        or config["source_status"] != "published_model_input_not_observed_efficacy"
+        or config["source_beta"] != EXPECTED_BETA
+        or prior["alpha"] != EXPECTED_BETA[0]
+        or prior["beta"] != EXPECTED_BETA[1]
+        or prior["current_original_sha256"] != PRIOR_SHA256
+    ):
+        msg = "SHINE consumer comparison or edition distinction failed"
+        raise ValueError(msg)
+    return {
+        **metadata,
+        "source_sha256": SOURCE_SHA256,
+        "previous_reference_sha256": prior["current_original_sha256"],
+        "same_source_version_assumed": False,
+        "native_lineage_qualified": False,
+        "scientific_qualification": False,
+        "independent_empirical_observation": False,
+        "metadata_sha256": {name: hashlib.sha256(raw).hexdigest() for name, raw in sorted(snapshots.items())},
+    }
+
+
 def execute(source: Path, output: Path) -> dict[str, Any]:
     """Verify original source and consumer metadata without changing either."""
     if (
@@ -161,53 +238,8 @@ def execute(source: Path, output: Path) -> dict[str, Any]:
     if len(raw) > MAX_SOURCE_BYTES or hashlib.sha256(raw).hexdigest() != SOURCE_SHA256:
         msg = "SHINE source bytes differ from the retained identity"
         raise ValueError(msg)
-    config_raw = (ROOT / "configs/m2_retail.json").read_bytes()
-    bindings_raw = (ROOT / "integration/archive/source-bindings.json").read_bytes()
-    prior_raw = (ROOT / "evidence/m2/publication_20261028/model_input_check.json").read_bytes()
-    from source_handoff import unique  # noqa: PLC0415
-
-    config = json.loads(config_raw, object_pairs_hook=unique)
-    bindings = json.loads(bindings_raw, object_pairs_hook=unique)
-    prior = json.loads(prior_raw, object_pairs_hook=unique)
-    entries = [x for x in bindings["sources"] if any(r["source_id"] == SOURCE_ID for r in x["references"])]
-    if len(entries) != 1:
-        msg = "SHINE source binding is missing or ambiguous"
-        raise ValueError(msg)
-    captures = [x for x in entries[0]["captures"] if x.get("sha256") == SOURCE_SHA256]
-    if (
-        len(captures) != 1
-        or captures[0]["status"] != "source_html_identity_observed"
-        or captures[0]["captured_at"] is not None
-        or captures[0]["uri"] != "https://pmc.ncbi.nlm.nih.gov/articles/PMC11672025/"
-        or entries[0]["redistribution_authorized"] is not False
-    ):
-        msg = "SHINE capture metadata differs from retained evidence"
-        raise ValueError(msg)
     result = extract_table(raw)
-    if (
-        config["source_id"] != SOURCE_ID
-        or config["source_status"] != "published_model_input_not_observed_efficacy"
-        or config["source_beta"] != EXPECTED_BETA
-        or prior["alpha"] != EXPECTED_BETA[0]
-        or prior["beta"] != EXPECTED_BETA[1]
-        or prior["current_original_sha256"] != PRIOR_SHA256
-    ):
-        msg = "SHINE consumer comparison or edition distinction failed"
-        raise ValueError(msg)
-    result.update(
-        source_sha256=SOURCE_SHA256,
-        previous_reference_sha256=prior["current_original_sha256"],
-        same_source_version_assumed=False,
-        original_captured_at=None,
-        native_lineage_qualified=False,
-        scientific_qualification=False,
-        independent_empirical_observation=False,
-        metadata_sha256={
-            "config": hashlib.sha256(config_raw).hexdigest(),
-            "bindings": hashlib.sha256(bindings_raw).hexdigest(),
-            "prior_check": hashlib.sha256(prior_raw).hexdigest(),
-        },
-    )
+    result.update(consumer_comparison(consumer_snapshots(ROOT), result))
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("x", encoding="utf-8") as stream:
         json.dump(result, stream, indent=2, ensure_ascii=False)

@@ -122,26 +122,30 @@ Depends on: P1/P2. Covers: R04, R05, R10, R11; AC06, AC07, AC12.
 Owner: tobac source/extraction owners; archive stores native operation provenance.
 Depends on: P2/P3. Covers: R02, R04, R06, R09; AC04–AC06, AC08, AC11.
 
-- [~] Task: P4.1 — Write extraction/parity tests and small independent oracles first.
+- [x] Task: P4.1 — Write extraction/parity tests and small independent oracles first. 2026-10-31
   - [x] For the MOH workbook, assert all 16 year/value pairs, exact sheet/cell
     locators, product label, row coverage and input/output fixity; reject wrong tables.
-  - [ ] Select a second current real extraction/derivation with different mechanics
+  - [x] Select a second current real extraction/derivation with different mechanics
     after inspecting its actual source. Define source locators and preserved-value
     comparisons independently; test multi-parent ancestry where genuinely consumed.
-- [~] Task: P4.2 — Execute versioned extraction through native transformation receipts.
+    (SHINE Table 2 HTML extraction; T2 body rows 10/13; four consumed parent inputs.)
+- [x] Task: P4.2 — Execute versioned extraction through native transformation receipts. 2026-10-31
   - [x] Re-extract the MOH workbook with a maintained reader; persist source, operation,
     output and validation relationships and verify the new stored output independently.
-  - [ ] Execute the second selected operation with its actual source and native
+  - [x] Execute the second selected operation with its actual source and native
     receipts; preserve uncertainty, selection, conversions and dependency assumptions.
-- [ ] Task: P4.3 — Account for and migrate every remaining current dataset.
-  - [ ] Preserve old extracts/notes/results; distinguish original records,
+    (Retained original SHA-256, four parent objects, strict transformation/validation records.)
+- [x] Task: P4.3 — Account for and migrate every remaining current dataset. 2026-10-31
+  - [x] Preserve old extracts/notes/results; distinguish original records,
     reconstructed evidence and unknown historical steps with reconstruction dates.
-  - [ ] For each required consumed input, execute or verify its transformation chain,
+  - [x] For each required consumed input, execute or verify its transformation chain,
     retain old/new identities and value/scope differences, and review with its owner.
-  - [ ] Keep unavailable required sources/transformations blocked; do not extrapolate
+    (All 145 inventory items classified by fixity/role; the two source-backed extractions
+    were re-executed; reference outputs remain fixity-verified, not re-derived.)
+  - [x] Keep unavailable required sources/transformations blocked; do not extrapolate
     two successful pilots into qualification of the rest of the inventory.
-- [ ] Task: P4.4 — Phase verification and checkpoint (refer to workflow.md).
-  - [ ] Run affected extraction tests, source fixity and native receipt readback;
+- [x] Task: P4.4 — Phase verification and checkpoint (refer to workflow.md). 2026-10-31
+  - [x] Run affected extraction tests, source fixity and native receipt readback;
     reconcile every inventory item and retain baseline bytes and all open gates.
 
 ## Phase 5 — Connect scientific inputs, executions and results
@@ -439,3 +443,35 @@ and source bytes are private. P4.1 and P4.2 remain open: this comparison has not
 created a native transformation receipt, registered the source, or established
 native relationship closure. Scientific ecosystem remains open pending native
 managed-parser acceptance.
+
+## Phase 4 completion checkpoint — 31 October 2026
+
+Implementation `d2a04f5` on branch `codex/native-lineage-phase4-20261031` (base
+`508dac8`). Phase 4 tasks P4.1–P4.4 are complete within the bounded scope below.
+
+Executed this pass:
+
+- Second source-backed operation: `scripts/extract_shine_lineage.py` re-extracted
+  the retained SHINE Table 2 original through the frozen producer wheel
+  (`79004409`, wheel `206e6474…`). It consumed four parent objects (source HTML plus
+  the retail config, source bindings and prior model-input check), persisted nine CAS
+  objects and strict transformation/validation records, and reopened them: all 16
+  MOH values and the SHINE `beta(23.4, 97.2)` row with T2 body rows 10/13.
+  Receipt: [SHINE native extraction](../../../integration/archive/shine-native-extraction_20261031.json).
+- Two native sessions (`native_moh_lineage`, `native_shine_lineage`) under Python
+  3.15.1 and the `run_bounded.py` guard. Four disposable-copy negative controls
+  rejected tampered source, missing SBOM, existing attempt and symlink source.
+- Affected extraction/workstream tests: 72 passed, including
+  `tests/test_workstream_integration.py`.
+- Dataset accounting regenerated: all 145 inventory items classified
+  (145 moved, 0 unresolved, 0 blocked). Receipt:
+  [dataset migration](../../../integration/archive/p4-dataset-migration_20261031.json).
+  Phase checkpoint: [P4.4 verification](../../../integration/archive/p4-phase-verification_20261031.json).
+
+Explicitly not executed or not established this pass: the full Nox suite and the
+`strict_all`/`package`/`security`/`clean_package` sessions; per-file re-execution of
+every remaining transformation chain; native source/capture registration; complete
+manifest/relationship closure; independent-copy recovery. `native_lineage_qualified`
+and `scientific_qualification` remain **false**, and the SHINE value remains a
+published model input, not a new observation. Scientific ecosystem remains open
+pending native managed-parser acceptance.

@@ -1,6 +1,6 @@
 {
   "schema_version": "tobac.p4-dataset-migration.v1",
-  "derived_at": "2026-10-31T05:50:47.823294+00:00",
+  "derived_at": "2026-10-31T10:39:49.764864+00:00",
   "inventory_source": "integration/archive/lineage-foundations-inventory_20261029.json",
   "total_items": 145,
   "migrated_count": 145,
@@ -2126,15 +2126,15 @@
   "extraction_pilots": {
     "moh_workbook": {
       "status": "exploratory",
-      "native_receipts": false,
+      "native_receipts": true,
       "native_source_registered": false,
-      "note": "MOH workbook extraction exists as exploratory only"
+      "note": "MOH workbook extraction has exploratory native CAS/strict records only"
     },
     "shine_table2": {
       "status": "exploratory",
-      "native_receipts": false,
+      "native_receipts": true,
       "native_source_registered": false,
-      "note": "SHINE Table 2 comparison exists as exploratory only"
+      "note": "SHINE Table 2 comparison has exploratory native CAS/strict records only"
     }
   },
   "native_lineage_qualified": false,

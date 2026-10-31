@@ -605,6 +605,18 @@ def native_moh_lineage(session: nox.Session) -> None:
 
 
 @nox.session(python="3.15.1")
+def native_shine_lineage(session: nox.Session) -> None:
+    """Consume an explicit repo-local installed producer; never mutate its live estate."""
+    if not session.posargs:
+        session.error("Supply the consumer-owned producer Python followed by extraction arguments")
+    selected = Path(session.posargs[0]).absolute()
+    if not selected.is_relative_to(ROOT):
+        session.error("Select a consumer-owned repo-local producer environment")
+    session.env["PYTHONPATH"] = str(ROOT / "src")
+    session.run(str(selected), "scripts/extract_shine_lineage.py", *session.posargs[1:], external=True)
+
+
+@nox.session(python="3.15.1")
 def product_reconciliation(session: nox.Session) -> None:
     """Recompute dated source-bound product tables; no source acquisition or conditioning."""
     environment(session)
