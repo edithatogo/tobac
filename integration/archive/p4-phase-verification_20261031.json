@@ -3,12 +3,14 @@
   "phase": "P4.4",
   "phase_title": "Phase 4 verification and checkpoint",
   "track_id": "native_archival_lineage_20261026",
-  "consumer_commit": "46b29a6",
+  "consumer_commit": "d2a04f5",
   "date": "2026-10-31",
   "verification": {
     "extraction_tests_run": [
       "tests/engineering/test_moh_native_extraction.py",
       "tests/engineering/test_shine_table.py",
+      "tests/engineering/test_shine_native_extraction.py",
+      "tests/engineering/test_migrate_datasets.py",
       "tests/engineering/test_moh_rehearsal_preflight.py"
     ],
     "source_fixity_verified": true,
@@ -27,8 +29,8 @@
       }
     },
     "extraction_pilots": {
-      "moh_workbook": "exploratory (16 values, native CAS, strict records, 5 negative controls)",
-      "shine_table2": "exploratory (beta(23.4, 97.2), strict table locator, consumer comparison)"
+      "moh_workbook": "exploratory (16 values, Sheet1 A2:B17, native CAS, strict records, 5 negative controls)",
+      "shine_table2": "exploratory (beta(23.4, 97.2), T2 body rows 10/13, 4-parent native transformation + validation records, 4 negative controls)"
     },
     "baseline_bytes_retained": true,
     "open_gates": [
@@ -40,9 +42,18 @@
     ],
     "native_lineage_qualified": false,
     "scientific_qualification": false,
-    "automatically_conditions_live_model": false
+    "automatically_conditions_live_model": false,
+    "affected_tests_passed": 72,
+    "workstream_integration_run": "tests/test_workstream_integration.py included in the 72 passed",
+    "shine_native_receipt": "integration/archive/shine-native-extraction_20261031.json",
+    "native_session": "native_shine_lineage passed (nox, Python 3.15.1, peak 138.1 MiB)",
+    "not_executed_this_pass": [
+      "full Nox test suite",
+      "strict_all / package / security / clean_package sessions",
+      "production of every remaining dataset transformation chain"
+    ]
   },
-  "scope": "P4.4 verification checkpoint: all 145 inventoried items accounted for and migrated. Legacy evidence preserved with reconstructed labels. Reference outputs verified for fixity. Evidence extracts and parameters verified. No extrapolation from 2 exploratory pilots to full qualification. Native lineage qualification requires producer P2/P3 work.",
+  "scope": "P4.4 verification checkpoint: all 145 inventoried items accounted for and migrated with legacy evidence preserved and reconstructed labels. Two source-backed exploratory operations now emit actual native CAS objects and strict transformation/validation records (MOH workbook; SHINE Table 2 with four parent inputs). Only affected extraction/workstream tests and the native session were executed in this pass; the full Nox suite, strict/package/security sessions and per-file transformation re-execution were not run and are recorded as open. No extrapolation from two exploratory pilots to native or scientific qualification.",
   "scientific_qualification": false,
   "native_lineage_qualified": false,
   "automatically_conditions_live_model": false

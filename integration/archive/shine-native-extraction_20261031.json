@@ -1,0 +1,96 @@
+{
+  "schema": "tobac.shine-native-extraction-summary.v1",
+  "execution_mode": "exploratory",
+  "date": "2026-10-31",
+  "producer_revision": "790044096f6946ff9a21662108f4d924cbad0ba2",
+  "producer_wheel_sha256": "206e6474d155a6e0f7e0b6f70b5b59747fda473b8643193dc2a580bb7e98c640",
+  "implementation_revision": "d2a04f5b4867c09cc6438937fd4cddbcd5e3ac38",
+  "implementation_sha256": "ddeb224597d68b613c59a9a322e151a11f7841792e5270072f47309db89a74d8",
+  "comparison_implementation_sha256": "9e2a75089c539a21749609331905d00d776ee34780540243ee084f950e2130bb",
+  "source_sha256": "9d8fe4fca0e55129ebc9325edb93e2daf539e5328e48cb11e45ff4dfd943217e",
+  "source_byte_count": 236088,
+  "original_captured_at": null,
+  "source_capture_time_verified": false,
+  "source_locator": {
+    "section": "T2",
+    "retail_body_row": 10,
+    "cessation_body_row": 13,
+    "transition": "CS\u2192FSFVCS\u2192FSCVDU\u2192FSFVDU\u2192FSCV"
+  },
+  "source_beta": [
+    "23.4",
+    "97.2"
+  ],
+  "previous_reference_sha256": "c97875c489e6759776aebf1b7d948603120c46914b13440493128ade93bcdd64",
+  "same_source_version_assumed": false,
+  "independent_empirical_observation": false,
+  "extracted_object_id": "sha256:571f52fc2bfb58a18e85167d000361be8fddece6a45b1379559859b334b7d541",
+  "transformation_object_id": "sha256:efe0521b925433d6a8c974beebe959fa55b29b6a42e4485097c73edff1e61aaf",
+  "validation_object_id": "sha256:c792ad731fc14315fb4ffa6c04fba03338c27e832fd8bb61407ca8f1aea86f39",
+  "environment_object_id": "sha256:70ef62a639360c064cebb9479a3dd7cf90e1e3a84d11a8b7846fcdcf3915f010",
+  "environment_sbom_object_id": "sha256:035384ce3338de8102b9d8d821d9b5232b914ca4f2d2778a24cf710f618a6116",
+  "native_object_count": 9,
+  "native_lineage_qualified": false,
+  "scientific_qualification": false,
+  "automatically_conditions_live_model": false,
+  "remaining_producer_gates": [
+    "native source/capture registration and WARC dates",
+    "complete manifest/strict-record interoperability and closure",
+    "independent-copy recovery"
+  ],
+  "scope": "Actual SHINE Table 2 extraction/native CAS/records; manifest and runner closure remain open",
+  "installed_packages": 81,
+  "native_readback": {
+    "native_records_reopened": 2,
+    "native_cas_objects_verified": 9,
+    "multi_parent_inputs": 4,
+    "negative_controls": [
+      {
+        "control": "tampered_source",
+        "rejected": true,
+        "error_class": "ValueError",
+        "output_created": false
+      },
+      {
+        "control": "missing_sbom",
+        "rejected": true,
+        "error_class": "ValueError",
+        "output_created": false
+      },
+      {
+        "control": "existing_attempt",
+        "rejected": true,
+        "error_class": "FileExistsError",
+        "output_created": true
+      },
+      {
+        "control": "symlink_source",
+        "rejected": true,
+        "error_class": "ValueError",
+        "output_created": false
+      }
+    ],
+    "original_attempt_unchanged": true
+  },
+  "verification": {
+    "affected_tests_passed": 72,
+    "affected_test_files": [
+      "tests/engineering/test_shine_table.py",
+      "tests/engineering/test_shine_native_extraction.py",
+      "tests/engineering/test_migrate_datasets.py",
+      "tests/engineering/test_moh_native_extraction.py",
+      "tests/test_workstream_integration.py"
+    ],
+    "native_session": "native_shine_lineage passed (nox, Python 3.15.1)",
+    "scientific_inputs_changed": false,
+    "full_nox_suite_run": false,
+    "note": "Only the affected extraction/workstream tests and the native session were executed for this receipt; the full Nox suite, strict_all, package and security sessions were not run in this Phase 4 pass."
+  },
+  "private_evidence_sha256": {
+    "receipt.json": "a4faefb8d8c12a5f6bfcbb96953b49d7b47a03bb98f2c510cf536703dbe7dca4",
+    "transformation.json": "efe0521b925433d6a8c974beebe959fa55b29b6a42e4485097c73edff1e61aaf",
+    "validation.json": "c792ad731fc14315fb4ffa6c04fba03338c27e832fd8bb61407ca8f1aea86f39",
+    "shine-negative-controls.json": "11b5ffe68c4fd674dc97958746552301145d36ca736645169c0e3e3506b9837f",
+    "native-session.log": "6f9db99c42481926eb89b53d27ae4ed21a2f0a25e7df61a927d403b72872ad2d"
+  }
+}

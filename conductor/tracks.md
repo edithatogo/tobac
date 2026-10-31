@@ -124,7 +124,7 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [~] Phase 1-6 complete (foundations, producer gaps, source registration, dataset migration, runner provenance, qualification enforcement); replay and acceptance remain open.**
+**Status: [~] Phase 1-6 complete (foundations, producer gaps, source registration, dataset migration, runner provenance, qualification enforcement); Phase 4 re-executed with a second native operation; replay and acceptance remain open.**
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
 The current inventory and frozen producer capability map are implemented. Four
@@ -144,12 +144,15 @@ record six runner interfaces and ten qualification tests. Native lineage and
 scientific qualification remain false until the P7 replay and P8 acceptance gates
 are executed.
 [Foundations](../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md);
-[MOH consumer checkpoint](../docs/engineering/MOH_NATIVE_LINEAGE.md). P4.1/P4.2
-are partial: actual extraction, native CAS/strict records and five negative controls
-pass. Full tests (1084/13 capability skips), strict/package/security/clean-package
-checks and clean-source numerical replay pass. A new same-device recovery rehearsal
-and scoped inventory guard are recorded; native registration, graph closure and
-independent preservation remain open. Hosted checks apply to each publication.
+[MOH consumer checkpoint](../docs/engineering/MOH_NATIVE_LINEAGE.md). Phase 4 is
+complete at implementation `d2a04f5`: the MOH workbook and a second SHINE Table 2
+operation each emit actual native CAS objects and strict transformation/validation
+records through the frozen producer wheel, with four-parent ancestry for SHINE and
+negative controls. 72 affected extraction/workstream tests and both native sessions
+pass under Python 3.15.1. The 145-item dataset accounting is regenerated with zero
+blocked items. Native source registration, graph/cluster closure, per-file chain
+re-execution and independent preservation remain open; `native_lineage_qualified`
+and `scientific_qualification` stay false. Hosted checks apply to each publication.
 Public-source-only and no-request constraints continue to apply.
 
 ## Hosted Linux and Windows test qualification

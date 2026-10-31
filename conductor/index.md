@@ -29,7 +29,7 @@
 
 - [Voiage Polars consumer qualification](./tracks/voiage_polars_qualification_20261026/plan.md): merged unreleased candidate with caller-buffer isolation requalified 28 October; candidate qualification remains on macOS, with Linux/Windows runtime tests added by PR #66; published-3.0 gate externally blocked.
 
-- [Native archival provenance and transformation lineage](./tracks/native_archival_lineage_20261026/index.md): Phase 1 foundations implemented/reviewed; frozen producer capability probes and a current derived asset inventory retain explicit native integration gaps.
+- [Native archival provenance and transformation lineage](./tracks/native_archival_lineage_20261026/index.md): Phase 4 re-executed with MOH and SHINE native operations (actual CAS/strict records); native source registration, graph closure, per-file chain re-execution and independent preservation remain open.
 
 - [M2 matched evidence pathway](./archive/m2_matched_evidence_20261027/plan.md):
   completed issue #3 bounded source-feasibility audit and self-review;

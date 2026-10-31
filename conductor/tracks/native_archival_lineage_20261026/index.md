@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage
 
-Status: **in progress** — Phase 1 foundations implemented and reviewed; native integration open.
+Status: **in progress** — Phase 4 complete (MOH and SHINE source-backed native operations); later replay/acceptance phases and native source registration remain open.
 Track ID: `native_archival_lineage_20261026`. Type: Feature.
 
 Trace every current and future dataset through native archival preservation,
