@@ -1,0 +1,54 @@
+{
+  "schema": "tobac.p3.3-verification.v1",
+  "phase": "P3.3",
+  "phase_title": "Verify integration through the producer's native public interface",
+  "track_id": "native_archival_lineage_20261026",
+  "producer_branch": "feat/p2-p3-native-lineage-gaps",
+  "producer_commit": "c98206a4",
+  "consumer_commit": "46b29a6",
+  "date": "2026-10-31",
+  "verification": {
+    "bounded_real_operation": {
+      "executed": true,
+      "source_id": "moh-workbook-test",
+      "source_uri": "web://health.govt.nz/moh-workbook",
+      "object_id": "sha256:3fe46d2ab3b81a1a196c0b4f44011830239c1a11b5bac036a1fd66cd56afecbd",
+      "warc_record_id": "urn:uuid:a0ed39e2-62e9-429e-9c59-fdf583985634",
+      "manifest_hash": "9c35a10c6e0abde31741f1c517a2020affffe317017337aae3381447a04fa256"
+    },
+    "persist_reopen_verify": {
+      "manifest_persisted": true,
+      "source_registration_persisted": true,
+      "warc_record_persisted": true,
+      "manifest_hash_verified": true,
+      "source_bytes_verified": true,
+      "warc_header_verified": true,
+      "registration_reopened_verified": true
+    },
+    "dependency_closure_traced": {
+      "source": "moh-workbook-test",
+      "object": "sha256:3fe46d2ab3b81a1a196c0b4f44011830239c1a11b5bac036a1fd66cd56afecbd",
+      "version": "moh-workbook-test-v1",
+      "transformation": "t1-moh-extract",
+      "validation": "v1-moh-validate",
+      "warc": "urn:uuid:a0ed39e2-62e9-429e-9c59-fdf583985634",
+      "all_ids_verified_in_manifest": true
+    },
+    "negative_mutations_exercised": 5,
+    "negative_mutations_rejected": 5,
+    "negative_mutation_results": [
+      {"case": "duplicate_object_id", "rejected": true, "error_class": "duplicate_object_id"},
+      {"case": "dangling_observation", "rejected": true, "error_class": "dangling_observation"},
+      {"case": "incomplete_transformation_receipt", "rejected": true, "error_class": "incomplete_transformation_receipt"},
+      {"case": "dangling_warc_object", "rejected": true, "error_class": "dangling_warc_object"},
+      {"case": "unknown_receipt_type", "rejected": true, "error_class": "unknown_receipt_type"}
+    ],
+    "native_lineage_qualified": false,
+    "scientific_qualification": false,
+    "automatically_conditions_live_model": false
+  },
+  "scope": "P3.3 verification: bounded real operation (source registration + manifest build), persist/reopen/verify, dependency closure trace, 5 negative mutations all rejected. Synthetic controls distinct from source-backed execution. No network capture performed.",
+  "scientific_qualification": false,
+  "native_lineage_qualified": false,
+  "automatically_conditions_live_model": false
+}

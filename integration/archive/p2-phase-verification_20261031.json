@@ -1,0 +1,67 @@
+{
+  "schema": "tobac.p2-phase-verification.v1",
+  "phase": "P2.4",
+  "phase_title": "Phase 2 verification and checkpoint",
+  "track_id": "native_archival_lineage_20261026",
+  "producer_branch": "feat/p2-p3-native-lineage-gaps",
+  "producer_commit": "89def194",
+  "producer_revision_inspected": "790044096f6946ff9a21662108f4d924cbad0ba2",
+  "consumer_commit": "b98752f71b9730d6dfc24e747ce4c7e58b94b27c",
+  "date": "2026-10-31",
+  "verification": {
+    "affected_tests_run": [
+      "tests/provenance/test_provenance.py",
+      "tests/provenance/test_p2_p3_gaps.py",
+      "tests/provenance/test_record_adapters.py"
+    ],
+    "tests_passed": 20,
+    "tests_failed": 0,
+    "test_classes_covered": [
+      "ProvenanceError",
+      "build_manifest",
+      "write_response_record",
+      "SourceManifest",
+      "transformation_record_to_receipt",
+      "validation_record_to_receipt",
+      "publication_record_to_receipt",
+      "build_receipts_from_records"
+    ],
+    "native_readback": {
+      "producer_modules_probed": [
+        "src/archive_govt_nz/provenance.py",
+        "src/archive_govt_nz/records.py",
+        "src/archive_govt_nz/warc.py"
+      ],
+      "probe_results": {
+        "deterministic_manifest": true,
+        "dangling_observation_rejected": true,
+        "duplicate_object_id_rejected": true,
+        "incomplete_transformation_receipt_rejected": true,
+        "strict_record_manifest_interoperability": true,
+        "warc_has_capture_date": true
+      },
+      "native_lineage_qualified": false
+    }
+  },
+  "coverage": {
+    "p2_1_source_capture_contract_tests": "partial",
+    "p2_2_native_registration_capture_gaps": "partial",
+    "p2_3_source_binding_export_migration": "implemented",
+    "p2_4_phase_verification": "completed",
+    "p3_1_closure_failure_tests": "partial",
+    "p3_2_extend_native_producer_contracts": "partial",
+    "p3_3_producer_interface_verification": "not_started",
+    "p3_4_phase_verification": "not_started"
+  },
+  "unresolved_required_originals": [
+    "native source/capture registration and WARC dates (producer gap)",
+    "complete manifest/strict-record interoperability and closure (partially resolved via adapters)",
+    "independent-copy recovery (not demonstrated)",
+    "source-binding export migration (implemented but not verified against live producer)",
+    "phase verification on actual permitted source (blocked by network/dependencies)"
+  ],
+  "scope": "Phase 2.4 verification checkpoint: affected provenance tests pass, probe gaps resolved, native readback on frozen producer code. Full capture/source/manifest tests on actual permitted source remain pending network/dependency availability.",
+  "scientific_qualification": false,
+  "native_lineage_qualified": false,
+  "automatically_conditions_live_model": false
+}

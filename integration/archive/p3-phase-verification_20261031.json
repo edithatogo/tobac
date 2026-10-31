@@ -1,0 +1,75 @@
+{
+  "schema": "tobac.p3-phase-verification.v1",
+  "phase": "P3.4",
+  "phase_title": "Phase 3 verification and checkpoint",
+  "track_id": "native_archival_lineage_20261026",
+  "producer_branch": "feat/p2-p3-native-lineage-gaps",
+  "producer_commit": "89def194",
+  "producer_revision_inspected": "790044096f6946ff9a21662108f4d924cbad0ba2",
+  "consumer_commit": "b98752f71b9730d6dfc24e747ce4c7e58b94b27c",
+  "date": "2026-10-31",
+  "verification": {
+    "affected_tests_run": [
+      "tests/provenance/test_provenance.py",
+      "tests/provenance/test_p2_p3_gaps.py",
+      "tests/provenance/test_record_adapters.py",
+      "tests/warc/test_warc.py"
+    ],
+    "tests_passed": 26,
+    "tests_failed": 0,
+    "test_classes_covered": [
+      "ProvenanceError",
+      "build_manifest",
+      "write_response_record",
+      "SourceManifest",
+      "transformation_record_to_receipt",
+      "validation_record_to_receipt",
+      "publication_record_to_receipt",
+      "build_receipts_from_records",
+      "WarcReceipt"
+    ],
+    "native_tests_blocked": [
+      "tests/records/test_archive_records.py (requires jsonschema)",
+      "tests/warc/test_warc_binding.py (requires httpx)",
+      "tests/warc/test_warc_binding_strict.py (requires httpx)"
+    ],
+    "native_readback": {
+      "producer_modules_probed": [
+        "src/archive_govt_nz/provenance.py",
+        "src/archive_govt_nz/records.py",
+        "src/archive_govt_nz/warc.py",
+        "src/archive_govt_nz/core/manifests.py"
+      ],
+      "probe_results": {
+        "deterministic_manifest": true,
+        "dangling_observation_rejected": true,
+        "duplicate_object_id_rejected": true,
+        "incomplete_transformation_receipt_rejected": true,
+        "strict_record_manifest_interoperability": true,
+        "warc_has_capture_date": true
+      },
+      "native_lineage_qualified": false
+    },
+    "producer_artifacts": {
+      "provenance_py_sha256": "a4d31a096067c58b9fbc24ca3bdc638e91c93cc4ec811d0b1da23bd09f18a82a",
+      "records_py_sha256": "8ead1d7b34bef57dfc294b9f1a9792c838560232079224a8b35ecb680accb5c3",
+      "warc_py_sha256": "f4f658c956051ff90f51254a48b3c5b15f7cdb400b7bc1f2d148cab2f3e5469f"
+    },
+    "api_revisions": {
+      "provenance_api": "build_manifest, _validate_receipts, transformation_record_to_receipt, validation_record_to_receipt, publication_record_to_receipt, build_receipts_from_records",
+      "warc_api": "write_response_record, _warc_date",
+      "manifests_api": "SourceManifest (with __post_init__ URI validation)",
+      "cli_api": "source register command"
+    }
+  },
+  "coverage": {
+    "p3_1_closure_failure_tests": "partial",
+    "p3_2_extend_native_producer_contracts": "partial",
+    "p3_3_producer_interface_verification": "not_started",
+    "p3_4_phase_verification": "completed"
+  },
+  "scope": "Phase 3.4 verification checkpoint: affected provenance and WARC tests pass (26), probe gaps resolved (4/4), producer artifact hashes recorded, API revisions documented. Full native tests blocked by missing httpx/jsonschema dependencies. P3.3 bounded real operation verification remains pending network/dependency availability.",
+  "scientific_qualification": false,
+  "native_lineage_qualified": false,
+  "automatically_conditions_live_model": false
+}
