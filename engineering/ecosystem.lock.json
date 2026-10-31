@@ -1,16 +1,16 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "ecosystem",
-  "resolver": "uv 0.13.5 (Homebrew 2026-10-22 aarch64-apple-darwin)",
+  "resolver": "uv 0.13.5 (46776a95d 2026-10-21 aarch64-apple-darwin)",
   "command": [
-    "/Users/doughnut/.local/bin/uv",
+    "/Users/doughnut/.local/share/tobac-uv135/uv",
     "--no-config",
     "pip",
     "compile",
     "engineering/ecosystem.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/engineering/pr41-locks/ecosystem/ecosystem.lock",
+    "outputs/engineering/lock-candidate-70/ecosystem.lock",
     "--universal",
     "--python-version",
     "3.15"
@@ -19,14 +19,14 @@
   "inputs": {
     "pyproject.toml": "2b34aae27610adbfcba3b0a9cdea35447adbd06876c748d3c781a32302ba3f20",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
-    "engineering/reference-requirements.txt": "f54f5fe7df3d09899f3bad87737dbe015f9015014821180f7fad947775b67da4",
+    "engineering/reference-requirements.txt": "7976c0eff95701db7b139762dca2265ae4db5aae3935d2ef1c723d2dfd131f6c",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
-    "engineering/test-requirements.txt": "5860ff0458cb05038f4e9afe3fd994633c0399e9a474b7d3989db40c58438f27",
+    "engineering/test-requirements.txt": "711cb0930cf9fcf93072755a5d4d491adc9e2a06cad88e7bb80c576a6557cc26",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/voiage.in": "95956f53a227749aba89248d67d3374ff3ac0ec1e0588637c06cea21b01bb76a",
     "engineering/voiage-build-requirements.txt": "83bbc382d9b7eb67400eb55f0a6815185532edcdeb709878ccfc68955043effa",
     "engineering/ecosystem.in": "a5a44b63679b030179b4c69a671cf9fbb3c056794caf621208d3e504534ae95b"
   },
-  "lock_sha256": "8ff1bbd099d99e92b3328ad2567ec5f134b7a141a97f5a7e5456031048e01dfa",
+  "lock_sha256": "4d57327db2e1eebec4ed154798a755f7be8867e9214703ebdf6f246213283763",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
