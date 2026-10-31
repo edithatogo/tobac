@@ -22,6 +22,10 @@ TRANSITION = "CS→FSFVCS→FSCVDU→FSFVDU→FSCV"
 HEADER = "Retail outlet restriction to about 300 outlets"
 PRIOR_SHA256 = "c97875c489e6759776aebf1b7d948603120c46914b13440493128ade93bcdd64"
 EXPECTED_BETA = [23.4, 97.2]
+EXPECTED_MEAN = "19.4"
+EXPECTED_MEDIAN = "19.2"
+EXPECTED_SD = "3.6"
+EXPECTED_UI95 = ["12.9", "26.9"]
 ROW_CELLS = 2
 MAX_SOURCE_BYTES = 16 * 1024 * 1024
 
@@ -115,6 +119,15 @@ def extract_table(raw: bytes) -> dict[str, Any]:
     median = _capture(r"median\s+([\d.]+)%", row[1])
     sd = _capture(r"SD=([\d.]+)%", row[1])
     ui = _capture(r"UI:\s*([\d.]+)%\s*to\s*([\d.]+)%", row[1])
+    if (
+        list(beta) != [str(value) for value in EXPECTED_BETA]
+        or mean[0] != EXPECTED_MEAN
+        or median[0] != EXPECTED_MEDIAN
+        or sd[0] != EXPECTED_SD
+        or list(ui) != EXPECTED_UI95
+    ):
+        msg = "SHINE consumer metadata differs from the retained model input"
+        raise ValueError(msg)
     return {
         "source_id": SOURCE_ID,
         "source_beta": list(beta),
