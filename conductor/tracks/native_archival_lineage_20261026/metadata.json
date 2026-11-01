@@ -4,7 +4,7 @@
   "type": "feature",
   "status": "in_progress",
   "created_at": "2026-10-25T23:05:21Z",
-  "updated_at": "2026-10-29",
+  "updated_at": "2026-10-31",
   "approval_date": "2026-10-26",
   "approval_timezone": "Australia/Brisbane",
   "base_commit": "59bb0e4ebaf1881158849df1702a1d3101aad58f",
@@ -26,21 +26,17 @@
     "approvals": "approvals.json",
     "validation": "registration-validation.json"
   },
-  "implementation_state": "phase1-6_complete_p7_pending",
+  "implementation_state": "phase1_and_phase4_complete; phase2_phase3_producer_receipts_unmerged; phase5_interfaces_only; phase6_tested_not_wired; phase7_partial; phase8_open",
   "completed_phases": [
     1,
-    2,
-    3,
-    4,
-    5,
-    6
+    4
   ],
-  "next_phase": 7,
+  "next_phase": 5,
   "producer_inspection_revision": "790044096f6946ff9a21662108f4d924cbad0ba2",
   "producer_fixes_commit": "89def194",
   "producer_fixes_branch": "feat/p2-p3-native-lineage-gaps",
   "producer_fixes_summary": "P2.1-P3.2 producer gap fixes: duplicate object ID rejection, complete receipt validation, WARC-Date header, native URI scheme validation, source register CLI, record adapter functions. 20 provenance tests pass. All probe gaps resolved (duplicate_object_id, incomplete_receipt, strict_record_interop, warc_capture_date).",
-  "producer_remaining_tasks": "none (P3.3 verified, P3.4 verified)",
+  "producer_remaining_tasks": "Producer branch feat/p2-p3-native-lineage-gaps verified at 89def194/c98206a4; producer-main merge, full estate registration and capture-time correction are not confirmed by a merged producer revision.",
   "p3_3_verification": "integration/archive/p3.3-verification_20261031.json",
   "p3_3_negative_mutations": 5,
   "p3_3_all_rejected": true,
@@ -97,5 +93,43 @@
   "p4_2_native_session": "native_shine_lineage passed (Python 3.15.1)",
   "p4_2_negative_controls": 4,
   "p4_2_native_lineage_qualified": false,
-  "p4_affected_tests_passed": 72
+  "p4_affected_tests_passed": 72,
+  "blocked_phases": [
+    2,
+    3
+  ],
+  "p2_3_output_present": false,
+  "p5_binding_status": "interface_defined_exploratory",
+  "p6_wired_into_qualified_paths": false,
+  "reconciliation": {
+    "date": "2026-10-31",
+    "base_commit": "69ab2a2",
+    "trigger": "plan checkboxes, track metadata and tracks.md disagreed about phase completion",
+    "findings": [
+      "plan ticks only P1 and P4 while metadata claimed completed_phases [1,2,3,4,5,6]",
+      "P2/P3 receipts verify producer branch feat/p2-p3-native-lineage-gaps, not a merged producer main; P2.3 output integration/archive/native-source-refs.json is absent",
+      "P5 receipts record interface_defined with exploratory native binding, not executed runner closure",
+      "P6 enforcement tests exist but scripts/qualification_check.py is not referenced by noxfile.py or .github workflows",
+      "P7 remains same-device partial; independent-copy recovery in a separate failure domain is not demonstrated",
+      "a diverged local main claimed phase1-8 completion and an AC13 independent-copy restore against integration/archive/ac13-recovery-receipt.json, which does not exist; that claim is unsupported"
+    ],
+    "dispositions": {
+      "completed": [
+        1,
+        4
+      ],
+      "producer_owned_open": [
+        2,
+        3
+      ],
+      "open_or_partial": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "diverged_local_main_archive": "codex/diverged-local-main-20261031 (8e63c85), retained with a git bundle and patches in private storage; not merged because it carries the unsupported AC13 claim and superseded script versions.",
+    "record": "integration/archive/native-lineage-reconciliation_20261031.json"
+  }
 }

@@ -124,25 +124,27 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [~] Phase 1-6 complete (foundations, producer gaps, source registration, dataset migration, runner provenance, qualification enforcement); Phase 4 re-executed with a second native operation; replay and acceptance remain open.**
+**Status: [~] Phase 1 and Phase 4 complete; Phase 2/3 producer receipts present but unmerged; Phase 5 interfaces only; Phase 6 tested but not wired; Phase 7 partial; Phase 8 open.**
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
-The current inventory and frozen producer capability map are implemented. Four
-foundation tasks are complete. P2/P3 producer gap fixes implemented in archive-govt-nz
-(branch `feat/p2-p3-native-lineage-gaps`, commit `89def194`): duplicate object ID
-rejection, complete receipt validation (transformation/validation/publication),
-WARC-Date header, native URI scheme validation, source register CLI command,
-record adapter functions. 20 provenance tests pass. All 4 probe gaps resolved:
-duplicate_object_id, incomplete_transformation_receipt, strict_record_interop
-(via adapter), warc_capture_date. P2.3 source-binding export migration implemented
-(script: derive_native_source_refs.py, output: native-source-refs.json). P2.4 phase
-verification completed (20 tests pass, 4 probe gaps resolved, checkpoint recorded).
+Record reconciliation, 31 October 2026: the plan ticks only P1 and P4, so the earlier
+"Phase 1-6 complete" label was corrected. The current inventory and frozen producer
+capability map are implemented (Phase 1). Phase 2/3 producer gap fixes were verified on
+archive-govt-nz branch `feat/p2-p3-native-lineage-gaps` (`89def194`/`c98206a4`): duplicate
+object ID rejection, complete receipt validation, WARC-Date header, native URI scheme
+validation, source register CLI and record adapters; 20 provenance tests pass and all
+four probe gaps were resolved. However, that branch is not confirmed merged to the
+producer's main, full estate registration and capture-time correction remain open, and
+the P2.3 output `integration/archive/native-source-refs.json` is absent. Those two
+phases are producer-owned and remain open here.
 
-P5 runner provenance integration and P6 fail-closed qualification enforcement are
-implemented with explicit exploratory/legacy unqualified modes. P5 and P6 receipts
-record six runner interfaces and ten qualification tests. Native lineage and
-scientific qualification remain false until the P7 replay and P8 acceptance gates
-are executed.
+P5 receipts define six runner interfaces but record `interface_defined` with exploratory
+native binding, not executed runner closure; P5 remains partial. P6 fail-closed
+qualification enforcement and ten tests exist, but `scripts/qualification_check.py` is
+not referenced by `noxfile.py` or any workflow, so the checks are not wired into
+qualified paths and P6 remains partial. P7 is same-device partial; independent-copy
+recovery in a separate failure domain is not demonstrated. P8 acceptance is open.
+Native lineage and scientific qualification remain false.
 [Foundations](../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md);
 [MOH consumer checkpoint](../docs/engineering/MOH_NATIVE_LINEAGE.md). Phase 4 is
 complete at implementation `d2a04f5`: the MOH workbook and a second SHINE Table 2

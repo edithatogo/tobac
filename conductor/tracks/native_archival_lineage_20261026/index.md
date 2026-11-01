@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage
 
-Status: **in progress** — Phase 4 complete (MOH and SHINE source-backed native operations); later replay/acceptance phases and native source registration remain open.
+Status: **in progress** — Phase 1 and Phase 4 complete; Phase 2/3 producer receipts are unmerged, Phase 5 is interfaces only, Phase 6 is tested but not wired, and Phase 7/8 remain partial/open.
 Track ID: `native_archival_lineage_20261026`. Type: Feature.
 
 Trace every current and future dataset through native archival preservation,
