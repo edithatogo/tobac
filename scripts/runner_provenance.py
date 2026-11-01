@@ -22,6 +22,22 @@ INTERFACE = ROOT / "integration/archive/native-producer-interface.json"
 MAX_INPUT_BYTES = 16 * 1024 * 1024
 
 
+class VerificationDict(TypedDict):
+    """Type for the verification field in the phase verification result."""
+
+    runners_integrated: list[str]
+    bindings: list[dict[str, Any]]
+    runner_integration_tests: str
+    lineage_query_tests: str
+    result_to_original_traversal: str
+    changed_source_impact: str
+    shared_evidence_preserved: bool
+    scientific_values_unchanged: bool
+    native_lineage_qualified: bool
+    scientific_qualification: bool
+    automatically_conditions_live_model: bool
+
+
 class VerificationResult(TypedDict):
     """Type for the phase verification result structure."""
 
@@ -30,7 +46,7 @@ class VerificationResult(TypedDict):
     phase_title: str
     track_id: str
     date: str
-    verification: dict[str, Any]
+    verification: VerificationDict
     scope: str
     scientific_qualification: bool
     native_lineage_qualified: bool
