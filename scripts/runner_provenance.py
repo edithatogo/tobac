@@ -535,7 +535,7 @@ def main() -> None:
     with args.out.open("x", encoding="utf-8") as stream:
         json.dump(result, stream, indent=2, ensure_ascii=False)
         stream.write("\n")
-    count = len(cast("list[str]", result["verification"]["runners_integrated"]))
+    count = len(result["verification"]["runners_integrated"])
     sys.stdout.write(f"Phase 5 verification: {count} runners integrated (exploratory).\n")
 
 
