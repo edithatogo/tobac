@@ -42,3 +42,14 @@ disabled. No alert disposition is asserted. Engineering locks contain Pillow
 The sampled Renovate PR #94 head had a valid verified signature. The main
 branch protection API reported required signatures disabled. Settings were
 read only. Hosted verification and owner acceptance are tracked separately.
+
+## PR 97 verification
+
+Both local Nox sessions completed on Python 3.15.1: 1,137 tests passed,
+15 skipped, 92% coverage, and the complete numerical and publication replay
+passed (853 MiB peak sampled RSS). On a974d52 the hosted strict checker
+reported a missing-source warning for the optional Voiage import. The reader
+now imports Voiage at use time and describes the returned object structurally.
+Strict checking in the baseline environment had zero warnings or errors;
+the real candidate and cross-workstream tests passed (28). The user authorised
+merge after required checks; Dependabot alert-level triage remains blocked.
