@@ -72,7 +72,10 @@ def check_capture(
         raise ValueError(msg)
     raw = verified_bytes(checked(evidence, warc["path"][len(prefix) :]), warc["sha256"])
     iterator = iter(importlib.import_module("warcio.archiveiterator").ArchiveIterator(io.BytesIO(raw)))
-    record = next(iterator)
+    record = next(iterator, None)
+    if record is None:
+        msg = f"Empty WARC for {capture['uri']}"
+        raise ValueError(msg)
     if (
         len(raw) != warc["byte_count"]
         or len(body) != capture["byte_count"]
@@ -146,7 +149,10 @@ def derive_native_source_refs(wheel: Path, evidence: Path, destination: Path) ->
     for archive_id, binding in sorted(bindings.items()):
         captures: list[dict[str, Any]] = []
         for capture in binding["captures"]:
-            target = targets[capture["uri"]]
+            target = targets.get(capture["uri"])
+            if target is None:
+                msg = f"Missing capture receipt target for {archive_id}: {capture['uri']}"
+                raise ValueError(msg)
             body = check_capture(capture, target, evidence, originals)
             registration = None
             if body is not None and capture["status"] in ORIGINAL_STATUSES:

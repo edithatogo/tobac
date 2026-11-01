@@ -571,3 +571,8 @@ The export is a metadata view, with source-specific rights and historical
 unknown dates preserved. Registration in this private qualification store
 does not establish estate-wide preservation, runner enforcement, a fully
 replayed dependency graph or scientific qualification. These remain open.
+
+A negative replay rejected an export whose failed retrieval had been relabelled
+as a matched workbook. The verifier also reports an empty WARC or missing
+receipt target explicitly. The corrected verifier reproduced the same export
+digest in another fresh private store.
