@@ -317,7 +317,7 @@ def phase_verification(root: Path) -> dict[str, Any]:
     ]
 
     bindings: list[dict[str, Any]] = []
-    for runner_name, config_rel, _script_rel in runners:
+    for runner_name, config_rel, _ in runners:
         config_path = root / config_rel
         timestamp = datetime.now(UTC).strftime("%Y%m%d%H%M%S")
         output_path = root / "outputs" / f"engineering/{runner_name}-run-{timestamp}"
