@@ -145,6 +145,6 @@ and security checks remain in place. This evidence does not qualify the unexecut
 platform-specific release or research jobs.
 
 ---
-- [ ] **Track: voiage alignment follow-ups (tobac)**
+- [~] **Track: voiage alignment follow-ups (tobac)**
   *Link: [./tracks/voiage_alignment_followups_20261030/](./tracks/voiage_alignment_followups_20261030/)*
-  Planned; awaiting owner approval. [Issue #78](https://github.com/edithatogo/tobac/issues/78).
+  Implementation authorised; qualification in progress. [Issue #78](https://github.com/edithatogo/tobac/issues/78).
