@@ -12,12 +12,12 @@ class NormalizedBundle(Protocol):
     @property
     def content_digest(self) -> str:
         """Digest of the manifest and its tables."""
-        ...
+        raise NotImplementedError
 
     @property
     def tables(self) -> Mapping[str, object]:
         """Arrow tables indexed by manifest table identifier."""
-        ...
+        raise NotImplementedError
 
 
 def read_normalized_bundle(path: Path, *, expected_digest: str) -> NormalizedBundle:
