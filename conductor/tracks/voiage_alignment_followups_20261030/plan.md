@@ -4,7 +4,7 @@
 - [x] Add a failing consumer test for normalized-bundle round trip, then implement.
 - [x] Record toolchain exceptions against the shared matrix.
 - [~] Triage open Dependabot alerts; fix or dismiss with a recorded reason.
-- [~] Installed-artifact evidence; run required hosted gates.
+- [x] Installed-artifact evidence; run required hosted gates.
 - [ ] Owner approval, then archive after acceptance.
 
 ## Consumer verification — 1 November 2026
@@ -53,3 +53,17 @@ now imports Voiage at use time and describes the returned object structurally.
 Strict checking in the baseline environment had zero warnings or errors;
 the real candidate and cross-workstream tests passed (28). The user authorised
 merge after required checks; Dependabot alert-level triage remains blocked.
+
+## Receiving-main verification — 1 November 2026
+
+[PR #97](https://github.com/edithatogo/tobac/pull/97) merged head
+`97f81be` into main at `c32cbb9`. Both CodeQL findings about ineffective
+statements in the protocol declarations were fixed. All five required PR
+checks passed. The receiving reader, regression test and plan matched the
+reviewed head, and all six push workflows passed on the merge commit, including
+[engineering qualification and package provenance](https://github.com/edithatogo/tobac/actions/runs/41288562668).
+Local Nox tests and numerical reproduction completed successfully as recorded above.
+
+The owner authorised and the repository accepted the implementation. Archival
+remains pending because the open Dependabot alerts API returned HTTP 403
+(alerts disabled). No alert was dismissed or verified resolved.

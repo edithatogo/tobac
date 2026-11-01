@@ -147,4 +147,4 @@ platform-specific release or research jobs.
 ---
 - [~] **Track: voiage alignment follow-ups (tobac)**
   *Link: [./tracks/voiage_alignment_followups_20261030/](./tracks/voiage_alignment_followups_20261030/)*
-  Implementation authorised; qualification in progress. [Issue #78](https://github.com/edithatogo/tobac/issues/78).
+  PR #97 merged and verified on main; Dependabot alert triage remains blocked. [Issue #78](https://github.com/edithatogo/tobac/issues/78).
