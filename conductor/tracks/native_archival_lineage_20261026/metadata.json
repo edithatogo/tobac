@@ -26,7 +26,7 @@
     "approvals": "approvals.json",
     "validation": "registration-validation.json"
   },
-  "implementation_state": "phase1_and_phase4_complete; producer_gap_fixes_merged; native_source_refs_absent; runner_binding_and_enforcement_open; phase7_partial; phase8_open",
+  "implementation_state": "phase1_and_phase4_complete; producer_gap_fixes_merged; native_source_refs_replayed; runner_binding_and_enforcement_open; phase7_partial; phase8_open",
   "completed_phases": [
     1,
     4
@@ -36,7 +36,7 @@
   "producer_fixes_commit": "a5b733d2893e4fcf89fed01c670403b5b4c634db",
   "producer_fixes_branch": "codex/native-lineage-port",
   "producer_fixes_summary": "P2.1-P3.2 producer gap fixes: duplicate object ID rejection, complete receipt validation, WARC-Date header, native URI scheme validation, source register CLI, record adapter functions. 20 provenance tests pass. All probe gaps resolved (duplicate_object_id, incomplete_receipt, strict_record_interop, warc_capture_date).",
-  "producer_remaining_tasks": "Qualify the wheel at the merged revision; derive the source export; verify full estate registration and accurate capture-time evidence.",
+  "producer_remaining_tasks": "Verify remaining originals and end-to-end runtime and recovery closure; preserve unknown historical timestamps.",
   "p3_3_verification": "integration/archive/p3.3-verification_20261031.json",
   "p3_3_negative_mutations": 5,
   "p3_3_all_rejected": true,
@@ -98,7 +98,7 @@
     2,
     3
   ],
-  "p2_3_output_present": false,
+  "p2_3_output_present": true,
   "p5_binding_status": "interface_defined_exploratory",
   "p6_wired_into_qualified_paths": false,
   "reconciliation": {
@@ -134,5 +134,7 @@
   },
   "producer_merge_status": "merged_verified",
   "producer_merge_note": "PR #849; verified receiving source and tests match qualified head.",
-  "producer_merge_commit": "a8815d634c9ef5ec6eeb88a3419620f8937b238d"
+  "producer_merge_commit": "a8815d634c9ef5ec6eeb88a3419620f8937b238d",
+  "native_registration_interface": "integration/archive/native-registration-interface.json",
+  "native_source_refs": "integration/archive/native-source-refs.json"
 }

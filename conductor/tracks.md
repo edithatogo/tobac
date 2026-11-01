@@ -133,8 +133,11 @@ The scoped producer port merged through [archive-govt-nz PR #849](https://github
 `a5b733d2893e4fcf89fed01c670403b5b4c634db`. A fresh fetch confirmed
 ancestry and identical source and test trees. The old #842 branch was not used.
 
-Next: qualify the new producer wheel in tobac, generate the native source
-references, and verify runner and full-estate recovery closure.
+The merged wheel is qualified for the source-reference export. Two independent
+replays verified all 38 identities and 43 aliases, with 11 native registrations
+for matched originals. Next: wire runner closure and enforcement, resolve
+unavailable originals and qualify full-estate recovery.
+[Source references](../integration/archive/native-source-refs.json).
 
 [Foundations](../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md);
 [MOH consumer checkpoint](../docs/engineering/MOH_NATIVE_LINEAGE.md). Phase 4 is complete at implementation `d2a04f5`: the MOH workbook and a second SHINE Table 2 operation each emit actual native CAS objects and strict transformation/validation records through the frozen producer wheel, with four-parent ancestry for SHINE and negative controls. 72 affected extraction/workstream tests and both native sessions pass under Python 3.15.1. The 145-item dataset accounting is regenerated with zero blocked items. Native source registration, graph/cluster closure, per-file chain re-execution and independent preservation remain open; `native_lineage_qualified` and `scientific_qualification` stay false. Hosted checks apply to each publication. Public-source-only and no-request constraints continue to apply.

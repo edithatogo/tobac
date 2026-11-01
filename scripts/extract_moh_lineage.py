@@ -127,9 +127,11 @@ def extract_rows(table: list[tuple[object, ...]], sheet: str) -> list[dict[str, 
     return result
 
 
-def producer(wheel: Path) -> tuple[NativeRecords, Callable[[Path], NativeStore], dict[str, Any]]:
+def producer(
+    wheel: Path, interface: Path = INTERFACE
+) -> tuple[NativeRecords, Callable[[Path], NativeStore], dict[str, Any]]:
     """Verify the actual installed wheel and selected native implementation bytes."""
-    pin = qualification.read(INTERFACE)
+    pin = qualification.read(interface)
     wheel_bytes = verified_bytes(wheel)
     if hashlib.sha256(wheel_bytes).hexdigest() != pin["wheel_sha256"]:
         msg = "Producer wheel differs from the reviewed interface"

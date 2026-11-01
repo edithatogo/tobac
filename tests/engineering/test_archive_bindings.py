@@ -73,3 +73,31 @@ def test_original_workbook_reconciliation_is_bound_to_consumer_input() -> None:
         for r in bindings["sources"]
         for c in r["captures"]
     )
+
+
+def test_native_export_preserves_binding_scope_and_producer_pin() -> None:
+    bindings_path = ARCHIVE / "source-bindings.json"
+    bindings = json.loads(bindings_path.read_bytes())
+    refs = json.loads((ARCHIVE / "native-source-refs.json").read_bytes())
+    pin = json.loads((ARCHIVE / "native-registration-interface.json").read_bytes())
+    assert refs["source_bindings_sha256"] == hashlib.sha256(bindings_path.read_bytes()).hexdigest()
+    assert refs["wheel_sha256"] == pin["wheel_sha256"]
+    assert refs["producer_revision"] == pin["producer_revision"]
+    assert refs["source_register_sha256"] == bindings["register_sha256"]
+    assert refs["capture_receipt_sha256"] == bindings["capture_receipt_sha256"]
+    expected = sorted(bindings["sources"], key=lambda item: item["archive_id"])
+    for row, native in zip(expected, refs["native_source_refs"], strict=True):
+        assert row["archive_id"] == native["archive_id"]
+        assert row["references"] == native["consumer_aliases"]
+        assert row["redistribution_authorized"] == native["redistribution_authorized"]
+        for cap, actual in zip(row["captures"], native["captures"], strict=True):
+            assert {key: actual[key] for key in cap} == cap
+            registration = actual["native_registration"]
+            if cap["status"] in {"source_workbook_values_matched", "source_html_identity_observed"}:
+                assert registration["object_id"] == "sha256:" + cap["sha256"]
+                assert registration["observation_id"] == row["archive_id"]
+            else:
+                assert registration is None
+            assert actual["bytes_verified"] == ("sha256" in cap)
+    assert refs["native_lineage_qualified"] is False
+    assert refs["scientific_qualification"] is False
