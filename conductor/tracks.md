@@ -124,14 +124,18 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [~] Phase 1 and Phase 4 complete; Phase 2/3 producer receipts implemented locally but unmerged; Phase 5/6 complete; Phase 7 partial; Phase 8 open.**
+**Status: [~] Producer gap fixes merged and verified. Phases 1 and 4 complete;
+end-to-end qualification remains open.**
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
-The current inventory and frozen producer capability map are implemented (Phase 1). Phase 2/3 producer gap fixes were implemented in a local archive-govt-nz clone (commit 0561947, branch `feat/p2-p3-native-lineage-gaps`): duplicate object ID rejection, complete receipt validation (transformation/validation/publication), WARC-Date header, native URI scheme validation, source register CLI command, record adapter functions. 20 provenance tests pass. All 4 probe gaps resolved: duplicate_object_id, incomplete_transformation_receipt, strict_record_interop (via adapter), warc_capture_date. P2.3 source-binding export migration implemented (script: derive_native_source_refs.py, output: native-source-refs.json). P2.4 phase verification completed (20 tests pass, 4 probe gaps resolved, checkpoint recorded).
+The scoped producer port merged through [archive-govt-nz PR #849](https://github.com/edithatogo/archive-govt-nz/pull/849) at
+`a8815d634c9ef5ec6eeb88a3419620f8937b238d`. The reviewed head was
+`a5b733d2893e4fcf89fed01c670403b5b4c634db`. A fresh fetch confirmed
+ancestry and identical source and test trees. The old #842 branch was not used.
 
-**Producer merge status (2026-11-01):** The P2/P3 changes exist in a local archive-govt-nz clone (commit 0561947) but the local repository has no common history with the remote archive-govt-nz main branch (1884 commits diverged). The branch `feat/p2-p3-native-lineage-gaps` was pushed but cannot be opened as a PR due to no common history. Producer merge requires manual intervention by the archive-govt-nz maintainer. See [Producer merge decision](../docs/decisions/native_lineage_producer_merge_20261031.md).
+Next: qualify the new producer wheel in tobac, generate the native source
+references, and verify runner and full-estate recovery closure.
 
-P5 runner provenance integration and P6 fail-closed qualification enforcement are implemented with explicit exploratory/legacy unqualified modes. P5 and P6 receipts record six runner interfaces and ten qualification tests. Native lineage and scientific qualification remain false until the P7 replay and P8 acceptance gates are executed.
 [Foundations](../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md);
 [MOH consumer checkpoint](../docs/engineering/MOH_NATIVE_LINEAGE.md). Phase 4 is complete at implementation `d2a04f5`: the MOH workbook and a second SHINE Table 2 operation each emit actual native CAS objects and strict transformation/validation records through the frozen producer wheel, with four-parent ancestry for SHINE and negative controls. 72 affected extraction/workstream tests and both native sessions pass under Python 3.15.1. The 145-item dataset accounting is regenerated with zero blocked items. Native source registration, graph/cluster closure, per-file chain re-execution and independent preservation remain open; `native_lineage_qualified` and `scientific_qualification` stay false. Hosted checks apply to each publication. Public-source-only and no-request constraints continue to apply.
 
