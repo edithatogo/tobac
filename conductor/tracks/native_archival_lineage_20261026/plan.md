@@ -71,25 +71,36 @@ Covers: R01, R02, R09, R11, R12; AC01, AC02, AC11, AC14.
 Owner: archive producer; tobac supplies source IDs and required scientific scope.
 Depends on: P1. Covers: R01–R03, R06, R11; AC01–AC03, AC08.
 
-- [ ] Task: P2.1 — Write source/capture contract tests before implementation.
-  - [ ] Cover real original bytes versus metadata/landing/challenge/error payloads,
+- [x] Task: P2.1 — Write source/capture contract tests before implementation. 2026-10-31
+  - [x] Cover real original bytes versus metadata/landing/challenge/error payloads,
     duplicate source aliases, exact-edition reuse and incompatible URI/schema cases.
-  - [ ] Test capture/preservation/WARC timestamps, redirect/request identity,
+  - [x] Test capture/preservation/WARC timestamps, redirect/request identity,
     immutable prior generations and unknown historical dates without fabrication.
-- [ ] Task: P2.2 — Implement the producer-owned native registration and capture gaps.
-  - [ ] Register the existing verified originals through native source,
+- [x] Task: P2.2 — Implement the producer-owned native registration and capture gaps. 2026-10-31
+  - [x] Register the existing verified originals through native source,
     observation/version, preservation and object records; verify real CAS/WARC bytes.
-  - [ ] Correct the native capture-time recording path for future acquisitions,
+  - [x] Correct the native capture-time recording path for future acquisitions,
     preserving historical WARC records and their missing-date status unchanged.
-  - [ ] Reuse exact verified estate objects first. Acquire only missing permitted
+  - [x] Reuse exact verified estate objects first. Acquire only missing permitted
     originals through native adapters; record unsuccessful attempts and rights gaps.
-- [ ] Task: P2.3 — Migrate source-binding exports to native-record-derived views.
-  - [ ] Make existing consumer aliases resolve to native IDs/revisions without
+- [x] Task: P2.3 — Migrate source-binding exports to native-record-derived views. 2026-10-31
+  - [x] Make existing consumer aliases resolve to native IDs/revisions without
     introducing a second authority; preserve metadata-only and unavailable states.
-  - [ ] Test compatibility with existing source-binding consumers and prior artifacts.
-- [ ] Task: P2.4 — Phase verification and checkpoint (refer to workflow.md).
-  - [ ] Run affected capture/source/manifest tests and native readback on an actual
+  - [x] Test compatibility with existing source-binding consumers and prior artifacts.
+- [x] Task: P2.4 — Phase verification and checkpoint (refer to workflow.md). 2026-10-31
+  - [x] Run affected capture/source/manifest tests and native readback on an actual
     permitted source. Record current coverage and all unresolved required originals.
+
+## Producer merge status (2026-11-01)
+
+The P2/P3 producer gap fixes have been implemented in a local archive-govt-nz clone
+(tobac-archive-integration, commit 0561947). However, the local repository has no
+common history with the remote archive-govt-nz main branch (1884 commits diverged).
+The branch `feat/p2-p3-native-lineage-gaps` was pushed to the remote but cannot be
+opened as a PR due to no common history. Producer merge requires manual intervention
+by the archive-govt-nz maintainer to integrate the P2/P3 changes.
+
+See: [Producer merge decision](docs/decisions/native_lineage_producer_merge_20261031.md)
 
 ## Phase 3 — Execute and validate native transformation provenance
 
