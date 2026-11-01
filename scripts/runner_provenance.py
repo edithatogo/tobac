@@ -15,11 +15,26 @@ import subprocess
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, cast
+from typing import Any, TypedDict, cast
 
 ROOT = Path(__file__).resolve().parents[1]
 INTERFACE = ROOT / "integration/archive/native-producer-interface.json"
 MAX_INPUT_BYTES = 16 * 1024 * 1024
+
+
+class VerificationResult(TypedDict):
+    """Type for the phase verification result structure."""
+
+    schema_version: str
+    phase: str
+    phase_title: str
+    track_id: str
+    date: str
+    verification: dict[str, Any]
+    scope: str
+    scientific_qualification: bool
+    native_lineage_qualified: bool
+    automatically_conditions_live_model: bool
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -301,7 +316,7 @@ def run_m3_research(config_path: Path, output_path: Path) -> dict[str, Any]:
     )
 
 
-def phase_verification(root: Path) -> dict[str, Any]:
+def phase_verification(root: Path) -> VerificationResult:
     """P5.4: Phase verification and checkpoint."""
     runners: list[tuple[str, str, str]] = [
         ("m1", "configs/regulatory.json", "scripts/verify_product_assets.py"),
@@ -422,10 +437,10 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.execute:
-        result = phase_verification(ROOT)
+        result: VerificationResult = phase_verification(ROOT)
     else:
         # Generate the verification structure without executing
-        result = {
+        result = cast("VerificationResult", {
             "schema_version": "tobac.p5-phase-verification.v1",
             "phase": "P5.4",
             "phase_title": "Phase 5 verification and checkpoint",
@@ -496,7 +511,7 @@ def main() -> None:
             "scientific_qualification": False,
             "native_lineage_qualified": False,
             "automatically_conditions_live_model": False,
-        }
+        })
 
     if args.out.exists() or args.out.is_symlink():
         parser.error("Refusing to overwrite an existing phase verification receipt")
