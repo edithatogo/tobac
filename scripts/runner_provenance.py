@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import subprocess
 import sys
 from datetime import UTC, datetime
@@ -138,24 +139,32 @@ def execute_runner_with_provenance(
     This uses the frozen producer wheel to create native CAS objects and strict
     records for the runner execution, with placeholder native source IDs.
     """
-    if not output_path.exists() or not output_path.is_symlink():
-        pass  # We'll let the runner create its output
-    else:
+    if output_path.exists() or output_path.is_symlink():
         msg = f"Output path {output_path} exists or is a symlink"
         raise ValueError(msg)
     
     # Prepare the output directory
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
+    # Use the virtual environment Python to ensure dependencies are available
+    venv_python = ROOT / ".venv-native-lineage" / "bin" / "python"
+    if not venv_python.exists():
+        # Fall back to system Python if venv not found
+        venv_python = Path(sys.executable)
+    
     # Prepare the command
     cmd = [
-        sys.executable,
+        str(venv_python),
         str(script_path),
         "--out",
         str(output_path),
     ]
     if extra_args:
         cmd.extend(extra_args)
+    
+    # Set up environment with PYTHONPATH
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(ROOT / "src")
     
     # Execute the runner
     result = subprocess.run(
@@ -164,6 +173,7 @@ def execute_runner_with_provenance(
         capture_output=True,
         text=True,
         timeout=1800,
+        env=env,
     )
     
     if result.returncode != 0:
