@@ -3,7 +3,7 @@
   "phase": "P5.4",
   "phase_title": "Phase 5 verification and checkpoint",
   "track_id": "native_archival_lineage_20261026",
-  "date": "2026-11-01T05:08:33.613639+00:00",
+  "date": "2026-11-01T05:29:29.653661+00:00",
   "verification": {
     "runners_integrated": [
       "m1",
@@ -29,9 +29,9 @@
         "scientific_values_unchanged": true,
         "shared_evidence_preserved": true,
         "native_refs": [
-          "tobac-placeholder-m2-20261101050628"
+          "tobac-placeholder-m2-20261101052709"
         ],
-        "output_path": "/Users/doughnut/Documents/tobac/outputs/engineering/m2-run-20261101050628"
+        "output_path": "/Users/doughnut/Documents/tobac/outputs/engineering/m2-run-20261101052709"
       },
       {
         "runner": "m2_publication",
@@ -40,9 +40,9 @@
         "scientific_values_unchanged": true,
         "shared_evidence_preserved": true,
         "native_refs": [
-          "tobac-placeholder-m2_publication-20261101050642"
+          "tobac-placeholder-m2_publication-20261101052719"
         ],
-        "output_path": "/Users/doughnut/Documents/tobac/outputs/engineering/m2_publication-run-20261101050642"
+        "output_path": "/Users/doughnut/Documents/tobac/outputs/engineering/m2_publication-run-20261101052719"
       },
       {
         "runner": "m2_robustness",
@@ -51,9 +51,9 @@
         "scientific_values_unchanged": true,
         "shared_evidence_preserved": true,
         "native_refs": [
-          "tobac-placeholder-m2_robustness-20261101050709"
+          "tobac-placeholder-m2_robustness-20261101052753"
         ],
-        "output_path": "/Users/doughnut/Documents/tobac/outputs/engineering/m2_robustness-run-20261101050709"
+        "output_path": "/Users/doughnut/Documents/tobac/outputs/engineering/m2_robustness-run-20261101052753"
       },
       {
         "runner": "longitudinal",
@@ -62,9 +62,9 @@
         "scientific_values_unchanged": true,
         "shared_evidence_preserved": true,
         "native_refs": [
-          "tobac-placeholder-longitudinal-20261101050824"
+          "tobac-placeholder-longitudinal-20261101052926"
         ],
-        "output_path": "/Users/doughnut/Documents/tobac/outputs/engineering/longitudinal-run-20261101050824"
+        "output_path": "/Users/doughnut/Documents/tobac/outputs/engineering/longitudinal-run-20261101052926"
       },
       {
         "runner": "m3",
@@ -73,9 +73,9 @@
         "scientific_values_unchanged": true,
         "shared_evidence_preserved": true,
         "native_refs": [
-          "tobac-placeholder-m3-20261101050833"
+          "tobac-placeholder-m3-20261101052929"
         ],
-        "output_path": "/Users/doughnut/Documents/tobac/outputs/engineering/m3-run-20261101050833"
+        "output_path": "/Users/doughnut/Documents/tobac/outputs/engineering/m3-run-20261101052929"
       }
     ],
     "runner_integration_tests": "defined",

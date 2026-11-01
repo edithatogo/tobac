@@ -129,29 +129,29 @@ def bind_runner_to_provenance(
 
 def execute_runner_with_provenance(
     runner_name: str,
-    config_path: Path,
+    _config_path: Path,
     output_path: Path,
     script_path: Path,
     extra_args: list[str] | None = None,
 ) -> dict[str, Any]:
     """Execute a runner script and capture its provenance through the frozen producer.
-    
+
     This uses the frozen producer wheel to create native CAS objects and strict
     records for the runner execution, with placeholder native source IDs.
     """
     if output_path.exists() or output_path.is_symlink():
         msg = f"Output path {output_path} exists or is a symlink"
         raise ValueError(msg)
-    
+
     # Prepare the output directory
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    
+
     # Use the virtual environment Python to ensure dependencies are available
     venv_python = ROOT / ".venv-native-lineage" / "bin" / "python"
     if not venv_python.exists():
         # Fall back to system Python if venv not found
         venv_python = Path(sys.executable)
-    
+
     # Prepare the command
     cmd = [
         str(venv_python),
@@ -161,11 +161,11 @@ def execute_runner_with_provenance(
     ]
     if extra_args:
         cmd.extend(extra_args)
-    
+
     # Set up environment with PYTHONPATH
     env = os.environ.copy()
     env["PYTHONPATH"] = str(ROOT / "src")
-    
+
     # Execute the runner
     result = subprocess.run(
         cmd,
@@ -174,8 +174,10 @@ def execute_runner_with_provenance(
         text=True,
         timeout=1800,
         env=env,
+        check=False,
+        shell=False,
     )
-    
+
     if result.returncode != 0:
         return {
             "runner": runner_name,
@@ -183,7 +185,7 @@ def execute_runner_with_provenance(
             "error": result.stderr,
             "returncode": result.returncode,
         }
-    
+
     return {
         "runner": runner_name,
         "status": "completed",
@@ -191,21 +193,22 @@ def execute_runner_with_provenance(
     }
 
 
-def execute_runner_lineage(
+def execute_runner_lineage(  # noqa: PLR0913  # Explicit parameters for clear runner configuration.
     runner_name: str,
     config_path: Path,
     output_path: Path,
     script_path: Path,
+    *,
     extra_args: list[str] | None = None,
     native_refs: list[str] | None = None,
 ) -> dict[str, Any]:
     """Execute a runner and bind its lineage to native provenance."""
     if native_refs is None:
         native_refs = [f"tobac-placeholder-{runner_name}-{datetime.now(UTC).strftime('%Y%m%d%H%M%S')}"]
-    
+
     # Execute the runner
     result = execute_runner_with_provenance(runner_name, config_path, output_path, script_path, extra_args)
-    
+
     if result.get("status") == "failed":
         return {
             "runner": runner_name,
@@ -213,7 +216,7 @@ def execute_runner_lineage(
             "error": result.get("error"),
             "native_lineage_qualified": False,
         }
-    
+
     # Bind to provenance
     binding = bind_runner_to_provenance(
         runner_name,
@@ -221,7 +224,7 @@ def execute_runner_lineage(
         output_path,
         native_refs,
     )
-    
+
     return {
         "runner": runner_name,
         "status": "bound",
@@ -300,32 +303,38 @@ def run_m3_research(config_path: Path, output_path: Path) -> dict[str, Any]:
 
 def phase_verification(root: Path) -> dict[str, Any]:
     """P5.4: Phase verification and checkpoint."""
-    runners = [
+    runners: list[tuple[str, str, str]] = [
         ("m1", "configs/regulatory.json", "scripts/verify_product_assets.py"),
         ("m2", "configs/m2_publication.json", "scripts/run_m2_publication.py"),
         ("m2_publication", "configs/m2_publication.json", "scripts/run_m2_publication.py"),
         ("m2_robustness", "configs/m2_robustness.json", "scripts/run_m2_robustness.py"),
-        ("longitudinal", "configs/empirical_longitudinal_v2.9.0/model.json", "scripts/run_empirical_longitudinal.py"),
+        (
+            "longitudinal",
+            "configs/empirical_longitudinal_v2.9.0/model.json",
+            "scripts/run_empirical_longitudinal.py",
+        ),
         ("m3", "configs/m3_research.json", "scripts/unpack_m3_results.py"),
     ]
-    
-    bindings = []
-    for runner_name, config_rel, script_rel in runners:
+
+    bindings: list[dict[str, Any]] = []
+    for runner_name, config_rel, _script_rel in runners:
         config_path = root / config_rel
-        script_path = root / script_rel
-        output_path = root / "outputs" / f"engineering/{runner_name}-run-{datetime.now(UTC).strftime('%Y%m%d%H%M%S')}"
-        
+        timestamp = datetime.now(UTC).strftime("%Y%m%d%H%M%S")
+        output_path = root / "outputs" / f"engineering/{runner_name}-run-{timestamp}"
+
         # Skip if config doesn't exist
         if not config_path.exists():
-            bindings.append({
-                "runner": runner_name,
-                "status": "config_missing",
-                "native_binding": "none",
-                "scientific_values_unchanged": False,
-                "shared_evidence_preserved": False,
-            })
+            bindings.append(
+                {
+                    "runner": runner_name,
+                    "status": "config_missing",
+                    "native_binding": "none",
+                    "scientific_values_unchanged": False,
+                    "shared_evidence_preserved": False,
+                }
+            )
             continue
-        
+
         # Execute with provenance
         if runner_name == "m1":
             result = run_m1_regulatory(config_path, output_path)
@@ -341,26 +350,30 @@ def phase_verification(root: Path) -> dict[str, Any]:
             result = run_m3_research(config_path, output_path)
         else:
             result = {"runner": runner_name, "status": "unknown"}
-        
+
         if result.get("status") == "bound":
-            bindings.append({
-                "runner": runner_name,
-                "status": "bound_exploratory",
-                "native_binding": "exploratory",
-                "scientific_values_unchanged": True,
-                "shared_evidence_preserved": True,
-                "native_refs": result.get("native_refs", []),
-                "output_path": str(output_path),
-            })
+            bindings.append(
+                {
+                    "runner": runner_name,
+                    "status": "bound_exploratory",
+                    "native_binding": "exploratory",
+                    "scientific_values_unchanged": True,
+                    "shared_evidence_preserved": True,
+                    "native_refs": result.get("native_refs", []),
+                    "output_path": str(output_path),
+                }
+            )
         else:
-            bindings.append({
-                "runner": runner_name,
-                "status": result.get("status", "failed"),
-                "native_binding": "none",
-                "scientific_values_unchanged": False,
-                "shared_evidence_preserved": False,
-                "error": result.get("error"),
-            })
+            bindings.append(
+                {
+                    "runner": runner_name,
+                    "status": result.get("status", "failed"),
+                    "native_binding": "none",
+                    "scientific_values_unchanged": False,
+                    "shared_evidence_preserved": False,
+                    "error": result.get("error"),
+                }
+            )
 
     return {
         "schema_version": "tobac.p5-phase-verification.v1",
@@ -491,7 +504,7 @@ def main() -> None:
     with args.out.open("x", encoding="utf-8") as stream:
         json.dump(result, stream, indent=2, ensure_ascii=False)
         stream.write("\n")
-    count = len(result["verification"]["runners_integrated"])
+    count = len(cast("list[str]", result["verification"]["runners_integrated"]))
     sys.stdout.write(f"Phase 5 verification: {count} runners integrated (exploratory).\n")
 
 
