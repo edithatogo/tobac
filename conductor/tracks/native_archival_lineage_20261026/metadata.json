@@ -33,8 +33,8 @@
   ],
   "next_phase": 5,
   "producer_inspection_revision": "790044096f6946ff9a21662108f4d924cbad0ba2",
-  "producer_fixes_commit": "89def194",
-  "producer_fixes_branch": "feat/p2-p3-native-lineage-gaps",
+  "producer_fixes_commit": "0561947 (local only)",
+  "producer_fixes_branch": "feat/p2-p3-native-lineage-gaps (pushed but no common history)",
   "producer_fixes_summary": "P2.1-P3.2 producer gap fixes: duplicate object ID rejection, complete receipt validation, WARC-Date header, native URI scheme validation, source register CLI, record adapter functions. 20 provenance tests pass. All probe gaps resolved (duplicate_object_id, incomplete_receipt, strict_record_interop, warc_capture_date).",
   "producer_remaining_tasks": "Producer branch feat/p2-p3-native-lineage-gaps verified at 89def194/c98206a4; producer-main merge, full estate registration and capture-time correction are not confirmed by a merged producer revision.",
   "p3_3_verification": "integration/archive/p3.3-verification_20261031.json",
@@ -131,5 +131,7 @@
     },
     "diverged_local_main_archive": "codex/diverged-local-main-20261031 (8e63c85), retained with a git bundle and patches in private storage; not merged because it carries the unsupported AC13 claim and superseded script versions.",
     "record": "integration/archive/native-lineage-reconciliation_20261031.json"
-  }
+  },
+  "producer_merge_status": "pending_manual_intervention",
+  "producer_merge_note": "Local archive-govt-nz repo has no common history with remote; P2/P3 changes exist as single commit (0561947) in local clone (tobac-archive-integration). PR cannot be created due to no common history. Manual integration required."
 }
