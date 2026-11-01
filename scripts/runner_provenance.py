@@ -456,78 +456,88 @@ def main() -> None:
         result: VerificationResult = phase_verification(ROOT)
     else:
         # Generate the verification structure without executing
-        result = cast("VerificationResult", {
-            "schema_version": "tobac.p5-phase-verification.v1",
-            "phase": "P5.4",
-            "phase_title": "Phase 5 verification and checkpoint",
-            "track_id": "native_archival_lineage_20261026",
-            "date": datetime.now(UTC).isoformat(),
-            "verification": {
-                "runners_integrated": ["m1", "m2", "m2_publication", "m2_robustness", "longitudinal", "m3"],
-                "bindings": [
-                    {
-                        "runner": "m1",
-                        "status": "interface_defined",
-                        "native_binding": "exploratory",
-                        "scientific_values_unchanged": True,
-                        "shared_evidence_preserved": True,
-                    },
-                    {
-                        "runner": "m2",
-                        "status": "interface_defined",
-                        "native_binding": "exploratory",
-                        "scientific_values_unchanged": True,
-                        "shared_evidence_preserved": True,
-                    },
-                    {
-                        "runner": "m2_publication",
-                        "status": "interface_defined",
-                        "native_binding": "exploratory",
-                        "scientific_values_unchanged": True,
-                        "shared_evidence_preserved": True,
-                    },
-                    {
-                        "runner": "m2_robustness",
-                        "status": "interface_defined",
-                        "native_binding": "exploratory",
-                        "scientific_values_unchanged": True,
-                        "shared_evidence_preserved": True,
-                    },
-                    {
-                        "runner": "longitudinal",
-                        "status": "interface_defined",
-                        "native_binding": "exploratory",
-                        "scientific_values_unchanged": True,
-                        "shared_evidence_preserved": True,
-                    },
-                    {
-                        "runner": "m3",
-                        "status": "interface_defined",
-                        "native_binding": "exploratory",
-                        "scientific_values_unchanged": True,
-                        "shared_evidence_preserved": True,
-                    },
-                ],
-                "runner_integration_tests": "defined",
-                "lineage_query_tests": "defined",
-                "result_to_original_traversal": "pending_actual_execution",
-                "changed_source_impact": "pending_actual_execution",
-                "shared_evidence_preserved": True,
-                "scientific_values_unchanged": True,
-                "native_lineage_qualified": False,
+        result = cast(
+            "VerificationResult",
+            {
+                "schema_version": "tobac.p5-phase-verification.v1",
+                "phase": "P5.4",
+                "phase_title": "Phase 5 verification and checkpoint",
+                "track_id": "native_archival_lineage_20261026",
+                "date": datetime.now(UTC).isoformat(),
+                "verification": {
+                    "runners_integrated": [
+                        "m1",
+                        "m2",
+                        "m2_publication",
+                        "m2_robustness",
+                        "longitudinal",
+                        "m3",
+                    ],
+                    "bindings": [
+                        {
+                            "runner": "m1",
+                            "status": "interface_defined",
+                            "native_binding": "exploratory",
+                            "scientific_values_unchanged": True,
+                            "shared_evidence_preserved": True,
+                        },
+                        {
+                            "runner": "m2",
+                            "status": "interface_defined",
+                            "native_binding": "exploratory",
+                            "scientific_values_unchanged": True,
+                            "shared_evidence_preserved": True,
+                        },
+                        {
+                            "runner": "m2_publication",
+                            "status": "interface_defined",
+                            "native_binding": "exploratory",
+                            "scientific_values_unchanged": True,
+                            "shared_evidence_preserved": True,
+                        },
+                        {
+                            "runner": "m2_robustness",
+                            "status": "interface_defined",
+                            "native_binding": "exploratory",
+                            "scientific_values_unchanged": True,
+                            "shared_evidence_preserved": True,
+                        },
+                        {
+                            "runner": "longitudinal",
+                            "status": "interface_defined",
+                            "native_binding": "exploratory",
+                            "scientific_values_unchanged": True,
+                            "shared_evidence_preserved": True,
+                        },
+                        {
+                            "runner": "m3",
+                            "status": "interface_defined",
+                            "native_binding": "exploratory",
+                            "scientific_values_unchanged": True,
+                            "shared_evidence_preserved": True,
+                        },
+                    ],
+                    "runner_integration_tests": "defined",
+                    "lineage_query_tests": "defined",
+                    "result_to_original_traversal": "pending_actual_execution",
+                    "changed_source_impact": "pending_actual_execution",
+                    "shared_evidence_preserved": True,
+                    "scientific_values_unchanged": True,
+                    "native_lineage_qualified": False,
+                    "scientific_qualification": False,
+                    "automatically_conditions_live_model": False,
+                },
+                "scope": (
+                    "P5.1-P5.4: Runner integration interfaces defined, lineage query tests "
+                    "defined, runner provenance bindings created in exploratory mode. "
+                    "Actual runner execution and trace/impact checks require P6 enforcement. "
+                    "Scientific values unchanged. Shared evidence preserved."
+                ),
                 "scientific_qualification": False,
+                "native_lineage_qualified": False,
                 "automatically_conditions_live_model": False,
             },
-            "scope": (
-                "P5.1-P5.4: Runner integration interfaces defined, lineage query tests "
-                "defined, runner provenance bindings created in exploratory mode. "
-                "Actual runner execution and trace/impact checks require P6 enforcement. "
-                "Scientific values unchanged. Shared evidence preserved."
-            ),
-            "scientific_qualification": False,
-            "native_lineage_qualified": False,
-            "automatically_conditions_live_model": False,
-        })
+        )
 
     if args.out.exists() or args.out.is_symlink():
         parser.error("Refusing to overwrite an existing phase verification receipt")
