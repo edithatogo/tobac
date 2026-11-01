@@ -3,9 +3,9 @@
 - [x] Inventory pandas/xarray use and the Polars/PyArrow boundary.
 - [x] Add a failing consumer test for normalized-bundle round trip, then implement.
 - [x] Record toolchain exceptions against the shared matrix.
-- [~] Triage open Dependabot alerts; fix or dismiss with a recorded reason.
+- [x] Triage open Dependabot alerts; fix or dismiss with a recorded reason.
 - [x] Installed-artifact evidence; run required hosted gates.
-- [ ] Owner approval, then archive after acceptance.
+- [x] Owner approval, then archive after acceptance.
 
 ## Consumer verification — 1 November 2026
 
@@ -67,3 +67,14 @@ Local Nox tests and numerical reproduction completed successfully as recorded ab
 The owner authorised and the repository accepted the implementation. Archival
 remains pending because the open Dependabot alerts API returned HTTP 403
 (alerts disabled). No alert was dismissed or verified resolved.
+
+## Dependency alert verification and archive — 1 November 2026
+
+Renovate was already enabled on main. Its app authored open PRs #80, #91
+and #94. GitHub accepted the repository vulnerability-alert enable request
+(204), and the separate settings readback returned 204. The paginated
+Dependabot alert feed returned no records, and the open-only endpoint returned
+200 with an empty list. The dependency graph SBOM contained 394 packages,
+including 383 with PyPI references. There were no reported findings to fix
+or dismiss at the time of triage. The owner authorised archival once the
+feed was verified. This completes issue #78's consumer alignment scope.

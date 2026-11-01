@@ -33,7 +33,7 @@ remains recorded, not reported as a pass.
 
 ## Completed work
 
-Fifteen completed tracks are archived, including the two-article preparation and
+Completed tracks are archived, including the two-article preparation and
 the superseded, withdrawn record-request preparation. No outreach is authorised. See
 [the archive index](archive/index.md) for their specifications, plans and dated receipts.
 
@@ -143,8 +143,3 @@ Ubuntu and 1,041 passed / 28 skipped on Windows, each with 92% coverage. Linux u
 the process-group RSS guard; Windows used the hosted job timeout. Existing macOS
 and security checks remain in place. This evidence does not qualify the unexecuted
 platform-specific release or research jobs.
-
----
-- [~] **Track: voiage alignment follow-ups (tobac)**
-  *Link: [./tracks/voiage_alignment_followups_20261030/](./tracks/voiage_alignment_followups_20261030/)*
-  PR #97 merged and verified on main; Dependabot alert triage remains blocked. [Issue #78](https://github.com/edithatogo/tobac/issues/78).

@@ -118,3 +118,9 @@ in PR #55; withdrawn by the public-data-only decision in PR #56. Supersession an
 fixity review complete; four drafts remain withdrawn and unsent. No new request,
 OIA submission, contact, access application, commissioning or collection is authorised.
 Public-source successors and issue #3 empirical/publication gates remain explicit.
+
+## Voiage alignment follow-ups
+
+[Plan and qualification results](voiage_alignment_followups_20261030/plan.md). IPC and Parquet consumer qualification
+merged in PR #97. Renovate was verified active and the enabled Dependabot alert
+feed returned zero open findings on 1 November 2026.
