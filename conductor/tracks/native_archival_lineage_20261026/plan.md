@@ -106,7 +106,7 @@ paths and convert the IDs of schema-validated native records without modifying
 the originals. The CLI validates source metadata. Full estate registration
 and historical capture timestamps require their own evidence.
 
-Tobac still needs an installed artifact qualified from the new producer,
+At the producer merge checkpoint, tobac still needed an installed artifact qualified from the new producer,
 the derived native-source-refs.json export, and runner closure and enforcement.
 The verified independent MOH copy covers the scoped rehearsal. Full-estate
 restore, replay and Phase 8 acceptance remain open. Metadata validation keeps
@@ -537,3 +537,42 @@ their recorded hashes, and reopened the two strict records against their CAS
 bytes. The private readback is usb-restore.3x6PDS/usb-restore-readback.json.
 This qualifies the MOH rehearsal copy only. Full-estate dependency closure,
 installed replay and Phase 8 acceptance remain open.
+
+## Merged-wheel qualification and source references — 1 November 2026
+
+Chat 01a195fd-7f87-7472-9ff4-3c1e59fe7976 owns the derived source view and
+its registration interface in the voiage-alignment/tobac worktree. A clean
+detached checkout of archive-govt-nz a8815d634c9ef5ec6eeb88a3419620f8937b238d
+built the 0.1.0 wheel with uv. A separate tobac environment ran Python 3.15.1,
+installed the wheel with dependencies, and passed uv pip check (66 packages).
+Eight interface module hashes matched the Git objects. The wheel verifier
+compared every installed producer package member to the pinned wheel.
+The earlier MOH and SHINE extraction receipts retain their original pins.
+
+Use the wheel selected by integration/archive/native-registration-interface.json
+(SHA-256 972fb518b60c3f95fa0263099cc5b61f8d6d35f69c29a6a3c2387675f9662edb).
+Run scripts/derive_native_source_refs.py with --wheel WHEEL --evidence CAPTURE_ROOT
+--store NEW_PRIVATE_STORE and --out NEW_EXPORT. Re-run with --verify, the same
+--out and a second fresh store. CAPTURE_ROOT contains the pinned capture.json
+files, original WARCs and cas/. No network acquisition is involved.
+
+Both runs produced export f75582e8362b39d08bc69ef7196131667bb756e39df285189ca478c2a5bd9ed3
+and native inventory 49a5317a4dbf38778e11e64151613465914b02d27a8848df0ba9fd57f5164e9d.
+All 38 sources, 43 aliases and 61 capture entries were accounted for. 49
+entries verified against body bytes and WARC records; 12 recorded retrieval
+failures. Ten identity-matched HTML captures and one verified workbook received
+native registration and manifest records. The remaining successful captures
+retain their metadata-only, challenge or unverified classification. Private
+registration and manifest records reopened with matching source IDs, object
+hashes and version IDs in both stores. The installed native adapter also
+preserved IDs for the two retained transformation/validation pairs (MOH, SHINE).
+
+The export is a metadata view, with source-specific rights and historical
+unknown dates preserved. Registration in this private qualification store
+does not establish estate-wide preservation, runner enforcement, a fully
+replayed dependency graph or scientific qualification. These remain open.
+
+A negative replay rejected an export whose failed retrieval had been relabelled
+as a matched workbook. The verifier also reports an empty WARC or missing
+receipt target explicitly. The corrected verifier reproduced the same export
+digest in another fresh private store.

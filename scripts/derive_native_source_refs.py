@@ -1,154 +1,219 @@
-"""Derive native-record-derived views from existing source bindings.
-
-P2.3: Migrate source-binding exports to native-record-derived views.
-"""
+"""Rebuild the metadata-only source view from pinned receipts and installed producer APIs."""
 
 from __future__ import annotations
 
 import argparse
+import hashlib
+import importlib
+import io
 import json
 import sys
-from datetime import UTC, datetime
+from collections import Counter
 from pathlib import Path
-from typing import Any, cast
+from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from extract_moh_lineage import NativeStore, encoded, producer, verified_bytes
+from source_handoff import ORIGINAL_STATUSES, archive_index, checked, digest, read
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DEFAULT = ROOT / "integration/archive/native-source-refs.json"
+ARCHIVE = ROOT / "integration/archive"
+OUTPUT = ARCHIVE / "native-source-refs.json"
+PIN = ARCHIVE / "native-registration-interface.json"
 
 
-def read_json(path: Path) -> dict[str, Any]:
-    """Read a JSON object from disk."""
-    result = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(result, dict):
-        msg = f"Expected JSON object in {path}"
-        raise TypeError(msg)
-    return cast("dict[str, Any]", result)
+def capture_index(evidence: Path, expected: list[str]) -> dict[str, dict[str, Any]]:
+    """Index only exact historical receipt bytes, with unambiguous target URIs."""
+    found: set[str] = set()
+    targets: dict[str, dict[str, Any]] = {}
+    for receipt in sorted(evidence.glob("*/capture.json")):
+        checksum = digest(receipt)
+        if checksum not in expected:
+            continue
+        if checksum in found:
+            msg = "Duplicate capture receipt"
+            raise ValueError(msg)
+        found.add(checksum)
+        for target in read(receipt)["targets"]:
+            uri = target["uri"]
+            if uri in targets:
+                msg = "Duplicate capture target"
+                raise ValueError(msg)
+            targets[uri] = target
+    if found != set(expected):
+        msg = "Missing pinned capture receipt"
+        raise ValueError(msg)
+    return targets
 
 
-def derive_native_source_refs(
-    root: Path,
-    interface: dict[str, Any] | None = None,
-) -> dict[str, Any]:
-    """Derive metadata-only native source references from archived bindings."""
-    root = root.resolve()
-    interface = interface or read_json(root / "integration/archive/native-producer-interface.json")
-    register = read_json(root / "integration/archive/source-register.json")
-    bindings = read_json(root / "integration/archive/source-bindings.json")
+def check_capture(
+    capture: dict[str, Any], target: dict[str, Any], evidence: Path, store: NativeStore
+) -> bytes | None:
+    """Verify the response object and original WARC; preserve failed retrievals."""
+    if target["status"] == "failed":
+        if capture["status"] != "retrieval_failed" or capture.get("error") != target["error"]:
+            msg = "Failed capture differs from binding"
+            raise ValueError(msg)
+        return None
+    sha = capture["sha256"]
+    warc = target["warc"]
+    if (target["status"], target["sha256"], target["byte_count"], warc["sha256"]) != (
+        "captured",
+        sha,
+        capture["byte_count"],
+        capture["warc_sha256"],
+    ):
+        msg = "Native capture identity differs from binding"
+        raise ValueError(msg)
+    body = verified_bytes(store.verify("sha256:" + sha).path, sha)
+    prefix = "build/tobac/"
+    if not warc["path"].startswith(prefix):
+        msg = "WARC outside the capture root"
+        raise ValueError(msg)
+    raw = verified_bytes(checked(evidence, warc["path"][len(prefix) :]), warc["sha256"])
+    iterator = iter(importlib.import_module("warcio.archiveiterator").ArchiveIterator(io.BytesIO(raw)))
+    record = next(iterator, None)
+    if record is None:
+        msg = f"Empty WARC for {capture['uri']}"
+        raise ValueError(msg)
+    if (
+        len(raw) != warc["byte_count"]
+        or len(body) != capture["byte_count"]
+        or record.rec_headers.get_header("WARC-Record-ID") != "<" + warc["record_id"] + ">"
+        or record.content_stream().read() != body
+        or next(iterator, None) is not None
+    ):
+        msg = "WARC readback differs from captured bytes or record ID"
+        raise ValueError(msg)
+    return body
 
-    producer_revision = interface["producer_revision"]
-    producer_repo = interface["producer_repository"]
-    wheel_sha256 = interface["wheel_sha256"]
-    module_sha256 = interface["module_sha256"]
 
-    alias_index: dict[tuple[str, str], dict[str, Any]] = {}
-    for source in register.get("sources", []):
-        for ref in source.get("references", []):
-            key = (ref.get("collection", ""), ref.get("source_id", ""))
-            alias_index[key] = source
+def persist(store: NativeStore, document: dict[str, Any]) -> str:
+    """Write native output into the private evidence store and reopen identical bytes."""
+    raw = encoded(document)
+    receipt = store.put_bytes(raw)
+    if verified_bytes(store.verify(receipt.object_id).path) != raw:
+        msg = "Persisted registration evidence differs"
+        raise ValueError(msg)
+    return receipt.object_id
 
-    native_refs: list[dict[str, Any]] = []
-    for binding in bindings.get("sources", []):
-        archive_id = binding.get("archive_id", "")
-        references = binding.get("references", [])
-        captures = binding.get("captures", [])
-        redistribution = binding.get("redistribution_authorized", False)
 
-        aliases: list[dict[str, Any]] = []
-        for ref in references:
-            key = (ref.get("collection", ""), ref.get("source_id", ""))
-            source = alias_index.get(key, {})
-            aliases.append(
-                {
-                    "collection": ref.get("collection", ""),
-                    "source_id": ref.get("source_id", ""),
-                    "archive_id": source.get("archive_id", archive_id),
-                }
-            )
-
-        capture_refs: list[dict[str, Any]] = []
-        for capture in captures:
-            status = capture.get("status", "unknown")
-            capture_refs.append(
-                {
-                    "uri": capture.get("uri", ""),
-                    "status": status,
-                    "sha256": capture.get("sha256"),
-                    "byte_count": capture.get("byte_count"),
-                    "warc_sha256": capture.get("warc_sha256"),
-                    "captured_at": capture.get("captured_at"),
-                    "final_uri": capture.get("final_uri", capture.get("uri", "")),
-                    "native_source_registered": False,
-                    "native_capture_time_verified": capture.get("captured_at") is not None,
-                }
-            )
-
-        has_verified_capture = any(
-            c.get("status") in ("source_html_identity_observed", "source_workbook_values_matched")
-            for c in captures
-        )
-        has_retrieval_failure = any(
-            c.get("status") in ("retrieval_failed", "terminal_status") for c in captures
-        )
-
-        if has_verified_capture:
-            native_status = "metadata_verified"
-        elif has_retrieval_failure:
-            native_status = "retrieval_failed"
-        else:
-            native_status = "unverified"
-
-        native_ref = {
-            "archive_id": archive_id,
-            "consumer_aliases": aliases,
-            "captures": capture_refs,
-            "redistribution_authorized": redistribution,
-            "native_producer_revision": producer_revision,
-            "native_producer_repository": producer_repo,
-            "native_wheel_sha256": wheel_sha256,
-            "native_module_sha256": module_sha256,
-            "native_status": native_status,
-            "native_source_registered": False,
-            "native_capture_time_verified": False,
-            "native_manifest_closure": False,
-            "native_lineage_qualified": False,
-            "scientific_qualification": False,
-            "metadata_only": True,
-            "automatically_conditions_live_model": False,
-        }
-        native_refs.append(native_ref)
-
+def register_capture(
+    binding: dict[str, Any], capture: dict[str, Any], body: bytes, store: NativeStore
+) -> dict[str, str]:
+    """Use the producer to register only matched source bytes in the qualification store."""
+    native = importlib.import_module("archive_govt_nz.source_registration")
+    identity = importlib.import_module("archive_govt_nz.core.identity")
+    archive_id = binding["archive_id"]
+    reg = native.register_source(
+        source_id=archive_id,
+        source_uri=identity.canonical_source_uri("web", "tobac", capture["uri"]),
+        source_type="web",
+        agency_slug="tobac",
+        archive_id=archive_id,
+        object_bytes=body,
+        object_id="sha256:" + capture["sha256"],
+        redistribution_authorized=binding["redistribution_authorized"],
+    )
+    manifest = native.build_source_manifest(reg)
+    original_id = store.put_bytes(body).object_id
+    if store.verify(original_id).sha256 != capture["sha256"] or manifest["objects"] != [
+        {"object_id": original_id}
+    ]:
+        msg = "Native manifest does not resolve the original"
+        raise ValueError(msg)
     return {
-        "schema_version": "tobac.native-source-refs.v1",
-        "derived_at": datetime.now(UTC).isoformat(),
-        "producer_revision": producer_revision,
-        "producer_repository": producer_repo,
-        "consumer_commit": register.get("consumer_commit", ""),
-        "source_count": len(native_refs),
-        "native_source_refs": native_refs,
+        "object_id": original_id,
+        "observation_id": manifest["observations"][0]["observation_id"],
+        "version_id": manifest["versions"][0]["version_id"],
+        "registration_object_id": persist(store, reg.to_dict()),
+        "manifest_object_id": persist(store, manifest),
+    }
+
+
+def derive_native_source_refs(wheel: Path, evidence: Path, destination: Path) -> dict[str, Any]:
+    """Account for every bibliography alias and capture via the exact installed producer."""
+    if sys.version_info[:3] != (3, 15, 1):
+        msg = "Python 3.15.1 required"
+        raise RuntimeError(msg)
+    _, make_store, pin = producer(wheel, PIN)
+    aliases, bindings, _ = archive_index(ROOT)
+    legacy = read(ARCHIVE / "source-bindings.json")
+    targets = capture_index(evidence, legacy["capture_receipt_sha256"])
+    factory = importlib.import_module("archive_govt_nz.object_store").ContentAddressedStore
+    originals = factory(evidence / "cas", create=False)
+    destination.mkdir(parents=True, exist_ok=False)
+    store = make_store(destination)
+    refs: list[dict[str, Any]] = []
+    counts: Counter[str] = Counter()
+    for archive_id, binding in sorted(bindings.items()):
+        captures: list[dict[str, Any]] = []
+        for capture in binding["captures"]:
+            target = targets.get(capture["uri"])
+            if target is None:
+                msg = f"Missing capture receipt target for {archive_id}: {capture['uri']}"
+                raise ValueError(msg)
+            body = check_capture(capture, target, evidence, originals)
+            registration = None
+            if body is not None and capture["status"] in ORIGINAL_STATUSES:
+                registration = register_capture(binding, capture, body, store)
+            captures.append(
+                {
+                    **capture,
+                    "warc_record_id": target.get("warc", {}).get("record_id"),
+                    "bytes_verified": body is not None,
+                    "native_registration": registration,
+                }
+            )
+            counts[capture["status"]] += 1
+        refs.append(
+            {
+                "archive_id": archive_id,
+                "consumer_aliases": binding["references"],
+                "redistribution_authorized": binding["redistribution_authorized"],
+                "captures": captures,
+            }
+        )
+    return {
+        "schema_version": "tobac.native-source-refs.v2",
         "authority": "derived_view_not_authoritative",
-        "note": (
-            "This is a derived view mapping consumer source bindings to native "
-            "producer references. It does not introduce a second authority. "
-            "Consumer aliases resolve to native record IDs through the producer. "
-            "Metadata-only and unavailable states are preserved."
+        "producer_revision": pin["producer_revision"],
+        "wheel_sha256": pin["wheel_sha256"],
+        "source_register_sha256": legacy["register_sha256"],
+        "source_bindings_sha256": digest(ARCHIVE / "source-bindings.json"),
+        "capture_receipt_sha256": legacy["capture_receipt_sha256"],
+        "source_count": len(refs),
+        "alias_count": len(aliases),
+        "capture_status_counts": dict(counts),
+        "native_source_refs": refs,
+        "registration_scope": (
+            "Private qualification store; preserved bytes only. "
+            "Bibliographic metadata and challenge pages are not registered originals."
         ),
+        "native_lineage_qualified": False,
+        "scientific_qualification": False,
+        "automatically_conditions_live_model": False,
     }
 
 
 def main() -> None:
-    """Write a derived native source reference receipt."""
+    """Generate a new export, or compare an existing export with an independent replay."""
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--out", type=Path, default=OUTPUT_DEFAULT)
+    parser.add_argument("--wheel", required=True, type=Path)
+    parser.add_argument("--evidence", required=True, type=Path)
+    parser.add_argument("--store", required=True, type=Path, help="New private qualification store")
+    parser.add_argument("--out", type=Path, default=OUTPUT)
+    parser.add_argument("--verify", action="store_true")
     args = parser.parse_args()
-
-    result = derive_native_source_refs(ROOT)
-    if args.out.exists() or args.out.is_symlink():
-        parser.error("Refusing to overwrite an existing native source ref receipt")
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    with args.out.open("x", encoding="utf-8") as stream:
-        json.dump(result, stream, indent=2, ensure_ascii=False)
-        stream.write("\n")
-    sys.stdout.write(f"Derived {result['source_count']} native source refs; no scientific qualification\n")
+    result = derive_native_source_refs(args.wheel, args.evidence, args.store)
+    raw = (json.dumps(result, ensure_ascii=False, indent=2) + "\n").encode()
+    if args.verify:
+        if verified_bytes(args.out) != raw:
+            parser.error("Existing export differs from replay")
+    else:
+        with args.out.open("xb") as stream:
+            stream.write(raw)
+    sys.stdout.write(f"{result['source_count']} sources; SHA-256 {hashlib.sha256(raw).hexdigest()}\n")
 
 
 if __name__ == "__main__":

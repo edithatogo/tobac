@@ -1,0 +1,18 @@
+{
+  "schema": "tobac.native-registration-interface.v1",
+  "producer_repository": "https://github.com/edithatogo/archive-govt-nz",
+  "producer_revision": "a8815d634c9ef5ec6eeb88a3419620f8937b238d",
+  "distribution": "archive-govt-nz",
+  "version": "0.1.0",
+  "wheel_sha256": "972fb518b60c3f95fa0263099cc5b61f8d6d35f69c29a6a3c2387675f9662edb",
+  "module_sha256": {
+    "archive_govt_nz": "a4d31a096067c58b9fbc24ca3bdc638e91c93cc4ec811d0b1da23bd09f18a82a",
+    "archive_govt_nz.records": "8ead1d7b34bef57dfc294b9f1a9792c838560232079224a8b35ecb680accb5c3",
+    "archive_govt_nz.object_store": "271296055f92cdc7824f1389db7d8a41fefabd0f0128b62869df4e97f68efdc4",
+    "archive_govt_nz.source_registration": "7b49e8f5494d3d859477e79d23e4a6f61f4952d32465c4f727a362ff4f0b541c",
+    "archive_govt_nz.provenance": "2fe24e113314e6fc8308e595be5880f360e499e7557e33e83550393056f4feb7",
+    "archive_govt_nz.core.identity": "3ee7ea12a6ff14768a44da2af11b4a361ae6fe2212dcd451ae41cb17bf841519",
+    "archive_govt_nz.core.manifests": "c3187f8f472623e62a076014cf6ad86fad3103fb413f2b7d8e92daac784b0d43",
+    "archive_govt_nz.warc": "ac6f8c3ec1a0aa6b9009098692d889e8c36cfb65bfe42248bdfe539455640c22"
+  }
+}

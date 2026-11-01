@@ -1,0 +1,1256 @@
+{
+  "schema_version": "tobac.native-source-refs.v2",
+  "authority": "derived_view_not_authoritative",
+  "producer_revision": "a8815d634c9ef5ec6eeb88a3419620f8937b238d",
+  "wheel_sha256": "972fb518b60c3f95fa0263099cc5b61f8d6d35f69c29a6a3c2387675f9662edb",
+  "source_register_sha256": "9f18cf7767df2db7ba42437cea0b92f92db29d53bdc33865aa280a76ea491840",
+  "source_bindings_sha256": "5a384e0bc242740e13b7ce8bcb8b255440076de797b2e50398c986b63a433727",
+  "capture_receipt_sha256": [
+    "648e65e974de8d603fd94cd6ef9889c97293a7ac85428594747b54fc6466f410",
+    "e402bdc96b0e24087c6be57acfde81019fa5a3dbc6f9caedd6295cc497f5cfb6",
+    "f32f71d3fc06bc518ebae3ea0f403987d8c54387bae5d8a8fd7f4ae5e60da0fe",
+    "46227cfc16c508ac5a93e9ac1045c50590dbee8cc53508de4eac3109512a8821"
+  ],
+  "source_count": 38,
+  "alias_count": 43,
+  "capture_status_counts": {
+    "retrieval_failed": 12,
+    "identity_unverified": 1,
+    "challenge_not_source": 19,
+    "metadata_only": 18,
+    "source_html_identity_observed": 10,
+    "source_workbook_values_matched": 1
+  },
+  "native_source_refs": [
+    {
+      "archive_id": "tobac-05790f0b796014c5",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "nz-key-results-2024-25"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/publications/annual-update-of-key-results-202425-new-zealand-health-survey",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-0b9d17c38666be28",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/references.csl.json",
+          "source_id": "rothery2020"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.ispor.org/heor-resources/good-practices/article/value-of-information-analytical-methods-report-2",
+          "status": "identity_unverified",
+          "sha256": "4732857611bbc0756411eac3bd7a4c0b2ee3f4b3da38b4be102460bac91977e5",
+          "byte_count": 72623,
+          "warc_sha256": "c46c5f7616537039dbfa7e05e8a9066815490a6f29b38c7fbe947391c0f477bf",
+          "captured_at": null,
+          "final_uri": "https://www.ispor.org/heor-resources/good-practices/article/value-of-information-analytical-methods-report-2",
+          "warc_record_id": "urn:uuid:60820f78-fd81-4c52-a985-69059d64d6a4",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-1487495c6f446674",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "long-nzhs-trends-2025"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/monitoring-statistics/surveys/new-zealand-health-survey/publications/202425-survey-publications/trends-in-smoking-and-vaping",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-161d5ca9516fcdee",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/m2/references.csl.json",
+          "source_id": "NZ_RETAIL_SCHEME_2023"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/news/new-policies-will-help-reach-smokefree-goal-and-address-increase-in-youth-vaping",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-21e5ac57790c9907",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "empirical-walker-2020"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/31515173/",
+          "status": "challenge_not_source",
+          "sha256": "3803e4889edbcba5c975d8f8064e3c33036d6145274d053083aee1ea9df9c6d8",
+          "byte_count": 5590,
+          "warc_sha256": "d55448c159ccbd1d4e7419fcc98ba37b38e69e16c977e0f8101d0287f9dc1be9",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/31515173/",
+          "warc_record_id": "urn:uuid:a3bfde2b-2214-406f-956a-c5898ae9db9b",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-297be26fc11cb7b3",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/longitudinal/references.csl.json",
+          "source_id": "parallel-S08"
+        },
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "parallel-S08"
+        },
+        {
+          "collection": "evidence/references.csl.json",
+          "source_id": "phyo2025"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "status": "challenge_not_source",
+          "sha256": "cc86f7b9f41c9da5264c74b588bb936d0679d68180bd54583eb6dd30acc4cef6",
+          "byte_count": 5590,
+          "warc_sha256": "7aaf150e6c89b3ce5d62e93d09630006f57fcaca2c26f534fca677cc0c9fd02d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/40919023/",
+          "warc_record_id": "urn:uuid:dd43d885-cce9-46e1-bde6-7fc149501fc7",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "status": "source_html_identity_observed",
+          "sha256": "d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+          "byte_count": 194823,
+          "warc_sha256": "0f0b082511bed9c6d6a69e87fb5c9257ce745439b082590c8cd3e37c3ef85b08",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/",
+          "warc_record_id": "urn:uuid:bf6c61df-60a3-4198-b3f8-247b7a995803",
+          "bytes_verified": true,
+          "native_registration": {
+            "object_id": "sha256:d215537ac34d501668da42cf5f1573c2443b81e184976b018d1840d3faea6a3e",
+            "observation_id": "tobac-297be26fc11cb7b3",
+            "version_id": "tobac-297be26fc11cb7b3-v1",
+            "registration_object_id": "sha256:abbfad18389d8f2fae21688d3f1552989dd537b7a7d6666adbc34d88ce3b2be1",
+            "manifest_object_id": "sha256:3b5ff3da9a7dbcef5117c3b594164b684b5cb57147ce8c534dfa3e45e610602a"
+          }
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-2d95e1cbd10671ab",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "long-nzhs-2021"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/publications/annual-update-of-key-results-202021-new-zealand-health-survey",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-384f7a90f3fc0133",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "parallel-S02"
+        },
+        {
+          "collection": "evidence/references.csl.json",
+          "source_id": "wang2026"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/41661592/",
+          "status": "challenge_not_source",
+          "sha256": "b4b1654204efae7fbd82b409134ef8c0395246606e30ceef965cd2e936a2c706",
+          "byte_count": 5590,
+          "warc_sha256": "4bb1d4961e738544a560ef567683e05fdc8305a48fc7cbc12f9cb84235e024d0",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/41661592/",
+          "warc_record_id": "urn:uuid:f4a4741b-946b-47d4-937b-e7381ad75e79",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12887742/",
+          "status": "source_html_identity_observed",
+          "sha256": "7d8461e61ea6c70d54a15feade1a11fd769efb036f4c54203a884058d00aecee",
+          "byte_count": 187306,
+          "warc_sha256": "4aa1daaee8fbbd581b490831bb3938466ba445b555584215d826b54bd0ee7826",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12887742/",
+          "warc_record_id": "urn:uuid:bf7b1374-4561-48da-a75c-bcc6083b06b3",
+          "bytes_verified": true,
+          "native_registration": {
+            "object_id": "sha256:7d8461e61ea6c70d54a15feade1a11fd769efb036f4c54203a884058d00aecee",
+            "observation_id": "tobac-384f7a90f3fc0133",
+            "version_id": "tobac-384f7a90f3fc0133-v1",
+            "registration_object_id": "sha256:9b74bb5387af76baaa380892ed53efe9bde13a2ee42b87b55e63f21bba5d601f",
+            "manifest_object_id": "sha256:5995fa1cb74a1e4bbf9533a0903efcd1ab37b73b2103b8ec3f903b3466d4da24"
+          }
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-45820b66185001cd",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "long-nz-hir-2024"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/publications/health-and-independence-report-2024-online-version",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-52fb080dad9b1459",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "long-nzhs-2024"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/monitoring-statistics/surveys/new-zealand-health-survey/publications/202324-survey-publications/trends-in-smoking-and-vaping",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-5601971f49deff67",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/references.csl.json",
+          "source_id": "customs2024"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.customs.govt.nz/about-us/news/media-releases/trio-sentenced-for-smuggling-half-a-million-cigarettes",
+          "status": "source_html_identity_observed",
+          "sha256": "54372b1f32b06f70945c06abe9001c4f311cb83d7464909bda30a701b85ac036",
+          "byte_count": 554694,
+          "warc_sha256": "0fc7b6a14be9bfc7f31c843819dd5022ff9eecbb9e96655f58e505119bb43fa4",
+          "captured_at": null,
+          "final_uri": "https://www.customs.govt.nz/about-us/news/media-releases/trio-sentenced-for-smuggling-half-a-million-cigarettes",
+          "warc_record_id": "urn:uuid:da31249d-a64b-4b81-a311-a48cbe77da40",
+          "bytes_verified": true,
+          "native_registration": {
+            "object_id": "sha256:54372b1f32b06f70945c06abe9001c4f311cb83d7464909bda30a701b85ac036",
+            "observation_id": "tobac-5601971f49deff67",
+            "version_id": "tobac-5601971f49deff67-v1",
+            "registration_object_id": "sha256:8460011933f00c6d2dbf1a811e4e98fb5aaffada7a7b69a9b577f2e9a6ad5c91",
+            "manifest_object_id": "sha256:0c51ae489063375f359158c3b3823f9151013324776faacb39121b747a70ecba"
+          }
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-5988c3901a530650",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "parallel-S05"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/32653706/",
+          "status": "challenge_not_source",
+          "sha256": "1b00448feeff547972bc889a65ffa47e3d6c5c41e6452d948c5d2c1fdb1247c9",
+          "byte_count": 5590,
+          "warc_sha256": "eee662ed98a7709e5c0e7778ca3e7efb2388e0f2766fcc5a471ae14269c966b6",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/32653706/",
+          "warc_record_id": "urn:uuid:23539aa5-7146-414c-a66d-7930d874bb2b",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-62b1f22935ee89bd",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "parallel-S13"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.customs.govt.nz/about-us/news/important-notices-archive/important-notices-archive-2025/new-excise-duty-rates-for-tobacco-products-from-1-january-2026",
+          "status": "source_html_identity_observed",
+          "sha256": "e0be8dd11bc0a9d9427c37e8a6cbbf371afb06e6033935f96444a8925a0bdee0",
+          "byte_count": 556226,
+          "warc_sha256": "121aab1a62eac9aebf33894c138612508adc74d16b6acd11c46c113aa2cd30f7",
+          "captured_at": null,
+          "final_uri": "https://www.customs.govt.nz/about-us/news/important-notices-archive/important-notices-archive-2025/new-excise-duty-rates-for-tobacco-products-from-1-january-2026",
+          "warc_record_id": "urn:uuid:beff6a71-7c7e-4960-a726-e7c337ae5503",
+          "bytes_verified": true,
+          "native_registration": {
+            "object_id": "sha256:e0be8dd11bc0a9d9427c37e8a6cbbf371afb06e6033935f96444a8925a0bdee0",
+            "observation_id": "tobac-62b1f22935ee89bd",
+            "version_id": "tobac-62b1f22935ee89bd-v1",
+            "registration_object_id": "sha256:a1b41e39f1c36e638883ccdb5faf3058ee54a04386732eb4784c8b23045b6af1",
+            "manifest_object_id": "sha256:abcd2a324c22e13a76244957d59dfef96fdbf23c35df1e760cfa6b34fe8da97f"
+          }
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-62f3f431b388649e",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "est-gao-2018"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/29571085/",
+          "status": "challenge_not_source",
+          "sha256": "14fc5f4d606dfd1b41dbdbe62e7e1bbbabc19d1ccfa3729a6253d37bb80d8e82",
+          "byte_count": 5590,
+          "warc_sha256": "465149ab9aad7dbc473d7ad8c5b30a584e04df897d1abce2ea17ff865ffdcdb7",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/29571085/",
+          "warc_record_id": "urn:uuid:ae6759f9-f2f8-4daf-9e12-96d604475565",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-653a099a62934bb1",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "parallel-S06"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/38876037/",
+          "status": "challenge_not_source",
+          "sha256": "83f86167d98153de849fb10008dbc09b2fd21da42c4ce98b7240aa5a3881ff4d",
+          "byte_count": 5590,
+          "warc_sha256": "cce31a206250b5e4f88db4797ef9c342250ff58a7008f57995798eb07bf000a8",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/38876037/",
+          "warc_record_id": "urn:uuid:935e7fb5-2a5b-4863-a1a4-edbbed8ed5af",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-78830630d9ed6d6c",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "long-nzhs-2022-original"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.beehive.govt.nz/release/new-zealand-records-lowest-smoking-rate-ever",
+          "status": "challenge_not_source",
+          "sha256": "d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d",
+          "byte_count": 212,
+          "warc_sha256": "0969a872eb5ffe6f02f28a1ae8acb20e93bd5309680bc03bf6d7b4d7dc2def06",
+          "captured_at": null,
+          "final_uri": "https://www.beehive.govt.nz/release/new-zealand-records-lowest-smoking-rate-ever",
+          "warc_record_id": "urn:uuid:17ab1b98-c94c-4c69-a36e-dd3a9c0d1ac6",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-7ee48855a1ed1c4b",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/longitudinal/references.csl.json",
+          "source_id": "long-nz-tobacco-tonnes-2025"
+        },
+        {
+          "collection": "evidence/m2/references.csl.json",
+          "source_id": "NZ_TOBACCO_RETURNS_2025"
+        },
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "long-nz-tobacco-tonnes-2025"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        },
+        {
+          "uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "status": "source_workbook_values_matched",
+          "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+          "byte_count": 9155,
+          "warc_sha256": "71a9e24d74d0b83acc83a56e6dbbeeaf75fb8204083f615940ec4bd40fdd28a3",
+          "captured_at": null,
+          "final_uri": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+          "warc_record_id": "urn:uuid:e12b1ebf-2794-486c-aa90-f874acb656c8",
+          "bytes_verified": true,
+          "native_registration": {
+            "object_id": "sha256:3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+            "observation_id": "tobac-7ee48855a1ed1c4b",
+            "version_id": "tobac-7ee48855a1ed1c4b-v1",
+            "registration_object_id": "sha256:2772b49962d56986226cbfe7f069167bbbcb2ebc216fc3fc36e7eadb46545923",
+            "manifest_object_id": "sha256:8abe9330b013db51349a85023a92ff53bd63edda808685396861c008ca339626"
+          }
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-855a41ac092cdd0a",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/m2/references.csl.json",
+          "source_id": "PEARSON_2015"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/25037156/",
+          "status": "challenge_not_source",
+          "sha256": "22b0efeb310c09c80579eac61e881f1e3fc5656db625f6a0ca453a161828b09e",
+          "byte_count": 5590,
+          "warc_sha256": "bc36343bacf62e6d9b61deef7a8cf595b3a7a9dbb919eca3f4d49600dacad270",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/25037156/",
+          "warc_record_id": "urn:uuid:3c35ace1-37b0-4ee7-a280-f6e9200d7ea5",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-86b88ce823d5a2c5",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/m2/references.csl.json",
+          "source_id": "NZ_RETAIL_REPEAL_2024"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/news/refunds-for-applicants-to-the-smoked-tobacco-retail-scheme",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-912f6f818e46055e",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "empirical-vanwichelen-2026"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/42664537/",
+          "status": "challenge_not_source",
+          "sha256": "e4ce7026eb7a615e38c64be99a937be45d73d7e3f6525de919ceae2e8f0ae51e",
+          "byte_count": 5590,
+          "warc_sha256": "74f5030bc5a77e72c0b8b018d9907fcae9fdb1eded33eed53aad865f2595d240",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/42664537/",
+          "warc_record_id": "urn:uuid:9dbd0f6c-1f23-4187-8cc7-3723d5082739",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-91da5c77f9915eb3",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "est-blakely-2015"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/26218517/",
+          "status": "challenge_not_source",
+          "sha256": "d1eae517c6c38d62dfd24f49edf61fa36c28d0957795a635b4baf73344ac3c0f",
+          "byte_count": 5590,
+          "warc_sha256": "2762ec853a514f025fca73bb2356a64bea6b8e998e099ccc95cc8a98d23c580b",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/26218517/",
+          "warc_record_id": "urn:uuid:767c6a8c-51d6-4b9d-8cae-283f53db5db9",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4517929/",
+          "status": "source_html_identity_observed",
+          "sha256": "8cc63ede544902cc487382084a972b5594639b6f81ad6f3213f15788ce698dc2",
+          "byte_count": 254645,
+          "warc_sha256": "93a0acb5d5d5f1028a52c660586aea41ed77e92d1b6320ce197137e2e575d270",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4517929/",
+          "warc_record_id": "urn:uuid:072645d6-f852-434a-9697-93feac47ee2e",
+          "bytes_verified": true,
+          "native_registration": {
+            "object_id": "sha256:8cc63ede544902cc487382084a972b5594639b6f81ad6f3213f15788ce698dc2",
+            "observation_id": "tobac-91da5c77f9915eb3",
+            "version_id": "tobac-91da5c77f9915eb3-v1",
+            "registration_object_id": "sha256:cc304c32bbbc58759f53ebe0dcce361498e52e635d93b5eb1f4ba8dc32efbf8c",
+            "manifest_object_id": "sha256:4ec7622135cd0162cac2ab2d956c02c2e87505facf7fe4f4592c99daac97824f"
+          }
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-920a4be1c51c0a89",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "empirical-walker-2012"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/22594651/",
+          "status": "challenge_not_source",
+          "sha256": "897069830e3d15dc86a402b916efdfa93cda87fab79058ad4383055be59cbd04",
+          "byte_count": 5590,
+          "warc_sha256": "48a1f1e0f7d0a47ed06251f96199d72ce6b577eda2a08b9fd608188139b7f520",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/22594651/",
+          "warc_record_id": "urn:uuid:8e50b5bb-8a8f-495b-b9bc-d47e3e8ae8d7",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-9487badd2a06b849",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/references.csl.json",
+          "source_id": "moh2023"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/news/independent-report-on-black-market-tobacco-trade-published",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-a0e764a08a2e49bd",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "est-auckland-mash"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://mash.auckland.ac.nz/shimadzu-8060qqq-acsrc/",
+          "status": "source_html_identity_observed",
+          "sha256": "afbfb4f19e64a036c6d39973e2abb25e72e4889db4af2e5307ff1c05a943e599",
+          "byte_count": 96952,
+          "warc_sha256": "7111c0d3363630a8b6217bb1dda41a1d531211fa034dec5dd9b1633658921170",
+          "captured_at": null,
+          "final_uri": "https://mash.auckland.ac.nz/shimadzu-8060qqq-acsrc/",
+          "warc_record_id": "urn:uuid:7f28ca3a-bcf2-4dd8-bbf9-54ab17bf8e0e",
+          "bytes_verified": true,
+          "native_registration": {
+            "object_id": "sha256:afbfb4f19e64a036c6d39973e2abb25e72e4889db4af2e5307ff1c05a943e599",
+            "observation_id": "tobac-a0e764a08a2e49bd",
+            "version_id": "tobac-a0e764a08a2e49bd-v1",
+            "registration_object_id": "sha256:bfc4659f4802e5e7a4922c6bd561a49f87f913c54211e00fb91e04c1fada93bc",
+            "manifest_object_id": "sha256:f94c3383e7c48d2eba938b4e8219120992fe192d75cdc4ab5e2457a3604d8915"
+          }
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-a1d364d2f2412e10",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/references.csl.json",
+          "source_id": "zheng2023"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/37192131/",
+          "status": "challenge_not_source",
+          "sha256": "34c095de079ad4dc2c011c1c9adf07ffee2926a547f8ef0ef8d34fc22aa89024",
+          "byte_count": 5590,
+          "warc_sha256": "2e6d3afdd1206f729b3efc9d6b6534c406510b431d567543f0cc0a6c858e6ece",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/37192131/",
+          "warc_record_id": "urn:uuid:f5111cef-ad62-48ed-b5d5-c9f00b242393",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-a892a52bb0ce2147",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/m2/references.csl.json",
+          "source_id": "SHINE_RETAIL_TABLE2"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11672025/",
+          "status": "source_html_identity_observed",
+          "sha256": "9d8fe4fca0e55129ebc9325edb93e2daf539e5328e48cb11e45ff4dfd943217e",
+          "byte_count": 236088,
+          "warc_sha256": "1c5093f75d54f84b801c8ead7522f499ac3f2c2dce259bbab5e6507d693dfd58",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11672025/",
+          "warc_record_id": "urn:uuid:fb7e98ae-351c-490f-8f26-788d4de58fff",
+          "bytes_verified": true,
+          "native_registration": {
+            "object_id": "sha256:9d8fe4fca0e55129ebc9325edb93e2daf539e5328e48cb11e45ff4dfd943217e",
+            "observation_id": "tobac-a892a52bb0ce2147",
+            "version_id": "tobac-a892a52bb0ce2147-v1",
+            "registration_object_id": "sha256:21c327a3cf29c23d21f872efc943ce1e36a7dd37730e61226437364cd2d1fae2",
+            "manifest_object_id": "sha256:22cab037e0b65b97fb3ab47254666287ca3b019cf170cea6b260acd1e9312bb1"
+          }
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-bcc0c006961872e2",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "linked-serpa-2024"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.legislation.govt.nz/act/public/2024/0006/latest/LMS939112.html",
+          "status": "source_html_identity_observed",
+          "sha256": "bb626cad55d3f0e18a3d754dafdf7248c2f0214ede8fb5f8bd24323cb22439f5",
+          "byte_count": 209718,
+          "warc_sha256": "bc9642d634e7545cb1ff2065ab273615af95e7255695f89a30fd91ae37ed14ae",
+          "captured_at": null,
+          "final_uri": "https://www.legislation.govt.nz/act/public/2024/6/en/latest/",
+          "warc_record_id": "urn:uuid:95b9c98b-e6ab-450c-af21-4c8f6fd48f8c",
+          "bytes_verified": true,
+          "native_registration": {
+            "object_id": "sha256:bb626cad55d3f0e18a3d754dafdf7248c2f0214ede8fb5f8bd24323cb22439f5",
+            "observation_id": "tobac-bcc0c006961872e2",
+            "version_id": "tobac-bcc0c006961872e2-v1",
+            "registration_object_id": "sha256:f4728b9f9d3eaaee3c37a747c77c69e3eaff5c51be712ad95ee449f4eb7b6967",
+            "manifest_object_id": "sha256:fb887eb3b26b67f9a40e595e7e206c3780a03132f0922791746e4a45d1382ad3"
+          }
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-bf7efcf2c111532e",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/references.csl.json",
+          "source_id": "fenwick2020"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/32113617/",
+          "status": "challenge_not_source",
+          "sha256": "147d3b760bd142be13bcc466ec977213ce4d65a564be50c6c8872c93c9617067",
+          "byte_count": 5590,
+          "warc_sha256": "c79b75376465775da56db1020bfce19aa92efca5b3e9baff92d37fd0c968e1a7",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/32113617/",
+          "warc_record_id": "urn:uuid:c48527fe-99c6-4fcc-8d01-3f4ebe986953",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-c0f15e46211f48d9",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "est-marsh-2016"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/26138823/",
+          "status": "challenge_not_source",
+          "sha256": "ab240ded175f4540670ca32ba0743c7364922a2d4fdd2e07a883f3319876a120",
+          "byte_count": 5590,
+          "warc_sha256": "b2afbfaaed11bdc9e8a5f7b417370b04eb18462d73f9a237cfa8c47327ce9c3e",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/26138823/",
+          "warc_record_id": "urn:uuid:d97a82fa-c720-4ec0-8973-4ec4c4af9931",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-c90b57a936c5c1eb",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "nz-oral-nicotine-overview"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/regulation-legislation/vaping-herbal-smoking-and-smokeless-tobacco/selling-vaping-or-other-notifiable-products/overview-of-products",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-dc2d41f13bad4122",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "est-gendall-2026"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/41587826/",
+          "status": "challenge_not_source",
+          "sha256": "324d2405b5621501e1855908773a0324115ba02c9ce3e3632462b067ffd22f93",
+          "byte_count": 5590,
+          "warc_sha256": "4b60d15665d85ad45faa5ad4b0e8a39c87f0059adab679afd0db9a21e9be04f9",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/41587826/",
+          "warc_record_id": "urn:uuid:43101411-a14b-4119-9d1b-ae3e9426c497",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-dc3b98f881a03390",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "long-nzhs-2022-corrected"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/publications/annual-update-of-key-results-202122-new-zealand-health-survey",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-dd9c3bf3d07dcc0a",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "parallel-S01"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/41447812/",
+          "status": "challenge_not_source",
+          "sha256": "57879cd2eb12f7ec93c093ed8c784e5b8477d81f0a2bd593a1b6bdfd20ddfcd8",
+          "byte_count": 5590,
+          "warc_sha256": "08dce3d316a2072e79a874b343498b62236135360f6cfad179fe35d221165cd9",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/41447812/",
+          "warc_record_id": "urn:uuid:a30d2c8f-9cfb-4a8a-8b8c-a9477fd529f6",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-ea4f96240c07fbb1",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "long-nzhs-module-2015"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.health.govt.nz/publications/tobacco-and-electronic-cigarette-use-201516-new-zealand-health-survey",
+          "status": "retrieval_failed",
+          "error": "terminal_status",
+          "warc_record_id": null,
+          "bytes_verified": false,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-f362d5809ccf2fa2",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "parallel-S03"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/41725392/",
+          "status": "challenge_not_source",
+          "sha256": "405d7c02618c57900f232a7cef3f664c8973d530d5a9c0b3567e0dcf1061e070",
+          "byte_count": 5590,
+          "warc_sha256": "1f6a0836ede2f0bc77fb2243317fcf142249f604c0d941a40ad7d3f684c6f69d",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/41725392/",
+          "warc_record_id": "urn:uuid:03ee6028-a751-4a36-b4f0-f3404be05b79",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13389531/",
+          "status": "source_html_identity_observed",
+          "sha256": "a656edc6d4451141d4fbc643490999513cdf9ce6d7adbd3490cc56c24d74908b",
+          "byte_count": 193515,
+          "warc_sha256": "c372ff01d97c0f31b958422787119005cbcc9821119c4eb51a1981eac26ae607",
+          "captured_at": null,
+          "final_uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13389531/",
+          "warc_record_id": "urn:uuid:40b8e9fd-a120-4e80-a354-dad6134545b8",
+          "bytes_verified": true,
+          "native_registration": {
+            "object_id": "sha256:a656edc6d4451141d4fbc643490999513cdf9ce6d7adbd3490cc56c24d74908b",
+            "observation_id": "tobac-f362d5809ccf2fa2",
+            "version_id": "tobac-f362d5809ccf2fa2-v1",
+            "registration_object_id": "sha256:e2b33212a73c79f621b3d698d5195e58adf79076a0b385a71387c9bcde3954a2",
+            "manifest_object_id": "sha256:18f4dc97dab4b53665ef1324bf841da1f5c02610c0bb2d8bd02640db32a75386"
+          }
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-f4107b08100d71c4",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "empirical-walker-2015"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/25398562/",
+          "status": "challenge_not_source",
+          "sha256": "858f8fee7d0308588a1be286205cd72c19ce90a5d41d4e367c9fc85eabcf3bf1",
+          "byte_count": 5590,
+          "warc_sha256": "ea0c09a89b2044ffc7602c61f8ee3e3076adf1fd37ec1e05eaa5bdec4a827323",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/25398562/",
+          "warc_record_id": "urn:uuid:e04646a9-6f5c-4b34-a982-658a51f3ae67",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-f8ee1ad4c84cf1c7",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/references.csl.json",
+          "source_id": "act2024"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://www.legislation.govt.nz/act/public/2024/0006/latest/LMS939049.html",
+          "status": "source_html_identity_observed",
+          "sha256": "bb626cad55d3f0e18a3d754dafdf7248c2f0214ede8fb5f8bd24323cb22439f5",
+          "byte_count": 209718,
+          "warc_sha256": "41f736a5c830fee1af5665ba2ec92a49f660c947a0c71cd163606f6d793c0683",
+          "captured_at": null,
+          "final_uri": "https://www.legislation.govt.nz/act/public/2024/6/en/latest/",
+          "warc_record_id": "urn:uuid:6a785f6a-a9a8-4247-a9d6-34b9a420493b",
+          "bytes_verified": true,
+          "native_registration": {
+            "object_id": "sha256:bb626cad55d3f0e18a3d754dafdf7248c2f0214ede8fb5f8bd24323cb22439f5",
+            "observation_id": "tobac-f8ee1ad4c84cf1c7",
+            "version_id": "tobac-f8ee1ad4c84cf1c7-v1",
+            "registration_object_id": "sha256:67b4971aded45c6925fc9851bb4b22613560c8d22f46088014ce2df9ed41fe72",
+            "manifest_object_id": "sha256:143427aa45cf9eb6285c73edc094e1be0379ee34cf252224222ff59aac8ecfb6"
+          }
+        }
+      ]
+    },
+    {
+      "archive_id": "tobac-fa4060e2c085d607",
+      "consumer_aliases": [
+        {
+          "collection": "evidence/prior_work/v2.9.0/references.csl.json",
+          "source_id": "est-li-2017"
+        }
+      ],
+      "redistribution_authorized": false,
+      "captures": [
+        {
+          "uri": "https://pubmed.ncbi.nlm.nih.gov/27624346/",
+          "status": "challenge_not_source",
+          "sha256": "798a6e5eae879ac883cdf450e3420d0a450633838b6ea7c8f929df3885b110c9",
+          "byte_count": 5590,
+          "warc_sha256": "cf60abd8e16cfb00507198a417da20dea5e606bc6539e08833132cc29273f44f",
+          "captured_at": null,
+          "final_uri": "https://pubmed.ncbi.nlm.nih.gov/27624346/",
+          "warc_record_id": "urn:uuid:007c8dda-b895-4ef0-b63d-267ad4dc8567",
+          "bytes_verified": true,
+          "native_registration": null
+        },
+        {
+          "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22594651,25037156,25398562,26138823,26218517,27624346,29571085,31515173,32113617,32653706,37192131,38876037,40919023,41447812,41587826,41661592,41725392,42664537&retmode=xml",
+          "status": "metadata_only",
+          "sha256": "ff260f7d644a1a2d0349c217e7233e3a6cd664b1f4269d9a03f329f42711955c",
+          "byte_count": 232407,
+          "warc_sha256": "a34822d72175136d01f670111300494e043eb7173107527b20f9e5e6187822e4",
+          "captured_at": null,
+          "final_uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+          "warc_record_id": "urn:uuid:f287935a-0895-4f99-a9cc-34ec80902799",
+          "bytes_verified": true,
+          "native_registration": null
+        }
+      ]
+    }
+  ],
+  "registration_scope": "Private qualification store; preserved bytes only. Bibliographic metadata and challenge pages are not registered originals.",
+  "native_lineage_qualified": false,
+  "scientific_qualification": false,
+  "automatically_conditions_live_model": false
+}

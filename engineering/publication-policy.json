@@ -355,6 +355,8 @@
     "integration/archive/native-contract-probe_20261029.json",
     "integration/archive/native-lineage-reconciliation_20261031.json",
     "integration/archive/native-producer-interface.json",
+    "integration/archive/native-registration-interface.json",
+    "integration/archive/native-source-refs.json",
     "integration/archive/observation-handoff-report.json",
     "integration/archive/observation-handoff.json",
     "integration/archive/p2-phase-verification_20261031.json",
