@@ -714,7 +714,8 @@
     "tests/test_runner.py",
     "tests/test_validation_boundaries.py",
     "tests/test_workstream_integration.py",
-    "vendor/conductor"
+    "vendor/conductor",
+    "docs/decisions/native_lineage_producer_merge_20261031.md"
   ],
   "gitlinks": {
     "vendor/conductor": "6e8f9a860bcdd6a2c423473c12e745200688c633"
