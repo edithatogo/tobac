@@ -24,6 +24,8 @@ ignore = ["D203", "D213", "COM812", "CPY001"]
 # Fixture factories and execution doubles may return heterogeneous runtime objects.
 # Descriptive test names are the executable documentation; helpers may use docstrings.
 "tests/**/*.py" = ["S101", "PLR2004", "INP001", "ANN001", "ANN002", "ANN003", "ANN201", "ANN202", "D103"]
+# Runner provenance script has subprocess call with explicit shell=False
+"**/scripts/runner_provenance.py" = ["subprocess-without-shell-equals-true"]
 
 [format]
 # Experimental lint rules are qualified separately from formatter style changes.
