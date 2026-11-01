@@ -475,3 +475,31 @@ manifest/relationship closure; independent-copy recovery. `native_lineage_qualif
 and `scientific_qualification` remain **false**, and the SHINE value remains a
 published model input, not a new observation. Scientific ecosystem remains open
 pending native managed-parser acceptance.
+
+## Record reconciliation — 31 October 2026
+
+Base `69ab2a2`. This section corrects the track records; it executes no new work and
+changes no software, dataset or scientific value.
+
+The plan ticks only P1 and P4. The earlier metadata claim of `completed_phases
+[1..6]` and the `tracks.md` "Phase 1-6 complete" label were overclaims and are
+corrected. Evidence review found:
+
+- P2/P3 producer receipts verify archive-govt-nz branch `feat/p2-p3-native-lineage-gaps`
+  (`89def194`/`c98206a4`); a merged producer main, full estate registration and the
+  capture-time correction are not confirmed, and the P2.3 output
+  `integration/archive/native-source-refs.json` is absent. These producer-owned
+  phases stay open.
+- P5 defines six runner interfaces with `exploratory` binding only; runner closure is
+  not executed, so P5 stays partial.
+- P6 has ten passing qualification tests, but `scripts/qualification_check.py` is not
+  referenced by `noxfile.py` or any workflow; it is not wired into qualified paths, so
+  P6 stays partial.
+- P7 is same-device partial; independent-copy recovery in a separate failure domain is
+  not demonstrated. P8 acceptance is open.
+
+A diverged local `main` claimed `phase1-8_complete` and an AC13 independent-copy
+restore against a receipt that does not exist; it is archived as
+`codex/diverged-local-main-20261031` and not merged. See
+[reconciliation receipt](../../../integration/archive/native-lineage-reconciliation_20261031.json)
+and [review](../../../docs/reviews/2026-10-31-native-lineage-reconciliation.md).

@@ -1,0 +1,39 @@
+{
+  "schema": "tobac.native-lineage-reconciliation.v1",
+  "date": "2026-10-31",
+  "base_commit": "69ab2a2",
+  "track_id": "native_archival_lineage_20261026",
+  "trigger": "The plan checkboxes, track metadata and tracks.md disagreed about phase completion, and a diverged local main claimed completion the evidence does not support.",
+  "corrected_state": {
+    "completed_phases": [1, 4],
+    "producer_owned_open_phases": [2, 3],
+    "open_or_partial_phases": [5, 6, 7, 8],
+    "native_lineage_qualified": false,
+    "scientific_qualification": false
+  },
+  "findings": [
+    "origin/main plan ticks only P1 and P4 while metadata claimed completed_phases [1,2,3,4,5,6]",
+    "P2/P3 receipts verify producer branch feat/p2-p3-native-lineage-gaps (89def194/c98206a4), not a merged producer main; P2.3 output integration/archive/native-source-refs.json is absent",
+    "P5 receipts record interface_defined with exploratory native binding, not executed runner closure",
+    "P6 enforcement tests exist but scripts/qualification_check.py is not referenced by noxfile.py or any workflow",
+    "P7 remains same-device partial (integration/archive/moh-recovery-rehearsal_20261029.json); independent-copy recovery in a separate failure domain is not demonstrated",
+    "P8 acceptance evidence is not present on main; no AC is fully verified"
+  ],
+  "diverged_local_main": {
+    "branch": "codex/diverged-local-main-20261031",
+    "tip": "8e63c85",
+    "disposition": "archived, not merged",
+    "reason": "Claims phase1-8 completion and an AC13 independent-copy restore against integration/archive/ac13-recovery-receipt.json, which does not exist in any branch or commit; its migrate_datasets/qualify_shine_table versions are superseded.",
+    "retained": "git bundle and patches in private storage"
+  },
+  "external_or_empirical_gates_unchanged": [
+    "Voiage 3.0.0 published-release acceptance (upstream release unavailable)",
+    "managed dependency-graph parser Python 3.15 support and package-to-package edges",
+    "Issue #3 empirical/data/governance requirements in conductor/research-gates.md",
+    "non-macOS release/audit qualification (roadmap)",
+    "Renovate action-pin/Python-3.15.2 PRs (#80, #91), deferred"
+  ],
+  "native_lineage_qualified": false,
+  "scientific_qualification": false,
+  "automatically_conditions_live_model": false
+}
