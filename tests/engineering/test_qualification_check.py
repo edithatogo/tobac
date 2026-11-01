@@ -39,6 +39,7 @@ def test_qualified_mode_passes_complete_manifest(tmp_path: Path) -> None:
     result = run_qualification(manifest, "qualified")
     assert result["qualified"] is True
     assert result["mode"] == "qualified"
+    assert result["native_lineage_qualified"] is False
     assert result["errors"] == []
 
 

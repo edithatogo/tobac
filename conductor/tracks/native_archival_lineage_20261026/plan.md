@@ -91,16 +91,27 @@ Depends on: P1. Covers: R01–R03, R06, R11; AC01–AC03, AC08.
   - [x] Run affected capture/source/manifest tests and native readback on an actual
     permitted source. Record current coverage and all unresolved required originals.
 
-## Producer merge status (2026-11-01)
+## Producer merge and readback — 1 November 2026
 
-The P2/P3 producer gap fixes have been implemented in a local archive-govt-nz clone
-(tobac-archive-integration, commit 0561947). However, the local repository has no
-common history with the remote archive-govt-nz main branch (1884 commits diverged).
-The branch `feat/p2-p3-native-lineage-gaps` was pushed to the remote but cannot be
-opened as a PR due to no common history. Producer merge requires manual intervention
-by the archive-govt-nz maintainer to integrate the P2/P3 changes.
+The scoped producer port merged through [archive-govt-nz PR #849](https://github.com/edithatogo/archive-govt-nz/pull/849) at
+`a8815d634c9ef5ec6eeb88a3419620f8937b238d`. The reviewed head was
+`a5b733d2893e4fcf89fed01c670403b5b4c634db`. A fresh fetch confirmed
+ancestry and identical source and test trees. The old #842 branch was not used.
 
-See: [Producer merge decision](docs/decisions/native_lineage_producer_merge_20261031.md)
+The Python 3.15.1 PR harness passed (8,909 passed, 14 skipped, nine parity
+cases without divergence). Ruff, typing, schema, dependency audit, licence,
+secret and SBOM gates passed. Hosted Linux release assurance, macOS, Windows,
+CodeQL, lint and patch coverage passed. Review fixes preserve occupied WARC
+paths and convert the IDs of schema-validated native records without modifying
+the originals. The CLI validates source metadata. Full estate registration
+and historical capture timestamps require their own evidence.
+
+Tobac still needs an installed artifact qualified from the new producer,
+the derived native-source-refs.json export, and runner closure and enforcement.
+The verified independent MOH copy covers the scoped rehearsal. Full-estate
+restore, replay and Phase 8 acceptance remain open. Metadata validation keeps
+native_lineage_qualified false. The affected tests (36), full tobac suite
+(1,137 passed, 15 skipped, 92% coverage) and numerical reproduction passed.
 
 ## Phase 3 — Execute and validate native transformation provenance
 
@@ -514,3 +525,15 @@ restore against a receipt that does not exist; it is archived as
 `codex/diverged-local-main-20261031` and not merged. See
 [reconciliation receipt](../../../integration/archive/native-lineage-reconciliation_20261031.json)
 and [review](../../../docs/reviews/2026-10-31-native-lineage-reconciliation.md).
+
+## MOH independent recovery checkpoint — 1 November 2026
+
+Chat 01a195fd-7f87-7472-9ff4-3c1e59fe7976 owns the MOH restore readback and
+manifest qualification correction in the managed lineage-restore-review/tobac
+worktree. The 29-file USB receipt covers repository files. A separate restore
+from the external USB into a fresh internal directory verified the nine MOH
+objects against the recorded inventory root, verified both capture objects by
+their recorded hashes, and reopened the two strict records against their CAS
+bytes. The private readback is usb-restore.3x6PDS/usb-restore-readback.json.
+This qualifies the MOH rehearsal copy only. Full-estate dependency closure,
+installed replay and Phase 8 acceptance remain open.
