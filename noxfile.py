@@ -362,6 +362,13 @@ def publication(session: nox.Session) -> None:
 
 
 @nox.session(python="3.15.1")
+def qualification(session: nox.Session) -> None:
+    """Run native provenance qualification enforcement tests."""
+    environment(session)
+    session.run("python", "-m", "pytest", "-q", "tests/engineering/test_qualification_check.py")
+
+
+@nox.session(python="3.15.1")
 def lock(session: nox.Session) -> None:
     """Produce review candidates, not automatic trusted locks or source commits."""
     session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
