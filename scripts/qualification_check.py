@@ -165,7 +165,7 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
         "observation_count": len(observations),
         "version_count": len(versions),
         "receipt_counts": receipt_counts,
-        "native_lineage_qualified": qualified and not errors,
+        "native_lineage_qualified": False,  # The manifest check does not verify native artifacts.
         "scientific_qualification": False,
         "automatically_conditions_live_model": False,
     }

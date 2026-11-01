@@ -514,3 +514,15 @@ restore against a receipt that does not exist; it is archived as
 `codex/diverged-local-main-20261031` and not merged. See
 [reconciliation receipt](../../../integration/archive/native-lineage-reconciliation_20261031.json)
 and [review](../../../docs/reviews/2026-10-31-native-lineage-reconciliation.md).
+
+## MOH independent recovery checkpoint — 1 November 2026
+
+Chat 01a195fd-7f87-7472-9ff4-3c1e59fe7976 owns the MOH restore readback and
+manifest qualification correction in the managed lineage-restore-review/tobac
+worktree. The 29-file USB receipt covers repository files. A separate restore
+from the external USB into a fresh internal directory verified the nine MOH
+objects against the recorded inventory root, verified both capture objects by
+their recorded hashes, and reopened the two strict records against their CAS
+bytes. The private readback is usb-restore.3x6PDS/usb-restore-readback.json.
+This qualifies the MOH rehearsal copy only. Full-estate dependency closure,
+installed replay and Phase 8 acceptance remain open.
