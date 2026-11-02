@@ -1,4 +1,4 @@
-# voiage alignment follow-ups (tobac)
+# Voiage alignment follow-ups (tobac)
 
 Bounded follow-up to the existing scientific ecosystem track; it reuses that owner and adds no parallel programme.
 

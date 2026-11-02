@@ -146,7 +146,7 @@ At the PR #43 checkpoint C3/C4/C6 remained unchecked. The later close-out below 
 
 PR #44 merged at `0940c595ce06f4142467de3f687dea881dae8ea2` after 15 successful PR checks and two expected trusted-write skips. Native default-branch snapshot `114186314` returned SUCCESS; 113 submitted PURLs appear in the 123-PURL native export, with every previous PURL retained. Receipt: `integration/ecosystem/dependency-submission_20261026.json`.
 
-- [ ] Submitted-graph acceptance: perform the revised current-head coverage, submission and readback checks described below. The managed parser failure remains an upstream limitation, not a successful check.
+- Historical proposal (superseded by the bounded inventory closeout below): Submitted-graph acceptance: perform the revised current-head coverage, submission and readback checks described below. The managed parser failure remains an upstream limitation, not a successful check.
 
 ## Implementation resume — 26 October 2026
 
@@ -377,17 +377,17 @@ resolved-graph route as the planned acceptance path. Earlier parser-specific clo
 statements above are historical and superseded by this plan. The track stays open
 until the work below is actually executed and reviewed.
 
-- [ ] Define the required current graph coverage: relevant manifests, source-bound
+- Historical proposal (superseded by the bounded inventory closeout below): Define the required current graph coverage: relevant manifests, source-bound
   locks, runtime and development scopes, package identities and whether direct or
   transitive edges are required. Identify any missing coverage and its consequences.
-- [ ] On the reviewed receiving SHA and unchanged Python 3.15 constraint, run the
+- Historical proposal (superseded by the bounded inventory closeout below): On the reviewed receiving SHA and unchanged Python 3.15 constraint, run the
   existing supported snapshot submission and retain its exact input hashes, run,
   response and native graph readback. Verify the required coverage, not merely a
   successful API response or a count of package identifiers.
-- [ ] If required coverage or relationships are missing, improve and qualify the
+- Historical proposal (superseded by the bounded inventory closeout below): If required coverage or relationships are missing, improve and qualify the
   existing submission route, then repeat the current-head verification. Do not claim
   edges or scopes the native readback does not establish.
-- [ ] Review evidence and update the acceptance map and receiving-main record; close
+- Historical proposal (superseded by the bounded inventory closeout below): Review evidence and update the acceptance map and receiving-main record; close
   only when the revised criteria and existing applicable checks are satisfied.
 
 The earlier 113-PURL readback is historical inventory evidence, not current-head
@@ -585,3 +585,16 @@ current-revision tasks remain unchecked as a record of those pending checks.
 The native managed parser failure, missing dependency edges, GitHub alert status,
 and separate published Voiage 3.0 acceptance remain unresolved. Closure does not
 assert these passed or change security settings.
+
+### Repository reconciliation — 2 November 2026
+
+The five former unchecked graph proposals above are historical scope proposals,
+superseded by the owner-directed bounded inventory closeout, rather than active
+implementation tasks. They have not been relabelled as executed edge qualification.
+All six receiving-main workflows at `e88d563` succeeded; snapshot 117127776 binds
+that SHA and all four lock hashes. All 115 submitted PURLs appear in the 128-PURL
+native aggregate. The aggregate does not independently identify its source SHA.
+[Reconciliation receipt](../../../integration/reconciliation_20261102.json).
+The older queued checks no longer block current acceptance. Package edges and
+deployment exposure remain unqualified uses. Managed-parser issue #16524 / PR
+#16525 remain open. Published Voiage 3.0.0 qualified in PR #104, separately.

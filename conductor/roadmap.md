@@ -11,12 +11,14 @@ Hosted Linux and Windows Python 3.15.1 runtime tests were restored and qualified
 PR #66 at receiving main `62056c5`; macOS remains the full engineering/reference
 qualification platform. The following additional work is deferred:
 
-- Install and execute the source-bound Linux x86_64 audit lock under Python 3.15.1.
-- Extend non-macOS qualification beyond the now-passing hosted runtime test suites.
-- Diagnose future non-macOS hosted-runner failures using their actual annotations.
-- Verify packaging, dependency markers, paths, encodings and scientific reproduction behavior on
-  supported non-macOS platforms.
-- Reconsider when non-macOS release/audit and numerical qualification should return to active tracks.
+- [ ] DXP1 — Install and execute the source-bound Linux x86_64 audit lock under
+  the qualified Python 3.15 runtime.
+- [ ] DXP2 — Qualify non-macOS package paths, dependency markers, encodings and
+  release behavior beyond the passing runtime tests.
+- [ ] DXP3 — Execute platform-specific scientific reproduction on supported
+  non-macOS platforms.
+- [ ] DXP4 — Reconsider and requalify the deferred manual release and lock-generation
+  workflows when non-macOS release/audit work is reprioritised.
 
 Historical owner decision, 28 October 2026: Windows and Linux were not then
 acceptance gates. PR #66 supersedes that decision for runtime tests. Retain the same scientific,
@@ -53,10 +55,10 @@ additional automation tools are roadmap work; no job or entitlement is claimed a
 These are improvements beyond the completed 26 October macOS acceptance scope, not
 open execution gates or automatic implementation authorisation:
 
-- Triage the 12 surviving supply mutants from PR #51's receiving-main macOS
+- [ ] DH1 — Triage the 12 surviving supply mutants from PR #51's receiving-main macOS
   119/131 (90.8%) measurement;
   distinguish equivalent mutations from worthwhile missing assertions.
-- Reconsider retained source/API Ruff exceptions where a change preserves public
+- [ ] DH2 — Reconsider retained source/API Ruff exceptions where a change preserves public
   interfaces, validation behavior and scientific meaning. Test/tooling lint, formatting
   and five explicit preview rules are implemented by PR #51, not deferred work.
   See `docs/engineering/RUFF_POLICY.md` for the current scoped policy.
@@ -66,3 +68,10 @@ of 175 source/style exceptions remain dated evidence, not current outstanding co
 The separate bounded gremlins
 campaign detected 68/68; its denominator does not replace mutmut. F6's non-macOS ARM
 diagnostic execution remains deferred here; it is not an unchecked current macOS task.
+
+## Reconciliation — 2 November 2026
+
+The four cross-platform tasks, four advisory-lane tasks and two optional hardening
+tasks are the ten deferred tasks across three work groups/phases. None is active.
+See [current status](status.md) for completed gates, open dependency-update PRs,
+scientific requirements and the disposition of superseded decision drafts.

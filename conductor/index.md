@@ -18,14 +18,15 @@
 -   [Completed tracks](./archive/index.md)
 -   [Open research gates](./research-gates.md)
 -   [Roadmap](./roadmap.md)
+-   [Reconciled status and remaining work](./status.md)
 
 ## Capabilities
 
 -   [Agent Skills](../.agents/skills/)
 
-## Active implementation
+## Implementation disposition
 
-- [Scientific ecosystem modernisation](./archive/scientific_ecosystem_20261025/index.md): bounded implementation closed; the managed root-parser limitation and queued receiving-main verification remain explicit.
+- [Scientific ecosystem modernisation](./archive/scientific_ecosystem_20261025/index.md): bounded implementation closed; receiving-main inventory verified. Managed-parser and graph-relationship limits remain explicit.
 
 - [Voiage Polars qualification](./archive/voiage_polars_qualification_20261026/plan.md): published 3.0.0 wheel qualified on Python 3.15.1.
 

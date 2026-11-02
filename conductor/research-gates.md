@@ -4,6 +4,10 @@ These requirements remain scientifically open after completed software tracks ar
 A missing estimate, null effect or unidentified quantity is a permissible research result.
 No software test supplies missing observations, normative choices or permissible-use authority.
 
+Local-only manuscript/request references below are excluded from the published checkout
+and retained by digest in `engineering/publication-policy.json`. Their absence is an
+intentional publication boundary. Public technical evidence and archived plans remain linked.
+
 | Gate | Missing evidence or decision | Existing boundary and next supported action |
 | --- | --- | --- |
 | Decision target | Prospective legal authority, implementation date and contemporary retailer/catchment roster | The 600-retailer research contrast, 15+ resident cigarette/RYO estimands and conditional comparative design are specified in docs/research/M2_MATCHED_PATHWAY.md. The historical cap was not implemented; no current rollout or credible causal counterfactual is obtained. |
@@ -14,7 +18,7 @@ No software test supplies missing observations, normative choices or permissible
 | Policy and biomarker calibration | Net cessation, switching, mitigation/replacement, incremental criminal harm, near-limit assay accuracy and serial dependence | Retain null/structural scenarios; obtain matched observations or explicit documented elicitation before empirical claims. |
 | Governance and costs | Māori governance/permissible use, equitable coverage and actual incremental costs | These are substantive decisions/data requirements; no new approval workflow, external contact or fabricated values are introduced. |
 | Research-method applicability | Held-out target-policy and assay outcomes with a credible counterfactual | Existing finite VOI, independent optimisation checks for sharp marginal bounds, and retrospective leave-future-out release diagnostics are executable. Optional generic/continuous library expansion is not used or required for this exact analysis; it does not establish field validity. |
-| Native archival recovery | Original capture timestamps absent; remote raw-object recovery not demonstrated; companion archive work remains separately owned | Retain null timestamps and edition/extraction identities. Local CAS/WARC fixity is not remote recovery. |
+| Archival historical metadata and wider scope | Original capture timestamps remain absent for some historical sources; wider archive estate and remote raw-object recovery remain outside the declared runner closure | P1–P8 and AC13 are complete for the current closure, including independent USB restore and all-eight-runner replay. Retain null timestamps and edition identities. Do not infer whole-estate or remote recovery from this bounded acceptance. |
 
 Execution/source references: docs/2025_PRODUCT_RECONCILIATION.md,
 docs/MOH_OBSERVATION_PATHWAY.md, docs/SOURCE_OBSERVATION_HANDOFF.md,
@@ -53,7 +57,7 @@ remain [0,1] under the declared M2a structure,not uniform priors.
 
 ## Existing-record applicability assessment — 27 October 2026
 
-[Assessment](../docs/research/M2_EXISTING_RECORDS_ASSESSMENT.md) and
+Assessment (`docs/research/M2_EXISTING_RECORDS_ASSESSMENT.md`, local-only) and
 `evidence/m2/existing_records_20261027.json` narrow the access/collection boundary.
 Repeated NZ wastewater baseline observations already exist; authors offer data on request,
 but required raw-field coverage and access remain unverified.
@@ -66,7 +70,7 @@ against a selected target. Custodian access, target applicability, causal counte
 current costs and human governance/value decisions remain open. No restricted database
 was accessed, request sent or empirical likelihood adopted.
 
-Owner decision options: [issue #3 decisions](../docs/research/M2_DECISIONS.md).
+Owner decision options: issue #3 decisions (`docs/research/M2_DECISIONS.md`, local-only).
 Recommendations remain unadopted until the owner selects them.
 
 ## Selected preparation directions — 27 October 2026
@@ -75,7 +79,7 @@ Recommendations remain unadopted until the owner selects them.
 research, existing-record feasibility first, wide bounds/no-study as permissible,
 separate societal/budget perspectives, no paid commitments and public aggregate output.
 These supersede the earlier unadopted recommendations for preparation scope only.
-[Requests](../requests/m2_20261027/README.md) are local unsent drafts. Actual contact,
+Requests (`requests/m2_20261027/README.md`, local-only) are local unsent drafts. Actual contact,
 restricted access/linkage, weights, new collection, costs and Māori/custodian governance
 remain open; no evidence or policy effect is inferred from the owner's direction.
 
@@ -88,18 +92,18 @@ Older access requirements describe scientific limits, not authorised next action
 
 ## Public-source methods and table linkage — 27 October 2026
 
-[Methods](../docs/research/M2_PUBLIC_SOURCE_METHOD.md) prescribe explicit search
+Methods (`docs/research/M2_PUBLIC_SOURCE_METHOD.md`, local-only) prescribe explicit search
 streams,screening,local capture,source IDs,extraction locators,assumption provenance
 and formula/input links. [Initial tables](../evidence/m2/public_sources_20261027/README.md)
 retain imported versus fresh extracts,missing values,shared-data groups and an
 unresolved rounded-source arithmetic discrepancy. No new model input is adopted.
 Remaining full-search,supplement,visual-review and appraisal tasks are tracked in
-`tracks/m2_public_sources_20261027/plan.md`;source indexing is not empirical acceptance.
+`archive/m2_public_sources_20261027/plan.md`;source indexing is not empirical acceptance.
 
 
 ## Completed bounded public-source pass — 27 October 2026
 
-The [completion report](../docs/research/M2_PUBLIC_SOURCE_COMPLETION.md) supersedes
+The completion report (`docs/research/M2_PUBLIC_SOURCE_COMPLETION.md`, local-only) supersedes
 the pending-search/supplement/appraisal statements above.48queries,213dispositions,
 six bounded citation rounds and both human-yield supplements are complete with
 explicit index/access limits. Current public metadata cannot establish full native
@@ -123,7 +127,7 @@ identification boundary or any numerical input;see the completion-report audit.
 
 [Owner direction](decisions/m2_publication_20261028.md) authorises a conditional
 modelling article, explicit value-sensitivity scenarios and a desk ethics assessment.
-[Executed analysis](../docs/research/M2_CONDITIONAL_PUBLICATION.md) crosses five
+Executed analysis (`docs/research/M2_CONDITIONAL_PUBLICATION.md`, local-only) crosses five
 existing structures/priors with 25 normative profiles. Every action can be preferred
 under different weights with the same factual assumptions; no action is co-optimal
 throughout the full declared continuous rectangle. These are conditional model
@@ -136,7 +140,7 @@ was rechecked against its original paper but is not a new empirical observation.
 Issue #3's causal/measurement/transport/cost and external-validation gaps stay open.
 They are limitations on stronger claims, not an authorised data-request programme.
 
-[Ethics assessment](../docs/research/M2_PUBLICATION_ETHICS.md) records actual public
+Ethics assessment (`docs/research/M2_PUBLICATION_ETHICS.md`, local-only) records actual public
 and synthetic data use, official HDEC/NEAC guidance and absence of recruitment,
 identifiable-record access or external person linkage. Formal applicability remains
 undetermined without institutional/site/journal context; no exemption, approval,
@@ -146,9 +150,9 @@ remain author-level submission-readiness matters. No request or submission occur
 
 ## Manuscript robustness and reporting — 28 October 2026
 
-[Current manuscript](../docs/research/M2_MANUSCRIPT.md),
-[supplement](../docs/research/M2_MANUSCRIPT_SUPPLEMENT.md) and
-[submission-readiness record](../docs/research/M2_SUBMISSION_READINESS.md) complete
+Current manuscript (`docs/research/M2_MANUSCRIPT.md`, local-only),
+supplement (`docs/research/M2_MANUSCRIPT_SUPPLEMENT.md`, local-only) and
+submission-readiness record (`docs/research/M2_SUBMISSION_READINESS.md`, local-only) complete
 the bounded public-only preparation. Thirteen prior/dependence/report challenges
 show conditional policy and study-ranking sensitivity; they do not supply empirical
 calibration, representative preferences or actual incremental costs. Primary outputs
@@ -164,19 +168,19 @@ matters. No requests, contacts, submissions, deposits or invented approvals.
 
 ## Two-article direction and original remit — 28 October 2026
 
-The owner selected [MDM research](../docs/research/M2_MDM_ARTICLE.md) and a distinct
-[NZMJ Viewpoint](../docs/research/M2_NZMJ_VIEWPOINT.md). The latter centres on whether
+The owner selected MDM research (`docs/research/M2_MDM_ARTICLE.md`, local-only) and a distinct
+NZMJ Viewpoint (`docs/research/M2_NZMJ_VIEWPOINT.md`, local-only). The latter centres on whether
 tobacco wastewater testing could narrow factual disagreement and how a decision
 model could assess the conditional worth of information. This supersedes a generic
 evidence-audit-only NZMJ framing and the earlier unselected-target status for these
-drafts. [Strategy and overlap](../docs/research/M2_TWO_ARTICLE_STRATEGY.md) distinguish
+drafts. Strategy and overlap (`docs/research/M2_TWO_ARTICLE_STRATEGY.md`, local-only) distinguish
 contributions; all numerical results belong to the MDM paper.
 
 Existing EVSI does not estimate ideological convergence, persuasion, actual evidence
-uptake or societal gains from consensus. The [prospective uptake/cost bridge](../docs/research/M2_DISAGREEMENT_SCOPE.md)
+uptake or societal gains from consensus. The prospective uptake/cost bridge (`docs/research/M2_DISAGREEMENT_SCOPE.md`, local-only)
 is explicitly conditional algebra; no uptake probability, actual study/delay costs
 or common welfare objective is fitted. Issue #3's empirical identification gaps
-remain. [Author/formal facts](../docs/research/M2_TWO_ARTICLE_DECLARATIONS.md), personal
+remain. Author/formal facts (`docs/research/M2_TWO_ARTICLE_DECLARATIONS.md`, local-only), personal
 final approval and applicable institutional/cultural determinations remain open.
 Local manuscript/source/formula and qualification evidence is retained; native
 exact-head/main acceptance is recorded in the associated PR. No requests, contacts,

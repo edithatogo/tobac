@@ -227,3 +227,15 @@ local signing authority stay with their native owner. No capture/authentication
 operation is active. The three pre-existing decision drafts remain untracked.
 The final metadata-only publication is owned by branch
 codex/native-lineage-acceptance-closeout. Earlier assignments remain historical.
+
+## Repository and decision-draft reconciliation — 2 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns this documentation-only
+reconciliation in `/Users/doughnut/Documents/tobac`, from main `e88d563`.
+Scope includes Conductor status/registry/archive metadata, the three existing
+November 1 decision drafts and exact reviewed publication paths. No scientific,
+native object, authentication, runtime or dependency mutation is in scope.
+The three drafts are now retained as superseded historical proposals with actual
+acceptance links and unverified approval placeholders identified. Producer
+`c76d78df` remains unchanged. Next operation is focused validation, ordinary commit
+and guarded receiving-main publication. Earlier ownership entries remain history.

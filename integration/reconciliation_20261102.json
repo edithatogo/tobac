@@ -1,0 +1,166 @@
+{
+  "schema": "tobac.repository-reconciliation.v1",
+  "checked_at": "2026-11-02T11:06:52.113476+00:00",
+  "consumer_receiving_sha": "e88d56366c512df3e71243ac341722bb3a52e1ae",
+  "producer_receiving_sha": "c76d78df37ffa89469e8fca5f2db521553525276",
+  "scope": "Documentation and status reconciliation; retain declared-scope native/software acceptance and separate scientific limitations",
+  "dependency_inventory": {
+    "source_sha": "e88d56366c512df3e71243ac341722bb3a52e1ae",
+    "response": {
+      "id": 117127776,
+      "created_at": "2026-11-02T10:51:22.782Z",
+      "result": "SUCCESS",
+      "message": "Dependency results for the repo have been successfully updated."
+    },
+    "locks": {
+      "engineering/requirements.lock": {
+        "sha256": "2b0720ad8fcfe353609960609d277ef907e0d5e573a75b5ba008b1b316e0150d",
+        "entries": 39
+      },
+      "engineering/audit.lock": {
+        "sha256": "8e3e29a769fc729b46489d296ba32981c8e37587bd55d3a922661156dec4baf9",
+        "entries": 96
+      },
+      "engineering/voiage.lock": {
+        "sha256": "0c4b5e69af45a3845157278c6a01693d474d1dd6d8ba4aad9996b5d427ffed51",
+        "entries": 51
+      },
+      "engineering/ecosystem.lock": {
+        "sha256": "f699be9066d4af51f96e4583bc31dbe922dc0a1677e393dd331a15b31b98b74f",
+        "entries": 60
+      }
+    },
+    "submitted_purls": 115,
+    "exported_purls": 128,
+    "missing_submitted_purls": [],
+    "native_export_source_sha_independently_identified": false,
+    "scope": "Four resolved-profile inventories only; no native package edges or deployment exposure inferred",
+    "snapshot_sha256": "fd2c7527b92dc888272c7bcb04df84491a04d01a718f1bea8f63f4aea24838b4",
+    "export_sha256": "f8df8d81203b26e81c5b90fb907cfc14e79aafb84d87aeed0daa5b53269171dd"
+  },
+  "receiving_main_workflows": [
+    {
+      "conclusion": "success",
+      "databaseId": 41430442231,
+      "event": "push",
+      "headSha": "e88d56366c512df3e71243ac341722bb3a52e1ae",
+      "name": "M3 research methods",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 41430442436,
+      "event": "push",
+      "headSha": "e88d56366c512df3e71243ac341722bb3a52e1ae",
+      "name": "Cross-platform Python qualification",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 41430442358,
+      "event": "push",
+      "headSha": "e88d56366c512df3e71243ac341722bb3a52e1ae",
+      "name": "Publication and source security",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 41430442327,
+      "event": "push",
+      "headSha": "e88d56366c512df3e71243ac341722bb3a52e1ae",
+      "name": "Regulatory uncertainty milestone",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 41430442378,
+      "event": "push",
+      "headSha": "e88d56366c512df3e71243ac341722bb3a52e1ae",
+      "name": "Empirical longitudinal component",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 41430442397,
+      "event": "push",
+      "headSha": "e88d56366c512df3e71243ac341722bb3a52e1ae",
+      "name": "Engineering qualification",
+      "status": "completed"
+    }
+  ],
+  "open_dependency_pull_requests": [
+    {
+      "baseRefOid": "e88d56366c512df3e71243ac341722bb3a52e1ae",
+      "headRefOid": "51e263154ee03c0feaf25e59eaf7a8cda3bd5d2e",
+      "mergeStateStatus": "BLOCKED",
+      "number": 80,
+      "title": "Update verified action pins",
+      "url": "https://github.com/edithatogo/tobac/pull/80",
+      "checks": {
+        "SUCCESS": 4,
+        "FAILURE": 17,
+        "SKIPPED": 2,
+        "PENDING": 0
+      }
+    },
+    {
+      "baseRefOid": "e88d56366c512df3e71243ac341722bb3a52e1ae",
+      "headRefOid": "4dd3c823e8d752dca03014ab57678e3014ce3815",
+      "mergeStateStatus": "BLOCKED",
+      "number": 91,
+      "title": "Update python Docker tag to v3.15.2",
+      "url": "https://github.com/edithatogo/tobac/pull/91",
+      "checks": {
+        "SUCCESS": 16,
+        "FAILURE": 5,
+        "SKIPPED": 2,
+        "PENDING": 0
+      }
+    },
+    {
+      "baseRefOid": "e88d56366c512df3e71243ac341722bb3a52e1ae",
+      "headRefOid": "fbe441afbb625e37e96c39353c9d4e822f924c70",
+      "mergeStateStatus": "BLOCKED",
+      "number": 94,
+      "title": "Update dependency pytest-gremlins to v1.13.1",
+      "url": "https://github.com/edithatogo/tobac/pull/94",
+      "checks": {
+        "SUCCESS": 16,
+        "FAILURE": 5,
+        "SKIPPED": 2,
+        "PENDING": 0
+      }
+    }
+  ],
+  "draft_original_sha256": {
+    "docs/decisions/ac13_independent_copy_recovery_20261101.md": "35e378956930f5b192ddbfcd30271fe2ae2f3f3706cc3088d20fbe5a4fe7091c",
+    "docs/decisions/phase5_6_implementation_20261101.md": "cd6bf34d0995595c44eab2064825d3266ce0e9d357635acb266ad22083f01c3c",
+    "docs/decisions/phase5_6_sequencing_20261101.md": "5f6a5312d3b151aef17e5a61621f8e02d5a8882124679dfb19179aa7caf2f442"
+  },
+  "draft_disposition": "Retained in version control as superseded historical proposals, with current evidence and unverified approval labels made explicit",
+  "upstream_managed_parser": {
+    "issue": 16524,
+    "issue_state": "open",
+    "pull_request": 16525,
+    "pull_request_state": "open",
+    "merged": false,
+    "checked_date": "2026-11-02"
+  },
+  "scientific_qualification": false,
+  "validation": {
+    "track_name_consistency": "20/20 passed",
+    "focused_tests": {
+      "passed": 41,
+      "command": ".nox/tests/bin/python -m pytest tests/engineering/test_conductor_archive.py tests/engineering/test_publication_boundary.py tests/test_workstream_integration.py -q",
+      "python": "3.15.1",
+      "max_rss_mib": 4096,
+      "timeout_seconds": 2400,
+      "sampled_peak_rss_mib": 117.8,
+      "exit_code": 0
+    },
+    "metadata_json": "passed",
+    "public_status_markdown_targets": "passed; intentionally excluded local documents labelled local-only",
+    "source_changes": false,
+    "full_suite": "Reuse unchanged executed receiving-main evidence at e88d563; no scientific/runtime changes"
+  }
+}

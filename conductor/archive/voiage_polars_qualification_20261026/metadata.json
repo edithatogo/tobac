@@ -40,7 +40,6 @@
     "scope": "Review and complete remaining macOS qualification, refresh Conductor, commit, verify and merge; no release publication or upstream mutation",
     "source": "Direct owner request 27 October 2026"
   },
-  "external_gate": "PyPI 3.0.0 JSON HTTP 404; latest published PyPI/GitHub release remains 2.2.0, rechecked 28 October 2026",
   "candidate": {
     "repository": "https://github.com/edithatogo/voiage.git",
     "revision": "65c5e76fb8c206ae39049866a1e79482cafaafc3",
@@ -48,14 +47,14 @@
     "upstream_pull_request": 1202,
     "kind": "unreleased unpatched Polars-container candidate; not published Voiage 3.0.0",
     "requires_python": "3.15.1",
-    "release_gate": "Published 3.0.0 remains unavailable; no upstream release or default-producer promotion"
+    "release_gate": "Historical candidate checkpoint; superseded by published 3.0.0 qualification in PR #104"
   },
   "owner_scope_decision": "Qualify candidate and retain release gate; direct reply 27 October 2026",
-  "updated_at": "2026-10-28",
-  "implementation_state": "merged_candidate_ownership_qualified_published_3_release_gate_open",
+  "updated_at": "2026-11-02",
+  "implementation_state": "published_3_0_0_qualified_track_completed",
   "verification": "integration/voiage_polars_consumer_20261028.json",
   "review": "docs/reviews/2026-10-28-voiage-merged-candidate.md",
-  "publication": "Guarded publication and exact receiving-main native proof will be recorded in the linked qualification PR",
+  "publication": "PR #104 merged; published 3.0.0 wheel qualification recorded in integration/voiage_published_20261102.json",
   "platform_decision": {
     "date": "2026-10-28",
     "source": "Direct owner instruction: I do not need Windows or Linux to pass; defer them and stick with macOS",
@@ -72,5 +71,6 @@
   "platform_review": "docs/reviews/2026-10-28-macos-only-ci.md",
   "completed_at": "2026-11-02",
   "published_release": "3.0.0",
-  "published_receipt": "integration/voiage_published_20261102.json"
+  "published_receipt": "integration/voiage_published_20261102.json",
+  "historical_external_gate": "PyPI 3.0.0 JSON HTTP 404; latest published PyPI/GitHub release remains 2.2.0, rechecked 28 October 2026"
 }

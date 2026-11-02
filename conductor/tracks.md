@@ -1,4 +1,7 @@
-# Active research tracks
+# Research tracks and current disposition
+
+No implementation track is in progress. See [reconciled status](status.md) for
+remaining deferred work, dependency PRs and scientific requirements.
 
 ## Scientific ecosystem modernisation
 
@@ -17,19 +20,21 @@ The upstream managed parser's Python 3.15 support remains an unresolved limitati
 ([dependabot-core #16524](https://github.com/dependabot/dependabot-core/issues/16524)).
 Supported dependency submission and graph readback pass; the failed managed parser
 is not hidden or marked successful. [Merged PR #41](https://github.com/edithatogo/tobac/pull/41)
-implements separate exact-candidate qualification; published-3.0 acceptance remains open.
+implements separate exact-candidate qualification. Published Voiage 3.0.0 acceptance
+was completed by PR #104 with `integration/voiage_published_20261102.json`.
 
 [PR #50](https://github.com/edithatogo/tobac/pull/50) qualifies Hypothesis 6.170.9:
 all four source-bound locks are regenerated, with complete ecosystem input binding.
 Its verification and receiving-main publication are recorded in the PR and
 `integration/hypothesis_pr50_20261027.json`; no unexecuted check is implied complete.
 
-Scientific ecosystem recheck: [receipt](../integration/ecosystem/managed-parser-recheck_20261029.json).
-The submission and native inventory readback were verified at source revision `62a4712`;
-they do not establish dependency edges or deployment exposure. The subsequent `00fb336`
-changes only documentation; its receiving-main CI and new submission were queued at
-closure, and remain unverified. Upstream PR #16525 remains unmerged; its parser failure
-remains recorded, not reported as a pass.
+Scientific ecosystem reconciliation: [current receipt](../integration/reconciliation_20261102.json).
+All six receiving-main workflows at `e88d563` succeeded. Snapshot 117127776
+binds that revision and the four unchanged lock hashes; all 115 submitted PURLs
+appear in the native aggregate. This establishes resolved inventory coverage.
+Package dependency edges, deployment exposure and managed-parser success remain
+unqualified. Upstream issue #16524 and PR #16525 remain open as of 2 November.
+Earlier queued-run statements are historical, not current implementation blockers.
 
 ## Completed work
 

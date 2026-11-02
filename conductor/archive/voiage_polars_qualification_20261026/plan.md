@@ -26,7 +26,7 @@ Publication through guarded PR #41 requires every exact-head check and the new
 macOS candidate job; receiving-main proof is maintained in that PR. Receipt:
 integration/voiage_polars_consumer_20261027.json.
 
-## External published-release gate — blocked
+## Historical published-release gate — now completed
 
 - [x] Qualify an unpatched published Voiage 3.0.0 wheel when it exists (AC3).
 - [x] Decide patch retirement and the 3.0 dependency base from that release's actual

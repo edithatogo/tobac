@@ -5,8 +5,9 @@ Archived plans preserve their bounded completion scope and dated evidence. Resea
 ## Scientific ecosystem modernisation
 
 [Plan](scientific_ecosystem_20261025/plan.md) and [specification](scientific_ecosystem_20261025/spec.md).
-Bounded implementation closed by the owner; the managed-parser limitation and
-receiving-main verification remain unresolved as recorded in the plan.
+Bounded implementation closed by the owner; receiving-main inventory verification
+is reconciled in [current status](../status.md). Managed-parser and dependency-edge
+limitations remain explicit.
 
 ## Archival source integration
 
@@ -119,12 +120,16 @@ fixity review complete; four drafts remain withdrawn and unsent. No new request,
 OIA submission, contact, access application, commissioning or collection is authorised.
 Public-source successors and issue #3 empirical/publication gates remain explicit.
 
-## Voiage alignment follow-ups
+## Voiage alignment follow-ups (tobac)
+
+Track: `conductor/archive/voiage_alignment_followups_20261030/`
 
 [Plan and qualification results](voiage_alignment_followups_20261030/plan.md). IPC and Parquet consumer qualification
 merged in PR #97. Renovate was verified active and the enabled Dependabot alert
 feed returned zero open findings on 1 November 2026.
 
-## Voiage Polars consumer qualification
+## Voiage 3.0.0 Polars consumer qualification
+
+Track: `conductor/archive/voiage_polars_qualification_20261026/`
 
 [Plan](voiage_polars_qualification_20261026/plan.md). Published unpatched 3.0.0 native wheel and numerical parity qualified on Python 3.15.1.
