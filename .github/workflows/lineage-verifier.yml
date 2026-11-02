@@ -51,4 +51,6 @@ jobs:
             echo "LINEAGE_PYTHON=$GITHUB_WORKSPACE/.venv-lineage/bin/python" >> "$GITHUB_ENV"
           fi
       - name: Qualify the actual verifier and signature controls
-        run: '"$LINEAGE_PYTHON" scripts/hosted_lineage.py --probe'
+        run: '"$LINEAGE_PYTHON" -I -S scripts/hosted_lineage.py --probe'
+      - name: Verify the signed native closure and actual hosted inputs
+        run: '"$LINEAGE_PYTHON" -I -S scripts/hosted_lineage.py'

@@ -38,7 +38,7 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - run: uv run --python 3.15.1 --no-project python -c "import sys; assert sys.version_info[:3] == (3, 15, 1); from pathlib import Path; Path('outputs/engineering').mkdir(parents=True, exist_ok=True)"
       - name: Run bounded tests
         env:
@@ -75,7 +75,7 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - run: mkdir -p outputs/engineering
       - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s quality
       - name: Install checksum-pinned export scanner
@@ -110,7 +110,7 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - run: mkdir -p outputs/engineering
       - name: Run qualification enforcement tests
         run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/qualification-nox.json -s qualification
@@ -146,7 +146,7 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - run: mkdir -p outputs/engineering
       - name: Qualify the macOS engineering and numerical checks
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/macos-nox-report.json -s quality strict_all reproduce package security mutation clean_package recovery
@@ -190,7 +190,7 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - name: Build source-independent artifacts
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 900 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s package clean_package security
       - name: Bind audit SBOM to exact package subjects
@@ -244,7 +244,7 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - name: Verify locks and generate resolved dependency snapshot
         run: |
           uv venv --python 3.15.1 .venv-dependency-graph
@@ -286,7 +286,7 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - name: Qualify exact unpatched candidate without producer promotion
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 1500 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/voiage-candidate-nox.json -s voiage_polars_candidate voiage_published
       - name: Install checksum-pinned export scanner

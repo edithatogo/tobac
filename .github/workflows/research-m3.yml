@@ -33,7 +33,7 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s research_m3
       - run: .nox/research_m3/bin/python scripts/unpack_m3_results.py --out outputs/saved_m3
       - name: Install checksum-pinned export scanner
@@ -67,7 +67,7 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - name: Build and qualify pinned Voiage Python 3.15.1 compatibility candidate
         run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s voiage
       - name: Install checksum-pinned export scanner

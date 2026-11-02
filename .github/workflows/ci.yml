@@ -36,7 +36,7 @@ jobs:
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
           echo "$GITHUB_WORKSPACE/.venv-ci/bin" >> "$GITHUB_PATH"
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - name: Verify integrated evidence and historical provenance
         run: python scripts/qualify_integrations.py --mode inventory --out outputs/evidence-ci.json
       - name: Verify accepted native lineage before the workload
@@ -78,7 +78,7 @@ jobs:
           echo "$GITHUB_WORKSPACE/.venv-ci/bin" >> "$GITHUB_PATH"
       # The upstream asset name says x86_64; verified Mach-O bytes are ARM64.
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - name: Fetch and verify pinned release
         run: |
           curl --fail --location --retry 2 https://github.com/edithatogo/sourceright/releases/download/v0.1.20/sourceright-macos-x86_64 -o /tmp/sourceright
@@ -114,7 +114,7 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Authenticate the signed native lineage route
-        run: .venv-ci/bin/python scripts/hosted_lineage.py --configure
+        run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - name: Build and qualify pinned Voiage Python 3.15.1 compatibility candidate
         run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s voiage
       - name: Install checksum-pinned export scanner

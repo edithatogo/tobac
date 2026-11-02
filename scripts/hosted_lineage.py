@@ -21,7 +21,7 @@ SIGNERS = ARCHIVE + "hosted-native-signers"
 CHECKPOINT = ARCHIVE + "scientific-lineage-checkpoint_20261102.json"
 CHECKPOINT_SHA = "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a"
 PROFILES = ARCHIVE + "hosted-verifier-profiles.json"
-PROFILES_SHA = "pending-hosted-qualification"
+PROFILES_SHA = "386b16ae25306ff161d2148b4615f01165c697c536eaafe5bf651be576c2df85"
 SIGNERS_SHA = "0661923a19e1d4ed38a3e0938b94a25b03cdedd3145d63959825871ce05eeec9"
 NAMESPACE = "tobac-native-lineage"
 IDENTITY = "tobac-native"
@@ -64,20 +64,37 @@ def runtime_profile(executable: Path | None = None) -> dict[str, Any]:
         "base_python_sha256": digest(
             Path(sys.base_prefix) / ("python.exe" if os.name == "nt" else "bin/python3.15")
         ),
-        "ssh_keygen_sha256": digest(Path(ssh)),
+        "openssh_sha256": digest(Path(ssh)),
     }
 
 
-def verify_signature(payload: Path, signature: Path, signers: Path) -> None:
-    """Verify Ed25519 evidence with the maintained OpenSSH verifier."""
+def verify_signature(payload: bytes, signature: bytes, signers: bytes) -> None:
+    """Verify immutable snapshots with the maintained OpenSSH verifier."""
     ssh = shutil.which("ssh-keygen")
     if ssh is None:
         msg = "Missing OpenSSH signature verifier"
         raise ValueError(msg)
-    result = command(
-        [ssh, "-Y", "verify", "-f", str(signers), "-I", IDENTITY, "-n", NAMESPACE, "-s", str(signature)],
-        data=payload.read_bytes(),
-    )
+    with tempfile.TemporaryDirectory() as folder:
+        base = Path(folder)
+        key_file, signature_file = base / "signers", base / "signature"
+        key_file.write_bytes(signers)
+        signature_file.write_bytes(signature)
+        result = command(
+            [
+                ssh,
+                "-Y",
+                "verify",
+                "-f",
+                str(key_file),
+                "-I",
+                IDENTITY,
+                "-n",
+                NAMESPACE,
+                "-s",
+                str(signature_file),
+            ],
+            data=payload,
+        )
     if result.returncode:
         msg = "Native evidence signature rejected"
         raise ValueError(msg)
@@ -97,11 +114,11 @@ def inventory_identity(root: Path) -> str:
 
 def qualified_profiles(root: Path) -> list[dict[str, Any]]:
     """Authenticate externally qualified runtime identities before trusting executable output."""
-    path = checked(root, PROFILES)
-    if digest(path) != PROFILES_SHA:
+    raw = checked(root, PROFILES).read_bytes()
+    if hashlib.sha256(raw).hexdigest() != PROFILES_SHA:
         msg = "Hosted verifier runtime profiles differ from acceptance"
         raise ValueError(msg)
-    profiles: list[dict[str, Any]] = json.loads(path.read_bytes())["profiles"]
+    profiles: list[dict[str, Any]] = json.loads(raw)["profiles"]
     return profiles
 
 
@@ -109,15 +126,16 @@ def authenticate(root: Path) -> dict[str, Any]:
     """Authenticate evidence, its verifier implementation and every accepted pin."""
     profiles = qualified_profiles(root)
     ssh = shutil.which("ssh-keygen")
-    if ssh is None or digest(Path(ssh)) not in {p["ssh_keygen_sha256"] for p in profiles}:
+    if ssh is None or digest(Path(ssh)) not in {p["openssh_sha256"] for p in profiles}:
         msg = "OpenSSH verifier differs from qualified binaries"
         raise ValueError(msg)
-    if digest(checked(root, SIGNERS)) != SIGNERS_SHA:
+    authority = checked(root, SIGNERS).read_bytes()
+    if hashlib.sha256(authority).hexdigest() != SIGNERS_SHA:
         msg = "Native evidence signing authority differs from acceptance"
         raise ValueError(msg)
-    payload = checked(root, CAPSULE)
-    verify_signature(payload, checked(root, CAPSULE + ".sig"), checked(root, SIGNERS))
-    capsule: dict[str, Any] = json.loads(payload.read_bytes())
+    payload = checked(root, CAPSULE).read_bytes()
+    verify_signature(payload, checked(root, CAPSULE + ".sig").read_bytes(), authority)
+    capsule: dict[str, Any] = json.loads(payload)
     if capsule["schema"] != "tobac.signed-native-lineage/v1":
         msg = "Unknown native evidence schema"
         raise ValueError(msg)
@@ -150,10 +168,30 @@ def authenticate_interpreter(root: Path, executable: Path) -> None:
         raise ValueError(msg)
 
 
+def validate_native_readback(capsule: dict[str, Any]) -> None:
+    """Require the actual successful native closure underlying the signed claims."""
+    native = capsule["native_readback"]
+    if native.get("success") is not True or native.get("checkpoint_sha256") != CHECKPOINT_SHA:
+        msg = "Capsule does not contain successful native byte verification"
+        raise ValueError(msg)
+    if native["runners"] != {
+        name: {
+            "attempt_id": r["attempt_id"],
+            "manifest": r["manifest"],
+            "verified_inputs": len(r["executed_input_objects"]),
+            "verified_outputs": len(r["artifacts"]),
+        }
+        for name, r in capsule["runners"].items()
+    }:
+        msg = "substituted accepted native closure"
+        raise ValueError(msg)
+
+
 def verify_inputs(
     root: Path, capsule: dict[str, Any], names: list[str], manifest: Path | None = None
 ) -> dict[str, Any]:
     """Compare all selected inputs and object identities with native byte-verified acceptance."""
+    validate_native_readback(capsule)
     accepted = json.loads(checked(root, CHECKPOINT).read_bytes())["runner_results"]
     if set(capsule["runners"]) != set(accepted):
         msg = "Native capsule has a missing or substituted runner"
@@ -237,10 +275,12 @@ def probe() -> dict[str, Any]:
         if command([ssh, "-Y", "sign", "-f", str(key), "-n", NAMESPACE, str(payload)]).returncode:
             msg = "Synthetic signature creation failed"
             raise ValueError(msg)
-        verify_signature(payload, Path(str(payload) + ".sig"), signers)
+        verify_signature(payload.read_bytes(), Path(str(payload) + ".sig").read_bytes(), signers.read_bytes())
         payload.write_bytes(b"tampered qualification\n")
         try:
-            verify_signature(payload, Path(str(payload) + ".sig"), signers)
+            verify_signature(
+                payload.read_bytes(), Path(str(payload) + ".sig").read_bytes(), signers.read_bytes()
+            )
         except ValueError:
             return {
                 "profile": runtime_profile(),

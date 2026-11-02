@@ -238,7 +238,8 @@ def native_lineage(names: list[str], manifest: Path | None = None) -> dict[str, 
     route = {"native": "lineage_preflight.py", "attested": "hosted_lineage.py"}[
         os.environ.get("TOBAC_LINEAGE_ROUTE", "native")
     ]
-    command = [str(executable), "-I", str(ROOT / "scripts" / route)]
+    isolation = ["-I", "-S"] if route == "hosted_lineage.py" else ["-I"]
+    command = [str(executable), *isolation, str(ROOT / "scripts" / route)]
     for name in names:
         command.extend(["--runner", name])
     if manifest is not None:

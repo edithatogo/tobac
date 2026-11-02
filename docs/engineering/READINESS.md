@@ -57,6 +57,33 @@ and environment fingerprints are from macOS. A Linux or Windows verifier needs
 its own reviewed runtime evidence before native qualification on that platform.
 Private originals and attempt stores belong outside public artifact export directories.
 
+## Hosted native evidence route — 2 November 2026
+
+Hosted scientific jobs explicitly select the attested route through
+scripts/hosted_lineage.py --configure. Its Ed25519 capsule contains native receipt
+identities and hashes. Preserved originals and the signing key stay in the
+owner-held local estate. Capsule issuance runs the full existing native verifier
+against all eight accepted attempts and their original/input/output bytes.
+Hosted verification authenticates that proof and rehashes every selected
+scientific input in the checkout against the accepted native objects.
+
+The verifier uses isolated Python 3.15.1 with site initialization disabled and the
+maintained OpenSSH signature implementation. Actual interpreter, base interpreter
+and OpenSSH binary hashes are qualified on macOS, Ubuntu and Windows. The signed
+proof binds the accepted checkpoint, input contract, native references, source
+inventory, dependency locks, Nox entry points, workflow configuration and verifier
+implementation. Changed, missing or substituted material fails before workload
+setup. Current hosted verification checks the capsule's native byte-readback
+result against the complete accepted object closure, including all 140 outputs.
+
+The default local route continues to reopen native bytes directly. To issue a new
+hosted generation, use the retained qualified native environment and an existing
+private key with scripts/issue_hosted_lineage.py --key KEY --out FRESH_PATH under
+scripts/run_bounded.py. Review the resulting digest-only JSON and signature before
+replacing the committed capsule. Runtime changes require a real hosted signature
+probe and reviewed runtime-profile update before issuance. The public signing
+authority and runtime profiles are independently pinned in the verifier source.
+
 ## Ruff expansion and resource controls — 27 October 2026
 
 Maintained tests, Nox tooling and type stubs now share source/script linting and

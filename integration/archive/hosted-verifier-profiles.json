@@ -1,0 +1,77 @@
+{
+  "schema": "tobac.hosted-verifier-profiles/v1",
+  "profiles": [
+    {
+      "base_python_sha256": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
+      "machine": "arm64",
+      "python_sha256": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
+      "python_version": [
+        3,
+        15,
+        1
+      ],
+      "system": "Darwin",
+      "openssh_sha256": "2799fb1e89890d58425e9f3b70dfc989a26749e3fb7dd8dc67bcbc40b2758adc"
+    },
+    {
+      "base_python_sha256": "e9437a0f92f635806cb1566d0c7cfe14ad48115394765c43ed259bac9f99fe60",
+      "machine": "arm64",
+      "python_sha256": "e9437a0f92f635806cb1566d0c7cfe14ad48115394765c43ed259bac9f99fe60",
+      "python_version": [
+        3,
+        15,
+        1
+      ],
+      "system": "Darwin",
+      "openssh_sha256": "0d8b8fb52762fa19431b40e8b75cd00b045f10bf206fd67f0598e09bfaad77d0"
+    },
+    {
+      "base_python_sha256": "ea34f2b17bafae58479d70d99d55cb01df65400ded3a9465ba7f1c6637adf8bc",
+      "machine": "AMD64",
+      "python_sha256": "f14d10e954b922d758234ff49335ad0e07e567103e06b38ff675c6bc85282865",
+      "python_version": [
+        3,
+        15,
+        1
+      ],
+      "system": "Windows",
+      "openssh_sha256": "604d127d97502b11ed2d1f6f8191bfe86f443d821322e4ab285c961d0e06f5e1"
+    },
+    {
+      "base_python_sha256": "db158111cfa3108809eb1c09ea40efc976b9dfec1f194067efe20e74cc399dac",
+      "machine": "arm64",
+      "python_sha256": "db158111cfa3108809eb1c09ea40efc976b9dfec1f194067efe20e74cc399dac",
+      "python_version": [
+        3,
+        15,
+        1
+      ],
+      "system": "Darwin",
+      "openssh_sha256": "0d8b8fb52762fa19431b40e8b75cd00b045f10bf206fd67f0598e09bfaad77d0"
+    },
+    {
+      "base_python_sha256": "00e3569b62ae453b0e9000b9a0957f210a2d1de0fad7c439cabd61360ea87228",
+      "machine": "x86_64",
+      "python_sha256": "00e3569b62ae453b0e9000b9a0957f210a2d1de0fad7c439cabd61360ea87228",
+      "python_version": [
+        3,
+        15,
+        1
+      ],
+      "system": "Linux",
+      "openssh_sha256": "33b1c52f8ede26412a1d081cfad3582a9b9816c53461a657bec08757f678a06a"
+    }
+  ],
+  "qualification": {
+    "hosted_run": "https://github.com/edithatogo/tobac/actions/runs/41415688914",
+    "source_revision": "65949ef0fb60942bc07725810cd7d7f8de0e7b8d",
+    "jobs": [
+      125178848601,
+      125178849022,
+      125178849044,
+      125178849205
+    ],
+    "actual_version": "3.15.1",
+    "signature_positive_and_tamper_negative": "passed on all four hosted selections and the local issuer environment"
+  }
+}
