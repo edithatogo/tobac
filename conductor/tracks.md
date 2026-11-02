@@ -106,7 +106,7 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [~] Producer gap fixes merged and verified. Phases 1, 2 and 4 complete;
+**Status: [~] Producer gap fixes merged and verified. Phases 1–4 complete locally;
 end-to-end qualification remains open.**
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
@@ -118,11 +118,10 @@ ancestry and identical source and test trees. The old #842 branch was not used.
 The merged wheel is qualified for the source-reference export. Two independent
 replays verified all 38 identities and 43 aliases, with 11 native registrations
 for matched originals. P3.3 and P3.4 passed the merged-wheel MOH replay.
-A locally rebuilt producer wheel now rejects missing outputs, cycles and stale pinned
-revisions. P3.1/P3.2 remain partial for broader lifecycle and environment checks
-and candidate integration.
-Next: close these producer and runner relationships, resolve
-unavailable originals and qualify full-estate recovery.
+P3.1/P3.2 are complete locally at producer 08dc5fed. Six material-checked
+runner variants verified 107 output files. Next: complete the scientific
+dependency graph, enforce it at the remaining entry points, resolve unavailable
+originals and qualify full-estate recovery. Producer publication is pending.
 [Source references](../integration/archive/native-source-refs.json).
 
 [Foundations](../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md);

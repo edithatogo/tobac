@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage
 
-Status: **in progress** — Phases 1, 2 and 4 complete. P3.3 and P3.4 verified. P3.1 and P3.2 remain partial. The local candidate rejects missing outputs, cycles and stale pinned revisions. Runner output closure, enforcement and full recovery remain open.
+Status: **in progress** — Phases 1–4 complete locally. Phase 5 is next. The six material-checked runner variants verified 107 output files. Full scientific dependency closure and producer promotion remain open.
 Track ID: `native_archival_lineage_20261026`. Type: Feature.
 
 Trace every current and future dataset through native archival preservation,

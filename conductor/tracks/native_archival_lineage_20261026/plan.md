@@ -118,17 +118,17 @@ native_lineage_qualified false. The affected tests (36), full tobac suite
 Owner: archive producer for generic contracts; tobac for domain operation declarations.
 Depends on: P1/P2. Covers: R04, R05, R10, R11; AC06, AC07, AC12.
 
-- [~] Task: P3.1 — Write independent closure and failure tests first.
-  - [ ] Reject duplicate/dangling IDs, cycles, swapped or corrupt source objects,
+- [x] Task: P3.1 — Write independent closure and failure tests first.
+  - [x] Reject duplicate/dangling IDs, cycles, swapped or corrupt source objects,
     stale operation code/configuration/environment, missing receipts and missing outputs.
-  - [ ] Cover multi-parent derivation, failed/interrupted execution, immutable completed
+  - [x] Cover multi-parent derivation, failed/interrupted execution, immutable completed
     records, distinct attempt IDs and prevention of premature qualified status.
-- [~] Task: P3.2 — Extend the existing native producer contracts where P1 proved gaps.
-  - [ ] Represent actual transformation execution with input/output IDs, operation
+- [x] Task: P3.2 — Extend the existing native producer contracts where P1 proved gaps.
+  - [x] Represent actual transformation execution with input/output IDs, operation
     version, code revision, parameters, environment/lock, command, times and status.
-  - [ ] Extend native validation to verify actual objects and relationship closure;
+  - [x] Extend native validation to verify actual objects and relationship closure;
     do not equate receipt IDs or successful manifest serialization with validation.
-  - [ ] Package schemas and supported producer interfaces with explicit compatibility
+  - [x] Package schemas and supported producer interfaces with explicit compatibility
     and rollback rules; preserve existing callers and historical manifest versions.
 - [x] Task: P3.3 — Verify integration through the producer's native public interface.
   - [x] Execute a bounded real operation, persist its native manifest/receipts,
@@ -708,3 +708,10 @@ Each of the six normal runner variants then completed at its own destination.
 A separate readback rehashed all 107 outputs and verified six immutable terminal
 outcomes. A hard exit can leave only the exclusive claim; that state provides
 no successful terminal evidence. Subsequent attempts use new IDs.
+
+P3.1 and P3.2 are complete for the locally qualified producer and consumer
+interfaces. Use the receipt and candidate interface above to distinguish the
+producer branch from the previously merged wheel. Phase 5 owns complete
+scientific dependency selection and runner-to-result graph integration.
+Phase 6 owns broader enforcement. Independent preservation remains in Phase 7.
+Publication and receiving-ref verification remain in Phase 8.
