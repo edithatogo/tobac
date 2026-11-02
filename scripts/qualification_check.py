@@ -221,6 +221,27 @@ def run_qualification(
     raise ValueError(msg)
 
 
+def phase_verification(root: Path) -> dict[str, Any]:
+    """Report this execution's native gate outcome, including a missing binding."""
+    from qualify_integrations import ROOT, native_lineage  # noqa: PLC0415 -- Explicit qualified operation.
+
+    if root.resolve() != ROOT:
+        msg = "Native checks must execute in the selected checkout"
+        raise ValueError(msg)
+    try:
+        result = native_lineage([])
+    except (ValueError, OSError, RuntimeError) as exc:
+        result = {"success": False, "qualified": False, "error": str(exc)}
+    return {
+        "schema_version": "tobac.p6-phase-verification.v2",
+        "phase": "P6.4",
+        "verification": result,
+        "native_lineage_qualified": False,
+        "scientific_qualification": False,
+        "automatically_conditions_live_model": False,
+    }
+
+
 def main() -> None:
     """Write a qualification receipt or print it to stdout."""
     parser = argparse.ArgumentParser(description=__doc__)

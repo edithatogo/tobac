@@ -43,6 +43,14 @@ def checked_pins(root: Path) -> dict[str, Any]:
         checked(root, archive + "scientific-runner-inputs.json"), checkpoint["pinned_contract_sha256"]
     )
     scientific.runners.verified_bytes(checked(root, archive + "transformation-interface.json"), INTERFACE_SHA)
+    scientific.runners.verified_bytes(
+        checked(root, archive + "native-source-refs.json"),
+        "f75582e8362b39d08bc69ef7196131667bb756e39df285189ca478c2a5bd9ed3",
+    )
+    scientific.runners.verified_bytes(
+        checked(root, archive + "runner-material.json"),
+        "2c74f2e5b3d72885932a4bec5de549ad747786f295907b2f827af4aad6f287b4",
+    )
     if set(checkpoint["runner_results"]) != set(scientific.RUNS):
         msg = "Runner registry differs from the accepted set"
         raise ValueError(msg)
