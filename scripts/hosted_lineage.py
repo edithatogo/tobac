@@ -21,7 +21,7 @@ SIGNERS = ARCHIVE + "hosted-native-signers"
 CHECKPOINT = ARCHIVE + "scientific-lineage-checkpoint_20261102.json"
 CHECKPOINT_SHA = "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a"
 PROFILES = ARCHIVE + "hosted-verifier-profiles.json"
-PROFILES_SHA = "386b16ae25306ff161d2148b4615f01165c697c536eaafe5bf651be576c2df85"
+PROFILES_SHA = "0f478dac1d8034465ae34ad3b90719ba57ddd2f4cdd3b1954e7ebafad6e3c159"
 SIGNERS_SHA = "0661923a19e1d4ed38a3e0938b94a25b03cdedd3145d63959825871ce05eeec9"
 NAMESPACE = "tobac-native-lineage"
 IDENTITY = "tobac-native"
@@ -301,6 +301,8 @@ def main() -> None:
     parser.add_argument("--manifest", type=Path)
     args = parser.parse_args()
     try:
+        if args.configure:
+            print(json.dumps({"runtime_probe": probe()}, sort_keys=True))  # noqa: T201 -- Record actual image qualification controls; acceptance below still fails closed.
         receipt = probe() if args.probe else verify(ROOT, args.runner, args.manifest)
         if args.configure:
             with Path(os.environ["GITHUB_ENV"]).open("a", encoding="utf-8") as stream:

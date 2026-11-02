@@ -1,6 +1,6 @@
 {
   "inventory_sha256": "943f9e20a5bcbc64d65c16d59136c6d09196d391f8608389ba0005bae594af89",
-  "issued_at": "2026-11-02T08:58:52.978428+00:00",
+  "issued_at": "2026-11-02T09:12:15.418583+00:00",
   "issuer": "tobac-native",
   "native_readback": {
     "checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
@@ -72,7 +72,7 @@
     ".github/workflows/publication-security.yml": "b7431be3d74d02355a38d927c077ffcc61b32d3e7bd26c55c263a090a8620a76",
     ".github/workflows/research-m3.yml": "9498d13d60d9f3734237d491d30e41f93d9a6962ee444f7cc4a6dda5e367b8f5",
     "engineering/requirements.lock": "2b0720ad8fcfe353609960609d277ef907e0d5e573a75b5ba008b1b316e0150d",
-    "integration/archive/hosted-verifier-profiles.json": "386b16ae25306ff161d2148b4615f01165c697c536eaafe5bf651be576c2df85",
+    "integration/archive/hosted-verifier-profiles.json": "0f478dac1d8034465ae34ad3b90719ba57ddd2f4cdd3b1954e7ebafad6e3c159",
     "integration/archive/native-source-refs.json": "f75582e8362b39d08bc69ef7196131667bb756e39df285189ca478c2a5bd9ed3",
     "integration/archive/runner-material.json": "2c74f2e5b3d72885932a4bec5de549ad747786f295907b2f827af4aad6f287b4",
     "integration/archive/scientific-lineage-checkpoint_20261102.json": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
@@ -668,5 +668,5 @@
   },
   "schema": "tobac.signed-native-lineage/v1",
   "scope": "Native bytes verified locally; hosted verification authenticates this receipt and rechecks current scientific inputs.",
-  "verifier_sha256": "aff98b2d17ec0604d4d42323fc25a3a6f41baf1464a5e9585da2165730fea2ac"
+  "verifier_sha256": "b9a6e88db56280737e5eff6a3f3626a0c1d3e022c2cd99556cdd0b3bff009720"
 }

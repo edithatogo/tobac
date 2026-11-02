@@ -60,6 +60,18 @@
       ],
       "system": "Linux",
       "openssh_sha256": "33b1c52f8ede26412a1d081cfad3582a9b9816c53461a657bec08757f678a06a"
+    },
+    {
+      "base_python_sha256": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
+      "machine": "arm64",
+      "openssh_sha256": "0d8b8fb52762fa19431b40e8b75cd00b045f10bf206fd67f0598e09bfaad77d0",
+      "python_sha256": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
+      "python_version": [
+        3,
+        15,
+        1
+      ],
+      "system": "Darwin"
     }
   ],
   "qualification": {
@@ -72,6 +84,12 @@
       125178849205
     ],
     "actual_version": "3.15.1",
-    "signature_positive_and_tamper_negative": "passed on all four hosted selections and the local issuer environment"
+    "signature_positive_and_tamper_negative": "passed on all four hosted selections and the local issuer environment",
+    "additional_observed_profiles": [
+      {
+        "job": 125185180770,
+        "controls": "valid signature and tamper rejection passed; the then-pinned runtime list correctly rejected this additional Python build"
+      }
+    ]
   }
 }
