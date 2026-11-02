@@ -214,3 +214,16 @@ and receiving-ref verification. No native capture or authentication mutation
 is in flight. Three untracked decision drafts remain outside this packet.
 Next operation is terminal qualification readback and guarded receiving-ref
 publication. Earlier assignments above remain historical.
+
+## Native lineage hosted acceptance closeout — 2 November 2026
+
+Chat 01a19a6e-2e47-7b10-8a35-4e7d7fedb965 owns the consumer integration and
+Conductor closeout in /Users/doughnut/Documents/tobac. The integration and
+fixture correction reached main through guarded fast-forwards at abcbcb4 and
+14303e4. Producer /Users/doughnut/Documents/archive-lineage-port-20261101 remains
+at the verified c76d78df receiving tree. The hosted route consumes signed local
+native byte verification and rechecks current inputs. Original objects and the
+local signing authority stay with their native owner. No capture/authentication
+operation is active. The three pre-existing decision drafts remain untracked.
+The final metadata-only publication is owned by branch
+codex/native-lineage-acceptance-closeout. Earlier assignments remain historical.

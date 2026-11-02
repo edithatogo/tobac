@@ -260,33 +260,32 @@ Covers: R01–R12; AC01–AC14.
     exit results and remaining gates. Verify all current required paths, not only pilots.
   - [x] Review schema/API migration, rights, scientific invariants and operational
     recovery separately; validate completed receipts and preserved historical records.
-- [~] Task: P8.2 — Run coherent full qualification milestones on complete checkouts.
+- [x] Task: P8.2 — Run coherent full qualification milestones on complete checkouts.
   - [x] Run the archive's `./scripts/validate.sh` (or native Windows counterpart) and
     applicable package/security gates using the verified qualified environment.
   - [x] Run tobac's current Nox full tests and relevant numerical reproduction,
     workstream integration, package and security sessions. Record any unavailable
     library/runtime or inherited gate failure without weakening the gate.
-  - [ ] Verify hosted execution for changed workflows; retain local versus hosted
+  - [x] Verify hosted execution for changed workflows; retain local versus hosted
     versus restored-source evidence as distinct outcomes.
-- [~] Task: P8.3 — Publish through reviewed ownership and verify remote state.
+- [x] Task: P8.3 — Publish through reviewed ownership and verify remote state.
   - [x] Re-read main/#1, reconcile concurrent changes and repeat affected checks;
     use expected-head protection without force or dropping another workstream.
-  - [ ] Verify receiving refs/files and producer/consumer artifact compatibility;
+  - [x] Verify receiving refs/files and producer/consumer artifact compatibility;
     update existing Conductor records with actual results and open gates.
     Issue #1 remains historical context under AGENTS.md.
-  - [ ] Document operation, exploration, migration, rollback and recovery. Mark full
+  - [x] Document operation, exploration, migration, rollback and recovery. Mark full
     completion only when every required acceptance criterion has executed evidence.
-- [~] Task: P8.4 — Phase verification and checkpoint (refer to workflow.md).
-  - [ ] Audit the final inventory, native dependency closure, qualification wiring,
+- [x] Task: P8.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [x] Audit the final inventory, native dependency closure, qualification wiring,
     test/replay/recovery receipts, published revisions and remaining scientific gates.
 
 ### Phase 8 checkpoint — 2 November 2026
 
-P8.1 is complete. P8.2 has successful local full tests, reproduction, release,
-package/security and clean-package evidence. Hosted positive lineage execution
-remains blocked. P8.3 has published and verified the producer receiving ref.
-Consumer publication is gated by the missing hosted native binding. P8.4 remains
-open for final acceptance after those requirements pass.
+P8.1–P8.4 are complete for the declared current closure. Local full tests,
+reproduction, native validation, release, package/security and clean-package
+checks passed. Hosted positive lineage execution passed through the signed
+native evidence route. Both receiving refs and their files were verified.
 
 Producer candidate ebc852cd was merged under its exact head guard through
 [PR #856](https://github.com/edithatogo/archive-govt-nz/pull/856). Receiving
@@ -306,24 +305,30 @@ runner scripts, configurations and data are unchanged by subsequent verifier
 dispatch/diagnostic fixes. Eighteen recovery-log hashes and seven native readback
 hashes were independently rechecked.
 
-[PR #105](https://github.com/edithatogo/tobac/pull/105) carries the consumer packet.
-At 50e9eeb, hosted CodeQL, publication scanning, quality and source/parity checks
-passed. Subsequent ba77752 jobs retain actual outcomes
-in the acceptance receipt. Scientific/test paths reject missing
-TOBAC_LINEAGE_PYTHON before execution. The repository has zero environments,
-variables, secrets and registered runners for the required native provision.
-Consumer receiving main remains e4b6f18. Both default refs were read back.
-AC10/AC14 and P8.2–P8.4 remain open until positive hosted execution and guarded
-consumer publication succeed. The source packet contains source code and
-reviewed digest-only receipts. The exact scanner-log digest finding was verified
-and narrowly adjudicated by path and complete line.
+Consumer main received abcbcb4 and the test-fixture follow-up 14303e4 through
+normal guarded fast-forwards. Producer main is c76d78df. Hosted Linux, Windows,
+macOS, numerical, lineage-verifier, quality, CodeQL, source/parity and publication
+checks passed. The main-only package attestation and dependency submission also
+passed. Downloaded wheel and sdist signatures were verified against the exact
+main source and engineering workflow. Dependency snapshot 117091364 was accepted.
 
-[Phase 8 acceptance and receiving-ref receipt](../../../integration/archive/p8-acceptance_20261102.json).
+The signed native capsule preserves original bytes and the signing authority in
+the local estate. Issuance executes native byte checks for all eight accepted
+attempts. Hosted paths authenticate the capsule and rehash their current inputs
+using qualified isolated Python 3.15.1 and OpenSSH. Sixteen negative/closure tests
+and a real configured-verifier subprocess exercise the gate. The new full local
+suite passed 1,180 tests with seven capability skips and 92% source coverage.
+The latest hosted test-fixture correction is verified by PR #106.
+
+[Final Phase 8 acceptance](../../../integration/archive/p8-final-acceptance_20261102.json).
+[Prior Phase 8 checkpoint](../../../integration/archive/p8-acceptance_20261102.json).
 
 ## Phase 8 acceptance readback
 
-Evidence paths below are relative to `integration/archive/`. The tested producer
-is `08dc5fed` and the consumer review revision is `f85af11`. Rights and historical
+Evidence paths below are relative to `integration/archive/`. The receipt
+foundations use `08dc5fed` and consumer `f85af11`. Final receiving refs are
+producer `c76d78df` and consumer `14303e4`, with the final acceptance linked above.
+Rights and historical
 capture limitations from Phases 2 and 4 remain attached to their individual records.
 
 | Criterion | Evidence reviewed | Finding |
@@ -337,11 +342,11 @@ capture limitations from Phases 2 and 4 remain attached to their individual reco
 | AC07 | `p3.3-verification_20261031.json`, `runner-material-checkpoint_20261102.json`, `qualified-command-enforcement_20261102.json` | Duplicate/dangling identities, cycles, substitution, stale material, tampering, missing outputs and incomplete attempts exercised. |
 | AC08 | `p4-dataset-migration_20261031.json`, `moh-native-extraction_20261029.json`, `shine-native-extraction_20261031.json` | Legacy identities retained. Replacement comparisons distinguish observed matches from historical reconstruction. |
 | AC09 | `scientific-lineage-checkpoint_20261102.json` | Forward and reverse CLI traces cover all eight runners. The 2014 changed-source execution identifies eight changed numerical tables. |
-| AC10 | `qualified-command-enforcement_20261102.json` and consumer PR #105 | Six qualified Nox paths passed locally. Hosted Linux tests rejected absent lineage before workload launch. Hosted positive execution is open. |
+| AC10 | `qualified-command-enforcement_20261102.json` and consumer PR #105 | Six qualified Nox paths passed locally. Hosted Linux tests rejected absent lineage before workload launch. Signed native evidence and current input verification passed on all qualified hosted platforms. |
 | AC11 | `tests/test_workstream_integration.py` (repository root), `ac13-recovery-receipt.json` | Full suite exercised shared observations, units and state identities. Offline numerical comparison matched all 82 CSV files. |
 | AC12 | `ac13-recovery-receipt.json` | Isolated installed-wheel replay passed for eight runners. Interrupted copy and scientific attempt recovery passed. |
 | AC13 | `ac13-recovery-receipt.json` | Independent owner-held USB restore verified 1,680 files, 257,432,397 bytes. Manifest SHA-256 is `2096ee548853db35e0505df5c908dca91e5a944111a82f6ac40ff8bd383b71a2`. |
-| AC14 | Phase 8 qualification and receiving-ref record below | Pending successful hosted qualification and publication to both default branches. |
+| AC14 | Phase 8 qualification and receiving-ref record below | Hosted qualification, both receiving refs, native package attestations and dependency submission verified. See final Phase 8 acceptance. |
 
 ## Acceptance-to-plan map
 

@@ -2,12 +2,12 @@
 
 ## Current development platform
 
-Current engineering development is focused on macOS. Linux, Windows and other non-macOS
-qualification work is deferred to [`conductor/roadmap.md`](../../conductor/roadmap.md). Active workflows target macOS only following the explicit 28 October decision.
-Windows/Linux qualification and the Linux-specific manual locked-release and lock-generation
-workflows are retained in the roadmap. Deferred/cancelled runs are not passes. Scientific,
-security, source-bound lock, dependency-graph and package-provenance checks remain active
-on macOS; no protection settings or thresholds are changed.
+macOS supports full scientific and release qualification. Hosted lineage
+verification and regression tests also execute on Linux and Windows. Extended
+non-macOS release qualification and the manual Linux locked-release/lock-generation
+workflows are retained in [the roadmap](../../conductor/roadmap.md). Scientific,
+security, source-bound lock, dependency-graph and package-provenance checks execute
+on macOS under their established gates.
 
 ## Native lineage prerequisites for qualified workloads
 
@@ -50,7 +50,7 @@ includes files under configs, data and evidence, Python model sources and runner
 entry points. A failed preflight writes a rejection and exits before the
 workload starts.
 
-CI uses the same three variable names. The runner needs the matching interpreter,
+Direct-native jobs use the same three variable names. The runner needs the matching interpreter,
 wheel and authorized attempt store at those paths. Configure paths only for
 jobs that can access those resources. The accepted Phase 5 verifier executable
 and environment fingerprints are from macOS. A Linux or Windows verifier needs

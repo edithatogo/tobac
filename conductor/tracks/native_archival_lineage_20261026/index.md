@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage
 
-Status: **in progress** — Phases 1–7 complete locally. The declared closure was restored from external USB and all eight scientific runners replayed offline. P8.1 acceptance mapping is complete and the producer is published at c76d78df. P8.2–P8.4 remain open for hosted positive lineage execution and consumer publication.
+Status: **completed** — Phases 1–8 verified for the declared current closure. Producer c76d78df and consumer 14303e4 received and read back. Hosted verification uses signed executed native evidence and checks actual current inputs.
 Track ID: `native_archival_lineage_20261026`. Type: Feature.
 
 Trace every current and future dataset through native archival preservation,
@@ -8,6 +8,7 @@ extraction, transformation, scientific execution and results. Preserve legacy
 records with explicit unknown/reconstructed lineage; enforce valid lineage for
 qualified runs while retaining labelled exploratory and legacy execution.
 
+- [Final Phase 8 acceptance](../../../integration/archive/p8-final-acceptance_20261102.json)
 - [Approved specification](spec.md)
 - [Approved implementation plan](plan.md)
 - [Metadata and ownership](metadata.json)
@@ -18,6 +19,8 @@ The plan contains eight phases and 32 primary tasks, mapped to all 14
 acceptance criteria. `archive-govt-nz` owns native archival capabilities; tobac owns
 its scientific transformations and consumer integration. Existing file owners
 retain their assignments. No duplicate provenance system is introduced.
+
+## Historical planning and checkpoints
 
 Coordination: [issue #1](https://github.com/edithatogo/tobac/issues/1).
 The original planning approval required a separate implementation handoff. Planning approval and

@@ -106,8 +106,7 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [~] Producer gap fixes merged and verified. Phases 1–7 complete locally;
-end-to-end qualification remains open.**
+**Status: [x] Complete for the declared current closure. Phases 1–8 verified.**
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
 The scoped producer port merged through [archive-govt-nz PR #849](https://github.com/edithatogo/archive-govt-nz/pull/849) at
@@ -123,16 +122,16 @@ scientific runner variants and reproduced all 82 numerical tables exactly.
 Changing the Phyo source in isolation changed only the longitudinal runner's
 scientific input. Phase 6 verified local command enforcement, including rejection
 of missing, stale and tampered inputs before launch. Phase 7 restored the declared closure from external USB and replayed
-all eight scientific runners offline. P8.1 acceptance mapping is complete. Producer c76d78df is published and
-verified. Hosted positive lineage execution and consumer publication block P8.2–P8.4.
-[Phase 8 acceptance](../integration/archive/p8-acceptance_20261102.json).
+all eight scientific runners offline. P8.1–P8.4 are complete. Producer c76d78df and consumer 14303e4 are published and
+verified. Hosted lineage, scientific/test, security and package gates passed.
+[Final Phase 8 acceptance](../integration/archive/p8-final-acceptance_20261102.json).
 [Phase 7 recovery receipt](../integration/archive/ac13-recovery-receipt.json).
 [Phase 6 evidence](../integration/archive/qualified-command-enforcement_20261102.json).
 [Phase 5 evidence](../integration/archive/scientific-lineage-checkpoint_20261102.json).
 [Source references](../integration/archive/native-source-refs.json).
 
 [Foundations](../docs/engineering/NATIVE_LINEAGE_FOUNDATIONS.md);
-[MOH consumer checkpoint](../docs/engineering/MOH_NATIVE_LINEAGE.md). Phase 4 is complete at implementation `d2a04f5`: the MOH workbook and a second SHINE Table 2 operation each emit actual native CAS objects and strict transformation/validation records through the frozen producer wheel, with four-parent ancestry for SHINE and negative controls. 72 affected extraction/workstream tests and both native sessions pass under Python 3.15.1. The 145-item dataset accounting is regenerated with zero blocked items. At the Phase 4 checkpoint, native source registration, graph closure and independent preservation were still open. Subsequent phase receipts above give the current status; `native_lineage_qualified` and `scientific_qualification` stay false. Hosted checks apply to each publication. Public-source-only and no-request constraints continue to apply.
+[MOH consumer checkpoint](../docs/engineering/MOH_NATIVE_LINEAGE.md). Phase 4 is complete at implementation `d2a04f5`: the MOH workbook and a second SHINE Table 2 operation each emit actual native CAS objects and strict transformation/validation records through the frozen producer wheel, with four-parent ancestry for SHINE and negative controls. 72 affected extraction/workstream tests and both native sessions pass under Python 3.15.1. The 145-item dataset accounting is regenerated with zero blocked items. At the Phase 4 checkpoint, native source registration, graph closure and independent preservation were still open. Those Phase 4 flags remain historical. Final Phase 8 accepts the declared native runner closure. Scientific qualification retains its separate requirements. Hosted checks apply to each publication. Public-source-only and no-request constraints continue to apply.
 
 ## Hosted Linux and Windows test qualification
 

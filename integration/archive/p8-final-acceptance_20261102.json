@@ -1,0 +1,384 @@
+{
+  "schema": "tobac.native-lineage.phase8-final/v1",
+  "observed_at": "2026-11-02T20:11:15.149458+10:00",
+  "complete": true,
+  "qualification_scope": "Declared current native source-to-result closure for all eight scientific runners, their inventory, qualification commands, replay, recovery and software publication. Historical source-specific unknowns retain their recorded scope.",
+  "acceptance": {
+    "AC01": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/native-producer-interface.json": "071d61a0414976c1e42158e29cfe6270e4d88a3f0b30b914dde18930b9ec9af6",
+        "integration/archive/transformation-interface.json": "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373"
+      }
+    },
+    "AC02": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/p4-dataset-migration_20261031.json": "16dee5da50475017fc93ee2f29a2dd6ad1dbf4a79a0386eda7eafd67ad951361",
+        "integration/archive/scientific-runner-inputs.json": "d8b9859fff3cae572710f670a3ec035324e6afbc0910c3e828553d6ca1aa26a1",
+        "integration/archive/qualified-command-enforcement_20261102.json": "64f2e6062284b262f512abb479881ef02eaf3d91be559ba77eef0391e76b6809"
+      }
+    },
+    "AC03": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/native-source-refs.json": "f75582e8362b39d08bc69ef7196131667bb756e39df285189ca478c2a5bd9ed3",
+        "integration/archive/ac13-recovery-receipt.json": "caa0016df56e0be2c2922ab90e43600a66abb9390c39e8e5cff59f7a72ac3996"
+      }
+    },
+    "AC04": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/moh-native-extraction_20261029.json": "b65632e936dc1ddee82aacf4098003898be5f0aee362afd8ed2e6f993393cc5a",
+        "integration/archive/workbook-reconciliation.json": "a9b7682ac6acba6c5435ecd3ccd8be67feeba2163421b44a1f51e92ac9d80ad9"
+      }
+    },
+    "AC05": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/shine-native-extraction_20261031.json": "d86ac4809712b3cfa56d7260f2ac38581714fc2f9d4014b930cc03a727fff5d0",
+        "integration/archive/p4-phase-verification_20261031.json": "e1315f4f449bc1f4f47df513775788cd116cf6cd5bbef34be1cf12a1e6a18429"
+      }
+    },
+    "AC06": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/runner-material-checkpoint_20261102.json": "632249fe9b49a1c46da35d39ce2cbf7281e7e4e3d1c40d13f8197e3fb42b8d3f",
+        "integration/archive/scientific-lineage-checkpoint_20261102.json": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a"
+      }
+    },
+    "AC07": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/p3.3-verification_20261031.json": "05df48cd1ed1756a896ef36320b67f026c7e6f73ca712c12cdd71c383bef0c6e",
+        "integration/archive/runner-material-checkpoint_20261102.json": "632249fe9b49a1c46da35d39ce2cbf7281e7e4e3d1c40d13f8197e3fb42b8d3f",
+        "integration/archive/qualified-command-enforcement_20261102.json": "64f2e6062284b262f512abb479881ef02eaf3d91be559ba77eef0391e76b6809",
+        "integration/archive/hosted-native-attestation.json": "ada680b848da93168c1616b0629b8f2297c1a9d53716336922f593794e8a2d0c",
+        "integration/archive/hosted-native-attestation.json.sig": "1bfd3af2517f3cfeac90dbe0f24a7636046bb936c487c437dfa26d079115f6d6",
+        "integration/archive/hosted-native-signers": "0661923a19e1d4ed38a3e0938b94a25b03cdedd3145d63959825871ce05eeec9",
+        "integration/archive/hosted-verifier-profiles.json": "9dc5ce8a771b9409f20a3baa56c351dfcd8431fa8d1a818581c1d366793eed7c",
+        "scripts/hosted_lineage.py": "4e949cb499b48b3008e5f0404a560826dbbb442c898c17466d2228ebff1243ea",
+        "scripts/issue_hosted_lineage.py": "d8dba16a614687dd6c3c5f9e096243831cc4a83a858b8ecfb325ab81ab5d91e7",
+        "tests/engineering/test_hosted_lineage.py": "03c466a6a42d36344d5cd0f64c7d5db741cb699e98b07ad806929b173a5602a9"
+      }
+    },
+    "AC08": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/p4-dataset-migration_20261031.json": "16dee5da50475017fc93ee2f29a2dd6ad1dbf4a79a0386eda7eafd67ad951361",
+        "integration/archive/moh-native-extraction_20261029.json": "b65632e936dc1ddee82aacf4098003898be5f0aee362afd8ed2e6f993393cc5a",
+        "integration/archive/shine-native-extraction_20261031.json": "d86ac4809712b3cfa56d7260f2ac38581714fc2f9d4014b930cc03a727fff5d0"
+      }
+    },
+    "AC09": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/scientific-lineage-checkpoint_20261102.json": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a"
+      }
+    },
+    "AC10": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/qualified-command-enforcement_20261102.json": "64f2e6062284b262f512abb479881ef02eaf3d91be559ba77eef0391e76b6809",
+        "integration/archive/hosted-native-attestation.json": "ada680b848da93168c1616b0629b8f2297c1a9d53716336922f593794e8a2d0c",
+        "integration/archive/hosted-native-attestation.json.sig": "1bfd3af2517f3cfeac90dbe0f24a7636046bb936c487c437dfa26d079115f6d6",
+        "integration/archive/hosted-native-signers": "0661923a19e1d4ed38a3e0938b94a25b03cdedd3145d63959825871ce05eeec9",
+        "integration/archive/hosted-verifier-profiles.json": "9dc5ce8a771b9409f20a3baa56c351dfcd8431fa8d1a818581c1d366793eed7c",
+        "scripts/hosted_lineage.py": "4e949cb499b48b3008e5f0404a560826dbbb442c898c17466d2228ebff1243ea",
+        "scripts/issue_hosted_lineage.py": "d8dba16a614687dd6c3c5f9e096243831cc4a83a858b8ecfb325ab81ab5d91e7",
+        "tests/engineering/test_hosted_lineage.py": "03c466a6a42d36344d5cd0f64c7d5db741cb699e98b07ad806929b173a5602a9"
+      }
+    },
+    "AC11": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/ac13-recovery-receipt.json": "caa0016df56e0be2c2922ab90e43600a66abb9390c39e8e5cff59f7a72ac3996",
+        "tests/test_workstream_integration.py": "e5254ea325fed8082b1f9e95904340e99dba774f0d4a73943ba25055bad9e578"
+      }
+    },
+    "AC12": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/ac13-recovery-receipt.json": "caa0016df56e0be2c2922ab90e43600a66abb9390c39e8e5cff59f7a72ac3996"
+      }
+    },
+    "AC13": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/ac13-recovery-receipt.json": "caa0016df56e0be2c2922ab90e43600a66abb9390c39e8e5cff59f7a72ac3996"
+      }
+    },
+    "AC14": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/hosted-native-attestation.json": "ada680b848da93168c1616b0629b8f2297c1a9d53716336922f593794e8a2d0c",
+        "integration/archive/hosted-native-attestation.json.sig": "1bfd3af2517f3cfeac90dbe0f24a7636046bb936c487c437dfa26d079115f6d6",
+        "integration/archive/hosted-native-signers": "0661923a19e1d4ed38a3e0938b94a25b03cdedd3145d63959825871ce05eeec9",
+        "integration/archive/hosted-verifier-profiles.json": "9dc5ce8a771b9409f20a3baa56c351dfcd8431fa8d1a818581c1d366793eed7c",
+        "scripts/hosted_lineage.py": "4e949cb499b48b3008e5f0404a560826dbbb442c898c17466d2228ebff1243ea",
+        "scripts/issue_hosted_lineage.py": "d8dba16a614687dd6c3c5f9e096243831cc4a83a858b8ecfb325ab81ab5d91e7",
+        "tests/engineering/test_hosted_lineage.py": "03c466a6a42d36344d5cd0f64c7d5db741cb699e98b07ad806929b173a5602a9"
+      }
+    }
+  },
+  "prior_checkpoint": "integration/archive/p8-acceptance_20261102.json",
+  "receiving_refs": {
+    "consumer": "14303e4a291f248517b434fa148fede6452bb882",
+    "producer": "c76d78df37ffa89469e8fca5f2db521553525276"
+  },
+  "publication": {
+    "method": "Normal guarded fast-forwards with fresh expected-head reads, ancestry checks and receiving-ref/file readback. No force update.",
+    "consumer_base": "e4b6f18f92e10b465c8ac14c5c04a45457f5804b",
+    "integration_commit": "abcbcb40272cbd498f4cbd23d432ab488e275f8b",
+    "fixture_correction_commit": "14303e4a291f248517b434fa148fede6452bb882",
+    "pull_requests": [
+      "https://github.com/edithatogo/tobac/pull/105",
+      "https://github.com/edithatogo/tobac/pull/106",
+      "https://github.com/edithatogo/archive-govt-nz/pull/856"
+    ]
+  },
+  "rights_route": {
+    "mode": "qualified_attested_inputs",
+    "native_stage": "The existing native verifier reopened all eight original/input/output closures before capsule issuance.",
+    "hosted_stage": "Isolated Python and qualified OpenSSH authenticate the signed native result, accepted checkpoint and every current selected scientific input. Runtime and implementation identity, lock/workflow pins, inventory membership and complete accepted object sets are checked before workload setup.",
+    "originals_and_private_authority": "Retained in owner-held local preservation. Hosted evidence contains digests and receipt identities.",
+    "evidence_sha256": {
+      "integration/archive/hosted-native-attestation.json": "ada680b848da93168c1616b0629b8f2297c1a9d53716336922f593794e8a2d0c",
+      "integration/archive/hosted-native-attestation.json.sig": "1bfd3af2517f3cfeac90dbe0f24a7636046bb936c487c437dfa26d079115f6d6",
+      "integration/archive/hosted-native-signers": "0661923a19e1d4ed38a3e0938b94a25b03cdedd3145d63959825871ce05eeec9",
+      "integration/archive/hosted-verifier-profiles.json": "9dc5ce8a771b9409f20a3baa56c351dfcd8431fa8d1a818581c1d366793eed7c",
+      "scripts/hosted_lineage.py": "4e949cb499b48b3008e5f0404a560826dbbb442c898c17466d2228ebff1243ea",
+      "scripts/issue_hosted_lineage.py": "d8dba16a614687dd6c3c5f9e096243831cc4a83a858b8ecfb325ab81ab5d91e7",
+      "tests/engineering/test_hosted_lineage.py": "03c466a6a42d36344d5cd0f64c7d5db741cb699e98b07ad806929b173a5602a9"
+    },
+    "native_runners": 8,
+    "accepted_outputs": 140,
+    "qualified_runtime_profiles": 7
+  },
+  "local": {
+    "native_full_tests": {
+      "passed": 1180,
+      "skipped": 7,
+      "coverage_percent_rounded": 92
+    },
+    "attested_full_tests_before_fixture_followup": {
+      "passed": 1175,
+      "skipped": 11,
+      "coverage_percent_rounded": 92
+    },
+    "focused_fixture_workflow_workstream_passed": 55,
+    "final_profile_tests_passed": 28,
+    "strict_types": "zero errors and warnings",
+    "release_sessions_passed": [
+      "strict_all",
+      "reproduce",
+      "package",
+      "security",
+      "publication",
+      "clean_package"
+    ],
+    "native_route_private_cases": "Exercised locally with the actual accepted native estate. Hosted capability skips retain their explicit reasons."
+  },
+  "hosted": {
+    "verified_source": "14303e4a291f248517b434fa148fede6452bb882",
+    "checks": [
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/runs/125212470565",
+        "name": "CodeQL",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130146/job/125209796729",
+        "name": "qualification",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130166/job/125209797110",
+        "name": "CodeQL Python and Actions",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130146/job/125209796732",
+        "name": "macOS unpatched Voiage Polars candidate",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130146/job/125209796769",
+        "name": "Tests macos-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130146/job/125209796377",
+        "name": "quality",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130148/job/125209796463",
+        "name": "voiage-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130098/job/125209796323",
+        "name": "voiage-released-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130148/job/125209796343",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130148/job/125209796194",
+        "name": "sourceright",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130146/job/125209796683",
+        "name": "macOS Python 3.15.1 qualification",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130165/job/125209797172",
+        "name": "Verifier macos-latest uv",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130227/job/125209796797",
+        "name": "Tests ubuntu-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130098/job/125209795804",
+        "name": "numerical",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130165/job/125209797073",
+        "name": "Verifier windows-latest uv",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130165/job/125209796842",
+        "name": "Verifier macos-latest setup-python",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130115/job/125209795997",
+        "name": "longitudinal",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130165/job/125209797034",
+        "name": "Verifier ubuntu-latest uv",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130227/job/125209796198",
+        "name": "Tests windows-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130166/job/125209796595",
+        "name": "Public boundary and secret scanning",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "skipping",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130146/job/125209799406",
+        "name": "macOS package provenance",
+        "state": "SKIPPED"
+      },
+      {
+        "bucket": "skipping",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41425130146/job/125209798973",
+        "name": "Python 3.15.1 resolved dependency graph",
+        "state": "SKIPPED"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://aws.amazon.com/q/developer/",
+        "name": "Amazon Q Developer",
+        "state": "SUCCESS"
+      }
+    ],
+    "main_only_package_job": 125199295217,
+    "main_only_package_run": "https://github.com/edithatogo/tobac/actions/runs/41421940062",
+    "attestation": "https://github.com/edithatogo/tobac/attestations/62576344",
+    "attestation_cli": "Wheel and sdist signatures verified with source-digest abcbcb4, source-ref refs/heads/main, the exact engineering signer workflow and denial of self-hosted attestations.",
+    "artifact_subject_sha256": {
+      "sbom.json": "38e8a608a8c767cadc8271fa229f412f4a68007c6f32a61694471591f6c97cad",
+      "tobac_regulatory_research-0.2.0-py3-none-any.whl": "e46ef68f02dd325921862745b368df3151dfd2f80aa25b0071660169dd60ddea",
+      "artifact-sbom.json": "9dc1b25680550949a0378d4726a1b8e11cb127e5e0238ebd4523cc303924e744",
+      "tobac_regulatory_research-0.2.0.tar.gz": "9738f8c380655ebfa6c032e145143519dddaae4807bad3f32a177e70230ca97a"
+    },
+    "attestation_verification_sha256": {
+      "attestation-tobac_regulatory_research-0.2.0.tar.gz.json": "6076fa2e94d516f8367a8499060880ca6602eb881b3b676ad3ac4864c922da63",
+      "attestation-tobac_regulatory_research-0.2.0-py3-none-any.whl.json": "6076fa2e94d516f8367a8499060880ca6602eb881b3b676ad3ac4864c922da63"
+    },
+    "dependency_snapshot": {
+      "id": 117091364,
+      "created_at": "2026-11-02T09:41:56.220Z",
+      "result": "SUCCESS",
+      "message": "Dependency results for the repo have been successfully updated."
+    },
+    "package_evidence_source": "abcbcb40272cbd498f4cbd23d432ab488e275f8b",
+    "package_evidence_scope": "Scientific source, model inputs, verifier and workflow bytes are unchanged by the subsequent test-fixture correction.",
+    "windows_receiving_profile_verification": {
+      "job": 125209796198,
+      "image": "windows-2025-vs2026 20261030.294.1",
+      "passed": 1153,
+      "skipped": 34,
+      "actual_selected_verifier": "All eight accepted native closures and 140 output identities passed before the test workload and through the new actual-subprocess test."
+    }
+  },
+  "corrections": [
+    "The initial probe used the shell default on two platforms. Explicit repo-local Python 3.15.1 selection fixed it.",
+    "Distinct hosted image builds were measured through actual valid-signature and tamper-rejection controls before their exact interpreter/OpenSSH hashes were admitted.",
+    "A negative data fixture initially used the pytest process runtime. The fixture now models the selected qualified verifier, with a separate real subprocess test validating all eight actual input closures.",
+    "Completed reproducible Nox caches were discarded after disk exhaustion. Native objects, signing authority, source and execution evidence were retained."
+  ],
+  "log_sha256": {
+    "local-release.log": "816ec2227d7ccdcd4360e1d0138f7b6ced4291852a49d3505027e92a8792ec5c",
+    "local-final-tests.log": "79937cee38b795b5fa219ee8449898188e8b12aa8a15216ef87ceca1cb29352b",
+    "attested-full-tests.log": "10288e4aa4f75d1f6817e47722ddf518751d3926526f1b6738c6a04da9c691ea",
+    "closeout-full-tests.log": "7b3a68a87ea9a223e26cffd2f48fb1f56e1cbb2b9e87b736f3aa46cadd4837d5",
+    "fixture-final.log": "62250469b6103ee1ab96d340afac32c09bc2df69a8a7cda0196c672499d1b1e2",
+    "fixture-types.log": "56882e01cb80173ef053c4096e4ee43e3123a15f5c0a06715f96988d48fbd91c",
+    "final-profile-tests.log": "38d3af144e0ca529ca7604ee7a0a5b3bb09375a650cc4caf646cf6e2dfc69bab",
+    "issue-5.log": "eac621ca8b0e4b4298bcf365aca02da7eaf90b79403e8d3df55b11aa04ee70a4",
+    "main-package-provenance.log": "c3c29d3b03002403094190f79a1d97291bccff1708da9a6952e4914101474633",
+    "main-dependency-submission.log": "7c8ac0f9fe627c3b05c523c803a162b6af01e73f61e1a60204e1252552881ede",
+    "windows-main-first.log": "a511c4ab8d014177cf621dcf56fdc656341f91d4178414c7e0cd5f626073c5cd",
+    "windows-fixture-final.log": "2f1b80ca65a4e304cef4153c7fbaaf2c4bee9ac6ece2212eae50faf5f7eee083"
+  },
+  "remaining_track_tasks": [],
+  "historical_and_scientific_scope": "Historical capture qualifications and source-specific rights remain attached to original receipts. Empirical calibration and scientific endorsement have separate acceptance requirements.",
+  "native_lineage_qualified": true,
+  "scientific_qualification": false,
+  "producer_artifact_compatibility": {
+    "successor_wheel_sha256": "ec7989fa1bc648c8276e4f24996a5a3bb92b1686ca69bc23289d6c5e61483490",
+    "accepted_historical_wheel_sha256": "ed77a01418c8b03d8467e06fc1cdd13df9fdf14a8b1f05bbec23458e63dc02a5",
+    "compatibility": "Rebuilt-wheel imports asserted before reopening all eight accepted attempts, verifying original/input/output objects and comparing reviewed material. 140 outputs verified. Historical receipt pins retained.",
+    "candidate_and_receiving_tree": "72e3f2ce0afa5d0a2cebd34a134b5b273050627c"
+  }
+}

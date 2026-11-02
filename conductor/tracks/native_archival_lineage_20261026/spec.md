@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage
 
-Status: Phase 1 foundations implemented/reviewed; native integration remains open.
+Status: Implementation verified for the declared current paths. See the final Phase 8 acceptance receipt.
 Type: Feature. Date: 26 October 2026 (Australia/Brisbane).
 Track ID: `native_archival_lineage_20261026`.
 Planning base: tobac `59bb0e4ebaf1881158849df1702a1d3101aad58f`.
@@ -188,6 +188,16 @@ status or satisfy a release/acceptance gate. No implicit fallback, automatic wai
 silent promotion or global disabling of current scientific gates is permitted.
 Provenance validity alone does not imply empirical applicability or scientific
 approval; require both where the current scientific contract calls for them.
+
+Implementation clarification — 2 November 2026. The maintainer requested a
+rights-appropriate hosted route. Native verification inspects actual records and
+objects in the owner-held estate before issuing a signed result. Each hosted
+path authenticates that executed result and reopens its current scientific input
+bytes under a qualified verifier. Checkpoint, native object identities, source
+inventory, configuration, locks, workflow and implementation pins remain enforced.
+The original-byte stage and the hosted stage retain their distinct execution
+receipts. Scientific qualification and native output-record requirements retain
+their existing scope.
 
 ### R09 — Scientific meaning and shared evidence
 
