@@ -255,12 +255,12 @@ Owner: tobac master-track owner with producer, scientific and release owners.
 Depends on: completed required paths from P1–P7; blocked essentials prevent closeout.
 Covers: R01–R12; AC01–AC14.
 
-- [ ] Task: P8.1 — Assemble and independently check the acceptance evidence map.
-  - [ ] Map AC01–AC14 to actual native records, tested artifacts/revisions, commands,
+- [x] Task: P8.1 — Assemble and independently check the acceptance evidence map.
+  - [x] Map AC01–AC14 to actual native records, tested artifacts/revisions, commands,
     exit results and remaining gates. Verify all current required paths, not only pilots.
-  - [ ] Review schema/API migration, rights, scientific invariants and operational
+  - [x] Review schema/API migration, rights, scientific invariants and operational
     recovery separately; validate completed receipts and preserved historical records.
-- [ ] Task: P8.2 — Run coherent full qualification milestones on complete checkouts.
+- [~] Task: P8.2 — Run coherent full qualification milestones on complete checkouts.
   - [ ] Run the archive's `./scripts/validate.sh` (or native Windows counterpart) and
     applicable package/security gates using the verified qualified environment.
   - [ ] Run tobac's current Nox full tests and relevant numerical reproduction,
@@ -268,16 +268,39 @@ Covers: R01–R12; AC01–AC14.
     library/runtime or inherited gate failure without weakening the gate.
   - [ ] Verify hosted execution for changed workflows; retain local versus hosted
     versus restored-source evidence as distinct outcomes.
-- [ ] Task: P8.3 — Publish through reviewed ownership and verify remote state.
+- [~] Task: P8.3 — Publish through reviewed ownership and verify remote state.
   - [ ] Re-read main/#1, reconcile concurrent changes and repeat affected checks;
     use expected-head protection without force or dropping another workstream.
   - [ ] Verify receiving refs/files and producer/consumer artifact compatibility;
     update existing Conductor records and issue #1 with actual results and open gates.
   - [ ] Document operation, exploration, migration, rollback and recovery. Mark full
     completion only when every required acceptance criterion has executed evidence.
-- [ ] Task: P8.4 — Phase verification and checkpoint (refer to workflow.md).
+- [~] Task: P8.4 — Phase verification and checkpoint (refer to workflow.md).
   - [ ] Audit the final inventory, native dependency closure, qualification wiring,
     test/replay/recovery receipts, published revisions and remaining scientific gates.
+
+## Phase 8 acceptance readback
+
+Evidence paths below are relative to `integration/archive/`. The tested producer
+is `08dc5fed` and the consumer review revision is `f85af11`. Rights and historical
+capture limitations from Phases 2 and 4 remain attached to their individual records.
+
+| Criterion | Evidence reviewed | Finding |
+|---|---|---|
+| AC01 | `native-producer-interface.json`, `transformation-interface.json` | Producer owns capture, registration, attempts and verification. The consumer pins that API and wheel. |
+| AC02 | `p4-dataset-migration_20261031.json`, `scientific-runner-inputs.json`, `qualified-command-enforcement_20261102.json` | 145/145 dataset entries accounted for. The qualified commands check the accepted runner closure. |
+| AC03 | `native-source-refs.json`, `ac13-recovery-receipt.json` | 38 identities and 43 aliases. Eleven capture entries match source identity. Twelve failed, 19 were challenges, 18 metadata only and one unverified. Historical capture dates remain unknown where recorded. |
+| AC04 | `moh-native-extraction_20261029.json`, `workbook-reconciliation.json` | Native extraction and validation matched all 16 annual values against the workbook and source cells. |
+| AC05 | `shine-native-extraction_20261031.json`, `p4-phase-verification_20261031.json` | SHINE Table 2 supplies a second source-backed operation with four-parent ancestry. Earlier-version equivalence remains unknown. |
+| AC06 | `runner-material-checkpoint_20261102.json`, `scientific-lineage-checkpoint_20261102.json` | Native receipts bind material and outputs. Eight scientific runners produced 140 verified outputs. |
+| AC07 | `p3.3-verification_20261031.json`, `runner-material-checkpoint_20261102.json`, `qualified-command-enforcement_20261102.json` | Duplicate/dangling identities, cycles, substitution, stale material, tampering, missing outputs and incomplete attempts exercised. |
+| AC08 | `p4-dataset-migration_20261031.json`, `moh-native-extraction_20261029.json`, `shine-native-extraction_20261031.json` | Legacy identities retained. Replacement comparisons distinguish observed matches from historical reconstruction. |
+| AC09 | `scientific-lineage-checkpoint_20261102.json` | Forward and reverse CLI traces cover all eight runners. The 2014 changed-source execution identifies eight changed numerical tables. |
+| AC10 | `qualified-command-enforcement_20261102.json` and consumer PR #105 | Six qualified Nox paths passed locally. Hosted Linux tests rejected absent lineage before workload launch. Hosted positive execution is open. |
+| AC11 | `tests/test_workstream_integration.py` (repository root), `ac13-recovery-receipt.json` | Full suite exercised shared observations, units and state identities. Offline numerical comparison matched all 82 CSV files. |
+| AC12 | `ac13-recovery-receipt.json` | Isolated installed-wheel replay passed for eight runners. Interrupted copy and scientific attempt recovery passed. |
+| AC13 | `ac13-recovery-receipt.json` | Independent owner-held USB restore verified 1,680 files, 257,432,397 bytes. Manifest SHA-256 is `2096ee548853db35e0505df5c908dca91e5a944111a82f6ac40ff8bd383b71a2`. |
+| AC14 | Phase 8 qualification and receiving-ref record below | Pending successful hosted qualification and publication to both default branches. |
 
 ## Acceptance-to-plan map
 
