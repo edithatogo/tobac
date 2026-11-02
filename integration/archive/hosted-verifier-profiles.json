@@ -72,6 +72,18 @@
         1
       ],
       "system": "Darwin"
+    },
+    {
+      "base_python_sha256": "41a0b796cef86f018ad5a7aba82e33cf4f37f16a1f493978dfd96d6f5e91b72e",
+      "machine": "AMD64",
+      "openssh_sha256": "e68a0ad1eac87c1419c35ba46aa2de410d16a67801ae1661f5d682e65d73fc88",
+      "python_sha256": "0963ac74f59c255d9974f90a15a0e2555481404fb29235307af5888a41a97db9",
+      "python_version": [
+        3,
+        15,
+        1
+      ],
+      "system": "Windows"
     }
   ],
   "qualification": {
@@ -89,6 +101,11 @@
       {
         "job": 125185180770,
         "controls": "valid signature and tamper rejection passed; the then-pinned runtime list correctly rejected this additional Python build"
+      },
+      {
+        "job": 125190686332,
+        "image": "windows-2025-vs2026 20261030.294.1",
+        "controls": "actual Python 3.15.1 and OpenSSH signing/verification passed; stale runtime admission was correctly rejected before the workload"
       }
     ]
   }
