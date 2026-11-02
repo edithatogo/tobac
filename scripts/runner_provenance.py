@@ -237,7 +237,7 @@ def execution_material(
     runner: str, config: Path, script: Path, selected: dict[str, list[dict[str, Any]]], args: list[str] | None
 ) -> dict[str, Any]:
     """Identify the selected operation, config bytes, native inputs and runtime."""
-    inventory = sorted((dist.metadata["Name"], dist.version) for dist in importlib.metadata.distributions())
+    inventory = sorted({(dist.metadata["Name"], dist.version) for dist in importlib.metadata.distributions()})
     return {
         "operation": [
             runner,
