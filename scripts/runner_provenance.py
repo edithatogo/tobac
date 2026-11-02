@@ -165,11 +165,7 @@ def execute_runner_with_provenance(
     script_path: Path,
     extra_args: list[str] | None = None,
 ) -> dict[str, Any]:
-    """Execute a runner script and capture its provenance through the frozen producer.
-
-    This uses the frozen producer wheel to create native CAS objects and strict
-    execution metadata. Source registrations are checked before this function is called.
-    """
+    """Execute the selected runner; source registrations are checked by the caller."""
     if output_path.exists() or output_path.is_symlink():
         msg = f"Output path {output_path} exists or is a symlink"
         raise ValueError(msg)
@@ -177,11 +173,10 @@ def execute_runner_with_provenance(
     # Prepare the output directory
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Use the virtual environment Python to ensure dependencies are available
-    venv_python = ROOT / ".venv-native-lineage" / "bin" / "python"
-    if not venv_python.exists():
-        # Fall back to system Python if venv not found
-        venv_python = Path(sys.executable)
+    if sys.version_info[:3] != (3, 15, 1):
+        msg = "Runner execution requires Python 3.15.1"
+        raise RuntimeError(msg)
+    venv_python = Path(sys.executable)
 
     # Prepare the command
     cmd = [
@@ -307,6 +302,9 @@ def run_m2_publication(
     config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
 ) -> dict[str, Any]:
     """Run the M2 publication runner with provenance."""
+    if config_path.resolve() != (ROOT / "configs/m2_publication.json").resolve():
+        msg = "This runner uses its fixed reviewed configuration"
+        raise ValueError(msg)
     return execute_runner_lineage(
         "m2",
         config_path,
@@ -321,6 +319,9 @@ def run_m2_publication_grid(
     config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
 ) -> dict[str, Any]:
     """Run the M2 publication runner with grid check."""
+    if config_path.resolve() != (ROOT / "configs/m2_publication.json").resolve():
+        msg = "This runner uses its fixed reviewed configuration"
+        raise ValueError(msg)
     return execute_runner_lineage(
         "m2_publication",
         config_path,
@@ -335,6 +336,9 @@ def run_m2_robustness(
     config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
 ) -> dict[str, Any]:
     """Run the M2 robustness runner with provenance."""
+    if config_path.resolve() != (ROOT / "configs/m2_robustness.json").resolve():
+        msg = "This runner uses its fixed reviewed configuration"
+        raise ValueError(msg)
     return execute_runner_lineage(
         "m2_robustness",
         config_path,
@@ -349,6 +353,9 @@ def run_longitudinal(
     config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
 ) -> dict[str, Any]:
     """Run the longitudinal runner with provenance."""
+    if config_path.resolve() != (ROOT / "configs/empirical_longitudinal_v2.9.0/model.json").resolve():
+        msg = "This runner uses its fixed reviewed configuration"
+        raise ValueError(msg)
     return execute_runner_lineage(
         "longitudinal",
         config_path,
