@@ -200,16 +200,36 @@ def qualify_voiage() -> dict[str, Any]:
     }
 
 
-def native_lineage(names: list[str], manifest: Path | None = None) -> dict[str, Any]:
-    """Use the existing qualified interpreter without changing the workload environment."""
+def lineage_interpreter() -> Path:
+    """Authenticate the selected virtual-environment executable before interpreting its output."""
     value = os.environ.get("TOBAC_LINEAGE_PYTHON")
     if not value:
         msg = "Missing TOBAC_LINEAGE_PYTHON for native lineage preflight"
         raise ValueError(msg)
     executable = Path(value)
-    if not executable.is_absolute() or not executable.parent.resolve().is_relative_to(ROOT):
-        msg = "TOBAC_LINEAGE_PYTHON must select a repository-local interpreter"
+    if (
+        not executable.is_absolute()
+        or not executable.parent.resolve().is_relative_to(ROOT)
+        or not (executable.parent.parent / "pyvenv.cfg").is_file()
+    ):
+        msg = "TOBAC_LINEAGE_PYTHON must select a repository-local virtual environment"
         raise ValueError(msg)
+    profile = (ROOT / "integration/archive/runner-material.json").read_bytes()
+    if (
+        hashlib.sha256(profile).hexdigest()
+        != "2c74f2e5b3d72885932a4bec5de549ad747786f295907b2f827af4aad6f287b4"
+    ):
+        msg = "Verifier runtime profile differs from acceptance"
+        raise ValueError(msg)
+    if digest(executable) != read_json(profile.decode())["environment"]["python"]:
+        msg = "Native verifier executable differs from the accepted Python"
+        raise ValueError(msg)
+    return executable
+
+
+def native_lineage(names: list[str], manifest: Path | None = None) -> dict[str, Any]:
+    """Use the existing qualified interpreter without changing the workload environment."""
+    executable = lineage_interpreter()
     command = [str(executable), "-I", str(ROOT / "scripts/lineage_preflight.py")]
     for name in names:
         command.extend(["--runner", name])

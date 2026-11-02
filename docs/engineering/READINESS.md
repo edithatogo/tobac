@@ -9,6 +9,50 @@ workflows are retained in the roadmap. Deferred/cancelled runs are not passes. S
 security, source-bound lock, dependency-graph and package-provenance checks remain active
 on macOS; no protection settings or thresholds are changed.
 
+## Native lineage prerequisites for qualified workloads
+
+The `tests`, `qualification`, `research_m3`, `reproduce`, `package` and
+`clean_package` Nox sessions validate the accepted scientific inputs before
+workload setup. Research M3 checks its own profile. The direct regulatory and
+longitudinal CI commands select their respective runner profiles. The inventory
+and Sourceright commands retain their existing purposes.
+
+Configure three absolute paths in the environment running the command:
+
+| Variable | Required local resource |
+| --- | --- |
+| `TOBAC_LINEAGE_PYTHON` | Repo-local Python 3.15.1 virtual environment with the Phase 5 verifier runtime and installed producer wheel. |
+| `TOBAC_LINEAGE_WHEEL` | The exact wheel pinned in `integration/archive/transformation-interface.json`. |
+| `TOBAC_LINEAGE_ATTEMPTS` | Parent of the eight accepted Phase 5 attempt directories. Retain their native CAS, initial and terminal records, and complete output files. |
+
+For a read-only preflight, run the following from the checkout with those paths
+configured. Choose a fresh receipt path for every invocation.
+
+```sh
+.venv/bin/python scripts/run_bounded.py --timeout 2400 -- .venv/bin/python \
+  scripts/qualify_integrations.py --mode lineage --runner m3 \
+  --out outputs/engineering/m3-lineage-check.json
+```
+
+Omit `--runner` to check all eight profiles. A successful receipt identifies the
+accepted attempts and current inputs eligible for the selected workload.
+`scripts/qualification_check.py --manifest PATH --mode qualified` also requires
+an exact accepted native manifest. Explicit exploratory and legacy inspections
+return unqualified receipts.
+
+When adding data, changing an operation or selecting a new runtime, rebuild and
+review the affected scientific input contract, run and verify the new native
+attempts, then update the accepted checkpoint and gate pins together. Keep the
+prior version and its receipts for historical readback. The membership check
+includes files under configs, data and evidence, Python model sources and runner
+entry points. A failed preflight writes a rejection and exits before the
+workload starts.
+
+CI uses the same three variable names. The runner needs the matching interpreter,
+wheel and authorized attempt store at those paths. Configure paths only for
+jobs that can access those resources. Private originals and attempt stores
+belong outside public artifact export directories.
+
 ## Ruff expansion and resource controls — 27 October 2026
 
 Maintained tests, Nox tooling and type stubs now share source/script linting and
