@@ -46,6 +46,7 @@
     ".github/workflows/engineering-deep.yml",
     ".github/workflows/engineering.yml",
     ".github/workflows/lineage-verifier.yml",
+    ".github/workflows/linux-audit.yml",
     ".github/workflows/longitudinal.yml",
     ".github/workflows/publication-security.yml",
     ".github/workflows/research-m3.yml",

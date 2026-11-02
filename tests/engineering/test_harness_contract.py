@@ -11,7 +11,7 @@ import yaml
 from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[2]
-WORKFLOWS = ("engineering.yml", "engineering-deep.yml", "release-candidate.yml", "cross-platform.yml")
+WORKFLOWS = ("engineering.yml", "engineering-deep.yml", "release-candidate.yml", "linux-audit.yml")
 
 
 @pytest.mark.parametrize("name", WORKFLOWS)
@@ -207,9 +207,17 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             runner = job["runs-on"]
             if runner == "${{ matrix.os }}":
                 assert {entry["os"] for entry in job["strategy"]["matrix"]["include"]} == {"macos-latest"}
+            elif path.name == "linux-audit.yml":
+                assert runner == "ubuntu-24.04"
+                assert job["env"]["TOBAC_REQUIRE_LOCK"] == "1"
+                assert job["timeout-minutes"] == "40"
             else:
                 assert runner in {"macos-latest", "macos-15-intel"}, (path, runner)
             commands = [step.get("run", "") for step in job["steps"]]
+            if path.name == "linux-audit.yml":
+                assert any("verify --profile audit" in command for command in commands)
+                assert any("platform.machine() == 'x86_64'" in command for command in commands)
+                assert any("-s strict_all security" in command for command in commands)
             assert any(
                 ".venv-ci/bin/python -c" in command and "assert sys.version_info[:3] == (3, 15, 1)" in command
                 for command in commands

@@ -251,3 +251,11 @@ active. The existing audit lock and scientific inputs remain unchanged unless
 an actual hosted failure establishes a necessary bounded fix. Next operation is
 hash-checked Linux installation and the existing strict/security Nox commands
 through GitHub Actions. DXP2–DXP4 remain deferred.
+
+First hosted attempt `41534027128` installed the unchanged lock and passed strict,
+security and 95 focused tests. Its export failed because the scanner installer was
+macOS-only. The existing scientific workflow edit also correctly failed its signed
+acceptance pin. Corrective scope moves the audit into a dedicated `linux-audit.yml`
+and adds exact checksum-pinned Linux scanner support; the pinned cross-platform
+scientific workflow is restored byte-for-byte. No lineage waiver or new signature
+is required for this separate engineering audit command.

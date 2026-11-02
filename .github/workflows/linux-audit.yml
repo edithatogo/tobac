@@ -1,0 +1,53 @@
+name: Linux audit lock qualification
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: linux-audit-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  audit-lock:
+    name: Linux x86_64 hash-locked audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      TOBAC_REQUIRE_LOCK: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      POLARS_MAX_THREADS: '2'
+      RAYON_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          version: '0.13.5'
+          python-version: '3.15.1'
+          enable-cache: false
+      - name: Verify selected Linux interpreter and source-bound audit lock
+        run: |
+          uv venv --python 3.15.1 .venv-ci
+          .venv-ci/bin/python -c "import platform,sys; print(sys.executable, sys.version, platform.platform()); assert sys.version_info[:3] == (3, 15, 1); assert sys.platform == 'linux' and platform.machine() == 'x86_64'"
+          .venv-ci/bin/python scripts/lock_receipt.py verify --profile audit --path engineering/audit.lock
+          mkdir -p outputs/engineering
+      - name: Execute strict and security sessions through the hash-locked Linux profile
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2100 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/linux-audit-nox.json -s strict_all security
+      - name: Verify lock and cross-workstream contracts in the installed audit environment
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 300 -- .nox/security/bin/python -m pytest -q tests/engineering/test_lock_receipts.py tests/engineering/test_execution_contracts.py tests/engineering/test_harness_contract.py tests/test_workstream_integration.py
+      - name: Install checksum-pinned export scanner
+        if: always()
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected audit evidence
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 300 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/linux-audit
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: success()
+        with:
+          name: linux-x86_64-audit-lock
+          path: artifact-exports/linux-audit/
+          if-no-files-found: warn
+          retention-days: 14
