@@ -844,6 +844,7 @@ def voiage_polars_candidate(session: nox.Session) -> None:
 @nox.session(python="3.15.1")
 def voiage_published(session: nox.Session) -> None:
     """Qualify the hash-pinned published wheel with its genuine runtime dependencies."""
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
     python = session.run("python", "-c", "import sys; print(sys.executable)", silent=True)
     if not isinstance(python, str) or not python.strip():
         session.error("Cannot resolve selected interpreter")
@@ -857,7 +858,8 @@ def voiage_published(session: nox.Session) -> None:
     lock.write_text(
         (ROOT / "engineering/voiage-published-requirements.txt")
         .read_text()
-        .replace(pin["wheel_url"], wheel.as_uri())
+        .replace(pin["wheel_url"], wheel.as_uri()),
+        encoding="utf-8",
     )
     session.run(
         "uv",
