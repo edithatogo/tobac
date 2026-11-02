@@ -53,25 +53,27 @@ def seal(root: Path) -> str:
     return hashlib.sha256(raw).hexdigest()
 
 
-def verify(root: Path, pin: str) -> None:
+def verify(root: Path, pin: str) -> dict[str, list[int | str]]:
     """Reject stale manifests, dropped or additional files, or same-size substitutions."""
     manifest = root / MANIFEST
-    if manifest.is_symlink() or digest(manifest) != pin:
+    raw = manifest.read_bytes()
+    if manifest.is_symlink() or hashlib.sha256(raw).hexdigest() != pin:
         msg = "Recovery manifest differs from pinned SHA-256"
         raise ValueError(msg)
     if hashlib.sha256(canonical(root)).hexdigest() != pin:
         msg = "Recovery inventory differs from the pinned bytes"
         raise ValueError(msg)
+    return json.loads(raw)["files"]
 
 
 def copy_generation(source: Path, destination: Path, pin: str) -> None:
     """Copy across devices; an interrupted destination has no completion manifest."""
-    verify(source, pin)
+    files = verify(source, pin)
     if source.stat().st_dev == destination.parent.stat().st_dev:
         msg = "Independent recovery cannot use the same filesystem"
         raise ValueError(msg)
     destination.mkdir(mode=0o700, exist_ok=False)
-    for name, (size, checksum) in json.loads((source / MANIFEST).read_bytes())["files"].items():
+    for name, (size, checksum) in files.items():
         target = destination / name
         target.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
         with (source / name).open("rb") as incoming, target.open("xb") as output:
