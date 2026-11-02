@@ -168,7 +168,7 @@ def execute_runner_with_provenance(
     """Execute a runner script and capture its provenance through the frozen producer.
 
     This uses the frozen producer wheel to create native CAS objects and strict
-    records for the runner execution, with placeholder native source IDs.
+    execution metadata. Source registrations are checked before this function is called.
     """
     if output_path.exists() or output_path.is_symlink():
         msg = f"Output path {output_path} exists or is a symlink"
@@ -190,6 +190,12 @@ def execute_runner_with_provenance(
         "--out",
         str(output_path),
     ]
+    modules = {
+        ROOT / "src/tobac/run.py": "tobac.run",
+        ROOT / "src/tobac/research/runner.py": "tobac.research.runner",
+    }
+    if script_path in modules:
+        cmd = [str(venv_python), "-m", modules[script_path], "--out", str(output_path)]
     if extra_args:
         cmd.extend(extra_args)
 
@@ -234,8 +240,23 @@ def execute_runner_lineage(  # noqa: PLR0913  # Explicit parameters for clear ru
     native_refs: list[str] | None = None,
 ) -> dict[str, Any]:
     """Execute a runner and bind its lineage to native provenance."""
-    if native_refs is None:
-        native_refs = [f"tobac-placeholder-{runner_name}-{datetime.now(UTC).strftime('%Y%m%d%H%M%S')}"]
+    source_path = ROOT / "integration/archive/native-source-refs.json"
+    if digest(source_path) != "f75582e8362b39d08bc69ef7196131667bb756e39df285189ca478c2a5bd9ed3":
+        msg = "Verified native source export differs"
+        raise ValueError(msg)
+    sources = read_json(source_path)
+    available = {
+        row["archive_id"]: [
+            cap["native_registration"] for cap in row["captures"] if cap["native_registration"] is not None
+        ]
+        for row in sources["native_source_refs"]
+    }
+    if not native_refs or len(set(native_refs)) != len(native_refs):
+        msg = "Explicit unique native source identities are required"
+        raise ValueError(msg)
+    if any(not available.get(ref) for ref in native_refs):
+        msg = "Runner source lacks a verified native registration"
+        raise ValueError(msg)
 
     # Execute the runner
     result = execute_runner_with_provenance(runner_name, config_path, output_path, script_path, extra_args)
@@ -261,81 +282,101 @@ def execute_runner_lineage(  # noqa: PLR0913  # Explicit parameters for clear ru
         "status": "bound",
         "binding": binding,
         "execution": result,
+        "source_export_sha256": digest(source_path),
+        "source_registrations": {ref: available[ref] for ref in native_refs},
+        "native_lineage_qualified": False,
         "native_refs": native_refs,
     }
 
 
-def run_m1_regulatory(config_path: Path, output_path: Path) -> dict[str, Any]:
+def run_m1_regulatory(
+    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+) -> dict[str, Any]:
     """Run the M1 regulatory decision runner with provenance."""
     return execute_runner_lineage(
         "m1",
         config_path,
         output_path,
-        ROOT / "scripts/verify_product_assets.py",  # M1 uses verify_product_assets
-        extra_args=["--config", str(config_path), "--out", str(output_path)],
+        ROOT / "src/tobac/run.py",
+        native_refs=native_refs,
+        extra_args=["--config", str(config_path)],
     )
 
 
-def run_m2_publication(config_path: Path, output_path: Path) -> dict[str, Any]:
+def run_m2_publication(
+    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+) -> dict[str, Any]:
     """Run the M2 publication runner with provenance."""
     return execute_runner_lineage(
         "m2",
         config_path,
         output_path,
         ROOT / "scripts/run_m2_publication.py",
-        extra_args=["--out", str(output_path)],
+        native_refs=native_refs,
+        extra_args=[],
     )
 
 
-def run_m2_publication_grid(config_path: Path, output_path: Path) -> dict[str, Any]:
+def run_m2_publication_grid(
+    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+) -> dict[str, Any]:
     """Run the M2 publication runner with grid check."""
     return execute_runner_lineage(
         "m2_publication",
         config_path,
         output_path,
         ROOT / "scripts/run_m2_publication.py",
-        extra_args=["--out", str(output_path), "--grid-check"],
+        native_refs=native_refs,
+        extra_args=["--grid-check"],
     )
 
 
-def run_m2_robustness(config_path: Path, output_path: Path) -> dict[str, Any]:
+def run_m2_robustness(
+    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+) -> dict[str, Any]:
     """Run the M2 robustness runner with provenance."""
     return execute_runner_lineage(
         "m2_robustness",
         config_path,
         output_path,
         ROOT / "scripts/run_m2_robustness.py",
-        extra_args=["--out", str(output_path)],
+        native_refs=native_refs,
+        extra_args=[],
     )
 
 
-def run_longitudinal(config_path: Path, output_path: Path) -> dict[str, Any]:
+def run_longitudinal(
+    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+) -> dict[str, Any]:
     """Run the longitudinal runner with provenance."""
     return execute_runner_lineage(
         "longitudinal",
         config_path,
         output_path,
         ROOT / "scripts/run_empirical_longitudinal.py",
-        extra_args=["--out", str(output_path)],
+        native_refs=native_refs,
+        extra_args=[],
     )
 
 
-def run_m3_research(config_path: Path, output_path: Path) -> dict[str, Any]:
+def run_m3_research(
+    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+) -> dict[str, Any]:
     """Run the M3 research runner with provenance."""
-    # M3 uses unpack_m3_results
     return execute_runner_lineage(
         "m3",
         config_path,
         output_path,
-        ROOT / "scripts/unpack_m3_results.py",
-        extra_args=["--out", str(output_path)],
+        ROOT / "src/tobac/research/runner.py",
+        native_refs=native_refs,
+        extra_args=["--config", str(config_path)],
     )
 
 
-def phase_verification(root: Path) -> VerificationResult:
+def phase_verification(root: Path, native_refs: list[str] | None = None) -> VerificationResult:
     """P5.4: Phase verification and checkpoint."""
     runners: list[tuple[str, str, str]] = [
-        ("m1", "configs/regulatory.json", "scripts/verify_product_assets.py"),
+        ("m1", "configs/regulatory.json", "src/tobac/run.py"),
         ("m2", "configs/m2_publication.json", "scripts/run_m2_publication.py"),
         ("m2_publication", "configs/m2_publication.json", "scripts/run_m2_publication.py"),
         ("m2_robustness", "configs/m2_robustness.json", "scripts/run_m2_robustness.py"),
@@ -344,7 +385,7 @@ def phase_verification(root: Path) -> VerificationResult:
             "configs/empirical_longitudinal_v2.9.0/model.json",
             "scripts/run_empirical_longitudinal.py",
         ),
-        ("m3", "configs/m3_research.json", "scripts/unpack_m3_results.py"),
+        ("m3", "configs/m3_research.json", "src/tobac/research/runner.py"),
     ]
 
     bindings: list[dict[str, Any]] = []
@@ -368,17 +409,17 @@ def phase_verification(root: Path) -> VerificationResult:
 
         # Execute with provenance
         if runner_name == "m1":
-            result = run_m1_regulatory(config_path, output_path)
+            result = run_m1_regulatory(config_path, output_path, native_refs=native_refs)
         elif runner_name == "m2":
-            result = run_m2_publication(config_path, output_path)
+            result = run_m2_publication(config_path, output_path, native_refs=native_refs)
         elif runner_name == "m2_publication":
-            result = run_m2_publication_grid(config_path, output_path)
+            result = run_m2_publication_grid(config_path, output_path, native_refs=native_refs)
         elif runner_name == "m2_robustness":
-            result = run_m2_robustness(config_path, output_path)
+            result = run_m2_robustness(config_path, output_path, native_refs=native_refs)
         elif runner_name == "longitudinal":
-            result = run_longitudinal(config_path, output_path)
+            result = run_longitudinal(config_path, output_path, native_refs=native_refs)
         elif runner_name == "m3":
-            result = run_m3_research(config_path, output_path)
+            result = run_m3_research(config_path, output_path, native_refs=native_refs)
         else:
             result = {"runner": runner_name, "status": "unknown"}
 
@@ -450,10 +491,13 @@ def main() -> None:
         action="store_true",
         help="Actually execute the runners (not just generate verification structure)",
     )
+    parser.add_argument("--native-ref", action="append", default=None)
     args = parser.parse_args()
+    if args.execute and not args.native_ref:
+        parser.error("--execute requires explicit --native-ref selections")
 
     if args.execute:
-        result: VerificationResult = phase_verification(ROOT)
+        result: VerificationResult = phase_verification(ROOT, args.native_ref)
     else:
         # Generate the verification structure without executing
         result = cast(
