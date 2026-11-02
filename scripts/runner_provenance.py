@@ -236,10 +236,9 @@ def execute_runner_lineage(  # noqa: PLR0913  # Explicit parameters for clear ru
 ) -> dict[str, Any]:
     """Execute a runner and bind its lineage to native provenance."""
     source_path = ROOT / "integration/archive/native-source-refs.json"
-    if digest(source_path) != "f75582e8362b39d08bc69ef7196131667bb756e39df285189ca478c2a5bd9ed3":
-        msg = "Verified native source export differs"
-        raise ValueError(msg)
-    sources = read_json(source_path)
+    expected_digest = "f75582e8362b39d08bc69ef7196131667bb756e39df285189ca478c2a5bd9ed3"
+    source_bytes = verified_bytes(source_path, expected_digest)
+    sources = json.loads(source_bytes)
     available = {
         row["archive_id"]: [
             cap["native_registration"] for cap in row["captures"] if cap["native_registration"] is not None
@@ -277,7 +276,7 @@ def execute_runner_lineage(  # noqa: PLR0913  # Explicit parameters for clear ru
         "status": "bound",
         "binding": binding,
         "execution": result,
-        "source_export_sha256": digest(source_path),
+        "source_export_sha256": hashlib.sha256(source_bytes).hexdigest(),
         "source_registrations": {ref: available[ref] for ref in native_refs},
         "native_lineage_qualified": False,
         "native_refs": native_refs,
