@@ -715,3 +715,15 @@ producer branch from the previously merged wheel. Phase 5 owns complete
 scientific dependency selection and runner-to-result graph integration.
 Phase 6 owns broader enforcement. Independent preservation remains in Phase 7.
 Publication and receiving-ref verification remain in Phase 8.
+
+Local release verification finished on 2 November. All producer release stages
+passed at 08dc5fed, including 8,920 tests (14 skipped, 96.30% coverage).
+The first full test stage encountered disk headroom and lost temporary worker
+directories. The successful full-stage rerun used a private temporary root and
+two workers. The final wheel reproduced the MOH manifest and rejected the
+missing output, cycle and stale revision controls. Consumer tests passed
+(1,152 passed, seven skipped, 92% coverage). Strict typing passed after the
+type import correction at 21339d8. Quality, numerical reproduction, package
+build, clean-package execution, recovery, security and mutation all passed
+locally. Mutation killed 119 of 131 against a 60% floor. See the installed
+runner checkpoint above for stage names and log digests.
