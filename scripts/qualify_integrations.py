@@ -200,20 +200,53 @@ def qualify_voiage() -> dict[str, Any]:
     }
 
 
+def native_lineage(names: list[str], manifest: Path | None = None) -> dict[str, Any]:
+    """Use the existing qualified interpreter without changing the workload environment."""
+    value = os.environ.get("TOBAC_LINEAGE_PYTHON")
+    if not value:
+        msg = "Missing TOBAC_LINEAGE_PYTHON for native lineage preflight"
+        raise ValueError(msg)
+    executable = Path(value)
+    if not executable.is_absolute() or not executable.parent.resolve().is_relative_to(ROOT):
+        msg = "TOBAC_LINEAGE_PYTHON must select a repository-local interpreter"
+        raise ValueError(msg)
+    command = [str(executable), "-I", str(ROOT / "scripts/lineage_preflight.py")]
+    for name in names:
+        command.extend(["--runner", name])
+    if manifest is not None:
+        command.extend(["--manifest", str(manifest.resolve())])
+    process = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, timeout=300, check=False)  # noqa: S603 -- Fixed verifier in the selected repo-local runtime.
+    if not process.stdout:
+        msg = "Native verifier did not return a receipt: " + process.stderr[-1200:]
+        raise RuntimeError(msg)
+    receipt = cast("dict[str, Any]", json.loads(process.stdout))
+    if (process.returncode == 0) != (receipt.get("success") is True):
+        msg = "Native verifier exit status disagrees with receipt"
+        raise ValueError(msg)
+    return receipt
+
+
 def main() -> None:
     """Parse command-line options, execute the selected operation and report its result."""
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", choices=["inventory", "voiage", "sourceright"], required=True)
+    parser.add_argument("--mode", choices=["inventory", "voiage", "sourceright", "lineage"], required=True)
     parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--runner", action="append", default=[])
     parser.add_argument("--all-csl", action="store_true")
     parser.add_argument("--out", required=True, type=Path)
     args = parser.parse_args()
+    if args.mode == "lineage" and args.root.resolve() != ROOT:
+        parser.error("Native preflight verifies the executing checkout only")
+    if args.runner and args.mode != "lineage":
+        parser.error("--runner requires --mode lineage")
     if args.all_csl and args.mode != "sourceright":
         parser.error("--all-csl applies only to Sourceright")
     if args.out.exists() or args.out.is_symlink():
         parser.error("Refusing to overwrite a previous execution receipt")
     try:
-        if args.mode == "inventory":
+        if args.mode == "lineage":
+            receipt = native_lineage(args.runner)
+        elif args.mode == "inventory":
             receipt = inventory(args.root)
         elif args.mode == "sourceright":
             receipt = qualify_sourceright(args.root, all_csl=args.all_csl)

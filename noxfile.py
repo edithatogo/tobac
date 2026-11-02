@@ -137,6 +137,20 @@ def run_all_checks(session: nox.Session, commands: list[list[str]]) -> None:
         session.error("Failed independent checks: " + ", ".join(failed))
 
 
+def verify_lineage(session: nox.Session, label: str, *names: str) -> None:
+    """Verify accepted native evidence before installing or executing the workload."""
+    selection = [arg for name in names for arg in ("--runner", name)]
+    session.run(
+        "python",
+        "scripts/qualify_integrations.py",
+        "--mode",
+        "lineage",
+        *selection,
+        "--out",
+        str(OUT / f"lineage-{label}-{uuid4().hex}.json"),
+    )
+
+
 def verify_evidence(session: nox.Session, label: str) -> None:
     """Inventory and preserved-byte gate; not source applicability or CSL validation."""
     session.run(
@@ -159,6 +173,7 @@ def evidence(session: nox.Session) -> None:
 @nox.session(python="3.15.1")
 def tests(session: nox.Session) -> None:
     """Run the full source-coverage test suite in the qualified environment."""
+    verify_lineage(session, "tests")
     verify_evidence(session, "tests")
     coverage_root = OUT / "coverage-data"
     coverage_root.mkdir(parents=True, exist_ok=True)
@@ -280,6 +295,7 @@ def source_handoff(session: nox.Session) -> None:
 @nox.session(python="3.15.1")
 def reproduce(session: nox.Session) -> None:
     """Replay the numerical reference and verify its outputs."""
+    verify_lineage(session, "reproduce")
     verify_evidence(session, "reproduce")
     environment(session)
     session.run(
@@ -363,9 +379,17 @@ def publication(session: nox.Session) -> None:
 
 @nox.session(python="3.15.1")
 def qualification(session: nox.Session) -> None:
-    """Run native provenance qualification enforcement tests."""
+    """Reopen the native evidence before running enforcement regression tests."""
+    verify_lineage(session, "qualification")
     environment(session)
-    session.run("python", "-m", "pytest", "-q", "tests/engineering/test_qualification_check.py")
+    session.run(
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/engineering/test_qualification_check.py",
+        "tests/engineering/test_lineage_gate.py",
+    )
 
 
 @nox.session(python="3.15.1")
@@ -382,6 +406,7 @@ def lock(session: nox.Session) -> None:
 @nox.session(python="3.15.1")
 def package(session: nox.Session) -> None:
     """Build internal source/wheel candidates after exact locked installation."""
+    verify_lineage(session, "package")
     verify_evidence(session, "package")
     environment(session, require_lock=True)
     python = session.run("python", "-c", "import sys;print(sys.executable)", silent=True)
@@ -457,11 +482,15 @@ def canary(session: nox.Session) -> None:
 @nox.session(python="3.15.1")
 def research_m3(session: nox.Session) -> None:
     """M3 uses the existing reference environment and preserves its lock gates."""
+    verify_lineage(session, "research_m3", "m3")
     verify_evidence(session, "research_m3")
     environment(session)
     session.run("python", "-m", "pytest", "-q", "tests/m3", "tests/test_workstream_integration.py")
-    session.run("python", "-m", "tobac.research.runner", "--out", "outputs/replay_m3")
-    session.run("python", "scripts/verify.py", "outputs/replay_m3")
+    destination = "outputs/replay_m3"
+    if Path(destination).exists():
+        destination = str(OUT / "m3-runs" / uuid4().hex)
+    session.run("python", "-m", "tobac.research.runner", "--out", destination)
+    session.run("python", "scripts/verify.py", destination)
 
 
 @nox.session(python="3.15.1")
@@ -639,6 +668,7 @@ def product_reconciliation(session: nox.Session) -> None:
 @nox.session(python="3.15.1")
 def clean_package(session: nox.Session) -> None:
     """Real artifact execution outside source and sibling checkouts."""
+    verify_lineage(session, "clean_package")
     environment(session, require_lock=True)
     destination = str(OUT / "clean-package" / uuid4().hex)
     session.run("python", "scripts/qualify_clean_package.py", "--out", destination)

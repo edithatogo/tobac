@@ -33,14 +33,14 @@ def make_manifest(tmp_path: Path, *, complete: bool = True, tampered: bool = Fal
     return path
 
 
-def test_qualified_mode_passes_complete_manifest(tmp_path: Path) -> None:
-    """Complete manifest qualifies in qualified mode."""
+def test_complete_metadata_alone_cannot_qualify(tmp_path: Path) -> None:
+    """A complete legacy structure still needs accepted native evidence."""
     manifest = make_manifest(tmp_path, complete=True)
     result = run_qualification(manifest, "qualified")
-    assert result["qualified"] is True
-    assert result["mode"] == "qualified"
+    assert result["qualified"] is False
+    assert result["mode"] == "fail_closed"
     assert result["native_lineage_qualified"] is False
-    assert result["errors"] == []
+    assert result["errors"]
 
 
 def test_qualified_mode_fails_incomplete_manifest(tmp_path: Path) -> None:

@@ -8,6 +8,7 @@ import hashlib
 import importlib
 import io
 import json
+import os
 import re
 import sys
 from decimal import Decimal
@@ -219,6 +220,13 @@ def collect_inputs(
 
 def run_one(name: str, dest: Path, native_store: Path, wheel: Path) -> None:
     """Reserve an attempt, compare its original, execute, and bind all output bytes."""
+    from lineage_preflight import verify  # noqa: PLC0415 -- Execution gate; read-only historical queries stay independent.
+
+    attempts = os.environ.get("TOBAC_LINEAGE_ATTEMPTS")
+    if not attempts:
+        msg = "Missing TOBAC_LINEAGE_ATTEMPTS for qualified scientific execution"
+        raise ValueError(msg)
+    verify(Path(attempts), wheel, [name])
     native, factory, pin = moh.producer(wheel, ARCHIVE / "transformation-interface.json")
     api = importlib.import_module("archive_govt_nz.transformation_attempt")
     script, config, args, source = RUNS[name]

@@ -9,9 +9,10 @@ import argparse
 import hashlib
 import json
 import sys
-from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, cast
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -75,6 +76,13 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
             "automatically_conditions_live_model": False,
         }
 
+    for field in ("objects", "observations", "versions"):
+        entries = manifest.get(field, [])
+        if not isinstance(entries, list) or any(not isinstance(item, dict) for item in entries):
+            errors.append(f"invalid_collection:{field}")
+            manifest[field] = []
+            qualified = False
+
     for field in required_fields:
         if field not in manifest:
             errors.append(f"missing_field:{field}")
@@ -84,6 +92,7 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
     if not isinstance(receipts, dict):
         errors.append("invalid_receipts_structure")
         qualified = False
+        receipts = {}
     else:
         receipts = cast("dict[str, Any]", receipts)
         for receipt_type in ("transformations", "validations", "publications"):
@@ -148,7 +157,8 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
         errors.append("missing_archive_id")
         qualified = False
 
-    mode = "qualified" if qualified and not errors else "fail_closed"
+    structurally_valid = qualified and not errors
+    mode = "metadata_only" if structurally_valid else "fail_closed"
 
     receipt_counts: dict[str, int] = {}
     for key, value in receipts.items():
@@ -157,7 +167,8 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
     return {
         "schema_version": "tobac.qualification-check.v1",
         "manifest_path": str(manifest_path),
-        "qualified": qualified and not errors,
+        "qualified": False,
+        "structurally_valid": structurally_valid,
         "errors": errors,
         "mode": mode,
         "checked_fields": required_fields,
@@ -177,8 +188,18 @@ def run_qualification(
 ) -> dict[str, Any]:
     """Run qualification in an explicitly selected mode."""
     if mode == "qualified":
+        from qualify_integrations import native_lineage  # noqa: PLC0415 -- Native execution only in qualified mode.
+
+        try:
+            proof = native_lineage([], manifest_path)
+            if proof["success"]:
+                return {**proof, "mode": "qualified", "errors": [], "manifest_path": str(manifest_path)}
+            error = proof["error"]
+        except (ValueError, RuntimeError, OSError) as exc:
+            error = str(exc)
         result = qualification_check(manifest_path)
-        result["execution_mode"] = "qualified"
+        result.update(qualified=False, mode="fail_closed", execution_mode="qualified")
+        result["errors"].append(error)
         return result
     if mode == "exploratory":
         result = qualification_check(manifest_path)
@@ -200,38 +221,6 @@ def run_qualification(
     raise ValueError(msg)
 
 
-def phase_verification(root: Path) -> dict[str, Any]:
-    """Return the Phase 6 verification receipt."""
-    del root
-    return {
-        "schema_version": "tobac.p6-phase-verification.v1",
-        "phase": "P6.4",
-        "phase_title": "Phase 6 verification and checkpoint",
-        "track_id": "native_archival_lineage_20261026",
-        "date": datetime.now(UTC).isoformat(),
-        "verification": {
-            "qualification_modes": ["qualified", "exploratory", "legacy"],
-            "fail_closed_on_missing_lineage": True,
-            "exploratory_mode_unqualified": True,
-            "legacy_mode_unqualified": True,
-            "no_implicit_mode_fallback": True,
-            "no_automatic_waivers": True,
-            "native_lineage_qualified": False,
-            "scientific_qualification": False,
-            "automatically_conditions_live_model": False,
-        },
-        "scope": (
-            "P6.1-P6.4: Qualification enforcement implemented. Fail-closed on "
-            "missing/tampered lineage. Exploratory and legacy modes produce "
-            "visibly unqualified artifacts. No implicit mode fallback or "
-            "automatic waivers. Full qualification requires P7/P8."
-        ),
-        "scientific_qualification": False,
-        "native_lineage_qualified": False,
-        "automatically_conditions_live_model": False,
-    }
-
-
 def main() -> None:
     """Write a qualification receipt or print it to stdout."""
     parser = argparse.ArgumentParser(description=__doc__)
@@ -251,6 +240,8 @@ def main() -> None:
             stream.write("\n")
 
     sys.stdout.write(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
+    if args.mode == "qualified" and not result["qualified"]:
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":
