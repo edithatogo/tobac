@@ -9,15 +9,17 @@ the work.
 
 Hosted Linux and Windows Python 3.15.1 runtime tests were restored and qualified by
 PR #66 at receiving main `62056c5`; macOS remains the full engineering/reference
-qualification platform. DXP1 is complete; the other additional work remains deferred:
+qualification platform. DXP1 and DXP2 are complete; the other additional work remains deferred:
 
 - [x] DXP1 — Installed and executed the source-bound Linux x86_64 audit lock on
   Python 3.15.1 in GitHub Actions run [41534684953](https://github.com/edithatogo/tobac/actions/runs/41534684953).
   All 96 locked packages match the installed inventory; strict/security sessions,
   96 focused tests and inspected artifact export pass. [Receipt](../integration/linux_audit_lock_20261103.json).
-- [~] DXP2 — Qualify non-macOS package paths, dependency markers, encodings and
-  release behavior beyond the passing runtime tests. Authorized and in progress
-  on 3 November 2026 through hosted Linux/Windows package checks.
+- [x] DXP2 — Qualified Linux/Windows package paths, dependency/extra markers,
+  Unicode encodings and source/wheel build/install behavior in GitHub
+  [run 41542664379](https://github.com/edithatogo/tobac/actions/runs/41542664379).
+  Both direct and sdist-rebuilt wheels pass isolated imports/API/transport/quick CLI
+  smokes and inspected export. [Receipt](../integration/package_portability_20261103.json).
 - [ ] DXP3 — Execute platform-specific scientific reproduction on supported
   non-macOS platforms.
 - [ ] DXP4 — Reconsider and requalify the deferred manual release and lock-generation
@@ -74,8 +76,8 @@ diagnostic execution remains deferred here; it is not an unchecked current macOS
 
 ## Reconciliation — 3 November 2026
 
-DXP1 is complete. Three cross-platform tasks, four advisory-lane tasks and two
-optional hardening tasks remain: nine deferred tasks across three work groups/phases.
-DXP2 is authorized and in progress; the other eight tasks remain deferred.
+DXP1 and DXP2 are complete. Two cross-platform tasks, four advisory-lane tasks
+and two optional hardening tasks remain: eight deferred tasks across three work
+groups/phases. No implementation task is in progress.
 See [current status](status.md) for completed gates, open dependency-update PRs,
 scientific requirements and the disposition of superseded decision drafts.

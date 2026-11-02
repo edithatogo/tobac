@@ -490,6 +490,7 @@
     "integration/m3_requirement_status.csv",
     "integration/m3_voiage_execution.json",
     "integration/macos_ci_scope_20261028.json",
+    "integration/package_portability_20261103.json",
     "integration/prior_work_manifest.json",
     "integration/reconciliation_2025/extraction-receipt.json",
     "integration/reconciliation_2025/generated/report.json",

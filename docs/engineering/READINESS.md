@@ -19,6 +19,23 @@ passing lint/format/typing/workflow/security checks and 96 focused tests. Linux
 release/numerical/mutation/profile qualification is separate. Earlier statements
 that Linux audit installation was unexecuted are historical and superseded for DXP1.
 
+## Linux and Windows package portability — DXP2
+
+The dedicated [portability workflow](../../.github/workflows/package-portability.yml)
+executes the existing native-gated Nox `package` and `clean_package` sessions on
+Linux and Windows. Direct and sdist-reconstructed wheels must match within each
+platform, match the declared source modules/notices and dependency/extra markers,
+and install in fresh external environments with Unicode/space paths. Installed
+namespace imports, the small independent API oracle, Unicode transport and quick
+CLI smokes must pass. Both package formats and reports pass inspected export using
+checksum-pinned native scanners. No original archival bytes are uploaded.
+
+[Executed evidence](../../integration/package_portability_20261103.json) qualifies
+Python 3.15.1 on both hosts. Cross-platform METADATA differs by LF/CRLF line endings
+and RECORD binds those exact bytes; semantic metadata/dependency cases agree.
+Full platform numerical reproduction and manual release/lock-generation remain
+DXP3/DXP4. This qualification does not publish to PyPI or establish scientific validity.
+
 ## Native lineage prerequisites for qualified workloads
 
 The `tests`, `qualification`, `research_m3`, `reproduce`, `package` and

@@ -282,3 +282,15 @@ Next: build and install both direct and sdist-reconstructed wheels in external
 Unicode/space paths, verify metadata/markers/contents and run installed API/CLI
 smokes on Linux and Windows. DXP3 numerical reproduction and DXP4 release/lock
 workflows remain separately deferred.
+
+DXP2 acceptance at `d2551a0`: GitHub run `41542664379` succeeded on Linux
+(job `125610440252`) and Windows (job `125610440607`). Downloaded wheel/sdist,
+Nox, environment and clean-package evidence was verified against retained hashes.
+Both installed routes pass outside the checkout with Unicode/space paths and
+Unicode transport identities. Ten dependency-marker cases agree. Platform wheel
+members differ only in METADATA LF/CRLF and its RECORD hash; within each platform,
+direct and sdist-rebuilt contents match exactly. Receipt:
+`integration/package_portability_20261103.json`. The existing scientific workflows,
+Nox entrypoints, runtime/audit locks and native objects remain unchanged. Next:
+exact-head checks, guarded publication and receiving-ref verification. DXP3/DXP4
+remain deferred; no numerical or public-package-release acceptance is inferred.

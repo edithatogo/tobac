@@ -1,0 +1,277 @@
+{
+  "schema": "tobac.package-portability.v1",
+  "task": "DXP2",
+  "status": "passed",
+  "observed_at": "2026-11-02T23:11:19.870812+00:00",
+  "source_sha": "d2551a04a16824604eda3aaaf6560163322fd767",
+  "run_id": 41542664379,
+  "run_url": "https://github.com/edithatogo/tobac/actions/runs/41542664379",
+  "checks_sha256": {
+    "scripts/qualify_clean_package.py": "304b28bdf31aff392973afe0eb8be37b64323d3a2171d80df4ce81eacf0183e0",
+    "scripts/package_contract.py": "d67118e4e017ed8e776d9b4cc3c7be18658b549e77a89388b7362804c9ed31b8",
+    ".github/workflows/package-portability.yml": "611e3977e02a5912d093dcd921c79917db4b29f9ede391bc4ef57f0e71f1f490",
+    "scripts/install_security_tools.sh": "e71ee7386cd2268b98d0984db160749116f4537df491d26204ce6b88ff863c8a"
+  },
+  "runtime_lock_sha256": "2b0720ad8fcfe353609960609d277ef907e0d5e573a75b5ba008b1b316e0150d",
+  "runtime_receipt_sha256": "f9b3d3b1925c76cbe0c5c5572dcbc61d0f52613675e08f87a249f6e46a769db4",
+  "platforms": {
+    "linux": {
+      "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.43",
+      "machine": "x86_64",
+      "python": "3.15.1 (main, Oct 21 2026, 17:48:50) [Clang 23.1.3 ]",
+      "job_id": 125610440252,
+      "status": "passed",
+      "nox_sessions": [
+        {
+          "args": {},
+          "name": "package",
+          "result": "success",
+          "result_code": 1,
+          "reason": null,
+          "signatures": [
+            "package",
+            "package-3.15.1"
+          ],
+          "duration": 7.96390936200001
+        },
+        {
+          "args": {},
+          "name": "clean_package",
+          "result": "success",
+          "result_code": 1,
+          "reason": null,
+          "signatures": [
+            "clean_package",
+            "clean_package-3.15.1"
+          ],
+          "duration": 6.265842140000004
+        }
+      ],
+      "installed_routes": [
+        "wheel",
+        "sdist-wheel"
+      ],
+      "commands_verified": 16,
+      "artifact_id": 13186839541,
+      "artifact_digest": "sha256:d2978d1f16c29cd53d23b1e0a54fed106a86eb6dc1da9bd553227c71801346f4",
+      "package_receipt_sha256": "7ca1b97a60eba3ba2c78c49103f93a3b01d4e16aa54afc9771da48321c7ec1d0",
+      "nox_report_sha256": "19184f44cceb36e5844bd7868214587e6b140ce2235621e87b458854d7130746",
+      "job_log_sha256": "dc9f813cd786f7dbf1d9f9a691c5855e830c00e3ccfd84b685423f00ddda1592",
+      "verified_exported_artifact_files": {
+        "commands.json": "4ec29f9b48d1b487a3c19c470b57fe952dc5985f930cd40f34e34af6b26fecfa",
+        "dist/tobac_regulatory_research-0.2.0.tar.gz": "6858602493d2ee15a8d33241ac0e9dc1e52b56eb09581a871918acf38e697432",
+        "dist/tobac_regulatory_research-0.2.0-py3-none-any.whl": "49d838347d50f855055e673dd88bee456d8a266c6ed323f8b0a8f87c7899585f",
+        "reconstructed/tobac_regulatory_research-0.2.0-py3-none-any.whl": "49d838347d50f855055e673dd88bee456d8a266c6ed323f8b0a8f87c7899585f",
+        "installed-cli-wheel/decision_summary.csv": "daa0c0e06e3f40c956f77b3126bb85bd13540e6e564508bacaa9c2e615bb0971",
+        "installed-cli-wheel/conditional_price_frontier.csv": "32b145949dc4786fb4523be34d1014afab277ee7fe5f54f8078ecc5201e73c21",
+        "installed-cli-wheel/consequence_ledgers.csv": "c03976b88f61d21b425723207660af0aede6c93721dae24622e4cdee5621bc3b",
+        "installed-cli-wheel/grouped_evppi.csv": "1ebbb4c9e00bfdedc6b8cea5fc5a928d424b0d190be29b8f1fb32fb2c00786e6",
+        "installed-cli-wheel/validation.json": "6fcb8699402997e55e964a770fd7a2737aaa340aee24ad5a1fea86cd2201e6b8",
+        "installed-cli-wheel/incremental_information.csv": "4627111fb1c4478906996db71bb1d4cc39afe73135e2e8993f7cedd90ac11d68",
+        "installed-cli-wheel/manifest.json": "d2f06aaa170e293800b38ad934c6689270b5eeac0004b53675f63091f859ce34",
+        "installed-cli-wheel/same_data_robustness.csv": "f705635b21ce577209935e3dca61a57751d6b6bd3eae4f11ccaa76505655be11",
+        "installed-cli-wheel/study_value.csv": "80e8cb570b414258a74f0da65961d46d33e936c593373a19927081949c3fbe20",
+        "installed-cli-wheel/scientific_learning.csv": "ff0c099ff8610b136de5e091cdf46d73d20a00dcf8bf493ef8c24823efb8ba82",
+        "installed-cli-sdist-wheel/decision_summary.csv": "daa0c0e06e3f40c956f77b3126bb85bd13540e6e564508bacaa9c2e615bb0971",
+        "installed-cli-sdist-wheel/conditional_price_frontier.csv": "32b145949dc4786fb4523be34d1014afab277ee7fe5f54f8078ecc5201e73c21",
+        "installed-cli-sdist-wheel/consequence_ledgers.csv": "c03976b88f61d21b425723207660af0aede6c93721dae24622e4cdee5621bc3b",
+        "installed-cli-sdist-wheel/grouped_evppi.csv": "1ebbb4c9e00bfdedc6b8cea5fc5a928d424b0d190be29b8f1fb32fb2c00786e6",
+        "installed-cli-sdist-wheel/validation.json": "6fcb8699402997e55e964a770fd7a2737aaa340aee24ad5a1fea86cd2201e6b8",
+        "installed-cli-sdist-wheel/incremental_information.csv": "4627111fb1c4478906996db71bb1d4cc39afe73135e2e8993f7cedd90ac11d68",
+        "installed-cli-sdist-wheel/manifest.json": "d2f06aaa170e293800b38ad934c6689270b5eeac0004b53675f63091f859ce34",
+        "installed-cli-sdist-wheel/same_data_robustness.csv": "f705635b21ce577209935e3dca61a57751d6b6bd3eae4f11ccaa76505655be11",
+        "installed-cli-sdist-wheel/study_value.csv": "80e8cb570b414258a74f0da65961d46d33e936c593373a19927081949c3fbe20",
+        "installed-cli-sdist-wheel/scientific_learning.csv": "ff0c099ff8610b136de5e091cdf46d73d20a00dcf8bf493ef8c24823efb8ba82"
+      },
+      "excluded_uv_housekeeping_files": [
+        "dist/.gitignore",
+        "reconstructed/.gitignore"
+      ],
+      "reconstructed_wheel_contents_equal": true,
+      "unicode_path_and_identity_roundtrips": true,
+      "source_archive_and_wheel_paths_portable": true,
+      "source_module_license_and_notice_bytes_match": true,
+      "scanner_versions": {
+        "gitleaks": "8.30.1",
+        "actionlint": "1.7.12"
+      },
+      "artifact_export_scan": "passed"
+    },
+    "windows": {
+      "platform": "Windows-2025Server-10.0.26100-SP0",
+      "machine": "AMD64",
+      "python": "3.15.1 (main, Oct 21 2026, 17:51:31) [MSC v.1951 64 bit (AMD64)]",
+      "job_id": 125610440607,
+      "status": "passed",
+      "nox_sessions": [
+        {
+          "args": {},
+          "name": "package",
+          "result": "success",
+          "result_code": 1,
+          "reason": null,
+          "signatures": [
+            "package",
+            "package-3.15.1"
+          ],
+          "duration": 32.72862850000001
+        },
+        {
+          "args": {},
+          "name": "clean_package",
+          "result": "success",
+          "result_code": 1,
+          "reason": null,
+          "signatures": [
+            "clean_package",
+            "clean_package-3.15.1"
+          ],
+          "duration": 39.39855060000002
+        }
+      ],
+      "installed_routes": [
+        "wheel",
+        "sdist-wheel"
+      ],
+      "commands_verified": 16,
+      "artifact_id": 13187262988,
+      "artifact_digest": "sha256:0a73a3859c1912d9e62b917eb6d2bd1b0c97c223d3649b54f019a74cad9ae659",
+      "package_receipt_sha256": "132e57b4c58f600e31951ec2ae41665754c936a63f125191c31d53ca095b2376",
+      "nox_report_sha256": "9451de03921297252c502bbfa1e27e4230906d72c510442d29ece5774e42e474",
+      "job_log_sha256": "cbe64941e1ec010334fc6b7a5642d86f8e6438d880205e7b95fe4c0143d4845b",
+      "verified_exported_artifact_files": {
+        "commands.json": "b2d52358f71772d252e6f7dff74cb4855fc6c7550a029452b1e973fbc9b6451c",
+        "dist/tobac_regulatory_research-0.2.0-py3-none-any.whl": "e909f2d5b8d52d821478d9f7b697a63f6e26279adf24441690057cfdedfe7d7e",
+        "dist/tobac_regulatory_research-0.2.0.tar.gz": "871200f31bf7c651332c56654045e22309635d1ca95589e58730ed3fb8d10ff9",
+        "installed-cli-sdist-wheel/conditional_price_frontier.csv": "32b145949dc4786fb4523be34d1014afab277ee7fe5f54f8078ecc5201e73c21",
+        "installed-cli-sdist-wheel/consequence_ledgers.csv": "c03976b88f61d21b425723207660af0aede6c93721dae24622e4cdee5621bc3b",
+        "installed-cli-sdist-wheel/decision_summary.csv": "daa0c0e06e3f40c956f77b3126bb85bd13540e6e564508bacaa9c2e615bb0971",
+        "installed-cli-sdist-wheel/grouped_evppi.csv": "1ebbb4c9e00bfdedc6b8cea5fc5a928d424b0d190be29b8f1fb32fb2c00786e6",
+        "installed-cli-sdist-wheel/incremental_information.csv": "4627111fb1c4478906996db71bb1d4cc39afe73135e2e8993f7cedd90ac11d68",
+        "installed-cli-sdist-wheel/manifest.json": "ec4837ce046b18f53a620ab16034197075ef2a676665411b6dbef93acf05ccb7",
+        "installed-cli-sdist-wheel/same_data_robustness.csv": "c816cfc550354b359fd7b1a9e5eb8531ac7d043df5cae85f885ed225aa9ec89d",
+        "installed-cli-sdist-wheel/scientific_learning.csv": "7c41ee083dcf18ff0b7935db3a848c1f8decfb0eedb34278463243e6409b723a",
+        "installed-cli-sdist-wheel/study_value.csv": "f13f5d650fd0c8af249ef72d6edd11653b2d809a3137d1cc74446d7cda7ac39f",
+        "installed-cli-sdist-wheel/validation.json": "ef7dd20fac4c51d078bf90695222535e4190a3ee6194d89f83645ac3820382af",
+        "installed-cli-wheel/conditional_price_frontier.csv": "32b145949dc4786fb4523be34d1014afab277ee7fe5f54f8078ecc5201e73c21",
+        "installed-cli-wheel/consequence_ledgers.csv": "c03976b88f61d21b425723207660af0aede6c93721dae24622e4cdee5621bc3b",
+        "installed-cli-wheel/decision_summary.csv": "daa0c0e06e3f40c956f77b3126bb85bd13540e6e564508bacaa9c2e615bb0971",
+        "installed-cli-wheel/grouped_evppi.csv": "1ebbb4c9e00bfdedc6b8cea5fc5a928d424b0d190be29b8f1fb32fb2c00786e6",
+        "installed-cli-wheel/incremental_information.csv": "4627111fb1c4478906996db71bb1d4cc39afe73135e2e8993f7cedd90ac11d68",
+        "installed-cli-wheel/manifest.json": "ec4837ce046b18f53a620ab16034197075ef2a676665411b6dbef93acf05ccb7",
+        "installed-cli-wheel/same_data_robustness.csv": "c816cfc550354b359fd7b1a9e5eb8531ac7d043df5cae85f885ed225aa9ec89d",
+        "installed-cli-wheel/scientific_learning.csv": "7c41ee083dcf18ff0b7935db3a848c1f8decfb0eedb34278463243e6409b723a",
+        "installed-cli-wheel/study_value.csv": "f13f5d650fd0c8af249ef72d6edd11653b2d809a3137d1cc74446d7cda7ac39f",
+        "installed-cli-wheel/validation.json": "ef7dd20fac4c51d078bf90695222535e4190a3ee6194d89f83645ac3820382af",
+        "reconstructed/tobac_regulatory_research-0.2.0-py3-none-any.whl": "e909f2d5b8d52d821478d9f7b697a63f6e26279adf24441690057cfdedfe7d7e"
+      },
+      "excluded_uv_housekeeping_files": [
+        "dist/.gitignore",
+        "reconstructed/.gitignore"
+      ],
+      "reconstructed_wheel_contents_equal": true,
+      "unicode_path_and_identity_roundtrips": true,
+      "source_archive_and_wheel_paths_portable": true,
+      "source_module_license_and_notice_bytes_match": true,
+      "scanner_versions": {
+        "gitleaks": "8.30.1",
+        "actionlint": "1.7.12"
+      },
+      "artifact_export_scan": "passed"
+    }
+  },
+  "dependency_marker_cases": {
+    "Linux:none": [
+      "numpy==2.5.4",
+      "scipy==1.18.1"
+    ],
+    "Linux:interchange": [
+      "msgspec==0.22.0",
+      "numpy==2.5.4",
+      "patito==0.8.6",
+      "polars==2.1.0",
+      "pyarrow==26.0.0",
+      "scipy==1.18.1"
+    ],
+    "Linux:longitudinal": [
+      "matplotlib==3.11.2",
+      "numpy==2.5.4",
+      "pandas==3.1.0",
+      "scipy==1.18.1"
+    ],
+    "Linux:engineering": [
+      "jsonschema==4.26.0",
+      "numpy==2.5.4",
+      "scipy==1.18.1"
+    ],
+    "Linux:all": [
+      "jsonschema==4.26.0",
+      "matplotlib==3.11.2",
+      "msgspec==0.22.0",
+      "numpy==2.5.4",
+      "pandas==3.1.0",
+      "patito==0.8.6",
+      "polars==2.1.0",
+      "pyarrow==26.0.0",
+      "scipy==1.18.1"
+    ],
+    "Windows:none": [
+      "numpy==2.5.4",
+      "scipy==1.18.1"
+    ],
+    "Windows:interchange": [
+      "msgspec==0.22.0",
+      "numpy==2.5.4",
+      "patito==0.8.6",
+      "polars==2.1.0",
+      "pyarrow==26.0.0",
+      "scipy==1.18.1"
+    ],
+    "Windows:longitudinal": [
+      "matplotlib==3.11.2",
+      "numpy==2.5.4",
+      "pandas==3.1.0",
+      "scipy==1.18.1"
+    ],
+    "Windows:engineering": [
+      "jsonschema==4.26.0",
+      "numpy==2.5.4",
+      "scipy==1.18.1"
+    ],
+    "Windows:all": [
+      "jsonschema==4.26.0",
+      "matplotlib==3.11.2",
+      "msgspec==0.22.0",
+      "numpy==2.5.4",
+      "pandas==3.1.0",
+      "patito==0.8.6",
+      "polars==2.1.0",
+      "pyarrow==26.0.0",
+      "scipy==1.18.1"
+    ]
+  },
+  "cross_platform_dependency_cases_equal": true,
+  "cross_platform_wheel_member_hash_differences": [
+    "tobac_regulatory_research-0.2.0.dist-info/METADATA",
+    "tobac_regulatory_research-0.2.0.dist-info/RECORD"
+  ],
+  "local_qualification": {
+    "python": "3.15.1",
+    "clean_package": "passed on macOS; both artifact installs and external Unicode/space paths",
+    "focused_tests": 64,
+    "typing": "0 errors, 0 warnings, 0 notes",
+    "ruff": "passed",
+    "actionlint": "passed",
+    "resource_limits": "4 GiB sampled process-group RSS / 40 minutes"
+  },
+  "scope": "Non-macOS source/wheel package paths, dependency/extra markers, source-matching modules/notices, direct and sdist-built artifact installation, isolated imports/API/transport/quick CLI smokes, Unicode and spaces in paths and data, inspected export",
+  "limits": [
+    "Full Linux/Windows scientific numerical reproduction remains DXP3",
+    "Deferred manual release and lock-generation workflows remain DXP4",
+    "No external scientific or deployment acceptance",
+    "No PyPI publication or repository visibility change"
+  ],
+  "publication": "Guarded fast-forward and receiving-ref readback follow final exact-head checks; executed evidence remains bound to the source SHA above",
+  "cross_platform_metadata_crlf_normalized_equal": true,
+  "cross_platform_record_note": "RECORD differs because it binds the exact platform-generated METADATA bytes; each direct/rebuilt wheel is internally byte-identical on its platform"
+}

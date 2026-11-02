@@ -53,7 +53,11 @@ or a commissioning recommendation. Source/forecast identities and data-once guar
 
 DXP1 Linux x86_64 audit-lock installation and strict/security execution is complete
 on Python 3.15.1. [Actual hosted receipt](../integration/linux_audit_lock_20261103.json).
-Nine tasks remain deferred; DXP2–DXP4 release/numerical scope is unchanged.
+DXP2 Linux/Windows package portability is complete through actual direct/rebuilt
+wheel installation and Unicode/path/metadata checks.
+[Hosted package receipt](../integration/package_portability_20261103.json).
+Eight tasks remain deferred; DXP3 numerical reproduction and DXP4 release workflows
+retain their separate scope.
 
 [Roadmap](roadmap.md): non-macOS release/numerical qualification, optional advisory promotion and explicitly optional
 mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remain required.

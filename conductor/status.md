@@ -1,7 +1,6 @@
 # Reconciled repository status — 3 November 2026
 
-DXP1 is complete. DXP2 is authorized and in progress through hosted package
-portability checks. No registered
+DXP1 and DXP2 are complete through actual hosted execution. No registered
 implementation track is in progress. The retained native-lineage track has
 **8/8 phases and 32/32 primary tasks complete**, with zero in progress or pending.
 The 18 archived tracks have no active execution tasks. Five historical graph
@@ -43,22 +42,43 @@ publishers' checksum manifests; artifact inspection and secret scanning pass.
 `a17d90b`, eight lock inputs, actual job/artifact IDs, reports and the initial failed
 attempt. DXP2–DXP4, Linux release/numerical work, mutation and profiling remain separate.
 
+## Completed DXP2 — package portability
+
+Linux and Windows [run 41542664379](https://github.com/edithatogo/tobac/actions/runs/41542664379)
+passed the existing native-gated Nox `package` and `clean_package` commands on
+Python 3.15.1 with source-bound hash locks. Each platform built direct and
+sdist-reconstructed wheels with identical contents within that platform, then
+installed both into fresh environments outside the checkout using Unicode/space
+paths. Isolated namespace imports, the independent API oracle, Unicode Arrow/Polars
+and IPC identity round trips, and the installed quick CLI all pass. Wheel module,
+license/notice bytes and dependency/extra markers match the source declarations.
+
+[Artifact readback](../integration/package_portability_20261103.json) verifies the
+retained wheel/sdist/reports and ten dependency-marker cases. Cross-platform member
+hashes differ only for METADATA's LF/CRLF encoding and its RECORD hash; METADATA
+matches after newline normalization. No cross-platform byte-identical wheel claim
+is made. Native scanners pass pinned archive checksums and report their expected
+versions; inspected artifact exports pass on both hosts. DXP3 full numerical
+reproduction and DXP4 release/lock-generation workflows remain separate.
+
 ## Remaining deferred phases and tasks
 
-DXP1 is complete; the remaining roadmap commitments await prioritisation.
-There are **three work groups/phases, one task in progress and eight pending tasks**; the advisory
+DXP1 and DXP2 are complete; the remaining roadmap commitments await prioritisation.
+There are **three deferred work groups/phases and eight pending tasks**, with zero
+in progress; the advisory
 lane is the one existing deferred track. Platform and hardening groups remain in
 [the roadmap](roadmap.md), rather than newly registered implementation tracks.
 
 | Group / phase | Tasks remaining |
 | --- | --- |
-| Cross-platform release and numerical qualification | DXP2 — qualify non-macOS package paths, markers, encodings and release behavior; DXP3 — execute platform-specific scientific reproduction; DXP4 — reconsider and requalify deferred manual release/lock-generation workflows. |
+| Cross-platform release and numerical qualification | DXP3 — execute platform-specific scientific reproduction; DXP4 — reconsider and requalify deferred manual release/lock-generation workflows. |
 | Advisory CI/CD lane | DCI1 — select nonduplicative additions and current pins; DCI2 — implement selected advisory commands/workflow/ARM leg; DCI3 — execute local and hosted qualification; DCI4 — guarded publication and receiving-ref verification. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
 | Optional macOS hardening | DH1 — triage the 12 surviving supply mutants from the dated 119/131 measurement; DH2 — review retained source/API Ruff exceptions where behavior and scientific meaning are preserved. |
 
 Linux/Windows runtime tests and hosted lineage verification already passed.
 DXP1 additionally qualifies the Linux hash-locked strict/security audit commands.
-Platform-specific release/numerical jobs remain deferred. Mutation counts are dated
+DXP2 also qualifies Linux/Windows source/wheel build and clean installation.
+Full platform numerical and manual release jobs remain deferred. Mutation counts are dated
 evidence, not a fresh current mutation result.
 
 ## Open dependency maintenance
