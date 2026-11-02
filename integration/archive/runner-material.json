@@ -1,0 +1,82 @@
+{
+  "environment": {
+    "python": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
+    "lock": "2b0720ad8fcfe353609960609d277ef907e0d5e573a75b5ba008b1b316e0150d",
+    "distributions": "02f30557573d8c07172b3c1549a7ea5c130c8ab7f8cc052d6d4b97c2c62e3974"
+  },
+  "inputs": {
+    "tobac-7ee48855a1ed1c4b": [
+      {
+        "object_id": "sha256:3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+        "observation_id": "tobac-7ee48855a1ed1c4b",
+        "version_id": "tobac-7ee48855a1ed1c4b-v1",
+        "registration_object_id": "sha256:2772b49962d56986226cbfe7f069167bbbcb2ebc216fc3fc36e7eadb46545923",
+        "manifest_object_id": "sha256:8abe9330b013db51349a85023a92ff53bd63edda808685396861c008ca339626"
+      }
+    ]
+  },
+  "runners": {
+    "m1": {
+      "operation": [
+        "m1",
+        "src/tobac/run.py",
+        "e741b366c649a27ef9ed59ac3cf3b8cb842f4fed3ad0a7f6dd3cf750055ea020",
+        [
+          "--config",
+          "<config>"
+        ]
+      ],
+      "config": "8fff72e501726af284d5b07bf61a40e803bb6fc41da767f49f77ecc7ec4eaaa7"
+    },
+    "m3": {
+      "operation": [
+        "m3",
+        "src/tobac/research/runner.py",
+        "cc254075be4498837843c18989aedae3826aa6c06beea65ed0e569e372168276",
+        [
+          "--config",
+          "<config>"
+        ]
+      ],
+      "config": "23528a30122c5de6629b4ff4b9784a24c942d5ed9c28d11924a5427a670c6d8a"
+    },
+    "m2": {
+      "operation": [
+        "m2",
+        "scripts/run_m2_publication.py",
+        "34f4ef6d831e8f14f8e09ea1fbc7257c9529d74a7be8979ff772edd2dfdb3d0f",
+        []
+      ],
+      "config": "79097969ba9d4c1c431745a1c542e080aaf44a9492ecd22a9eb24256c5088631"
+    },
+    "m2_publication": {
+      "operation": [
+        "m2_publication",
+        "scripts/run_m2_publication.py",
+        "34f4ef6d831e8f14f8e09ea1fbc7257c9529d74a7be8979ff772edd2dfdb3d0f",
+        [
+          "--grid-check"
+        ]
+      ],
+      "config": "79097969ba9d4c1c431745a1c542e080aaf44a9492ecd22a9eb24256c5088631"
+    },
+    "m2_robustness": {
+      "operation": [
+        "m2_robustness",
+        "scripts/run_m2_robustness.py",
+        "9fdaf27fce547c634e57e06790bd47c8a5a0cca677c40034f121c2287351ec07",
+        []
+      ],
+      "config": "67ebea51f7a16255832280ca185ae31bdedf58e058d63a48d1a6565f92fb3a14"
+    },
+    "longitudinal": {
+      "operation": [
+        "longitudinal",
+        "scripts/run_empirical_longitudinal.py",
+        "239602a4b7e42da3a1a51c4ad6b2255d76bd56b55971a262a67259b4d6bf40cf",
+        []
+      ],
+      "config": "c067ff230546638a28b4edf3ad3555bea9f309a035ff723e8bcd48cb68e95f41"
+    }
+  }
+}
