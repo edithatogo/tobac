@@ -134,9 +134,11 @@ def qualify(out: Path) -> dict[str, Any]:
                 "from tobac.interchange import to_arrow,to_polars,from_polars,write_ipc,read_ipc; "
                 "s=Scope('NZ','adults','2024-01-01','2024-12-31','counts'); "
                 "p=EvidencePacket('e Māori',('d',),('s',),('a','b'),np.array([0.,-1.]),s,s,'joint'); "
-                "t=to_arrow(p); assert from_polars(to_polars(t)).state_ids==p.state_ids; "
+                "t=to_arrow(p); q=from_polars(to_polars(t)); "
+                "assert q.state_ids==p.state_ids and q.evidence_id==p.evidence_id; "
                 "write_ipc(Path('evidence.arrow'),t); "
-                "assert read_ipc(Path('evidence.arrow')).data_ids==p.data_ids"
+                "q=read_ipc(Path('evidence.arrow')); "
+                "assert q.data_ids==p.data_ids and q.evidence_id==p.evidence_id"
             )
             run([str(python), "-I", "-c", interchange_probe], external)
             shutil.copytree(ROOT / "configs", external / "configs Māori space")
