@@ -1,4 +1,4 @@
-# Retain every upstream detection rule; no allowlists or ignored paths.
+# Retain every upstream detection rule. The exact verified digest is adjudicated below.
 [extend]
 useDefault = true
 

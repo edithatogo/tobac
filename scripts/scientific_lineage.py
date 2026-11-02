@@ -224,7 +224,7 @@ def run_one(name: str, dest: Path, native_store: Path, wheel: Path, *, candidate
     if not candidate:
         receipt = native_lineage([name])
         if receipt.get("success") is not True:
-            msg = "Native lineage preflight rejected the runner"
+            msg = f"Native lineage preflight rejected the runner: {receipt.get('error')}"
             raise ValueError(msg)
     native, factory, pin = moh.producer(wheel, ARCHIVE / "transformation-interface.json")
     api = importlib.import_module("archive_govt_nz.transformation_attempt")

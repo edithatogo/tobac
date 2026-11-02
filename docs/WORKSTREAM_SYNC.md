@@ -201,3 +201,16 @@ equivalence. No native source registration, transformation receipt or scientific
 qualification has been claimed. The next consumer operation is a separately
 reviewed native transformation and strict record readback after the implementation
 is committed; producer registration and closure remain with the producer owner.
+
+## Native lineage Phase 8 acceptance and publication — 2 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns this bounded integration
+in `/Users/doughnut/Documents/tobac` on local `main`, published for review
+as `codex/native-lineage-phase8`. Producer source ownership for this packet
+is `/Users/doughnut/Documents/archive-lineage-port-20261101` on
+`codex/transform-closure-20261102`. Scope includes producer material checks,
+consumer qualification/recovery, the existing native-lineage Conductor records
+and receiving-ref verification. No native capture or authentication mutation
+is in flight. Three untracked decision drafts remain outside this packet.
+Next operation is terminal qualification readback and guarded receiving-ref
+publication. Earlier assignments above remain historical.
