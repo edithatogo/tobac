@@ -351,6 +351,10 @@ def execute_runner_lineage(  # noqa: PLR0913  # Explicit parameters for clear ru
         raise ValueError(msg)
 
     selected = {ref: available[ref] for ref in native_refs}
+    location = output_path.with_name(output_path.name + ".attempt")
+    if not check_material and (location.exists() or location.is_symlink()):
+        msg = "Output belongs to a material-checked attempt"
+        raise FileExistsError(msg)
     if check_material:
         readback_sources(selected, native_store, native_wheel, "transformation-interface.json")
         api = importlib.import_module("archive_govt_nz.transformation_attempt")
@@ -362,7 +366,6 @@ def execute_runner_lineage(  # noqa: PLR0913  # Explicit parameters for clear ru
         }
         actual = execution_material(runner_name, config_path, script_path, selected, extra_args)
         api.check_material(expected, actual)
-        location = output_path.with_name(output_path.name + ".attempt")
         attempt = api.TransformationAttempt(location, actual)
         try:
             result = execute_runner_with_provenance(

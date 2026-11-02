@@ -192,3 +192,16 @@ def test_material_checked_cli_requires_execution(monkeypatch) -> None:
     with pytest.raises(SystemExit) as error:
         runner_provenance.main()
     assert error.value.code == 2
+
+
+def test_historical_runner_respects_reserved_attempt(tmp_path: Path) -> None:
+    """An interrupted attempt reserves its output even before a file is written."""
+    import pytest  # noqa: PLC0415 -- Local negative control.
+
+    from scripts import runner_provenance  # noqa: PLC0415 -- Exercise the shared execution path.
+
+    (tmp_path / "out.attempt").mkdir()
+    with pytest.raises(FileExistsError, match="belongs to a material-checked attempt"):
+        runner_provenance.run_m1_regulatory(
+            tmp_path / "config", tmp_path / "out", native_refs=["tobac-7ee48855a1ed1c4b"]
+        )
