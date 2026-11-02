@@ -499,5 +499,9 @@
     "src/tobac_supply/empirical_longitudinal.py": "efbf1c76bffb7e8a844f2d0420194e6a2208a655259b10f6d6de5686b27afa3a",
     "src/tobac_supply/longitudinal.py": "3dae712734a760b077f06a7d2ed3acb5f2cbfe7580331fc3fe0d12d95b16bc34",
     "src/tobac_supply/release_calibration.py": "74e56c210ea8f5cd59969298e3e00521d46885b3ecf7b31acd7d4c2069c8962a"
+  },
+  "shared_evidence_contract": {
+    "path": "integration/archive/observation-handoff.json",
+    "sha256": "1f73838eab9a62b80ddabbd627313a03fdad0862e6ca331a783f5c542aa8ca2e"
   }
 }

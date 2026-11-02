@@ -115,6 +115,7 @@ def affected_results(runs: dict[str, dict[str, Any]], changed: str) -> dict[str,
         or changed in run["originals"]
         or changed in run["originals"].values()
         or changed in run["inputs"].values()
+        or changed in run.get("underlying_groups", [])
     }
 
 
@@ -297,6 +298,17 @@ def verify_link(source: str, raw: bytes, data: bytes) -> None:
         raise ValueError(msg)
 
 
+def underlying_groups(source: str, data: bytes) -> list[str]:
+    """Resolve published dependency labels without adding a likelihood or conflating editions."""
+    if source not in {MOH, PHYO}:
+        return []
+    pin = read(ARCHIVE / "scientific-runner-inputs.json")["shared_evidence_contract"]
+    contract = json.loads(runners.verified_bytes(checked(ROOT, pin["path"]), pin["sha256"]))
+    column = "dependency_group" if source == MOH else "source_dependency"
+    labels = {row[column] for row in csv.DictReader(io.StringIO(data.decode()))}
+    return sorted({group for label in labels for group in contract["dependency_mappings"][label]})
+
+
 def verify_contract(record: dict[str, Any], name: str) -> None:
     """Reject a swapped runner or substituted input even if a different attempt is internally consistent."""
     contract = read(ARCHIVE / "scientific-runner-inputs.json")
@@ -351,6 +363,7 @@ def load_run(
             msg = "Unexpected original version in the completed attempt"
             raise ValueError(msg)
         verify_link(source, raw, data)
+        record["underlying_groups"] = underlying_groups(source, data)
     for path, key in record["outputs"].items():
         if runners.digest(checked(folder / "outputs", path)) != key.removeprefix("sha256:"):
             msg = "Material output differs from its native object"
@@ -387,6 +400,7 @@ def main() -> None:
                 "attempt_id": run["attempt_id"],
                 "inputs": run["inputs"],
                 "originals": run["originals"],
+                "underlying_groups": run.get("underlying_groups", []),
                 "source_comparison": run["source_comparison"],
             }
         else:

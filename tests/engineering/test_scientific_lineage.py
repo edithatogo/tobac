@@ -20,3 +20,24 @@ def test_missing_published_table_fails_closed() -> None:
     """An article identity alone cannot verify the fitted observations."""
     with pytest.raises(ValueError, match="Table 2"):
         compare_phyo(b"<html/>", b"year\n2012\n")
+
+
+def test_shared_returns_group_is_distinct_from_specific_originals() -> None:
+    """An underlying-data warning reaches two runners; a changed workbook edition reaches one."""
+    runs = {
+        "release": {
+            "inputs": {},
+            "originals": {"workbook": "one"},
+            "outputs": {"x": "a"},
+            "underlying_groups": ["NZ_MOH_tobacco_returns"],
+        },
+        "paired": {
+            "inputs": {},
+            "originals": {"table2": "two"},
+            "outputs": {"x": "b"},
+            "underlying_groups": ["NZ_MOH_tobacco_returns", "NZHS"],
+        },
+    }
+    assert set(affected_results(runs, "NZ_MOH_tobacco_returns")) == {"release", "paired"}
+    assert set(affected_results(runs, "workbook")) == {"release"}
+    assert set(affected_results(runs, "NZHS")) == {"paired"}
