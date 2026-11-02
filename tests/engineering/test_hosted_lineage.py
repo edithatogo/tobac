@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
+import subprocess
 lazy from pathlib import Path
 
 import pytest
@@ -70,6 +72,13 @@ def test_rejection_precedes_hosted_workload(
         monkeypatch.setattr(hosted, "runtime_profile", lambda: {"python_sha256": "substituted"})
     else:
         (root / hosted.SIGNERS).write_bytes(b"different authority")
+    if case != "runtime":
+        selected_profile = next(
+            p
+            for p in hosted.qualified_profiles(hosted.ROOT)
+            if p["system"] == hosted.platform.system() and p["machine"] == hosted.platform.machine()
+        )
+        monkeypatch.setattr(hosted, "runtime_profile", lambda: selected_profile)
     monkeypatch.setattr(hosted.sys, "prefix", str(root / ".venv"))
     marker = root / "workload-started"
 
@@ -131,3 +140,23 @@ def test_runtime_profile_substitution_is_rejected(tmp_path: Path) -> None:
     (root / hosted.PROFILES).write_text(json.dumps({"profiles": []}), encoding="utf-8")
     with pytest.raises(ValueError, match="profiles differ from acceptance"):
         hosted.authenticate(root)
+
+
+@pytest.mark.skipif(
+    not os.environ.get("TOBAC_LINEAGE_PYTHON"),
+    reason="requires the explicitly selected qualified verifier interpreter",
+)
+def test_configured_verifier_executes_actual_signed_input_check() -> None:
+    """Exercise the selected verifier independently of the test environment's Python."""
+    result = subprocess.run(  # noqa: S603 -- Explicit qualified interpreter and fixed verifier entry point.
+        [os.environ["TOBAC_LINEAGE_PYTHON"], "-I", "-S", str(hosted.ROOT / "scripts/hosted_lineage.py")],
+        cwd=hosted.ROOT,
+        capture_output=True,
+        timeout=60,
+        check=False,
+    )
+    assert result.returncode == 0, result.stderr.decode()
+    receipt = json.loads(result.stdout)
+    assert receipt["success"] is True
+    assert len(receipt["runners"]) == 8
+    assert sum(r["verified_outputs"] for r in receipt["runners"].values()) == 140
