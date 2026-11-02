@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage
 
-Status: **in progress** — Phases 1–7 complete locally. The declared closure was restored from external USB and all eight scientific runners replayed offline. Phase 8 integrated acceptance and guarded publication are next.
+Status: **in progress** — Phases 1–7 complete locally. The declared closure was restored from external USB and all eight scientific runners replayed offline. P8.1 acceptance mapping is complete and the producer is published at c76d78df. P8.2–P8.4 remain open for hosted positive lineage execution and consumer publication.
 Track ID: `native_archival_lineage_20261026`. Type: Feature.
 
 Trace every current and future dataset through native archival preservation,

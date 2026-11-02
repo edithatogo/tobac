@@ -261,23 +261,64 @@ Covers: R01–R12; AC01–AC14.
   - [x] Review schema/API migration, rights, scientific invariants and operational
     recovery separately; validate completed receipts and preserved historical records.
 - [~] Task: P8.2 — Run coherent full qualification milestones on complete checkouts.
-  - [ ] Run the archive's `./scripts/validate.sh` (or native Windows counterpart) and
+  - [x] Run the archive's `./scripts/validate.sh` (or native Windows counterpart) and
     applicable package/security gates using the verified qualified environment.
-  - [ ] Run tobac's current Nox full tests and relevant numerical reproduction,
+  - [x] Run tobac's current Nox full tests and relevant numerical reproduction,
     workstream integration, package and security sessions. Record any unavailable
     library/runtime or inherited gate failure without weakening the gate.
   - [ ] Verify hosted execution for changed workflows; retain local versus hosted
     versus restored-source evidence as distinct outcomes.
 - [~] Task: P8.3 — Publish through reviewed ownership and verify remote state.
-  - [ ] Re-read main/#1, reconcile concurrent changes and repeat affected checks;
+  - [x] Re-read main/#1, reconcile concurrent changes and repeat affected checks;
     use expected-head protection without force or dropping another workstream.
   - [ ] Verify receiving refs/files and producer/consumer artifact compatibility;
-    update existing Conductor records and issue #1 with actual results and open gates.
+    update existing Conductor records with actual results and open gates.
+    Issue #1 remains historical context under AGENTS.md.
   - [ ] Document operation, exploration, migration, rollback and recovery. Mark full
     completion only when every required acceptance criterion has executed evidence.
 - [~] Task: P8.4 — Phase verification and checkpoint (refer to workflow.md).
   - [ ] Audit the final inventory, native dependency closure, qualification wiring,
     test/replay/recovery receipts, published revisions and remaining scientific gates.
+
+### Phase 8 checkpoint — 2 November 2026
+
+P8.1 is complete. P8.2 has successful local full tests, reproduction, release,
+package/security and clean-package evidence. Hosted positive lineage execution
+remains blocked. P8.3 has published and verified the producer receiving ref.
+Consumer publication is gated by the missing hosted native binding. P8.4 remains
+open for final acceptance after those requirements pass.
+
+Producer candidate ebc852cd was merged under its exact head guard through
+[PR #856](https://github.com/edithatogo/archive-govt-nz/pull/856). Receiving
+c76d78df and the candidate share tree 72e3f2ce. The owning checkout was
+fast-forwarded and the remote read back. All three hosted assurance jobs passed.
+The local full run encountered disk exhaustion. Cached failures passed after
+storage/tool-path recovery, with 96.30% combined coverage. All additional release
+stages passed. The rebuilt wheel SHA-256 is
+ec7989fa1bc648c8276e4f24996a5a3bb92b1686ca69bc23289d6c5e61483490.
+Read-only compatibility through that wheel verified all eight accepted attempts
+and their 140 outputs. The accepted historical receipt pins remain intact.
+
+Consumer ba77752 passed 1,163 tests with seven capability skips and 92% source
+coverage. Strict typing, package, security, publication and clean-package sessions
+passed. The earlier Phase 8 reproduction session passed. Scientific source,
+runner scripts, configurations and data are unchanged by subsequent verifier
+dispatch/diagnostic fixes. Eighteen recovery-log hashes and seven native readback
+hashes were independently rechecked.
+
+[PR #105](https://github.com/edithatogo/tobac/pull/105) carries the consumer packet.
+At 50e9eeb, hosted CodeQL, publication scanning, quality and source/parity checks
+passed. Subsequent ba77752 jobs retain actual outcomes
+in the acceptance receipt. Scientific/test paths reject missing
+TOBAC_LINEAGE_PYTHON before execution. The repository has zero environments,
+variables, secrets and registered runners for the required native provision.
+Consumer receiving main remains e4b6f18. Both default refs were read back.
+AC10/AC14 and P8.2–P8.4 remain open until positive hosted execution and guarded
+consumer publication succeed. The source packet contains source code and
+reviewed digest-only receipts. The exact scanner-log digest finding was verified
+and narrowly adjudicated by path and complete line.
+
+[Phase 8 acceptance and receiving-ref receipt](../../../integration/archive/p8-acceptance_20261102.json).
 
 ## Phase 8 acceptance readback
 

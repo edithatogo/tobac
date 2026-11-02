@@ -123,8 +123,9 @@ scientific runner variants and reproduced all 82 numerical tables exactly.
 Changing the Phyo source in isolation changed only the longitudinal runner's
 scientific input. Phase 6 verified local command enforcement, including rejection
 of missing, stale and tampered inputs before launch. Phase 7 restored the declared closure from external USB and replayed
-all eight scientific runners offline. Phase 8 integrated acceptance, hosted
-qualification and guarded publication remain open.
+all eight scientific runners offline. P8.1 acceptance mapping is complete. Producer c76d78df is published and
+verified. Hosted positive lineage execution and consumer publication block P8.2–P8.4.
+[Phase 8 acceptance](../integration/archive/p8-acceptance_20261102.json).
 [Phase 7 recovery receipt](../integration/archive/ac13-recovery-receipt.json).
 [Phase 6 evidence](../integration/archive/qualified-command-enforcement_20261102.json).
 [Phase 5 evidence](../integration/archive/scientific-lineage-checkpoint_20261102.json).

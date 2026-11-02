@@ -1,0 +1,338 @@
+{
+  "schema": "tobac.native-lineage.phase8/v1",
+  "observed_at": "2026-11-02T18:29:21.119216+10:00",
+  "complete": false,
+  "acceptance": {
+    "AC01": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/native-producer-interface.json": "071d61a0414976c1e42158e29cfe6270e4d88a3f0b30b914dde18930b9ec9af6",
+        "integration/archive/transformation-interface.json": "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373"
+      }
+    },
+    "AC02": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/p4-dataset-migration_20261031.json": "16dee5da50475017fc93ee2f29a2dd6ad1dbf4a79a0386eda7eafd67ad951361",
+        "integration/archive/scientific-runner-inputs.json": "d8b9859fff3cae572710f670a3ec035324e6afbc0910c3e828553d6ca1aa26a1",
+        "integration/archive/qualified-command-enforcement_20261102.json": "64f2e6062284b262f512abb479881ef02eaf3d91be559ba77eef0391e76b6809"
+      }
+    },
+    "AC03": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/native-source-refs.json": "f75582e8362b39d08bc69ef7196131667bb756e39df285189ca478c2a5bd9ed3",
+        "integration/archive/ac13-recovery-receipt.json": "caa0016df56e0be2c2922ab90e43600a66abb9390c39e8e5cff59f7a72ac3996"
+      }
+    },
+    "AC04": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/moh-native-extraction_20261029.json": "b65632e936dc1ddee82aacf4098003898be5f0aee362afd8ed2e6f993393cc5a",
+        "integration/archive/workbook-reconciliation.json": "a9b7682ac6acba6c5435ecd3ccd8be67feeba2163421b44a1f51e92ac9d80ad9"
+      }
+    },
+    "AC05": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/shine-native-extraction_20261031.json": "d86ac4809712b3cfa56d7260f2ac38581714fc2f9d4014b930cc03a727fff5d0",
+        "integration/archive/p4-phase-verification_20261031.json": "e1315f4f449bc1f4f47df513775788cd116cf6cd5bbef34be1cf12a1e6a18429"
+      }
+    },
+    "AC06": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/runner-material-checkpoint_20261102.json": "632249fe9b49a1c46da35d39ce2cbf7281e7e4e3d1c40d13f8197e3fb42b8d3f",
+        "integration/archive/scientific-lineage-checkpoint_20261102.json": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a"
+      }
+    },
+    "AC07": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/p3.3-verification_20261031.json": "05df48cd1ed1756a896ef36320b67f026c7e6f73ca712c12cdd71c383bef0c6e",
+        "integration/archive/runner-material-checkpoint_20261102.json": "632249fe9b49a1c46da35d39ce2cbf7281e7e4e3d1c40d13f8197e3fb42b8d3f",
+        "integration/archive/qualified-command-enforcement_20261102.json": "64f2e6062284b262f512abb479881ef02eaf3d91be559ba77eef0391e76b6809"
+      }
+    },
+    "AC08": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/p4-dataset-migration_20261031.json": "16dee5da50475017fc93ee2f29a2dd6ad1dbf4a79a0386eda7eafd67ad951361",
+        "integration/archive/moh-native-extraction_20261029.json": "b65632e936dc1ddee82aacf4098003898be5f0aee362afd8ed2e6f993393cc5a",
+        "integration/archive/shine-native-extraction_20261031.json": "d86ac4809712b3cfa56d7260f2ac38581714fc2f9d4014b930cc03a727fff5d0"
+      }
+    },
+    "AC09": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/scientific-lineage-checkpoint_20261102.json": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a"
+      }
+    },
+    "AC10": {
+      "status": "partial_hosted_positive_and_consumer_publication_blocked",
+      "evidence_sha256": {
+        "integration/archive/qualified-command-enforcement_20261102.json": "64f2e6062284b262f512abb479881ef02eaf3d91be559ba77eef0391e76b6809"
+      }
+    },
+    "AC11": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/ac13-recovery-receipt.json": "caa0016df56e0be2c2922ab90e43600a66abb9390c39e8e5cff59f7a72ac3996",
+        "tests/test_workstream_integration.py": "e5254ea325fed8082b1f9e95904340e99dba774f0d4a73943ba25055bad9e578"
+      }
+    },
+    "AC12": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/ac13-recovery-receipt.json": "caa0016df56e0be2c2922ab90e43600a66abb9390c39e8e5cff59f7a72ac3996"
+      }
+    },
+    "AC13": {
+      "status": "verified_for_declared_scope",
+      "evidence_sha256": {
+        "integration/archive/ac13-recovery-receipt.json": "caa0016df56e0be2c2922ab90e43600a66abb9390c39e8e5cff59f7a72ac3996"
+      }
+    },
+    "AC14": {
+      "status": "partial_hosted_positive_and_consumer_publication_blocked",
+      "evidence_sha256": {}
+    }
+  },
+  "consumer_source_revision": "ba7775276f7543926dd463195693b85eea2dc6d3",
+  "producer": {
+    "qualified_candidate": "ebc852cd39d994df6a1d6f50f99d752aea722b4a",
+    "expected_receiving_base": "155e9f6acb6a918ecc1306d01c107795e9b894c5",
+    "receiving_main": "c76d78df37ffa89469e8fca5f2db521553525276",
+    "candidate_and_receiving_tree": "72e3f2ce0afa5d0a2cebd34a134b5b273050627c",
+    "publication": "Guarded GitHub merge using the exact candidate SHA, followed by same-tree readback and a local fast-forward.",
+    "pull_request": "https://github.com/edithatogo/archive-govt-nz/pull/856",
+    "successor_wheel_sha256": "ec7989fa1bc648c8276e4f24996a5a3bb92b1686ca69bc23289d6c5e61483490",
+    "accepted_historical_wheel_sha256": "ed77a01418c8b03d8467e06fc1cdd13df9fdf14a8b1f05bbec23458e63dc02a5",
+    "compatibility": "Rebuilt-wheel imports asserted before reopening all eight accepted attempts, verifying original/input/output objects and comparing reviewed material. 140 outputs verified. Historical receipt pins retained.",
+    "full_suite_history": "Initial run had a Treasury subprocess failure, passed in a short temporary directory. Final full run encountered disk exhaustion and checkpoint spool bounds. Failure-only recovery passed after storage recovered. A follow-up exposed an omitted PATH for detect-secrets and passed with the repo-local tool directory selected.",
+    "local_coverage_percent": 96.3,
+    "hosted_macos": {
+      "passed": 8906,
+      "skipped": 30,
+      "coverage_percent": 96.27
+    },
+    "hosted_checks": [
+      {
+        "bucket": "pass",
+        "link": "https://app.codecov.io/gh/edithatogo/archive-govt-nz/pull/856",
+        "name": "codecov/patch",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/archive-govt-nz/runs/125159864373",
+        "name": "CodeQL",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/archive-govt-nz/actions/runs/41409655607/job/125159538505",
+        "name": "Assurance (ubuntu-latest)",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/archive-govt-nz/actions/runs/41409655322/job/125159537614",
+        "name": "analyze",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/archive-govt-nz/actions/runs/41409655421/job/125159538052",
+        "name": "lint",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/archive-govt-nz/actions/runs/41409655607/job/125159538387",
+        "name": "Assurance (macos-latest)",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/archive-govt-nz/actions/runs/41409655607/job/125159538180",
+        "name": "Assurance (windows-latest)",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "skipping",
+        "link": "https://github.com/edithatogo/archive-govt-nz/actions/runs/41409655572/job/125159539605",
+        "name": "Supplemental (${{ matrix.suite }})",
+        "state": "SKIPPED"
+      }
+    ],
+    "release_stages": "All PR and additional release stages executed. Original full-run failures, failure-only results and final stage logs retained.",
+    "review_branch_disposition": "Merged. Repository delete_branch_on_merge is enabled and the remote head branch is absent. All candidate commits are ancestors of the receiving main."
+  },
+  "consumer": {
+    "receiving_main": "e4b6f18f92e10b465c8ac14c5c04a45457f5804b",
+    "receiving_status": "unchanged; required hosted lineage checks block publication",
+    "review_branch": "codex/native-lineage-phase8",
+    "pull_request": "https://github.com/edithatogo/tobac/pull/105",
+    "full_tests": {
+      "passed": 1163,
+      "skipped": 7,
+      "coverage_percent_rounded": 92
+    },
+    "final_sessions_passed": [
+      "tests",
+      "strict_all",
+      "package",
+      "security",
+      "publication",
+      "clean_package"
+    ],
+    "reproduction": "P8 consumer.log records successful numerical reproduction. Later source changes affect verifier dispatch/diagnostics and publication classification. Scientific source, runner scripts, configurations, data and expected numerical outputs are unchanged.",
+    "recovery_receipt_log_hashes_reverified": 18,
+    "recovery_native_readback_hashes_reverified": 7,
+    "hosted_snapshot": [
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/runs/125171274134",
+        "name": "CodeQL",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576871/job/125168746725",
+        "name": "CodeQL Python and Actions",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "fail",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576790/job/125168745990",
+        "name": "qualification",
+        "state": "FAILURE"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576871/job/125168746376",
+        "name": "Public boundary and secret scanning",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "fail",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576790/job/125168746022",
+        "name": "Tests macos-latest Python 3.15.1",
+        "state": "FAILURE"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576790/job/125168745953",
+        "name": "quality",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576790/job/125168745946",
+        "name": "macOS unpatched Voiage Polars candidate",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576893/job/125168745484",
+        "name": "voiage-released-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "fail",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576893/job/125168745635",
+        "name": "numerical",
+        "state": "FAILURE"
+      },
+      {
+        "bucket": "fail",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576790/job/125168745650",
+        "name": "macOS Python 3.15.1 qualification",
+        "state": "FAILURE"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576879/job/125168745547",
+        "name": "voiage-parity",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "fail",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576879/job/125168745487",
+        "name": "numerical",
+        "state": "FAILURE"
+      },
+      {
+        "bucket": "pass",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576879/job/125168745199",
+        "name": "sourceright",
+        "state": "SUCCESS"
+      },
+      {
+        "bucket": "fail",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576793/job/125168745153",
+        "name": "Tests ubuntu-latest Python 3.15.1",
+        "state": "FAILURE"
+      },
+      {
+        "bucket": "fail",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576793/job/125168745646",
+        "name": "Tests windows-latest Python 3.15.1",
+        "state": "FAILURE"
+      },
+      {
+        "bucket": "fail",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576805/job/125168745152",
+        "name": "longitudinal",
+        "state": "FAILURE"
+      },
+      {
+        "bucket": "skipping",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576790/job/125168748266",
+        "name": "macOS package provenance",
+        "state": "SKIPPED"
+      },
+      {
+        "bucket": "skipping",
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41412576790/job/125168748438",
+        "name": "Python 3.15.1 resolved dependency graph",
+        "state": "SKIPPED"
+      }
+    ],
+    "hosted_native_rejection": "Missing TOBAC_LINEAGE_PYTHON for native lineage preflight",
+    "provisioning_readback": {
+      "environments": 0,
+      "variables": 0,
+      "secrets": 0,
+      "registered_runners": 0
+    },
+    "initial_failures": "A temporary directory inside the permitted outputs tree invalidated two outside-output tests. After switching to /tmp, three regression tests exposed lost native rejection reasons following the isolated verifier refactor. Corrected at ba77752 and the final full suite passed.",
+    "scanner_adjudication": "Verified the exact release-secrets.log digest against retained bytes. The Gitleaks exception matches only that exact path and complete digest line. Other detection rules remain active."
+  },
+  "remaining": [
+    "Provision an approved hosted execution route for the accepted verifier, wheel and attempts and qualify positive execution. Source-specific rights and the accepted runtime profile apply.",
+    "Run the hosted positive lineage jobs successfully, then guard and publish the consumer receiving ref.",
+    "Reverify both receiving refs and close AC10/AC14 and P8.2-P8.4 against terminal evidence."
+  ],
+  "log_sha256": {
+    "producer.log": "e29a48e9084cfc072b6029988fc367e0b7d0e0b1d116133ff99dfd8596aef812",
+    "producer-focused.log": "f721f3399ce3b8fbbaad9ae615a1fcbe914ecc9b4f619c3f149b6fc01079389a",
+    "producer-final.log": "b84d912882246cb65b53230379213c6d230650b34d9e5cf2da3e89fd5b515f60",
+    "producer-failure-only.log": "d6db31ed1b5169479c77723f2b9ab7c97937c1e7d9ea144c7ec544d78a6d9313",
+    "producer-toolpath.log": "b4cb66fe52358fb91b4a52e59eb6a0222b5667c34b38ec1283a60f5f5f977b7c",
+    "producer-release-extra.log": "2d49986996ced5cc6194efe2b61f5aceb94639d6fe06d472e2f06c7ef144ce09",
+    "producer-build.log": "e302112c0fcca7e906ffc6685911e9a68cf2acbac0379360d2397955a4ed103a",
+    "producer-hosted-macos.log": "5bd6343175c781647060ea5ac3850e9f099368ed1af1f88aa1769bd064021910",
+    "consumer.log": "3ec7b7630b9c3d45c4da05f2011d404e13e86c34e2445ef93c5565ed7a81d091",
+    "consumer-final.log": "34f61c0509bb3b78d8b0b1f4d3c57ac0300520f8f57846b4c7c05f9e356b52b3",
+    "consumer-verified.log": "64d7016331138518b165bd364186c403eb893e07b4c230819c6a162246fbbe39",
+    "consumer-release.log": "bc37d2b93ea28e12b36f8c2b75d7c9a4bc2e857d18d3736ea386dcb6272af13c",
+    "successor-compatibility.log": "677d6a187a478dba2019b0a3f6f71145dbfcb04cb27345c991b80dc7223e1b9b",
+    "successor-qualified-compatibility.log": "cc8fa4c192582f9d5bdff667742cd587fad21d8d92447fb69c3ebda1a529c2e9",
+    "consumer-hosted-native-rejection.log": "cd8080a2767665f12e48b6f898d32e21ca94e6ec651471a257de3b082f9bb2d1",
+    "scanner-final.log": "003f79e3fa81ba6b4736210936817d410886dbe0400df8d3a35be0b23c76787b"
+  },
+  "native_lineage_qualified": false,
+  "scientific_qualification": false
+}
