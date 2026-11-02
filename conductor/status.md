@@ -1,6 +1,7 @@
-# Reconciled repository status — 2 November 2026
+# Reconciled repository status — 3 November 2026
 
-No implementation track is in progress. The retained native-lineage track has
+DXP1 is authorized and in progress through GitHub Actions as a bounded roadmap
+task. No registered implementation track is in progress. The retained native-lineage track has
 **8/8 phases and 32/32 primary tasks complete**, with zero in progress or pending.
 The 18 archived tracks have no active execution tasks. Five historical graph
 proposal entries were superseded by bounded inventory acceptance and are explicitly
@@ -29,8 +30,8 @@ The archived ecosystem's queued receiving-main and Voiage release gates are reso
 
 ## Remaining deferred phases and tasks
 
-These are roadmap commitments pending prioritisation, with no task in progress.
-There are **three deferred work groups/phases and ten pending tasks**; the advisory
+DXP1 is in progress; the other roadmap commitments await prioritisation.
+There are **three work groups/phases, one task in progress and nine pending tasks**; the advisory
 lane is the one existing deferred track. Platform and hardening groups remain in
 [the roadmap](roadmap.md), rather than newly registered implementation tracks.
 

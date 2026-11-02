@@ -239,3 +239,15 @@ The three drafts are now retained as superseded historical proposals with actual
 acceptance links and unverified approval placeholders identified. Producer
 `c76d78df` remains unchanged. Next operation is focused validation, ordinary commit
 and guarded receiving-main publication. Earlier ownership entries remain history.
+
+## DXP1 Linux audit-lock qualification — 3 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DXP1 in
+`/Users/doughnut/Documents/tobac`, branch `codex/dxp1-linux-audit-lock`,
+from receiving main `803e800`. Scope is the Linux audit job in the existing
+cross-platform workflow, its workflow security contract, focused qualification
+and Conductor/evidence readback. No native capture/authentication operation is
+active. The existing audit lock and scientific inputs remain unchanged unless
+an actual hosted failure establishes a necessary bounded fix. Next operation is
+hash-checked Linux installation and the existing strict/security Nox commands
+through GitHub Actions. DXP2–DXP4 remain deferred.

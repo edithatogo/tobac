@@ -11,7 +11,7 @@ import yaml
 from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[2]
-WORKFLOWS = ("engineering.yml", "engineering-deep.yml", "release-candidate.yml")
+WORKFLOWS = ("engineering.yml", "engineering-deep.yml", "release-candidate.yml", "cross-platform.yml")
 
 
 @pytest.mark.parametrize("name", WORKFLOWS)
