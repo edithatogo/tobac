@@ -29,7 +29,7 @@
 
 - [Voiage Polars qualification](./archive/voiage_polars_qualification_20261026/plan.md): published 3.0.0 wheel qualified on Python 3.15.1.
 
-- [Native archival provenance and transformation lineage](./tracks/native_archival_lineage_20261026/index.md): Phase 4 re-executed with MOH and SHINE native operations (actual CAS/strict records); native source registration, graph closure, per-file chain re-execution and independent preservation remain open.
+- [Native archival provenance and transformation lineage](./tracks/native_archival_lineage_20261026/index.md): Phases 1, 2 and 4 complete. The merged wheel reproduced the MOH output. Transformation graph checks, runner closure and full-estate recovery remain open.
 
 - [M2 matched evidence pathway](./archive/m2_matched_evidence_20261027/plan.md):
   completed issue #3 bounded source-feasibility audit and self-review;

@@ -1,0 +1,23 @@
+{
+  "producer_revision": "a8815d634c9ef5ec6eeb88a3419620f8937b238d",
+  "wheel_sha256": "972fb518b60c3f95fa0263099cc5b61f8d6d35f69c29a6a3c2387675f9662edb",
+  "matched_rows": 16,
+  "original": "sha256:3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+  "output": "sha256:c32cc03c62c153b7d0d042aee4f07c0909025a107d5054877be8fa24cd1d44b5",
+  "manifest": "sha256:4544c1757948e474c437e46bcb211930e641e9a790ed8c173f0ba97dfbf3b55b",
+  "verified_objects": 9,
+  "mutations": {
+    "duplicate_object": "duplicate_object_id",
+    "dangling_observation": "dangling_observation",
+    "missing_output": "accepted",
+    "self_cycle": "accepted",
+    "stale_revision": "accepted"
+  },
+  "consumer_revision": "e4b6f18f92e10b465c8ac14c5c04a45457f5804b",
+  "python": "3.15.1",
+  "producer_tests_passed": 141,
+  "consumer_tests_passed": 52,
+  "native_lineage_qualified": false,
+  "scientific_qualification": false,
+  "scope": "Retained MOH original, reproduced extraction and reopened historical strict records. The new manifest contains the historical execution records. Mutation results describe the installed manifest builder."
+}

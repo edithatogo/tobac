@@ -118,25 +118,25 @@ native_lineage_qualified false. The affected tests (36), full tobac suite
 Owner: archive producer for generic contracts; tobac for domain operation declarations.
 Depends on: P1/P2. Covers: R04, R05, R10, R11; AC06, AC07, AC12.
 
-- [ ] Task: P3.1 — Write independent closure and failure tests first.
+- [~] Task: P3.1 — Write independent closure and failure tests first.
   - [ ] Reject duplicate/dangling IDs, cycles, swapped or corrupt source objects,
     stale operation code/configuration/environment, missing receipts and missing outputs.
   - [ ] Cover multi-parent derivation, failed/interrupted execution, immutable completed
     records, distinct attempt IDs and prevention of premature qualified status.
-- [ ] Task: P3.2 — Extend the existing native producer contracts where P1 proved gaps.
+- [~] Task: P3.2 — Extend the existing native producer contracts where P1 proved gaps.
   - [ ] Represent actual transformation execution with input/output IDs, operation
     version, code revision, parameters, environment/lock, command, times and status.
   - [ ] Extend native validation to verify actual objects and relationship closure;
     do not equate receipt IDs or successful manifest serialization with validation.
   - [ ] Package schemas and supported producer interfaces with explicit compatibility
     and rollback rules; preserve existing callers and historical manifest versions.
-- [ ] Task: P3.3 — Verify integration through the producer's native public interface.
-  - [ ] Execute a bounded real operation, persist its native manifest/receipts,
+- [x] Task: P3.3 — Verify integration through the producer's native public interface.
+  - [x] Execute a bounded real operation, persist its native manifest/receipts,
     reopen them, verify input/output bytes and trace the dependency closure.
-  - [ ] Exercise negative mutations against the actually imported implementation;
+  - [x] Exercise negative mutations against the actually imported implementation;
     keep synthetic controls distinct from source-backed execution evidence.
-- [ ] Task: P3.4 — Phase verification and checkpoint (refer to workflow.md).
-  - [ ] Run affected native tests/schema checks, record exact producer artifacts and
+- [x] Task: P3.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [x] Run affected native tests/schema checks, record exact producer artifacts and
     API revisions, and confirm tobac can consume the supported versioned interface.
 
 ## Phase 4 — Re-extract real datasets and preserve historical lineage
@@ -621,3 +621,34 @@ passed on Python 3.15.1, recording the reviewed export digest. The native
 readback does not establish complete runner dependency selection. Strict native
 execution records, output-object closure, unavailable originals, full-estate
 independent preservation and restoration remain open.
+
+## Merged-wheel reconciliation — 2 November 2026
+
+Chat 01a19a6e-2e47-7b10-8a35-4e7d7fedb965 reviewed the consumer receipts and
+Conductor records in /Users/doughnut/Documents/tobac at e4b6f18. The producer
+owner retains the generic manifest implementation. [Replay receipt](../../../integration/archive/merged-wheel-readback_20261102.json).
+
+Phase 2 is complete for the declared source inventory. All 11 registered
+originals were reopened through the installed wheel. The export separately
+accounts for failed retrievals and captures without verified source identity.
+
+P3.3 and P3.4 are complete for the installed producer interface. A private
+Python 3.15.1 environment verified every installed package member against the
+pinned wheel and all eight interface hashes. The MOH workbook reproduced all
+16 rows and the exact retained output. Nine objects were verified, including
+the historical strict transformation and validation records. The new manifest
+was persisted and reopened. Historical execution identities were preserved.
+
+141 producer tests passed across tests/provenance, archive record schemas and
+the WARC writer, binding and strict binding suites. 52 consumer tests passed
+across archive bindings, MOH extraction and workstream integration. The bounded
+runs used 76.2 MiB and 119.4 MiB peak sampled group RSS respectively.
+
+P3.1 and P3.2 remain partial. The installed builder rejects duplicate objects
+and dangling observations, but accepted a receipt referencing an omitted output,
+its own output as an input, and a substituted implementation revision. The last
+control requires an independently trusted revision at qualification time. The
+producer owner must close these relationships and verify byte substitution,
+attempt lifecycle and stale configuration/environment controls. Repeat the
+failed controls against the replacement wheel before promoting it. Phases 5–8
+retain their existing acceptance requirements.
