@@ -172,6 +172,8 @@ def execute_runner_with_provenance(
     output_path: Path,
     script_path: Path,
     extra_args: list[str] | None = None,
+    *,
+    observed_inputs: Path | None = None,
 ) -> dict[str, Any]:
     """Execute the selected runner; source registrations are checked by the caller."""
     if output_path.exists() or output_path.is_symlink():
@@ -195,12 +197,22 @@ def execute_runner_with_provenance(
     ]
     modules = {
         ROOT / "src/tobac/run.py": "tobac.run",
+        ROOT / "src/tobac/m2.py": "tobac.m2",
         ROOT / "src/tobac/research/runner.py": "tobac.research.runner",
     }
     if script_path in modules:
         cmd = [str(venv_python), "-m", modules[script_path], "--out", str(output_path)]
     if extra_args:
         cmd.extend(extra_args)
+
+    if observed_inputs is not None:
+        target = cmd[1:] if script_path in modules else ["script", *cmd[1:]]
+        cmd = [
+            str(venv_python),
+            str(ROOT / "scripts/trace_scientific_reads.py"),
+            str(observed_inputs),
+            *target,
+        ]
 
     # Set up environment with PYTHONPATH
     env = os.environ.copy()
