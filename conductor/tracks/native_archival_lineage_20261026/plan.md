@@ -776,3 +776,9 @@ use --run RUNNER --store STORE --wheel WHEEL --out NEW_ATTEMPT_ROOT. For complet
 attempts use --trace RUNNER OUTPUT or --changed SOURCE with --wheel and --out.
 scripts/qualify_scientific_counterfactual.py takes --attempts, --wheel and a
 fresh --out directory. Private originals and attempt stores stay local.
+
+Phase 5 local milestone: the full Nox suite passed 1,155 tests with seven
+skips and 92% source coverage. Strict lint, formatting and typing passed after
+40820b7 annotated the two native ID mappings. The successful attempt root is
+`outputs/p5-qualified-fapIIGup/` in the owning checkout. The checkpoint above
+retains per-artifact identities, input object IDs and verification log digests.

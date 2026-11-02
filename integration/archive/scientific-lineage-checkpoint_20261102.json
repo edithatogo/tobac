@@ -814,5 +814,19 @@
   },
   "reference_note": "All numerical CSVs matched exactly; other byte differences were limited to checkout identity, command path and downstream JSON hashes.",
   "verified_output_count": 140,
-  "csv_exact_count": 82
+  "csv_exact_count": 82,
+  "validation": {
+    "affected_tests_passed": 542,
+    "full_tests_passed": 1155,
+    "full_tests_skipped": 7,
+    "source_coverage_percent_rounded": 92,
+    "strict_all": "passed after 40820b7 declared the native ID mappings explicitly; 0 type errors, 0 warnings",
+    "log_sha256": {
+      "readback.log": "8e0f20ad322ff6bdae811553053692f437eed8d4f586b47fe51d9a64caf83bb6",
+      "counterfactual.log": "450042750a28a8a1ad256ac92a4e6b496c390b091dfccf189d3dc16f2659ce89",
+      "affected.log": "0f479ac54874ab367a6de7b20cb0f334bb69bffd2732a897e1f8139f0312caa6",
+      "milestone.log": "a81e721788c93efe2f1ce271163b9a26d9953f993d52c0eaabc3a49e68e4366f",
+      "strict-final.log": "7111fb4f8e36ae195f97573b7aa053131efaf0eb43c4efb0c2e682fc7b42fef5"
+    }
+  }
 }
