@@ -595,3 +595,12 @@ The default scientific CLIs retain their existing exploratory behavior.
 No qualified lineage claim is enabled. Native object readback during each runner,
 strict execution records, unavailable originals, full dependency-graph closure
 and full-archive independent recovery remain acceptance blockers.
+
+Verification: the local full suite passed (1,140 passed, 15 skips, 92%
+coverage), as did strict checks and numerical reproduction. A source-export
+read race found during review was fixed by hashing, parsing and binding one
+verified byte snapshot. The 12 focused qualification tests passed after that fix.
+M1 and M3 normal wrapper executions each completed and returned the pinned
+export digest and selected source registration. Their shared source selection
+was a software smoke-test declaration, not validation of empirical dependency
+completeness. Peak sampled group RSS for the wrapper smoke run was 351 MiB.
