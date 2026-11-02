@@ -178,3 +178,17 @@ def test_runner_readback_requires_native_artifacts() -> None:
 
     with pytest.raises(ValueError, match="Native store and pinned producer wheel"):
         readback_sources({}, None, None)
+
+
+def test_material_checked_cli_requires_execution(monkeypatch) -> None:
+    """A material check cannot silently produce a plan-only receipt."""
+    import sys  # noqa: PLC0415 -- Exercise the public CLI.
+
+    import pytest  # noqa: PLC0415 -- Local negative control.
+
+    from scripts import runner_provenance  # noqa: PLC0415 -- Verify argument handling.
+
+    monkeypatch.setattr(sys, "argv", ["runner_provenance", "--check-material"])
+    with pytest.raises(SystemExit) as error:
+        runner_provenance.main()
+    assert error.value.code == 2
