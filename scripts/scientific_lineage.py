@@ -218,15 +218,17 @@ def collect_inputs(
     return inputs, outputs, observed, declared
 
 
-def run_one(name: str, dest: Path, native_store: Path, wheel: Path) -> None:
+def run_one(name: str, dest: Path, native_store: Path, wheel: Path, *, candidate: bool = False) -> None:
     """Reserve an attempt, compare its original, execute, and bind all output bytes."""
     from lineage_preflight import verify  # noqa: PLC0415 -- Execution gate; read-only historical queries stay independent.
 
-    attempts = os.environ.get("TOBAC_LINEAGE_ATTEMPTS")
-    if not attempts:
-        msg = "Missing TOBAC_LINEAGE_ATTEMPTS for qualified scientific execution"
-        raise ValueError(msg)
-    verify(Path(attempts), wheel, [name])
+    mode = "candidate_unqualified" if candidate else "qualified_inputs"
+    if not candidate:
+        attempts = os.environ.get("TOBAC_LINEAGE_ATTEMPTS")
+        if not attempts:
+            msg = "Missing TOBAC_LINEAGE_ATTEMPTS for qualified scientific execution"
+            raise ValueError(msg)
+        verify(Path(attempts), wheel, [name])
     native, factory, pin = moh.producer(wheel, ARCHIVE / "transformation-interface.json")
     api = importlib.import_module("archive_govt_nz.transformation_attempt")
     script, config, args, source = RUNS[name]
@@ -243,7 +245,9 @@ def run_one(name: str, dest: Path, native_store: Path, wheel: Path) -> None:
     if material["environment"] != expected_env:
         msg = "Scientific runner environment differs from the reviewed environment"
         raise ValueError(msg)
-    attempt = api.TransformationAttempt(dest, {**material, "producer_revision": pin["producer_revision"]})
+    attempt = api.TransformationAttempt(
+        dest, {**material, "producer_revision": pin["producer_revision"], "execution_mode": mode}
+    )
     started = moh.now()
     try:
         result = runners.execute_runner_with_provenance(
@@ -261,6 +265,7 @@ def run_one(name: str, dest: Path, native_store: Path, wheel: Path) -> None:
         }
         record = {
             "runner": name,
+            "execution_mode": mode,
             "model_revision": contract["revision"],
             "started": started,
             "attempt_id": attempt.attempt_id,
@@ -387,13 +392,21 @@ def main() -> None:
     parser.add_argument("--store", type=Path)
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--run", choices=tuple(RUNS))
+    group.add_argument(
+        "--candidate",
+        choices=tuple(RUNS),
+        help="Generate an unqualified native attempt for independent review",
+    )
     group.add_argument("--changed")
     group.add_argument("--trace", nargs=2, metavar=("RUNNER", "OUTPUT"))
     args = parser.parse_args()
-    if args.run:
+    if args.run or args.candidate:
         if not args.store:
-            parser.error("--run requires --store")
-        run_one(args.run, args.out.resolve() / args.run, args.store, args.wheel)
+            parser.error("Scientific execution requires --store")
+        name = args.run or args.candidate
+        run_one(name, args.out.resolve() / name, args.store, args.wheel, candidate=bool(args.candidate))
+        if args.candidate:
+            sys.stdout.write("candidate_unqualified\n")
     else:
         _, factory, _ = moh.producer(args.wheel, ARCHIVE / "transformation-interface.json")
         if args.trace:

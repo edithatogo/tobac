@@ -92,3 +92,48 @@ def test_rejection_precedes_runner_claim(tmp_path: Path, case: str, reason: str)
     assert result.returncode != 0
     assert reason in result.stderr.decode()
     assert not destination.exists()
+
+
+@pytest.mark.skipif(
+    not all(os.environ.get("TOBAC_LINEAGE_" + key) for key in ("ATTEMPTS", "PYTHON", "WHEEL")),
+    reason="requires the installed native wheel and private accepted attempts",
+)
+def test_candidate_cannot_use_its_own_receipt_as_acceptance(tmp_path: Path) -> None:
+    """An explicitly requested replacement can be generated before independent approval."""
+    store = Path(os.environ["TOBAC_LINEAGE_ATTEMPTS"]) / "m1/cas"
+    env = {**os.environ, "PYTHONPATH": str(ROOT / "src"), "TOBAC_LINEAGE_ATTEMPTS": str(tmp_path / "absent")}
+    command = [
+        env["TOBAC_LINEAGE_PYTHON"],
+        "scripts/scientific_lineage.py",
+        "--candidate",
+        "m1",
+        "--store",
+        str(store),
+        "--wheel",
+        env["TOBAC_LINEAGE_WHEEL"],
+        "--out",
+        str(tmp_path / "candidate"),
+    ]
+    result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, timeout=180, check=False)  # noqa: S603 -- The pinned native interpreter runs the fixed M1 candidate.
+    assert result.returncode == 0, result.stderr.decode()
+    assert "candidate_unqualified" in result.stdout.decode()
+    folder = tmp_path / "candidate/m1"
+    ids = json.loads((folder / "terminal").read_bytes())["result"]
+    record_sha = ids["receipt"].removeprefix("sha256:")
+    record = json.loads((folder / "cas/sha256" / record_sha[:2] / record_sha).read_bytes())
+    assert record["execution_mode"] == "candidate_unqualified"
+    sha = ids["manifest"].removeprefix("sha256:")
+    reject = subprocess.run(  # noqa: S603 -- Check the public manifest CLI with the generated candidate.
+        [
+            sys.executable,
+            "scripts/qualification_check.py",
+            "--manifest",
+            str(folder / "cas/sha256" / sha[:2] / sha),
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+        timeout=120,
+    )
+    assert reject.returncode == 2
+    assert "no matching accepted native execution" in reject.stdout.decode()

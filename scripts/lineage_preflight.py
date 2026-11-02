@@ -87,7 +87,10 @@ def verify_attempt(
     )
     started = read(checked(folder, "started"))
     producer_revision = read(scientific.ARCHIVE / "transformation-interface.json")["producer_revision"]
-    if started.get("material") != {**material, "producer_revision": producer_revision}:
+    initial = {**material, "producer_revision": producer_revision}
+    if "execution_mode" in record:
+        initial["execution_mode"] = record["execution_mode"]
+    if started.get("material") != initial:
         msg = f"{name}: initial material snapshot is stale"
         raise ValueError(msg)
     if material != record["material"] or record["originals"] != expected["originals"]:

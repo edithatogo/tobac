@@ -41,8 +41,10 @@ an exact accepted native manifest. Explicit exploratory and legacy inspections
 return unqualified receipts.
 
 When adding data, changing an operation or selecting a new runtime, rebuild and
-review the affected scientific input contract, run and verify the new native
-attempts, then update the accepted checkpoint and gate pins together. Keep the
+review the affected scientific input contract. Run
+`scripts/scientific_lineage.py --candidate RUNNER --store STORE --wheel WHEEL --out NEW_ROOT`
+to produce a distinct `candidate_unqualified` attempt. Verify its full outputs,
+source comparisons and native records independently, then update the accepted checkpoint and gate pins together. Keep the
 prior version and its receipts for historical readback. The membership check
 includes files under configs, data and evidence, Python model sources and runner
 entry points. A failed preflight writes a rejection and exits before the
