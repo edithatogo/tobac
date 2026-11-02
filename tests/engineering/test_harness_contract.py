@@ -207,17 +207,12 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             runner = job["runs-on"]
             if runner == "${{ matrix.os }}":
                 assert {entry["os"] for entry in job["strategy"]["matrix"]["include"]} == {"macos-latest"}
-            elif path.name == "linux-audit.yml":
-                assert runner == "ubuntu-24.04"
-                assert job["env"]["TOBAC_REQUIRE_LOCK"] == "1"
-                assert job["timeout-minutes"] == "40"
             else:
-                assert runner in {"macos-latest", "macos-15-intel"}, (path, runner)
+                allowed = {"linux-audit.yml": {"ubuntu-24.04"}}.get(
+                    path.name, {"macos-latest", "macos-15-intel"}
+                )
+                assert runner in allowed, (path, runner)
             commands = [step.get("run", "") for step in job["steps"]]
-            if path.name == "linux-audit.yml":
-                assert any("verify --profile audit" in command for command in commands)
-                assert any("platform.machine() == 'x86_64'" in command for command in commands)
-                assert any("-s strict_all security" in command for command in commands)
             assert any(
                 ".venv-ci/bin/python -c" in command and "assert sys.version_info[:3] == (3, 15, 1)" in command
                 for command in commands
@@ -229,3 +224,15 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
     for name in ("release-candidate.yml", "dependency-lock.yml"):
         assert (deferred / name).is_file()
         assert not (ROOT / ".github/workflows" / name).exists()
+
+
+def test_linux_audit_requires_source_bound_lock_and_actual_audits() -> None:
+    data = yaml.load((ROOT / ".github/workflows/linux-audit.yml").read_text(), Loader=yaml.BaseLoader)
+    job = data["jobs"]["audit-lock"]
+    assert job["runs-on"] == "ubuntu-24.04"
+    assert job["env"]["TOBAC_REQUIRE_LOCK"] == "1"
+    assert job["timeout-minutes"] == "40"
+    commands = [step.get("run", "") for step in job["steps"]]
+    assert any("verify --profile audit" in command for command in commands)
+    assert any("platform.machine() == 'x86_64'" in command for command in commands)
+    assert any("-s strict_all security" in command for command in commands)
