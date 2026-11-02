@@ -347,6 +347,7 @@
     "integration/archive/ac13-recovery-receipt.json",
     "integration/archive/consumer-inputs.json",
     "integration/archive/handoff-verification_20261026.json",
+    "integration/archive/hosted-native-signers",
     "integration/archive/lineage-foundations-inventory_20261029.json",
     "integration/archive/lineage-local-interruption_20261029.json",
     "integration/archive/merged-wheel-readback_20261102.json",

@@ -22,7 +22,7 @@ CHECKPOINT = ARCHIVE + "scientific-lineage-checkpoint_20261102.json"
 CHECKPOINT_SHA = "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a"
 PROFILES = ARCHIVE + "hosted-verifier-profiles.json"
 PROFILES_SHA = "pending-hosted-qualification"
-SIGNERS_SHA = "pending-local-key-qualification"
+SIGNERS_SHA = "0661923a19e1d4ed38a3e0938b94a25b03cdedd3145d63959825871ce05eeec9"
 NAMESPACE = "tobac-native-lineage"
 IDENTITY = "tobac-native"
 
@@ -135,6 +135,19 @@ def authenticate(root: Path) -> dict[str, Any]:
         msg = "Scientific inventory differs from native acceptance"
         raise ValueError(msg)
     return capsule
+
+
+def authenticate_interpreter(root: Path, executable: Path) -> None:
+    """Check selected executable bytes before allowing it to report qualification."""
+    authenticate(root)
+    allowed = {
+        p["python_sha256"]
+        for p in qualified_profiles(root)
+        if p["system"] == platform.system() and p["machine"] == platform.machine()
+    }
+    if digest(executable) not in allowed:
+        msg = "Hosted interpreter differs from qualified executable bytes"
+        raise ValueError(msg)
 
 
 def verify_inputs(

@@ -214,6 +214,11 @@ def lineage_interpreter() -> Path:
     ):
         msg = "TOBAC_LINEAGE_PYTHON must select a repository-local virtual environment"
         raise ValueError(msg)
+    if os.environ.get("TOBAC_LINEAGE_ROUTE", "native") == "attested":
+        from hosted_lineage import authenticate_interpreter  # noqa: PLC0415 -- Explicit portable route.
+
+        authenticate_interpreter(ROOT, executable)
+        return executable
     profile = (ROOT / "integration/archive/runner-material.json").read_bytes()
     if (
         hashlib.sha256(profile).hexdigest()
@@ -230,7 +235,10 @@ def lineage_interpreter() -> Path:
 def native_lineage(names: list[str], manifest: Path | None = None) -> dict[str, Any]:
     """Use the existing qualified interpreter without changing the workload environment."""
     executable = lineage_interpreter()
-    command = [str(executable), "-I", str(ROOT / "scripts/lineage_preflight.py")]
+    route = {"native": "lineage_preflight.py", "attested": "hosted_lineage.py"}[
+        os.environ.get("TOBAC_LINEAGE_ROUTE", "native")
+    ]
+    command = [str(executable), "-I", str(ROOT / "scripts" / route)]
     for name in names:
         command.extend(["--runner", name])
     if manifest is not None:

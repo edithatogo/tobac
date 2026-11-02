@@ -6,6 +6,7 @@ import argparse
 import json
 import os
 import shutil
+import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -59,8 +60,14 @@ def issue(key: Path, out: Path) -> None:
         "schema": "tobac.signed-native-lineage/v1",
         "issuer": IDENTITY,
         "issued_at": datetime.now(UTC).isoformat(),
-        "scope": "Native bytes verified locally; hosted verification authenticates this receipt and rechecks current scientific inputs.",
-        "rights": "Digest-only proof. Original objects, private keys and the native attempt estate remain in owner-held local preservation.",
+        "scope": (
+            "Native bytes verified locally; hosted verification authenticates this receipt "
+            "and rechecks current scientific inputs."
+        ),
+        "rights": (
+            "Digest-only proof. Original objects, private keys and the native attempt estate "
+            "remain in owner-held local preservation."
+        ),
         "verifier_sha256": digest(ROOT / "scripts/hosted_lineage.py"),
         "inventory_sha256": inventory_identity(ROOT),
         "pins": {name: digest(ROOT / name) for name in sorted(pins)},
@@ -77,7 +84,7 @@ def issue(key: Path, out: Path) -> None:
     if ssh is None or command([ssh, "-Y", "sign", "-f", str(key), "-n", NAMESPACE, str(out)]).returncode:
         msg = "Hosted evidence signing failed"
         raise ValueError(msg)
-    print(
+    sys.stdout.write(
         json.dumps(
             {
                 "payload_sha256": digest(out),
@@ -85,7 +92,7 @@ def issue(key: Path, out: Path) -> None:
                 "native_runners_verified": len(native["runners"]),
             }
         )
-    )  # noqa: T201 -- Only public digests leave the issuer.
+    )
 
 
 def main() -> None:

@@ -37,9 +37,14 @@ jobs:
         if: matrix.installer == 'setup-python'
         with:
           python-version: '3.15.1'
+      - name: Create the uv verifier environment
+        if: matrix.installer == 'uv'
+        run: uv venv --python 3.15.1 .venv-lineage
+      - name: Create the setup-python verifier environment
+        if: matrix.installer == 'setup-python'
+        run: python -m venv .venv-lineage
       - name: Select repo-local Python 3.15.1
         run: |
-          python -m venv .venv-lineage
           if [ "$RUNNER_OS" = Windows ]; then
             echo "LINEAGE_PYTHON=$GITHUB_WORKSPACE/.venv-lineage/Scripts/python.exe" >> "$GITHUB_ENV"
           else
