@@ -1,0 +1,6 @@
+# Published unpatched macOS Python 3.15 wheel; separate from legacy regression builds.
+numpy==2.5.4
+scipy==1.18.1
+polars==2.1.0
+pyarrow==26.0.0
+voiage @ https://files.pythonhosted.org/packages/58/b7/f50e02f39c3b5ea7e43f7a0452592d1bf2275b8b26f6dd063e9b7f87247b/voiage-3.0.0-cp315-abi3-macosx_11_0_arm64.whl

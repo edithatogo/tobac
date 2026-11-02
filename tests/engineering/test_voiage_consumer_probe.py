@@ -131,3 +131,17 @@ def test_buffer_probe_rejects_aliasing_and_accepts_snapshots(monkeypatch, copy_b
     else:
         with pytest.raises(AssertionError):
             module.qualify_buffer_ownership()
+
+
+def test_versions_report_absent_optional_packages(monkeypatch) -> None:
+    module = load()
+
+    def lookup(name):
+        if name in {"pandas", "xarray"}:
+            raise module.PackageNotFoundError(name)
+        return "fixture"
+
+    monkeypatch.setattr(module, "version", lookup)
+    assert module.installed_versions() == dict.fromkeys(
+        ("numpy", "scipy", "polars", "pyarrow"), "fixture"
+    ) | dict.fromkeys(("pandas", "xarray"))

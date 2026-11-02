@@ -269,7 +269,7 @@ jobs:
           uv venv --python 3.15.1 .venv-ci
           .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
       - name: Qualify exact unpatched candidate without producer promotion
-        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 1500 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/voiage-candidate-nox.json -s voiage_polars_candidate
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 1500 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/voiage-candidate-nox.json -s voiage_polars_candidate voiage_published
       - name: Install checksum-pinned export scanner
         if: always()
         run: sh scripts/install_security_tools.sh

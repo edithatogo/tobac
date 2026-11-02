@@ -839,3 +839,46 @@ def voiage_polars_candidate(session: nox.Session) -> None:
     shutil.copyfile(wheel, destination / wheel.name)
     shutil.rmtree(source)
     shutil.rmtree(run / "cargo-target")
+
+
+@nox.session(python="3.15.1")
+def voiage_published(session: nox.Session) -> None:
+    """Qualify the hash-pinned published wheel with its genuine runtime dependencies."""
+    python = session.run("python", "-c", "import sys; print(sys.executable)", silent=True)
+    if not isinstance(python, str) or not python.strip():
+        session.error("Cannot resolve selected interpreter")
+    pin = json.loads((ROOT / "integration/voiage_published_20261102.json").read_text())
+    wheel = (ROOT / OUT / "voiage-published" / pin["wheel"]).resolve()
+    wheel.parent.mkdir(parents=True, exist_ok=True)
+    session.run("curl", "--fail", "--location", "--output", str(wheel), pin["wheel_url"], external=True)
+    if hashlib.sha256(wheel.read_bytes()).hexdigest() != pin["wheel_sha256"]:
+        session.error("Published wheel checksum differs")
+    lock = wheel.parent / "local-requirements.txt"
+    lock.write_text(
+        (ROOT / "engineering/voiage-published-requirements.txt")
+        .read_text()
+        .replace(pin["wheel_url"], wheel.as_uri())
+    )
+    session.run(
+        "uv",
+        "pip",
+        "sync",
+        "--python",
+        python.strip(),
+        "--require-hashes",
+        str(lock),
+        external=True,
+    )
+    session.run("uv", "pip", "check", "--python", python.strip(), external=True)
+    session.env["PYTHONPATH"] = str(ROOT / "src")
+    session.run(
+        "python",
+        "scripts/qualify_voiage_consumer.py",
+        "--wheel",
+        str(wheel),
+        "--expected-version",
+        "3.0.0",
+        "--buffer-ownership",
+        "--out",
+        str(wheel.parent / ("qualification-" + uuid4().hex + ".json")),
+    )
