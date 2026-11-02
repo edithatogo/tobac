@@ -49,24 +49,6 @@ or a commissioning recommendation. Source/forecast identities and data-once guar
 [Roadmap](roadmap.md): non-macOS release/numerical qualification, optional advisory promotion and explicitly optional
 mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remain required.
 
-## Voiage 3.0.0 Polars consumer qualification
-
-Status: bounded macOS baseline/candidate implementation complete; published-3.0
-acceptance blocked externally.
-
-Track: `conductor/tracks/voiage_polars_qualification_20261026/`.
-Published Voiage 3.0.0 remains unavailable; no upstream-release success is claimed.
-
-Current receipt: integration/voiage_polars_consumer_20261028.json. Default producer
-2.2.0+tobac3151.2 retained; merged candidate at 65c5e76 is unreleased version
-2.2.0. Six caller-buffer isolation cases now supplement 90 numerical comparisons.
-The previous 6c28ac5 candidate failed the new ownership probe. pandas/xarray remain
-required. Published-3.0 acceptance remains unexecuted; historical proof remains in PR #41.
-The 28 October macOS-only direction is historical. PR #66 restored hosted Linux
-and Windows runtime tests at Python 3.15.1. Candidate qualification remains on
-macOS; the Linux-specific manual locked-release workflows remain deferred. Earlier
-platform receipt: integration/macos_ci_scope_20261028.json.
-
 ## Issue #3 bounded pathway implementation
 
 The source-feasibility audit and prospective matched-consumption protocol are implemented

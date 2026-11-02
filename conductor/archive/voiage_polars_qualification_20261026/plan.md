@@ -28,10 +28,10 @@ integration/voiage_polars_consumer_20261027.json.
 
 ## External published-release gate — blocked
 
-- [ ] Qualify an unpatched published Voiage 3.0.0 wheel when it exists (AC3).
-- [ ] Decide patch retirement and the 3.0 dependency base from that release's actual
+- [x] Qualify an unpatched published Voiage 3.0.0 wheel when it exists (AC3).
+- [x] Decide patch retirement and the 3.0 dependency base from that release's actual
   metadata (AC4/AC5); do not substitute the unreleased candidate's version or metadata.
-- [ ] Close/archive the entire track only when published-release acceptance is executed.
+- [x] Close/archive the entire track only when published-release acceptance is executed.
 
 The owner explicitly accepted merging the bounded macOS candidate qualification
 while retaining these release gates. No upstream merge/release, pandas-free claim,
@@ -72,3 +72,27 @@ externally blocked, with all three published-release/archiving tasks above open.
 Platform review: docs/reviews/2026-10-28-macos-only-ci.md. Receipt:
 integration/macos_ci_scope_20261028.json. Windows/Linux return only through
 roadmap reprioritisation; the published Voiage 3.0.0 gate remains externally blocked.
+
+## Published 3.0.0 acceptance — 2 November 2026
+
+The PyPI macOS arm64 cp315 wheel was downloaded without modification and
+matched SHA-256 1609185222be3e69c064b2716ed57c03101b4e7b802cbde9f6093b03b7c1aa7c.
+Its actual native extension loaded on Python 3.15.1. All installed wheel members
+matched, all 90 uniform/weighted/finite-partition comparisons passed at the
+unchanged 1e-10 tolerances (maximum difference 2.842170943040401e-14), and all
+six buffer ownership checks passed. Pandas and xarray were absent.
+
+The compatibility patch is unnecessary for the published 3.0.0 lane and is
+retained only for the separate historical 2.2 regression build. Published
+runtime dependencies are recorded in integration/voiage_published_20261102.json.
+Pandas remains required by longitudinal scripts. Xarray remains only in the
+legacy Voiage regression environment. The new voiage_published Nox session
+syncs hash-locked genuine dependencies, checks the wheel digest, and runs the
+same native consumer probe. Hosted candidate qualification also runs this
+published lane. Voiage 3.1.0 was observed but is outside this exact release
+acceptance. No automatic promotion to it is implied.
+
+The initial probe completed its computations but failed while recording absent
+pandas. Receipt generation now represents absent optional packages as null.
+The exact released wheel installed without metadata patches. This closes AC3,
+AC4 and AC5; the ordinary scientific/data acceptance gates remain independent.

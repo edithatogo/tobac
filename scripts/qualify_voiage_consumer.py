@@ -7,7 +7,7 @@ import json
 import platform
 import sys
 from importlib.machinery import EXTENSION_SUFFIXES
-from importlib.metadata import Distribution, distribution, version
+from importlib.metadata import Distribution, PackageNotFoundError, distribution, version
 from pathlib import Path
 from urllib.parse import urlsplit
 from urllib.request import url2pathname
@@ -81,6 +81,19 @@ def qualify_buffer_ownership() -> list[str]:
     return passed
 
 
+def installed_versions() -> dict[str, str | None]:
+    """Record optional transport packages even when absent from the environment."""
+    versions: dict[str, str | None] = {
+        name: version(name) for name in ("numpy", "scipy", "polars", "pyarrow")
+    }
+    for name in ("pandas", "xarray"):
+        try:
+            versions[name] = version(name)
+        except PackageNotFoundError:
+            versions[name] = None
+    return versions
+
+
 def qualify(wheel: Path, expected_version: str, *, buffer_ownership: bool = False) -> dict[str, object]:
     """Require exact installed wheel identity, native loading and numerical parity."""
     if sys.version_info[:3] != (3, 15, 1):
@@ -150,9 +163,7 @@ def qualify(wheel: Path, expected_version: str, *, buffer_ownership: bool = Fals
         "python": sys.version,
         "platform": platform.platform(),
         "command": sys.argv,
-        "versions": {
-            name: version(name) for name in ("numpy", "scipy", "polars", "pandas", "xarray", "pyarrow")
-        },
+        "versions": installed_versions(),
         "wheel": wheel.name,
         "wheel_sha256": digest,
         "installed_wheel_members_verified": checked,

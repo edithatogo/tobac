@@ -27,7 +27,7 @@
 
 - [Scientific ecosystem modernisation](./archive/scientific_ecosystem_20261025/index.md): bounded implementation closed; the managed root-parser limitation and queued receiving-main verification remain explicit.
 
-- [Voiage Polars consumer qualification](./tracks/voiage_polars_qualification_20261026/plan.md): merged unreleased candidate with caller-buffer isolation requalified 28 October; candidate qualification remains on macOS, with Linux/Windows runtime tests added by PR #66; published-3.0 gate externally blocked.
+- [Voiage Polars qualification](./archive/voiage_polars_qualification_20261026/plan.md): published 3.0.0 wheel qualified on Python 3.15.1.
 
 - [Native archival provenance and transformation lineage](./tracks/native_archival_lineage_20261026/index.md): Phase 4 re-executed with MOH and SHINE native operations (actual CAS/strict records); native source registration, graph closure, per-file chain re-execution and independent preservation remain open.
 

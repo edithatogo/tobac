@@ -124,3 +124,7 @@ Public-source successors and issue #3 empirical/publication gates remain explici
 [Plan and qualification results](voiage_alignment_followups_20261030/plan.md). IPC and Parquet consumer qualification
 merged in PR #97. Renovate was verified active and the enabled Dependabot alert
 feed returned zero open findings on 1 November 2026.
+
+## Voiage Polars consumer qualification
+
+[Plan](voiage_polars_qualification_20261026/plan.md). Published unpatched 3.0.0 native wheel and numerical parity qualified on Python 3.15.1.

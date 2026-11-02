@@ -1,7 +1,7 @@
 {
   "track_id": "voiage_polars_qualification_20261026",
   "title": "Voiage 3.0.0 Polars consumer qualification",
-  "status": "blocked",
+  "status": "completed",
   "description": "Owner-authorised macOS baseline and exact unreleased candidate qualification; published-3.0 gate retained",
   "base_commit": "f55edb1b3aecdfc2c8afc243b8659e69614b2f13",
   "voiage_base": "ca3f05cc8adcc74b99fe236152327d0cd3679553",
@@ -69,5 +69,8 @@
     "superseded_receiving_main": "94c47124f7dd17b53a1353009ec7442971b64748; mixed-platform pending runs cancelled where active, not passes"
   },
   "platform_verification": "integration/macos_ci_scope_20261028.json",
-  "platform_review": "docs/reviews/2026-10-28-macos-only-ci.md"
+  "platform_review": "docs/reviews/2026-10-28-macos-only-ci.md",
+  "completed_at": "2026-11-02",
+  "published_release": "3.0.0",
+  "published_receipt": "integration/voiage_published_20261102.json"
 }
