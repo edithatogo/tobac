@@ -15,7 +15,17 @@ def main() -> None:
     root = Path.cwd()
     reads: dict[str, str] = {}
     hashing = False
-    roots = {"configs", "data", "evidence", "integration", "engineering", "docs", "src", "scripts"}
+    roots = {
+        "conductor",
+        "configs",
+        "data",
+        "evidence",
+        "integration",
+        "engineering",
+        "docs",
+        "src",
+        "scripts",
+    }
 
     def observe(event: str, fields: tuple[object, ...]) -> None:
         nonlocal hashing

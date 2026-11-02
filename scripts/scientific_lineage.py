@@ -297,7 +297,32 @@ def verify_link(source: str, raw: bytes, data: bytes) -> None:
         raise ValueError(msg)
 
 
-def load_run(folder: Path, factory: Callable[..., NativeStore]) -> dict[str, Any]:
+def verify_contract(record: dict[str, Any], name: str) -> None:
+    """Reject a swapped runner or substituted input even if a different attempt is internally consistent."""
+    contract = read(ARCHIVE / "scientific-runner-inputs.json")
+    if name != record["runner"] or record["model_revision"] != contract["revision"]:
+        msg = "Unexpected runner or scientific model revision"
+        raise ValueError(msg)
+    reviewed = contract["runners"][name]
+    inputs = record["inputs"]
+    if not set(reviewed) <= inputs.keys():
+        msg = "Completed attempt omits reviewed inputs"
+        raise ValueError(msg)
+    for path, key in inputs.items():
+        expected = contract["sha256"].get(path) if path in reviewed else contract["code"].get(path)
+        if expected is None or key != "sha256:" + expected:
+            msg = f"Completed attempt references unreviewed input: {path}"
+            raise ValueError(msg)
+    source = RUNS[name][3]
+    expected_originals = {source: "sha256:" + SOURCE_HASHES[source]} if source else {}
+    if record["originals"] != expected_originals:
+        msg = "Completed attempt has different scientific originals"
+        raise ValueError(msg)
+
+
+def load_run(
+    folder: Path, factory: Callable[..., NativeStore], *, runner: str | None = None
+) -> dict[str, Any]:
     """Independently reopen the attempt and every declared input, source and output."""
     terminal = read(folder / "terminal")
     store = factory(folder / "cas", create=False)
@@ -309,6 +334,7 @@ def load_run(folder: Path, factory: Callable[..., NativeStore]) -> dict[str, Any
     ):
         msg = "Scientific receipt does not belong to a completed attempt"
         raise ValueError(msg)
+    verify_contract(record, runner or folder.name)
     verify_execution(record, terminal, store)
     if set(manifest_io(folder / "outputs")[1]) != set(record["outputs"]):
         msg = "Files no longer match the native inventory"

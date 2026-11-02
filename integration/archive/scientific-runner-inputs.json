@@ -125,6 +125,10 @@
       "src/tobac/value_sensitivity.py"
     ],
     "m2": [
+      "conductor/archive/m2_public_sources_20261027/index.md",
+      "conductor/archive/m2_public_sources_20261027/metadata.json",
+      "conductor/archive/m2_public_sources_20261027/plan.md",
+      "conductor/archive/m2_public_sources_20261027/spec.md",
       "configs/m2_publication.json",
       "configs/m2_retail.json",
       "configs/regulatory.json",
@@ -192,6 +196,10 @@
       "src/tobac/value_sensitivity.py"
     ],
     "m2_publication": [
+      "conductor/archive/m2_public_sources_20261027/index.md",
+      "conductor/archive/m2_public_sources_20261027/metadata.json",
+      "conductor/archive/m2_public_sources_20261027/plan.md",
+      "conductor/archive/m2_public_sources_20261027/spec.md",
       "configs/m2_publication.json",
       "configs/m2_retail.json",
       "configs/regulatory.json",
