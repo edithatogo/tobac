@@ -229,24 +229,24 @@ Owner: archive recovery owner and tobac release/execution owner.
 Depends on: P4–P6; any external raw-object write additionally needs a permitted destination.
 Covers: R10, R11; AC12, AC13.
 
-- [~] Task: P7.1 — Write replay/recovery and clean-package failure tests first.
-  - [ ] Cover missing/corrupt originals or derivatives, incompatible schema/environment,
+- [x] Task: P7.1 — Write replay/recovery and clean-package failure tests first.
+  - [x] Cover missing/corrupt originals or derivatives, incompatible schema/environment,
     interrupted writes, stale checkpoints and undeclared editable/sibling imports.
-- [~] Task: P7.2 — Execute reproducible replay and clean-package consumption.
-  - [ ] Build the owning artifacts, install them outside source/sibling checkouts,
+- [x] Task: P7.2 — Execute reproducible replay and clean-package consumption.
+  - [x] Build the owning artifacts, install them outside source/sibling checkouts,
     verify import locations and reconstruct selected extraction-to-result closures.
-  - [ ] Verify exact source/manifest fixity and scientific comparison tolerances,
+  - [x] Verify exact source/manifest fixity and scientific comparison tolerances,
     including interruption/restart without overwritten originals or false success.
-- [~] Task: P7.3 — Qualify a permitted second-copy recovery of the declared closure.
-  - [ ] Inspect source rights and existing destination contracts/access; use a
+- [x] Task: P7.3 — Qualify a permitted second-copy recovery of the declared closure.
+  - [x] Inspect source rights and existing destination contracts/access; use a
     separately stored copy with an identified failure domain. Another directory on
     the same disk does not prove independent preservation.
-  - [ ] Restore and verify all required objects/manifests/receipts into a clean
+  - [x] Restore and verify all required objects/manifests/receipts into a clean
     location, then replay without the implementation worktrees. Keep absent
     destinations, access and rights blocked; do not create consent/accounts or
     publicly upload originals merely to close this criterion.
-- [ ] Task: P7.4 — Phase verification and checkpoint (refer to workflow.md).
-  - [ ] Record native restore/readback, closure sizes/hashes, clean-package and replay
+- [x] Task: P7.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [x] Record native restore/readback, closure sizes/hashes, clean-package and replay
     outcomes, exact recovery scope and every object that remains unqualified.
 
 ## Phase 8 — Complete integration acceptance and guarded publication
@@ -826,3 +826,52 @@ The private local receipts are in outputs/phase6-Upg4R8ri. GitHub returned no
 run for 95c417f and no matching repository-level resource variables. Hosted
 native qualification awaits a published ref and a runner provisioned with
 approved resources. Phase 7 is next.
+
+## Phase 7 independent restore and clean-package replay — 2 November 2026
+
+Chat 01a19a6e-2e47-7b10-8a35-4e7d7fedb965 owns the recovery tools and
+evidence in /Users/doughnut/Documents/tobac. The producer artifact was rebuilt
+from 08dc5fed in /Users/doughnut/Documents/archive-lineage-port-20261101 and
+matched the accepted wheel byte for byte. The sealed payload is from consumer
+18a5f4c. [Executed recovery receipt](../../../integration/archive/ac13-recovery-receipt.json);
+[restore procedure](../../../docs/engineering/NATIVE_LINEAGE_RECOVERY.md).
+
+P7.1. Actual installed readers rejected missing and corrupt originals and
+derivatives, an incompatible strict record, a stale checkpoint environment,
+an unknown checkpoint schema and the superseded wheel. An interrupted native
+CAS write left no accepted object. Separate isolated interpreter probes rejected
+a shadowing sibling package and an editable distribution.
+
+P7.2. The restored Python 3.15.1 runtime and offline wheels executed under a
+macOS sandbox denying network, original implementation checkouts, prior private
+stores and the USB source. The published MOH and SHINE extraction outputs matched
+their native objects. The registration export and inventory root matched both
+retained registrations and a newly derived store. All eight fresh scientific
+executions reproduced all 82 numerical tables byte for byte. Of 140 output
+files, 119 were byte-identical, nine SVGs differed only in matching glyph IDs
+and references, and twelve JSON files differed only in execution metadata or
+the verified child hashes. Clean-package consumption was also exercised outside
+the restored source tree by rebuilding the sdist and executing installed M1.
+The interrupted M1/M2 sequence resumed with the original M1 receipt intact
+and all 13 CSVs equal to the uninterrupted comparison.
+
+P7.3. The source-specific register permits no public redistribution. The
+owner-held local USB recovery destination provided a distinct physical disk
+(disk4s2, external USB) from the internal source and restore (disk0s2).
+The complete declared generation contains 1,680 files and 257,432,397 payload
+bytes plus its manifest. Its SHA-256 is
+`2096ee548853db35e0505df5c908dca91e5a944111a82f6ac40ff8bd383b71a2`.
+A deliberately interrupted restore failed verification and refused overwrite.
+A new restore completed; staging, USB and restored trees were rehashed again
+after the offline verification.
+
+P7.4. The receipt at 1b134bf records the complete declared scope, physical
+failure domains, byte counts, source states, package identities, replay controls
+and remaining historical gaps. The earlier unavailable MOH private attempt and
+the distinct prior SHINE edition retain their historical status. Twelve failed
+retrievals remain explicit. The 145-item inventory and all successful capture
+bytes in the four declared generations were verified. Full consumer suite:
+1,163 passed, seven skipped, 92% source coverage. Clean-package and recovery Nox
+sessions passed. Strict checks passed after type annotations at 6bcba3d.
+AC13 is verified for this declared private closure. Phase 8 integrated acceptance
+and guarded publication remain open.

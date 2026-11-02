@@ -29,7 +29,7 @@
 
 - [Voiage Polars qualification](./archive/voiage_polars_qualification_20261026/plan.md): published 3.0.0 wheel qualified on Python 3.15.1.
 
-- [Native archival provenance and transformation lineage](./tracks/native_archival_lineage_20261026/index.md): Phases 1–6 complete locally. Qualified commands verify accepted native lineage before workload execution. Phase 7 replay and recovery are next.
+- [Native archival provenance and transformation lineage](./tracks/native_archival_lineage_20261026/index.md): Phases 1–7 complete locally. The external USB restore and offline scientific replay passed. Phase 8 integrated acceptance and guarded publication are next.
 
 - [M2 matched evidence pathway](./archive/m2_matched_evidence_20261027/plan.md):
   completed issue #3 bounded source-feasibility audit and self-review;
