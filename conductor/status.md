@@ -1,6 +1,7 @@
 # Reconciled repository status — 3 November 2026
 
-DXP1 is complete through actual Linux GitHub Actions execution. No registered
+DXP1 is complete. DXP2 is authorized and in progress through hosted package
+portability checks. No registered
 implementation track is in progress. The retained native-lineage track has
 **8/8 phases and 32/32 primary tasks complete**, with zero in progress or pending.
 The 18 archived tracks have no active execution tasks. Five historical graph
@@ -45,8 +46,7 @@ attempt. DXP2–DXP4, Linux release/numerical work, mutation and profiling remai
 ## Remaining deferred phases and tasks
 
 DXP1 is complete; the remaining roadmap commitments await prioritisation.
-There are **three deferred work groups/phases and nine pending tasks**, with zero
-in progress; the advisory
+There are **three work groups/phases, one task in progress and eight pending tasks**; the advisory
 lane is the one existing deferred track. Platform and hardening groups remain in
 [the roadmap](roadmap.md), rather than newly registered implementation tracks.
 

@@ -268,3 +268,17 @@ vulnerabilities. Receipt: `integration/linux_audit_lock_20261103.json`. No audit
 lock or scientific input changed. The original scientific workflow bytes remain
 identical to receiving main. Next operation is exact-head checks, guarded
 publication and receiving-ref readback; DXP2–DXP4 remain deferred.
+
+## DXP2 package portability — 3 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DXP2 in
+`/Users/doughnut/Documents/tobac`, branch `codex/dxp2-package-portability`,
+from receiving main `c024f4c`. Scope is the existing clean-package checker,
+package metadata/path oracles and focused tests, a separate hosted portability
+workflow, and Conductor/evidence reconciliation. Native capture, authentication,
+scientific inputs, Nox entrypoints, dependency pins and accepted scientific
+workflow bytes remain unchanged. No local expensive operation is active.
+Next: build and install both direct and sdist-reconstructed wheels in external
+Unicode/space paths, verify metadata/markers/contents and run installed API/CLI
+smokes on Linux and Windows. DXP3 numerical reproduction and DXP4 release/lock
+workflows remain separately deferred.

@@ -1,0 +1,73 @@
+name: Package portability qualification
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: package-portability-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  portable:
+    name: Package ${{ matrix.os }} Python 3.15.1
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: bash
+    env:
+      TOBAC_REQUIRE_LOCK: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      POLARS_MAX_THREADS: '2'
+      RAYON_NUM_THREADS: '2'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          version: '0.13.5'
+          python-version: '3.15.1'
+          enable-cache: false
+      - name: Select repository-local interpreter
+        run: |
+          uv venv --python 3.15.1 .venv-ci
+          if [ "$RUNNER_OS" = Windows ]; then
+            echo "PYTHON_LOCAL=$GITHUB_WORKSPACE/.venv-ci/Scripts/python.exe" >> "$GITHUB_ENV"
+          else
+            echo "PYTHON_LOCAL=$GITHUB_WORKSPACE/.venv-ci/bin/python" >> "$GITHUB_ENV"
+          fi
+      - name: Verify interpreter, source lock and native lineage route
+        run: |
+          "$PYTHON_LOCAL" -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          "$PYTHON_LOCAL" scripts/lock_receipt.py verify --profile runtime --path engineering/requirements.lock
+          "$PYTHON_LOCAL" -I -S scripts/hosted_lineage.py --configure
+      - name: Execute bounded Linux clean-package qualification
+        if: runner.os == 'Linux'
+        run: '"$PYTHON_LOCAL" scripts/run_bounded.py --max-rss-mib 4096 --timeout 2100 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/package-nox.json -s package clean_package'
+      - name: Execute Windows clean-package qualification under job timeout
+        if: runner.os == 'Windows'
+        run: uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/package-nox.json -s package clean_package
+      - name: Install checksum-pinned native export scanners
+        if: always()
+        run: |
+          sh scripts/install_security_tools.sh
+          .security-tools/gitleaks version
+          .security-tools/actionlint -version
+      - name: Inspect package and verification exports
+        if: always()
+        run: '"$PYTHON_LOCAL" scripts/publication_boundary.py export --source outputs --destination artifact-exports/package'
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: success()
+        with:
+          name: package-portability-${{ matrix.os }}
+          path: artifact-exports/package/
+          if-no-files-found: error
+          retention-days: 14

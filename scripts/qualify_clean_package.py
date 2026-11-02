@@ -6,12 +6,15 @@ import argparse
 import hashlib
 import json
 import os
+import platform
 import shutil
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 from typing import Any
+
+from package_contract import inspect_package
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -31,11 +34,11 @@ def qualify(out: Path) -> dict[str, Any]:
     env = dict(os.environ)
     env.pop("PYTHONPATH", None)
     env.pop("PYTHONHOME", None)
-    env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONHASHSEED="0")
+    env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONHASHSEED="0", PYTHONUTF8="1")
 
     def run(args: list[str], cwd: Path) -> None:
         result = subprocess.run(  # noqa: S603  # Internal argv; resolved uv and isolated Python.
-            args, cwd=cwd, env=env, capture_output=True, text=True, check=False
+            args, cwd=cwd, env=env, capture_output=True, text=True, encoding="utf-8", check=False
         )
         records.append(
             {
@@ -78,66 +81,90 @@ def qualify(out: Path) -> dict[str, Any]:
         ],
         ROOT,
     )
-    with tempfile.TemporaryDirectory(prefix="tobac-clean-package-") as name:
-        external = Path(name)
-        clean = external / "venv"
-        python = clean / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
-        run([uv, "venv", "--python", sys.executable, str(clean)], external)
-        run(
-            [
-                uv,
-                "pip",
-                "sync",
-                "--python",
-                str(python),
-                "--require-hashes",
-                str(ROOT / "engineering/requirements.lock"),
-            ],
-            external,
-        )
-        run(
-            [
-                uv,
-                "pip",
-                "install",
-                "--python",
-                str(python),
-                "--no-deps",
-                "--no-index",
-                str(wheel),
-            ],
-            external,
-        )
-        run([uv, "pip", "check", "--python", str(python)], external)
-        probe = (
-            "import pathlib,sys,tobac; from tobac._core import DecisionProblem,exact_evpi; "
-            "import numpy as np; p=pathlib.Path(tobac.__file__).resolve(); "
-            "assert p.is_relative_to(pathlib.Path(sys.prefix).resolve()); "
-            "assert sys.version_info[:3]==(3,15,1); "
-            "assert exact_evpi(DecisionProblem(np.array([[0.,4.],[3.,0.]]),"
-            "('a','b'),'score',np.array([.75,.25])))==.75; print(p)"
-        )
-        run([str(python), "-I", "-c", probe], external)
-        interchange_probe = (
-            "from pathlib import Path; import numpy as np; "
-            "from tobac.evidence import Scope,EvidencePacket; "
-            "from tobac.interchange import to_arrow,to_polars,from_polars,write_ipc,read_ipc; "
-            "s=Scope('NZ','adults','2024-01-01','2024-12-31','counts'); "
-            "p=EvidencePacket('e',('d',),('s',),('a','b'),np.array([0.,-1.]),s,s,'joint'); "
-            "t=to_arrow(p); assert from_polars(to_polars(t)).state_ids==p.state_ids; "
-            "write_ipc(Path('evidence.arrow'),t); "
-            "assert read_ipc(Path('evidence.arrow')).data_ids==p.data_ids"
-        )
-        run([str(python), "-I", "-c", interchange_probe], external)
-        shutil.copytree(ROOT / "configs", external / "configs")
-        run(
-            [str(python), "-I", "-m", "tobac.run", "--quick", "--out", "result"],
-            external,
-        )
-        validation = json.loads((external / "result/validation.json").read_text(encoding="utf-8"))
-        shutil.copytree(external / "result", out / "installed-cli-result")
+    (rebuilt,) = (out / "reconstructed").glob("*.whl")
+    package_contract = inspect_package(wheel, rebuilt, sdist)
+    installed: list[dict[str, Any]] = []
+    for kind, artifact in (("wheel", wheel), ("sdist-wheel", rebuilt)):
+        with tempfile.TemporaryDirectory(prefix="tobac clean package Māori ") as name:
+            external = Path(name)
+            clean = external / "installed environment Māori"
+            python = clean / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
+            run([uv, "venv", "--python", sys.executable, str(clean)], external)
+            run(
+                [
+                    uv,
+                    "pip",
+                    "sync",
+                    "--python",
+                    str(python),
+                    "--require-hashes",
+                    str(ROOT / "engineering/requirements.lock"),
+                ],
+                external,
+            )
+            run(
+                [
+                    uv,
+                    "pip",
+                    "install",
+                    "--python",
+                    str(python),
+                    "--no-deps",
+                    "--no-index",
+                    str(artifact),
+                ],
+                external,
+            )
+            run([uv, "pip", "check", "--python", str(python)], external)
+            probe = (
+                "import pathlib,sys,tobac,tobac_supply,tobac.research; "
+                "from tobac._core import DecisionProblem,exact_evpi; "
+                "import numpy as np; p=pathlib.Path(tobac.__file__).resolve(); "
+                "assert all(pathlib.Path(m.__file__).resolve()."
+                "is_relative_to(pathlib.Path(sys.prefix).resolve()) "
+                "for m in (tobac,tobac_supply,tobac.research)); "
+                "assert sys.version_info[:3]==(3,15,1); "
+                "assert exact_evpi(DecisionProblem(np.array([[0.,4.],[3.,0.]]),"
+                "('a','b'),'score',np.array([.75,.25])))==.75; print(p)"
+            )
+            run([str(python), "-I", "-c", probe], external)
+            interchange_probe = (
+                "from pathlib import Path; import numpy as np; "
+                "from tobac.evidence import Scope,EvidencePacket; "
+                "from tobac.interchange import to_arrow,to_polars,from_polars,write_ipc,read_ipc; "
+                "s=Scope('NZ','adults','2024-01-01','2024-12-31','counts'); "
+                "p=EvidencePacket('e Māori',('d',),('s',),('a','b'),np.array([0.,-1.]),s,s,'joint'); "
+                "t=to_arrow(p); assert from_polars(to_polars(t)).state_ids==p.state_ids; "
+                "write_ipc(Path('evidence.arrow'),t); "
+                "assert read_ipc(Path('evidence.arrow')).data_ids==p.data_ids"
+            )
+            run([str(python), "-I", "-c", interchange_probe], external)
+            shutil.copytree(ROOT / "configs", external / "configs Māori space")
+            run(
+                [
+                    str(python),
+                    "-I",
+                    "-m",
+                    "tobac.run",
+                    "--quick",
+                    "--config",
+                    str(external / "configs Māori space/regulatory.json"),
+                    "--out",
+                    "result Māori space",
+                ],
+                external,
+            )
+            validation = json.loads(
+                (external / "result Māori space/validation.json").read_text(encoding="utf-8")
+            )
+            shutil.copytree(external / "result Māori space", out / f"installed-cli-{kind}")
+            installed.append({"kind": kind, "validation": validation, "external_unicode_space_path": True})
     result = {
         "schema": "tobac.clean-package.v1",
+        "platform": platform.platform(),
+        "machine": platform.machine(),
+        "package_contract": package_contract,
+        "installed_artifacts": installed,
         "status": "passed",
         "python": sys.version,
         "source_overrides": False,
@@ -146,8 +173,11 @@ def qualify(out: Path) -> dict[str, Any]:
             for p in out.rglob("*")
             if p.is_file()
         },
-        "installed_cli_validation": validation,
-        "scope": "wheel install/API/quick M1 CLI and sdist-to-wheel build; no external scientific approval",
+        "installed_cli_validation": installed[0]["validation"],
+        "scope": (
+            "Direct and sdist-rebuilt wheel contents/metadata, isolated installs/API/quick M1 CLI "
+            "in Unicode/space paths; no full platform numerical or scientific qualification"
+        ),
     }
     (out / "receipt.json").write_text(json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     return result

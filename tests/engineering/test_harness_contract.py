@@ -11,7 +11,13 @@ import yaml
 from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[2]
-WORKFLOWS = ("engineering.yml", "engineering-deep.yml", "release-candidate.yml", "linux-audit.yml")
+WORKFLOWS = (
+    "engineering.yml",
+    "engineering-deep.yml",
+    "release-candidate.yml",
+    "linux-audit.yml",
+    "package-portability.yml",
+)
 
 
 @pytest.mark.parametrize("name", WORKFLOWS)
@@ -202,24 +208,10 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             assert any("nox -s tests" in command for command in commands)
             assert all("upload-artifact@" not in step.get("uses", "") for step in job["steps"])
             continue
-        for job in data["jobs"].values():
-            assert "lock" not in job.get("strategy", {}).get("matrix", {}).get("session", [])
-            runner = job["runs-on"]
-            if runner == "${{ matrix.os }}":
-                assert {entry["os"] for entry in job["strategy"]["matrix"]["include"]} == {"macos-latest"}
-            else:
-                allowed = {"linux-audit.yml": {"ubuntu-24.04"}}.get(
-                    path.name, {"macos-latest", "macos-15-intel"}
-                )
-                assert runner in allowed, (path, runner)
-            commands = [step.get("run", "") for step in job["steps"]]
-            assert any(
-                ".venv-ci/bin/python -c" in command and "assert sys.version_info[:3] == (3, 15, 1)" in command
-                for command in commands
-            ), path
-            for command in commands:
-                if "uvx " in command:
-                    assert ".venv-ci/bin/python scripts/run_bounded.py" in command, path
+        if path.name == "package-portability.yml":
+            assert_portable_package_job(data)
+            continue
+        assert_reference_job_guards(data, path)
     deferred = ROOT / "conductor/roadmap/deferred-workflows"
     for name in ("release-candidate.yml", "dependency-lock.yml"):
         assert (deferred / name).is_file()
@@ -236,3 +228,38 @@ def test_linux_audit_requires_source_bound_lock_and_actual_audits() -> None:
     assert any("verify --profile audit" in command for command in commands)
     assert any("platform.machine() == 'x86_64'" in command for command in commands)
     assert any("-s strict_all security" in command for command in commands)
+
+
+def assert_reference_job_guards(data, path) -> None:
+    for job in data["jobs"].values():
+        assert "lock" not in job.get("strategy", {}).get("matrix", {}).get("session", [])
+        runner = job["runs-on"]
+        if runner == "${{ matrix.os }}":
+            assert {entry["os"] for entry in job["strategy"]["matrix"]["include"]} == {"macos-latest"}
+        else:
+            allowed = {"linux-audit.yml": {"ubuntu-24.04"}}.get(path.name, {"macos-latest", "macos-15-intel"})
+            assert runner in allowed, (path, runner)
+        commands = [step.get("run", "") for step in job["steps"]]
+        assert any(
+            ".venv-ci/bin/python -c" in command and "assert sys.version_info[:3] == (3, 15, 1)" in command
+            for command in commands
+        ), path
+        for command in commands:
+            if "uvx " in command:
+                assert ".venv-ci/bin/python scripts/run_bounded.py" in command, path
+
+
+def assert_portable_package_job(data) -> None:
+    job = data["jobs"]["portable"]
+    assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
+    assert job["timeout-minutes"] == "40"
+    assert job["env"]["TOBAC_REQUIRE_LOCK"] == "1"
+    commands = [step.get("run", "") for step in job["steps"]]
+    assert any("assert sys.version_info[:3] == (3, 15, 1)" in c for c in commands)
+    assert any("verify --profile runtime" in c for c in commands)
+    assert any("scripts/hosted_lineage.py --configure" in c for c in commands)
+    executions = [s for s in job["steps"] if "-s package clean_package" in s.get("run", "")]
+    assert {s["if"] for s in executions} == {"runner.os == 'Linux'", "runner.os == 'Windows'"}
+    linux = next(s for s in executions if s["if"] == "runner.os == 'Linux'")
+    assert "--max-rss-mib 4096 --timeout 2100" in linux["run"]
+    assert any("scripts/publication_boundary.py export" in c for c in commands)

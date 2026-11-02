@@ -15,8 +15,9 @@ qualification platform. DXP1 is complete; the other additional work remains defe
   Python 3.15.1 in GitHub Actions run [41534684953](https://github.com/edithatogo/tobac/actions/runs/41534684953).
   All 96 locked packages match the installed inventory; strict/security sessions,
   96 focused tests and inspected artifact export pass. [Receipt](../integration/linux_audit_lock_20261103.json).
-- [ ] DXP2 — Qualify non-macOS package paths, dependency markers, encodings and
-  release behavior beyond the passing runtime tests.
+- [~] DXP2 — Qualify non-macOS package paths, dependency markers, encodings and
+  release behavior beyond the passing runtime tests. Authorized and in progress
+  on 3 November 2026 through hosted Linux/Windows package checks.
 - [ ] DXP3 — Execute platform-specific scientific reproduction on supported
   non-macOS platforms.
 - [ ] DXP4 — Reconsider and requalify the deferred manual release and lock-generation
@@ -75,6 +76,6 @@ diagnostic execution remains deferred here; it is not an unchecked current macOS
 
 DXP1 is complete. Three cross-platform tasks, four advisory-lane tasks and two
 optional hardening tasks remain: nine deferred tasks across three work groups/phases.
-No implementation task is in progress.
+DXP2 is authorized and in progress; the other eight tasks remain deferred.
 See [current status](status.md) for completed gates, open dependency-update PRs,
 scientific requirements and the disposition of superseded decision drafts.
