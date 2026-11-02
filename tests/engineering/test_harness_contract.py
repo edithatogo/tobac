@@ -174,6 +174,22 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
         if "push" in data["on"]:
             assert data["on"]["push"]["branches"] == ["main"], path
+        if path.name == "lineage-verifier.yml":
+            job = data["jobs"]["runtime"]
+            variants = {(entry["os"], entry["installer"]) for entry in job["strategy"]["matrix"]["include"]}
+            assert variants == {
+                ("macos-latest", "uv"),
+                ("macos-latest", "setup-python"),
+                ("ubuntu-latest", "uv"),
+                ("windows-latest", "uv"),
+            }
+            assert job["timeout-minutes"] == "10"
+            commands = [step.get("run", "") for step in job["steps"]]
+            assert any("uv venv --python 3.15.1 .venv-lineage" in command for command in commands)
+            assert any("-I -S scripts/hosted_lineage.py --probe" in command for command in commands)
+            assert any(command.endswith("-I -S scripts/hosted_lineage.py") for command in commands)
+            assert all("upload-artifact@" not in step.get("uses", "") for step in job["steps"])
+            continue
         if path.name == "cross-platform.yml":
             job = data["jobs"]["tests"]
             assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
