@@ -176,7 +176,7 @@ def registration(
         )
     )
     registered = {}
-    originals = {}
+    originals: dict[str, str] = {}
     comparison = {}
     if source:
         row = next(r for r in export["native_source_refs"] if r["archive_id"] == source)
@@ -201,7 +201,7 @@ def collect_inputs(
     """Reconcile actual reads, the runner manifest, and the independently pinned inputs."""
     declared, outputs = manifest_io(folder / "outputs")
     observed = read(folder / "reads.json")
-    inputs = {}
+    inputs: dict[str, str] = {}
     for path in sorted(observed.keys() | declared.keys()):
         raw = checked(ROOT, path).read_bytes()
         sha = hashlib.sha256(raw).hexdigest()
