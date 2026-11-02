@@ -26,7 +26,7 @@
     "approvals": "approvals.json",
     "validation": "registration-validation.json"
   },
-  "implementation_state": "Phases 1, 2 and 4 complete. P3.3 and P3.4 verified for the scoped MOH replay. Generic transformation closure, runner closure and recovery remain open.",
+  "implementation_state": "Phases 1, 2 and 4 complete. P3.3/P3.4 verified. P3.1/P3.2 partial: local producer candidate rejects missing outputs, cycles and stale pinned revisions; lifecycle, configuration/environment controls and promotion remain open.",
   "completed_phases": [
     1,
     2,
@@ -138,5 +138,6 @@
   "producer_merge_commit": "a8815d634c9ef5ec6eeb88a3419620f8937b238d",
   "native_registration_interface": "integration/archive/native-registration-interface.json",
   "native_source_refs": "integration/archive/native-source-refs.json",
-  "merged_wheel_readback": "integration/archive/merged-wheel-readback_20261102.json"
+  "merged_wheel_readback": "integration/archive/merged-wheel-readback_20261102.json",
+  "transform_closure_candidate": "integration/archive/transform-closure-candidate_20261102.json"
 }

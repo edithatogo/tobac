@@ -652,3 +652,29 @@ producer owner must close these relationships and verify byte substitution,
 attempt lifecycle and stale configuration/environment controls. Repeat the
 failed controls against the replacement wheel before promoting it. Phases 5–8
 retain their existing acceptance requirements.
+
+## Producer transformation closure candidate — 2 November 2026
+
+Chat 01a19a6e-2e47-7b10-8a35-4e7d7fedb965 owns this bounded change in
+/Users/doughnut/Documents/archive-lineage-port-20261101 on
+codex/transform-closure-20261102 (6900e1a1), and the consumer readback in
+/Users/doughnut/Documents/tobac. [Candidate receipt](../../../integration/archive/transform-closure-candidate_20261102.json).
+
+The producer manifest builder checks transformation inputs and outputs against
+the declared object set, rejects cycles across operations, and accepts a caller
+mapping of expected receipt IDs to trusted implementation revisions. A supplied
+mapping must match every transformation. Unpinned callers receive structural
+checks only. This adds no field to the serialized v1 manifest.
+
+The installed candidate rejected all three previously accepted mutations:
+omitted output, self-cycle and substituted revision. The revision pin came
+from the committed MOH recovery checkpoint. The producer regression suite
+also exercised a two-operation cycle and a missing pinned receipt. The valid
+MOH replay reproduced 16 rows, verified nine CAS objects and retained the
+prior manifest digest. 146 installed producer tests and 52 consumer tests passed.
+
+P3.1/P3.2 remain partial for stale configuration and environment, substituted
+valid objects, attempt interruption/immutability, and full qualified-path
+integration. Candidate qualification is local. Producer main integration, full
+release checks and consumer pin promotion remain open. The existing merged
+wheel remains available for historical replay.

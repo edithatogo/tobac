@@ -1,0 +1,25 @@
+{
+  "producer_revision": "6900e1a1d91809eabce22edc2f629c06869ae998",
+  "wheel_sha256": "4e477c51243f9a87a3e01b3ab2b613d814dfc12401f9a28cdd8d6637fd691e9d",
+  "matched_rows": 16,
+  "original": "sha256:3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+  "output": "sha256:c32cc03c62c153b7d0d042aee4f07c0909025a107d5054877be8fa24cd1d44b5",
+  "manifest": "sha256:4544c1757948e474c437e46bcb211930e641e9a790ed8c173f0ba97dfbf3b55b",
+  "verified_objects": 9,
+  "mutations": {
+    "duplicate_object": "duplicate_object_id",
+    "dangling_observation": "dangling_observation",
+    "missing_output": "dangling_transformation_object",
+    "self_cycle": "transformation_cycle",
+    "stale_revision": "transformation_revision_mismatch"
+  },
+  "python": "3.15.1",
+  "producer_parent": "155e9f6acb6a918ecc1306d01c107795e9b894c5",
+  "producer_branch": "codex/transform-closure-20261102",
+  "trusted_revision_source": "integration/archive/moh-recovery-rehearsal_20261029.json#consumer_revision",
+  "producer_tests_passed": 146,
+  "consumer_tests_passed": 52,
+  "scope": "Locally built candidate, installed in isolation. Expected implementation revisions supplied by the caller per transformation receipt ID.",
+  "native_lineage_qualified": false,
+  "scientific_qualification": false
+}
