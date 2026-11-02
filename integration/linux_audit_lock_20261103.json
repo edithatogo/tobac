@@ -1,0 +1,122 @@
+{
+  "schema": "tobac.linux-audit-lock-qualification.v1",
+  "observed_at": "2026-11-02T22:11:43.787692+00:00",
+  "task": "DXP1",
+  "status": "passed",
+  "source_sha": "a17d90b1a7f8b2343a43a85681bc6b4af2cfa2f9",
+  "workflow": ".github/workflows/linux-audit.yml",
+  "workflow_sha256": "f121be116c94ee12bd590384690da306ddbce53be0496d14499d602cb478837e",
+  "hosted_run": {
+    "id": 41534684953,
+    "job_id": 125583466187,
+    "url": "https://github.com/edithatogo/tobac/actions/runs/41534684953",
+    "conclusion": "success",
+    "runner": "ubuntu-24.04 x86_64",
+    "python": "3.15.1 (main, Oct 21 2026, 17:48:50) [Clang 23.1.3 ]",
+    "uv_version": "0.13.5",
+    "nox_version": "2026.10.20"
+  },
+  "lock": {
+    "path": "engineering/audit.lock",
+    "sha256": "8e3e29a769fc729b46489d296ba32981c8e37587bd55d3a922661156dec4baf9",
+    "receipt_sha256": "086d0db47acc809c06263c3d1828fe1f10d265adbd5e782e0dc016a309164849",
+    "source_inputs": {
+      "pyproject.toml": "2b34aae27610adbfcba3b0a9cdea35447adbd06876c748d3c781a32302ba3f20",
+      "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
+      "engineering/reference-requirements.txt": "ee4a0fae35f4e6764c31428a2ade91decc83e90671f808b384d275a8032fb815",
+      "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
+      "engineering/test-requirements.txt": "aad99922ffbb72dded04118a6a9815be60c7634be925e4fac9d64b51720f6678",
+      "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
+      "engineering/audit.in": "7b149445a2ccf7a2417a4668a29a8dd6e927bbcef081de86b50c2450e22304f9",
+      "engineering/tools-requirements.txt": "2f151118147e7e3127a5c57d4c6bf4d902e463df8d4d7634856bdf0675ed5e16"
+    },
+    "hash_checked_install": true,
+    "locked_packages_verified": 96,
+    "additional_editable_project": {
+      "name": "tobac-regulatory-research",
+      "version": "0.2.0"
+    },
+    "unexpected_packages": []
+  },
+  "executed": {
+    "nox_sessions": [
+      {
+        "args": {},
+        "name": "strict_all",
+        "result": "success",
+        "result_code": 1,
+        "reason": null,
+        "signatures": [
+          "strict_all",
+          "strict_all-3.15.1"
+        ],
+        "duration": 36.279893413
+      },
+      {
+        "args": {},
+        "name": "security",
+        "result": "success",
+        "result_code": 1,
+        "reason": null,
+        "signatures": [
+          "security",
+          "security-3.15.1"
+        ],
+        "duration": 3.9409594469999973
+      }
+    ],
+    "ruff_policy_tests": 9,
+    "focused_tests": 96,
+    "basedpyright": "0 errors, 0 warnings, 0 notes",
+    "pip_audit": "No known vulnerabilities found",
+    "zizmor": "passed, offline pedantic",
+    "scanner_archive_checksums": "gitleaks 8.30.1 and actionlint 1.7.12 Linux archives match publisher manifests; both checked on runner",
+    "artifact_export": "publication-boundary inspection and secret scan passed",
+    "rss_limit_mib": 4096,
+    "timeout_seconds": 2100,
+    "peak_sampled_audit_group_rss_mib": 2192.0
+  },
+  "evidence": {
+    "artifact_id": 13182834058,
+    "artifact_digest": "sha256:bdd5b3e678b07026baa22fa932155ed25f53ca5ec84705df832bb6f960b823c2",
+    "artifact_files_sha256": {
+      "sbom.json": "589f6012521b2b90df56a03dca669b7856a4a53a2e551250163a5d7828e03685",
+      "linux-audit-nox.json": "c58a5b50008c0c89b06c1ae603d9b2f24ce3eac109bfb55b657122928c2bbfb5",
+      "environment.json": "8695cc29950a121b390ce5bad5a3f3c8f32ec8f797b89e61fcea02ada37f53b7"
+    },
+    "job_log_sha256": "17be34a38318261706389dc9bed89222b2049a6215968cbf9206e00efa016bbb"
+  },
+  "prior_attempt": {
+    "run_id": 41534027128,
+    "source_sha": "812b60723ac5bf403cb789c59eb335bc7e9866b6",
+    "status": "failed",
+    "passed_scope": "hash-locked installation, strict_all, security and 95 focused tests",
+    "failures": [
+      "Existing scientific workflow change correctly rejected by its signed acceptance pin",
+      "Artifact export scanner installer supported macOS only"
+    ],
+    "fixes": [
+      "Restore scientific cross-platform workflow bytes; create a separate audit workflow",
+      "Qualify checksum-pinned Linux x86_64 export scanners"
+    ],
+    "log_sha256": {
+      "audit-first.log": "79bf39d57704948a3ed9a46a831c6bae2c91d57ed754bb528c993de20d614f9c",
+      "ubuntu-tests-first.log": "701881fa857fc6d0e49729bf5e52654ee1e0943e36db4a335c04f429fc3b5774"
+    }
+  },
+  "scope": "Linux x86_64 source-bound audit-tool installation, strict lint/format/type/security execution and focused contracts only",
+  "not_qualified": [
+    "non-macOS release packaging",
+    "platform-specific numerical reproduction",
+    "manual release/lock generation",
+    "mutation campaign or profiling on Linux"
+  ],
+  "local_checks": {
+    "python": "3.15.1",
+    "focused_tests_passed": 96,
+    "ruff": "passed",
+    "actionlint": "passed",
+    "normal_pre_push_guard": "passed"
+  },
+  "receiving_publication": "Guarded fast-forward and receiving-ref readback required after exact-head checks; scope evidence remains bound to the source SHA above"
+}

@@ -259,3 +259,12 @@ acceptance pin. Corrective scope moves the audit into a dedicated `linux-audit.y
 and adds exact checksum-pinned Linux scanner support; the pinned cross-platform
 scientific workflow is restored byte-for-byte. No lineage waiver or new signature
 is required for this separate engineering audit command.
+
+DXP1 acceptance at `a17d90b`: GitHub run `41534684953` / job `125583466187`
+succeeded, including source-bound hash installation, strict_all, security, 96
+focused tests and scanner-checked artifact export. Downloaded environment matches
+all 96 locked packages plus the editable project; no unexpected packages or known
+vulnerabilities. Receipt: `integration/linux_audit_lock_20261103.json`. No audit
+lock or scientific input changed. The original scientific workflow bytes remain
+identical to receiving main. Next operation is exact-head checks, guarded
+publication and receiving-ref readback; DXP2–DXP4 remain deferred.

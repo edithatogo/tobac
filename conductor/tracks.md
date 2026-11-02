@@ -51,6 +51,10 @@ or a commissioning recommendation. Source/forecast identities and data-once guar
 
 ## Deferred development
 
+DXP1 Linux x86_64 audit-lock installation and strict/security execution is complete
+on Python 3.15.1. [Actual hosted receipt](../integration/linux_audit_lock_20261103.json).
+Nine tasks remain deferred; DXP2–DXP4 release/numerical scope is unchanged.
+
 [Roadmap](roadmap.md): non-macOS release/numerical qualification, optional advisory promotion and explicitly optional
 mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remain required.
 

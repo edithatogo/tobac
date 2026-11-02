@@ -9,11 +9,12 @@ the work.
 
 Hosted Linux and Windows Python 3.15.1 runtime tests were restored and qualified by
 PR #66 at receiving main `62056c5`; macOS remains the full engineering/reference
-qualification platform. The following additional work is deferred:
+qualification platform. DXP1 is complete; the other additional work remains deferred:
 
-- [~] DXP1 — Install and execute the source-bound Linux x86_64 audit lock under
-  the qualified Python 3.15 runtime. Authorized 3 November 2026; Linux hosted
-  installation and audit execution are in progress.
+- [x] DXP1 — Installed and executed the source-bound Linux x86_64 audit lock on
+  Python 3.15.1 in GitHub Actions run [41534684953](https://github.com/edithatogo/tobac/actions/runs/41534684953).
+  All 96 locked packages match the installed inventory; strict/security sessions,
+  96 focused tests and inspected artifact export pass. [Receipt](../integration/linux_audit_lock_20261103.json).
 - [ ] DXP2 — Qualify non-macOS package paths, dependency markers, encodings and
   release behavior beyond the passing runtime tests.
 - [ ] DXP3 — Execute platform-specific scientific reproduction on supported
@@ -70,10 +71,10 @@ The separate bounded gremlins
 campaign detected 68/68; its denominator does not replace mutmut. F6's non-macOS ARM
 diagnostic execution remains deferred here; it is not an unchecked current macOS task.
 
-## Reconciliation — 2 November 2026
+## Reconciliation — 3 November 2026
 
-The four cross-platform tasks, four advisory-lane tasks and two optional hardening
-tasks form ten tasks across three work groups/phases. DXP1 is authorized and
-executing on 3 November; the other nine remain deferred.
+DXP1 is complete. Three cross-platform tasks, four advisory-lane tasks and two
+optional hardening tasks remain: nine deferred tasks across three work groups/phases.
+No implementation task is in progress.
 See [current status](status.md) for completed gates, open dependency-update PRs,
 scientific requirements and the disposition of superseded decision drafts.

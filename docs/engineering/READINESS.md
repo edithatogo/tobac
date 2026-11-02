@@ -9,6 +9,16 @@ workflows are retained in [the roadmap](../../conductor/roadmap.md). Scientific,
 security, source-bound lock, dependency-graph and package-provenance checks execute
 on macOS under their established gates.
 
+DXP1 additionally qualifies the source-bound Linux x86_64 audit lock on Python
+3.15.1. The dedicated [Linux audit workflow](../../.github/workflows/linux-audit.yml)
+verifies its receipt and interpreter, requires hash-checked installation, runs the
+existing `strict_all` and `security` Nox sessions, and exports inspected evidence.
+[Actual qualification](../../integration/linux_audit_lock_20261103.json) records
+96 exact locked packages plus the editable project, zero unexpected packages,
+passing lint/format/typing/workflow/security checks and 96 focused tests. Linux
+release/numerical/mutation/profile qualification is separate. Earlier statements
+that Linux audit installation was unexecuted are historical and superseded for DXP1.
+
 ## Native lineage prerequisites for qualified workloads
 
 The `tests`, `qualification`, `research_m3`, `reproduce`, `package` and
@@ -191,7 +201,7 @@ checks also both run, with no ignored advisories. Failed setup cannot be called 
 
 CI preserves Nox JSON reports, JUnit, environment, coverage and available audit outputs on
 failure. Python 3.15.1 is the required runtime across development, build, tests and CI. The
-macOS test job uses the portable profile. Windows/Linux matrix qualification is deferred. The latest/pre-release canary remains
+macOS test job uses the portable profile. Linux/Windows runtime tests and the Linux locked strict/security audit are qualified; extended release/numerical qualification remains deferred. The latest/pre-release canary remains
 source-only, requires its test dependencies and cannot promote itself.
 Direct Actions remain full-SHA pinned, read-only, credential-free after checkout and bounded
 by concurrency, timeouts and retention. No pull_request_target or automatic scientific merging.

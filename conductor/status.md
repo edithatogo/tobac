@@ -1,7 +1,7 @@
 # Reconciled repository status — 3 November 2026
 
-DXP1 is authorized and in progress through GitHub Actions as a bounded roadmap
-task. No registered implementation track is in progress. The retained native-lineage track has
+DXP1 is complete through actual Linux GitHub Actions execution. No registered
+implementation track is in progress. The retained native-lineage track has
 **8/8 phases and 32/32 primary tasks complete**, with zero in progress or pending.
 The 18 archived tracks have no active execution tasks. Five historical graph
 proposal entries were superseded by bounded inventory acceptance and are explicitly
@@ -28,22 +28,38 @@ inventory coverage. Native package edges, deployment exposure and managed-parser
 success remain unqualified. Upstream issue #16524 and PR #16525 are still open.
 The archived ecosystem's queued receiving-main and Voiage release gates are resolved.
 
+## Completed DXP1 — Linux audit lock
+
+GitHub [run 41534684953](https://github.com/edithatogo/tobac/actions/runs/41534684953)
+on Ubuntu 24.04 x86_64 / Python 3.15.1 installed the unchanged source-bound audit
+lock with hash checking. Downloaded evidence matches all 96 locked packages plus
+the editable project, with zero unexpected packages. Nox `strict_all` and `security`
+pass: Ruff lint/format, whole-source typing with zero errors/warnings, pedantic
+workflow audit and pip-audit with no known vulnerabilities. Nine Ruff-policy tests
+and 96 focused lock/workstream tests pass. Linux scanner archives match the
+publishers' checksum manifests; artifact inspection and secret scanning pass.
+[Qualification receipt](../integration/linux_audit_lock_20261103.json) binds source
+`a17d90b`, eight lock inputs, actual job/artifact IDs, reports and the initial failed
+attempt. DXP2–DXP4, Linux release/numerical work, mutation and profiling remain separate.
+
 ## Remaining deferred phases and tasks
 
-DXP1 is in progress; the other roadmap commitments await prioritisation.
-There are **three work groups/phases, one task in progress and nine pending tasks**; the advisory
+DXP1 is complete; the remaining roadmap commitments await prioritisation.
+There are **three deferred work groups/phases and nine pending tasks**, with zero
+in progress; the advisory
 lane is the one existing deferred track. Platform and hardening groups remain in
 [the roadmap](roadmap.md), rather than newly registered implementation tracks.
 
 | Group / phase | Tasks remaining |
 | --- | --- |
-| Cross-platform release and numerical qualification | DXP1 — install/execute the source-bound Linux audit lock on qualified Python 3.15; DXP2 — qualify non-macOS package paths, markers, encodings and release behavior; DXP3 — execute platform-specific scientific reproduction; DXP4 — reconsider and requalify deferred manual release/lock-generation workflows. |
+| Cross-platform release and numerical qualification | DXP2 — qualify non-macOS package paths, markers, encodings and release behavior; DXP3 — execute platform-specific scientific reproduction; DXP4 — reconsider and requalify deferred manual release/lock-generation workflows. |
 | Advisory CI/CD lane | DCI1 — select nonduplicative additions and current pins; DCI2 — implement selected advisory commands/workflow/ARM leg; DCI3 — execute local and hosted qualification; DCI4 — guarded publication and receiving-ref verification. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
 | Optional macOS hardening | DH1 — triage the 12 surviving supply mutants from the dated 119/131 measurement; DH2 — review retained source/API Ruff exceptions where behavior and scientific meaning are preserved. |
 
 Linux/Windows runtime tests and hosted lineage verification already passed.
-Those outcomes do not qualify their platform-specific release, audit or numerical
-jobs. Mutation counts are dated evidence, not a fresh current mutation result.
+DXP1 additionally qualifies the Linux hash-locked strict/security audit commands.
+Platform-specific release/numerical jobs remain deferred. Mutation counts are dated
+evidence, not a fresh current mutation result.
 
 ## Open dependency maintenance
 
