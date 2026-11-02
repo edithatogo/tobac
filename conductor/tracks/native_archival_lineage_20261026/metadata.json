@@ -26,15 +26,16 @@
     "approvals": "approvals.json",
     "validation": "registration-validation.json"
   },
-  "implementation_state": "Phases 1\u20135 complete locally for the selected native scientific interfaces. Phase 6 enforcement is next. Full-estate recovery and publication remain open.",
+  "implementation_state": "Phases 1\u20136 complete locally. Qualified commands require accepted native evidence before workloads. Phase 7 full-estate replay and independent recovery remain open; Phase 8 publication remains open.",
   "completed_phases": [
     1,
     2,
     3,
     4,
-    5
+    5,
+    6
   ],
-  "next_phase": 6,
+  "next_phase": 7,
   "producer_inspection_revision": "790044096f6946ff9a21662108f4d924cbad0ba2",
   "producer_fixes_commit": "a5b733d2893e4fcf89fed01c670403b5b4c634db",
   "producer_fixes_branch": "codex/native-lineage-port",
@@ -82,9 +83,9 @@
   "p5_phase_verification": "integration/archive/scientific-lineage-checkpoint_20261102.json",
   "p5_runners_integrated": 8,
   "p5_verification_date": "2026-11-02",
-  "p6_phase_verification": "integration/archive/p6-phase-verification_20261031.json",
-  "p6_tests_passed": 10,
-  "p6_verification_date": "2026-10-31",
+  "p6_phase_verification": "integration/archive/qualified-command-enforcement_20261102.json",
+  "p6_tests_passed": 21,
+  "p6_verification_date": "2026-11-02",
   "p4_implementation_commit": "d2a04f5",
   "p4_2_second_operation": "integration/archive/shine-native-extraction_20261031.json",
   "p4_2_second_operation_scripts": [
@@ -100,7 +101,7 @@
   "blocked_phases": [],
   "p2_3_output_present": true,
   "p5_binding_status": "eight_local_scientific_execution_closures_verified",
-  "p6_wired_into_qualified_paths": false,
+  "p6_wired_into_qualified_paths": true,
   "reconciliation": {
     "date": "2026-10-31",
     "base_commit": "69ab2a2",
@@ -141,5 +142,6 @@
   "transform_closure_candidate": "integration/archive/transform-closure-candidate_20261102.json",
   "material_check_interface": "integration/archive/transformation-interface.json",
   "material_check_receipt": "integration/archive/runner-material-checkpoint_20261102.json",
-  "p5_affected_tests_passed": 542
+  "p5_affected_tests_passed": 542,
+  "p6_hosted_status": "unexecuted for local revision 95c417f"
 }

@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage
 
-Status: **in progress** — Phases 1–5 complete locally. Eight scientific executions verified 140 outputs against their inputs and originals. Phase 6 enforcement is next.
+Status: **in progress** — Phases 1–6 complete locally. The six qualified commands verify native evidence before workload execution. Phase 7 replay and independent recovery are next.
 Track ID: `native_archival_lineage_20261026`. Type: Feature.
 
 Trace every current and future dataset through native archival preservation,

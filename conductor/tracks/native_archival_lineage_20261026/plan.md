@@ -203,24 +203,24 @@ Owner: tobac execution/CI owner and archive validation owner.
 Depends on: P3/P5; coordinate shared Nox and workflow edits on issue #1.
 Covers: R02, R05, R08, R12; AC02, AC07, AC10, AC11.
 
-- [ ] Task: P6.1 — Write command-level qualification tests before wiring checks.
-  - [ ] Demonstrate that a missing/tampered required record prevents a qualified run,
+- [x] Task: P6.1 — Write command-level qualification tests before wiring checks.
+  - [x] Demonstrate that a missing/tampered required record prevents a qualified run,
     while explicit exploratory/legacy mode produces visibly unqualified artifacts.
-  - [ ] Test changed/new datasets and operation revisions, stale input receipts,
+  - [x] Test changed/new datasets and operation revisions, stale input receipts,
     incomplete outputs and attempts to promote legacy results without validation.
-- [ ] Task: P6.2 — Wire native and consumer checks into existing qualified paths.
-  - [ ] Extend existing preflight/inventory entrypoints such as
+- [x] Task: P6.2 — Wire native and consumer checks into existing qualified paths.
+  - [x] Extend existing preflight/inventory entrypoints such as
     `scripts/qualify_integrations.py` through the agreed producer interface.
     Retain Sourceright/CiteWeft and scientific checks under their existing meanings.
-  - [ ] Add actual validation calls to applicable Nox tests/reproduce/research/package
+  - [x] Add actual validation calls to applicable Nox tests/reproduce/research/package
     sessions and qualified CLI/CI/release paths; no new task runner or parallel ledger.
-  - [ ] Require lineage changes for new consumed data/operations and prevent implicit
+  - [x] Require lineage changes for new consumed data/operations and prevent implicit
     mode fallback, automatic waivers or a qualified result from an incomplete run.
-- [ ] Task: P6.3 — Execute the selected entrypoints under positive and negative cases.
-  - [ ] Confirm call wiring with native receipt readback, command exit/status and
+- [x] Task: P6.3 — Execute the selected entrypoints under positive and negative cases.
+  - [x] Confirm call wiring with native receipt readback, command exit/status and
     preserved failures, rather than import-only tests or workflow text inspection.
-- [ ] Task: P6.4 — Phase verification and checkpoint (refer to workflow.md).
-  - [ ] Run focused integration and command tests, inspect mode labels and gate
+- [x] Task: P6.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [x] Run focused integration and command tests, inspect mode labels and gate
     effectiveness, and record exact workflow/Nox revisions and actual hosted outcomes.
 
 ## Phase 7 — Prove replay, interruption recovery and independent preservation
@@ -782,3 +782,47 @@ skips and 92% source coverage. Strict lint, formatting and typing passed after
 40820b7 annotated the two native ID mappings. The successful attempt root is
 `outputs/p5-qualified-fapIIGup/` in the owning checkout. The checkpoint above
 retains per-artifact identities, input object IDs and verification log digests.
+
+## Phase 6 qualified-command enforcement — 2 November 2026
+
+Chat 01a19a6e-2e47-7b10-8a35-4e7d7fedb965 owns the Nox/CLI, workflow and
+Conductor changes in /Users/doughnut/Documents/tobac. The gate reuses the
+accepted producer at 08dc5fed from /Users/doughnut/Documents/archive-lineage-port-20261101.
+[Executed cases, revisions and receipt digests](../../../integration/archive/qualified-command-enforcement_20261102.json).
+[Bindings and replacement procedure](../../../docs/engineering/READINESS.md#native-lineage-prerequisites-for-qualified-workloads).
+
+P6.1. Command tests first reproduced the absent gate and the metadata-only
+promotion. Isolated copies of the actual accepted evidence then exercised
+missing transformation, corrupt CAS, missing output, stale configuration,
+changed operation, new dataset, stale initial record, forged terminal and
+changed contract. Each failed before any new runner attempt was claimed.
+Legacy and exploratory inspections returned unqualified labels. An explicitly
+generated replacement remained candidate_unqualified; its manifest could
+not qualify itself.
+
+P6.2. The gate authenticates the interpreter, installed wheel, checkpoint
+and interfaces, then reopens the native records, originals and output bytes.
+Current files and operation/runtime identities must match the accepted attempt.
+The retained inventory check runs first where applicable. Native checks
+precede setup and execution in tests, qualification, research_m3, reproduce,
+package and clean_package. Direct regulatory and longitudinal CI commands
+select their own profiles. The scientific --run and qualified-manifest CLI
+paths require native evidence. The input gate qualifies the indicated
+workload prerequisites. Scientific acceptance and full-estate preservation
+retain separate requirements.
+
+P6.3. All six Nox sessions ran successfully with accepted evidence. In the
+separate rejection run, all six stopped at preflight with missing evidence. Isolated
+package and M3 sessions also stopped before workload setup for stale config
+and a tampered original respectively. The valid qualified M1 command produced
+a new successful terminal record. The final selection check accepted an M1
+manifest for M1 and rejected the same manifest for M3.
+
+P6.4. At c40fd6b, 21 command regressions and the full local Nox suite passed
+(1,161 passed, seven skipped, 92% coverage). M3/workstream tests (61),
+numerical reproduction, package build and clean-package execution passed.
+Strict checks passed again at 95c417f after the final selection check.
+The private local receipts are in outputs/phase6-Upg4R8ri. GitHub returned no
+run for 95c417f and no matching repository-level resource variables. Hosted
+native qualification awaits a published ref and a runner provisioned with
+approved resources. Phase 7 is next.

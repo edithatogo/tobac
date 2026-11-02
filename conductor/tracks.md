@@ -106,7 +106,7 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [~] Producer gap fixes merged and verified. Phases 1–5 complete locally;
+**Status: [~] Producer gap fixes merged and verified. Phases 1–6 complete locally;
 end-to-end qualification remains open.**
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
@@ -121,8 +121,10 @@ for matched originals. P3.3 and P3.4 passed the merged-wheel MOH replay.
 P3.1/P3.2 are complete locally at producer 08dc5fed. Phase 5 traced all 140 output files from eight
 scientific runner variants and reproduced all 82 numerical tables exactly.
 Changing the Phyo source in isolation changed only the longitudinal runner's
-scientific input. Phase 6 owns broader enforcement. Full-estate preservation,
-recovery and publication are open.
+scientific input. Phase 6 verified local command enforcement, including rejection
+of missing, stale and tampered inputs before launch. Phase 7 replay and independent
+recovery are next. Hosted qualification and publication remain open.
+[Phase 6 evidence](../integration/archive/qualified-command-enforcement_20261102.json).
 [Phase 5 evidence](../integration/archive/scientific-lineage-checkpoint_20261102.json).
 [Source references](../integration/archive/native-source-refs.json).
 

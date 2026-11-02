@@ -1,0 +1,296 @@
+{
+  "schema": "tobac.qualified-command-enforcement.v1",
+  "date": "2026-11-02",
+  "owner": "tobac execution integration",
+  "nox_and_workflow_validation_revision": "c40fd6b13b3bfa1395d1111544e369e9bfb68377",
+  "final_verifier_revision": "95c417f4e6d4b3eb04530ac63e62701f5809490e",
+  "producer_revision": "08dc5fedb08ed321a43eccb40270a80bba41f247",
+  "accepted_checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
+  "verified_material": {
+    "profiles": 8,
+    "outputs": 140,
+    "source": "Phase 5 accepted private native attempts, installed producer wheel and current repo-local inputs"
+  },
+  "noxfile_sha256": "e34887739e51de45974bfee3b9d57093ef25c6b2a1e68cf12dfed3dbca3fdf28",
+  "workflow_sha256": {
+    ".github/workflows/ci.yml": "3a40d407d067e45acddef57acb2d6305c3a78b167f1bb9467aebcab43e671b80",
+    ".github/workflows/longitudinal.yml": "4ad4ce8c9c66710655d084cbe24a58944ceaf244478da34f7cb108b3b46d91d2",
+    ".github/workflows/engineering.yml": "217a4bf698d0978f3e3e3887f38b34817fab742f786a1b773be6793067e65c81",
+    ".github/workflows/cross-platform.yml": "fe9503c57fca18bd999907ba9ee2398be4de2c86e066fc789b4f031e667940f6",
+    ".github/workflows/research-m3.yml": "77b04657d83f8de7feda7d879142ab84448b310ed1504152556a42f3ecb42645"
+  },
+  "accepted_nox": {
+    "qualification": {
+      "receipt_sha256": "85b52ec00cef36feaf2dd6b67f01c336cea3e493c7f0f5c9383110721ad22b41",
+      "success": true,
+      "runner_ids": [
+        "longitudinal",
+        "m1",
+        "m2",
+        "m2_publication",
+        "m2_retail",
+        "m2_robustness",
+        "m3",
+        "release_calibration"
+      ]
+    },
+    "tests": {
+      "receipt_sha256": "85b52ec00cef36feaf2dd6b67f01c336cea3e493c7f0f5c9383110721ad22b41",
+      "success": true,
+      "runner_ids": [
+        "longitudinal",
+        "m1",
+        "m2",
+        "m2_publication",
+        "m2_retail",
+        "m2_robustness",
+        "m3",
+        "release_calibration"
+      ]
+    },
+    "research_m3": {
+      "receipt_sha256": "dd477e0e7b3310497dfbc1562a0ad56223f8a8f7ac36da52354eb4c4c7a5876c",
+      "success": true,
+      "runner_ids": [
+        "m3"
+      ]
+    },
+    "reproduce": {
+      "receipt_sha256": "85b52ec00cef36feaf2dd6b67f01c336cea3e493c7f0f5c9383110721ad22b41",
+      "success": true,
+      "runner_ids": [
+        "longitudinal",
+        "m1",
+        "m2",
+        "m2_publication",
+        "m2_retail",
+        "m2_robustness",
+        "m3",
+        "release_calibration"
+      ]
+    },
+    "package": {
+      "receipt_sha256": "85b52ec00cef36feaf2dd6b67f01c336cea3e493c7f0f5c9383110721ad22b41",
+      "success": true,
+      "runner_ids": [
+        "longitudinal",
+        "m1",
+        "m2",
+        "m2_publication",
+        "m2_retail",
+        "m2_robustness",
+        "m3",
+        "release_calibration"
+      ]
+    },
+    "clean_package": {
+      "receipt_sha256": "85b52ec00cef36feaf2dd6b67f01c336cea3e493c7f0f5c9383110721ad22b41",
+      "success": true,
+      "runner_ids": [
+        "longitudinal",
+        "m1",
+        "m2",
+        "m2_publication",
+        "m2_retail",
+        "m2_robustness",
+        "m3",
+        "release_calibration"
+      ]
+    }
+  },
+  "missing_evidence_nox": {
+    "qualification": {
+      "receipt_sha256": "5ce7e3a6209c99f5276a422f093ea0c4cfc46fc15119b087427e14af2427412d",
+      "success": false,
+      "phase": "preflight_before_workload"
+    },
+    "tests": {
+      "receipt_sha256": "5ce7e3a6209c99f5276a422f093ea0c4cfc46fc15119b087427e14af2427412d",
+      "success": false,
+      "phase": "preflight_before_workload"
+    },
+    "reproduce": {
+      "receipt_sha256": "5ce7e3a6209c99f5276a422f093ea0c4cfc46fc15119b087427e14af2427412d",
+      "success": false,
+      "phase": "preflight_before_workload"
+    },
+    "research_m3": {
+      "receipt_sha256": "5ce7e3a6209c99f5276a422f093ea0c4cfc46fc15119b087427e14af2427412d",
+      "success": false,
+      "phase": "preflight_before_workload"
+    },
+    "package": {
+      "receipt_sha256": "5ce7e3a6209c99f5276a422f093ea0c4cfc46fc15119b087427e14af2427412d",
+      "success": false,
+      "phase": "preflight_before_workload"
+    },
+    "clean_package": {
+      "receipt_sha256": "5ce7e3a6209c99f5276a422f093ea0c4cfc46fc15119b087427e14af2427412d",
+      "success": false,
+      "phase": "preflight_before_workload"
+    }
+  },
+  "isolated_nox": {
+    "nox-stale-package": {
+      "session": "package",
+      "exit": 1,
+      "expected": "stale input or operation",
+      "workload_started": false
+    },
+    "nox-tampered-original": {
+      "session": "research_m3",
+      "exit": 1,
+      "expected": "object_corrupt",
+      "workload_started": false
+    }
+  },
+  "direct_ci_scopes": {
+    "ci": {
+      "checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
+      "producer_revision": "08dc5fedb08ed321a43eccb40270a80bba41f247",
+      "runners": {
+        "m1": {
+          "attempt_id": "6eebb04b4b63426583e871b5624ccfe7",
+          "manifest": "sha256:648d675657d589f382ed31a8493f8ca66b8ae07a18c443f9b58ebfab448dcb9a",
+          "verified_inputs": 31,
+          "verified_outputs": 10
+        },
+        "m2_retail": {
+          "attempt_id": "1a43cf3aaa4a45eb89566d62e7a75632",
+          "manifest": "sha256:1539322d8268a570745bbb8d25d6ecc674e4c123deb53fd28eba9243fc716fad",
+          "verified_inputs": 24,
+          "verified_outputs": 9
+        }
+      },
+      "scope": "accepted native attempts and current scientific inputs before workload launch",
+      "success": true
+    },
+    "longitudinal": {
+      "checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
+      "producer_revision": "08dc5fedb08ed321a43eccb40270a80bba41f247",
+      "runners": {
+        "longitudinal": {
+          "attempt_id": "dfb3712867804dd0b445bb2ec3216eda",
+          "manifest": "sha256:ceba24a4f9ebfa4e7ce12aa8dac83a39f595aa86fa69d8f4cea7b2f6bc5be647",
+          "verified_inputs": 7,
+          "verified_outputs": 22
+        },
+        "release_calibration": {
+          "attempt_id": "f8e3d854b8c14138bd6fd689a5d42477",
+          "manifest": "sha256:61bc45c7e049cb41829e73a97255453d9125788bab909a6799003f22a297b16b",
+          "verified_inputs": 7,
+          "verified_outputs": 24
+        }
+      },
+      "scope": "accepted native attempts and current scientific inputs before workload launch",
+      "success": true
+    }
+  },
+  "command_cases": {
+    "accepted-manifest": {
+      "exit": 0,
+      "expected": "\"qualified\": true"
+    },
+    "missing-native-transform": {
+      "exit": 1,
+      "expected": "object_missing",
+      "attempt_created": false
+    },
+    "altered-native-cas": {
+      "exit": 1,
+      "expected": "object_corrupt",
+      "attempt_created": false
+    },
+    "incomplete-outputs": {
+      "exit": 1,
+      "expected": "Output inventory differs",
+      "attempt_created": false
+    },
+    "stale-config": {
+      "exit": 1,
+      "expected": "stale input or operation",
+      "attempt_created": false
+    },
+    "stale-operation": {
+      "exit": 1,
+      "expected": "stale input or operation",
+      "attempt_created": false
+    },
+    "new-dataset": {
+      "exit": 1,
+      "expected": "inventory changed",
+      "attempt_created": false
+    },
+    "stale-started": {
+      "exit": 1,
+      "expected": "initial material snapshot is stale",
+      "attempt_created": false
+    },
+    "forged-terminal": {
+      "exit": 1,
+      "expected": "terminal identity differs",
+      "attempt_created": false
+    },
+    "stale-contract": {
+      "exit": 1,
+      "expected": "differ from the pinned source",
+      "attempt_created": false
+    },
+    "metadata-legacy": {
+      "exit": 0,
+      "expected": "\"qualified\": false"
+    },
+    "metadata-exploratory": {
+      "exit": 0,
+      "expected": "\"qualified\": false"
+    },
+    "metadata-qualified": {
+      "exit": 2,
+      "expected": "\"qualified\": false"
+    },
+    "accepted-new-run": {
+      "exit": 0,
+      "expected": "",
+      "state": "succeeded"
+    }
+  },
+  "additional_selection_controls": {
+    "m1_manifest_m1_selection": 0,
+    "m1_manifest_m3_selection": 2,
+    "rejection": "Manifest does not belong to the requested runner selection"
+  },
+  "candidate_mode": "A real explicitly generated candidate has an unqualified material/receipt label. Qualified manifest CLI rejected its new manifest until independent acceptance.",
+  "validation": {
+    "command_regression_tests": 21,
+    "tests_passed": 1161,
+    "tests_skipped": 7,
+    "source_coverage_percent_rounded": 92,
+    "m3_and_workstream_tests": 61,
+    "strict_all": "pass",
+    "numerical_reproduction": "pass",
+    "package": "pass",
+    "clean_package": "pass"
+  },
+  "corrections": [
+    "Two new command tests failed before implementation.",
+    "Initial integration suite detected inventory ordering and M3 destination contract mismatches. Existing inventory now precedes lineage; both precede workload setup. The M3 verifier checks the actual fresh destination.",
+    "Strict typing corrections were verified by the successful strict_all rerun."
+  ],
+  "hosted": {
+    "checked_revision": "95c417f4e6d4b3eb04530ac63e62701f5809490e",
+    "owning_remote_main": "e4b6f18f92e10b465c8ac14c5c04a45457f5804b",
+    "runs_for_local_revision": [],
+    "matching_repository_variable_names": [],
+    "status": "unexecuted on GitHub; approved hosted resources and an applicable published ref are pending"
+  },
+  "evidence_digests": {
+    "final-positive.log": "d3e144a6bda57c61949f9127eb797ac2638e9c1b3fb981ba5e56d1431715e0b9",
+    "final-reject.log": "e5453ced9dca87aae26100f6a6288d5a86989bcc80ff91d3c0fad6ab8f548f0a",
+    "nox-isolated.log": "66e446e15009410839519296bcb7e69972fb8f2ce6eb8b9965e16833ad8a9052",
+    "controls.log": "047294b71b94319431df26fdb95ceca6ccca12b5f2c756847128edb52468f3b6",
+    "before.log": "edaf0451221efdd806501447184eb4e44d4ba1a428d198927559c3a8f25f9a9d",
+    "strict-final.log": "76e8169afd3c9385566a7d257ee5a5cbdf53db4c5c368ae91e69ed4d9da78a8b"
+  },
+  "scientific_qualification": false,
+  "full_estate_preservation_qualified": false
+}

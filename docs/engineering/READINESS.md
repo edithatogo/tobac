@@ -52,8 +52,10 @@ workload starts.
 
 CI uses the same three variable names. The runner needs the matching interpreter,
 wheel and authorized attempt store at those paths. Configure paths only for
-jobs that can access those resources. Private originals and attempt stores
-belong outside public artifact export directories.
+jobs that can access those resources. The accepted Phase 5 verifier executable
+and environment fingerprints are from macOS. A Linux or Windows verifier needs
+its own reviewed runtime evidence before native qualification on that platform.
+Private originals and attempt stores belong outside public artifact export directories.
 
 ## Ruff expansion and resource controls — 27 October 2026
 
