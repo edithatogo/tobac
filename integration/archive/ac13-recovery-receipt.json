@@ -1,0 +1,768 @@
+{
+  "schema": "tobac.independent-closure-recovery.v1",
+  "date": "2026-11-02",
+  "ac13_verified": true,
+  "ac12_selected_offline_replay_verified": true,
+  "scope": {
+    "schema": "tobac.recovery-declaration.v1",
+    "project_files": 361,
+    "source_revision": "18a5f4c84b367ac6651c4924d3e37d952b2d7c48",
+    "capture_generations": 4,
+    "capture_bodies": 31,
+    "warcs": 32,
+    "failed_targets": 12,
+    "source_identities": 38,
+    "accepted_attempts": 8,
+    "accepted_outputs": 140,
+    "p4_inventory": 145,
+    "restriction": "Private owner-held offline copy; retain source-specific rights."
+  },
+  "producer_revision": "08dc5fedb08ed321a43eccb40270a80bba41f247",
+  "qualified_wheel_sha256": "ed77a01418c8b03d8467e06fc1cdd13df9fdf14a8b1f05bbec23458e63dc02a5",
+  "independent_copy": {
+    "media": "existing owner-held, private external USB APFS volume PortableSSD",
+    "source_and_restore_physical_store": "disk0s2",
+    "backup_physical_store": "disk4s2",
+    "usb_generation": "tobac-lineage-recovery/p7-73OkSCtK",
+    "generation_mode": "0700",
+    "manifest_sha256": "2096ee548853db35e0505df5c908dca91e5a944111a82f6ac40ff8bd383b71a2",
+    "payload_files": 1680,
+    "payload_bytes": 257432397,
+    "manifest_bytes": 305498,
+    "external_started_utc": "2026-11-02T06:10:45.851207+00:00",
+    "external_sealed_utc": "2026-11-02T06:10:48.336709+00:00",
+    "restored_sealed_utc": "2026-11-02T06:11:21.677745+00:00",
+    "final_readback_utc": "2026-11-02T06:17:49.805054+00:00",
+    "readback_locations": [
+      "original assembled internal generation",
+      "external USB generation",
+      "fresh internal restore"
+    ],
+    "restored_directory": "tobac-offline-restore.vlW2uNrC/kit",
+    "rights": "Private local preservation under the selected USB recovery decision. Source-specific rights retained for all 38 identities; redistribution_authorized remains false."
+  },
+  "groups": {
+    "README.txt": {
+      "files": 1,
+      "bytes": 1432
+    },
+    "bootstrap": {
+      "files": 4,
+      "bytes": 63261030
+    },
+    "check_native.py": {
+      "files": 1,
+      "bytes": 4277
+    },
+    "history": {
+      "files": 402,
+      "bytes": 21647031
+    },
+    "packages": {
+      "files": 5,
+      "bytes": 2618815
+    },
+    "payload": {
+      "files": 1194,
+      "bytes": 44428260
+    },
+    "replay.sh": {
+      "files": 1,
+      "bytes": 2480
+    },
+    "wheels": {
+      "files": 72,
+      "bytes": 125469072
+    }
+  },
+  "capture_replay": {
+    "source_count": 38,
+    "aliases": 43,
+    "capture_counts": {
+      "retrieval_failed": 12,
+      "identity_unverified": 1,
+      "challenge_not_source": 19,
+      "metadata_only": 18,
+      "source_html_identity_observed": 10,
+      "source_workbook_values_matched": 1
+    },
+    "native_objects": 32,
+    "registration_root": "49a5317a4dbf38778e11e64151613465914b02d27a8848df0ba9fd57f5164e9d",
+    "source_export_sha256": "f75582e8362b39d08bc69ef7196131667bb756e39df285189ca478c2a5bd9ed3"
+  },
+  "dataset_entries_verified": 145,
+  "domain_extractions": {
+    "moh": {
+      "source_sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+      "objects": 9,
+      "output_sha256": "c32cc03c62c153b7d0d042aee4f07c0909025a107d5054877be8fa24cd1d44b5"
+    },
+    "shine": {
+      "source_sha256": "9d8fe4fca0e55129ebc9325edb93e2daf539e5328e48cb11e45ff4dfd943217e",
+      "objects": 9,
+      "output_sha256": "571f52fc2bfb58a18e85167d000361be8fddece6a45b1379559859b334b7d541"
+    }
+  },
+  "prior_material_outputs_verified": 107,
+  "phase5_gate": {
+    "success": true,
+    "execution_mode": "qualified",
+    "qualified": true,
+    "scope": "accepted native attempts and current scientific inputs before workload launch",
+    "checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
+    "producer_revision": "08dc5fedb08ed321a43eccb40270a80bba41f247",
+    "native_lineage_qualified": false,
+    "scientific_qualification": false,
+    "runners": {
+      "longitudinal": {
+        "attempt_id": "dfb3712867804dd0b445bb2ec3216eda",
+        "manifest": "sha256:ceba24a4f9ebfa4e7ce12aa8dac83a39f595aa86fa69d8f4cea7b2f6bc5be647",
+        "verified_inputs": 7,
+        "verified_outputs": 22
+      },
+      "m1": {
+        "attempt_id": "6eebb04b4b63426583e871b5624ccfe7",
+        "manifest": "sha256:648d675657d589f382ed31a8493f8ca66b8ae07a18c443f9b58ebfab448dcb9a",
+        "verified_inputs": 31,
+        "verified_outputs": 10
+      },
+      "m2": {
+        "attempt_id": "a293dc69243e4d6c89bd9a1cade0f5b1",
+        "manifest": "sha256:6b4519e31a37ae4d35d9ef4f96cb7a3f730e05174548cb31321f677e6fae05ca",
+        "verified_inputs": 74,
+        "verified_outputs": 14
+      },
+      "m2_publication": {
+        "attempt_id": "66f16360dd1c4c1495db52f390a8e6be",
+        "manifest": "sha256:eb5a80ca75cc7ad66fe992b3c8a2afcce01fd65b26f28de957bebabc64dbeaf8",
+        "verified_inputs": 74,
+        "verified_outputs": 42
+      },
+      "m2_retail": {
+        "attempt_id": "1a43cf3aaa4a45eb89566d62e7a75632",
+        "manifest": "sha256:1539322d8268a570745bbb8d25d6ecc674e4c123deb53fd28eba9243fc716fad",
+        "verified_inputs": 24,
+        "verified_outputs": 9
+      },
+      "m2_robustness": {
+        "attempt_id": "829e95b3b11d4931a7b3542f5b19a95d",
+        "manifest": "sha256:16de647ac0bdb183034a50e27e0912dd7b2fbadd083cfc4cbc336b278ce97371",
+        "verified_inputs": 73,
+        "verified_outputs": 7
+      },
+      "m3": {
+        "attempt_id": "56db716f440b4081b95479b9f1d8151c",
+        "manifest": "sha256:0b0d5aa8c6a4af261ae60a7bf0e7d54b22f210da6935f11cc4029c74c6c754cf",
+        "verified_inputs": 33,
+        "verified_outputs": 12
+      },
+      "release_calibration": {
+        "attempt_id": "f8e3d854b8c14138bd6fd689a5d42477",
+        "manifest": "sha256:61bc45c7e049cb41829e73a97255453d9125788bab909a6799003f22a297b16b",
+        "verified_inputs": 7,
+        "verified_outputs": 24
+      }
+    }
+  },
+  "restored_scientific_replay": {
+    "longitudinal": {
+      "runner": "longitudinal",
+      "files": 22,
+      "exact_csv": 8,
+      "changed": [
+        "figures/01_historical_source_alignment.svg",
+        "figures/02_historical_ratio_posterior.svg",
+        "figures/03_signed_discrepancy.svg",
+        "figures/04_assumption_sensitivity.svg",
+        "run_manifest.json"
+      ],
+      "installed_origins": {
+        "archive_govt_nz": "lib/python3.15/site-packages/archive_govt_nz/__init__.py",
+        "tobac": "lib/python3.15/site-packages/tobac/__init__.py",
+        "tobac_supply": "lib/python3.15/site-packages/tobac_supply/__init__.py"
+      },
+      "glyph_id_only_svg": {
+        "figures/01_historical_source_alignment.svg": 1,
+        "figures/02_historical_ratio_posterior.svg": 2,
+        "figures/03_signed_discrepancy.svg": 2,
+        "figures/04_assumption_sensitivity.svg": 1
+      },
+      "metadata_only_fields": {
+        "run_manifest.json": [
+          "commit",
+          "command"
+        ]
+      },
+      "verified_changed_hash_links": 4
+    },
+    "m1": {
+      "runner": "m1",
+      "files": 10,
+      "exact_csv": 8,
+      "changed": [],
+      "installed_origins": {
+        "archive_govt_nz": "lib/python3.15/site-packages/archive_govt_nz/__init__.py",
+        "tobac": "lib/python3.15/site-packages/tobac/__init__.py",
+        "tobac_supply": "lib/python3.15/site-packages/tobac_supply/__init__.py"
+      },
+      "glyph_id_only_svg": {},
+      "metadata_only_fields": {},
+      "verified_changed_hash_links": 0
+    },
+    "m2": {
+      "runner": "m2",
+      "files": 14,
+      "exact_csv": 8,
+      "changed": [
+        "manifest.json",
+        "report.json",
+        "study_value_slice.svg"
+      ],
+      "installed_origins": {
+        "archive_govt_nz": "lib/python3.15/site-packages/archive_govt_nz/__init__.py",
+        "tobac": "lib/python3.15/site-packages/tobac/__init__.py",
+        "tobac_supply": "lib/python3.15/site-packages/tobac_supply/__init__.py"
+      },
+      "glyph_id_only_svg": {
+        "study_value_slice.svg": 1
+      },
+      "metadata_only_fields": {
+        "report.json": [
+          "checkout/commit"
+        ]
+      },
+      "verified_changed_hash_links": 2
+    },
+    "m2_publication": {
+      "runner": "m2_publication",
+      "files": 42,
+      "exact_csv": 24,
+      "changed": [
+        "grid-2/manifest.json",
+        "grid-2/report.json",
+        "grid-2/study_value_slice.svg",
+        "grid-8/manifest.json",
+        "grid-8/report.json",
+        "grid-8/study_value_slice.svg",
+        "manifest.json",
+        "report.json",
+        "study_value_slice.svg"
+      ],
+      "installed_origins": {
+        "archive_govt_nz": "lib/python3.15/site-packages/archive_govt_nz/__init__.py",
+        "tobac": "lib/python3.15/site-packages/tobac/__init__.py",
+        "tobac_supply": "lib/python3.15/site-packages/tobac_supply/__init__.py"
+      },
+      "glyph_id_only_svg": {
+        "grid-2/study_value_slice.svg": 1,
+        "grid-8/study_value_slice.svg": 1,
+        "study_value_slice.svg": 1
+      },
+      "metadata_only_fields": {
+        "grid-2/report.json": [
+          "checkout/commit"
+        ],
+        "grid-8/report.json": [
+          "checkout/commit"
+        ],
+        "report.json": [
+          "checkout/commit"
+        ]
+      },
+      "verified_changed_hash_links": 12
+    },
+    "m2_retail": {
+      "runner": "m2_retail",
+      "files": 9,
+      "exact_csv": 6,
+      "changed": [],
+      "installed_origins": {
+        "archive_govt_nz": "lib/python3.15/site-packages/archive_govt_nz/__init__.py",
+        "tobac": "lib/python3.15/site-packages/tobac/__init__.py",
+        "tobac_supply": "lib/python3.15/site-packages/tobac_supply/__init__.py"
+      },
+      "glyph_id_only_svg": {},
+      "metadata_only_fields": {},
+      "verified_changed_hash_links": 0
+    },
+    "m2_robustness": {
+      "runner": "m2_robustness",
+      "files": 7,
+      "exact_csv": 5,
+      "changed": [
+        "manifest.json",
+        "report.json"
+      ],
+      "installed_origins": {
+        "archive_govt_nz": "lib/python3.15/site-packages/archive_govt_nz/__init__.py",
+        "tobac": "lib/python3.15/site-packages/tobac/__init__.py",
+        "tobac_supply": "lib/python3.15/site-packages/tobac_supply/__init__.py"
+      },
+      "glyph_id_only_svg": {},
+      "metadata_only_fields": {
+        "report.json": [
+          "checkout/commit"
+        ]
+      },
+      "verified_changed_hash_links": 1
+    },
+    "m3": {
+      "runner": "m3",
+      "files": 12,
+      "exact_csv": 10,
+      "changed": [],
+      "installed_origins": {
+        "archive_govt_nz": "lib/python3.15/site-packages/archive_govt_nz/__init__.py",
+        "tobac": "lib/python3.15/site-packages/tobac/__init__.py",
+        "tobac_supply": "lib/python3.15/site-packages/tobac_supply/__init__.py"
+      },
+      "glyph_id_only_svg": {},
+      "metadata_only_fields": {},
+      "verified_changed_hash_links": 0
+    },
+    "release_calibration": {
+      "runner": "release_calibration",
+      "files": 24,
+      "exact_csv": 13,
+      "changed": [
+        "figures/01_reported_release_projection.svg",
+        "run_manifest.json"
+      ],
+      "installed_origins": {
+        "archive_govt_nz": "lib/python3.15/site-packages/archive_govt_nz/__init__.py",
+        "tobac": "lib/python3.15/site-packages/tobac/__init__.py",
+        "tobac_supply": "lib/python3.15/site-packages/tobac_supply/__init__.py"
+      },
+      "glyph_id_only_svg": {
+        "figures/01_reported_release_projection.svg": 1
+      },
+      "metadata_only_fields": {
+        "run_manifest.json": [
+          "commit",
+          "command"
+        ]
+      },
+      "verified_changed_hash_links": 1
+    }
+  },
+  "comparison": {
+    "exact_bytes": 119,
+    "glyph_id_only_svg": 9,
+    "execution_metadata_or_propagated_hash_only_json": 12,
+    "total_outputs": 140,
+    "csv_exact": 82
+  },
+  "offline_package": {
+    "python": "3.15.1 (main, Oct 21 2026, 17:39:16) [Clang 23.1.3 ]",
+    "python_executable_sha256": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
+    "wheelhouse_artifacts": 71,
+    "packages": {
+      "packages/registration/archive_govt_nz-0.1.0-py3-none-any.whl": "972fb518b60c3f95fa0263099cc5b61f8d6d35f69c29a6a3c2387675f9662edb",
+      "packages/historical/archive_govt_nz-0.1.0-py3-none-any.whl": "206e6474d155a6e0f7e0b6f70b5b59747fda473b8643193dc2a580bb7e98c640",
+      "packages/consumer/tobac_regulatory_research-0.2.0-py3-none-any.whl": "96a859720900dae5a23c66213b9b72ecf595a5de36efed9cf9e5c7f0119709fd",
+      "packages/consumer/.gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+      "packages/consumer/tobac_regulatory_research-0.2.0.tar.gz": "d07292e90ef39476979e1bf7704ab3762dea6f788f304844ffbfd469d4fa1623"
+    },
+    "standalone_sdist_rebuild_wheel_sha256": "f9beef01709af963801647f5064b62e9fe9e52ca4a71809cf8dd84ba1e670278",
+    "installed_project_members_verified": true,
+    "standalone_quick_m1_validation_sha256": "aa100714f3bc86a0a775bd9a0c53b175cd946bc7dbfcdd194d920db3c5bdec49",
+    "installed_origins": {
+      "archive_govt_nz": "lib/python3.15/site-packages/archive_govt_nz/__init__.py",
+      "tobac": "lib/python3.15/site-packages/tobac/__init__.py",
+      "tobac_supply": "lib/python3.15/site-packages/tobac_supply/__init__.py"
+    },
+    "outside_original_worktrees": true,
+    "network_and_original_worktrees_and_usb_denied_during_replay": true,
+    "os_prerequisites": "macOS arm64, system shell utilities and Git"
+  },
+  "interruption": {
+    "physical_restore": {
+      "interrupted_exit": -15,
+      "partial_files": 2,
+      "terminal_manifest_present": false,
+      "verify_rejected": true,
+      "overwrite_rejected": true
+    },
+    "scientific_stage_boundary": {
+      "completed": [
+        "m1",
+        "m2"
+      ],
+      "retained_m1_receipt_immutable": true,
+      "csv_sha256": {
+        "m1/consequence_ledgers.csv": "c03976b88f61d21b425723207660af0aede6c93721dae24622e4cdee5621bc3b",
+        "m1/scientific_learning.csv": "c3b525a021f512988e3626105fbe581a0b7c1f393f43aa62c58081c7189bff8b",
+        "m1/grouped_evppi.csv": "fca4476a5fff47cb5de29eda0076fbab4017896ed5eca28393433efe2489b22a",
+        "m1/study_value.csv": "6b2d715de75405a3ee9cee632ea41e7bdb709dbc8d645861738795c29fa5186b",
+        "m1/same_data_robustness.csv": "cf0cbe859de6bb5c912aec7b79b238b023e887d84ec2c354abedd54b7782c0ec",
+        "m1/conditional_price_frontier.csv": "8467c4beae0911f9d7e334a5140fa2561a8c1a853f1fade74f76d4ec7479e59f",
+        "m1/decision_summary.csv": "a27472409c8bc3403ed82d2fd591d85a4801ca286abac3dff5d41a4f18660179",
+        "m1/incremental_information.csv": "45b059fae80c67f932535a59d4c750fef93f6e21fa12bb8fdafdf939eb983c57",
+        "m2/summary.csv": "c05404cac54502f017e56dbda942fa374ee02c34f7db004e9f8aa589eae542c7",
+        "m2/scientific_learning.csv": "dc81d97f72f688f46204e472c62a2692864e3fcf1f6022195fdee9d876d7530d",
+        "m2/grouped_evppi.csv": "14af7bc102880da0862b8dcc1dea15014eef401fe6fa99ee30ef76f060c7da27",
+        "m2/study_value.csv": "5f4a7f826d6b9f10dd3384fd1c4d4ce839c69b4c0d199dc73ef465db65ef3317",
+        "m2/incremental_information.csv": "fc7ece5b35728d8959ed63550068af9f642878d936ddb1aed6b692250fef1ffc"
+      },
+      "scope": "native quick M1/M2 stage-boundary interruption; not mid-kernel recovery"
+    }
+  },
+  "negative_controls": {
+    "sandbox_path_0": "denied",
+    "sandbox_path_1": "denied",
+    "sandbox_path_2": "denied",
+    "sandbox_path_3": "denied",
+    "sandbox_network": "denied",
+    "missing_original": {
+      "exception": "ObjectStoreError",
+      "reason": "object_missing"
+    },
+    "corrupt_original": {
+      "exception": "ObjectStoreError",
+      "reason": "object_corrupt"
+    },
+    "missing_derivative": {
+      "exception": "ValueError",
+      "reason": "inventory"
+    },
+    "corrupt_derivative": {
+      "exception": "ValueError",
+      "reason": "inventory"
+    },
+    "stale_environment_checkpoint": {
+      "exception": "ValueError",
+      "reason": "Incompatible checkpoint"
+    },
+    "incompatible_checkpoint_schema": {
+      "exception": "ValueError",
+      "reason": "Incompatible checkpoint"
+    },
+    "interrupted_CAS_write": {
+      "exception": "ObjectStoreError",
+      "reason": "write_interrupted"
+    },
+    "undeclared_sibling": {
+      "exit": 1,
+      "reason": "Undeclared package origin"
+    },
+    "undeclared_editable": {
+      "exit": 1,
+      "reason": "Editable distribution forbidden"
+    },
+    "strict_schema_rejected": "ArchiveRecordError",
+    "superseded_wheel_rejected": "Producer wheel differs from the reviewed interface"
+  },
+  "unqualified": {
+    "capture_entries_without_registered_original": [
+      {
+        "archive_id": "tobac-05790f0b796014c5",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-0b9d17c38666be28",
+        "index": 0,
+        "status": "identity_unverified"
+      },
+      {
+        "archive_id": "tobac-1487495c6f446674",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-161d5ca9516fcdee",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-21e5ac57790c9907",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-21e5ac57790c9907",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-297be26fc11cb7b3",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-297be26fc11cb7b3",
+        "index": 2,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-2d95e1cbd10671ab",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-384f7a90f3fc0133",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-384f7a90f3fc0133",
+        "index": 2,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-45820b66185001cd",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-52fb080dad9b1459",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-5988c3901a530650",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-5988c3901a530650",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-62f3f431b388649e",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-62f3f431b388649e",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-653a099a62934bb1",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-653a099a62934bb1",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-78830630d9ed6d6c",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-7ee48855a1ed1c4b",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-855a41ac092cdd0a",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-855a41ac092cdd0a",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-86b88ce823d5a2c5",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-912f6f818e46055e",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-912f6f818e46055e",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-91da5c77f9915eb3",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-91da5c77f9915eb3",
+        "index": 2,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-920a4be1c51c0a89",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-920a4be1c51c0a89",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-9487badd2a06b849",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-a1d364d2f2412e10",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-a1d364d2f2412e10",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-bf7efcf2c111532e",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-bf7efcf2c111532e",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-c0f15e46211f48d9",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-c0f15e46211f48d9",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-c90b57a936c5c1eb",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-dc2d41f13bad4122",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-dc2d41f13bad4122",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-dc3b98f881a03390",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-dd9c3bf3d07dcc0a",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-dd9c3bf3d07dcc0a",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-ea4f96240c07fbb1",
+        "index": 0,
+        "status": "retrieval_failed"
+      },
+      {
+        "archive_id": "tobac-f362d5809ccf2fa2",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-f362d5809ccf2fa2",
+        "index": 2,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-f4107b08100d71c4",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-f4107b08100d71c4",
+        "index": 1,
+        "status": "metadata_only"
+      },
+      {
+        "archive_id": "tobac-fa4060e2c085d607",
+        "index": 0,
+        "status": "challenge_not_source"
+      },
+      {
+        "archive_id": "tobac-fa4060e2c085d607",
+        "index": 1,
+        "status": "metadata_only"
+      }
+    ],
+    "source_entry_detail": "integration/archive/native-source-refs.json (per-source zero-based capture index)",
+    "prior_moh_summary_only": {
+      "transformation_object_id": "sha256:573fc22fccd7be27a6892fcf3eff76e0ed0d832c397c786b9c4381fc41c1d497",
+      "validation_object_id": "sha256:dc0bc9b14c55e6fd41613bde6720ca7ff15f2f09b379a9f8968c0286dbe7ab2c",
+      "environment_object_id": "sha256:e5489d65ce568b4b5fd03303709e2a1a43e7694ad293a103bd132f1b38f20f29",
+      "environment_sbom_object_id": "sha256:c67b559dc186f0a691b8b909d4cd9d46b3dd2bb19477c3c95e7801ff2399f828"
+    },
+    "prior_moh_unrestored_private_digests": {
+      "final-nox.json": "e8c9bd6326537bfc72272dc1913647292964dae17e8016ccb27f0278b5345f05",
+      "clean-source-replay/receipt.json": "f988b7fd40bdf14df47d09d52bb9b6f170c2e8fe4204bf8a9b6e93375ddadedf",
+      "native-execution-nox.json": "97dbbd93642aa768c0b92d1c7dfe1e6b2e1612e31d5875fb88bc865a02227038",
+      "native-readback.json": "b40ed2227982baedaa919875ceee1c23cb6af81bd7035ab69bf8b531dd8eea18",
+      "native-with-sbom.lock": "037813a62e9baa0c77b8daa8a195d1146862cfffe0d5fc51e0bce9dcae71ef4c",
+      "execution-environment-sbom.json": "c67b559dc186f0a691b8b909d4cd9d46b3dd2bb19477c3c95e7801ff2399f828"
+    },
+    "moh_scope": "The absent earlier private attempt is not claimed restored. Its retained successor and identical extracted output were independently restored and verified.",
+    "shine_distinct_prior_reference_sha256": "c97875c489e6759776aebf1b7d948603120c46914b13440493128ade93bcdd64",
+    "edition_scope": "Prior historical edition equivalence and unknown capture dates remain unresolved. Metadata, challenge pages and published forecasts do not become original observations."
+  },
+  "validation": {
+    "focused_tests_passed": 28,
+    "full_tests_passed": 1163,
+    "skips": 7,
+    "source_coverage_percent_rounded": 92,
+    "strict_all": "pass after type annotations at 6bcba3d",
+    "clean_package": "pass",
+    "recovery": "pass",
+    "producer_rebuild": "byte-identical to qualified wheel",
+    "git_publication": "not executed",
+    "scientific_qualification": false
+  },
+  "log_sha256": {
+    "seal.log": "9a4ea4421cfc16d0456f919a5b651d366a948d51eea1324b86f43b899fe7676d",
+    "record-controls.log": "e09b24f14792d13918ec97742886a962d0185c70714901bf3e11442ec8ea1f8e",
+    "stage.log": "4b767d1d4dd5c88f04bc0f0ec0a0ef0a7658d8596f8718c1c8486767ff36fca8",
+    "runtime-copy.log": "f4d6c4d63d23def94b5e7b2bd1a819a148e9577c5493a856505709df24b21916",
+    "strict-final.log": "1fc03bd122c8424bb5c51229530674819086bc13da1387ca956a0e684d4785b9",
+    "usb-copy.log": "c6cdfd404c08e7e6cefd65b38746f58272ce6da8ecef2d00be1668311061bf13",
+    "producer-build.log": "661e879d64789b4211934cb1d912da998752e2458412a553db4ef5d0cb503287",
+    "interrupted.log": "c87fa62898058060e1acb2ed3f8e1dfb60c37162039fb7e030f19516221f3ddb",
+    "consumer-build.log": "54692083ec6bd65412466371310816916a4da372ec494e3728451babcbe70485",
+    "extra-verification.log": "5e862921d3c720bdd6474e0dc71fc022198c3fbaf437a39dedc26ca862f9fd64",
+    "output-comparison.log": "fa7363368cbba7c41c3b69e2ae7cd9ad8a50d89a4eb6e7bcb5f0941ae5908fb4",
+    "restored-copy.log": "ee7fdb8732b245dea802fa1596dd6c55abf7b7452a1d27a416f28ec191ab6b9c",
+    "bootstrap.log": "3528cf850e2513f223bc7972b420369da4155b2903c02a19618be4dd4c32c432",
+    "restored-replay.log": "f7a3f26e265908081cca998eff9e2aef56fcb3e359c3917d6cf8eaa8ca7b66c2",
+    "milestone.log": "6f3403994e649fcea5bf193c0451df0d6644e933a75e4d18e402b08da5ac3a3e",
+    "wheelhouse.log": "6fc03f541aa3b5c9b29c101191adb74bcf247db6216d04280c898c1657e647e5",
+    "focused.log": "61bf6833c3408036768c6351fd8c530eb1fbd3ab707b97233bba6467208335d6",
+    "three-final-readbacks.log": "6694becd71ba74193e2856721dae11dd1f01b0add34af250f92ed44df463b265"
+  },
+  "readback_sha256": {
+    "registration.json": "e30a6488bb10afc0bb4c1e9d42cc07d91ea7b9f3aeb1cdef933ee2ba42789552",
+    "qualified.json": "a1aae5e8b5c66590e5d62c8ca77bc97a7ec1c5905f881631c12396ba711acf17",
+    "semantic-replay.json": "02d1f2d8b98f2319dd408d1b9576f66d8a930a3ae37b6a5066f79c88359930c8",
+    "negative-controls.json": "92ba4a90005e1fadac9107860b0d45e025713bc0b515ffa9106590f07c83b370",
+    "record-controls.json": "b22943607d6522734ea44add85987782ade74a538a53dea886e1266e5042f83f",
+    "imports.json": "e22370a9f2706b51d09ed40d6de093d000040659e9bd3b6de69222b4f7b3b63a",
+    "receipt.json": "8625c3b4ed8c10901ccfcbc1b0f64e24125d4f8c469336ff267c967e4d28fbf1"
+  }
+}
