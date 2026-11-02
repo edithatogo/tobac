@@ -10,4 +10,4 @@ msgspec==0.22.0
 ty==0.0.94
 pyrefly==1.4.0
 prek==0.5.7
-pytest-gremlins==1.12.2
+pytest-gremlins==1.13.1
