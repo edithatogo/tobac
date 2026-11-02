@@ -173,8 +173,8 @@ def evidence(session: nox.Session) -> None:
 @nox.session(python="3.15.1")
 def tests(session: nox.Session) -> None:
     """Run the full source-coverage test suite in the qualified environment."""
-    verify_lineage(session, "tests")
     verify_evidence(session, "tests")
+    verify_lineage(session, "tests")
     coverage_root = OUT / "coverage-data"
     coverage_root.mkdir(parents=True, exist_ok=True)
     session.env["COVERAGE_FILE"] = str((ROOT / coverage_root / uuid4().hex).resolve())
@@ -295,8 +295,8 @@ def source_handoff(session: nox.Session) -> None:
 @nox.session(python="3.15.1")
 def reproduce(session: nox.Session) -> None:
     """Replay the numerical reference and verify its outputs."""
-    verify_lineage(session, "reproduce")
     verify_evidence(session, "reproduce")
+    verify_lineage(session, "reproduce")
     environment(session)
     session.run(
         "python",
@@ -406,8 +406,8 @@ def lock(session: nox.Session) -> None:
 @nox.session(python="3.15.1")
 def package(session: nox.Session) -> None:
     """Build internal source/wheel candidates after exact locked installation."""
-    verify_lineage(session, "package")
     verify_evidence(session, "package")
+    verify_lineage(session, "package")
     environment(session, require_lock=True)
     python = session.run("python", "-c", "import sys;print(sys.executable)", silent=True)
     if not isinstance(python, str) or not python.strip():
@@ -482,8 +482,8 @@ def canary(session: nox.Session) -> None:
 @nox.session(python="3.15.1")
 def research_m3(session: nox.Session) -> None:
     """M3 uses the existing reference environment and preserves its lock gates."""
-    verify_lineage(session, "research_m3", "m3")
     verify_evidence(session, "research_m3")
+    verify_lineage(session, "research_m3", "m3")
     environment(session)
     session.run("python", "-m", "pytest", "-q", "tests/m3", "tests/test_workstream_integration.py")
     destination = "outputs/replay_m3"

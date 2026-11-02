@@ -31,4 +31,6 @@ def test_shared_reproduction_includes_m3_without_replacing_existing_models() -> 
     calls = [ast.unparse(n) for n in sessions[0].body]
     assert any("'tests/m3', 'tests/test_workstream_integration.py'" in c for c in calls)
     assert any("'tobac.research.runner'" in c for c in calls)
-    assert any("'scripts/verify.py', 'outputs/replay_m3'" in c for c in calls)
+    assert "destination = 'outputs/replay_m3'" in calls
+    assert any("'tobac.research.runner', '--out', destination" in c for c in calls)
+    assert any("'scripts/verify.py', destination" in c for c in calls)
