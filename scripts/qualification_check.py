@@ -78,7 +78,9 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
 
     for field in ("objects", "observations", "versions"):
         entries = manifest.get(field, [])
-        if not isinstance(entries, list) or any(not isinstance(item, dict) for item in entries):
+        if not isinstance(entries, list) or any(
+            not isinstance(item, dict) for item in cast("list[object]", entries)
+        ):
             errors.append(f"invalid_collection:{field}")
             manifest[field] = []
             qualified = False

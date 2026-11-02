@@ -25,7 +25,7 @@ INVENTORY_SHA = "943f9e20a5bcbc64d65c16d59136c6d09196d391f8608389ba0005bae594af8
 
 def inventory_identity(root: Path) -> str:
     """Bind source, dataset and runner membership, including uncommitted additions."""
-    names = set()
+    names: set[str] = set()
     for pattern in ("configs/**/*", "data/**/*", "evidence/**/*", "src/**/*.py", "scripts/run_*.py"):
         names.update(
             p.relative_to(root).as_posix()
