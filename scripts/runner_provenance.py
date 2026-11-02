@@ -21,7 +21,7 @@ from pathlib import Path
 from typing import Any, Protocol, TypedDict, Unpack, cast
 lazy from collections.abc import Iterable
 
-lazy from scripts.extract_moh_lineage import NativeObject
+lazy from extract_moh_lineage import NativeObject
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
