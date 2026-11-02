@@ -1,0 +1,51 @@
+{
+  "schema": "tobac.runner-material-checkpoint.v1",
+  "producer_revision": "08dc5fedb08ed321a43eccb40270a80bba41f247",
+  "wheel_sha256": "ed77a01418c8b03d8467e06fc1cdd13df9fdf14a8b1f05bbec23458e63dc02a5",
+  "executed_consumer": "921eff6",
+  "python": "3.15.1",
+  "mode": "material-checked exploratory runners",
+  "selected_source": "tobac-7ee48855a1ed1c4b",
+  "material_controls": {
+    "stale_config": "unexpected_config",
+    "alternate_verified_source": "unexpected_inputs",
+    "changed_environment": "unexpected_environment",
+    "SIGINT": "interrupted terminal verified",
+    "reuse_after_interruption": "FileExistsError; terminal bytes identical",
+    "reuse_after_success": "FileExistsError on every completed attempt"
+  },
+  "outputs": {
+    "m1": {
+      "attempt": "9b73565891a34191a92a7607c15cbc00",
+      "terminal_sha256": "9885573f422b7228256d907ae4f6188c03259440cbf1475709a34db85dface4a",
+      "verified_files": 10
+    },
+    "m2": {
+      "attempt": "4227ee699dc149ed9f7b7b5fe71fc745",
+      "terminal_sha256": "2107e792a9efb1c739043d7256a534ddc08d996b694ebecac50a97c86ffb7e87",
+      "verified_files": 14
+    },
+    "m2_publication": {
+      "attempt": "097622902c7248eb8b419c9a9cd1483c",
+      "terminal_sha256": "fe756948b37ef05591bc9ea03ce21959fb09274e2d3d7acafa132468f70dbe60",
+      "verified_files": 42
+    },
+    "m2_robustness": {
+      "attempt": "6381b9f2fa584b5191fa3f9a7fd2edd3",
+      "terminal_sha256": "18a9bad3c4963ee4c4ac37efb067cc6685fe1925a55264f90acb364c40dc17cd",
+      "verified_files": 7
+    },
+    "longitudinal": {
+      "attempt": "742aab53deb4482585fc06005d3515c6",
+      "terminal_sha256": "75a5043f980c098cfe4a20fd532bd153056e3da4903170815e83e09ef863530c",
+      "verified_files": 22
+    },
+    "m3": {
+      "attempt": "7db3d82210484949a9d39cec9aec0f04",
+      "terminal_sha256": "5fc5a8b278d517b40334301a73dc818810533683c117cb74ed3067d3a016fa57",
+      "verified_files": 12
+    }
+  },
+  "native_lineage_qualified": false,
+  "scientific_qualification": false
+}

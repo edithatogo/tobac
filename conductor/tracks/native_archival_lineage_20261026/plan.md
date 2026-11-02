@@ -678,3 +678,33 @@ valid objects, attempt interruption/immutability, and full qualified-path
 integration. Candidate qualification is local. Producer main integration, full
 release checks and consumer pin promotion remain open. The existing merged
 wheel remains available for historical replay.
+
+## Material-checked runner attempts — 2 November 2026
+
+This chat owns the producer branch codex/transform-closure-20261102 in
+/Users/doughnut/Documents/archive-lineage-port-20261101 and the corresponding
+consumer runner, interface pin and Conductor evidence in /Users/doughnut/Documents/tobac.
+[Installed runner checkpoint](../../../integration/archive/runner-material-checkpoint_20261102.json).
+
+Producer 08dc5fed adds material comparison and exclusive attempt reservation.
+The operational switch is `--execute --check-material` on runner_provenance.py
+(or `check_material=True` on a runner wrapper), with explicit native store,
+wheel and source selections. The consumer verifies every installed producer
+package member against transformation-interface.json. Keep the wheel pinned by
+native-registration-interface.json for replay of earlier source-only runs.
+Both interfaces retain v1 data. Use a fresh destination for each attempt.
+
+The reviewed material profile binds the operation and arguments, configuration
+bytes, interpreter digest, engineering lock, installed distribution versions,
+and selected native object, registration and manifest identities. The six
+profiles cover the retained MOH selection as a software qualification fixture.
+They do not declare the complete empirical inputs for the six models. A new
+profile requires independent review of its expected values.
+
+An actual M1 invocation rejected changed config bytes, an additional installed
+distribution and a different valid source registration before launch. SIGINT
+after claim produced an interrupted terminal. A retry against that name failed.
+Each of the six normal runner variants then completed at its own destination.
+A separate readback rehashed all 107 outputs and verified six immutable terminal
+outcomes. A hard exit can leave only the exclusive claim; that state provides
+no successful terminal evidence. Subsequent attempts use new IDs.
