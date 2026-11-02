@@ -604,3 +604,20 @@ M1 and M3 normal wrapper executions each completed and returned the pinned
 export digest and selected source registration. Their shared source selection
 was a software smoke-test declaration, not validation of empirical dependency
 completeness. Peak sampled group RSS for the wrapper smoke run was 351 MiB.
+
+## Native readback before runner execution — 2 November 2026
+
+The runner-native-readback lane owns the provenance wrapper and qualification
+tests in this worktree. All six wrappers and the phase CLI now require an
+explicit native store and wheel in addition to selected source IDs. The installed
+producer is checked against native-registration-interface.json before reopening
+each selected original, registration and manifest through its native CAS verifier.
+IDs and original/version relationships must agree before any runner launch.
+Use --native-store STORE --native-wheel WHEEL with the existing --native-ref
+selections for the phase CLI. Missing artifacts fail closed.
+
+A real M1 execution with the installed a8815d63 wheel and registration-01 store
+passed on Python 3.15.1, recording the reviewed export digest. The native
+readback does not establish complete runner dependency selection. Strict native
+execution records, output-object closure, unavailable originals, full-estate
+independent preservation and restoration remain open.

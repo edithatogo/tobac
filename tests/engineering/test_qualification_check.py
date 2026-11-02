@@ -158,6 +158,7 @@ def test_runner_binds_verified_sources(tmp_path: Path, monkeypatch) -> None:
         "execute_runner_with_provenance",
         lambda *_args, **_kwargs: {"status": "completed"},
     )
+    monkeypatch.setattr(runner_provenance, "readback_sources", lambda *_args: None)
     source = "tobac-7ee48855a1ed1c4b"
     result = runner_provenance.execute_runner_lineage(
         "m1",
@@ -168,3 +169,12 @@ def test_runner_binds_verified_sources(tmp_path: Path, monkeypatch) -> None:
     )
     assert result["source_registrations"][source][0]["object_id"].startswith("sha256:")
     assert result["native_lineage_qualified"] is False
+
+
+def test_runner_readback_requires_native_artifacts() -> None:
+    import pytest  # noqa: PLC0415 -- Negative control.
+
+    from scripts.runner_provenance import readback_sources  # noqa: PLC0415 -- Optional native boundary.
+
+    with pytest.raises(ValueError, match="Native store and pinned producer wheel"):
+        readback_sources({}, None, None)

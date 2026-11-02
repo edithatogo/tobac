@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib
 import json
 import os
 import subprocess
@@ -16,6 +17,8 @@ import sys
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, TypedDict, cast
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 ROOT = Path(__file__).resolve().parents[1]
 INTERFACE = ROOT / "integration/archive/native-producer-interface.json"
@@ -225,6 +228,35 @@ def execute_runner_with_provenance(
     }
 
 
+def readback_sources(
+    selected: dict[str, list[dict[str, Any]]], store_path: Path | None, wheel: Path | None
+) -> None:
+    """Reopen every selected original, native registration and manifest before execution."""
+    if store_path is None or wheel is None:
+        msg = "Native store and pinned producer wheel are required"
+        raise ValueError(msg)
+    support = importlib.import_module("extract_moh_lineage")
+    _, factory, _ = support.producer(wheel, ROOT / "integration/archive/native-registration-interface.json")
+    store = factory(store_path, create=False)
+    for source_id, registrations in selected.items():
+        for ref in registrations:
+            original = store.verify(ref["object_id"])
+            registration = json.loads(verified_bytes(store.verify(ref["registration_object_id"]).path))
+            manifest = json.loads(verified_bytes(store.verify(ref["manifest_object_id"]).path))
+            if (
+                original.object_id != registration["object_id"]
+                or registration["archive_id"] != source_id
+                or registration["source_id"] != ref["observation_id"]
+                or manifest["archive_id"] != source_id
+                or manifest["objects"] != [{"object_id": original.object_id}]
+                or manifest["observations"] != [{"observation_id": ref["observation_id"]}]
+                or manifest["versions"]
+                != [{"version_id": ref["version_id"], "observation_id": ref["observation_id"]}]
+            ):
+                msg = "Native registration or manifest differs from selected source"
+                raise ValueError(msg)
+
+
 def execute_runner_lineage(  # noqa: PLR0913  # Explicit parameters for clear runner configuration.
     runner_name: str,
     config_path: Path,
@@ -233,6 +265,8 @@ def execute_runner_lineage(  # noqa: PLR0913  # Explicit parameters for clear ru
     *,
     extra_args: list[str] | None = None,
     native_refs: list[str] | None = None,
+    native_store: Path | None = None,
+    native_wheel: Path | None = None,
 ) -> dict[str, Any]:
     """Execute a runner and bind its lineage to native provenance."""
     source_path = ROOT / "integration/archive/native-source-refs.json"
@@ -251,6 +285,9 @@ def execute_runner_lineage(  # noqa: PLR0913  # Explicit parameters for clear ru
     if any(not available.get(ref) for ref in native_refs):
         msg = "Runner source lacks a verified native registration"
         raise ValueError(msg)
+
+    selected = {ref: available[ref] for ref in native_refs}
+    readback_sources(selected, native_store, native_wheel)
 
     # Execute the runner
     result = execute_runner_with_provenance(runner_name, config_path, output_path, script_path, extra_args)
@@ -284,7 +321,12 @@ def execute_runner_lineage(  # noqa: PLR0913  # Explicit parameters for clear ru
 
 
 def run_m1_regulatory(
-    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+    config_path: Path,
+    output_path: Path,
+    *,
+    native_refs: list[str] | None = None,
+    native_store: Path | None = None,
+    native_wheel: Path | None = None,
 ) -> dict[str, Any]:
     """Run the M1 regulatory decision runner with provenance."""
     return execute_runner_lineage(
@@ -293,12 +335,19 @@ def run_m1_regulatory(
         output_path,
         ROOT / "src/tobac/run.py",
         native_refs=native_refs,
+        native_store=native_store,
+        native_wheel=native_wheel,
         extra_args=["--config", str(config_path)],
     )
 
 
 def run_m2_publication(
-    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+    config_path: Path,
+    output_path: Path,
+    *,
+    native_refs: list[str] | None = None,
+    native_store: Path | None = None,
+    native_wheel: Path | None = None,
 ) -> dict[str, Any]:
     """Run the M2 publication runner with provenance."""
     if config_path.resolve() != (ROOT / "configs/m2_publication.json").resolve():
@@ -310,12 +359,19 @@ def run_m2_publication(
         output_path,
         ROOT / "scripts/run_m2_publication.py",
         native_refs=native_refs,
+        native_store=native_store,
+        native_wheel=native_wheel,
         extra_args=[],
     )
 
 
 def run_m2_publication_grid(
-    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+    config_path: Path,
+    output_path: Path,
+    *,
+    native_refs: list[str] | None = None,
+    native_store: Path | None = None,
+    native_wheel: Path | None = None,
 ) -> dict[str, Any]:
     """Run the M2 publication runner with grid check."""
     if config_path.resolve() != (ROOT / "configs/m2_publication.json").resolve():
@@ -327,12 +383,19 @@ def run_m2_publication_grid(
         output_path,
         ROOT / "scripts/run_m2_publication.py",
         native_refs=native_refs,
+        native_store=native_store,
+        native_wheel=native_wheel,
         extra_args=["--grid-check"],
     )
 
 
 def run_m2_robustness(
-    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+    config_path: Path,
+    output_path: Path,
+    *,
+    native_refs: list[str] | None = None,
+    native_store: Path | None = None,
+    native_wheel: Path | None = None,
 ) -> dict[str, Any]:
     """Run the M2 robustness runner with provenance."""
     if config_path.resolve() != (ROOT / "configs/m2_robustness.json").resolve():
@@ -344,12 +407,19 @@ def run_m2_robustness(
         output_path,
         ROOT / "scripts/run_m2_robustness.py",
         native_refs=native_refs,
+        native_store=native_store,
+        native_wheel=native_wheel,
         extra_args=[],
     )
 
 
 def run_longitudinal(
-    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+    config_path: Path,
+    output_path: Path,
+    *,
+    native_refs: list[str] | None = None,
+    native_store: Path | None = None,
+    native_wheel: Path | None = None,
 ) -> dict[str, Any]:
     """Run the longitudinal runner with provenance."""
     if config_path.resolve() != (ROOT / "configs/empirical_longitudinal_v2.9.0/model.json").resolve():
@@ -361,12 +431,19 @@ def run_longitudinal(
         output_path,
         ROOT / "scripts/run_empirical_longitudinal.py",
         native_refs=native_refs,
+        native_store=native_store,
+        native_wheel=native_wheel,
         extra_args=[],
     )
 
 
 def run_m3_research(
-    config_path: Path, output_path: Path, *, native_refs: list[str] | None = None
+    config_path: Path,
+    output_path: Path,
+    *,
+    native_refs: list[str] | None = None,
+    native_store: Path | None = None,
+    native_wheel: Path | None = None,
 ) -> dict[str, Any]:
     """Run the M3 research runner with provenance."""
     return execute_runner_lineage(
@@ -375,11 +452,19 @@ def run_m3_research(
         output_path,
         ROOT / "src/tobac/research/runner.py",
         native_refs=native_refs,
+        native_store=native_store,
+        native_wheel=native_wheel,
         extra_args=["--config", str(config_path)],
     )
 
 
-def phase_verification(root: Path, native_refs: list[str] | None = None) -> VerificationResult:
+def phase_verification(
+    root: Path,
+    native_refs: list[str] | None = None,
+    *,
+    native_store: Path | None = None,
+    native_wheel: Path | None = None,
+) -> VerificationResult:
     """P5.4: Phase verification and checkpoint."""
     runners: list[tuple[str, str, str]] = [
         ("m1", "configs/regulatory.json", "src/tobac/run.py"),
@@ -415,17 +500,53 @@ def phase_verification(root: Path, native_refs: list[str] | None = None) -> Veri
 
         # Execute with provenance
         if runner_name == "m1":
-            result = run_m1_regulatory(config_path, output_path, native_refs=native_refs)
+            result = run_m1_regulatory(
+                config_path,
+                output_path,
+                native_refs=native_refs,
+                native_store=native_store,
+                native_wheel=native_wheel,
+            )
         elif runner_name == "m2":
-            result = run_m2_publication(config_path, output_path, native_refs=native_refs)
+            result = run_m2_publication(
+                config_path,
+                output_path,
+                native_refs=native_refs,
+                native_store=native_store,
+                native_wheel=native_wheel,
+            )
         elif runner_name == "m2_publication":
-            result = run_m2_publication_grid(config_path, output_path, native_refs=native_refs)
+            result = run_m2_publication_grid(
+                config_path,
+                output_path,
+                native_refs=native_refs,
+                native_store=native_store,
+                native_wheel=native_wheel,
+            )
         elif runner_name == "m2_robustness":
-            result = run_m2_robustness(config_path, output_path, native_refs=native_refs)
+            result = run_m2_robustness(
+                config_path,
+                output_path,
+                native_refs=native_refs,
+                native_store=native_store,
+                native_wheel=native_wheel,
+            )
         elif runner_name == "longitudinal":
-            result = run_longitudinal(config_path, output_path, native_refs=native_refs)
+            result = run_longitudinal(
+                config_path,
+                output_path,
+                native_refs=native_refs,
+                native_store=native_store,
+                native_wheel=native_wheel,
+            )
         elif runner_name == "m3":
-            result = run_m3_research(config_path, output_path, native_refs=native_refs)
+            result = run_m3_research(
+                config_path,
+                output_path,
+                native_refs=native_refs,
+                native_store=native_store,
+                native_wheel=native_wheel,
+            )
         else:
             result = {"runner": runner_name, "status": "unknown"}
 
@@ -497,13 +618,17 @@ def main() -> None:
         action="store_true",
         help="Actually execute the runners (not just generate verification structure)",
     )
+    parser.add_argument("--native-store", type=Path)
+    parser.add_argument("--native-wheel", type=Path)
     parser.add_argument("--native-ref", action="append", default=None)
     args = parser.parse_args()
     if args.execute and not args.native_ref:
         parser.error("--execute requires explicit --native-ref selections")
 
     if args.execute:
-        result: VerificationResult = phase_verification(ROOT, args.native_ref)
+        result: VerificationResult = phase_verification(
+            ROOT, args.native_ref, native_store=args.native_store, native_wheel=args.native_wheel
+        )
     else:
         # Generate the verification structure without executing
         result = cast(
