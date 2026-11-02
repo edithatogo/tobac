@@ -116,10 +116,14 @@ def verify(attempts: Path, wheel: Path, names: list[str], manifest: Path | None 
     accepted = checkpoint["runner_results"]
     if manifest is not None:
         key = "sha256:" + scientific.runners.digest(manifest)
-        names = [name for name, run in accepted.items() if run["manifest"] == key]
-        if len(names) != 1:
+        matching = [name for name, run in accepted.items() if run["manifest"] == key]
+        if len(matching) != 1:
             msg = "Manifest has no matching accepted native execution"
             raise ValueError(msg)
+        if names and names != matching:
+            msg = "Manifest does not belong to the requested runner selection"
+            raise ValueError(msg)
+        names = matching
     selected = names or sorted(accepted)
     if len(set(selected)) != len(selected) or set(selected) - accepted.keys():
         msg = "Unknown or duplicate runner requested"
