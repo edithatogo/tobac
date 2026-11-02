@@ -122,7 +122,7 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
         seen_ids: set[str] = set()
         for obj in objects:
             oid = obj.get("object_id")
-            if not oid:
+            if not isinstance(oid, str) or not oid:
                 errors.append("missing_object_id")
                 qualified = False
             elif oid in seen_ids:
@@ -137,17 +137,17 @@ def qualification_check(  # noqa: C901, PLR0912, PLR0915
         qualified = False
     else:
         for obs in observations:
-            if not obs.get("observation_id"):
+            if not isinstance(obs.get("observation_id"), str) or not obs["observation_id"]:
                 errors.append("missing_observation_id")
                 qualified = False
 
     versions: list[dict[str, Any]] = cast("list[dict[str, Any]]", manifest.get("versions", []))
-    obs_ids = {o.get("observation_id") for o in observations}
+    obs_ids = {o["observation_id"] for o in observations if isinstance(o.get("observation_id"), str)}
     for ver in versions:
-        if not ver.get("version_id"):
+        if not isinstance(ver.get("version_id"), str) or not ver["version_id"]:
             errors.append("missing_version_id")
             qualified = False
-        if ver.get("observation_id") not in obs_ids:
+        if not isinstance(ver.get("observation_id"), str) or ver["observation_id"] not in obs_ids:
             errors.append(f"dangling_observation:{ver.get('version_id')}")
             qualified = False
 
