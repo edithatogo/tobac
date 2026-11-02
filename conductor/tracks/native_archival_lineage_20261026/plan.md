@@ -176,25 +176,25 @@ Owner: tobac execution integration, with regulatory/longitudinal/M3 file owners.
 Depends on: P3/P4 for each required input closure; preserve separate scientific gates.
 Covers: R07, R09, R10; AC09, AC11, AC12.
 
-- [ ] Task: P5.1 — Write runner integration and lineage query tests first.
-  - [ ] Cover complete result-to-original traversal, forward changed-source impact,
+- [x] Task: P5.1 — Write runner integration and lineage query tests first.
+  - [x] Cover complete result-to-original traversal, forward changed-source impact,
     parameters/scenarios, model/environment identity and the exact output inventory.
-  - [ ] Preserve shared MOH/NZHS identity, source/target scope, state ordering,
+  - [x] Preserve shared MOH/NZHS identity, source/target scope, state ordering,
     covariance and once-only evidence conditioning under the existing contracts.
-- [ ] Task: P5.2 — Integrate supported runners through their current execution layers.
-  - [ ] Reuse the parameter/model/execution workstream's contracts; keep archival I/O
+- [x] Task: P5.2 — Integrate supported runners through their current execution layers.
+  - [x] Reuse the parameter/model/execution workstream's contracts; keep archival I/O
     outside scientific calculations and keep scientific meanings/values unchanged.
-  - [ ] Bind regulatory M1/M2, both longitudinal runners and M3 inputs/results to
+  - [x] Bind regulatory M1/M2, both longitudinal runners and M3 inputs/results to
     native provenance through each owner's reviewed interface, with explicit status.
-  - [ ] Connect complete produced results to successful execution records; preserve
+  - [x] Connect complete produced results to successful execution records; preserve
     historical results as historical rather than manufacturing retrospective runs.
-- [ ] Task: P5.3 — Execute actual runner proof and trace/impact checks.
-  - [ ] Use qualified input closures for new runs; independently trace their actual
+- [x] Task: P5.3 — Execute actual runner proof and trace/impact checks.
+  - [x] Use qualified input closures for new runs; independently trace their actual
     output artifacts back to originals and demonstrate changed-source impact sets.
-  - [ ] Compare scientific outputs against preserved references using current exact
+  - [x] Compare scientific outputs against preserved references using current exact
     or tolerance contracts; report drift rather than changing expected values.
-- [ ] Task: P5.4 — Phase verification and checkpoint (refer to workflow.md).
-  - [ ] Run affected component tests and `tests/test_workstream_integration.py`;
+- [x] Task: P5.4 — Phase verification and checkpoint (refer to workflow.md).
+  - [x] Run affected component tests and `tests/test_workstream_integration.py`;
     record which numerical runners executed and retain unexecuted/blocked paths.
 
 ## Phase 6 — Enforce qualification and future-addition requirements
@@ -727,3 +727,52 @@ type import correction at 21339d8. Quality, numerical reproduction, package
 build, clean-package execution, recovery, security and mutation all passed
 locally. Mutation killed 119 of 131 against a 60% floor. See the installed
 runner checkpoint above for stage names and log digests.
+
+## Phase 5 scientific runner acceptance — 2 November 2026
+
+Chat 01a19a6e-2e47-7b10-8a35-4e7d7fedb965 owns the consumer execution and
+query work in /Users/doughnut/Documents/tobac. The consumer reuses producer
+08dc5fed. The interrupted contract commit had not landed. The verified contract
+landed at e3fde8f, the nested catalogue checks at 0191833, the shared-data query
+at c55aee3 and the eight-run evidence at 5332ac8.
+[Per-artifact source and impact evidence](../../../integration/archive/scientific-lineage-checkpoint_20261102.json).
+
+P5.1/P5.2. The eight profiles use normal model entry points, model bytes from
+ce40fa1 and reviewed inputs checked before launch. The child observes repository
+reads; the verifier reconciles these with runner manifests, local inputs, native
+registrations, strict execution and validation records, and the complete output
+inventory. Source-catalogue reads are audit inputs to M2 publication/robustness.
+M1 uses declared scenarios. Five variants use the SHINE model parameter. The
+release-calibration model uses the MOH series and retained transcription, with
+a 16-row independent workbook comparison. The longitudinal model uses 12 rows
+from Phyo Table 2. Comparisons preserve source editions and original data roles.
+
+P5.3. All eight successful attempts reopened. Their 140 output files include
+82 numerical CSVs, each byte-identical to its preserved reference. Remaining
+reference differences are confined to command/checkout metadata and its hashes.
+Reverse queries resolve a named output to the successful attempt, input files
+and source objects. Forward queries return the execution-level set of outputs
+to re-evaluate. An underlying MOH-data change selects both longitudinal models.
+The specific workbook selects release calibration alone. NZHS and the Phyo
+publication select the empirical longitudinal runner.
+
+The isolated Phyo counterfactual doubled the 2014 counts, including the bounds
+and signed gap, leaving the percentages fixed. The changed table passed the
+same source comparison. A fresh model execution changed all eight numerical
+tables, ten figures and the run manifest. Captions, fit scope and source audit
+were byte-identical. The seven other profiles had no edge to that publication.
+
+P5.4. The affected regulatory, M2, M3, longitudinal, provenance and workstream
+integration checks passed (542 tests). The first M2 robustness observation was
+interrupted by the macOS process monitor. A subsequent run identified four
+catalogue files under conductor/archive that were pinned but outside the observer.
+The corrected observer retained all four checks. The final fresh run succeeded.
+Phase 6 owns integration into additional enforcement paths. Full-estate recovery
+and guarded publication remain in Phases 7 and 8.
+
+To replay, use the Python 3.15.1 environment and wheel pinned by
+integration/archive/transformation-interface.json. In scripts/scientific_lineage.py
+use --run RUNNER --store STORE --wheel WHEEL --out NEW_ATTEMPT_ROOT. For completed
+attempts use --trace RUNNER OUTPUT or --changed SOURCE with --wheel and --out.
+scripts/qualify_scientific_counterfactual.py takes --attempts, --wheel and a
+fresh --out directory. Private originals and attempt stores stay local.

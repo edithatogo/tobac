@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage
 
-Status: **in progress** — Phases 1–4 complete locally. Phase 5 is next. The six material-checked runner variants verified 107 output files. Full scientific dependency closure and producer promotion remain open.
+Status: **in progress** — Phases 1–5 complete locally. Eight scientific executions verified 140 outputs against their inputs and originals. Phase 6 enforcement is next.
 Track ID: `native_archival_lineage_20261026`. Type: Feature.
 
 Trace every current and future dataset through native archival preservation,
