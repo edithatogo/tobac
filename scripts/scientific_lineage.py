@@ -8,7 +8,6 @@ import hashlib
 import importlib
 import io
 import json
-import os
 import re
 import sys
 from decimal import Decimal
@@ -22,7 +21,6 @@ import qualify_shine_table as shine
 import runner_provenance as runners
 from scientific_receipts import persist_execution, verify_execution
 from source_handoff import checked, read
-lazy from extract_moh_lineage import NativeStore
 
 PHYO_YEARS = range(2012, 2024)
 TABLE_WIDTH = 5
@@ -167,7 +165,7 @@ def manifest_io(folder: Path) -> tuple[dict[str, str], dict[str, str]]:
 
 
 def registration(
-    source: str | None, native_store: Path, wheel: Path, store: NativeStore
+    source: str | None, native_store: Path, wheel: Path, store: moh.NativeStore
 ) -> tuple[dict[str, Any], dict[str, str], dict[str, Any]]:
     """Verify the exact scientific original and its native registration before execution."""
     export_path = ARCHIVE / "native-source-refs.json"
@@ -197,7 +195,7 @@ def registration(
 
 
 def collect_inputs(
-    folder: Path, expected: dict[str, str], store: NativeStore, code: dict[str, str]
+    folder: Path, expected: dict[str, str], store: moh.NativeStore, code: dict[str, str]
 ) -> tuple[dict[str, str], dict[str, str], dict[str, str], dict[str, str]]:
     """Reconcile actual reads, the runner manifest, and the independently pinned inputs."""
     declared, outputs = manifest_io(folder / "outputs")
@@ -220,19 +218,18 @@ def collect_inputs(
 
 def run_one(name: str, dest: Path, native_store: Path, wheel: Path, *, candidate: bool = False) -> None:
     """Reserve an attempt, compare its original, execute, and bind all output bytes."""
-    from lineage_preflight import verify  # noqa: PLC0415 -- Execution gate; read-only historical queries stay independent.
+    from qualify_integrations import native_lineage  # noqa: PLC0415 -- Use the isolated qualified verifier.
 
     mode = "candidate_unqualified" if candidate else "qualified_inputs"
     if not candidate:
-        attempts = os.environ.get("TOBAC_LINEAGE_ATTEMPTS")
-        if not attempts:
-            msg = "Missing TOBAC_LINEAGE_ATTEMPTS for qualified scientific execution"
+        receipt = native_lineage([name])
+        if receipt.get("success") is not True:
+            msg = "Native lineage preflight rejected the runner"
             raise ValueError(msg)
-        verify(Path(attempts), wheel, [name])
     native, factory, pin = moh.producer(wheel, ARCHIVE / "transformation-interface.json")
     api = importlib.import_module("archive_govt_nz.transformation_attempt")
     script, config, args, source = RUNS[name]
-    source_store = cast("Callable[..., NativeStore]", factory)(native_store, create=False)
+    source_store = cast("Callable[..., moh.NativeStore]", factory)(native_store, create=False)
     contract = read(ARCHIVE / "scientific-runner-inputs.json")
     expected = {p: contract["sha256"][p] for p in contract["runners"][name]}
     for path, value in expected.items():
@@ -346,7 +343,7 @@ def verify_contract(record: dict[str, Any], name: str) -> None:
 
 
 def load_run(
-    folder: Path, factory: Callable[..., NativeStore], *, runner: str | None = None
+    folder: Path, factory: Callable[..., moh.NativeStore], *, runner: str | None = None
 ) -> dict[str, Any]:
     """Independently reopen the attempt and every declared input, source and output."""
     terminal = read(folder / "terminal")

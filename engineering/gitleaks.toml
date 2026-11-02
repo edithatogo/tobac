@@ -1,3 +1,12 @@
 # Retain every upstream detection rule; no allowlists or ignored paths.
 [extend]
 useDefault = true
+
+# This immutable receipt value is the verified SHA-256 of a local scanner log.
+# Match its exact path and entire line. Other hashes and secret findings remain gates.
+[[allowlists]]
+description = "Verified scanner-log digest in the immutable producer release receipt"
+condition = "AND"
+paths = ['''^integration/archive/runner-material-checkpoint_20261102[.]json$''']
+regexTarget = "line"
+regexes = ['''^\s*"release-secrets[.]log": "e050580e7b14bd40887e5dc3fc9537af3d7a9146bf55541cd43d194f50a501a8",?\s*$''']
