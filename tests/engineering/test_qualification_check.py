@@ -125,3 +125,46 @@ def test_qualification_check_no_scientific_qualification(tmp_path: Path) -> None
     result = qualification_check(manifest)
     assert result["scientific_qualification"] is False
     assert result["automatically_conditions_live_model"] is False
+
+
+def test_runner_rejects_unregistered_sources_before_execution(tmp_path: Path, monkeypatch) -> None:
+    from scripts import runner_provenance  # noqa: PLC0415 -- Exercise the execution boundary.
+
+    def forbidden(*_args, **_kwargs):
+        msg = "Runner must not execute before source validation"
+        raise AssertionError(msg)
+
+    monkeypatch.setattr(runner_provenance, "execute_runner_with_provenance", forbidden)
+    import pytest  # noqa: PLC0415 -- Local negative control.
+
+    for refs in (None, [], ["unknown"], ["tobac-7ee48855a1ed1c4b"] * 2):
+        with pytest.raises(ValueError, match=r"native source|verified native"):
+            runner_provenance.execute_runner_lineage(
+                "m1",
+                tmp_path / "config",
+                tmp_path / "out",
+                tmp_path / "runner",
+                native_refs=refs,
+            )
+
+
+def test_runner_binds_verified_sources(tmp_path: Path, monkeypatch) -> None:
+    from scripts import runner_provenance  # noqa: PLC0415 -- Exercise the execution boundary.
+
+    config = tmp_path / "config"
+    config.write_text("{}")
+    monkeypatch.setattr(
+        runner_provenance,
+        "execute_runner_with_provenance",
+        lambda *_args, **_kwargs: {"status": "completed"},
+    )
+    source = "tobac-7ee48855a1ed1c4b"
+    result = runner_provenance.execute_runner_lineage(
+        "m1",
+        config,
+        tmp_path / "out",
+        tmp_path / "runner",
+        native_refs=[source],
+    )
+    assert result["source_registrations"][source][0]["object_id"].startswith("sha256:")
+    assert result["native_lineage_qualified"] is False

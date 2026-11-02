@@ -576,3 +576,31 @@ A negative replay rejected an export whose failed retrieval had been relabelled
 as a matched workbook. The verifier also reports an empty WARC or missing
 receipt target explicitly. The corrected verifier reproduced the same export
 digest in another fresh private store.
+
+## Runner source enforcement — 2 November 2026
+
+Chat 01a195fd-7f87-7472-9ff4-3c1e59fe7976 owns runner_native_enforcement
+in the voiage-alignment/tobac worktree. The six provenance wrappers now require
+explicit unique source archive IDs from the verified source-reference export.
+They reject missing selections, altered exports and sources without native
+registrations before execution. Result metadata includes the export digest and
+selected registration, manifest, version and object identities. Selections are
+caller declarations and do not prove complete dependency or result closure.
+M1 and M3 invoke their actual modules. Fixed-configuration runners reject
+a different declared config. Execution uses the selected Python 3.15.1.
+
+Use the wrapper functions with native_refs=[ARCHIVE_ID,...], or the phase CLI
+with --execute --native-ref ARCHIVE_ID (repeat for each selected source).
+The default scientific CLIs retain their existing exploratory behavior.
+No qualified lineage claim is enabled. Native object readback during each runner,
+strict execution records, unavailable originals, full dependency-graph closure
+and full-archive independent recovery remain acceptance blockers.
+
+Verification: the local full suite passed (1,140 passed, 15 skips, 92%
+coverage), as did strict checks and numerical reproduction. A source-export
+read race found during review was fixed by hashing, parsing and binding one
+verified byte snapshot. The 12 focused qualification tests passed after that fix.
+M1 and M3 normal wrapper executions each completed and returned the pinned
+export digest and selected source registration. Their shared source selection
+was a software smoke-test declaration, not validation of empirical dependency
+completeness. Peak sampled group RSS for the wrapper smoke run was 351 MiB.
