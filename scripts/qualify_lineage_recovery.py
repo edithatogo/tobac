@@ -21,7 +21,7 @@ def digest(path: Path) -> str:
 
 def inventory(root: Path) -> dict[str, tuple[int, str]]:
     """Inventory regular files; reject links and filesystem-special entries."""
-    files = {}
+    files: dict[str, tuple[int, str]] = {}
     for item in sorted(root.rglob("*")):
         if item.is_symlink() or not (item.is_dir() or item.is_file()):
             msg = f"Unsupported recovery entry: {item.relative_to(root)}"

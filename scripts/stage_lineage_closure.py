@@ -78,9 +78,9 @@ def copy_file(source: Path, target: Path, expected: str | None = None) -> None:
 def capture_files(root: Path, out: Path) -> dict[str, int]:
     """Use the four pinned generations, including retrieval failures, to select originals and WARCs."""
     pins = set(read(ARCHIVE / "source-bindings.json")["capture_receipt_sha256"])
-    seen = set()
-    bodies = {}
-    warcs = {}
+    seen: set[str] = set()
+    bodies: dict[str, str] = {}
+    warcs: dict[str, str] = {}
     failures = 0
     for path in sorted(root.glob("*/capture.json")):
         sha = digest(path)

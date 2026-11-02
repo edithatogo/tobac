@@ -26,7 +26,7 @@ def installed_origins() -> dict[str, str]:
         msg = "Select an isolated Python 3.15.1 virtual environment"
         raise RuntimeError(msg)
     prefix = Path(sys.prefix).resolve()
-    result = {}
+    result: dict[str, str] = {}
     for package, distribution in PACKAGES.items():
         metadata = importlib.metadata.distribution(distribution)
         direct = json.loads(metadata.read_text("direct_url.json") or "{}")
