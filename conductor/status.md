@@ -1,6 +1,7 @@
 # Reconciled repository status — 3 November 2026
 
-DXP1–DXP3 are complete through actual hosted qualification. No registered
+DXP1–DXP3 are complete through actual hosted qualification. DXP4 manual workflows
+are in progress; no registered
 implementation track is in progress. The retained native-lineage track has
 **8/8 phases and 32/32 primary tasks complete**, with zero in progress or pending.
 The 18 archived tracks have no active execution tasks. Five historical graph
@@ -86,7 +87,7 @@ endorsement. DXP4 manual release and lock generation remains deferred.
 ## Remaining deferred phases and tasks
 
 DXP1–DXP3 are complete; the remaining roadmap commitments await prioritisation.
-There are **three deferred work groups/phases and seven pending tasks**, with zero in progress; the advisory
+There are **three remaining work groups/phases and seven tasks**, with DXP4 in progress and six tasks deferred; the advisory
 lane is the one existing deferred track. Platform and hardening groups remain in
 [the roadmap](roadmap.md), rather than newly registered implementation tracks.
 

@@ -1,11 +1,8 @@
-# Deferred Linux workflow definitions
+# Former deferred Linux workflow definitions
 
-These original workflow files are preserved from 94c4712 following the owner's
-28 October 2026 macOS-only direction. GitHub does not execute them from this folder.
-Their source/hash/lock requirements remain unchanged and their contract tests
-continue to check those requirements. Restoration and Linux qualification are
-roadmap work, requiring current sources and real hosted execution.
-
-Current macOS scientific, test, numerical, security, provenance and dependency-graph
-jobs remain active in `.github/workflows/`. Native macOS audit results do not
-establish Linux hash-locked release acceptance.
+The original definitions were retained here after the owner's 28 October 2026
+macOS-only direction. DXP4 restores current, guarded manual definitions in
+`.github/workflows/release-candidate.yml` and `dependency-lock.yml`.
+Historical originals remain in Git history at `68d9049`; this directory no longer
+contains executable candidate definitions. Actual hosted qualification is tracked
+in [the roadmap](../../roadmap.md). Scheduled lock generation remains deferred.

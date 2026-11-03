@@ -1,6 +1,6 @@
 {
   "inventory_sha256": "943f9e20a5bcbc64d65c16d59136c6d09196d391f8608389ba0005bae594af89",
-  "issued_at": "2026-11-03T00:58:41.721220+00:00",
+  "issued_at": "2026-11-03T01:54:29.828018+00:00",
   "issuer": "tobac-native",
   "native_readback": {
     "checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
@@ -65,6 +65,7 @@
   "pins": {
     ".github/workflows/ci.yml": "aeb213ae2b23dab968f7f7fef5fea8b352f917efadc6ce53ed6ef40d7e6de471",
     ".github/workflows/cross-platform.yml": "d609d1572c179bdeab293c61fe40e95b800982ffb25b0d53b9d768e2b9f8b384",
+    ".github/workflows/dependency-lock.yml": "f96335aab04f4d64e9a99a5625f72e4c7db654946fab23a8eb6363e575c39d75",
     ".github/workflows/engineering-deep.yml": "ce0e50a24a148aa82c50e718a9e09cb0e35f943c1d6b2a43a740add3bf7f9fa5",
     ".github/workflows/engineering.yml": "2d9e4cc09f9c8315d3459ccd7bda00e24c0d9a8abb72012fa092489ae0b5a139",
     ".github/workflows/lineage-verifier.yml": "2c32a225858fb159e9297edbb384b9b484fcd0f7bd629d4da0df878d56e3c30a",
@@ -72,6 +73,7 @@
     ".github/workflows/longitudinal.yml": "2c32d41c972b17e142c557ca472f5fefb050bf1ddbf111ae25e4b691d6663ed9",
     ".github/workflows/package-portability.yml": "611e3977e02a5912d093dcd921c79917db4b29f9ede391bc4ef57f0e71f1f490",
     ".github/workflows/publication-security.yml": "b7431be3d74d02355a38d927c077ffcc61b32d3e7bd26c55c263a090a8620a76",
+    ".github/workflows/release-candidate.yml": "0b08e84119a5411d2659edea3b86e38a9e21c58c2dff7626496d67cc164c023f",
     ".github/workflows/research-m3.yml": "9498d13d60d9f3734237d491d30e41f93d9a6962ee444f7cc4a6dda5e367b8f5",
     ".github/workflows/scientific-reproduction.yml": "8ba61c67aec2eab99d5e43e89df794edf4c016f820192717f12cc74ee35bd5b6",
     "engineering/requirements.lock": "2b0720ad8fcfe353609960609d277ef907e0d5e573a75b5ba008b1b316e0150d",

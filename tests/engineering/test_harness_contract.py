@@ -15,6 +15,7 @@ WORKFLOWS = (
     "engineering.yml",
     "engineering-deep.yml",
     "release-candidate.yml",
+    "dependency-lock.yml",
     "linux-audit.yml",
     "package-portability.yml",
     "scientific-reproduction.yml",
@@ -24,15 +25,7 @@ WORKFLOWS = (
 @pytest.mark.parametrize("name", WORKFLOWS)
 def test_new_workflows_are_pinned_read_only_and_bounded(name) -> None:
     data = yaml.load(
-        (
-            ROOT
-            / (
-                "conductor/roadmap/deferred-workflows"
-                if name == "release-candidate.yml"
-                else ".github/workflows"
-            )
-            / name
-        ).read_text(),
+        (ROOT / ".github/workflows" / name).read_text(),
         Loader=yaml.BaseLoader,
     )
     assert "pull_request_target" not in data["on"]
@@ -120,7 +113,7 @@ def test_renovate_does_not_automerge_scientific_changes() -> None:
 
 
 def test_release_requires_reviewed_lock_and_is_not_public_publication() -> None:
-    text = (ROOT / "conductor/roadmap/deferred-workflows/release-candidate.yml").read_text()
+    text = (ROOT / ".github/workflows/release-candidate.yml").read_text()
     assert "workflow_dispatch" in text
     assert "engineering/requirements.lock" in text
     assert "id-token: write" not in text
@@ -150,7 +143,7 @@ def test_renovate_covers_profile_inputs_and_keeps_review_gates() -> None:
 
 def test_dependency_lock_candidates_cover_all_qualified_profiles() -> None:
     data = yaml.load(
-        (ROOT / "conductor/roadmap/deferred-workflows/dependency-lock.yml").read_text(),
+        (ROOT / ".github/workflows/dependency-lock.yml").read_text(),
         Loader=yaml.BaseLoader,
     )
     job = data["jobs"]["resolve"]
@@ -162,7 +155,7 @@ def test_dependency_lock_candidates_cover_all_qualified_profiles() -> None:
 
 def test_lock_candidates_use_selected_repo_local_python() -> None:
     data = yaml.load(
-        (ROOT / "conductor/roadmap/deferred-workflows/dependency-lock.yml").read_text(),
+        (ROOT / ".github/workflows/dependency-lock.yml").read_text(),
         Loader=yaml.BaseLoader,
     )
     run = next(
@@ -171,7 +164,8 @@ def test_lock_candidates_use_selected_repo_local_python() -> None:
         if "scripts/lock_receipt.py generate" in step.get("run", "")
     )
     assert "uv venv --python 3.15.1 .venv-lock" in run
-    assert run.count(".venv-lock/bin/python") == 2
+    assert run.count(".venv-lock/bin/python") == 3
+    assert "scripts/run_bounded.py --max-rss-mib 4096 --timeout 900" in run
     assert "assert sys.version_info[:3] == (3, 15, 1)" in run
     assert re.search(r"(?m)^\s*python(?:3)?\s", run) is None
 
@@ -212,11 +206,21 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
         if path.name in {"package-portability.yml", "scientific-reproduction.yml"}:
             assert_portable_package_job(data, reproduce=path.name == "scientific-reproduction.yml")
             continue
+        if path.name in {"release-candidate.yml", "dependency-lock.yml"}:
+            assert set(data["on"]) == {"workflow_dispatch"}
+            assert data["on"]["workflow_dispatch"]["inputs"]["expected_sha"]["required"] == "true"
+            for job in data["jobs"].values():
+                assert job["runs-on"] == "ubuntu-24.04"
+                commands = [s.get("run", "") for s in job["steps"]]
+                assert any('test "$GITHUB_SHA" = "$EXPECTED_SHA"' in c for c in commands)
+                assert any("scripts/run_bounded.py --max-rss-mib 4096" in c for c in commands)
+                assert any("scripts/publication_boundary.py export" in c for c in commands)
+            continue
         assert_reference_job_guards(data, path)
     deferred = ROOT / "conductor/roadmap/deferred-workflows"
     for name in ("release-candidate.yml", "dependency-lock.yml"):
-        assert (deferred / name).is_file()
-        assert not (ROOT / ".github/workflows" / name).exists()
+        assert not (deferred / name).exists()
+        assert (ROOT / ".github/workflows" / name).is_file()
 
 
 def test_linux_audit_requires_source_bound_lock_and_actual_audits() -> None:
@@ -276,3 +280,30 @@ def test_all_eight_scientific_variants_are_compared_after_native_gated_nox() -> 
         "scripts/run_m2_publication.py --out outputs/engineering/reproduction-no-grid" in c for c in commands
     )
     assert any("scripts/check_scientific_reproduction.py" in c for c in commands)
+
+
+def test_manual_release_keeps_complete_gates_and_inspected_failure_evidence() -> None:
+    data = yaml.load((ROOT / ".github/workflows/release-candidate.yml").read_text(), Loader=yaml.BaseLoader)
+    job = data["jobs"]["qualify"]
+    assert job["if"] == "github.ref == 'refs/heads/main'"
+    commands = [s.get("run", "") for s in job["steps"]]
+    assert any("-s tests quality strict_all security reproduce package clean_package" in c for c in commands)
+    assert any("scripts/hosted_lineage.py --configure" in c for c in commands)
+    assert any("scripts/check_scientific_reproduction.py" in c for c in commands)
+    assert any("git ls-remote origin refs/heads/main" in c for c in commands)
+    uploads = [s for s in job["steps"] if "upload-artifact@" in s.get("uses", "")]
+    assert all(s["with"]["path"].startswith("artifact-exports/") for s in uploads)
+    assert uploads[0]["if"] == "always() && steps.evidence.outcome == 'success'"
+    assert uploads[1]["if"] == "success()"
+
+
+def test_manual_candidates_install_hashes_without_promoting_locks() -> None:
+    text = (ROOT / ".github/workflows/dependency-lock.yml").read_text()
+    assert "uv pip sync --python .venv-candidate/bin/python --require-hashes" in text
+    assert "uv pip check --python .venv-candidate/bin/python" in text
+    assert "scripts/lock_receipt.py verify" in text
+    assert "outputs/engineering/lock-candidate/" in text
+    assert "git push" not in text
+    data = yaml.load(text, Loader=yaml.BaseLoader)
+    uploads = [s for s in data["jobs"]["resolve"]["steps"] if "upload-artifact@" in s.get("uses", "")]
+    assert all(s["with"]["path"].startswith("artifact-exports/") for s in uploads)

@@ -351,3 +351,27 @@ prior PyPI timeout remain explicit. All 25 candidate checks passed with two
 expected trusted-write skips. Seven deferred tasks remain; DXP4 is separate.
 Next: final metadata publication checks, guarded receiving-main fast-forward
 and exact receiving file readback. Original scientific/native inputs stay unchanged.
+
+## DXP4 manual release and lock workflows — 3 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DXP4 in
+`/Users/doughnut/Documents/tobac`, branch `codex/dxp4-manual-workflows`,
+from receiving main `68d9049`. Scope: two manual workflow definitions,
+their contract tests, digest-only orchestration renewal, inspected execution evidence
+and Conductor reconciliation. No local workload/native mutation is active.
+Scientific inputs, native objects, dependency locks and private authority retain
+their existing bytes and owners. Next: focused checks and native readback, source
+publication, actual manual release/four-profile runs, then exact artifact readback.
+Candidates are generated and hash-installed in isolated Linux environments; none is
+automatically adopted. Release artifacts remain internal, with no PyPI publication.
+
+DXP4 source packet is consolidated on `codex/dxp4-manual-qualified` from
+unchanged main `68d9049`. Earlier branch/PR #112 remains preserved and superseded:
+its first audit exposed two deferred-path test references, and its next source
+security run rejected a prematurely inventoried future receipt. Both were fixed.
+The exact final tree passes the complete local publication/security command.
+The shared default pre-push hook was absent; the repository's normal installer
+restored it without replacing a custom hook. Subsequent publication must pass it.
+No force update or history deletion is used. Scientific workflow/capsule bytes
+match the verified source packet; the single source commit keeps every outgoing
+commit's inventory exact.

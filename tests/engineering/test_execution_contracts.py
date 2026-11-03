@@ -167,16 +167,7 @@ def test_workflows_preserve_security_and_failure_evidence() -> None:
     import yaml  # noqa: PLC0415 -- Import at the exercised capability or monkeypatch boundary.
 
     names = ("engineering.yml", "engineering-deep.yml", "release-candidate.yml", "dependency-lock.yml")
-    paths = [
-        ROOT
-        / (
-            "conductor/roadmap/deferred-workflows"
-            if name in {"release-candidate.yml", "dependency-lock.yml"}
-            else ".github/workflows"
-        )
-        / name
-        for name in names
-    ]
+    paths = [ROOT / ".github/workflows" / name for name in names]
     assert all(path.is_file() for path in paths)
     for path in paths:
         workflow = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
@@ -190,7 +181,7 @@ def test_workflows_preserve_security_and_failure_evidence() -> None:
                 if "uses" in step:
                     assert re.fullmatch(r"[\w.-]+/[\w./-]+@[0-9a-f]{40}", step["uses"])
     release = yaml.load(
-        (ROOT / "conductor/roadmap/deferred-workflows/release-candidate.yml").read_text(),
+        (ROOT / ".github/workflows/release-candidate.yml").read_text(),
         Loader=yaml.BaseLoader,
     )
     job = release["jobs"]["qualify"]
@@ -200,7 +191,11 @@ def test_workflows_preserve_security_and_failure_evidence() -> None:
     assert "strict_all" in text
     assert "lock_receipt.py verify --profile audit" in text
     uploads = [s for s in job["steps"] if "upload-artifact@" in s.get("uses", "")]
-    assert uploads[0]["if"] == "always()"
+    assert uploads[0]["if"] == "always() && steps.evidence.outcome == 'success'"
+    evidence = next(s for s in job["steps"] if s.get("id") == "evidence")
+    assert evidence["if"] == "always()"
+    assert "scripts/publication_boundary.py export" in evidence["run"]
+    assert all(s["with"]["path"].startswith("artifact-exports/") for s in uploads)
     assert uploads[1]["if"] == "success()"
 
 
@@ -211,9 +206,6 @@ def test_workflow_contract_preserves_other_workstream_files(tmp_path, monkeypatc
     folder.mkdir(parents=True)
     for path in (ROOT / ".github/workflows").glob("*.yml"):
         shutil.copyfile(path, folder / path.name)
-    shutil.copytree(
-        ROOT / "conductor/roadmap/deferred-workflows", tmp_path / "conductor/roadmap/deferred-workflows"
-    )
     (folder / "separate-research.yml").write_text("name: Other workstream\n")
     monkeypatch.setattr(sys.modules[__name__], "ROOT", tmp_path)
     test_workflows_preserve_security_and_failure_evidence()

@@ -59,7 +59,7 @@ wheel installation and Unicode/path/metadata checks.
 DXP3 scientific reproduction is complete on both hosts: all eight variants,
 82 tables and the 29-table isolated publication replay pass.
 [Scientific reproduction receipt](../integration/scientific_reproduction_20261103.json).
-Seven tasks remain deferred, including DXP4 manual release and lock generation.
+DXP4 manual release and lock generation is in progress; six other tasks remain deferred.
 
 [Roadmap](roadmap.md): non-macOS release/numerical qualification, optional advisory promotion and explicitly optional
 mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remain required.
