@@ -512,3 +512,11 @@ DH2 review classified 91 source diagnostic instances. A tested vintage helper
 removed one complexity diagnostic but invalidated accepted native lineage, so it
 was reverted; all 91 retained diagnostics and their reasons are documented.
 No scientific source or interface is changed by the final review packet.
+
+## DH1/DH2 publication and reconciliation — 3 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns publication in
+`/Users/doughnut/Documents/tobac` on `codex/dh2-ruff-exceptions`. Scope is the
+DH1/DH2 commits and Conductor reconciliation; native scope: none. The separate
+DCI checkpoint `e007807` stays unmerged with its evidence and unfinished work.
+Next: exact-source guarded publication and receiving-ref readback.

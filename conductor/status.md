@@ -1,7 +1,7 @@
 # Reconciled repository status — 3 November 2026
 
-DXP1–DXP4 are complete through actual hosted qualification. No registered
-implementation track is in progress. The retained native-lineage track has
+DXP1–DXP4 are complete through actual hosted qualification. The advisory
+implementation is in progress on a separate checkpoint branch. The retained native-lineage track has
 **8/8 phases and 32/32 primary tasks complete**, with zero in progress or pending.
 The 18 archived tracks have no active execution tasks. Five historical graph
 proposal entries were superseded by bounded inventory acceptance and are explicitly
@@ -127,9 +127,10 @@ by this metadata-only step. DCI2–DCI4 remain open.
 
 ## Remaining deferred phases and tasks
 
-DXP1–DXP4 and DCI1 selection are complete. There are **two deferred work groups
-and five pending numbered tasks**, with zero in progress. The advisory lane is the one existing
-deferred track; optional hardening remains in [the roadmap](roadmap.md).
+DXP1–DXP4, DCI1, DH1 and DH2 are complete. One advisory work group remains:
+**DCI2 and DCI3 are in progress; DCI4 is pending**. The unfinished implementation
+and local evidence are preserved on `codex/dci-advisory-checkpoint-20261103` at
+`e0078071af2fb6c2e47c32e2da3369c07175be57`; it has not been merged to main.
 
 | Group / phase | Tasks remaining |
 | --- | --- |
@@ -140,8 +141,8 @@ Linux/Windows runtime tests and hosted lineage verification already passed.
 DXP1 additionally qualifies the Linux hash-locked strict/security audit commands.
 DXP2 also qualifies Linux/Windows source/wheel build and clean installation.
 Full platform numerical reproduction is qualified by DXP3; DXP4 qualifies the manual
-Linux release and lock candidates. The optional survivor triage remains open; the
-dated mutation count is not replaced by a triage claim.
+Linux release and lock candidates. DH1 triage and DH2 review are complete locally; the dated hosted mutation count
+remains distinct from the later local run.
 
 ## Open dependency maintenance
 
@@ -186,8 +187,8 @@ media-format or recovery task.
 - [Phase 5/6 implementation](../docs/decisions/phase5_6_implementation_20261101.md)
 - [AC13 independent-copy recovery](../docs/decisions/ac13_independent_copy_recovery_20261101.md)
 
-There is one consumer worktree. Existing non-ancestor local branches are preserved
-historical/superseded lanes, including the saved divergent former main. No changes
+There is one consumer worktree. The DCI checkpoint is an active unfinished non-ancestor branch; other non-ancestor
+branches include historical/superseded lanes and the saved divergent former main. No changes
 are discarded or silently merged. The only open repository PRs at this checkpoint
 are the three dependency candidates above. This reconciliation changes documentation
 and the exact public-path inventory only; scientific inputs, outputs, runtime,

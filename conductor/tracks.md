@@ -1,7 +1,7 @@
 # Research tracks and current disposition
 
-No implementation track is in progress. See [reconciled status](status.md) for
-remaining deferred work, dependency PRs and scientific requirements.
+The advisory CI/CD lane has unfinished work on a separate checkpoint branch.
+See [reconciled status](status.md) for dependency PRs and scientific requirements.
 
 ## Scientific ecosystem modernisation
 
@@ -62,12 +62,13 @@ DXP3 scientific reproduction is complete on both hosts: all eight variants,
 DXP4 manual release and four-profile lock candidates are complete through actual hosted
 execution and downloaded-artifact readback. [Receipt](../integration/manual_workflows_20261103.json).
 DCI1 selection is complete: ty/Pyrefly differential diagnostics and Linux ARM64
-static diagnostics are selected with verified candidate refs. No lane is implemented
-or qualified. [Decision](roadmap/cicd_hardening_20261025/selection_20261103.md).
-Five advisory/hardening tasks remain deferred.
+static diagnostics are selected with verified candidate refs. Partial implementation and local evidence are preserved on branch
+`codex/dci-advisory-checkpoint-20261103`; the hosted lane is not qualified.
+[Decision](roadmap/cicd_hardening_20261025/selection_20261103.md).
+Three advisory tasks remain; DH1 and DH2 are complete.
 
 [Roadmap](roadmap.md): optional advisory promotion and explicitly optional
-mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remain required.
+the completed mutation and source-style reviews. Existing hosted checks and full-SHA pins remain required.
 
 ## Issue #3 bounded pathway implementation
 
