@@ -9,7 +9,7 @@ the work.
 
 Hosted Linux and Windows Python 3.15.1 runtime tests were restored and qualified by
 PR #66 at receiving main `62056c5`; macOS remains the full engineering/reference
-qualification platform. DXP1, DXP2 and DXP3 are complete; the remaining release work is deferred:
+qualification platform. DXP1, DXP2 and DXP3 are complete; DXP4 manual release work is in progress:
 
 - [x] DXP1 — Installed and executed the source-bound Linux x86_64 audit lock on
   Python 3.15.1 in GitHub Actions run [41534684953](https://github.com/edithatogo/tobac/actions/runs/41534684953).
@@ -25,8 +25,8 @@ qualification platform. DXP1, DXP2 and DXP3 are complete; the remaining release 
   All eight runner variants and 82 scientific CSV tables match the accepted
   references within their declared policies; 29 isolated publication replay tables
   also pass on each host. [Receipt](../integration/scientific_reproduction_20261103.json).
-- [ ] DXP4 — Reconsider and requalify the deferred manual release and lock-generation
-  workflows when non-macOS release/audit work is reprioritised.
+- [~] DXP4 — Restore and qualify manual release and four-profile lock candidates.
+  Implementation is authorized; actual manual hosted execution and receiving readback remain.
 
 Historical owner decision, 28 October 2026: Windows and Linux were not then
 acceptance gates. PR #66 supersedes that decision for runtime tests. Retain the same scientific,
@@ -34,13 +34,10 @@ security, dependency-graph, provenance and numerical checks there. SourceRight
 uses its hash-verified published macOS ARM64 binary on an ARM64 macOS runner;
 the upstream asset filename misleadingly says x86_64.
 
-The original Linux-specific manual workflows are retained, inactive, in
-`conductor/roadmap/deferred-workflows/`: `release-candidate.yml` and
-`dependency-lock.yml`. Their Linux audit-lock and source/hash requirements remain
-unchanged. The scheduled `lock` session, which also resolves the Linux audit
-profile, is deferred here as well; security/strict/mutation/profile/canary remain
-active on macOS. Reconsider and requalify these generators only when non-macOS work
-is reprioritised.
+DXP4 restores the manual workflows under `.github/workflows/` using current
+source locks, qualified Python, lineage checks, bounded execution and inspected
+exports. Actual manual run/artifact readback remains pending. The scheduled `lock`
+session remains deferred; this task does not enable automatic lock adoption.
 The native macOS audit lane is not the Linux hash-locked release profile; no
 locked-release acceptance is inferred from this platform deferral. Existing locks
 and their receipts remain committed and verified by the active macOS checks.
@@ -79,8 +76,8 @@ diagnostic execution remains deferred here; it is not an unchecked current macOS
 
 ## Reconciliation — 3 November 2026
 
-DXP1–DXP3 are complete. One release/lock task, four advisory-lane tasks and two
-optional hardening tasks remain: seven deferred tasks across three work groups/phases.
-No implementation task is in progress.
+DXP1–DXP3 are complete. One release/lock task is in progress; four advisory-lane tasks and two
+optional hardening tasks remain deferred: seven remaining tasks across three work groups/phases.
+DXP4 is in progress; six other tasks remain deferred.
 See [current status](status.md) for completed gates, open dependency-update PRs,
 scientific requirements and the disposition of superseded decision drafts.
