@@ -53,6 +53,9 @@ def issue(key: Path, out: Path) -> None:
         "engineering/requirements.lock",
         "requirements.lock",
         "noxfile.py",
+        "scripts/prepare_synthesis_replay.py",
+        "scripts/check_scientific_reproduction.py",
+        "integration/scientific_reference_20261103.zip",
         "scripts/qualify_integrations.py",
     ]
     pins.extend(p.relative_to(ROOT).as_posix() for p in (ROOT / ".github/workflows").glob("*.yml"))

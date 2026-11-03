@@ -1,6 +1,6 @@
 {
   "inventory_sha256": "943f9e20a5bcbc64d65c16d59136c6d09196d391f8608389ba0005bae594af89",
-  "issued_at": "2026-11-02T09:19:46.674264+00:00",
+  "issued_at": "2026-11-03T00:58:41.721220+00:00",
   "issuer": "tobac-native",
   "native_readback": {
     "checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
@@ -68,9 +68,12 @@
     ".github/workflows/engineering-deep.yml": "ce0e50a24a148aa82c50e718a9e09cb0e35f943c1d6b2a43a740add3bf7f9fa5",
     ".github/workflows/engineering.yml": "2d9e4cc09f9c8315d3459ccd7bda00e24c0d9a8abb72012fa092489ae0b5a139",
     ".github/workflows/lineage-verifier.yml": "2c32a225858fb159e9297edbb384b9b484fcd0f7bd629d4da0df878d56e3c30a",
+    ".github/workflows/linux-audit.yml": "f121be116c94ee12bd590384690da306ddbce53be0496d14499d602cb478837e",
     ".github/workflows/longitudinal.yml": "2c32d41c972b17e142c557ca472f5fefb050bf1ddbf111ae25e4b691d6663ed9",
+    ".github/workflows/package-portability.yml": "611e3977e02a5912d093dcd921c79917db4b29f9ede391bc4ef57f0e71f1f490",
     ".github/workflows/publication-security.yml": "b7431be3d74d02355a38d927c077ffcc61b32d3e7bd26c55c263a090a8620a76",
     ".github/workflows/research-m3.yml": "9498d13d60d9f3734237d491d30e41f93d9a6962ee444f7cc4a6dda5e367b8f5",
+    ".github/workflows/scientific-reproduction.yml": "8ba61c67aec2eab99d5e43e89df794edf4c016f820192717f12cc74ee35bd5b6",
     "engineering/requirements.lock": "2b0720ad8fcfe353609960609d277ef907e0d5e573a75b5ba008b1b316e0150d",
     "integration/archive/hosted-verifier-profiles.json": "9dc5ce8a771b9409f20a3baa56c351dfcd8431fa8d1a818581c1d366793eed7c",
     "integration/archive/native-source-refs.json": "f75582e8362b39d08bc69ef7196131667bb756e39df285189ca478c2a5bd9ed3",
@@ -78,8 +81,11 @@
     "integration/archive/scientific-lineage-checkpoint_20261102.json": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
     "integration/archive/scientific-runner-inputs.json": "d8b9859fff3cae572710f670a3ec035324e6afbc0910c3e828553d6ca1aa26a1",
     "integration/archive/transformation-interface.json": "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373",
-    "noxfile.py": "e34887739e51de45974bfee3b9d57093ef25c6b2a1e68cf12dfed3dbca3fdf28",
+    "integration/scientific_reference_20261103.zip": "083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9",
+    "noxfile.py": "1926f7209dfff634b84f2121d80cb9b08369f6805cdc81ea65d379fd4a00c31d",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
+    "scripts/check_scientific_reproduction.py": "de865d1ec44fa8941cb38d316630ac88af703923e706d12b2ef5035731893f4d",
+    "scripts/prepare_synthesis_replay.py": "73a952437e45e434ca9f01b7ba04a5315560c15cbeff4b88566d478ced09be66",
     "scripts/qualify_integrations.py": "3b20a01b795d60c77ca62debbc7a3fbd8b2ce1f9bb1ba02f789bf64e41b72222"
   },
   "rights": "Digest-only proof. Original objects, private keys and the native attempt estate remain in owner-held local preservation.",

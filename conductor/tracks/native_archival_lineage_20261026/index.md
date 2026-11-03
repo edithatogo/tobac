@@ -48,3 +48,12 @@ and [execution summary](../../../integration/archive/moh-native-extraction_20261
 P4.1/P4.2 are partial; complete native archival lineage remains unqualified.
 
 Recovery continuation: [capture and same-device native rehearsal](../../../integration/archive/moh-recovery-rehearsal_20261029.json). The earlier private receipts are absent from the restored worktree; a new attempt and retained local copy do not satisfy independent preservation or native closure.
+
+## Subsequent orchestration renewal — 3 November 2026
+
+DXP3 preserves the original eight-attempt checkpoint and object closure. The
+current hosted capsule is renewed after direct-native byte readback and binds the
+new Nox validation view/comparison code. The original P8 capsule/signature, issuer
+and Nox bytes remain in [the frozen generation](../../../integration/archive/hosted-generation_20261102.zip)
+for historical receipt integrity readback. Cross-platform reproduction acceptance
+is tracked separately in [the roadmap](../../roadmap.md).

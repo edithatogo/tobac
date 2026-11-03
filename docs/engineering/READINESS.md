@@ -111,6 +111,21 @@ replacing the committed capsule. Runtime changes require a real hosted signature
 probe and reviewed runtime-profile update before issuance. The public signing
 authority and runtime profiles are independently pinned in the verifier source.
 
+### Orchestration renewal — 3 November 2026
+
+DXP3 renews the digest-only capsule after direct-native readback of all eight
+original accepted attempts. The scientific checkpoint and all original/input/output
+objects remain unchanged. The renewed pins include the Nox synthesis validation
+view, the all-table comparison code/reference and the added engineering workflows.
+The raw Windows M2 manifest retains its native separators; a separate view verifies
+all referenced hashes and canonicalizes input-key spelling for the unchanged
+scientific synthesis reader. Raw outputs are not rewritten.
+
+The historical [November 2 generation](../../integration/archive/hosted-generation_20261102.zip)
+preserves the old capsule/signature, issuer and Nox bytes. It supports original P8
+receipt integrity readback alongside the unchanged checkpoint/evidence files.
+The renewal is not a runtime-profile, model, dataset or scientific acceptance change.
+
 ## Ruff expansion and resource controls — 27 October 2026
 
 Maintained tests, Nox tooling and type stubs now share source/script linting and

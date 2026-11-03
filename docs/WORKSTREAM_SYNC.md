@@ -311,3 +311,31 @@ manuscript content is exported. Next: execute full Nox reproduce plus the no-gri
 M2 variant on both hosts and verify all numerical/identity comparisons.
 Prior receiving run 41545029388 failed because pip-audit's PyPI read timed out;
 that failed scan is retained, with fresh security qualification required here.
+
+First Windows DXP3 run `41553783852` reached synthesis after producing and
+verifying the initial runners, then rejected Windows separators in the fresh
+M2 manifest input path. The synthesis reader now canonicalizes only those runtime
+references before the unchanged strict source/hash guard, explicitly rejecting
+drive-qualified paths. Static source manifests, model code, numerical tolerances,
+Nox commands and accepted scientific workflows are unchanged. Focused controls
+cover correct Windows paths, changed hashes, traversal, UNC and drive escapes.
+
+The first Linux run completed every existing Nox reproduction validator, then the
+new all-table check found M1 gross_value_nzd 1302.2446720089888 versus
+1302.2446720092391 (about 2.5e-10 NZD). The new checker had incorrectly selected
+publication's absolute-only policy for non-publication reference families. It now
+uses the existing longitudinal/reference rtol=1e-9, atol=1e-12 policy for M1,
+M2-retail, M3 and longitudinal/calibration outputs; publication/no-grid/robustness
+retain their original absolute 1e-10 limit. Exact identities and all established
+Nox validators remain unchanged. The first failure and both numerical values are
+retained for final evidence review; no model, input or existing oracle was edited.
+
+The direct synthesis-reader fix was rejected by the existing native input gate,
+as expected, and was restored before publication. Its patch remains private in
+the DXP3 evidence directory. The accepted scientific reader/model inputs retain
+their exact original bytes. Nox now prepares a separate validation view: every
+original input and output hash is verified, only manifest input-key separators
+are canonicalized, duplicate/escaping references fail, and the raw manifest and
+outputs stay unchanged. A new signed orchestration capsule will be issued only
+after full direct-native readback of all eight original accepted attempts. The
+previous capsule/issuer generation is preserved for historical P8 readback.

@@ -330,11 +330,20 @@ def reproduce(session: nox.Session) -> None:
         "--releases",
         str(replay_root / "release_calibration"),
     )
+    synthesis_view = replay_root / "synthesis-validation-view"
+    session.run(
+        "python",
+        "scripts/prepare_synthesis_replay.py",
+        "--replay",
+        str(replay_root),
+        "--out",
+        str(synthesis_view),
+    )
     session.run(
         "python",
         "scripts/qualify_m2_synthesis.py",
         "--replay",
-        str(replay_root),
+        str(synthesis_view),
         "--out",
         str(replay_root / "m2-synthesis.json"),
     )

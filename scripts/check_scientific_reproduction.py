@@ -123,7 +123,7 @@ def verify(replays: Path, no_grid: Path) -> dict[str, Any]:
         if {p.relative_to(root).as_posix() for p in root.rglob("*.csv")} != set(rows):
             msg = f"Regenerated CSV inventory differs: {name}"
             raise ValueError(msg)
-        relative = name in {"longitudinal", "release_calibration"}
+        relative = name not in {"m2", "m2_publication", "m2_robustness"}
         reports[name] = {
             "tables": {p: compare_table(r["utf8"], root / p, relative=relative) for p, r in rows.items()},
             "tolerance": {"rtol": RTOL, "atol": ATOL} if relative else {"rtol": 0, "atol": TOLERANCE},
