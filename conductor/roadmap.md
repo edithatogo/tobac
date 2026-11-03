@@ -67,9 +67,9 @@ entitlement is claimed as executed or qualified by the selection.
 These are improvements beyond the completed 26 October macOS acceptance scope, not
 open execution gates or automatic implementation authorisation:
 
-- [ ] DH1 — Triage the 12 surviving supply mutants from PR #51's receiving-main macOS
-  119/131 (90.8%) measurement;
-  distinguish equivalent mutations from worthwhile missing assertions.
+- [x] DH1 — Triaged all 12 supply survivors from PR #51; focused tests detect ten,
+  and two are equivalent for the qualified SciPy call. A fresh local run detected
+  129/131. [Evidence](../docs/reviews/2026-11-03-supply-mutant-triage.md).
 - [ ] DH2 — Reconsider retained source/API Ruff exceptions where a change preserves public
   interfaces, validation behavior and scientific meaning. Test/tooling lint, formatting
   and five explicit preview rules are implemented by PR #51, not deferred work.
@@ -83,8 +83,8 @@ diagnostic execution remains deferred here; it is not an unchecked current macOS
 
 ## Reconciliation — 3 November 2026
 
-DXP1–DXP4 and DCI1 selection are complete. Three advisory-lane tasks and two
-optional hardening tasks remain: five deferred numbered tasks across two work groups.
+DXP1–DXP4 and DCI1 selection are complete. Three advisory-lane tasks and one
+optional hardening task remain: four deferred numbered tasks across two work groups.
 No implementation task is in progress.
 See [current status](status.md) for completed gates, open dependency-update PRs,
 scientific requirements and the disposition of superseded decision drafts.

@@ -487,3 +487,15 @@ verify. Baseline file hashes match immutable main `6830891`; scientific/runtime/
 workflow/lock/hook/config bytes remain unchanged. Current signed-input preflight
 passes without renewal. No selected checker or ARM job was executed. Publication
 of this decision remains separate from DCI4 publication of an implemented lane.
+
+## DH1 mutant triage ownership — 3 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DH1 in
+`/Users/doughnut/Documents/tobac` on branch `codex/dh1-mutant-triage`.
+Scope: `tests/engineering/test_scipy_supply.py`, mutation evidence and Conductor
+status; native scope: none. The DCI checkpoint remains on its own remote branch.
+Next: test concrete missing assertions and classify all twelve hosted survivors.
+
+DH1 result: twelve hosted survivor IDs reconciled; targeted cases detect ten
+in a fresh local 129/131 campaign. The remaining two are equivalent for the
+qualified SciPy zero-mean path. See `docs/reviews/2026-11-03-supply-mutant-triage.md`.

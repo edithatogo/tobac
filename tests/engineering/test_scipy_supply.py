@@ -247,3 +247,37 @@ def test_each_domain_guard_is_independent_of_later_accounting_guards(total, shar
         ),
     ):
         expected_releases(total, share, unrecorded, stock_change=stock)
+
+
+def test_accounting_converts_numeric_string_inputs_before_arithmetic() -> None:
+    """Tabular numeric strings are converted before accounting and validation."""
+    from tobac.supply import expected_releases  # noqa: PLC0415 -- Exercise the public accounting entry point.
+
+    actual = expected_releases(["100"], ["0.2"], ["5"], ["2"], ["3"], ["4"], ["1.2"])
+    np.testing.assert_allclose(actual, [100.8])
+
+
+@pytest.mark.parametrize("string_field", ["observed", "expected", "covariance"])
+def test_likelihood_converts_each_numeric_string_input(string_field) -> None:
+    """Each ArrayLike input is independently converted to floating point."""
+    inputs = {"observed": [1.0], "expected": [[2.0]], "covariance": [[4.0]]}
+    string_inputs = {"observed": ["1"], "expected": [["2"]], "covariance": [["4"]]}
+    inputs[string_field] = string_inputs[string_field]
+    actual = release_loglikelihood(**inputs)
+    np.testing.assert_allclose(actual, oracle(np.array([1.0]), np.array([[2.0]]), np.array([[4.0]])))
+
+
+def test_near_symmetric_covariance_outside_declared_absolute_tolerance_is_rejected() -> None:
+    """A discrepancy above 1e-12 must not pass NumPy's looser default tolerance."""
+    with pytest.raises(ValueError, match="symmetric covariance required"):
+        release_loglikelihood([1.0, 2.0], [[1.0, 2.0]], [[1.0, 0.2], [0.200000001, 1.0]])
+
+
+@pytest.mark.parametrize(
+    ("observed", "expected", "covariance"),
+    [([1.0, 2.0], [[1.0]], [[1.0, 0.0], [0.0, 1.0]]), ([1.0], np.empty((0, 1)), [[1.0]])],
+)
+def test_hypothesis_shape_guards_are_independent_of_covariance(observed, expected, covariance) -> None:
+    """Reject wrong-width and empty hypothesis matrices even with valid covariance."""
+    with pytest.raises(ValueError, match="symmetric covariance required"):
+        release_loglikelihood(observed, expected, covariance)

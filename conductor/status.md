@@ -134,7 +134,7 @@ deferred track; optional hardening remains in [the roadmap](roadmap.md).
 | Group / phase | Tasks remaining |
 | --- | --- |
 | Advisory CI/CD lane | DCI2 — implement selected isolated advisory commands/profile/workflow and ARM scanner support; DCI3 — execute local and hosted qualification; DCI4 — guarded publication and receiving-ref verification. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
-| Optional macOS hardening | DH1 — triage the 12 surviving supply mutants from the dated 119/131 measurement; DH2 — review retained source/API Ruff exceptions where behavior and scientific meaning are preserved. |
+| Optional macOS hardening | DH1 complete: triaged all 12 dated survivors; fresh local mutation run detected 129/131, with two backend-equivalent survivors. DH2 remains: review retained source/API Ruff exceptions where behavior and scientific meaning are preserved. |
 
 Linux/Windows runtime tests and hosted lineage verification already passed.
 DXP1 additionally qualifies the Linux hash-locked strict/security audit commands.
