@@ -393,3 +393,28 @@ Git blob ID; only currently public regular files qualify. Every historical byte
 still undergoes document/archive inspection and full-history secret scanning.
 Wrong commit/blob, newly private content and paths outside the current public
 inventory remain failures. Strict whole-source typing passes with zero warnings.
+
+## DXP4 corrected release route — 3 November 2026
+
+The same chat owns `codex/dxp4-release-runner` in the existing consumer worktree,
+from receiving main `3914060`. PR #113 passed 26 checks with two expected
+trusted-write skips. The exact source passed full branch pre-push; a redundant
+local main push was interrupted in native Actionlint. GitHub's non-force
+fast-forward API then advanced main from the explicitly checked `68d9049`.
+Both receiving refs and all 736 tracked path/object/mode entries were read back;
+the default pre-push hook remains installed.
+
+Stale-source dispatches 41567619304 and 41567622611 rejected release and all four
+lock jobs before their workloads. Positive lock run 41567710835 passed four
+profiles. Downloaded tar member hashes, current source receipts and every
+Linux-marker-selected installed package match: runtime 37, audit 95, Voiage 50,
+ecosystem 58. No candidate is adopted.
+
+Release run 41567707353 rejected Ubuntu 24.04 OpenSSH before Nox, as required.
+Ubuntu 26.04 is the actual already-qualified image in source reproduction run
+41565105342. The correction selects that image without broadening any verifier
+profile. Preflight JSON records and the original exit status are retained on both
+success and rejection. All eight native attempts were reopened before renewing
+only the release workflow pin; the previous signed generation is preserved.
+142 focused tests and pedantic workflow audit pass. Next: publish the corrected
+source, execute the real main release path, inspect artifacts and close DXP4.

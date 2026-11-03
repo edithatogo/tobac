@@ -1,0 +1,300 @@
+{
+  "schema": "tobac.manual-workflows.v1",
+  "task": "DXP4",
+  "status": "in_progress",
+  "base_sha": "68d90494e2732e1306053130991726e6ca37f173",
+  "workflow_sha256": {
+    "release-candidate.yml": "5a6dbae5b0b4efbf76582ccc20f5c22732bddefb317e148297ca53247f93c842",
+    "dependency-lock.yml": "f96335aab04f4d64e9a99a5625f72e4c7db654946fab23a8eb6363e575c39d75"
+  },
+  "local": {
+    "focused_passed": 142,
+    "capability_skip": 0,
+    "selected_verifier_check_passed": true,
+    "source_guard_controls": [
+      {
+        "workflow": "release-candidate.yml",
+        "case": "matching",
+        "exit_code": 0
+      },
+      {
+        "workflow": "release-candidate.yml",
+        "case": "stale",
+        "exit_code": 1
+      },
+      {
+        "workflow": "release-candidate.yml",
+        "case": "wrong-run",
+        "exit_code": 1
+      },
+      {
+        "workflow": "release-candidate.yml",
+        "case": "missing",
+        "exit_code": 1
+      },
+      {
+        "workflow": "dependency-lock.yml",
+        "case": "matching",
+        "exit_code": 0
+      },
+      {
+        "workflow": "dependency-lock.yml",
+        "case": "stale",
+        "exit_code": 1
+      },
+      {
+        "workflow": "dependency-lock.yml",
+        "case": "wrong-run",
+        "exit_code": 1
+      },
+      {
+        "workflow": "dependency-lock.yml",
+        "case": "missing",
+        "exit_code": 1
+      }
+    ],
+    "actionlint": "passed",
+    "zizmor_pedantic": "passed",
+    "ruff": "passed"
+  },
+  "native": {
+    "runners_reopened": 8,
+    "runner_contract_unchanged": true,
+    "native_readback_unchanged": true,
+    "changed_pins": [
+      ".github/workflows/dependency-lock.yml",
+      ".github/workflows/release-candidate.yml"
+    ],
+    "capsule_sha256": "2306e1fad09a1e6d0d380dfadfb10589ed34374ef6c9f8b0960f0176c43e0b8b",
+    "signature_sha256": "547ff3dbd898f430cc65a12ba70fd83083cd853d16cacafd8ce5ad546d78a431",
+    "previous_generation_sha256": "9b771acb8249e761eab6e135e841f7194648a3e2f1cad586fdbd769dbf66da73",
+    "changed_pins_in_correction": [
+      ".github/workflows/release-candidate.yml"
+    ]
+  },
+  "first_hosted_failure": {
+    "run_id": 41562852278,
+    "source_sha": "1ad7bbf7a41f4f540c62e8cb86541fed0948dde3",
+    "cause": "Two legacy execution tests still selected deferred workflow paths; both assertions updated to active paths and fail-closed evidence export."
+  },
+  "limits": [
+    "Linux installation does not qualify fresh candidate locks on Windows or macOS.",
+    "Candidates are not adopted or promoted.",
+    "No PyPI publication, repository visibility change or archival-original upload.",
+    "Scheduled lock generation remains deferred."
+  ],
+  "source_packet_note": "Consolidated exact final source tree; original branch/PR #112 and failed runs retained.",
+  "source_security_first_failure": {
+    "run_id": 41563007632,
+    "source_sha": "06c6f95b9acfa278c6322de6cd2ec7af9fc8fe6c",
+    "cause": "Future receipt listed before file existed; removed until actual evidence is committed."
+  },
+  "publication_hook": "Restored through repository installer after finding shared default pre-push hook absent.",
+  "restored_source_sha": "3914060dd39449f0a7254ad851b0d2866820e000",
+  "source_pr": {
+    "number": 113,
+    "checks_passed": 26,
+    "trusted_write_skips": 2
+  },
+  "source_receiving_readback": {
+    "main": "3914060dd39449f0a7254ad851b0d2866820e000",
+    "source_branch": "3914060dd39449f0a7254ad851b0d2866820e000",
+    "paths_verified": 736,
+    "tree_sha": "d83a39aa3536c056c9221f82c0ac1c908e7ee27b",
+    "publication": "GitHub non-force fast-forward after exact expected-base read, ancestry and required checks; unchanged source already passed full pre-push on branch publication."
+  },
+  "stale_source_controls": {
+    "release_run": 41567619304,
+    "lock_run": 41567622611,
+    "jobs_rejected_before_workload": 5
+  },
+  "lock_candidates": {
+    "status": "passed",
+    "source_sha": "3914060dd39449f0a7254ad851b0d2866820e000",
+    "run_id": 41567710835,
+    "run_url": "https://github.com/edithatogo/tobac/actions/runs/41567710835",
+    "profiles": {
+      "runtime": {
+        "status": "passed",
+        "installed_packages": 37,
+        "input_receipt": {
+          "status": "pass",
+          "profile": "runtime",
+          "lock_sha256": "e7e945f42d3901b9cd00d1c49e44d944f9d3debeb2a4cb3828271200b42cdb0c",
+          "inputs_verified": 6,
+          "resolver": "uv 0.13.5 (x86_64-unknown-linux-gnu)",
+          "qualification": "byte/input consistency only; not approval, install success or signed provenance"
+        },
+        "archive_sha256": "3a71f5c48f3373cdf53a1d20c4b495537b1c232eaf61b60e17291e35e6a2de37",
+        "qualification_sha256": "06dc3cc050a2fabce2b42a96848010c74ba6bcbabf52bdefd4bc17621593ef11",
+        "files_sha256": {
+          "installed.txt": "2acb690d48a7a18c80a06db7957c338c553f0bf353891087a8a6448f5f6db2c9",
+          "requirements.lock": "e7e945f42d3901b9cd00d1c49e44d944f9d3debeb2a4cb3828271200b42cdb0c",
+          "requirements.lock.json": "c62ce61ae64c9a7b70b61c8a0f27ce70c40d22ce89658e33ceb08ddc7776af25"
+        },
+        "installed_inventory_matches_target_marker_lock": true
+      },
+      "audit": {
+        "status": "passed",
+        "installed_packages": 95,
+        "input_receipt": {
+          "status": "pass",
+          "profile": "audit",
+          "lock_sha256": "1d3c3bb46f1a7ab8bc5a34368b50429e02c40f4b9bbd08694484f6d015432f81",
+          "inputs_verified": 8,
+          "resolver": "uv 0.13.5 (x86_64-unknown-linux-gnu)",
+          "qualification": "byte/input consistency only; not approval, install success or signed provenance"
+        },
+        "archive_sha256": "58f44c0ee8888206eb2909c0ad01c737ec4f2549a6fd76ecfdafb76975477cb2",
+        "qualification_sha256": "559b75f55914a511d4eaad83eac57d649268b7dcd22e9eb5bbc3f1fcdfe79632",
+        "files_sha256": {
+          "audit.lock": "1d3c3bb46f1a7ab8bc5a34368b50429e02c40f4b9bbd08694484f6d015432f81",
+          "audit.lock.json": "ab04fba8a2336c26c2f4ea5ba26219488787d9565055fccc78c1d942fbda6d18",
+          "installed.txt": "a161a7e383710ab061ee721b153987e8be4b280bb4f52936e77ed2adee775579"
+        },
+        "installed_inventory_matches_target_marker_lock": true
+      },
+      "voiage": {
+        "status": "passed",
+        "installed_packages": 50,
+        "input_receipt": {
+          "status": "pass",
+          "profile": "voiage",
+          "lock_sha256": "a0d5f2a8c7ede0083ce41cbdbcaf909413022355c01780fb1f67563b3b3a20b0",
+          "inputs_verified": 8,
+          "resolver": "uv 0.13.5 (x86_64-unknown-linux-gnu)",
+          "qualification": "byte/input consistency only; not approval, install success or signed provenance"
+        },
+        "archive_sha256": "533a690a1b39cc4ec11796863b03331120e36fbbcb04bbcf18a75c2290f2db2a",
+        "qualification_sha256": "5d17903400e3461af2249886d4af7e7248f7dc995fe9da1ac23d8f44e20033d7",
+        "files_sha256": {
+          "installed.txt": "e8cbf1af5ceac9c44aa1a94305bd333cd65b72e155881d4d740d42c7c689e9a3",
+          "voiage.lock": "a0d5f2a8c7ede0083ce41cbdbcaf909413022355c01780fb1f67563b3b3a20b0",
+          "voiage.lock.json": "4dbf43b90b6e066128393d2ffdd08ec7b5669ec749e12548271abe8334558721"
+        },
+        "installed_inventory_matches_target_marker_lock": true
+      },
+      "ecosystem": {
+        "status": "passed",
+        "installed_packages": 58,
+        "input_receipt": {
+          "status": "pass",
+          "profile": "ecosystem",
+          "lock_sha256": "244db9b00a8f5f0270f2bc76d8c389bfd75330c9145d26b02bc2a4b0a860caa4",
+          "inputs_verified": 9,
+          "resolver": "uv 0.13.5 (x86_64-unknown-linux-gnu)",
+          "qualification": "byte/input consistency only; not approval, install success or signed provenance"
+        },
+        "archive_sha256": "cbee7b36099eef41fb92e7f742031ca5cefb3749222b89c8949dc04a78ccc905",
+        "qualification_sha256": "e586ebe47ffd62372c1e9340ee1a132a4d71995b8cf7cc4767f0e14831087da9",
+        "files_sha256": {
+          "ecosystem.lock": "244db9b00a8f5f0270f2bc76d8c389bfd75330c9145d26b02bc2a4b0a860caa4",
+          "ecosystem.lock.json": "cc4987f3e633295ab524dd920365b40c1de895c530fd2ab3a688f3b1c3d8cbc5",
+          "installed.txt": "df4bb1c1ffde91686d9c2f7d7750b042768f2e1e6a97671d8391cb63a13e5f4a"
+        },
+        "installed_inventory_matches_target_marker_lock": true
+      }
+    },
+    "artifacts": [
+      {
+        "id": 13199278263,
+        "node_id": "MDg6QXJ0aWZhY3QxMzE5OTI3ODI2Mw==",
+        "name": "dependency-lock-candidate-ecosystem",
+        "size_in_bytes": 63317,
+        "url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13199278263",
+        "archive_download_url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13199278263/zip",
+        "expired": false,
+        "digest": "sha256:52801f641ead62c8fcd6aef5b151e62d2bfb93702218da9c3d16df8dc2c24331",
+        "created_at": "2026-11-03T02:42:20Z",
+        "updated_at": "2026-11-03T02:42:20Z",
+        "expires_at": "2026-11-17T02:42:19Z",
+        "workflow_run": {
+          "id": 41567710835,
+          "repository_id": 1431741120,
+          "head_repository_id": 1431741120,
+          "head_branch": "main",
+          "head_sha": "3914060dd39449f0a7254ad851b0d2866820e000"
+        }
+      },
+      {
+        "id": 13199278262,
+        "node_id": "MDg6QXJ0aWZhY3QxMzE5OTI3ODI2Mg==",
+        "name": "dependency-lock-candidate-voiage",
+        "size_in_bytes": 58630,
+        "url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13199278262",
+        "archive_download_url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13199278262/zip",
+        "expired": false,
+        "digest": "sha256:e8430c7316201bf441afd00ed06a96e178589c2efad859de28a08c1efd763607",
+        "created_at": "2026-11-03T02:42:20Z",
+        "updated_at": "2026-11-03T02:42:20Z",
+        "expires_at": "2026-11-17T02:42:19Z",
+        "workflow_run": {
+          "id": 41567710835,
+          "repository_id": 1431741120,
+          "head_repository_id": 1431741120,
+          "head_branch": "main",
+          "head_sha": "3914060dd39449f0a7254ad851b0d2866820e000"
+        }
+      },
+      {
+        "id": 13199164150,
+        "node_id": "MDg6QXJ0aWZhY3QxMzE5OTE2NDE1MA==",
+        "name": "dependency-lock-candidate-audit",
+        "size_in_bytes": 90063,
+        "url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13199164150",
+        "archive_download_url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13199164150/zip",
+        "expired": false,
+        "digest": "sha256:7c195d521566648ad51df192d5939460d222b6ae50f45c715144683d1daf9b46",
+        "created_at": "2026-11-03T02:42:45Z",
+        "updated_at": "2026-11-03T02:42:45Z",
+        "expires_at": "2026-11-17T02:42:44Z",
+        "workflow_run": {
+          "id": 41567710835,
+          "repository_id": 1431741120,
+          "head_repository_id": 1431741120,
+          "head_branch": "main",
+          "head_sha": "3914060dd39449f0a7254ad851b0d2866820e000"
+        }
+      },
+      {
+        "id": 13199108292,
+        "node_id": "MDg6QXJ0aWZhY3QxMzE5OTEwODI5Mg==",
+        "name": "dependency-lock-candidate-runtime",
+        "size_in_bytes": 55784,
+        "url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13199108292",
+        "archive_download_url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13199108292/zip",
+        "expired": false,
+        "digest": "sha256:4019ae4728fc5d2dab3b841cebaf8fa07b0894fe167074c627e4e40e175ff889",
+        "created_at": "2026-11-03T02:42:20Z",
+        "updated_at": "2026-11-03T02:42:20Z",
+        "expires_at": "2026-11-17T02:42:19Z",
+        "workflow_run": {
+          "id": 41567710835,
+          "repository_id": 1431741120,
+          "head_repository_id": 1431741120,
+          "head_branch": "main",
+          "head_sha": "3914060dd39449f0a7254ad851b0d2866820e000"
+        }
+      }
+    ],
+    "adopted": false
+  },
+  "release": {
+    "status": "pending_corrected_route_execution",
+    "first_run": 41567707353,
+    "first_source_sha": "3914060dd39449f0a7254ad851b0d2866820e000",
+    "first_failure": "Ubuntu 24.04 OpenSSH digest outside qualified verifier profiles; rejected before Nox execution.",
+    "rejected_openssh_sha256": "f0b9e19ffa077d62ef6795a44d50c721f03456067a874395e015ec69c276dca6",
+    "corrected_runner": "ubuntu-26.04",
+    "qualified_reference_run": 41565105342,
+    "qualified_openssh_sha256": "33b1c52f8ede26412a1d081cfad3582a9b9816c53461a657bec08757f678a06a",
+    "preflight_failure_capture": "Actual JSON records and original verifier exit code retained; synthetic successful/rejected controls pass."
+  },
+  "publication_guard_history": {
+    "original_baseline_retained": true,
+    "historical_commits_reconciled": 34,
+    "historical_paths": 22,
+    "identity": "Exact commit/path/blob and currently public regular file only",
+    "failed_repeat_not_passed": "One redundant source-main hook run was interrupted in native Actionlint; exact source had already passed branch pre-push and all required hosted checks."
+  }
+}

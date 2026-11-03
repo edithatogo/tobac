@@ -82,7 +82,9 @@ generation remains preserved for P8 integrity readback. No model, configuration,
 scientific input or existing numerical validator changed.
 
 Software reproduction does not supply empirical calibration or external scientific
-endorsement. DXP4 manual release and lock generation remains deferred.
+endorsement. DXP4 is in progress: all four generated lock candidates pass actual
+hash installation and downloaded-inventory readback; corrected release execution remains pending.
+[Progress receipt](../integration/manual_workflows_20261103.json).
 
 ## Remaining deferred phases and tasks
 
@@ -93,7 +95,7 @@ lane is the one existing deferred track. Platform and hardening groups remain in
 
 | Group / phase | Tasks remaining |
 | --- | --- |
-| Cross-platform release and lock qualification | DXP4 — reconsider and requalify deferred manual release/lock-generation workflows. |
+| Cross-platform release and lock qualification | DXP4 — lock candidates qualified; execute the corrected release route and close out its evidence. |
 | Advisory CI/CD lane | DCI1 — select nonduplicative additions and current pins; DCI2 — implement selected advisory commands/workflow/ARM leg; DCI3 — execute local and hosted qualification; DCI4 — guarded publication and receiving-ref verification. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
 | Optional macOS hardening | DH1 — triage the 12 surviving supply mutants from the dated 119/131 measurement; DH2 — review retained source/API Ruff exceptions where behavior and scientific meaning are preserved. |
 

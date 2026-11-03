@@ -1,6 +1,6 @@
 {
   "inventory_sha256": "943f9e20a5bcbc64d65c16d59136c6d09196d391f8608389ba0005bae594af89",
-  "issued_at": "2026-11-03T01:54:29.828018+00:00",
+  "issued_at": "2026-11-03T02:49:07.587616+00:00",
   "issuer": "tobac-native",
   "native_readback": {
     "checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
@@ -73,7 +73,7 @@
     ".github/workflows/longitudinal.yml": "2c32d41c972b17e142c557ca472f5fefb050bf1ddbf111ae25e4b691d6663ed9",
     ".github/workflows/package-portability.yml": "611e3977e02a5912d093dcd921c79917db4b29f9ede391bc4ef57f0e71f1f490",
     ".github/workflows/publication-security.yml": "b7431be3d74d02355a38d927c077ffcc61b32d3e7bd26c55c263a090a8620a76",
-    ".github/workflows/release-candidate.yml": "0b08e84119a5411d2659edea3b86e38a9e21c58c2dff7626496d67cc164c023f",
+    ".github/workflows/release-candidate.yml": "5a6dbae5b0b4efbf76582ccc20f5c22732bddefb317e148297ca53247f93c842",
     ".github/workflows/research-m3.yml": "9498d13d60d9f3734237d491d30e41f93d9a6962ee444f7cc4a6dda5e367b8f5",
     ".github/workflows/scientific-reproduction.yml": "8ba61c67aec2eab99d5e43e89df794edf4c016f820192717f12cc74ee35bd5b6",
     "engineering/requirements.lock": "2b0720ad8fcfe353609960609d277ef907e0d5e573a75b5ba008b1b316e0150d",

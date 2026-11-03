@@ -26,7 +26,11 @@ qualification platform. DXP1, DXP2 and DXP3 are complete; DXP4 manual release wo
   references within their declared policies; 29 isolated publication replay tables
   also pass on each host. [Receipt](../integration/scientific_reproduction_20261103.json).
 - [~] DXP4 — Restore and qualify manual release and four-profile lock candidates.
-  Implementation is authorized; actual manual hosted execution and receiving readback remain.
+  All four lock candidates are generated, hash-installed and read back from
+  [run 41567710835](https://github.com/edithatogo/tobac/actions/runs/41567710835).
+  Release correctly rejected Ubuntu 24.04's unqualified OpenSSH before execution;
+  the Ubuntu 26.04 route and retained preflight evidence await actual main execution.
+  [Progress receipt](../integration/manual_workflows_20261103.json).
 
 Historical owner decision, 28 October 2026: Windows and Linux were not then
 acceptance gates. PR #66 supersedes that decision for runtime tests. Retain the same scientific,

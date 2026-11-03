@@ -3,6 +3,10 @@
 import ast
 import json
 import re
+import shlex
+import shutil
+import subprocess
+import sys
 import tomllib
 from pathlib import Path
 
@@ -210,7 +214,8 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             assert set(data["on"]) == {"workflow_dispatch"}
             assert data["on"]["workflow_dispatch"]["inputs"]["expected_sha"]["required"] == "true"
             for job in data["jobs"].values():
-                assert job["runs-on"] == "ubuntu-24.04"
+                expected = "ubuntu-26.04" if path.name == "release-candidate.yml" else "ubuntu-24.04"
+                assert job["runs-on"] == expected
                 commands = [s.get("run", "") for s in job["steps"]]
                 assert any('test "$GITHUB_SHA" = "$EXPECTED_SHA"' in c for c in commands)
                 assert any("scripts/run_bounded.py --max-rss-mib 4096" in c for c in commands)
@@ -307,3 +312,30 @@ def test_manual_candidates_install_hashes_without_promoting_locks() -> None:
     data = yaml.load(text, Loader=yaml.BaseLoader)
     uploads = [s for s in data["jobs"]["resolve"]["steps"] if "upload-artifact@" in s.get("uses", "")]
     assert all(s["with"]["path"].startswith("artifact-exports/") for s in uploads)
+
+
+@pytest.mark.skipif(
+    sys.platform == "win32", reason="Manual Linux release uses POSIX executable bash fixtures"
+)
+@pytest.mark.parametrize("status", [0, 2])
+def test_release_preserves_actual_preflight_status_and_json_evidence(tmp_path, status) -> None:
+    data = yaml.load((ROOT / ".github/workflows/release-candidate.yml").read_text(), Loader=yaml.BaseLoader)
+    run = next(s["run"] for s in data["jobs"]["qualify"]["steps"] if "lineage_status=$?" in s.get("run", ""))
+    capture = run[run.index("mkdir -p outputs/engineering") :]
+    interpreter = tmp_path / ".venv-ci/bin/python"
+    interpreter.parent.mkdir(parents=True)
+    interpreter.write_text("#!/bin/sh\nexec " + shlex.quote(sys.executable) + ' "$@"\n')
+    interpreter.chmod(0o755)
+    script = tmp_path / "scripts/hosted_lineage.py"
+    script.parent.mkdir()
+    script.write_text(
+        'import json\nprint(json.dumps({"runtime_probe": {}}))\n'
+        f'print(json.dumps({{"success": {status == 0}}}))\nraise SystemExit({status})\n'
+    )
+    bash = shutil.which("bash") or "/bin/bash"
+    result = subprocess.run(  # noqa: S603 -- Execute the owned workflow capture against isolated synthetic receipts.
+        [bash, "-e", "-c", capture], cwd=tmp_path, capture_output=True, check=False, timeout=30
+    )
+    assert result.returncode == status
+    evidence = json.loads((tmp_path / "outputs/engineering/lineage-preflight.json").read_text())
+    assert evidence == [{"runtime_probe": {}}, {"success": status == 0}]
