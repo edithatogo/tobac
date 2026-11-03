@@ -1,8 +1,8 @@
 # Bounded lane implementation and verification
 
-Status: **DCI1 selection in progress** by the owner’s 3 November 2026 request.
-DCI2–DCI4 remain deferred; the current request selects scope and pins only.
-Reconciled 2 November 2026 against the completed macOS reference implementation.
+Status: **DCI1 selection complete; DCI2–DCI4 deferred**.
+Reconciled 3 November 2026 at receiving base `6830891`.
+The owner authorized selection only; no new lane is installed or qualified.
 
 ## Completed preparation
 
@@ -13,10 +13,12 @@ Reconciled 2 November 2026 against the completed macOS reference implementation.
 
 ## Deferred phase — qualify additional advisory automation
 
-- [~] DCI1 — Select additions that do not duplicate existing macOS security, strict,
-  pinning, publication-attestation and pre-commit checks; reverify current tool refs.
-- [ ] DCI2 — Implement the selected advisory Nox/workflow additions, including any
-  selected Ubuntu ARM diagnostic leg, with source-bound pins and unchanged required gates.
+- [x] DCI1 — Selected one ty 0.0.95/Pyrefly 1.4.0 comparison experiment and a Linux
+  ARM64 diagnostic leg; omitted duplicate wrappers/hook migration and reverified refs.
+  [Decision](selection_20261103.md) · [Pin/delivery metadata](selection_20261103.json).
+- [ ] DCI2 — Implement the isolated source-bound advisory profile, Nox/report handling,
+  selected macOS/Linux x64/Ubuntu ARM diagnostic jobs and checksum-pinned ARM scanner
+  support. Renew the orchestration binding; retain every required/reference gate.
 - [ ] DCI3 — Execute selected local and hosted checks and record actual supported
   behavior, capability limits and any unexecuted jobs.
 - [ ] DCI4 — Publish the qualified bounded lane with an expected-head check and

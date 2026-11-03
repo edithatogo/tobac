@@ -1,7 +1,7 @@
 {
   "track_id": "cicd_hardening_20261025",
   "title": "Advisory CI/CD, automation, quality and security lane",
-  "status": "selection_in_progress",
+  "status": "deferred_to_roadmap",
   "date": "2026-10-25",
   "coordination_issue": 1,
   "shared_guide": "docs/WORKSTREAM_SYNC.md",
@@ -97,6 +97,42 @@
     "conductor/status.md",
     "conductor/tracks.md",
     "docs/WORKSTREAM_SYNC.md",
-    "engineering/publication-policy.json"
-  ]
+    "engineering/publication-policy.json",
+    "conductor/tech-stack.md",
+    "engineering/upstream-pins.json"
+  ],
+  "selection_status": "complete",
+  "selection_date": "2026-11-03",
+  "selection_record": {
+    "document": "conductor/roadmap/cicd_hardening_20261025/selection_20261103.md",
+    "receipt": "conductor/roadmap/cicd_hardening_20261025/selection_20261103.json",
+    "receipt_sha256": "f17d9ed7275b6d15dbd8962b49c7e9a3dbf61a0cbfaf52910af2db2e96b1601f"
+  },
+  "task_status": {
+    "DCI1": "complete",
+    "DCI2": "deferred",
+    "DCI3": "deferred",
+    "DCI4": "deferred"
+  },
+  "selected_additions": {
+    "ty": "0.0.95",
+    "pyrefly": "1.4.0",
+    "arm_diagnostic_runner": "ubuntu-24.04-arm"
+  },
+  "current_open_gates": [
+    "DCI2: isolated source-bound profile/Nox/workflow and ARM scanner support not implemented",
+    "DCI3: actual pinned Python 3.15.1 compatibility/import/diagnostic/exit/budget/export and hosted ARM runs not executed",
+    "DCI4: implemented qualified lane not published or read back",
+    "No Linux ARM64 scientific qualification is inferred from selected diagnostics"
+  ],
+  "selection_verification": {
+    "focused_tests_passed": 70,
+    "track_records_consistent": 20,
+    "baseline_hashes_match_immutable_base": true,
+    "tag_commits_and_release_age_verified": true,
+    "changed_markdown_targets_resolve": true,
+    "current_signed_input_preflight": "passed",
+    "new_tool_installation_or_execution": false,
+    "scientific_or_runtime_changes": false
+  }
 }

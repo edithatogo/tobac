@@ -61,7 +61,10 @@ DXP3 scientific reproduction is complete on both hosts: all eight variants,
 [Scientific reproduction receipt](../integration/scientific_reproduction_20261103.json).
 DXP4 manual release and four-profile lock candidates are complete through actual hosted
 execution and downloaded-artifact readback. [Receipt](../integration/manual_workflows_20261103.json).
-Six advisory/hardening tasks remain deferred.
+DCI1 selection is complete: ty/Pyrefly differential diagnostics and Linux ARM64
+static diagnostics are selected with verified candidate refs. No lane is implemented
+or qualified. [Decision](roadmap/cicd_hardening_20261025/selection_20261103.md).
+Five advisory/hardening tasks remain deferred.
 
 [Roadmap](roadmap.md): optional advisory promotion and explicitly optional
 mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remain required.

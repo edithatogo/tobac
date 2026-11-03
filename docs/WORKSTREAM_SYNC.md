@@ -457,3 +457,33 @@ No runtime, scientific source, workflow, lock, pre-commit hook or native authori
 change is assigned. Next: select nonduplicative additions, verify upstream refs
 and delivery metadata, record DCI2–DCI4 handoff, then publish the selection packet.
 Earlier source assignments remain history.
+
+## DCI1 selection result — 3 November 2026
+
+The same chat/worktree owns the completed selection packet on
+`codex/dci1-selection`. Select ty 0.0.95 and Pyrefly 1.4.0 as one bounded
+differential type-diagnostics experiment, with macOS/Linux x64 comparators and a
+Linux ARM64 static-diagnostic leg. Ty 0.0.96 is below the existing three-day
+release-age threshold. Six expected wheel hashes, 14 upstream refs and ten active
+action refs were re-read; GitHub tag objects were resolved to actual commits.
+Pyrefly's canonical upstream is meta/pyrefly. Publisher ARM scanner checksum
+manifests exist; archives were not downloaded/executed.
+
+Omit duplicate Ruff/Zizmor/pip-audit/Gitleaks/attestation/hook wrappers and prek
+migration; preserve existing hardening policy. Current source-bound locks,
+runtime/scientific inputs, required gates, hooks and native authority are untouched.
+The original red-strict/pre-runner/private-entitlement proposal notes are preserved
+as historical metadata; issue #4 is closed. DCI2 must implement the isolated
+source-bound profile and ARM scanner delivery, DCI3 must execute actual pinned
+compatibility/report/import/exit/budget/export checks, and DCI4 must publish the
+qualified lane. This packet publishes only selection; those three tasks and DH1/
+DH2 remain deferred. Next: focused metadata/integration checks, guarded publication
+of this decision, and receiving-ref/file readback.
+
+DCI1 verification: 70 focused metadata/workflow/publication/workstream tests pass
+under repo-local Python 3.15.1 and 4 GiB/40-minute bounds. All 20 track records,
+Conductor JSON, new/changed local links, selected release age and expected digests
+verify. Baseline file hashes match immutable main `6830891`; scientific/runtime/
+workflow/lock/hook/config bytes remain unchanged. Current signed-input preflight
+passes without renewal. No selected checker or ARM job was executed. Publication
+of this decision remains separate from DCI4 publication of an implemented lane.

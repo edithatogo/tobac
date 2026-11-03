@@ -12,11 +12,12 @@ only a generated/reviewed hash lock qualifies a reproducible release environment
 No second statistical engine, Rust rewrite or universal agent framework without an identified
 need, maintained alternative review and acceptance evidence. Read docs/engineering/READINESS.md.
 
-The deferred advisory lane proposes additional diagnostics alongside the reference checks with ruff-action, ty, pyrefly, prek, gitleaks,
-harden-runner, zizmor-action and gh-action-pip-audit. ty and pyrefly are separate checkers from
-BasedPyright and report diagnostics only; prek is the Rust pre-commit runner, not pre-commit
-itself. Renovate's pinGitHubActionDigests preset preserves the existing full-SHA posture. Only a
-generated/reviewed hash lock qualifies a release environment.
+DCI1 selected a bounded ty 0.0.95/Pyrefly 1.4.0 diagnostic comparison and a
+Linux ARM64 diagnostic leg beside the existing BasedPyright gate. The planned
+isolated profile is not installed or qualified; DCI2–DCI4 remain deferred.
+Duplicate action wrappers and prek migration are omitted. See the
+[selection](roadmap/cicd_hardening_20261025/selection_20261103.md). Existing
+reference/canary locks, hook ownership and full-SHA action pins are unchanged.
 
 The optional `interchange` extra uses PyArrow 26.0.0, Polars 2.1.0, Patito 0.8.6
 and msgspec 0.22.0 to transport the existing evidence contract. Required test and

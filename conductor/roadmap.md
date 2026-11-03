@@ -55,9 +55,12 @@ for these declared workloads. Branch protection and repository visibility are un
 
 Track: `conductor/roadmap/cicd_hardening_20261025/`.
 
-Deferred pending separate maintainer prioritisation; the reference macOS strict checks
-are now qualified. The proposed Linux arm runner and
-additional automation tools are roadmap work; no job or entitlement is claimed as qualified.
+DCI1 selection is complete: a bounded ty 0.0.95/Pyrefly 1.4.0 comparison and
+Linux ARM64 static-diagnostic leg are selected; duplicate security/lint/action
+wrappers and hook migration are omitted. [Decision](roadmap/cicd_hardening_20261025/selection_20261103.md).
+DCI2–DCI4 remain deferred: implementation, actual local/hosted qualification, and
+publication of the qualified lane. No ARM job, new tool compatibility or
+entitlement is claimed as executed or qualified by the selection.
 
 ## Optional macOS hardening follow-ups
 
@@ -80,8 +83,8 @@ diagnostic execution remains deferred here; it is not an unchecked current macOS
 
 ## Reconciliation — 3 November 2026
 
-DXP1–DXP4 are complete. Four advisory-lane tasks and two optional hardening
-tasks remain: six deferred tasks across two work groups/phases.
+DXP1–DXP4 and DCI1 selection are complete. Three advisory-lane tasks and two
+optional hardening tasks remain: five deferred numbered tasks across two work groups.
 No implementation task is in progress.
 See [current status](status.md) for completed gates, open dependency-update PRs,
 scientific requirements and the disposition of superseded decision drafts.

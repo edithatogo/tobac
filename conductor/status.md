@@ -111,15 +111,29 @@ non-force fast-forwards, with both receiving refs and complete trees read back.
 [Final receipt](../integration/manual_workflows_20261103.json) distinguishes the
 lock source, release source and metadata closeout. No PyPI release is performed.
 
+## Completed DCI1 — advisory additions and pins
+
+[Selection](roadmap/cicd_hardening_20261025/selection_20261103.md) selects one
+bounded ty 0.0.95/Pyrefly 1.4.0 comparison experiment, with macOS/Linux x64 and
+Linux ARM64 static diagnostics. GitHub commit refs, release age and six expected
+wheel hashes were verified from upstream metadata. Ty 0.0.96 is below the existing
+three-day minimum age. Duplicate action wrappers and prek migration are omitted.
+
+Ten active action refs and 14 considered upstream refs were re-read. Original
+strict/pre-runner/private-entitlement blockers are historical; issue #4 is closed.
+The current reference, locks, hooks, workflow and verifier profiles are unchanged.
+No selected checker, new lock, ARM job or advisory runtime is installed/executed
+by this metadata-only step. DCI2–DCI4 remain open.
+
 ## Remaining deferred phases and tasks
 
-DXP1–DXP4 are complete. There are **two deferred work groups/phases and six
-pending numbered tasks**, with zero in progress. The advisory lane is the one existing
+DXP1–DXP4 and DCI1 selection are complete. There are **two deferred work groups
+and five pending numbered tasks**, with zero in progress. The advisory lane is the one existing
 deferred track; optional hardening remains in [the roadmap](roadmap.md).
 
 | Group / phase | Tasks remaining |
 | --- | --- |
-| Advisory CI/CD lane | DCI1 — select nonduplicative additions and current pins; DCI2 — implement selected advisory commands/workflow/ARM leg; DCI3 — execute local and hosted qualification; DCI4 — guarded publication and receiving-ref verification. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
+| Advisory CI/CD lane | DCI2 — implement selected isolated advisory commands/profile/workflow and ARM scanner support; DCI3 — execute local and hosted qualification; DCI4 — guarded publication and receiving-ref verification. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
 | Optional macOS hardening | DH1 — triage the 12 surviving supply mutants from the dated 119/131 measurement; DH2 — review retained source/API Ruff exceptions where behavior and scientific meaning are preserved. |
 
 Linux/Windows runtime tests and hosted lineage verification already passed.
