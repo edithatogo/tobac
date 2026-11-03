@@ -566,3 +566,8 @@ Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the existing
 branch. Scope: run the advisory fixture matrix, read-only hosted checks and
 receipts, then guarded DCI4 publication. Native scope: no changes; the signed
 lineage capsule is verified. Next: submit the exact candidate to hosted checks.
+
+DCI3 result: all three advisory jobs passed on source `4b6dbf18`; downloaded
+artifacts verified their source/report hashes, fixture exits and native scanner
+execution. Receipt: `integration/advisory_typing_qualification_20261103.json`.
+Next: test this metadata-only reconciliation head and guarded DCI4 publication.

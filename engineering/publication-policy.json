@@ -361,6 +361,7 @@
     "evidence/prior_work/v2.9.0/requests/empirical_20261024/supply_data_request_fields.csv",
     "evidence/references.csl.json",
     "evidence/source_review.json",
+    "integration/advisory_typing_qualification_20261103.json",
     "integration/archive/ac13-recovery-receipt.json",
     "integration/archive/consumer-inputs.json",
     "integration/archive/handoff-verification_20261026.json",

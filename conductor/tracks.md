@@ -63,9 +63,9 @@ DXP4 manual release and four-profile lock candidates are complete through actual
 execution and downloaded-artifact readback. [Receipt](../integration/manual_workflows_20261103.json).
 DCI1 selection is complete: ty/Pyrefly differential diagnostics and Linux ARM64
 static diagnostics are selected with verified candidate refs. Implementation and local evidence are complete on branch
-`codex/dci2-implementation`; the hosted lane is not qualified.
+`codex/dci2-implementation`; the three-host advisory lane is qualified at its recorded source revision.
 [Decision](roadmap/cicd_hardening_20261025/selection_20261103.md).
-Two advisory tasks remain; DCI2 is complete locally, and DH1/DH2 are published.
+DCI4 publication remains; DCI2/DCI3 are complete on the branch, and DH1/DH2 are published.
 
 [Roadmap](roadmap.md): optional advisory promotion and explicitly optional
 the completed mutation and source-style reviews. Existing hosted checks and full-SHA pins remain required.

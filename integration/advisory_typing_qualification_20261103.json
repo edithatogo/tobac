@@ -1,0 +1,468 @@
+{
+  "hosts": {
+    "macos": {
+      "artifact_id": 13223918566,
+      "artifact_sha256": "39dc1ccbf28d5f43ab8bcd723d5a2700e0ccb577917989a889ade70b41707ba1",
+      "checker_versions": {
+        "pyrefly": "pyrefly 1.4.0",
+        "ty": "ty 0.0.95 (48c5ea1ba 2026-10-29)"
+      },
+      "environment_sha256": "07b751bf91392171370ce971c43d8611c99d1769dd8cee4d3a6cf8110f29c96d",
+      "findings": {
+        "method": "same repository-relative file and line; not semantic equivalence",
+        "overlap_locations": 0,
+        "tools": {
+          "pyrefly": {
+            "codes": {
+              "bad-argument-type": 3,
+              "unsupported-delete": 1,
+              "unsupported-operation": 2
+            },
+            "count": 6,
+            "overlap_count": 0,
+            "possible_stub_gaps": [],
+            "unique_count": 6
+          },
+          "ty": {
+            "codes": {
+              "invalid-argument-type": 11,
+              "invalid-return-type": 1,
+              "missing-argument": 2,
+              "no-matching-overload": 4,
+              "redundant-cast": 4,
+              "unknown-argument": 3,
+              "unresolved-attribute": 4,
+              "unsupported-operator": 1
+            },
+            "count": 30,
+            "overlap_count": 0,
+            "possible_stub_gaps": [
+              {
+                "code": "unresolved-attribute",
+                "line": 71,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              },
+              {
+                "code": "unresolved-attribute",
+                "line": 73,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              },
+              {
+                "code": "unresolved-attribute",
+                "line": 77,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              },
+              {
+                "code": "unresolved-attribute",
+                "line": 79,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              }
+            ],
+            "unique_count": 30
+          }
+        }
+      },
+      "fixture_results": {
+        "forced-crash": {
+          "codes": [],
+          "exit_code": 7
+        },
+        "pyrefly-bad": {
+          "codes": [
+            "bad-assignment"
+          ],
+          "exit_code": 1
+        },
+        "pyrefly-good": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "pyrefly-invalid": {
+          "codes": [
+            "parse-error",
+            "parse-error"
+          ],
+          "exit_code": 1
+        },
+        "pyrefly-lazy": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "pyrefly-missing": {
+          "codes": [
+            "missing-import"
+          ],
+          "exit_code": 1
+        },
+        "ty-bad": {
+          "codes": [
+            "invalid-assignment"
+          ],
+          "exit_code": 1
+        },
+        "ty-good": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "ty-invalid": {
+          "codes": [
+            "invalid-syntax",
+            "invalid-syntax"
+          ],
+          "exit_code": 1
+        },
+        "ty-lazy": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "ty-missing": {
+          "codes": [
+            "unresolved-import"
+          ],
+          "exit_code": 1
+        }
+      },
+      "inspection_and_export": "passed",
+      "job_id": 125873935726,
+      "original_exits": {
+        "pyrefly": 1,
+        "ty": 1
+      },
+      "peak_sampled_group_rss_mib": 728.2,
+      "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+      "python": "3.15.1",
+      "report_sha256": {
+        "pyrefly": "0e3f0ad0f50349e0f1e9911a4a5bab03f56ba82f4981e9f4a9bf9a4cecdaec74",
+        "ty": "7d18aecd1755924c1f891c2ee3b22b26990bea823e187cbb563d5a2479364647"
+      },
+      "runner_label": "macos-latest",
+      "scanner_archives_checksum_verified": true,
+      "scanner_native_execution_verified": true,
+      "scanner_versions": {
+        "actionlint": "1.7.12",
+        "gitleaks": "8.30.1"
+      },
+      "source_inputs_sha256": "8893808f6084d94340eaac47069f03b8ba2e5d4c280370c9918b0d9a82b08157",
+      "wheel": {
+        "source_revision": "7af563c8cb373057d30662650b3f332f39e05b83",
+        "wheel": "voiage-2.2.0+tobac3151.2-cp312-abi3-macosx_11_0_arm64.whl",
+        "wheel_sha256": "274af71bf5157bb13e422d57f5ba9a9f3fa0cc9011076f4409a82914e9d19e20"
+      }
+    },
+    "ubuntu-arm": {
+      "artifact_id": 13224058264,
+      "artifact_sha256": "0016ddac895737b3f94d690ac0d602e100c37468db162fb8eef49d567e35c77a",
+      "checker_versions": {
+        "pyrefly": "pyrefly 1.4.0",
+        "ty": "ty 0.0.95"
+      },
+      "environment_sha256": "07b751bf91392171370ce971c43d8611c99d1769dd8cee4d3a6cf8110f29c96d",
+      "findings": {
+        "method": "same repository-relative file and line; not semantic equivalence",
+        "overlap_locations": 0,
+        "tools": {
+          "pyrefly": {
+            "codes": {
+              "bad-argument-type": 3,
+              "unsupported-delete": 1,
+              "unsupported-operation": 2
+            },
+            "count": 6,
+            "overlap_count": 0,
+            "possible_stub_gaps": [],
+            "unique_count": 6
+          },
+          "ty": {
+            "codes": {
+              "invalid-argument-type": 11,
+              "invalid-return-type": 1,
+              "missing-argument": 2,
+              "no-matching-overload": 4,
+              "redundant-cast": 4,
+              "unknown-argument": 3,
+              "unresolved-attribute": 4,
+              "unsupported-operator": 1
+            },
+            "count": 30,
+            "overlap_count": 0,
+            "possible_stub_gaps": [
+              {
+                "code": "unresolved-attribute",
+                "line": 71,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              },
+              {
+                "code": "unresolved-attribute",
+                "line": 73,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              },
+              {
+                "code": "unresolved-attribute",
+                "line": 77,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              },
+              {
+                "code": "unresolved-attribute",
+                "line": 79,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              }
+            ],
+            "unique_count": 30
+          }
+        }
+      },
+      "fixture_results": {
+        "forced-crash": {
+          "codes": [],
+          "exit_code": 7
+        },
+        "pyrefly-bad": {
+          "codes": [
+            "bad-assignment"
+          ],
+          "exit_code": 1
+        },
+        "pyrefly-good": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "pyrefly-invalid": {
+          "codes": [
+            "parse-error",
+            "parse-error"
+          ],
+          "exit_code": 1
+        },
+        "pyrefly-lazy": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "pyrefly-missing": {
+          "codes": [
+            "missing-import"
+          ],
+          "exit_code": 1
+        },
+        "ty-bad": {
+          "codes": [
+            "invalid-assignment"
+          ],
+          "exit_code": 1
+        },
+        "ty-good": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "ty-invalid": {
+          "codes": [
+            "invalid-syntax",
+            "invalid-syntax"
+          ],
+          "exit_code": 1
+        },
+        "ty-lazy": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "ty-missing": {
+          "codes": [
+            "unresolved-import"
+          ],
+          "exit_code": 1
+        }
+      },
+      "inspection_and_export": "passed",
+      "job_id": 125873936123,
+      "original_exits": {
+        "pyrefly": 1,
+        "ty": 1
+      },
+      "peak_sampled_group_rss_mib": 761.0,
+      "platform": "Linux-7.0.0-1017-azure-aarch64-with-glibc2.39",
+      "python": "3.15.1",
+      "report_sha256": {
+        "pyrefly": "0e3f0ad0f50349e0f1e9911a4a5bab03f56ba82f4981e9f4a9bf9a4cecdaec74",
+        "ty": "ecf6c2c33350d964cc4f2bae0d493244cbe99f24def1a2b95478acb16d284d11"
+      },
+      "runner_label": "ubuntu-24.04-arm",
+      "scanner_archives_checksum_verified": true,
+      "scanner_native_execution_verified": true,
+      "scanner_versions": {
+        "actionlint": "1.7.12",
+        "gitleaks": "8.30.1"
+      },
+      "source_inputs_sha256": "8893808f6084d94340eaac47069f03b8ba2e5d4c280370c9918b0d9a82b08157",
+      "wheel": {
+        "source_revision": "7af563c8cb373057d30662650b3f332f39e05b83",
+        "wheel": "voiage-2.2.0+tobac3151.2-cp312-abi3-linux_aarch64.whl",
+        "wheel_sha256": "da832f971543f9c12c5e69794dc150da91c9811fcfeb7e9b948e3e05f72816f9"
+      }
+    },
+    "ubuntu-x64": {
+      "artifact_id": 13224536740,
+      "artifact_sha256": "9bd1eb84981babcd3dd1bcfdb88601ea46f9f75553252e230991f3d09ae28207",
+      "checker_versions": {
+        "pyrefly": "pyrefly 1.4.0",
+        "ty": "ty 0.0.95"
+      },
+      "environment_sha256": "07b751bf91392171370ce971c43d8611c99d1769dd8cee4d3a6cf8110f29c96d",
+      "findings": {
+        "method": "same repository-relative file and line; not semantic equivalence",
+        "overlap_locations": 0,
+        "tools": {
+          "pyrefly": {
+            "codes": {
+              "bad-argument-type": 3,
+              "unsupported-delete": 1,
+              "unsupported-operation": 2
+            },
+            "count": 6,
+            "overlap_count": 0,
+            "possible_stub_gaps": [],
+            "unique_count": 6
+          },
+          "ty": {
+            "codes": {
+              "invalid-argument-type": 11,
+              "invalid-return-type": 1,
+              "missing-argument": 2,
+              "no-matching-overload": 4,
+              "redundant-cast": 4,
+              "unknown-argument": 3,
+              "unresolved-attribute": 4,
+              "unsupported-operator": 1
+            },
+            "count": 30,
+            "overlap_count": 0,
+            "possible_stub_gaps": [
+              {
+                "code": "unresolved-attribute",
+                "line": 71,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              },
+              {
+                "code": "unresolved-attribute",
+                "line": 73,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              },
+              {
+                "code": "unresolved-attribute",
+                "line": 77,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              },
+              {
+                "code": "unresolved-attribute",
+                "line": 79,
+                "path": "scripts/qualify_voiage_consumer.py",
+                "severity": "error"
+              }
+            ],
+            "unique_count": 30
+          }
+        }
+      },
+      "fixture_results": {
+        "forced-crash": {
+          "codes": [],
+          "exit_code": 7
+        },
+        "pyrefly-bad": {
+          "codes": [
+            "bad-assignment"
+          ],
+          "exit_code": 1
+        },
+        "pyrefly-good": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "pyrefly-invalid": {
+          "codes": [
+            "parse-error",
+            "parse-error"
+          ],
+          "exit_code": 1
+        },
+        "pyrefly-lazy": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "pyrefly-missing": {
+          "codes": [
+            "missing-import"
+          ],
+          "exit_code": 1
+        },
+        "ty-bad": {
+          "codes": [
+            "invalid-assignment"
+          ],
+          "exit_code": 1
+        },
+        "ty-good": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "ty-invalid": {
+          "codes": [
+            "invalid-syntax",
+            "invalid-syntax"
+          ],
+          "exit_code": 1
+        },
+        "ty-lazy": {
+          "codes": [],
+          "exit_code": 0
+        },
+        "ty-missing": {
+          "codes": [
+            "unresolved-import"
+          ],
+          "exit_code": 1
+        }
+      },
+      "inspection_and_export": "passed",
+      "job_id": 125873936101,
+      "original_exits": {
+        "pyrefly": 1,
+        "ty": 1
+      },
+      "peak_sampled_group_rss_mib": 725.7,
+      "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.43",
+      "python": "3.15.1",
+      "report_sha256": {
+        "pyrefly": "0e3f0ad0f50349e0f1e9911a4a5bab03f56ba82f4981e9f4a9bf9a4cecdaec74",
+        "ty": "ecf6c2c33350d964cc4f2bae0d493244cbe99f24def1a2b95478acb16d284d11"
+      },
+      "runner_label": "ubuntu-latest",
+      "scanner_archives_checksum_verified": true,
+      "scanner_native_execution_verified": true,
+      "scanner_versions": {
+        "actionlint": "1.7.12",
+        "gitleaks": "8.30.1"
+      },
+      "source_inputs_sha256": "8893808f6084d94340eaac47069f03b8ba2e5d4c280370c9918b0d9a82b08157",
+      "wheel": {
+        "source_revision": "7af563c8cb373057d30662650b3f332f39e05b83",
+        "wheel": "voiage-2.2.0+tobac3151.2-cp312-abi3-linux_x86_64.whl",
+        "wheel_sha256": "9e7785fe1fa62fc0d8aa0f5adec2c6cdc986b5495480fbc216731275250b438d"
+      }
+    }
+  },
+  "run_id": 41623219042,
+  "run_url": "https://github.com/edithatogo/tobac/actions/runs/41623219042",
+  "schema": "tobac.advisory-hosted-qualification.v1",
+  "scope": "static diagnostics and scanner export; ARM scientific verifier profiles are unchanged",
+  "source_commit": "4b6dbf18ca3570b1cb1bd27019d81a4287a1bf50"
+}

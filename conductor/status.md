@@ -124,18 +124,17 @@ strict/pre-runner/private-entitlement blockers are historical; issue #4 is close
 The current reference, locks, hooks, workflow and verifier profiles are unchanged.
 No selected checker, new lock, ARM job or advisory runtime is installed/executed
 by that metadata-only step. DCI2 was implemented subsequently on a branch;
-DCI3 qualification and DCI4 publication remain open.
+DCI3 has since qualified the hosted advisory matrix; DCI4 publication remains open.
 
 ## Remaining deferred phases and tasks
 
 DXP1–DXP4, DCI1, DH1 and DH2 are complete. One advisory work group remains:
-**DCI2 is complete on the implementation branch; DCI3 is in progress and DCI4
-is pending**. The earlier checkpoint is integrated on `codex/dci2-implementation`;
+**DCI2 and DCI3 are complete on the implementation branch; DCI4 is pending**. The earlier checkpoint is integrated on `codex/dci2-implementation`;
 the implemented lane has not been merged to main.
 
 | Group / phase | Tasks remaining |
 | --- | --- |
-| Advisory CI/CD lane | DCI2 — complete locally; DCI3 — execute local and hosted qualification; DCI4 — guarded publication and receiving-ref verification. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
+| Advisory CI/CD lane | DCI2 — complete locally; DCI3 — hosted qualification passed; DCI4 — guarded publication and receiving-ref verification. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
 | Optional macOS hardening | DH1 complete: triaged all 12 dated survivors; fresh local mutation run detected 129/131, with two backend-equivalent survivors. DH2 complete: reviewed the retained source/API Ruff exceptions and documented why they remain, including a tested refactor that invalidated scientific lineage. |
 
 Linux/Windows runtime tests and hosted lineage verification already passed.
