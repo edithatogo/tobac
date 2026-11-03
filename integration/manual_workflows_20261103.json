@@ -1,7 +1,7 @@
 {
   "schema": "tobac.manual-workflows.v1",
   "task": "DXP4",
-  "status": "in_progress",
+  "status": "passed",
   "base_sha": "68d90494e2732e1306053130991726e6ca37f173",
   "workflow_sha256": {
     "release-candidate.yml": "9fee6cdb015e402f8a8bbf1685c448a1d27697591b54b9b46738e81c9a59012a",
@@ -55,7 +55,8 @@
     ],
     "actionlint": "passed",
     "zizmor_pedantic": "passed",
-    "ruff": "passed"
+    "ruff": "passed",
+    "readback_scope": "All downloaded candidate lock/receipt/inventory hashes, release package exports, clean-build member hashes and 82 scientific CSV comparisons verified on repo-local Python 3.15.1. No scientific models rerun locally."
   },
   "native": {
     "runners_reopened": 8,
@@ -106,7 +107,8 @@
   "stale_source_controls": {
     "release_run": 41567619304,
     "lock_run": 41567622611,
-    "jobs_rejected_before_workload": 5
+    "jobs_rejected_before_workload": 6,
+    "corrected_release_run": 41570629439
   },
   "lock_candidates": {
     "status": "passed",
@@ -280,7 +282,7 @@
     "adopted": false
   },
   "release": {
-    "status": "pending_corrected_route_execution",
+    "status": "passed",
     "first_run": 41567707353,
     "first_source_sha": "3914060dd39449f0a7254ad851b0d2866820e000",
     "first_failure": "Ubuntu 24.04 OpenSSH digest outside qualified verifier profiles; rejected before Nox execution.",
@@ -289,7 +291,513 @@
     "qualified_reference_run": 41565105342,
     "qualified_openssh_sha256": "33b1c52f8ede26412a1d081cfad3582a9b9816c53461a657bec08757f678a06a",
     "preflight_failure_capture": "Actual JSON records and original verifier exit code retained; synthetic successful/rejected controls pass.",
-    "runner_label": "ubuntu-latest"
+    "runner_label": "ubuntu-latest",
+    "source_sha": "fdd6be055e350319406498f00e22eed03296e798",
+    "run_id": 41570769167,
+    "job_id": 125702864606,
+    "run_url": "https://github.com/edithatogo/tobac/actions/runs/41570769167",
+    "python": "3.15.1",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.43",
+    "verifier": {
+      "profile": {
+        "base_python_sha256": "00e3569b62ae453b0e9000b9a0957f210a2d1de0fad7c439cabd61360ea87228",
+        "machine": "x86_64",
+        "openssh_sha256": "33b1c52f8ede26412a1d081cfad3582a9b9816c53461a657bec08757f678a06a",
+        "python_sha256": "00e3569b62ae453b0e9000b9a0957f210a2d1de0fad7c439cabd61360ea87228",
+        "python_version": [
+          3,
+          15,
+          1
+        ],
+        "system": "Linux"
+      },
+      "tampered_signature_rejected": true,
+      "valid_signature_passed": true
+    },
+    "native_input_gate": {
+      "checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
+      "execution_mode": "qualified_attested_inputs",
+      "native_lineage_qualified": false,
+      "qualified": true,
+      "runners": {
+        "longitudinal": {
+          "attempt_id": "dfb3712867804dd0b445bb2ec3216eda",
+          "manifest": "sha256:ceba24a4f9ebfa4e7ce12aa8dac83a39f595aa86fa69d8f4cea7b2f6bc5be647",
+          "verified_inputs": 7,
+          "verified_outputs": 22
+        },
+        "m1": {
+          "attempt_id": "6eebb04b4b63426583e871b5624ccfe7",
+          "manifest": "sha256:648d675657d589f382ed31a8493f8ca66b8ae07a18c443f9b58ebfab448dcb9a",
+          "verified_inputs": 31,
+          "verified_outputs": 10
+        },
+        "m2": {
+          "attempt_id": "a293dc69243e4d6c89bd9a1cade0f5b1",
+          "manifest": "sha256:6b4519e31a37ae4d35d9ef4f96cb7a3f730e05174548cb31321f677e6fae05ca",
+          "verified_inputs": 74,
+          "verified_outputs": 14
+        },
+        "m2_publication": {
+          "attempt_id": "66f16360dd1c4c1495db52f390a8e6be",
+          "manifest": "sha256:eb5a80ca75cc7ad66fe992b3c8a2afcce01fd65b26f28de957bebabc64dbeaf8",
+          "verified_inputs": 74,
+          "verified_outputs": 42
+        },
+        "m2_retail": {
+          "attempt_id": "1a43cf3aaa4a45eb89566d62e7a75632",
+          "manifest": "sha256:1539322d8268a570745bbb8d25d6ecc674e4c123deb53fd28eba9243fc716fad",
+          "verified_inputs": 24,
+          "verified_outputs": 9
+        },
+        "m2_robustness": {
+          "attempt_id": "829e95b3b11d4931a7b3542f5b19a95d",
+          "manifest": "sha256:16de647ac0bdb183034a50e27e0912dd7b2fbadd083cfc4cbc336b278ce97371",
+          "verified_inputs": 73,
+          "verified_outputs": 7
+        },
+        "m3": {
+          "attempt_id": "56db716f440b4081b95479b9f1d8151c",
+          "manifest": "sha256:0b0d5aa8c6a4af261ae60a7bf0e7d54b22f210da6935f11cc4029c74c6c754cf",
+          "verified_inputs": 33,
+          "verified_outputs": 12
+        },
+        "release_calibration": {
+          "attempt_id": "f8e3d854b8c14138bd6fd689a5d42477",
+          "manifest": "sha256:61bc45c7e049cb41829e73a97255453d9125788bab909a6799003f22a297b16b",
+          "verified_inputs": 7,
+          "verified_outputs": 24
+        }
+      },
+      "scientific_qualification": false,
+      "scope": "signed local native byte verification and hosted current-input verification",
+      "success": true
+    },
+    "nox_sessions": {
+      "tests": {
+        "status": "success",
+        "duration_seconds": 89.101813697
+      },
+      "quality": {
+        "status": "success",
+        "duration_seconds": 34.812443608999985
+      },
+      "strict_all": {
+        "status": "success",
+        "duration_seconds": 15.356288285000005
+      },
+      "security": {
+        "status": "success",
+        "duration_seconds": 4.637176178000004
+      },
+      "reproduce": {
+        "status": "success",
+        "duration_seconds": 357.8092227640001
+      },
+      "package": {
+        "status": "success",
+        "duration_seconds": 1.5453046569999742
+      },
+      "clean_package": {
+        "status": "success",
+        "duration_seconds": 8.934844697000017
+      }
+    },
+    "tests": {
+      "tests": 1229,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 19,
+      "passed": 1210
+    },
+    "coverage": {
+      "covered_lines": 2759,
+      "num_statements": 2975,
+      "percent_covered": 92.02692208128397,
+      "percent_covered_display": "92",
+      "missing_lines": 216,
+      "excluded_lines": 54,
+      "percent_statements_covered": 92.73949579831933,
+      "percent_statements_covered_display": "93",
+      "num_branches": 888,
+      "num_partial_branches": 70,
+      "covered_branches": 796,
+      "missing_branches": 92,
+      "percent_branches_covered": 89.63963963963964,
+      "percent_branches_covered_display": "90"
+    },
+    "scientific_runners": {
+      "m1": {
+        "tables": 8,
+        "rows": 2068,
+        "maximum_absolute_difference": 1.0186340659856796e-09,
+        "tolerance": {
+          "rtol": 1e-09,
+          "atol": 1e-12
+        }
+      },
+      "m2_retail": {
+        "tables": 6,
+        "rows": 660,
+        "maximum_absolute_difference": 2.000888343900442e-11,
+        "tolerance": {
+          "rtol": 1e-09,
+          "atol": 1e-12
+        }
+      },
+      "m2_publication": {
+        "tables": 24,
+        "rows": 5757,
+        "maximum_absolute_difference": 9.094947017729282e-13,
+        "tolerance": {
+          "rtol": 0,
+          "atol": 1e-10
+        }
+      },
+      "m2_robustness": {
+        "tables": 5,
+        "rows": 23933,
+        "maximum_absolute_difference": 1.354472090042691e-14,
+        "tolerance": {
+          "rtol": 0,
+          "atol": 1e-10
+        }
+      },
+      "m3": {
+        "tables": 10,
+        "rows": 1183,
+        "maximum_absolute_difference": 1.8189894035458565e-11,
+        "tolerance": {
+          "rtol": 1e-09,
+          "atol": 1e-12
+        }
+      },
+      "longitudinal": {
+        "tables": 8,
+        "rows": 8566,
+        "maximum_absolute_difference": 0.0008897781372070312,
+        "tolerance": {
+          "rtol": 1e-09,
+          "atol": 1e-12
+        }
+      },
+      "release_calibration": {
+        "tables": 13,
+        "rows": 51908,
+        "maximum_absolute_difference": 1.000000082740371e-11,
+        "tolerance": {
+          "rtol": 1e-09,
+          "atol": 1e-12
+        }
+      },
+      "m2": {
+        "tables": 8,
+        "rows": 1919,
+        "maximum_absolute_difference": 9.094947017729282e-13,
+        "tolerance": {
+          "rtol": 0,
+          "atol": 1e-10
+        }
+      }
+    },
+    "scientific_csv_tables": 82,
+    "downloaded_csv_comparison": "passed under original policies; no models rerun locally",
+    "clean_package": {
+      "status": "passed",
+      "source_overrides": false,
+      "inspected_contract": {
+        "dependency_marker_cases": {
+          "Linux:none": [
+            "numpy==2.5.4",
+            "scipy==1.18.1"
+          ],
+          "Linux:interchange": [
+            "msgspec==0.22.0",
+            "numpy==2.5.4",
+            "patito==0.8.6",
+            "polars==2.1.0",
+            "pyarrow==26.0.0",
+            "scipy==1.18.1"
+          ],
+          "Linux:longitudinal": [
+            "matplotlib==3.11.2",
+            "numpy==2.5.4",
+            "pandas==3.1.0",
+            "scipy==1.18.1"
+          ],
+          "Linux:engineering": [
+            "jsonschema==4.26.0",
+            "numpy==2.5.4",
+            "scipy==1.18.1"
+          ],
+          "Linux:all": [
+            "jsonschema==4.26.0",
+            "matplotlib==3.11.2",
+            "msgspec==0.22.0",
+            "numpy==2.5.4",
+            "pandas==3.1.0",
+            "patito==0.8.6",
+            "polars==2.1.0",
+            "pyarrow==26.0.0",
+            "scipy==1.18.1"
+          ],
+          "Windows:none": [
+            "numpy==2.5.4",
+            "scipy==1.18.1"
+          ],
+          "Windows:interchange": [
+            "msgspec==0.22.0",
+            "numpy==2.5.4",
+            "patito==0.8.6",
+            "polars==2.1.0",
+            "pyarrow==26.0.0",
+            "scipy==1.18.1"
+          ],
+          "Windows:longitudinal": [
+            "matplotlib==3.11.2",
+            "numpy==2.5.4",
+            "pandas==3.1.0",
+            "scipy==1.18.1"
+          ],
+          "Windows:engineering": [
+            "jsonschema==4.26.0",
+            "numpy==2.5.4",
+            "scipy==1.18.1"
+          ],
+          "Windows:all": [
+            "jsonschema==4.26.0",
+            "matplotlib==3.11.2",
+            "msgspec==0.22.0",
+            "numpy==2.5.4",
+            "pandas==3.1.0",
+            "patito==0.8.6",
+            "polars==2.1.0",
+            "pyarrow==26.0.0",
+            "scipy==1.18.1"
+          ]
+        },
+        "wheel_members_sha256": {
+          "tobac/__init__.py": "438a1124a46dfc7a91b5424c8127a8ead3e01c0f34e45740a1238429aa54f94f",
+          "tobac/_core.py": "c2dae2df9d91d5143d7ffe5926fcc410f65fbfc6933a8e5bdabf3c8b61c5bcee",
+          "tobac/_typing.py": "ec3ebd6c74b4b7dbeed64c668984e432fa5366ab9ebadee07c597f4b6270ec2f",
+          "tobac/backend.py": "29fbd4523810e76d59aa9ccc0df35acf76dfc5db5077ba48a8f4b20bbe9074dc",
+          "tobac/config_validation.py": "1f9b31118eb2b45c1ff084bb84384fdd1fafc330e603457772b4a586d01f7fe8",
+          "tobac/evidence.py": "88dd31c846b88b547b9db5418565a1b78325c42074862aa6a6ae268017501602",
+          "tobac/information.py": "355e3fbef1cacdb783d96af5561bb150ef9958873abfb6a658b2a5a69bd7f5e8",
+          "tobac/integrations.py": "4a40996b1186fc4bf057797af0facffaeaf107a6d2e21cca94fa4d5e1372209c",
+          "tobac/interchange.py": "e479d5f36e7deec849e8dc796c693af47ef2830b3aa9adb027a162b0380289b3",
+          "tobac/m2.py": "269a3e302bcdf833deab9ec1e73bffe7a8d1f79601836eeed1978b6c69b8401f",
+          "tobac/matched.py": "471ec69eb30834de0145eaec6b13dc366cca8bb25bbdb4d7cf98c54632852edb",
+          "tobac/normalized_bundle.py": "b690d333f61483a43e75a629ef2a8ccea0d66dca14c6544d0c17b880ede29345",
+          "tobac/parameters.py": "58180da80bc9087a816f9058dd9e9c960059d27b8eb28ef475b6ee7dd9409d56",
+          "tobac/partial_identification.py": "34f528557b34f050036e52a4a5e66b189de75c14e24087b6d9bc85e60aee834c",
+          "tobac/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tobac/regulation.py": "a1d361e300df331bb10810100f1e153f1f6faf4d8de4e5824b3702bc9fc517e5",
+          "tobac/replay.py": "19fac6aa53a3233f69837ad0c1d77d7909cfe6c1c0a7e5a787e0cc50e59a505c",
+          "tobac/retail_case.py": "248ec4ed391440ce8277f4e31dc30ace0586cc30ab1ac8ced524b1dae8558ff5",
+          "tobac/robustness.py": "230e072b9405c9366037af291c3933beee3f2d75003f4533a0411a929051f336",
+          "tobac/run.py": "e741b366c649a27ef9ed59ac3cf3b8cb842f4fed3ad0a7f6dd3cf750055ea020",
+          "tobac/supply.py": "45261897fd11636492186c070fc6b0a77caf7dae3d9345ef2dec495ca169acfb",
+          "tobac/value_sensitivity.py": "173aaa01420754c93d8a20d94b4f4cd0e5a8ba23ad1bd64796780fa5baf9497a",
+          "tobac/research/__init__.py": "82c9f7c23f3f260b62ba6bb1b5065dbccee5509b09cbd92505803412e7c976dd",
+          "tobac/research/implementation.py": "a899abdcb222ae696fab116e8a774735692da6743e1b80a070cef8ee4d8cce0d",
+          "tobac/research/portfolio.py": "e054aaebeb09824bb305408b5defd79695398c4fd1d26c60f5719da7c0316c3d",
+          "tobac/research/qualification.py": "ecbd0956f8fc6bba386e24d2abf23269e615fd076d9c9c2c76b76f3d2e29239f",
+          "tobac/research/robust.py": "42cef714d35a3f28fa4ca006d91d13de84456ef938c5ed863c3566af9bc14275",
+          "tobac/research/runner.py": "cc254075be4498837843c18989aedae3826aa6c06beea65ed0e569e372168276",
+          "tobac/research/staged.py": "d6d2ca4ba7637d6401c110a4e27e8c896dd2c001b545a00d88fa02875b667ee6",
+          "tobac/research/structure.py": "add80ead9c7f07c4fa9230bf9a000f277c770631a52266f42eb74fc3d57b2ddf",
+          "tobac/research/voiage_adapter.py": "3020eca14c74d7dafb228385e37debddd4a517688b04095074aaeb5aee9eb8df",
+          "tobac_regulatory_research-0.2.0.dist-info/licenses/LICENSE": "f4d9b0aad8ff9e650f5890fa3eeb7c1311479cab901f8a9b416a2d9acaf54266",
+          "tobac_regulatory_research-0.2.0.dist-info/licenses/NOTICE": "617d847e789906e604b0c47e559d4e760794c3cdf782a09d3a29b09cfe502a3a",
+          "tobac_supply/__init__.py": "16467a877d1de4de35636a768f89d2e62d6b8407efb0d95db031930c17052f6f",
+          "tobac_supply/consumption_ledger.py": "5b5370207d239ede06480d441f7c4fa9e8d4a3b3d2d237a4f01becb68789390b",
+          "tobac_supply/empirical_longitudinal.py": "efbf1c76bffb7e8a844f2d0420194e6a2208a655259b10f6d6de5686b27afa3a",
+          "tobac_supply/longitudinal.py": "3dae712734a760b077f06a7d2ed3acb5f2cbfe7580331fc3fe0d12d95b16bc34",
+          "tobac_supply/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tobac_supply/release_calibration.py": "74e56c210ea8f5cd59969298e3e00521d46885b3ecf7b31acd7d4c2069c8962a",
+          "tobac_regulatory_research-0.2.0.dist-info/METADATA": "2ca30da5c30f00d43abb8e57e140d0e07c6afe46b272b2d1701e1c54049ed36f",
+          "tobac_regulatory_research-0.2.0.dist-info/WHEEL": "98e75747d0b7c0c568bfb71263c3d8f970b3a374a6996087bc642be5cb09a1aa",
+          "tobac_regulatory_research-0.2.0.dist-info/top_level.txt": "5873ed2a07bd7df3d80ad12654ac3d930cba003a62ee7af5cddbaf5b63ba509f",
+          "tobac_regulatory_research-0.2.0.dist-info/RECORD": "7f7af566d25ea440fc694bd0e1fe5e3404ca758ec9df28ef552e3166b5d1b883"
+        },
+        "sdist_rebuilt_contents_equal": true
+      },
+      "verified_exported_files": 24,
+      "intentionally_excluded_prose_or_ignore_files": [
+        "dist/.gitignore",
+        "reconstructed/.gitignore"
+      ],
+      "receipt_sha256": "979250f6accba02a0e5449586be5b0d4c713d7d55938f8d0c7af2e6100bfe538"
+    },
+    "packages": {
+      "tobac_regulatory_research-0.2.0-py3-none-any.whl": {
+        "sha256": "ed9f8f5c7b79064c415d57d40b5cc7419bd5c0c55d91d6ec58f0292ae577cb2d",
+        "bytes": 93324,
+        "matches_evidence_upload_bytes": true,
+        "matches_clean_build_archive_bytes": true,
+        "matches_clean_build_member_bytes": true,
+        "archive_metadata_differences": []
+      },
+      "tobac_regulatory_research-0.2.0.tar.gz": {
+        "sha256": "a5321c5bc973759e9447ccf3a36155b74b5bd5602ececd4974b1637413916ddb",
+        "bytes": 87424,
+        "matches_evidence_upload_bytes": true,
+        "matches_clean_build_archive_bytes": false,
+        "matches_clean_build_member_bytes": true,
+        "archive_metadata_differences": [
+          {
+            "member": "tobac_regulatory_research-0.2.0",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/PKG-INFO",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/setup.cfg",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/src",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/src/tobac",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/src/tobac/research",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/src/tobac_regulatory_research.egg-info",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/src/tobac_regulatory_research.egg-info/PKG-INFO",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/src/tobac_regulatory_research.egg-info/SOURCES.txt",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/src/tobac_regulatory_research.egg-info/dependency_links.txt",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/src/tobac_regulatory_research.egg-info/requires.txt",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/src/tobac_regulatory_research.egg-info/top_level.txt",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/src/tobac_supply",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          },
+          {
+            "member": "tobac_regulatory_research-0.2.0/tests",
+            "fields": [
+              "mtime",
+              "pax_headers"
+            ]
+          }
+        ]
+      }
+    },
+    "verification_files_sha256": {
+      "nox-report.json": "27041fc8000b3e590dec5c9aa543d06fabef193fe08794ea0630c35bb0578cc7",
+      "lineage-preflight.json": "04dbd53f310f4b3204e7a71a14156c17d1fe05a9fdcb4f69758c9b7585faadbb",
+      "scientific-reproduction.json": "5a11c6e354598b4e40547a677c49ace814c5c5843c8dbb55b2f9e14fd7642cd2",
+      "junit.xml": "2867e758bd00e663a152ac53d95f9959e5644eec7d66c00a1b0cac5f15b4b53c",
+      "coverage.json": "a7d6f0ec712010b86a58374eca9bc7ba34f9006bfd5081b4bfa59c43a390270b"
+    },
+    "artifacts": [
+      {
+        "id": 13201706357,
+        "node_id": "MDg6QXJ0aWZhY3QxMzIwMTcwNjM1Nw==",
+        "name": "release-qualification-evidence",
+        "size_in_bytes": 8122881,
+        "url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13201706357",
+        "archive_download_url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13201706357/zip",
+        "expired": false,
+        "digest": "sha256:4f74a8d0f5d407e54f5e05660043f62d4c68691761629ca09da42c195849f422",
+        "created_at": "2026-11-03T03:21:14Z",
+        "updated_at": "2026-11-03T03:21:14Z",
+        "expires_at": "2026-11-17T03:21:12Z",
+        "workflow_run": {
+          "id": 41570769167,
+          "repository_id": 1431741120,
+          "head_repository_id": 1431741120,
+          "head_branch": "main",
+          "head_sha": "fdd6be055e350319406498f00e22eed03296e798"
+        }
+      },
+      {
+        "id": 13200869923,
+        "node_id": "MDg6QXJ0aWZhY3QxMzIwMDg2OTkyMw==",
+        "name": "internal-release-candidate",
+        "size_in_bytes": 178153,
+        "url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13200869923",
+        "archive_download_url": "https://api.github.com/repos/edithatogo/tobac/actions/artifacts/13200869923/zip",
+        "expired": false,
+        "digest": "sha256:882a4263bb568732f4a46c06c066aaef72969d72f9256a76bbe0acff4c29aa32",
+        "created_at": "2026-11-03T03:21:16Z",
+        "updated_at": "2026-11-03T03:21:16Z",
+        "expires_at": "2026-12-03T03:21:15Z",
+        "workflow_run": {
+          "id": 41570769167,
+          "repository_id": 1431741120,
+          "head_repository_id": 1431741120,
+          "head_branch": "main",
+          "head_sha": "fdd6be055e350319406498f00e22eed03296e798"
+        }
+      }
+    ],
+    "source_head_guard_at_package_export": "passed",
+    "readback_note": "Wheel upload and clean build are byte-identical. Sdist file/member bytes match; archive metadata differs across builds, so no byte-identical sdist claim is made."
   },
   "publication_guard_history": {
     "original_baseline_retained": true,
@@ -297,5 +805,62 @@
     "historical_paths": 22,
     "identity": "Exact commit/path/blob and currently public regular file only",
     "failed_repeat_not_passed": "One redundant source-main hook run was interrupted in native Actionlint; exact source had already passed branch pre-push and all required hosted checks."
+  },
+  "observed_at": "2026-11-03T03:36:04.981406+00:00",
+  "corrected_source": {
+    "sha": "fdd6be055e350319406498f00e22eed03296e798",
+    "pr": 114,
+    "required_checks": [
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41569615636/job/125699204061",
+        "name": "Tests macos-latest Python 3.15.1",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41569615636/job/125699204103",
+        "name": "quality",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41569615703/job/125699204010",
+        "name": "CodeQL Python and Actions",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41569615636/job/125699203916",
+        "name": "macOS Python 3.15.1 qualification",
+        "state": "SUCCESS"
+      },
+      {
+        "link": "https://github.com/edithatogo/tobac/actions/runs/41569615703/job/125699203802",
+        "name": "Public boundary and secret scanning",
+        "state": "SUCCESS"
+      }
+    ],
+    "receiving": {
+      "paths_verified": 738,
+      "tree_sha": "af0ab7a8bab2859ccf9372e24593687d240c4322",
+      "all_modes_and_objects_match": true
+    },
+    "main_and_source_branch_verified": true,
+    "non_force_fast_forward_from": "3914060dd39449f0a7254ad851b0d2866820e000"
+  },
+  "readback_first_failure": {
+    "cause": "An extra local check incorrectly assumed repeated sdist archives would be byte-identical. Extracted member bytes and types/modes/sizes all match; differing timestamps/pax metadata are retained in the package readback. Existing wheel reconstruction and numerical gates remain unchanged."
+  },
+  "remaining_numbered_roadmap_tasks": [
+    "DCI1",
+    "DCI2",
+    "DCI3",
+    "DCI4",
+    "DH1",
+    "DH2"
+  ],
+  "closeout_scope": {
+    "base_sha": "fdd6be055e350319406498f00e22eed03296e798",
+    "kind": "metadata_only",
+    "release_build_source": "fdd6be055e350319406498f00e22eed03296e798",
+    "lock_build_source": "3914060dd39449f0a7254ad851b0d2866820e000",
+    "revision_identity": "Commit containing this final receipt and Conductor reconciliation; distinct from the release and lock build commits."
   }
 }

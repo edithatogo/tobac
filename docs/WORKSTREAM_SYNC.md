@@ -418,3 +418,30 @@ success and rejection. All eight native attempts were reopened before renewing
 only the release workflow pin; the previous signed generation is preserved.
 142 focused tests and pedantic workflow audit pass. Next: publish the corrected
 source, execute the real main release path, inspect artifacts and close DXP4.
+
+## DXP4 final acceptance — 3 November 2026
+
+The same chat owns metadata closeout on `codex/dxp4-closeout` from receiving
+main `fdd6be0`. Source PR #114 passed every required gate before a non-force
+fast-forward from the explicitly checked `3914060`. Both receiving refs and
+all 738 file/object/mode entries were verified. Stale-source run 41570629439
+rejected before Nox. Main remained `fdd6be0` throughout successful release
+run 41570769167, including its final source-head guard and package export.
+
+All seven Nox sessions pass. JUnit records 1,210 passed / 19 capability skips,
+zero errors/failures. Coverage over all src is 92.03% combined (92.74% statements,
+89.64% branches). All eight variants / 82 downloaded scientific tables pass
+independent stored-byte comparison under the original policies. All 24 exported
+clean-package files match receipt hashes; ten dependency-marker cases, source
+module/license bytes and both installed CLI routes pass. Internal-package and
+evidence exports match. The release wheel also matches the clean build byte for
+byte. Repeated sdist archives differ in timestamps/pax metadata; member bytes,
+types, modes and sizes match. An extra local byte-identity assumption was rejected
+and retained; no existing package or numerical gate changed.
+
+Lock candidates retain their separate `3914060` source and exact inventories.
+No active lock, model, scientific input, frozen verifier profile or original
+native object changed. DXP4 is complete for manual release/candidate workflows.
+Six numbered advisory/hardening tasks remain. Next: publish this metadata-only
+reconciliation with the existing guards and verify receiving refs/files. All
+earlier source lanes remain preserved; no force update or history deletion.

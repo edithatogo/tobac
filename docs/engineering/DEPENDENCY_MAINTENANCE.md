@@ -16,8 +16,11 @@ After dependency-input changes, generate and inspect all four locks with
 `scripts/lock_receipt.py`, retaining the paired receipts. The manual
 `Reviewable dependency-lock candidates` workflow now creates runtime, audit,
 Voiage and ecosystem candidates and asserts its actual Python 3.15.1 interpreter.
-It has read-only repository permissions and uploads candidates; it does not push,
-adopt or merge them. Source-bound verification must still pass before installation.
+It verifies source receipts, hash-installs each profile in a fresh Linux environment,
+runs dependency checks and exports inspected review bundles. Downloaded lock/receipt
+hashes and installed inventories pass in [DXP4](../../integration/manual_workflows_20261103.json).
+It has read-only repository permissions and does not push, adopt or merge candidates.
+Linux execution does not qualify fresh candidates on macOS/Windows.
 
 Automatic merging remains off. Scientific updates, native producer compatibility,
 release-age controls, full-SHA Action pins, all existing tests, strict typing,
@@ -50,7 +53,7 @@ unit conversions, shared-observation covariance, transport, calibration, governa
 costs, wider method applicability and native archival recovery requirements.
 `conductor/roadmap.md` retains deferred work. PR #41 merged bounded macOS baseline
 and exact unreleased-candidate consumer qualification; published Voiage 3.0.0
-acceptance remains a separate external release gate.
+acceptance is recorded separately in `integration/voiage_published_20261102.json`.
 
 Sources: https://docs.renovatebot.com/modules/manager/pip_requirements/ and
 https://docs.github.com/en/code-security/concepts/supply-chain-security/dependency-graph-data.

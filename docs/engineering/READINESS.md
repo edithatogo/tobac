@@ -3,9 +3,9 @@
 ## Current development platform
 
 macOS supports full scientific and release qualification. Hosted lineage
-verification and regression tests also execute on Linux and Windows. Extended
-non-macOS release qualification and the manual Linux locked-release/lock-generation
-workflows are retained in [the roadmap](../../conductor/roadmap.md). Scientific,
+verification and regression tests also execute on Linux and Windows. The manual Linux locked-release/lock-generation
+workflows are qualified by DXP4 below. Remaining optional work is retained in
+[the roadmap](../../conductor/roadmap.md). Scientific,
 security, source-bound lock, dependency-graph and package-provenance checks execute
 on macOS under their established gates.
 
@@ -34,7 +34,8 @@ checksum-pinned native scanners. No original archival bytes are uploaded.
 Python 3.15.1 on both hosts. Cross-platform METADATA differs by LF/CRLF line endings
 and RECORD binds those exact bytes; semantic metadata/dependency cases agree.
 DXP3 separately qualifies full platform numerical reproduction.
-Manual release/lock-generation remains DXP4. This qualification does not publish to PyPI or establish scientific validity.
+DXP4 below qualifies manual release/lock generation. Package portability alone
+does not publish to PyPI or establish scientific validity.
 
 ## Linux and Windows scientific reproduction — DXP3
 
@@ -52,8 +53,45 @@ publication replay also passes on each host. Windows synthesis consumes an audit
 canonical view of the raw runtime manifest; input/output hashes are checked and raw
 outputs are preserved. The signed orchestration binding was renewed after complete
 direct-native readback of all eight accepted attempts. The first failures and
-historical signature generation remain available. DXP4 manual release/lock workflows
-and empirical scientific qualification retain their separate requirements.
+historical signature generations remain available. DXP4 separately qualifies the
+manual release/lock workflows; empirical scientific requirements remain open.
+
+## Manual Linux release and lock workflows — DXP4
+
+[Actual release run](https://github.com/edithatogo/tobac/actions/runs/41570769167)
+at `fdd6be0` passes the seven-session locked release bundle, all eight runner
+variants / 82 CSV comparisons, and fresh direct/sdist-rebuilt package checks.
+The downloaded release wheel matches the clean build byte for byte; sdist member
+bytes match, while archive metadata differs. [Evidence](../../integration/manual_workflows_20261103.json)
+records the 1,210 passed tests / 19 capability skips, scoped coverage, artifact
+hashes and six deliberate stale-source rejections.
+
+The release runs on the already-qualified Ubuntu 26.04 image via `ubuntu-latest`.
+The actual Python/OpenSSH profile must still match the frozen verifier contract;
+an image label alone grants no qualification. Ubuntu 24.04's different OpenSSH
+was rejected before execution in the first run. The allowlist is unchanged.
+Preflight JSON records and the original exit status survive rejection.
+
+The four-profile [lock run](https://github.com/edithatogo/tobac/actions/runs/41567710835)
+at `3914060` generates real candidates and paired receipts, verifies source
+inputs, hash-installs into a fresh Python 3.15.1 environment and runs dependency
+checks. Downloaded inventories match exactly: 37 runtime, 95 audit, 50 Voiage and
+58 ecosystem packages. Reviewed tar exports contain the exact locks, receipts
+and installed inventories. These Linux results do not qualify fresh candidates
+on other platforms or adopt them into the active locks.
+
+Choose the exact reviewed source and dispatch through GitHub CLI:
+
+```sh
+release_source_sha=$(git ls-remote origin refs/heads/main | cut -f1)
+gh workflow run release-candidate.yml --ref main -f expected_sha="$release_source_sha"
+gh workflow run dependency-lock.yml --ref main -f expected_sha="$release_source_sha"
+```
+
+Release is main-only and rejects a superseded main before successful package
+export. Keep one integrator and retain the selected source until upload finishes.
+Both workflows remain manual, read-only and full-SHA pinned. Scheduled lock
+generation stays disabled; neither command adopts locks or uploads to PyPI.
 
 ## Native lineage prerequisites for qualified workloads
 
@@ -252,13 +290,15 @@ checks also both run, with no ignored advisories. Failed setup cannot be called 
 
 CI preserves Nox JSON reports, JUnit, environment, coverage and available audit outputs on
 failure. Python 3.15.1 is the required runtime across development, build, tests and CI. The
-macOS test job uses the portable profile. Linux/Windows runtime tests and the Linux locked strict/security audit are qualified; extended release/numerical qualification remains deferred. The latest/pre-release canary remains
+macOS test job uses the portable profile. Linux/Windows runtime tests, package
+and numerical qualification, and the manual Linux release are qualified in the
+separate receipts above. The latest/pre-release canary remains
 source-only, requires its test dependencies and cannot promote itself.
 Direct Actions remain full-SHA pinned, read-only, credential-free after checkout and bounded
 by concurrency, timeouts and retention. No pull_request_target or automatic scientific merging.
 Renovate's pending upgrades still require review; this change does not merge them.
 
-The deferred Linux internal-candidate workflow requires both lock/receipt pairs to be committed and verifies
+The active manual Linux internal-candidate workflow requires both lock/receipt pairs to be committed and verifies
 all their input hashes, then sets `TOBAC_REQUIRE_LOCK=1`. Tests, quality, whole-source strict
 lint/type audit, security, complete M1/M2/longitudinal replay and packaging must succeed.
 Failure evidence and successful packages have different artifact names. No PyPI upload,
@@ -381,8 +421,8 @@ BasedPyright errors. Direct JSON BasedPyright readback reports 2,052, so that di
 recorded for follow-up at that time. Hosted macOS and strict checks were subsequently
 qualified in the receipts below; this pass did not establish attestations. Independent review is
 not a repository gate.
-Linux hash-locked audit execution and non-macOS hosted matrix qualification are deferred to
-`conductor/roadmap.md`. The generated Actions-lock proposal was rejected because it replaced
+That historical platform deferral is superseded by the DXP1–DXP4 receipts above.
+The generated Actions-lock proposal was rejected because it replaced
 full-SHA pins
 with mutable tags; the owner has now closed that decision in favour of full-SHA pinning.
 
@@ -498,6 +538,8 @@ Scientific ecosystem track. Older engineering-only successes and the supported
 submission route must not be relabelled as that root-service success.
 
 ## macOS-only hosted qualification — 28 October 2026
+
+Historical decision; DXP1–DXP4 above supersede the declared platform deferrals.
 
 All active jobs now target macOS, including the scientific/longitudinal/M3 and
 scheduled deep-audit checks. The native audit semantics and pass thresholds are

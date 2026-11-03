@@ -1,7 +1,6 @@
 # Reconciled repository status — 3 November 2026
 
-DXP1–DXP3 are complete through actual hosted qualification. DXP4 manual workflows
-are in progress; no registered
+DXP1–DXP4 are complete through actual hosted qualification. No registered
 implementation track is in progress. The retained native-lineage track has
 **8/8 phases and 32/32 primary tasks complete**, with zero in progress or pending.
 The 18 archived tracks have no active execution tasks. Five historical graph
@@ -41,7 +40,7 @@ and 96 focused lock/workstream tests pass. Linux scanner archives match the
 publishers' checksum manifests; artifact inspection and secret scanning pass.
 [Qualification receipt](../integration/linux_audit_lock_20261103.json) binds source
 `a17d90b`, eight lock inputs, actual job/artifact IDs, reports and the initial failed
-attempt. DXP2–DXP4, Linux release/numerical work, mutation and profiling remain separate.
+attempt. DXP2–DXP4 have their own current receipts below; mutation and profiling retain separate scopes.
 
 ## Completed DXP2 — package portability
 
@@ -60,7 +59,7 @@ hashes differ only for METADATA's LF/CRLF encoding and its RECORD hash; METADATA
 matches after newline normalization. No cross-platform byte-identical wheel claim
 is made. Native scanners pass pinned archive checksums and report their expected
 versions; inspected artifact exports pass on both hosts. DXP3 separately qualifies full numerical
-reproduction; DXP4 release/lock-generation workflows remain deferred.
+reproduction; DXP4 below qualifies the manual release/candidate workflows.
 
 ## Completed DXP3 — scientific reproduction
 
@@ -82,28 +81,53 @@ generation remains preserved for P8 integrity readback. No model, configuration,
 scientific input or existing numerical validator changed.
 
 Software reproduction does not supply empirical calibration or external scientific
-endorsement. DXP4 is in progress: all four generated lock candidates pass actual
-hash installation and downloaded-inventory readback; corrected release execution remains pending.
-[Progress receipt](../integration/manual_workflows_20261103.json).
+endorsement.
+
+## Completed DXP4 — manual release and lock workflows
+
+Manual [release run 41570769167](https://github.com/edithatogo/tobac/actions/runs/41570769167)
+at `fdd6be0` passed all seven locked Nox sessions: tests, quality, whole-source
+strict checks, security, reproduction, package and clean-package qualification.
+JUnit records 1,210 passed tests, 19 capability skips, zero errors/failures;
+coverage over all `src` reports 92.03% combined coverage
+(92.74% statements, 89.64% branches). All eight scientific
+variants / 82 CSV tables also pass downloaded-byte comparison under the existing
+policies. The wheel matches the clean build byte for byte. Sdist member bytes
+match; differing archive timestamps/pax metadata prevent a byte-identical sdist claim.
+
+Manual [lock run 41567710835](https://github.com/edithatogo/tobac/actions/runs/41567710835)
+at `3914060` generated and hash-installed all four profiles on Linux. Downloaded
+source receipts, member hashes and exact inventories pass: runtime 37, audit 95,
+Voiage 50 and ecosystem 58 packages. No candidate is adopted, and Linux candidate
+installation does not establish fresh Windows/macOS candidate qualification.
+
+Six deliberately stale-source jobs reject before their workloads. The first
+release correctly rejected Ubuntu 24.04's unqualified OpenSSH. The corrected
+workflow uses the already-qualified Ubuntu 26.04 image through the established
+`ubuntu-latest` label; the frozen verifier profiles remain unchanged. Native
+readback reopened all eight original attempts before renewing the workflow pin.
+Preflight JSON and exit status are retained. Source promotion used guarded
+non-force fast-forwards, with both receiving refs and complete trees read back.
+[Final receipt](../integration/manual_workflows_20261103.json) distinguishes the
+lock source, release source and metadata closeout. No PyPI release is performed.
 
 ## Remaining deferred phases and tasks
 
-DXP1–DXP3 are complete; the remaining roadmap commitments await prioritisation.
-There are **three remaining work groups/phases and seven tasks**, with DXP4 in progress and six tasks deferred; the advisory
-lane is the one existing deferred track. Platform and hardening groups remain in
-[the roadmap](roadmap.md), rather than newly registered implementation tracks.
+DXP1–DXP4 are complete. There are **two deferred work groups/phases and six
+pending numbered tasks**, with zero in progress. The advisory lane is the one existing
+deferred track; optional hardening remains in [the roadmap](roadmap.md).
 
 | Group / phase | Tasks remaining |
 | --- | --- |
-| Cross-platform release and lock qualification | DXP4 — lock candidates qualified; execute the corrected release route and close out its evidence. |
 | Advisory CI/CD lane | DCI1 — select nonduplicative additions and current pins; DCI2 — implement selected advisory commands/workflow/ARM leg; DCI3 — execute local and hosted qualification; DCI4 — guarded publication and receiving-ref verification. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
 | Optional macOS hardening | DH1 — triage the 12 surviving supply mutants from the dated 119/131 measurement; DH2 — review retained source/API Ruff exceptions where behavior and scientific meaning are preserved. |
 
 Linux/Windows runtime tests and hosted lineage verification already passed.
 DXP1 additionally qualifies the Linux hash-locked strict/security audit commands.
 DXP2 also qualifies Linux/Windows source/wheel build and clean installation.
-Full platform numerical reproduction is qualified by DXP3; manual release jobs remain deferred. Mutation counts are dated
-evidence, not a fresh current mutation result.
+Full platform numerical reproduction is qualified by DXP3; DXP4 qualifies the manual
+Linux release and lock candidates. The optional survivor triage remains open; the
+dated mutation count is not replaced by a triage claim.
 
 ## Open dependency maintenance
 
@@ -115,7 +139,7 @@ by failing checks; no update is merged or marked qualified here.
 | --- | --- |
 | [#80](https://github.com/edithatogo/tobac/pull/80) — verified action pins | Diagnose the candidate's failures, qualify updated pins against all required checks, then guarded publication and receiving readback. |
 | [#91](https://github.com/edithatogo/tobac/pull/91) — Python Docker 3.15.2 | Qualify the newer patch consistently across runtime/build/test/CI and the pinned verifier runtime contract before promotion; the current executed baseline remains 3.15.1. |
-| [#94](https://github.com/edithatogo/tobac/pull/94) — pytest-gremlins 1.13.1 | Diagnose failures and qualify the tool/locks and required checks before promotion. |
+| [#94](https://github.com/edithatogo/tobac/pull/94) — pytest-gremlins 1.13.2 | Diagnose failures and qualify the tool/locks and required checks before promotion. |
 
 ## Scientific and submission requirements
 

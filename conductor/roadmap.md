@@ -9,7 +9,7 @@ the work.
 
 Hosted Linux and Windows Python 3.15.1 runtime tests were restored and qualified by
 PR #66 at receiving main `62056c5`; macOS remains the full engineering/reference
-qualification platform. DXP1, DXP2 and DXP3 are complete; DXP4 manual release work is in progress:
+qualification platform. DXP1–DXP4 are complete for their declared workloads:
 
 - [x] DXP1 — Installed and executed the source-bound Linux x86_64 audit lock on
   Python 3.15.1 in GitHub Actions run [41534684953](https://github.com/edithatogo/tobac/actions/runs/41534684953).
@@ -25,12 +25,15 @@ qualification platform. DXP1, DXP2 and DXP3 are complete; DXP4 manual release wo
   All eight runner variants and 82 scientific CSV tables match the accepted
   references within their declared policies; 29 isolated publication replay tables
   also pass on each host. [Receipt](../integration/scientific_reproduction_20261103.json).
-- [~] DXP4 — Restore and qualify manual release and four-profile lock candidates.
-  All four lock candidates are generated, hash-installed and read back from
-  [run 41567710835](https://github.com/edithatogo/tobac/actions/runs/41567710835).
-  Release correctly rejected Ubuntu 24.04's unqualified OpenSSH before execution;
-  the Ubuntu 26.04 route and retained preflight evidence await actual main execution.
-  [Progress receipt](../integration/manual_workflows_20261103.json).
+- [x] DXP4 — Restored and qualified manual release and four-profile lock candidates.
+  [Release run 41570769167](https://github.com/edithatogo/tobac/actions/runs/41570769167)
+  passes seven Nox sessions, all eight scientific variants / 82 CSV tables,
+  clean-package replay and inspected package upload on qualified Ubuntu 26.04.
+  [Lock run 41567710835](https://github.com/edithatogo/tobac/actions/runs/41567710835)
+  passes generation, source receipts, hash installation and exact installed-inventory
+  readback for runtime, audit, Voiage and ecosystem. Six deliberate stale-source jobs
+  reject before execution. [Receipt](../integration/manual_workflows_20261103.json).
+  Candidates are review artifacts and have not replaced the committed locks.
 
 Historical owner decision, 28 October 2026: Windows and Linux were not then
 acceptance gates. PR #66 supersedes that decision for runtime tests. Retain the same scientific,
@@ -38,18 +41,15 @@ security, dependency-graph, provenance and numerical checks there. SourceRight
 uses its hash-verified published macOS ARM64 binary on an ARM64 macOS runner;
 the upstream asset filename misleadingly says x86_64.
 
-DXP4 restores the manual workflows under `.github/workflows/` using current
-source locks, qualified Python, lineage checks, bounded execution and inspected
-exports. Actual manual run/artifact readback remains pending. The scheduled `lock`
-session remains deferred; this task does not enable automatic lock adoption.
-The native macOS audit lane is not the Linux hash-locked release profile; no
-locked-release acceptance is inferred from this platform deferral. Existing locks
-and their receipts remain committed and verified by the active macOS checks.
+The manual workflows are active under `.github/workflows/`, require explicit
+source commits and export inspected evidence. The original definitions remain in
+Git history. Scheduled lock generation stays disabled as optional automation;
+DXP4 does not enable automatic adoption. macOS and Linux qualifications retain
+separate receipts and platform scopes.
 
-Superseded mixed-platform runs for 94c4712 were cancelled where still active;
-the already completed longitudinal run is preserved. Cancellation is not a pass.
-Current acceptance requires fresh macOS runs of the revised workflows. No branch
-protection or repository ruleset changes are made.
+Superseded October runs and the first DXP4 failures remain historical evidence,
+not passes. Fresh hosted qualifications above supersede the platform deferral
+for these declared workloads. Branch protection and repository visibility are unchanged.
 
 ## Advisory CI/CD, automation, quality and security lane
 
@@ -80,8 +80,8 @@ diagnostic execution remains deferred here; it is not an unchecked current macOS
 
 ## Reconciliation — 3 November 2026
 
-DXP1–DXP3 are complete. One release/lock task is in progress; four advisory-lane tasks and two
-optional hardening tasks remain deferred: seven remaining tasks across three work groups/phases.
-DXP4 is in progress; six other tasks remain deferred.
+DXP1–DXP4 are complete. Four advisory-lane tasks and two optional hardening
+tasks remain: six deferred tasks across two work groups/phases.
+No implementation task is in progress.
 See [current status](status.md) for completed gates, open dependency-update PRs,
 scientific requirements and the disposition of superseded decision drafts.
