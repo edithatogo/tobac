@@ -4,7 +4,7 @@
   "status": "in_progress",
   "base_sha": "68d90494e2732e1306053130991726e6ca37f173",
   "workflow_sha256": {
-    "release-candidate.yml": "5a6dbae5b0b4efbf76582ccc20f5c22732bddefb317e148297ca53247f93c842",
+    "release-candidate.yml": "9fee6cdb015e402f8a8bbf1685c448a1d27697591b54b9b46738e81c9a59012a",
     "dependency-lock.yml": "f96335aab04f4d64e9a99a5625f72e4c7db654946fab23a8eb6363e575c39d75"
   },
   "local": {
@@ -65,8 +65,8 @@
       ".github/workflows/dependency-lock.yml",
       ".github/workflows/release-candidate.yml"
     ],
-    "capsule_sha256": "2306e1fad09a1e6d0d380dfadfb10589ed34374ef6c9f8b0960f0176c43e0b8b",
-    "signature_sha256": "547ff3dbd898f430cc65a12ba70fd83083cd853d16cacafd8ce5ad546d78a431",
+    "capsule_sha256": "a7e10468238a313616bbcdea56512597988a24759b5f81d2a2f63d1a6e42225c",
+    "signature_sha256": "5ab30f8bf14c74946648c0e854d551111b860658564c5e550a77e4cce8321f0f",
     "previous_generation_sha256": "9b771acb8249e761eab6e135e841f7194648a3e2f1cad586fdbd769dbf66da73",
     "changed_pins_in_correction": [
       ".github/workflows/release-candidate.yml"
@@ -288,7 +288,8 @@
     "corrected_runner": "ubuntu-26.04",
     "qualified_reference_run": 41565105342,
     "qualified_openssh_sha256": "33b1c52f8ede26412a1d081cfad3582a9b9816c53461a657bec08757f678a06a",
-    "preflight_failure_capture": "Actual JSON records and original verifier exit code retained; synthetic successful/rejected controls pass."
+    "preflight_failure_capture": "Actual JSON records and original verifier exit code retained; synthetic successful/rejected controls pass.",
+    "runner_label": "ubuntu-latest"
   },
   "publication_guard_history": {
     "original_baseline_retained": true,

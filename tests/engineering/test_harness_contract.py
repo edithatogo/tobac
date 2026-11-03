@@ -214,7 +214,7 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             assert set(data["on"]) == {"workflow_dispatch"}
             assert data["on"]["workflow_dispatch"]["inputs"]["expected_sha"]["required"] == "true"
             for job in data["jobs"].values():
-                expected = "ubuntu-26.04" if path.name == "release-candidate.yml" else "ubuntu-24.04"
+                expected = "ubuntu-latest" if path.name == "release-candidate.yml" else "ubuntu-24.04"
                 assert job["runs-on"] == expected
                 commands = [s.get("run", "") for s in job["steps"]]
                 assert any('test "$GITHUB_SHA" = "$EXPECTED_SHA"' in c for c in commands)
