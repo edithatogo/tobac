@@ -9,7 +9,20 @@ labelled historical in their archived plan, rather than marked as executed.
 
 ## Verified baseline
 
-Current consumer main `1961a04edba3d7d03e2925d7f5f653ee0ca6d68f` and its receiving tree were verified on 3 November. The advisory source commit `672894f70bebd4ba17ba38fe8116c938ad13fe4f` passed all nine receiving-main workflows; the later metadata closeout passed 29 executable PR checks with two conditional skips. Its receiving-main workflows were still running or queued at this reconciliation. Producer receiving main `c76d78df37ffa89469e8fca5f2db521553525276` was read back on 2 November. The functional lineage consumer implementation is `14303e4`; `e88d563` records its earlier Conductor closeout.
+Consumer main `35f999a42abb7836fde14c58368bb2f356bda0d1` was read back on
+3 November. All nine receiving-main workflows for that exact commit completed
+successfully: empirical longitudinal (41636195121), regulatory uncertainty
+(41636195096), Linux audit lock (41636195183), publication and source security
+(41636195219), M3 research methods (41636195112), cross-platform Python
+(41636195135), package portability (41636195126), [scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/41636195079)
+and [engineering qualification](https://github.com/edithatogo/tobac/actions/runs/41636195027).
+The last two passed on Linux and Windows and in every engineering job respectively.
+PR #120 qualified this metadata commit with 29 passing checks and two conditional
+skips before the non-force fast-forward. The prior metadata closeout `1961a04` and
+advisory source commit `672894f` also each passed all nine receiving-main workflows.
+Producer receiving main `c76d78df37ffa89469e8fca5f2db521553525276` was read back
+on 2 November. The functional lineage consumer implementation is `14303e4`;
+`e88d563` records its earlier Conductor closeout.
 [Reconciliation receipt](../integration/reconciliation_20261102.json).
 
 [Native lineage](tracks/native_archival_lineage_20261026/plan.md) closes P1.1–P8.4
