@@ -9,10 +9,7 @@ labelled historical in their archived plan, rather than marked as executed.
 
 ## Verified baseline
 
-Consumer receiving main `e88d56366c512df3e71243ac341722bb3a52e1ae` and producer
-receiving main `c76d78df37ffa89469e8fca5f2db521553525276` were read back on
-2 November. All six consumer receiving-main workflows succeeded. The functional
-consumer implementation is `14303e4`; `e88d563` records its Conductor closeout.
+Current consumer main `1961a04edba3d7d03e2925d7f5f653ee0ca6d68f` and its receiving tree were verified on 3 November. The advisory source commit `672894f70bebd4ba17ba38fe8116c938ad13fe4f` passed all nine receiving-main workflows; the later metadata closeout passed 29 executable PR checks with two conditional skips. Its receiving-main workflows were still running or queued at this reconciliation. Producer receiving main `c76d78df37ffa89469e8fca5f2db521553525276` was read back on 2 November. The functional lineage consumer implementation is `14303e4`; `e88d563` records its earlier Conductor closeout.
 [Reconciliation receipt](../integration/reconciliation_20261102.json).
 
 [Native lineage](tracks/native_archival_lineage_20261026/plan.md) closes P1.1–P8.4
@@ -145,8 +142,7 @@ remains distinct from the later local run.
 ## Open dependency maintenance
 
 These PRs are outside the completed research tracks. Exact checked candidate SHAs
-and check counts are retained in the reconciliation receipt. All three are blocked
-by failing checks; no update is merged or marked qualified here.
+and check counts are retained in the reconciliation receipt. All three are blocked by failing checks on their current candidate heads; additional hosted checks are queued or running. No update is merged or marked qualified here.
 
 | PR | Remaining task |
 | --- | --- |
@@ -185,9 +181,7 @@ media-format or recovery task.
 - [Phase 5/6 implementation](../docs/decisions/phase5_6_implementation_20261101.md)
 - [AC13 independent-copy recovery](../docs/decisions/ac13_independent_copy_recovery_20261101.md)
 
-There is one consumer worktree. The DCI checkpoint is an active unfinished non-ancestor branch; other non-ancestor
-branches include historical/superseded lanes and the saved divergent former main. No changes
-are discarded or silently merged. The only open repository PRs at this checkpoint
+There was one clean consumer worktree at `main` `1961a04` before this reconciliation. The DCI checkpoint `e007807` is a retained non-ancestor historical branch whose implementation was integrated and subsequently qualified and published; it is not an active unfinished task. Other retained non-ancestor branches include historical/superseded lanes and the saved divergent former main. No changes are discarded or silently merged. The only open repository PRs at this checkpoint
 are the three dependency candidates above. This reconciliation changes documentation
 and the exact public-path inventory only; scientific inputs, outputs, runtime,
 locks, native objects and private authority remain with their existing owners.
