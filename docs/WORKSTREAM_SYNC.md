@@ -520,3 +520,36 @@ Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns publication in
 DH1/DH2 commits and Conductor reconciliation; native scope: none. The separate
 DCI checkpoint `e007807` stays unmerged with its evidence and unfinished work.
 Next: exact-source guarded publication and receiving-ref readback.
+
+## DCI2 implementation ownership — 3 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DCI2 in
+`/Users/doughnut/Documents/tobac`: isolated advisory lock, runner, workflow,
+scanner support, focused tests and Conductor reconciliation. Native scope: none;
+next operation: implement and qualify locally, preserving earlier assignments.
+
+Checkpoint: source-bound advisory lock and prototype reports exist locally;
+missing Voiage interfaces stop the full-source run. Remaining ownership includes
+Nox/CI wiring, report comparison, fixtures, capsule renewal and ARM execution.
+The checkout remains dirty for this lane; no native object is owned or active.
+
+DCI3 checkpoint: the pinned Voiage wheel was built and its existing qualification
+passed; it resolved both checkers' missing imports locally. Direct fixture and
+full-source diagnostic evidence is recorded in the DCI3 qualification note.
+There is no hosted advisory workflow to dispatch; DCI2, DCI3 and DCI4 remain open.
+No native operation remains active.
+
+DCI4 checkpoint publication ownership: the same chat owns the isolated DCI
+checkpoint branch and its remote ref; receiving `main` is guarded. This branch
+is a draft implementation and local evidence handoff, not qualified DCI4
+completion. Next operation: validate publication boundary and push the exact
+checkpoint branch with ordinary hooks, then read back the receiving ref.
+
+
+## DCI2 resumed implementation ownership — 3 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the DCI2 integration in
+`/Users/doughnut/Documents/tobac`, branch `codex/dci2-implementation`. Scope:
+advisory lock/runner/Nox/workflow/scanner, tests, lineage capsule and Conductor.
+Native scope: read-only reopening of the eight accepted attempts for signing.
+Next: implement fail-closed diagnostics and repeatable wheel delivery.

@@ -16,6 +16,12 @@ case "$(uname -s)/$(uname -m)" in
         actionlint_asset=linux_amd64
         actionlint_sha=8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8
         ;;
+    Linux/aarch64)
+        gitleaks_asset=linux_arm64
+        gitleaks_sha=e4a487ee7ccd7d3a7f7ec08657610aa3606637dab924210b3aee62570fb4b080
+        actionlint_asset=linux_arm64
+        actionlint_sha=325e971b6ba9bfa504672e29be93c24981eeb1c07576d730e9f7c8805afff0c6
+        ;;
     MINGW*/x86_64)
         gitleaks_asset=windows_x64
         gitleaks_sha=d29144deff3a68aa93ced33dddf84b7fdc26070add4aa0f4513094c8332afc4e

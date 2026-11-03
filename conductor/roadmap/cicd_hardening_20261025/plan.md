@@ -45,3 +45,6 @@ records incomplete report handling and unexecuted hosted jobs. The Nox session,
 workflow, native ARM scanner execution and orchestration capsule renewal remain.
 That branch is not part of the DH1/DH2 publication packet and must be reconciled
 against receiving main before its own integration.
+
+The checkpoint is now integrated into the DCI2 implementation branch; its local
+[qualification evidence](qualification_20261103.md) is retained here.

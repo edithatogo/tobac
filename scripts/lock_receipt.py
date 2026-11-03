@@ -29,6 +29,7 @@ PROFILES = {
     "audit": ("engineering/audit.in", "audit.lock"),
     "voiage": ("engineering/voiage.in", "voiage.lock"),
     "ecosystem": ("engineering/ecosystem.in", "ecosystem.lock"),
+    "advisory": ("engineering/advisory.in", "advisory.lock"),
 }
 
 
@@ -69,6 +70,7 @@ def input_hashes(root: Path, profile: str) -> dict[str, str]:  # noqa: C901  # K
         INPUTS
         + {
             "runtime": (),
+            "advisory": ("engineering/advisory.in", "engineering/voiage.in"),
             "audit": ("engineering/audit.in", "engineering/tools-requirements.txt"),
             "voiage": ("engineering/voiage.in", "engineering/voiage-build-requirements.txt"),
             "ecosystem": (
@@ -218,7 +220,7 @@ def generate(root: Path, out: Path, profile: str) -> Path:
         "--output-file",
         str(target),
     ]
-    if profile in {"runtime", "ecosystem"}:
+    if profile in {"runtime", "ecosystem", "advisory"}:
         command += ["--universal", "--python-version", "3.15"]
     else:
         # Audit utilities include Linux-specific tools; they are not a Windows test dependency.
