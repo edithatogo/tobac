@@ -206,3 +206,41 @@ def test_inspection_reuse_is_bound_to_private_policy(repository, wrapped) -> Non
     run_git(repository, "add", ".")
     with pytest.raises(ValueError, match="Known local document"):
         boundary.validate_tree(repository, inspected=verified)
+
+
+def historical_fixture(repository):
+    path = repository / "restored.json"
+    path.write_text('{"source":"owned"}')
+    run_git(repository, "add", ".")
+    run_git(repository, "commit", "-qm", "old inventory omission")
+    revision = run_git(repository, "rev-parse", "HEAD").decode().strip()
+    oid = run_git(repository, "rev-parse", "HEAD:restored.json").decode().strip()
+    policy_path = repository / boundary.POLICY
+    policy = json.loads(policy_path.read_text())
+    policy["public_paths"].append("restored.json")
+    policy["historical_public_paths"] = {revision: {"restored.json": oid}}
+    policy_path.write_text(json.dumps(policy))
+    return revision, policy
+
+
+def test_historical_classification_is_bound_to_commit_path_blob_and_current_inventory(repository) -> None:
+    revision, policy = historical_fixture(repository)
+    assert boundary.validate_tree(repository, revision) == 3
+    policy["historical_public_paths"][revision]["restored.json"] = "0" * 40
+    (repository / boundary.POLICY).write_text(json.dumps(policy))
+    with pytest.raises(ValueError, match="Unreviewed path"):
+        boundary.validate_tree(repository, revision)
+
+
+@pytest.mark.parametrize("alteration", ["revision", "current_path", "bytes"])
+def test_historical_classification_cannot_authorize_other_content(repository, alteration) -> None:
+    revision, policy = historical_fixture(repository)
+    if alteration == "current_path":
+        policy["public_paths"].remove("restored.json")
+    elif alteration == "revision":
+        policy["historical_public_paths"]["0" * 40] = policy["historical_public_paths"].pop(revision)
+    else:
+        policy["local_documents"]["docs/new.md"] = hashlib.sha256(b'{"source":"owned"}').hexdigest()
+    (repository / boundary.POLICY).write_text(json.dumps(policy))
+    with pytest.raises(ValueError, match=r"Unreviewed path|Known local document|lost a local document"):
+        boundary.validate_tree(repository, revision)

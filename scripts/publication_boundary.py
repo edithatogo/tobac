@@ -33,6 +33,7 @@ class Policy:
     private_hashes: dict[str, str]
     baseline: str
     gitlinks: dict[str, str]
+    historical_paths: dict[str, dict[str, str]]
 
 
 def git(root: Path, *args: str) -> bytes:
@@ -72,7 +73,13 @@ def load_policy(root: Path = ROOT, revision: str | None = None) -> Policy:
         raise ValueError(msg)
     for name in [*paths, *private]:
         safe_name(name)
-    return Policy(frozenset(paths), private, str(raw["legacy_baseline"]), raw.get("gitlinks", {}))
+    return Policy(
+        frozenset(paths),
+        private,
+        str(raw["legacy_baseline"]),
+        raw.get("gitlinks", {}),
+        raw.get("historical_public_paths", {}),
+    )
 
 
 def inspect_bytes(data: bytes, policy: Policy, *, depth: int = 0) -> None:
@@ -164,6 +171,13 @@ def inspect_git_blob(
     verified.add(key)
 
 
+def historical_path_allowed(
+    name: str, oid: str, mode: str, supplemental: dict[str, str], protected: Policy
+) -> bool:
+    """Recognize only separately reviewed historical bytes of currently public regular files."""
+    return mode in {"100644", "100755"} and name in protected.public_paths and supplemental.get(name) == oid
+
+
 def validate_tree(
     root: Path,
     revision: str | None = None,
@@ -174,11 +188,18 @@ def validate_tree(
     policy = load_policy(root, revision)
     # Invocation-local reuse only: immutable Git object identity plus every private
     # path/hash controls byte and nested-archive inspection. Tree checks still run.
-    verified = inspected if inspected is not None else set()
+    verified: set[tuple[str, frozenset[tuple[str, str]]]] = inspected if inspected is not None else set()
     if revision is None and git(root, "show", ":" + POLICY) != (root / POLICY).read_bytes():
         msg = "Staged publication policy differs from working policy"
         raise ValueError(msg)
     protected = load_policy(root)
+    supplemental = (
+        protected.historical_paths.get(
+            git(root, "rev-parse", "--verify", f"{revision}^{{commit}}").decode().strip(), {}
+        )
+        if revision is not None
+        else {}
+    )
     if not protected.private_hashes.items() <= policy.private_hashes.items():
         msg = "Outgoing policy lost a local document binding"
         raise ValueError(msg)
@@ -198,7 +219,10 @@ def validate_tree(
         oid = middle if revision is None else last
         allowed_link = mode == "160000" and policy.gitlinks.get(name) == oid
         if (
-            name not in policy.public_paths
+            (
+                name not in policy.public_paths
+                and not historical_path_allowed(name, oid, mode, supplemental, protected)
+            )
             or name in names
             or (mode not in {"100644", "100755"} and not allowed_link)
         ):
@@ -212,7 +236,7 @@ def validate_tree(
             continue
         inspect_git_blob(root, oid, policy, verified)
         names.add(name)
-    if names != set(policy.public_paths):
+    if names != set(policy.public_paths) | set(supplemental):
         msg = "Public tree and reviewed inventory differ"
         raise ValueError(msg)
     return len(names)

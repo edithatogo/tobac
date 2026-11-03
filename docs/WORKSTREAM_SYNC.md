@@ -384,3 +384,12 @@ inventory, mode and protected-policy check still executes; limits and scanners
 are unchanged. Controls retain rejection of intermediate copies, unknown paths
 and newly protected raw/nested bytes despite an earlier cached inspection.
 The current signed lineage preflight still passes after this guard-only change.
+
+Full-history publication inspection found 34 already-published intermediate
+commits with 22 omitted inventory paths, all currently reviewed public project
+source/tests/lineage receipts. The original legacy baseline remains unchanged.
+The current policy records each historical omission by exact commit, path and
+Git blob ID; only currently public regular files qualify. Every historical byte
+still undergoes document/archive inspection and full-history secret scanning.
+Wrong commit/blob, newly private content and paths outside the current public
+inventory remain failures. Strict whole-source typing passes with zero warnings.
