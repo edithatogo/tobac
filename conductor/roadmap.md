@@ -20,8 +20,8 @@ qualification platform. DXP1 and DXP2 are complete; the other additional work re
   [run 41542664379](https://github.com/edithatogo/tobac/actions/runs/41542664379).
   Both direct and sdist-rebuilt wheels pass isolated imports/API/transport/quick CLI
   smokes and inspected export. [Receipt](../integration/package_portability_20261103.json).
-- [ ] DXP3 — Execute platform-specific scientific reproduction on supported
-  non-macOS platforms.
+- [~] DXP3 — Execute platform-specific scientific reproduction on supported
+  non-macOS platforms. Authorized and in progress on 3 November 2026.
 - [ ] DXP4 — Reconsider and requalify the deferred manual release and lock-generation
   workflows when non-macOS release/audit work is reprioritised.
 

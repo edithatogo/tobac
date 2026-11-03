@@ -17,6 +17,7 @@ WORKFLOWS = (
     "release-candidate.yml",
     "linux-audit.yml",
     "package-portability.yml",
+    "scientific-reproduction.yml",
 )
 
 
@@ -208,8 +209,8 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             assert any("nox -s tests" in command for command in commands)
             assert all("upload-artifact@" not in step.get("uses", "") for step in job["steps"])
             continue
-        if path.name == "package-portability.yml":
-            assert_portable_package_job(data)
+        if path.name in {"package-portability.yml", "scientific-reproduction.yml"}:
+            assert_portable_package_job(data, reproduce=path.name == "scientific-reproduction.yml")
             continue
         assert_reference_job_guards(data, path)
     deferred = ROOT / "conductor/roadmap/deferred-workflows"
@@ -249,8 +250,8 @@ def assert_reference_job_guards(data, path) -> None:
                 assert ".venv-ci/bin/python scripts/run_bounded.py" in command, path
 
 
-def assert_portable_package_job(data) -> None:
-    job = data["jobs"]["portable"]
+def assert_portable_package_job(data, *, reproduce=False) -> None:
+    job = data["jobs"]["reproduce" if reproduce else "portable"]
     assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
     assert job["timeout-minutes"] == "40"
     assert job["env"]["TOBAC_REQUIRE_LOCK"] == "1"
@@ -258,8 +259,20 @@ def assert_portable_package_job(data) -> None:
     assert any("assert sys.version_info[:3] == (3, 15, 1)" in c for c in commands)
     assert any("verify --profile runtime" in c for c in commands)
     assert any("scripts/hosted_lineage.py --configure" in c for c in commands)
-    executions = [s for s in job["steps"] if "-s package clean_package" in s.get("run", "")]
+    sessions = "-s reproduce" if reproduce else "-s package clean_package"
+    executions = [s for s in job["steps"] if sessions in s.get("run", "")]
     assert {s["if"] for s in executions} == {"runner.os == 'Linux'", "runner.os == 'Windows'"}
     linux = next(s for s in executions if s["if"] == "runner.os == 'Linux'")
     assert "--max-rss-mib 4096 --timeout 2100" in linux["run"]
     assert any("scripts/publication_boundary.py export" in c for c in commands)
+
+
+def test_all_eight_scientific_variants_are_compared_after_native_gated_nox() -> None:
+    data = yaml.load(
+        (ROOT / ".github/workflows/scientific-reproduction.yml").read_text(), Loader=yaml.BaseLoader
+    )
+    commands = [s.get("run", "") for s in data["jobs"]["reproduce"]["steps"]]
+    assert any(
+        "scripts/run_m2_publication.py --out outputs/engineering/reproduction-no-grid" in c for c in commands
+    )
+    assert any("scripts/check_scientific_reproduction.py" in c for c in commands)

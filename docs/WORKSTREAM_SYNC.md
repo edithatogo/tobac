@@ -294,3 +294,20 @@ direct and sdist-rebuilt contents match exactly. Receipt:
 Nox entrypoints, runtime/audit locks and native objects remain unchanged. Next:
 exact-head checks, guarded publication and receiving-ref verification. DXP3/DXP4
 remain deferred; no numerical or public-package-release acceptance is inferred.
+
+## DXP3 scientific reproduction — 3 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DXP3 in
+`/Users/doughnut/Documents/tobac`, branch `codex/dxp3-scientific-reproduction`,
+from receiving main `1e9e69e`. Scope is a separate Linux/Windows reproduction
+workflow, a fail-closed comparison of all eight accepted runner variants and
+82 scientific CSV tables, focused tests and Conductor evidence. Original native
+objects, authentication, model/configuration code, Nox commands and existing
+scientific workflows retain their owners and bytes. No native mutation is active.
+The reference ZIP contains only project-generated CSV results reopened through
+the actual pinned installed producer's public CAS verification API. Every byte
+matches its existing accepted checkpoint object ID; no archival originals or
+manuscript content is exported. Next: execute full Nox reproduce plus the no-grid
+M2 variant on both hosts and verify all numerical/identity comparisons.
+Prior receiving run 41545029388 failed because pip-audit's PyPI read timed out;
+that failed scan is retained, with fresh security qualification required here.
