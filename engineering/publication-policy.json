@@ -246,6 +246,7 @@
     "docs/reviews/2026-10-29-native-lineage-foundations.md",
     "docs/reviews/2026-10-31-native-lineage-phase4.md",
     "docs/reviews/2026-10-31-native-lineage-reconciliation.md",
+    "docs/reviews/2026-11-03-ruff-exception-review.md",
     "docs/reviews/2026-11-03-supply-mutant-triage.md",
     "engineering/audit.in",
     "engineering/audit.lock",

@@ -1,6 +1,6 @@
 # Ruff policy and bounded verification
 
-Ruff 0.17.2 targets Python 3.15. Nox `strict_all` lints and checks formatting of
+Ruff 0.17.3 targets Python 3.15. Nox `strict_all` lints and checks formatting of
 `src`, `scripts`, `tests`, `noxfile.py` and `engineering/typings`; it also executes real Ruff counterexamples
 and the existing whole-source BasedPyright gate. Root `ruff.toml` exposes the same
 policy to editors. Historical extraction bytes in `evidence`, generated outputs and
@@ -65,3 +65,7 @@ memory/timeout termination, normal-parent-exit cleanup and SIGTERM handling.
 A bounded baseline recorded 657.4 MiB peak sampled group RSS, with 885 passed and five
 capability skips. That measurement is not evidence of a leak or a general memory plateau.
 See the dated Ruff review and integration receipt for the final acceptance scope.
+
+The 3 November source/API review inventories and explains the remaining inline
+exceptions and records why a tested complexity refactor was not retained. See
+[the review](../reviews/2026-11-03-ruff-exception-review.md).

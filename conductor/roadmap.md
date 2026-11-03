@@ -58,9 +58,10 @@ Track: `conductor/roadmap/cicd_hardening_20261025/`.
 DCI1 selection is complete: a bounded ty 0.0.95/Pyrefly 1.4.0 comparison and
 Linux ARM64 static-diagnostic leg are selected; duplicate security/lint/action
 wrappers and hook migration are omitted. [Decision](roadmap/cicd_hardening_20261025/selection_20261103.md).
-DCI2–DCI4 remain deferred: implementation, actual local/hosted qualification, and
-publication of the qualified lane. No ARM job, new tool compatibility or
-entitlement is claimed as executed or qualified by the selection.
+DCI2 and DCI3 are in progress on the separate published
+`codex/dci-advisory-checkpoint-20261103` branch; neither is complete on main.
+DCI4 remains pending: hosted advisory qualification and publication of the
+qualified lane are outstanding. No ARM job is claimed as qualified.
 
 ## Optional macOS hardening follow-ups
 
@@ -70,10 +71,9 @@ open execution gates or automatic implementation authorisation:
 - [x] DH1 — Triaged all 12 supply survivors from PR #51; focused tests detect ten,
   and two are equivalent for the qualified SciPy call. A fresh local run detected
   129/131. [Evidence](../docs/reviews/2026-11-03-supply-mutant-triage.md).
-- [ ] DH2 — Reconsider retained source/API Ruff exceptions where a change preserves public
-  interfaces, validation behavior and scientific meaning. Test/tooling lint, formatting
-  and five explicit preview rules are implemented by PR #51, not deferred work.
-  See `docs/engineering/RUFF_POLICY.md` for the current scoped policy.
+- [x] DH2 — Reviewed the retained source/API Ruff exceptions; documented the reasons to
+  retain them, including the scientific lineage impact of a tested refactor.
+  [Review](../docs/reviews/2026-11-03-ruff-exception-review.md).
 
 The earlier 100/131 and 102/131 mutation measurements and the 26 October inventory
 of 175 source/style exceptions remain dated evidence, not current outstanding counts.
@@ -83,8 +83,7 @@ diagnostic execution remains deferred here; it is not an unchecked current macOS
 
 ## Reconciliation — 3 November 2026
 
-DXP1–DXP4 and DCI1 selection are complete. Three advisory-lane tasks and one
-optional hardening task remain: four deferred numbered tasks across two work groups.
-No implementation task is in progress.
+DXP1–DXP4 and DCI1 selection are complete. Three advisory-lane tasks remain; the two optional hardening tasks are complete.
+The DCI implementation checkpoint is in a separate branch.
 See [current status](status.md) for completed gates, open dependency-update PRs,
 scientific requirements and the disposition of superseded decision drafts.

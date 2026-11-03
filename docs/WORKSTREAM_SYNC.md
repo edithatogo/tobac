@@ -499,3 +499,16 @@ Next: test concrete missing assertions and classify all twelve hosted survivors.
 DH1 result: twelve hosted survivor IDs reconciled; targeted cases detect ten
 in a fresh local 129/131 campaign. The remaining two are equivalent for the
 qualified SciPy zero-mean path. See `docs/reviews/2026-11-03-supply-mutant-triage.md`.
+
+## DH2 Ruff exception review ownership — 3 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DH2 in
+`/Users/doughnut/Documents/tobac` on `codex/dh2-ruff-exceptions`.
+Scope: retained source/API Ruff exceptions, focused fixes/tests, policy and
+Conductor reconciliation; native scope: none. Parent includes local DH1 commit.
+Next: inventory live suppressions and verify behavior-preserving candidates.
+
+DH2 review classified 91 source diagnostic instances. A tested vintage helper
+removed one complexity diagnostic but invalidated accepted native lineage, so it
+was reverted; all 91 retained diagnostics and their reasons are documented.
+No scientific source or interface is changed by the final review packet.
