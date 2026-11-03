@@ -154,14 +154,19 @@ remains distinct from the later local run.
 
 ## Open dependency maintenance
 
-These PRs are outside the completed research tracks. Exact checked candidate SHAs
-and check counts are retained in the reconciliation receipt. All three are blocked by failing checks on their current candidate heads; additional hosted checks are queued or running. No update is merged or marked qualified here.
+These PRs are outside the completed research tracks. On 3 November, the three
+candidate heads below had failing checks and were behind the current receiving
+main. The observations are from their recorded jobs and do not qualify any update.
 
-| PR | Remaining task |
+| PR | Observed failure and remaining task |
 | --- | --- |
-| [#80](https://github.com/edithatogo/tobac/pull/80) — verified action pins | Diagnose the candidate's failures, qualify updated pins against all required checks, then guarded publication and receiving readback. |
-| [#91](https://github.com/edithatogo/tobac/pull/91) — Python Docker 3.15.2 | Qualify the newer patch consistently across runtime/build/test/CI and the pinned verifier runtime contract before promotion; the current executed baseline remains 3.15.1. |
-| [#94](https://github.com/edithatogo/tobac/pull/94) — pytest-gremlins 1.13.2 | Diagnose failures and qualify the tool/locks and required checks before promotion. |
+| [#80](https://github.com/edithatogo/tobac/pull/80), `ab1757b` — verified action pins | The candidate changes 14 workflows. Sampled Linux test and macOS qualification jobs reject `.github/workflows/advisory-types.yml` as a stale signed native acceptance pin before execution. Reconcile the candidate with current main, requalify the action changes and renew the signed binding only after the required native readbacks, then run required checks and verify publication. |
+| [#91](https://github.com/edithatogo/tobac/pull/91), `94d2c13` — Python 3.15.2 | The current candidate changes `.python-version` alone. Its Linux tests and numerical job fail because the canonical version contract remains 3.15.1. Qualify a consistent Python patch migration across development, build, tests, CI, locks and the pinned verifier contract before promotion. |
+| [#94](https://github.com/edithatogo/tobac/pull/94), `dead3f3` — pytest-gremlins 1.13.2 | The candidate changes `engineering/ecosystem.in`; its Linux tests reject stale ecosystem dependency-input hashes. Regenerate and review the affected source-bound locks and receipts, qualify the tool and run required checks before promotion. |
+
+The #80 export error after failed lineage preflight is a downstream missing-output
+error, not a separate successful qualification. None of the candidates is merged;
+no security, source-binding or scientific gate has been relaxed.
 
 ## Scientific and submission requirements
 
