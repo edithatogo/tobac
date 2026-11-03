@@ -1,6 +1,7 @@
 # Bounded lane implementation and verification
 
-Status: **deferred to roadmap**, with no active implementation authorization.
+Status: **DCI1 selection in progress** by the owner’s 3 November 2026 request.
+DCI2–DCI4 remain deferred; the current request selects scope and pins only.
 Reconciled 2 November 2026 against the completed macOS reference implementation.
 
 ## Completed preparation
@@ -12,7 +13,7 @@ Reconciled 2 November 2026 against the completed macOS reference implementation.
 
 ## Deferred phase — qualify additional advisory automation
 
-- [ ] DCI1 — Select additions that do not duplicate existing macOS security, strict,
+- [~] DCI1 — Select additions that do not duplicate existing macOS security, strict,
   pinning, publication-attestation and pre-commit checks; reverify current tool refs.
 - [ ] DCI2 — Implement the selected advisory Nox/workflow additions, including any
   selected Ubuntu ARM diagnostic leg, with source-bound pins and unchanged required gates.

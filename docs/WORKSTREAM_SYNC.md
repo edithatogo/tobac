@@ -445,3 +445,15 @@ native object changed. DXP4 is complete for manual release/candidate workflows.
 Six numbered advisory/hardening tasks remain. Next: publish this metadata-only
 reconciliation with the existing guards and verify receiving refs/files. All
 earlier source lanes remain preserved; no force update or history deletion.
+
+## DCI1 selection ownership — 3 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DCI1 selection in
+`/Users/doughnut/Documents/tobac`, branch `codex/dci1-selection`, from verified
+main `6830891`. The checkout was clean, with one worktree and no active local
+Nox/test/native signing operation. Scope is the existing advisory track's
+selection/specification/metadata, Conductor status and the public-path inventory.
+No runtime, scientific source, workflow, lock, pre-commit hook or native authority
+change is assigned. Next: select nonduplicative additions, verify upstream refs
+and delivery metadata, record DCI2–DCI4 handoff, then publish the selection packet.
+Earlier source assignments remain history.
