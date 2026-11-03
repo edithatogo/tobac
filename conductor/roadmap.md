@@ -9,7 +9,7 @@ the work.
 
 Hosted Linux and Windows Python 3.15.1 runtime tests were restored and qualified by
 PR #66 at receiving main `62056c5`; macOS remains the full engineering/reference
-qualification platform. DXP1 and DXP2 are complete; the other additional work remains deferred:
+qualification platform. DXP1, DXP2 and DXP3 are complete; the remaining release work is deferred:
 
 - [x] DXP1 — Installed and executed the source-bound Linux x86_64 audit lock on
   Python 3.15.1 in GitHub Actions run [41534684953](https://github.com/edithatogo/tobac/actions/runs/41534684953).
@@ -20,8 +20,11 @@ qualification platform. DXP1 and DXP2 are complete; the other additional work re
   [run 41542664379](https://github.com/edithatogo/tobac/actions/runs/41542664379).
   Both direct and sdist-rebuilt wheels pass isolated imports/API/transport/quick CLI
   smokes and inspected export. [Receipt](../integration/package_portability_20261103.json).
-- [~] DXP3 — Execute platform-specific scientific reproduction on supported
-  non-macOS platforms. Authorized and in progress on 3 November 2026.
+- [x] DXP3 — Executed full scientific reproduction on Linux and Windows with
+  Python 3.15.1 in [run 41557415490](https://github.com/edithatogo/tobac/actions/runs/41557415490).
+  All eight runner variants and 82 scientific CSV tables match the accepted
+  references within their declared policies; 29 isolated publication replay tables
+  also pass on each host. [Receipt](../integration/scientific_reproduction_20261103.json).
 - [ ] DXP4 — Reconsider and requalify the deferred manual release and lock-generation
   workflows when non-macOS release/audit work is reprioritised.
 
@@ -76,8 +79,8 @@ diagnostic execution remains deferred here; it is not an unchecked current macOS
 
 ## Reconciliation — 3 November 2026
 
-DXP1 and DXP2 are complete. Two cross-platform tasks, four advisory-lane tasks
-and two optional hardening tasks remain: eight deferred tasks across three work
-groups/phases. No implementation task is in progress.
+DXP1–DXP3 are complete. One release/lock task, four advisory-lane tasks and two
+optional hardening tasks remain: seven deferred tasks across three work groups/phases.
+No implementation task is in progress.
 See [current status](status.md) for completed gates, open dependency-update PRs,
 scientific requirements and the disposition of superseded decision drafts.

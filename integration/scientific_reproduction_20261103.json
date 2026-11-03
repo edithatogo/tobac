@@ -1,0 +1,677 @@
+{
+  "schema": "tobac.cross-platform-scientific-reproduction.v1",
+  "task": "DXP3",
+  "status": "passed",
+  "observed_at": "2026-11-03T01:20:29.809042+00:00",
+  "source_sha": "349f09f19e50ae92ab11a61aca8014967cff45e6",
+  "run_id": 41557415490,
+  "run_url": "https://github.com/edithatogo/tobac/actions/runs/41557415490",
+  "runner_count_per_platform": 8,
+  "csv_tables_per_platform": 82,
+  "platforms": {
+    "linux": {
+      "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.43",
+      "python": "3.15.1",
+      "job_id": 125659567578,
+      "status": "passed",
+      "runners": {
+        "m1": {
+          "tables": 8,
+          "rows": 2068,
+          "maximum_absolute_difference": 1.0186340659856796e-09,
+          "tolerance": {
+            "rtol": 1e-09,
+            "atol": 1e-12
+          },
+          "numeric_cells": 12867,
+          "maximum_fraction_of_tolerance": 0.0007008282842946301
+        },
+        "m2_retail": {
+          "tables": 6,
+          "rows": 660,
+          "maximum_absolute_difference": 2.000888343900442e-11,
+          "tolerance": {
+            "rtol": 1e-09,
+            "atol": 1e-12
+          },
+          "numeric_cells": 3126,
+          "maximum_fraction_of_tolerance": 0.00033306690738754696
+        },
+        "m2_publication": {
+          "tables": 24,
+          "rows": 5757,
+          "maximum_absolute_difference": 9.094947017729282e-13,
+          "tolerance": {
+            "rtol": 0,
+            "atol": 1e-10
+          },
+          "numeric_cells": 22089,
+          "maximum_fraction_of_tolerance": 0.009094947017729282
+        },
+        "m2_robustness": {
+          "tables": 5,
+          "rows": 23933,
+          "maximum_absolute_difference": 1.354472090042691e-14,
+          "tolerance": {
+            "rtol": 0,
+            "atol": 1e-10
+          },
+          "numeric_cells": 86476,
+          "maximum_fraction_of_tolerance": 0.0001354472090042691
+        },
+        "m3": {
+          "tables": 10,
+          "rows": 1183,
+          "maximum_absolute_difference": 1.8189894035458565e-11,
+          "tolerance": {
+            "rtol": 1e-09,
+            "atol": 1e-12
+          },
+          "numeric_cells": 7155,
+          "maximum_fraction_of_tolerance": 0.0004618701254788249
+        },
+        "longitudinal": {
+          "tables": 8,
+          "rows": 8566,
+          "maximum_absolute_difference": 0.0008897781372070312,
+          "tolerance": {
+            "rtol": 1e-09,
+            "atol": 1e-12
+          },
+          "numeric_cells": 101556,
+          "maximum_fraction_of_tolerance": 0.0858865540014224
+        },
+        "release_calibration": {
+          "tables": 13,
+          "rows": 51908,
+          "maximum_absolute_difference": 1.000000082740371e-11,
+          "tolerance": {
+            "rtol": 1e-09,
+            "atol": 1e-12
+          },
+          "numeric_cells": 279417,
+          "maximum_fraction_of_tolerance": 0.009582200002720349
+        },
+        "m2": {
+          "tables": 8,
+          "rows": 1919,
+          "maximum_absolute_difference": 9.094947017729282e-13,
+          "tolerance": {
+            "rtol": 0,
+            "atol": 1e-10
+          },
+          "numeric_cells": 7363,
+          "maximum_fraction_of_tolerance": 0.009094947017729282
+        }
+      },
+      "nox_sessions": [
+        {
+          "args": {},
+          "name": "reproduce",
+          "result": "success",
+          "result_code": 1,
+          "reason": null,
+          "signatures": [
+            "reproduce",
+            "reproduce-3.15.1"
+          ],
+          "duration": 370.25402314999997
+        }
+      ],
+      "isolated_publication_tables": 29,
+      "isolated_publication_comparisons": {
+        "primary": {
+          "tables": [
+            {
+              "table": "consequences.csv",
+              "rows": 20,
+              "maximum_absolute_difference": 9.094947017729282e-13,
+              "path": "consequences.csv"
+            },
+            {
+              "table": "decisions.csv",
+              "rows": 125,
+              "maximum_absolute_difference": 2.2273849431542203e-15,
+              "path": "decisions.csv"
+            },
+            {
+              "table": "consequences.csv",
+              "rows": 20,
+              "maximum_absolute_difference": 1.1368683772161603e-13,
+              "path": "grid-2/consequences.csv"
+            },
+            {
+              "table": "decisions.csv",
+              "rows": 125,
+              "maximum_absolute_difference": 7.91033905045424e-16,
+              "path": "grid-2/decisions.csv"
+            },
+            {
+              "table": "grouped_evppi.csv",
+              "rows": 875,
+              "maximum_absolute_difference": 1.124100812432971e-15,
+              "path": "grid-2/grouped_evppi.csv"
+            },
+            {
+              "table": "robustness.csv",
+              "rows": 5,
+              "maximum_absolute_difference": 0.0,
+              "path": "grid-2/robustness.csv"
+            },
+            {
+              "table": "scientific_information.csv",
+              "rows": 90,
+              "maximum_absolute_difference": 2.220446049250313e-16,
+              "path": "grid-2/scientific_information.csv"
+            },
+            {
+              "table": "source_use.csv",
+              "rows": 35,
+              "maximum_absolute_difference": 0.0,
+              "path": "grid-2/source_use.csv"
+            },
+            {
+              "table": "study_value.csv",
+              "rows": 750,
+              "maximum_absolute_difference": 4.597017211338539e-16,
+              "path": "grid-2/study_value.csv"
+            },
+            {
+              "table": "thresholds.csv",
+              "rows": 19,
+              "maximum_absolute_difference": 3.2529534621517087e-13,
+              "path": "grid-2/thresholds.csv"
+            },
+            {
+              "table": "consequences.csv",
+              "rows": 20,
+              "maximum_absolute_difference": 1.1368683772161603e-13,
+              "path": "grid-8/consequences.csv"
+            },
+            {
+              "table": "decisions.csv",
+              "rows": 125,
+              "maximum_absolute_difference": 5.842548667089886e-15,
+              "path": "grid-8/decisions.csv"
+            },
+            {
+              "table": "grouped_evppi.csv",
+              "rows": 875,
+              "maximum_absolute_difference": 2.345346139520643e-15,
+              "path": "grid-8/grouped_evppi.csv"
+            },
+            {
+              "table": "robustness.csv",
+              "rows": 5,
+              "maximum_absolute_difference": 0.0,
+              "path": "grid-8/robustness.csv"
+            },
+            {
+              "table": "scientific_information.csv",
+              "rows": 90,
+              "maximum_absolute_difference": 6.661338147750939e-16,
+              "path": "grid-8/scientific_information.csv"
+            },
+            {
+              "table": "source_use.csv",
+              "rows": 35,
+              "maximum_absolute_difference": 0.0,
+              "path": "grid-8/source_use.csv"
+            },
+            {
+              "table": "study_value.csv",
+              "rows": 750,
+              "maximum_absolute_difference": 2.123301534595612e-15,
+              "path": "grid-8/study_value.csv"
+            },
+            {
+              "table": "thresholds.csv",
+              "rows": 19,
+              "maximum_absolute_difference": 3.2529534621517087e-13,
+              "path": "grid-8/thresholds.csv"
+            },
+            {
+              "table": "grouped_evppi.csv",
+              "rows": 875,
+              "maximum_absolute_difference": 1.2021633688519273e-15,
+              "path": "grouped_evppi.csv"
+            },
+            {
+              "table": "robustness.csv",
+              "rows": 5,
+              "maximum_absolute_difference": 0.0,
+              "path": "robustness.csv"
+            },
+            {
+              "table": "scientific_information.csv",
+              "rows": 90,
+              "maximum_absolute_difference": 6.661338147750939e-16,
+              "path": "scientific_information.csv"
+            },
+            {
+              "table": "source_use.csv",
+              "rows": 35,
+              "maximum_absolute_difference": 0.0,
+              "path": "source_use.csv"
+            },
+            {
+              "table": "study_value.csv",
+              "rows": 750,
+              "maximum_absolute_difference": 8.326672684688674e-16,
+              "path": "study_value.csv"
+            },
+            {
+              "table": "thresholds.csv",
+              "rows": 19,
+              "maximum_absolute_difference": 5.915268275202834e-13,
+              "path": "thresholds.csv"
+            }
+          ],
+          "maximum_report_difference": 7.077671781985373e-16
+        },
+        "robustness": {
+          "tables": [
+            {
+              "table": "decisions.csv",
+              "rows": 1625,
+              "maximum_absolute_difference": 3.802513859341161e-15,
+              "path": "decisions.csv"
+            },
+            {
+              "table": "grouped_evppi.csv",
+              "rows": 11375,
+              "maximum_absolute_difference": 2.7478019859472624e-15,
+              "path": "grouped_evppi.csv"
+            },
+            {
+              "table": "scientific_information.csv",
+              "rows": 1170,
+              "maximum_absolute_difference": 1.354472090042691e-14,
+              "path": "scientific_information.csv"
+            },
+            {
+              "table": "study_value.csv",
+              "rows": 9750,
+              "maximum_absolute_difference": 2.757342965065135e-15,
+              "path": "study_value.csv"
+            },
+            {
+              "table": "summary.csv",
+              "rows": 13,
+              "maximum_absolute_difference": 2.6922908347160046e-15,
+              "path": "summary.csv"
+            }
+          ],
+          "maximum_report_difference": 2.6922908347160046e-15
+        }
+      },
+      "raw_outputs_and_validation_view_hashes_verified": true,
+      "artifact_id": 13195169290,
+      "artifact_digest": "sha256:417416f90dc54789121efcda58595442b90a2f9d05542009ed1f3ef66e671eb7",
+      "report_sha256": "5a11c6e354598b4e40547a677c49ace814c5c5843c8dbb55b2f9e14fd7642cd2",
+      "nox_report_sha256": "bf08ba711edc24259debff39b9ef000869aff13bd23e392c903eefe7d6463728",
+      "publication_receipt_sha256": "a0284a575e24d8a0e99c4973cdfcddd7b17a12a289065c5ae7525b06063edb14",
+      "validation_view_sha256": "c4d6dd4659234c693108cf72a88693de44e4b97ed605e25653cade10213411be",
+      "job_log_sha256": "82b25797e4f92d2751807f7a5255d58b4929b3d47f300c0b3ec69f1e24a21d85"
+    },
+    "windows": {
+      "platform": "Windows-2025Server-10.0.26100-SP0",
+      "python": "3.15.1",
+      "job_id": 125659567143,
+      "status": "passed",
+      "runners": {
+        "m1": {
+          "tables": 8,
+          "rows": 2068,
+          "maximum_absolute_difference": 1.3096723705530167e-09,
+          "tolerance": {
+            "rtol": 1e-09,
+            "atol": 1e-12
+          },
+          "numeric_cells": 12867,
+          "maximum_fraction_of_tolerance": 0.0007077671781985373
+        },
+        "m2_retail": {
+          "tables": 6,
+          "rows": 660,
+          "maximum_absolute_difference": 2.000888343900442e-11,
+          "tolerance": {
+            "rtol": 1e-09,
+            "atol": 1e-12
+          },
+          "numeric_cells": 3126,
+          "maximum_fraction_of_tolerance": 0.00033306690738754696
+        },
+        "m2_publication": {
+          "tables": 24,
+          "rows": 5757,
+          "maximum_absolute_difference": 9.094947017729282e-13,
+          "tolerance": {
+            "rtol": 0,
+            "atol": 1e-10
+          },
+          "numeric_cells": 22089,
+          "maximum_fraction_of_tolerance": 0.009094947017729282
+        },
+        "m2_robustness": {
+          "tables": 5,
+          "rows": 23933,
+          "maximum_absolute_difference": 4.04121180963557e-14,
+          "tolerance": {
+            "rtol": 0,
+            "atol": 1e-10
+          },
+          "numeric_cells": 86476,
+          "maximum_fraction_of_tolerance": 0.000404121180963557
+        },
+        "m3": {
+          "tables": 10,
+          "rows": 1183,
+          "maximum_absolute_difference": 1.8189894035458565e-11,
+          "tolerance": {
+            "rtol": 1e-09,
+            "atol": 1e-12
+          },
+          "numeric_cells": 7155,
+          "maximum_fraction_of_tolerance": 0.0004145989107584569
+        },
+        "longitudinal": {
+          "tables": 8,
+          "rows": 8566,
+          "maximum_absolute_difference": 0.00072479248046875,
+          "tolerance": {
+            "rtol": 1e-09,
+            "atol": 1e-12
+          },
+          "numeric_cells": 101556,
+          "maximum_fraction_of_tolerance": 0.06875056079991282
+        },
+        "release_calibration": {
+          "tables": 13,
+          "rows": 51908,
+          "maximum_absolute_difference": 7.77689999457286e-15,
+          "tolerance": {
+            "rtol": 1e-09,
+            "atol": 1e-12
+          },
+          "numeric_cells": 279417,
+          "maximum_fraction_of_tolerance": 0.00777689999457286
+        },
+        "m2": {
+          "tables": 8,
+          "rows": 1919,
+          "maximum_absolute_difference": 9.094947017729282e-13,
+          "tolerance": {
+            "rtol": 0,
+            "atol": 1e-10
+          },
+          "numeric_cells": 7363,
+          "maximum_fraction_of_tolerance": 0.009094947017729282
+        }
+      },
+      "nox_sessions": [
+        {
+          "args": {},
+          "name": "reproduce",
+          "result": "success",
+          "result_code": 1,
+          "reason": null,
+          "signatures": [
+            "reproduce",
+            "reproduce-3.15.1"
+          ],
+          "duration": 468.54830250000003
+        }
+      ],
+      "isolated_publication_tables": 29,
+      "isolated_publication_comparisons": {
+        "primary": {
+          "tables": [
+            {
+              "table": "consequences.csv",
+              "rows": 20,
+              "maximum_absolute_difference": 9.094947017729282e-13,
+              "path": "consequences.csv"
+            },
+            {
+              "table": "decisions.csv",
+              "rows": 125,
+              "maximum_absolute_difference": 2.2273849431542203e-15,
+              "path": "decisions.csv"
+            },
+            {
+              "table": "consequences.csv",
+              "rows": 20,
+              "maximum_absolute_difference": 1.1368683772161603e-13,
+              "path": "grid-2/consequences.csv"
+            },
+            {
+              "table": "decisions.csv",
+              "rows": 125,
+              "maximum_absolute_difference": 7.91033905045424e-16,
+              "path": "grid-2/decisions.csv"
+            },
+            {
+              "table": "grouped_evppi.csv",
+              "rows": 875,
+              "maximum_absolute_difference": 1.124100812432971e-15,
+              "path": "grid-2/grouped_evppi.csv"
+            },
+            {
+              "table": "robustness.csv",
+              "rows": 5,
+              "maximum_absolute_difference": 0.0,
+              "path": "grid-2/robustness.csv"
+            },
+            {
+              "table": "scientific_information.csv",
+              "rows": 90,
+              "maximum_absolute_difference": 2.220446049250313e-16,
+              "path": "grid-2/scientific_information.csv"
+            },
+            {
+              "table": "source_use.csv",
+              "rows": 35,
+              "maximum_absolute_difference": 0.0,
+              "path": "grid-2/source_use.csv"
+            },
+            {
+              "table": "study_value.csv",
+              "rows": 750,
+              "maximum_absolute_difference": 4.887583393564654e-16,
+              "path": "grid-2/study_value.csv"
+            },
+            {
+              "table": "thresholds.csv",
+              "rows": 19,
+              "maximum_absolute_difference": 3.2529534621517087e-13,
+              "path": "grid-2/thresholds.csv"
+            },
+            {
+              "table": "consequences.csv",
+              "rows": 20,
+              "maximum_absolute_difference": 1.1368683772161603e-13,
+              "path": "grid-8/consequences.csv"
+            },
+            {
+              "table": "decisions.csv",
+              "rows": 125,
+              "maximum_absolute_difference": 5.842548667089886e-15,
+              "path": "grid-8/decisions.csv"
+            },
+            {
+              "table": "grouped_evppi.csv",
+              "rows": 875,
+              "maximum_absolute_difference": 2.3522850334245504e-15,
+              "path": "grid-8/grouped_evppi.csv"
+            },
+            {
+              "table": "robustness.csv",
+              "rows": 5,
+              "maximum_absolute_difference": 0.0,
+              "path": "grid-8/robustness.csv"
+            },
+            {
+              "table": "scientific_information.csv",
+              "rows": 90,
+              "maximum_absolute_difference": 8.881784197001252e-16,
+              "path": "grid-8/scientific_information.csv"
+            },
+            {
+              "table": "source_use.csv",
+              "rows": 35,
+              "maximum_absolute_difference": 0.0,
+              "path": "grid-8/source_use.csv"
+            },
+            {
+              "table": "study_value.csv",
+              "rows": 750,
+              "maximum_absolute_difference": 2.123301534595612e-15,
+              "path": "grid-8/study_value.csv"
+            },
+            {
+              "table": "thresholds.csv",
+              "rows": 19,
+              "maximum_absolute_difference": 3.2529534621517087e-13,
+              "path": "grid-8/thresholds.csv"
+            },
+            {
+              "table": "grouped_evppi.csv",
+              "rows": 875,
+              "maximum_absolute_difference": 1.2021633688519273e-15,
+              "path": "grouped_evppi.csv"
+            },
+            {
+              "table": "robustness.csv",
+              "rows": 5,
+              "maximum_absolute_difference": 0.0,
+              "path": "robustness.csv"
+            },
+            {
+              "table": "scientific_information.csv",
+              "rows": 90,
+              "maximum_absolute_difference": 6.661338147750939e-16,
+              "path": "scientific_information.csv"
+            },
+            {
+              "table": "source_use.csv",
+              "rows": 35,
+              "maximum_absolute_difference": 0.0,
+              "path": "source_use.csv"
+            },
+            {
+              "table": "study_value.csv",
+              "rows": 750,
+              "maximum_absolute_difference": 7.494005416219807e-16,
+              "path": "study_value.csv"
+            },
+            {
+              "table": "thresholds.csv",
+              "rows": 19,
+              "maximum_absolute_difference": 5.915268275202834e-13,
+              "path": "thresholds.csv"
+            }
+          ],
+          "maximum_report_difference": 5.273559366969494e-16
+        },
+        "robustness": {
+          "tables": [
+            {
+              "table": "decisions.csv",
+              "rows": 1625,
+              "maximum_absolute_difference": 3.802513859341161e-15,
+              "path": "decisions.csv"
+            },
+            {
+              "table": "grouped_evppi.csv",
+              "rows": 11375,
+              "maximum_absolute_difference": 2.7478019859472624e-15,
+              "path": "grouped_evppi.csv"
+            },
+            {
+              "table": "scientific_information.csv",
+              "rows": 1170,
+              "maximum_absolute_difference": 4.04121180963557e-14,
+              "path": "scientific_information.csv"
+            },
+            {
+              "table": "study_value.csv",
+              "rows": 9750,
+              "maximum_absolute_difference": 2.8570895649338013e-15,
+              "path": "study_value.csv"
+            },
+            {
+              "table": "summary.csv",
+              "rows": 13,
+              "maximum_absolute_difference": 2.6922908347160046e-15,
+              "path": "summary.csv"
+            }
+          ],
+          "maximum_report_difference": 2.6922908347160046e-15
+        }
+      },
+      "raw_outputs_and_validation_view_hashes_verified": true,
+      "artifact_id": 13194969669,
+      "artifact_digest": "sha256:0881f9ab6f75568c3f7a970ee44b67404f1bb8bc3e1ccad5e8825e4f14b0081d",
+      "report_sha256": "14eaff542756650722979a6d1c39b85481e2c3cfeb8af3b0bc8937ecdd198993",
+      "nox_report_sha256": "7d7fb9daf0fb6bf10ea6fe81da894eeeb706aa7d9e095062b8de074d8b2dd327",
+      "publication_receipt_sha256": "478a793885f28775fe15cd11be0e3dfc77f925326553b2401e43642c150c3003",
+      "validation_view_sha256": "2d1965255f8f52eda488dda8ba75c1ff02dbb31ae5ecc590a3429ec68e60ea44",
+      "job_log_sha256": "bec17334328053443fc77197a2ec33488ab7fe1254b39b3e3164dfca4004cf75"
+    }
+  },
+  "reference": {
+    "path": "integration/scientific_reference_20261103.zip",
+    "sha256": "083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9",
+    "accepted_checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
+    "origin": "Reopened original accepted native CAS outputs through the pinned installed producer, verified every CSV object ID; generated scientific results only"
+  },
+  "orchestration": {
+    "capsule_sha256": "d742b866dac065a669cbccc18364f56afbc2ca869a9b2c4bfe2734c7466db752",
+    "signature_sha256": "6bd78b348bda4df83de57839b0ead82fdce579a908b8fd04b521c74eb1fdb0ef",
+    "native_runners_reopened": 8,
+    "native_objects_and_scientific_inputs_unchanged": true,
+    "prior_generation_path": "integration/archive/hosted-generation_20261102.zip",
+    "prior_generation_sha256": "78b7d832175e9f45f4d3b99a23a95b76072f2520aea5e6ffcdbffe7767c7f5d0",
+    "issuer_log_sha256": "3eb026f6316c015e438f499c6fe08aa220218b241a12e1df65da8de112d49be8"
+  },
+  "initial_attempt": {
+    "run_id": 41553783852,
+    "windows": "Generated runtime manifest separators rejected by strict synthesis reader; fixed with independently hash-verified canonical validation view, preserving raw outputs and scientific reader bytes",
+    "linux": "Existing Nox reproduction validators passed; new checker had incorrectly selected publication absolute-only policy for currency/reference families",
+    "first_mismatch": {
+      "column": "gross_value_nzd",
+      "reference": 1302.2446720089888,
+      "actual": 1302.2446720092391
+    },
+    "log_sha256": {
+      "windows-first.log": "44091043e40857ce252fe72dc03fcded3a8828567a5ea2a5a5bb43dade51d3c2",
+      "linux-first.log": "59aeb1b1e8127e90765cd2a38a01405778b66427ed9f9991265532ec2be5c231"
+    }
+  },
+  "tolerance_policy": "Exact table shapes/identities/text and finite numbers. Existing publication 1e-10 absolute policy for m2/no-grid, publication, robustness; existing reference rtol=1e-9, atol=1e-12 policy for M1, M2-retail, M3 and longitudinal/calibration. All existing Nox numerical oracles remain unchanged.",
+  "prior_main_security_failure": {
+    "run_id": 41545029388,
+    "reason": "PyPI read timeout in pip-audit, no successful audit claimed",
+    "log_sha256": "ac4171a847a87c9315ccd2495417c7210936c7e1189ab44d9b019901703c2d2b",
+    "fresh_candidate_security": "passed in all-terminal candidate checks at 349f09f"
+  },
+  "local_validation": {
+    "tests_passed": 134,
+    "capability_skips": 5,
+    "typing": "0 errors, 0 warnings, 0 notes",
+    "ruff": "passed",
+    "actionlint": "passed"
+  },
+  "source_hashes": {
+    "noxfile.py": "1926f7209dfff634b84f2121d80cb9b08369f6805cdc81ea65d379fd4a00c31d",
+    "scripts/check_scientific_reproduction.py": "de865d1ec44fa8941cb38d316630ac88af703923e706d12b2ef5035731893f4d",
+    "scripts/prepare_synthesis_replay.py": "73a952437e45e434ca9f01b7ba04a5315560c15cbeff4b88566d478ced09be66",
+    ".github/workflows/scientific-reproduction.yml": "8ba61c67aec2eab99d5e43e89df794edf4c016f820192717f12cc74ee35bd5b6",
+    "engineering/requirements.lock": "2b0720ad8fcfe353609960609d277ef907e0d5e573a75b5ba008b1b316e0150d",
+    "engineering/requirements.lock.json": "f9b3d3b1925c76cbe0c5c5572dcbc61d0f52613675e08f87a249f6e46a769db4"
+  },
+  "scope": "Current eight-runner numerical reproduction on Linux and Windows with accepted scientific inputs, existing validators and independent saved-output reference; not empirical or external scientific validation",
+  "remaining": "DXP4 release and lock-generation workflows remain deferred",
+  "publication": "Guarded fast-forward and receiving-ref readback follow final exact-head checks; executed evidence remains bound to the source SHA above"
+}

@@ -56,8 +56,10 @@ on Python 3.15.1. [Actual hosted receipt](../integration/linux_audit_lock_202611
 DXP2 Linux/Windows package portability is complete through actual direct/rebuilt
 wheel installation and Unicode/path/metadata checks.
 [Hosted package receipt](../integration/package_portability_20261103.json).
-Eight tasks remain deferred; DXP3 numerical reproduction and DXP4 release workflows
-retain their separate scope.
+DXP3 scientific reproduction is complete on both hosts: all eight variants,
+82 tables and the 29-table isolated publication replay pass.
+[Scientific reproduction receipt](../integration/scientific_reproduction_20261103.json).
+Seven tasks remain deferred, including DXP4 manual release and lock generation.
 
 [Roadmap](roadmap.md): non-macOS release/numerical qualification, optional advisory promotion and explicitly optional
 mutation/source-style follow-ups. Existing hosted checks and full-SHA pins remain required.

@@ -509,6 +509,7 @@
     "integration/ruff_policy_exceptions_20261026.json",
     "integration/ruff_resource_controls_20261027.json",
     "integration/scientific_reference_20261103.zip",
+    "integration/scientific_reproduction_20261103.json",
     "integration/voiage_consumer_surface_20261027.json",
     "integration/voiage_polars2_compatibility_20261027.json",
     "integration/voiage_polars_consumer_20261027.json",

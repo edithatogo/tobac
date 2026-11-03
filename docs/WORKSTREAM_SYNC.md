@@ -339,3 +339,15 @@ are canonicalized, duplicate/escaping references fail, and the raw manifest and
 outputs stay unchanged. A new signed orchestration capsule will be issued only
 after full direct-native readback of all eight original accepted attempts. The
 previous capsule/issuer generation is preserved for historical P8 readback.
+
+DXP3 acceptance at 349f09f: GitHub run 41557415490 succeeded on Linux
+(job 125659567578) and Windows (job 125659567143). Each ran full Nox reproduction
+and no-grid M2, compared eight variants / 82 CSV tables with frozen native results,
+and passed the 29-table isolated committed-source publication replay. Downloaded
+raw/view and report hashes were checked. The largest normalized errors used
+0.085887 of the declared tolerance on Linux and 0.068751 on Windows. Receipt:
+integration/scientific_reproduction_20261103.json. Both first failures and the
+prior PyPI timeout remain explicit. All 25 candidate checks passed with two
+expected trusted-write skips. Seven deferred tasks remain; DXP4 is separate.
+Next: final metadata publication checks, guarded receiving-main fast-forward
+and exact receiving file readback. Original scientific/native inputs stay unchanged.

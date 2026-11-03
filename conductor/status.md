@@ -1,7 +1,6 @@
 # Reconciled repository status — 3 November 2026
 
-DXP1 and DXP2 are complete. DXP3 is authorized and in progress through hosted
-scientific reproduction. No registered
+DXP1–DXP3 are complete through actual hosted qualification. No registered
 implementation track is in progress. The retained native-lineage track has
 **8/8 phases and 32/32 primary tasks complete**, with zero in progress or pending.
 The 18 archived tracks have no active execution tasks. Five historical graph
@@ -59,26 +58,48 @@ retained wheel/sdist/reports and ten dependency-marker cases. Cross-platform mem
 hashes differ only for METADATA's LF/CRLF encoding and its RECORD hash; METADATA
 matches after newline normalization. No cross-platform byte-identical wheel claim
 is made. Native scanners pass pinned archive checksums and report their expected
-versions; inspected artifact exports pass on both hosts. DXP3 full numerical
-reproduction and DXP4 release/lock-generation workflows remain separate.
+versions; inspected artifact exports pass on both hosts. DXP3 separately qualifies full numerical
+reproduction; DXP4 release/lock-generation workflows remain deferred.
+
+## Completed DXP3 — scientific reproduction
+
+[Run 41557415490](https://github.com/edithatogo/tobac/actions/runs/41557415490)
+passed full native-gated, hash-locked Nox reproduction on Linux and Windows.
+Each host executed all eight accepted runner variants, including no-grid M2, and
+compared all 82 scientific CSV tables against original native-byte-verified results.
+Exact schemas, rows and identities pass. Existing publication absolute and scaled
+reference tolerance policies are recorded per runner. Each host also passes the
+29-table clean committed-source publication replay, longitudinal goldens, input/output
+manifest checks and synthesis validators.
+
+[Evidence](../integration/scientific_reproduction_20261103.json) retains measured
+differences, raw/view hashes, run/artifact IDs, code pins and both first failures.
+Windows uses a separately hash-verified canonical validation view; raw scientific
+outputs and the pinned synthesis reader remain unchanged. The hosted capsule was
+renewed only after reopening all eight original native attempts; the previous
+generation remains preserved for P8 integrity readback. No model, configuration,
+scientific input or existing numerical validator changed.
+
+Software reproduction does not supply empirical calibration or external scientific
+endorsement. DXP4 manual release and lock generation remains deferred.
 
 ## Remaining deferred phases and tasks
 
-DXP1 and DXP2 are complete; the remaining roadmap commitments await prioritisation.
-There are **three work groups/phases, one task in progress and seven pending tasks**; the advisory
+DXP1–DXP3 are complete; the remaining roadmap commitments await prioritisation.
+There are **three deferred work groups/phases and seven pending tasks**, with zero in progress; the advisory
 lane is the one existing deferred track. Platform and hardening groups remain in
 [the roadmap](roadmap.md), rather than newly registered implementation tracks.
 
 | Group / phase | Tasks remaining |
 | --- | --- |
-| Cross-platform release and numerical qualification | DXP3 — execute platform-specific scientific reproduction; DXP4 — reconsider and requalify deferred manual release/lock-generation workflows. |
+| Cross-platform release and lock qualification | DXP4 — reconsider and requalify deferred manual release/lock-generation workflows. |
 | Advisory CI/CD lane | DCI1 — select nonduplicative additions and current pins; DCI2 — implement selected advisory commands/workflow/ARM leg; DCI3 — execute local and hosted qualification; DCI4 — guarded publication and receiving-ref verification. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
 | Optional macOS hardening | DH1 — triage the 12 surviving supply mutants from the dated 119/131 measurement; DH2 — review retained source/API Ruff exceptions where behavior and scientific meaning are preserved. |
 
 Linux/Windows runtime tests and hosted lineage verification already passed.
 DXP1 additionally qualifies the Linux hash-locked strict/security audit commands.
 DXP2 also qualifies Linux/Windows source/wheel build and clean installation.
-Full platform numerical and manual release jobs remain deferred. Mutation counts are dated
+Full platform numerical reproduction is qualified by DXP3; manual release jobs remain deferred. Mutation counts are dated
 evidence, not a fresh current mutation result.
 
 ## Open dependency maintenance

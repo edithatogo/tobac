@@ -33,8 +33,27 @@ checksum-pinned native scanners. No original archival bytes are uploaded.
 [Executed evidence](../../integration/package_portability_20261103.json) qualifies
 Python 3.15.1 on both hosts. Cross-platform METADATA differs by LF/CRLF line endings
 and RECORD binds those exact bytes; semantic metadata/dependency cases agree.
-Full platform numerical reproduction and manual release/lock-generation remain
-DXP3/DXP4. This qualification does not publish to PyPI or establish scientific validity.
+DXP3 separately qualifies full platform numerical reproduction.
+Manual release/lock-generation remains DXP4. This qualification does not publish to PyPI or establish scientific validity.
+
+## Linux and Windows scientific reproduction — DXP3
+
+The dedicated [workflow](../../.github/workflows/scientific-reproduction.yml)
+runs the existing native-gated, hash-locked Nox reproduction and the additional
+accepted no-grid M2 variant. All eight runner variants and 82 CSV tables compare
+against original native-byte-verified generated results. Exact schemas/identities
+and finite values are mandatory. Publication/no-grid/robustness use the existing
+absolute 1e-10 policy; other reference families use the established relative
+rtol=1e-9, atol=1e-12 policy. Existing numerical validators are unchanged.
+
+[Actual evidence](../../integration/scientific_reproduction_20261103.json) records
+both hosts' measured differences and artifact/hash readback. The 29-table isolated
+publication replay also passes on each host. Windows synthesis consumes an auditable
+canonical view of the raw runtime manifest; input/output hashes are checked and raw
+outputs are preserved. The signed orchestration binding was renewed after complete
+direct-native readback of all eight accepted attempts. The first failures and
+historical signature generation remain available. DXP4 manual release/lock workflows
+and empirical scientific qualification retain their separate requirements.
 
 ## Native lineage prerequisites for qualified workloads
 
