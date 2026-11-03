@@ -1,7 +1,7 @@
 # Reconciled repository status — 3 November 2026
 
 DXP1–DXP4 are complete through actual hosted qualification. The advisory
-implementation is in progress on a separate checkpoint branch. The retained native-lineage track has
+implementation is qualified and published to main at `672894f`. The retained native-lineage track has
 **8/8 phases and 32/32 primary tasks complete**, with zero in progress or pending.
 The 18 archived tracks have no active execution tasks. Five historical graph
 proposal entries were superseded by bounded inventory acceptance and are explicitly
@@ -124,17 +124,15 @@ strict/pre-runner/private-entitlement blockers are historical; issue #4 is close
 The current reference, locks, hooks, workflow and verifier profiles are unchanged.
 No selected checker, new lock, ARM job or advisory runtime is installed/executed
 by that metadata-only step. DCI2 was implemented subsequently on a branch;
-DCI3 has since qualified the hosted advisory matrix; DCI4 publication remains open.
+DCI3 subsequently qualified the hosted advisory matrix; DCI4 published it to main and verified the receiving tree.
 
 ## Remaining deferred phases and tasks
 
-DXP1–DXP4, DCI1, DH1 and DH2 are complete. One advisory work group remains:
-**DCI2 and DCI3 are complete on the implementation branch; DCI4 is pending**. The earlier checkpoint is integrated on `codex/dci2-implementation`;
-the implemented lane has not been merged to main.
+DXP1–DXP4, DCI1–DCI4, DH1 and DH2 are complete. The advisory lane reached main at `672894f` after 28 passing hosted checks and receiving-tree verification.
 
 | Group / phase | Tasks remaining |
 | --- | --- |
-| Advisory CI/CD lane | DCI2 — complete locally; DCI3 — hosted qualification passed; DCI4 — guarded publication and receiving-ref verification. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
+| Advisory CI/CD lane | DCI1–DCI4 complete; advisory promotion remains optional. [Plan](roadmap/cicd_hardening_20261025/plan.md). |
 | Optional macOS hardening | DH1 complete: triaged all 12 dated survivors; fresh local mutation run detected 129/131, with two backend-equivalent survivors. DH2 complete: reviewed the retained source/API Ruff exceptions and documented why they remain, including a tested refactor that invalidated scientific lineage. |
 
 Linux/Windows runtime tests and hosted lineage verification already passed.

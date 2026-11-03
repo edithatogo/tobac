@@ -1,9 +1,8 @@
 # Bounded lane implementation and verification
 
-Status: **DCI1 and DCI2 complete on the implementation branch; DCI3 complete; DCI4 pending**.
-Reconciled 3 November 2026 against main `afec3a4` and the integrated checkpoint `e007807`.
-The advisory matrix is hosted-qualified at its recorded source revision; the lane
-has not been merged to main.
+Status: **DCI1–DCI4 complete**.
+Reconciled 3 November 2026 against receiving main `672894f70bebd4ba17ba38fe8116c938ad13fe4f`.
+The qualified advisory lane was published by guarded fast-forward and its receiving tree verified.
 
 ## Completed preparation
 
@@ -22,7 +21,7 @@ has not been merged to main.
   support. Renew the orchestration binding; retain every required/reference gate.
 - [x] DCI3 — Execute selected local and hosted checks and record actual supported
   behavior, capability limits and any unexecuted jobs.
-- [ ] DCI4 — Publish the qualified bounded lane with an expected-head check and
+- [x] DCI4 — Publish the qualified bounded lane with an expected-head check and
   verify the receiving revision and files.
 
 ## Superseded proposal scope
@@ -52,4 +51,4 @@ The checkpoint is now integrated into the DCI2 implementation branch; its local
 
 DCI2 implementation and local evidence: [implementation receipt](implementation_20261103.md).
 
-DCI3 passed all three hosted diagnostic jobs at `4b6dbf18ca3570b1cb1bd27019d81a4287a1bf50`; [hosted artifact receipt](../../../integration/advisory_typing_qualification_20261103.json) records exact scope and limits. DCI4 publication remains pending.
+DCI3 passed all three hosted diagnostic jobs at `4b6dbf18ca3570b1cb1bd27019d81a4287a1bf50`; [hosted artifact receipt](../../../integration/advisory_typing_qualification_20261103.json) records exact scope and limits. The exact publication head passed 28 hosted checks (two conditional skips), including all three advisory hosts in [run 41623880425](https://github.com/edithatogo/tobac/actions/runs/41623880425). [PR #118](https://github.com/edithatogo/tobac/pull/118) was published by non-force fast-forward from expected main `afec3a48ce7bae14f9602c48d6c30a8b3f8dab29` to `672894f70bebd4ba17ba38fe8116c938ad13fe4f`; GitHub readback reported that commit and tree `b80bc11653d601ce8892a9d617132147f8059163`, matching the qualified local tree. The ARM leg qualifies static diagnostics and scanners, not scientific reproduction.

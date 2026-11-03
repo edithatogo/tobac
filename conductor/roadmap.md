@@ -58,9 +58,8 @@ Track: `conductor/roadmap/cicd_hardening_20261025/`.
 DCI1 selection is complete: a bounded ty 0.0.95/Pyrefly 1.4.0 comparison and
 Linux ARM64 static-diagnostic leg are selected; duplicate security/lint/action
 wrappers and hook migration are omitted. [Decision](roadmap/cicd_hardening_20261025/selection_20261103.md).
-DCI2 is implemented and locally verified on `codex/dci2-implementation`; DCI3
-hosted qualification passed and DCI4 publication remains pending. The earlier published checkpoint is
-integrated on that branch, not merged to main. ARM qualification covers static
+DCI2–DCI4 are complete: the lane passed local and three-host qualification and was
+published to main at `672894f` with receiving-tree verification. ARM qualification covers static
 diagnostics and scanner execution only; scientific verifier profiles are unchanged.
 
 ## Optional macOS hardening follow-ups
@@ -83,8 +82,7 @@ diagnostic execution remains deferred here; it is not an unchecked current macOS
 
 ## Reconciliation — 3 November 2026
 
-DXP1–DXP4 and DCI1 selection are complete. One advisory-lane task remains: DCI4 publication.
-The two optional hardening tasks are complete.
-The DCI implementation is on a separate branch pending qualification and publication.
+DXP1–DXP4, DCI1–DCI4 and the two optional hardening tasks are complete.
+The advisory lane is published and its receiving tree verified.
 See [current status](status.md) for completed gates, open dependency-update PRs,
 scientific requirements and the disposition of superseded decision drafts.

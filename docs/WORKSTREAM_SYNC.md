@@ -571,3 +571,18 @@ DCI3 result: all three advisory jobs passed on source `4b6dbf18`; downloaded
 artifacts verified their source/report hashes, fixture exits and native scanner
 execution. Receipt: `integration/advisory_typing_qualification_20261103.json`.
 Next: test this metadata-only reconciliation head and guarded DCI4 publication.
+
+
+## DCI4 guarded publication and reconciliation — 3 November 2026
+
+The same chat owns the metadata closeout in `/Users/doughnut/Documents/tobac`,
+branch `codex/dci4-closeout-20261103`; native scope is read-only. The exact
+source candidate `672894f70bebd4ba17ba38fe8116c938ad13fe4f` passed 28 hosted
+checks, with two conditional skips. All three advisory hosts passed again in
+run 41623880425. PR #118 was published using a non-force fast-forward after
+verifying expected main `afec3a48ce7bae14f9602c48d6c30a8b3f8dab29`. GitHub
+readback confirmed source commit `672894f70bebd4ba17ba38fe8116c938ad13fe4f`
+and tree `b80bc11653d601ce8892a9d617132147f8059163`, identical to the local
+qualified tree. This closeout records the completed source publication; its own
+metadata commit still requires guarded publication. ARM evidence covers static
+diagnostics and scanner execution, not ARM scientific reproduction.
