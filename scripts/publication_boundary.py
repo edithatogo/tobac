@@ -146,9 +146,35 @@ def local_document_name(name: str, policy: Policy) -> bool:
     return any(name == path or name.endswith("/" + path) for path in policy.private_hashes)
 
 
-def validate_tree(root: Path, revision: str | None = None) -> int:
+def inspect_git_blob(
+    root: Path,
+    oid: str,
+    policy: Policy,
+    verified: set[tuple[str, frozenset[tuple[str, str]]]],
+) -> None:
+    """Reuse a successful immutable-byte inspection only under the same private policy."""
+    key = (oid, frozenset(policy.private_hashes.items()))
+    if key in verified:
+        return
+    size = int(git(root, "cat-file", "-s", oid))
+    if size > MAX_FILE_BYTES:
+        msg = "Git blob exceeds inspection budget"
+        raise ValueError(msg)
+    inspect_bytes(git(root, "cat-file", "blob", oid), policy)
+    verified.add(key)
+
+
+def validate_tree(
+    root: Path,
+    revision: str | None = None,
+    *,
+    inspected: set[tuple[str, frozenset[tuple[str, str]]]] | None = None,
+) -> int:
     """Inspect index or committed object bytes, including staged/worktree divergence."""
     policy = load_policy(root, revision)
+    # Invocation-local reuse only: immutable Git object identity plus every private
+    # path/hash controls byte and nested-archive inspection. Tree checks still run.
+    verified = inspected if inspected is not None else set()
     if revision is None and git(root, "show", ":" + POLICY) != (root / POLICY).read_bytes():
         msg = "Staged publication policy differs from working policy"
         raise ValueError(msg)
@@ -184,11 +210,7 @@ def validate_tree(root: Path, revision: str | None = None) -> int:
         if allowed_link:
             names.add(name)
             continue
-        size = int(git(root, "cat-file", "-s", oid))
-        if size > MAX_FILE_BYTES:
-            msg = "Git blob exceeds inspection budget"
-            raise ValueError(msg)
-        inspect_bytes(git(root, "cat-file", "blob", oid), policy)
+        inspect_git_blob(root, oid, policy, verified)
         names.add(name)
     if names != set(policy.public_paths):
         msg = "Public tree and reviewed inventory differ"
@@ -199,12 +221,13 @@ def validate_tree(root: Path, revision: str | None = None) -> int:
 def validate_outgoing(root: Path, tips: list[str]) -> None:
     """Check every newly authored commit, allowing only the declared legacy baseline."""
     policy = load_policy(root)
+    inspected: set[tuple[str, frozenset[tuple[str, str]]]] = set()
     for tip in tips:
         # This also refuses unrelated history and unavailable/truncated baselines.
         git(root, "merge-base", "--is-ancestor", policy.baseline, tip)
         for revision in git(root, "rev-list", tip, "^" + policy.baseline).decode().splitlines():
-            validate_tree(root, revision)
-        validate_tree(root, tip)
+            validate_tree(root, revision, inspected=inspected)
+        validate_tree(root, tip, inspected=inspected)
 
 
 def read_export_file(source: Path, path: Path) -> bytes:

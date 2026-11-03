@@ -375,3 +375,12 @@ restored it without replacing a custom hook. Subsequent publication must pass it
 No force update or history deletion is used. Scientific workflow/capsule bytes
 match the verified source packet; the single source commit keeps every outgoing
 commit's inventory exact.
+
+The restored guard's first owned publication was interrupted during repeated
+historical blob reads, before any push. It is not a pass or budget breach.
+Invocation-local reuse now keys successful byte/archive inspection by immutable
+Git blob ID and the complete private path/hash policy. Every historical tree,
+inventory, mode and protected-policy check still executes; limits and scanners
+are unchanged. Controls retain rejection of intermediate copies, unknown paths
+and newly protected raw/nested bytes despite an earlier cached inspection.
+The current signed lineage preflight still passes after this guard-only change.

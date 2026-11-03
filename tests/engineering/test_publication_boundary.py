@@ -162,3 +162,47 @@ def test_safe_package_tar_gzip_is_inspected(repository) -> None:
         member.size = 2
         archive.addfile(member, io.BytesIO(b"ok"))
     boundary.inspect_bytes(stream.getvalue(), boundary.load_policy(repository))
+
+
+def test_outgoing_reuses_immutable_blob_inspection_without_skipping_trees(repository, monkeypatch) -> None:
+    baseline = run_git(repository, "rev-parse", "HEAD").decode().strip()
+    policy_path = repository / boundary.POLICY
+    policy = json.loads(policy_path.read_text())
+    policy["legacy_baseline"] = baseline
+    policy_path.write_text(json.dumps(policy))
+    run_git(repository, "add", ".")
+    run_git(repository, "commit", "-qm", "policy")
+    run_git(repository, "commit", "--allow-empty", "-qm", "unchanged tree")
+    oid = run_git(repository, "rev-parse", "HEAD:public.json").decode().strip()
+    actual_git = boundary.git
+    reads = []
+
+    def observed(root, *args):
+        if args == ("cat-file", "blob", oid):
+            reads.append(oid)
+        return actual_git(root, *args)
+
+    monkeypatch.setattr(boundary, "git", observed)
+    boundary.validate_outgoing(repository, ["HEAD"])
+    assert reads == [oid]
+    (repository / "unknown.json").write_text("{}")
+    run_git(repository, "add", ".")
+    run_git(repository, "commit", "-qm", "unreviewed path")
+    with pytest.raises(ValueError, match="Unreviewed path"):
+        boundary.validate_outgoing(repository, ["HEAD"])
+
+
+@pytest.mark.parametrize("wrapped", [False, True])
+def test_inspection_reuse_is_bound_to_private_policy(repository, wrapped) -> None:
+    content = b"new private bytes"
+    (repository / "public.json").write_bytes(archive_bytes(content) if wrapped else content)
+    run_git(repository, "add", ".")
+    verified = set()
+    boundary.validate_tree(repository, inspected=verified)
+    path = repository / boundary.POLICY
+    policy = json.loads(path.read_text())
+    policy["local_documents"]["docs/new.md"] = hashlib.sha256(content).hexdigest()
+    path.write_text(json.dumps(policy))
+    run_git(repository, "add", ".")
+    with pytest.raises(ValueError, match="Known local document"):
+        boundary.validate_tree(repository, inspected=verified)
