@@ -236,6 +236,13 @@ def qualify_fixtures(
                 "codes": codes,
                 "command": fixture_command,
             }
+    crash_exit = 7
+    crash_command = [sys.executable, "-c", f"import sys; sys.exit({crash_exit})"]
+    crash = execute_checker("forced-crash", crash_command, folder, environment)
+    if crash["exit_code"] != crash_exit:
+        msg = "Controlled crash did not preserve its exit code"
+        raise RuntimeError(msg)
+    results["forced-crash"] = {"exit_code": crash["exit_code"], "command": crash_command}
     # A checker crash and a malformed/missing report must never count as diagnostics.
     for raw, code in ((b"{}", 2), (b"", 1), (b"{", 1)):
         try:
