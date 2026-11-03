@@ -553,3 +553,8 @@ Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the DCI2 integration in
 advisory lock/runner/Nox/workflow/scanner, tests, lineage capsule and Conductor.
 Native scope: read-only reopening of the eight accepted attempts for signing.
 Next: implement fail-closed diagnostics and repeatable wheel delivery.
+
+DCI2 terminal implementation checkpoint: the isolated Nox session, fail-closed
+reporter, three-host workflow, ARM scanner pins and renewed eight-runner signed
+capsule are locally verified. Full tests and strict checks pass. DCI3 hosted
+qualification and DCI4 publication remain; no hosted result is claimed.

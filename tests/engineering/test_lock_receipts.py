@@ -30,6 +30,7 @@ def inputs(root) -> None:
         "engineering/audit.in",
         "engineering/tools-requirements.txt",
         "engineering/ecosystem.in",
+        "engineering/advisory.in",
         "engineering/voiage.in",
         "engineering/voiage-build-requirements.txt",
     ]
@@ -42,7 +43,7 @@ def inputs(root) -> None:
 def fixture(root, profile="runtime"):
     m = load()
     inputs(root)
-    name = m.PROFILES[profile][1]
+    name = m.ALL_PROFILES[profile][1]
     lock = root / "engineering" / name
     lock.write_text("# fixture only, not a usable distribution\nexample==1 --hash=sha256:" + "a" * 64 + "\n")
     receipt = {
@@ -59,7 +60,7 @@ def fixture(root, profile="runtime"):
     return m, lock
 
 
-@pytest.mark.parametrize("profile", ["runtime", "audit", "voiage", "ecosystem"])
+@pytest.mark.parametrize("profile", ["runtime", "audit", "voiage", "ecosystem", "advisory"])
 def test_valid_receipt_binds_exact_inputs_and_lock(tmp_path, profile) -> None:
     m, lock = fixture(tmp_path, profile)
     assert m.verify(tmp_path, lock, profile)["status"] == "pass"
@@ -409,3 +410,17 @@ def test_ecosystem_closed_include_graph_is_checked(tmp_path) -> None:
     (tmp_path / "engineering/ecosystem.in").write_text("-r unrecorded.in\n")
     with pytest.raises(ValueError, match="Undeclared dependency include"):
         m.input_hashes(tmp_path, "ecosystem")
+
+
+@pytest.mark.parametrize("target", ["engineering/advisory.in", "engineering/voiage.in"])
+def test_advisory_input_change_invalidates_only_its_profile(tmp_path, target) -> None:
+    m, lock = fixture(tmp_path, "advisory")
+    (tmp_path / target).write_text("changed")
+    with pytest.raises(ValueError, match="input"):
+        m.verify(tmp_path, lock, "advisory")
+
+
+def test_advisory_is_opt_in_and_preserves_four_profile_inventory() -> None:
+    m = load()
+    assert set(m.PROFILES) == {"runtime", "audit", "voiage", "ecosystem"}
+    assert set(m.ALL_PROFILES) == set(m.PROFILES) | {"advisory"}

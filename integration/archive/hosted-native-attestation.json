@@ -1,6 +1,6 @@
 {
   "inventory_sha256": "943f9e20a5bcbc64d65c16d59136c6d09196d391f8608389ba0005bae594af89",
-  "issued_at": "2026-11-03T02:57:45.344512+00:00",
+  "issued_at": "2026-11-03T10:14:40.151682+00:00",
   "issuer": "tobac-native",
   "native_readback": {
     "checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
@@ -63,6 +63,7 @@
     "success": true
   },
   "pins": {
+    ".github/workflows/advisory-types.yml": "936d6c30fd6aa881fb58d015bd018d21e18219bb1d34dd4f72e9da6d9c46eba2",
     ".github/workflows/ci.yml": "aeb213ae2b23dab968f7f7fef5fea8b352f917efadc6ce53ed6ef40d7e6de471",
     ".github/workflows/cross-platform.yml": "d609d1572c179bdeab293c61fe40e95b800982ffb25b0d53b9d768e2b9f8b384",
     ".github/workflows/dependency-lock.yml": "f96335aab04f4d64e9a99a5625f72e4c7db654946fab23a8eb6363e575c39d75",
@@ -84,7 +85,7 @@
     "integration/archive/scientific-runner-inputs.json": "d8b9859fff3cae572710f670a3ec035324e6afbc0910c3e828553d6ca1aa26a1",
     "integration/archive/transformation-interface.json": "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373",
     "integration/scientific_reference_20261103.zip": "083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9",
-    "noxfile.py": "1926f7209dfff634b84f2121d80cb9b08369f6805cdc81ea65d379fd4a00c31d",
+    "noxfile.py": "f18527583e66317b0f60122cebac302b4e020b18189a9fc757f39fcfb74f874f",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
     "scripts/check_scientific_reproduction.py": "de865d1ec44fa8941cb38d316630ac88af703923e706d12b2ef5035731893f4d",
     "scripts/prepare_synthesis_replay.py": "73a952437e45e434ca9f01b7ba04a5315560c15cbeff4b88566d478ced09be66",

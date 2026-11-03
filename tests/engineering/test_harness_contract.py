@@ -23,6 +23,7 @@ WORKFLOWS = (
     "linux-audit.yml",
     "package-portability.yml",
     "scientific-reproduction.yml",
+    "advisory-types.yml",
 )
 
 
@@ -174,6 +175,21 @@ def test_lock_candidates_use_selected_repo_local_python() -> None:
     assert re.search(r"(?m)^\s*python(?:3)?\s", run) is None
 
 
+def assert_advisory_job_guards(data) -> None:
+    assert set(data["on"]) == {"pull_request", "workflow_dispatch"}
+    job = data["jobs"]["advisory"]
+    assert job["strategy"]["matrix"]["os"] == ["macos-latest", "ubuntu-latest", "ubuntu-24.04-arm"]
+    commands = [step.get("run", "") for step in job["steps"]]
+    assert any("assert sys.version_info[:3] == (3, 15, 1)" in command for command in commands)
+    assert any(
+        "scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400" in c and "-s advisory_types" in c
+        for c in commands
+    )
+    assert any("scripts/install_security_tools.sh" in command for command in commands)
+    assert any("scripts/publication_boundary.py export --source outputs/advisory" in c for c in commands)
+    assert all("-s reproduce" not in c and "-s tests" not in c for c in commands)
+
+
 def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
     for path in (ROOT / ".github/workflows").glob("*.yml"):
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
@@ -206,6 +222,9 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             )
             assert any("nox -s tests" in command for command in commands)
             assert all("upload-artifact@" not in step.get("uses", "") for step in job["steps"])
+            continue
+        if path.name == "advisory-types.yml":
+            assert_advisory_job_guards(data)
             continue
         if path.name in {"package-portability.yml", "scientific-reproduction.yml"}:
             assert_portable_package_job(data, reproduce=path.name == "scientific-reproduction.yml")

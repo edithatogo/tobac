@@ -923,3 +923,88 @@ def voiage_published(session: nox.Session) -> None:
         "--out",
         str(wheel.parent / ("qualification-" + uuid4().hex + ".json")),
     )
+
+
+@nox.session(python="3.15.1")
+def advisory_types(session: nox.Session) -> None:
+    """Run isolated differential diagnostics with a pinned Voiage interface build."""
+    session.env.update(
+        OPENBLAS_NUM_THREADS="1",
+        RAYON_NUM_THREADS="2",
+        CARGO_BUILD_JOBS="2",
+        PYTHONHASHSEED="0",
+        PYTHONPATH="",
+        PYTHONNOUSERSITE="1",
+    )
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run(
+        "python",
+        "scripts/lock_receipt.py",
+        "verify",
+        "--profile",
+        "advisory",
+        "--path",
+        "engineering/advisory.lock",
+    )
+    python = str(Path(session.bin) / "python")
+    session.run(
+        "uv",
+        "pip",
+        "sync",
+        "--python",
+        python,
+        "--require-hashes",
+        "engineering/advisory.lock",
+        external=True,
+    )
+    session.install("--no-deps", "--no-build-isolation", "-e", ".")
+    run = ROOT / OUT / "advisory-build" / uuid4().hex
+    source = run / "source"
+    wheels = run / "wheels"
+    run.mkdir(parents=True)
+    revision = "7af563c8cb373057d30662650b3f332f39e05b83"
+    patch = ROOT / "engineering/voiage-python315.patch"
+    session.run("git", "init", str(source), external=True)
+    session.run(
+        "git",
+        "-C",
+        str(source),
+        "-c",
+        "credential.helper=",
+        "fetch",
+        "--depth=1",
+        "https://github.com/edithatogo/voiage.git",
+        revision,
+        external=True,
+    )
+    session.run("git", "-C", str(source), "checkout", "--detach", "FETCH_HEAD", external=True)
+    fetched = session.run("git", "-C", str(source), "rev-parse", "HEAD", silent=True, external=True)
+    if not isinstance(fetched, str) or fetched.strip() != revision:
+        session.error("Fetched Voiage source differs from the reviewed revision")
+    session.run("git", "-C", str(source), "apply", "--check", str(patch), external=True)
+    session.run("git", "-C", str(source), "apply", str(patch), external=True)
+    session.env["CARGO_TARGET_DIR"] = str(run / "cargo-target")
+    session.run(
+        "uv",
+        "build",
+        "--python",
+        python,
+        "--build-constraint",
+        str(ROOT / "engineering/voiage-build-requirements.txt"),
+        "--wheel",
+        "--out-dir",
+        str(wheels),
+        str(source),
+        external=True,
+    )
+    wheel_files = list(wheels.glob("*.whl"))
+    if len(wheel_files) != 1:
+        session.error("Expected exactly one Voiage compatibility wheel")
+    wheel = wheel_files[0]
+    session.run(
+        "uv", "pip", "install", "--python", python, "--no-deps", "--no-index", str(wheel), external=True
+    )
+    session.run("uv", "pip", "check", "--python", python, external=True)
+    session.env["TOBAC_ADVISORY_WHEEL"] = str(wheel)
+    session.env["TOBAC_ADVISORY_VOIAGE_REVISION"] = revision
+    session.run("python", "scripts/advisory_types.py")

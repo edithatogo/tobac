@@ -29,8 +29,9 @@ PROFILES = {
     "audit": ("engineering/audit.in", "audit.lock"),
     "voiage": ("engineering/voiage.in", "voiage.lock"),
     "ecosystem": ("engineering/ecosystem.in", "ecosystem.lock"),
-    "advisory": ("engineering/advisory.in", "advisory.lock"),
 }
+# Advisory resolution is opt-in; PROFILES remains the four-profile snapshot contract.
+ALL_PROFILES = {**PROFILES, "advisory": ("engineering/advisory.in", "advisory.lock")}
 
 
 # Named bounds preserve the existing scientific/data contract.
@@ -63,7 +64,7 @@ def digest(path: Path) -> str:
 
 def input_hashes(root: Path, profile: str) -> dict[str, str]:  # noqa: C901  # Keep ordered model validation and report assembly in one visible operation.
     """Bind the declared dependency profile to its complete input file hashes."""
-    if profile not in PROFILES:
+    if profile not in ALL_PROFILES:
         msg = "Unknown dependency profile"
         raise ValueError(msg)
     paths = (
@@ -204,7 +205,7 @@ def generate(root: Path, out: Path, profile: str) -> Path:
             msg = "Candidate output symlink is not allowed"
             raise ValueError(msg)
     out.mkdir(parents=True, exist_ok=True)
-    source, name = PROFILES[profile]
+    source, name = ALL_PROFILES[profile]
     target = out / name
     receipt_path = target.with_suffix(".lock.json")
     if target.exists() or receipt_path.exists():
@@ -259,7 +260,7 @@ def main() -> None:
     """Parse command-line options, execute the selected operation and report its result."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("operation", choices=["generate", "verify"])
-    parser.add_argument("--profile", choices=PROFILES, required=True)
+    parser.add_argument("--profile", choices=ALL_PROFILES, required=True)
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument(
         "--path", type=Path, required=True, help="Candidate directory for generate; lock file for verify"

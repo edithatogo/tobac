@@ -1,0 +1,57 @@
+name: Advisory differential typing
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: advisory-types-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  advisory:
+    name: Advisory types ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 50
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      POLARS_MAX_THREADS: '2'
+      RAYON_NUM_THREADS: '2'
+      CARGO_BUILD_JOBS: '2'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          version: '0.13.5'
+          python-version: '3.15.1'
+          enable-cache: false
+      - name: Select repository-local Python 3.15.1
+        run: |
+          uv venv --python 3.15.1 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+      - name: Run bounded advisory diagnostics
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/advisory-nox.json -s advisory_types
+      - name: Install and verify native export scanners
+        id: scanners
+        if: always()
+        run: |
+          sh scripts/install_security_tools.sh
+          .security-tools/gitleaks version
+          .security-tools/actionlint -version
+      - name: Inspect diagnostic export
+        id: advisory_export
+        if: always()
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs/advisory --destination artifact-exports/advisory
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ always() && steps.scanners.outcome == 'success' && steps.advisory_export.outcome == 'success' }}
+        with:
+          name: advisory-types-${{ matrix.os }}
+          path: artifact-exports/advisory/
+          if-no-files-found: error
+          retention-days: 14
