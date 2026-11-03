@@ -198,6 +198,81 @@ def execute_checker(
     return result
 
 
+def qualify_fixtures(
+    commands: dict[str, list[str]], output: Path, environment: dict[str, str]
+) -> dict[str, Any]:
+    """Exercise each real checker against Python 3.15 positive and negative fixtures."""
+    fixtures = {
+        "good": ("type Pair[T] = tuple[T, T]\nvalue: int = 1\n", 0, None),
+        "bad": ("value: int = 'bad'\n", 1, "assignment"),
+        "missing": ("import dci3_deliberately_missing_module\n", 1, "import"),
+        "invalid": ("def broken(:\n    pass\n", 1, "parse-error|invalid-syntax"),
+        "lazy": ("lazy import json\nvalue: str = json.dumps({'x': 1})\n", 0, None),
+    }
+    folder = output / "fixtures"
+    folder.mkdir()
+    results: dict[str, Any] = {}
+    for case, (source, expected_exit, required) in fixtures.items():
+        path = folder / f"{case}.py"
+        path.write_text(source, encoding="utf-8")
+        if case != "invalid":
+            compile(source, str(path), "exec")
+        for name, command in commands.items():
+            fixture_command = [*command[:-2], str(path)]
+            result = execute_checker(f"{name}-{case}", fixture_command, folder, environment)
+            entries = parse_report(
+                name, (folder / f"{name}-{case}.json").read_bytes(), cast("int", result["exit_code"])
+            )
+            codes = [item["code"] for item in entries]
+            if result["exit_code"] != expected_exit or (
+                required is not None
+                and not any(marker in code for marker in required.split("|") for code in codes)
+            ):
+                msg = f"{name} fixture {case} failed: exit {result['exit_code']}, codes {codes}"
+                raise RuntimeError(msg)
+            results[f"{name}-{case}"] = {
+                "source_sha256": digest(path),
+                "exit_code": result["exit_code"],
+                "codes": codes,
+                "command": fixture_command,
+            }
+    # A checker crash and a malformed/missing report must never count as diagnostics.
+    for raw, code in ((b"{}", 2), (b"", 1), (b"{", 1)):
+        try:
+            parse_report("ty", raw, code)
+        except ValueError, KeyError, IndexError, TypeError:
+            continue
+        msg = "Crash or malformed report was accepted"
+        raise RuntimeError(msg)
+    (folder / "qualification.json").write_text(
+        json.dumps(results, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    return results
+
+
+def record_help(name: str, binary: Path, output: Path, checker_env: dict[str, str]) -> None:
+    """Retain and validate each pinned checker's actual help output."""
+    help_command = [str(binary / name), "check", "--help"]
+    help_result = subprocess.run(  # noqa: S603 -- Fixed pinned checker help command.
+        help_command, cwd=ROOT, capture_output=True, timeout=30, check=False, env=checker_env
+    )
+    (output / f"{name}-help.json").write_text(
+        json.dumps(
+            {
+                "command": help_command,
+                "exit_code": help_result.returncode,
+                "stdout_base64": base64.b64encode(help_result.stdout).decode("ascii"),
+                "stderr_base64": base64.b64encode(help_result.stderr).decode("ascii"),
+            }
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    if help_result.returncode:
+        msg = f"{name} help failed: {help_result.returncode}"
+        raise RuntimeError(msg)
+
+
 def run() -> None:
     """Run both tools serially and write raw diagnostics, exit codes and comparison."""
     if sys.version_info[:3] != (3, 15, 1) or not Path(sys.executable).absolute().is_relative_to(ROOT):
@@ -251,6 +326,7 @@ def run() -> None:
     before = input_hashes()
     checker_env = {k: v for k, v in os.environ.items() if not k.startswith(("TY_", "PYREFLY_"))}
     checker_env.pop("PYTHONPATH", None)
+    fixture_results = qualify_fixtures(commands, output, checker_env)
     versions: dict[str, str] = {}
     results: dict[str, dict[str, Any]] = {}
     reports: dict[str, list[dict[str, Any]]] = {}
@@ -262,6 +338,7 @@ def run() -> None:
             msg = f"Unexpected {name} version: {version}"
             raise RuntimeError(msg)
         versions[name] = version
+        record_help(name, binary, output, checker_env)
         results[name] = execute_checker(name, command, output, checker_env)
         reports[name] = parse_report(
             name, (output / f"{name}.json").read_bytes(), cast("int", results[name]["exit_code"])
@@ -298,6 +375,7 @@ def run() -> None:
         "checker_environment": "TY_ and PYREFLY_ overrides and PYTHONPATH removed",
         "voiage": {"source_revision": revision, "wheel": wheel.name, "wheel_sha256": digest(wheel)},
         "comparison": comparison,
+        "fixtures": fixture_results,
     }
     (output / "receipt.json").write_text(
         json.dumps(record, indent=2, sort_keys=True) + "\n", encoding="utf-8"

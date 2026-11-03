@@ -558,3 +558,11 @@ DCI2 terminal implementation checkpoint: the isolated Nox session, fail-closed
 reporter, three-host workflow, ARM scanner pins and renewed eight-runner signed
 capsule are locally verified. Full tests and strict checks pass. DCI3 hosted
 qualification and DCI4 publication remain; no hosted result is claimed.
+
+## DCI3/DCI4 hosted qualification and publication — 3 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the existing
+`/Users/doughnut/Documents/tobac` checkout and `codex/dci2-implementation`
+branch. Scope: run the advisory fixture matrix, read-only hosted checks and
+receipts, then guarded DCI4 publication. Native scope: no changes; the signed
+lineage capsule is verified. Next: submit the exact candidate to hosted checks.
