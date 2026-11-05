@@ -620,3 +620,19 @@ profile-probe combinations passed positive and tamper controls. The setup-python
 combination's complete signed-input check on the new image was not separately
 observed. Next: qualify this metadata closeout, then guarded publication and
 receiving-ref readback.
+
+
+## Receiving-main evidence reconciliation — 5 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/post-publication-evidence-20261105`.
+Scope: hosted run readback and `conductor/status.md` plus this handoff. Native
+scope: read-only; no native operation is active. Next: record exact outcomes for
+receiving commit `c30cae8d1f37b7335ed8f18dd0383324d625899f` as jobs complete.
+
+Receiving-main terminal evidence: all nine push workflows at `c30cae8` passed,
+including Linux and Windows reproduction and every engineering job. Voiage
+parity job 127035471814 passed signed-input verification using the new OpenSSH
+binary. The other setup-python/Python-build combination with that binary has
+probe evidence only; its full check on that particular image was not observed.
+The Conductor-only evidence update is local pending any future publication.

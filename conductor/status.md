@@ -7,6 +7,22 @@ The 18 archived tracks have no active execution tasks. Five historical graph
 proposal entries were superseded by bounded inventory acceptance and are explicitly
 labelled historical in their archived plan, rather than marked as executed.
 
+## Receiving-main hosted results — 5 November 2026
+
+All nine push workflows completed successfully at receiving main
+`c30cae8d1f37b7335ed8f18dd0383324d625899f`: package portability (41963627981),
+M3 research methods (41963627996), Linux audit lock (41963628050), cross-platform
+Python (41963628012), empirical longitudinal (41963628023), [scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/41963628010),
+publication and source security (41963628078), regulatory uncertainty
+(41963628017), and [engineering qualification](https://github.com/edithatogo/tobac/actions/runs/41963628199).
+Both reproduction platforms and every engineering job passed. The receiving-main
+Voiage parity job used the new OpenSSH binary and verified signed inputs before
+passing. The separate setup-python combination with the new binary has passed a
+signature/tamper probe but its full signed-input check on that image remains
+unobserved; its previously qualified binary passed receiving-main jobs. The
+results qualify the cited published revision, not later metadata edits or the
+separate dependency PRs.
+
 ## Hosted runtime renewal — 5 November 2026
 
 PR #122 source `d8afca1` encountered a new macOS OpenSSH binary
