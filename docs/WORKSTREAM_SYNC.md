@@ -688,3 +688,15 @@ none. Next: record outcomes for receiving commit
 Terminal readback: all nine workflows at `1759fe7176a26a78dc4a878f236da48a3d5da5af`
 passed, including scientific reproduction and engineering qualification. The
 Conductor-only evidence update is local pending any future publication.
+
+## Receiving-main checks at `135487e` — 5 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/verify-135487e`. Scope:
+read-only hosted checks, `conductor/status.md` and this handoff. Native scope:
+none. Next: record outcomes for receiving commit
+`135487ea288298e43d5592eda08a7ecbf3e90f0b` as jobs complete.
+
+Terminal readback: all nine workflows at `135487ea288298e43d5592eda08a7ecbf3e90f0b`
+passed, including scientific reproduction and engineering qualification. The
+Conductor-only evidence update is local pending any future publication.
