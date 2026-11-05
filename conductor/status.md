@@ -233,13 +233,13 @@ remains distinct from the later local run.
 ## Open dependency maintenance
 
 These PRs are outside the completed research tracks. On 5 November, the rebased candidate heads below had failing checks against
-receiving main `50a348a`. The observations are from their recorded jobs and do not qualify any update.
+receiving main `1759fe7`. The observations are from their recorded jobs and do not qualify any update.
 
 | PR | Observed failure and remaining task |
 | --- | --- |
-| [#80](https://github.com/edithatogo/tobac/pull/80), `c442285` — verified action pins | The candidate changes 14 workflows. Sampled Linux test and macOS qualification jobs reject `.github/workflows/advisory-types.yml` as a stale signed native acceptance pin before execution. Reconcile the candidate with current main, requalify the action changes and renew the signed binding only after the required native readbacks, then run required checks and verify publication. |
-| [#91](https://github.com/edithatogo/tobac/pull/91), `5a58003` — Python 3.15.2 | The current candidate changes `.python-version` alone. Its Linux tests and numerical job fail because the canonical version contract remains 3.15.1. Qualify a consistent Python patch migration across development, build, tests, CI, locks and the pinned verifier contract before promotion. |
-| [#94](https://github.com/edithatogo/tobac/pull/94), `d59ac10` — pytest-gremlins 1.13.2 | The candidate changes `engineering/ecosystem.in`; its Linux tests reject stale ecosystem dependency-input hashes. Regenerate and review the affected source-bound locks and receipts, qualify the tool and run required checks before promotion. |
+| [#80](https://github.com/edithatogo/tobac/pull/80), `b291bfc` — verified action pins | The candidate changes 14 workflows. Sampled Linux test and macOS qualification jobs reject `.github/workflows/advisory-types.yml` as a stale signed native acceptance pin before execution. Reconcile the candidate with current main, requalify the action changes and renew the signed binding only after the required native readbacks, then run required checks and verify publication. |
+| [#91](https://github.com/edithatogo/tobac/pull/91), `37f9984` — Python 3.15.2 | The current candidate changes `.python-version` alone. Its Linux tests and numerical job fail because the canonical version contract remains 3.15.1. Qualify a consistent Python patch migration across development, build, tests, CI, locks and the pinned verifier contract before promotion. |
+| [#94](https://github.com/edithatogo/tobac/pull/94), `abaff70` — pytest-gremlins 1.13.2 | The candidate changes `engineering/ecosystem.in`; its Linux tests reject stale ecosystem dependency-input hashes. Regenerate and review the affected source-bound locks and receipts, qualify the tool and run required checks before promotion. |
 
 The #80 export error after failed lineage preflight is a downstream missing-output
 error. On the earlier #91 candidate `e445af7`, a separate Voiage parity job failed
@@ -250,9 +250,9 @@ no security, source-binding or scientific gate has been relaxed.
 
 At these rebased heads, #80 has 21 failed and eight passing checks; #91 and #94
 each have five failed and 24 passing checks. Each also has two conditional
-skips. Sampled Linux jobs reproduce the [signed-pin rejection](https://github.com/edithatogo/tobac/actions/runs/41976100557/job/127075192082),
-[version mismatch](https://github.com/edithatogo/tobac/actions/runs/41976083685/job/127075138836)
-and [stale lock receipt](https://github.com/edithatogo/tobac/actions/runs/41976113502/job/127075234624)
+skips. Sampled Linux jobs reproduce the [signed-pin rejection](https://github.com/edithatogo/tobac/actions/runs/41980351665/job/127088769200),
+[version mismatch](https://github.com/edithatogo/tobac/actions/runs/41980330434/job/127088702256)
+and [stale lock receipt](https://github.com/edithatogo/tobac/actions/runs/41980363050/job/127088806496)
 respectively. Candidate checks do not establish that these are the only possible
 failures after their identified blockers are fixed.
 
