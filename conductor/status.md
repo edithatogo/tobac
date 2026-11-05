@@ -23,8 +23,16 @@ signature, verifier and profiles are preserved in
 `integration/archive/hosted-generation_runtime_20261105.zip`.
 Local signed verification passed for all eight runners; focused lineage and
 workstream checks passed 42 tests with one capability skip, and the selected
-qualified verifier passed separately. Hosted verification of the renewed
-candidate remains pending until its own jobs execute successfully.
+qualified verifier passed separately. The full suite passed 1,238 tests with seven
+skips; strict checks and clean-source reproduction passed. The first reproduction
+attempt correctly stopped at clean-source replay while the renewal was uncommitted;
+the committed-source rerun passed. Hosted candidate `3695fd64441c884553ef158a4023df2f82fb0f08`
+passed 28 executable PR checks with two conditional skips. The [quality job](https://github.com/edithatogo/tobac/actions/runs/41961257205/job/127027899235)
+used the newly observed OpenSSH binary, passed signature/tamper controls and
+verified the signed native inputs before execution. The separate setup-python
+combination passed the hosted probe; its full verification on the newly observed
+image was not separately observed. Final metadata publication requires its own
+checks and receiving-ref readback.
 
 ## Verified baseline
 

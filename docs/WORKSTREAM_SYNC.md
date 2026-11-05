@@ -611,3 +611,12 @@ the signing key and original bytes remain in their existing private estate.
 Next: issue a fresh generation, verify it and rerun the hosted qualification.
 Two actual macOS Python 3.15.1/OpenSSH combinations passed signature and tamper
 controls in PR #122; the old profile rejected the new OpenSSH binary before work.
+
+Runtime renewal checkpoint: local full tests, strict checks and committed-source
+reproduction passed. Hosted source `3695fd64441c884553ef158a4023df2f82fb0f08`
+passed 28 executable checks, with two conditional skips. Quality job 127027899235
+verified the signed inputs using the newly observed OpenSSH hash; both original
+profile-probe combinations passed positive and tamper controls. The setup-python
+combination's complete signed-input check on the new image was not separately
+observed. Next: qualify this metadata closeout, then guarded publication and
+receiving-ref readback.
