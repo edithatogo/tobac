@@ -211,6 +211,23 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             assert any(command.endswith("-I -S scripts/hosted_lineage.py") for command in commands)
             assert all("upload-artifact@" not in step.get("uses", "") for step in job["steps"])
             continue
+        if path.name == "scorecard.yml":
+            job = data["jobs"]["analysis"]
+            assert job["runs-on"] == "ubuntu-latest"
+            assert job["timeout-minutes"] == "20"
+            assert job["permissions"] == {
+                "contents": "read",
+                "security-events": "write",
+                "id-token": "write",
+                "actions": "read",
+            }
+            assert all("run" not in step for step in job["steps"])
+            assert job["steps"][0]["with"]["persist-credentials"] == "false"
+            analysis = job["steps"][1]
+            assert analysis["uses"] == "ossf/scorecard-action@fa7117db83c52d787ae5a89f350999701505d78e"
+            assert analysis["with"]["results_format"] == "sarif"
+            assert "github.event_name == 'push'" in analysis["with"]["publish_results"]
+            continue
         if path.name == "cross-platform.yml":
             job = data["jobs"]["tests"]
             assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
