@@ -738,3 +738,22 @@ https://github.com/edithatogo/tobac/actions/runs/41997837879/job/127145307902
 and https://github.com/edithatogo/tobac/actions/runs/41997837879/job/127149778602.
 The numerical and required macOS retries passed. Push-event workflows for the
 new receiving commit were still queued or running at handoff. This handoff is local.
+
+## Hosted recovery and scientific adequacy review — 5 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/pr130-check-handoff`. Scope:
+hosted check recovery, bounded scientific review and Conductor status; native
+scope: no mutations. The Actionlint 1.7.12 Linux archive's exact qualified hash
+was independently verified after the upstream 504; Linux audit and both package
+portability jobs passed on their first retry. PR #130's Voiage parity job passed
+on attempt 3 after the route recovered; prior failed attempts remain visible.
+A local bounded review is retained under `outputs/research-audit-20261105/`;
+it does not establish empirical adequacy or independent peer review. Next:
+record terminal receiving-main workflow outcomes.
+
+Terminal readback: all nine receiving-main workflows for
+`7d24f608803e73cfc910bc766d7e8fcf444d741e` passed. Engineering qualification
+passed on its targeted second attempt after its original Actionlint 504.
+Conductor contains the hosted and bounded-scientific review status; this
+update remains local pending any future publication.

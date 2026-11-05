@@ -9,16 +9,21 @@ labelled historical in their archived plan, rather than marked as executed.
 
 ## Latest receiving-main verification — 5 November 2026
 
-All nine post-publication workflows completed successfully at receiving main
-`bf77c6b9ac8d36396bbd12713cfc299c8f6735f7`: publication and source security
-(41994576533), cross-platform Python (41994576490), Linux audit lock (41994576554),
-package portability (41994576499), M3 research methods (41994576440), empirical
-longitudinal (41994576574), regulatory uncertainty (41994576439),
-[scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/41994576453),
-and [engineering qualification](https://github.com/edithatogo/tobac/actions/runs/41994576538).
-Both reproduction platforms and every engineering job passed. These results bind
-the cited published commit; they do not qualify later metadata or dependency
-candidates. Earlier receiving-main records remain in repository history.
+All nine post-publication workflows passed at receiving main
+`7d24f608803e73cfc910bc766d7e8fcf444d741e`: M3 research methods (42000848891),
+regulatory uncertainty (42000848925), cross-platform Python (42000848843),
+[package portability](https://github.com/edithatogo/tobac/actions/runs/42000848846),
+[scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/42000848858),
+empirical longitudinal (42000848893), [Linux audit lock](https://github.com/edithatogo/tobac/actions/runs/42000848866),
+publication and source security (42000849132), and
+[engineering qualification](https://github.com/edithatogo/tobac/actions/runs/42000848933).
+Linux audit, package portability and engineering passed on their first targeted
+retry following HTTP 504 fetching the pinned Actionlint release; the failed
+attempts remain visible. The original [PR #130 parity workflow](https://github.com/edithatogo/tobac/actions/runs/41997837879)
+also passed on attempt 3 after the upstream route recovered. Pins and security
+checks were unchanged. The results bind the cited published commit; they do not
+qualify later metadata or dependency candidates. Earlier receiving-main records
+remain in repository history.
 
 ## Latest receiving-main hosted results — 5 November 2026
 
@@ -283,6 +288,26 @@ its evidence remain local in `/Users/doughnut/Documents/tobac-dep94-20261105`;
 the Renovate PR has not been modified or merged.
 
 ## Scientific and submission requirements
+
+On 5 November, a bounded internal adequacy check on the `7d24f60` scientific
+source covered regulatory, retail, longitudinal and M3 contracts, all eight
+configuration JSON files for numeric finiteness, and selected primary-source
+and numerical cross-checks. The selected retail, supply, robustness, matched,
+M3 and integration tests passed 163 cases on Python 3.15.1. An independent
+10,000-state arithmetic comparison supported the stated retail accounting to
+below 5e-13 absolute error. These checks support conditional model computation;
+they do not validate every parameter, source, output or real-world outcome.
+
+The cited beta input is a published model parameter, not observed intervention
+efficacy. Its source considers approximately 300 outlets and reduced e-cigarette
+supply; this research contrast considers up to 600 smoked-tobacco retailers
+while holding vaping access constant. Its consumption mapping is assumed. The
+published M2 parameter-provenance CSV is not a complete inventory of all M1,
+measurement, or M3 inputs. Field calibration, target/estimand transport,
+matched data, governance and independent outcome validation remain open.
+The detailed internal review and deterministic arithmetic results are retained
+locally under `outputs/research-audit-20261105/`; no scientific parameter or
+model was changed in this check.
 
 [Research gates](research-gates.md) retain the selected target/legal/counterfactual
 facts, source year/unit/channel reconciliation, physical conversions, matched
