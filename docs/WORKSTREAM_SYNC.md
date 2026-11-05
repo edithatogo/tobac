@@ -649,3 +649,16 @@ Native scope: none. Next: record actual outcomes for receiving commit
 Terminal readback: all nine workflows at `669eb8851b89eef91b3b014787639fb2765768ef`
 passed. Both reproduction jobs and all engineering jobs report success. The
 Conductor-only evidence update is local pending any future publication.
+
+
+## Receiving-main verification — 5 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/post-publish-097c7a1`. Scope:
+read-only hosted checks, `conductor/status.md` and this handoff. Native scope:
+none. Next: record outcomes for receiving commit
+`097c7a1130f2c2eb2a53b0ef1559ace9811e9c58` as jobs complete.
+
+Terminal readback: all nine workflows at `097c7a1130f2c2eb2a53b0ef1559ace9811e9c58`
+passed, including scientific reproduction and engineering qualification. The
+Conductor-only evidence update is local pending any future publication.

@@ -7,6 +7,17 @@ The 18 archived tracks have no active execution tasks. Five historical graph
 proposal entries were superseded by bounded inventory acceptance and are explicitly
 labelled historical in their archived plan, rather than marked as executed.
 
+## Receiving-main verification of `097c7a1` — 5 November 2026
+
+All nine post-publication workflows completed successfully at receiving main
+`097c7a1130f2c2eb2a53b0ef1559ace9811e9c58`: cross-platform Python (41969892346),
+empirical longitudinal (41969892269), publication and source security
+(41969892266), [engineering qualification](https://github.com/edithatogo/tobac/actions/runs/41969892229),
+package portability (41969892236), Linux audit lock (41969892274), M3 research
+methods (41969892528), [scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/41969892215)
+and regulatory uncertainty (41969892259). These results bind the cited
+published commit; they do not qualify later metadata or dependency candidates.
+
 ## Latest receiving-main hosted results — 5 November 2026
 
 All nine post-publication workflows completed successfully at receiving main
