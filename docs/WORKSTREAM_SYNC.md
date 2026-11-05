@@ -723,3 +723,18 @@ none. Next: record outcomes for receiving commit
 Terminal readback: all nine workflows at `bf77c6b9ac8d36396bbd12713cfc299c8f6735f7`
 passed, including scientific reproduction and every engineering job. The
 Conductor evidence update is local pending any future publication.
+
+## PR #130 publication check handoff — 5 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/pr130-check-handoff`. Scope:
+record publication-check readback; native scope: none. PR #130 was published
+by guarded non-force fast-forward to `7d24f608803e73cfc910bc766d7e8fcf444d741e`;
+GitHub ref and tree readbacks matched. All five protected-branch checks passed.
+The non-required Voiage parity job's scientific comparisons passed, but its
+artifact export failed after the pinned Actionlint download returned HTTP 504;
+the one bounded retry reproduced this failure. The original and retry are
+https://github.com/edithatogo/tobac/actions/runs/41997837879/job/127145307902
+and https://github.com/edithatogo/tobac/actions/runs/41997837879/job/127149778602.
+The numerical and required macOS retries passed. Push-event workflows for the
+new receiving commit were still queued or running at handoff. This handoff is local.
