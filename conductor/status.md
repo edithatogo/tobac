@@ -233,14 +233,20 @@ remains distinct from the later local run.
 
 ## Open dependency maintenance
 
+After publication of `218baf0`, Renovate rebased #80 to `e65ca18`, #91 to
+`7c28771`, and #94 to `318fa59`. Their new hosted checks were still running at
+readback. A [new #80 Linux job](https://github.com/edithatogo/tobac/actions/runs/41989343130/job/127117574173)
+already confirms the same stale native acceptance pin; #91 and #94 new-head
+results remain pending. The details below describe their preceding heads.
+
 These PRs are outside the completed research tracks. On 5 November, the rebased candidate heads below had failing checks against
-receiving main `1759fe7`. The observations are from their recorded jobs and do not qualify any update.
+receiving main `135487e`. The observations are from their recorded jobs and do not qualify any update; main subsequently advanced to `218baf0`.
 
 | PR | Observed failure and remaining task |
 | --- | --- |
-| [#80](https://github.com/edithatogo/tobac/pull/80), `b291bfc` — verified action pins | The candidate changes 14 workflows. Sampled Linux test and macOS qualification jobs reject `.github/workflows/advisory-types.yml` as a stale signed native acceptance pin before execution. Reconcile the candidate with current main, requalify the action changes and renew the signed binding only after the required native readbacks, then run required checks and verify publication. |
-| [#91](https://github.com/edithatogo/tobac/pull/91), `37f9984` — Python 3.15.2 | The current candidate changes `.python-version` alone. Its Linux tests and numerical job fail because the canonical version contract remains 3.15.1. Qualify a consistent Python patch migration across development, build, tests, CI, locks and the pinned verifier contract before promotion. |
-| [#94](https://github.com/edithatogo/tobac/pull/94), `abaff70` — pytest-gremlins 1.13.2 | The candidate changes `engineering/ecosystem.in`; its Linux tests reject stale ecosystem dependency-input hashes. Regenerate and review the affected source-bound locks and receipts, qualify the tool and run required checks before promotion. |
+| [#80](https://github.com/edithatogo/tobac/pull/80), `d24647e` — verified action pins | The candidate changes 14 workflows. Sampled Linux test and macOS qualification jobs reject `.github/workflows/advisory-types.yml` as a stale signed native acceptance pin before execution. Reconcile the candidate with current main, requalify the action changes and renew the signed binding only after the required native readbacks, then run required checks and verify publication. |
+| [#91](https://github.com/edithatogo/tobac/pull/91), `3e1f056` — Python 3.15.2 | The current candidate changes `.python-version` alone. Its Linux tests and numerical job fail because the canonical version contract remains 3.15.1. Qualify a consistent Python patch migration across development, build, tests, CI, locks and the pinned verifier contract before promotion. |
+| [#94](https://github.com/edithatogo/tobac/pull/94), `9b62a63` — pytest-gremlins 1.13.2 | The candidate changes `engineering/ecosystem.in`; its Linux tests reject stale ecosystem dependency-input hashes. Regenerate and review the affected source-bound locks and receipts, qualify the tool and run required checks before promotion. |
 
 The #80 export error after failed lineage preflight is a downstream missing-output
 error. On the earlier #91 candidate `e445af7`, a separate Voiage parity job failed
@@ -251,11 +257,20 @@ no security, source-binding or scientific gate has been relaxed.
 
 At these rebased heads, #80 has 21 failed and eight passing checks; #91 and #94
 each have five failed and 24 passing checks. Each also has two conditional
-skips. Sampled Linux jobs reproduce the [signed-pin rejection](https://github.com/edithatogo/tobac/actions/runs/41980351665/job/127088769200),
-[version mismatch](https://github.com/edithatogo/tobac/actions/runs/41980330434/job/127088702256)
-and [stale lock receipt](https://github.com/edithatogo/tobac/actions/runs/41980363050/job/127088806496)
+skips. Sampled Linux jobs reproduce the [signed-pin rejection](https://github.com/edithatogo/tobac/actions/runs/41984800847/job/127102926016),
+[version mismatch](https://github.com/edithatogo/tobac/actions/runs/41984774448/job/127102842205)
+and [stale lock receipt](https://github.com/edithatogo/tobac/actions/runs/41984816318/job/127102973696)
 respectively. Candidate checks do not establish that these are the only possible
 failures after their identified blockers are fixed.
+
+For #94, an isolated candidate at local branch `codex/qualify-pr94` generated and
+hash-installed an ecosystem lock under Python 3.15.1. Its source-bound receipt
+verifies; focused tests yielded 106 passes and two skips across the initial run
+and the committed-source failure-only rerun. The candidate also updates
+python-dateutil 3.0.0 to 4.0.0 and typing-inspection 0.4.4 to 0.4.5, so it needs
+scientific and cross-platform qualification before promotion. The candidate and
+its evidence remain local in `/Users/doughnut/Documents/tobac-dep94-20261105`;
+the Renovate PR has not been modified or merged.
 
 ## Scientific and submission requirements
 

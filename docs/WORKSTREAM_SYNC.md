@@ -700,3 +700,12 @@ none. Next: record outcomes for receiving commit
 Terminal readback: all nine workflows at `135487ea288298e43d5592eda08a7ecbf3e90f0b`
 passed, including scientific reproduction and engineering qualification. The
 Conductor-only evidence update is local pending any future publication.
+
+## Dependency failure reconciliation at `218baf0` — 5 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/dependency-reconcile-218baf0`.
+Scope: current dependency PR readback and Conductor status; native scope: none.
+PR #128 was published by non-force fast-forward from `135487e` to `218baf0`;
+GitHub ref and tree readbacks matched. The local #94 candidate lives in its own
+worktree and remains unpromoted. Receiving-main push workflows are pending.
