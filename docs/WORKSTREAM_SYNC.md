@@ -708,4 +708,6 @@ Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
 Scope: current dependency PR readback and Conductor status; native scope: none.
 PR #128 was published by non-force fast-forward from `135487e` to `218baf0`;
 GitHub ref and tree readbacks matched. The local #94 candidate lives in its own
-worktree and remains unpromoted. Receiving-main push workflows are pending.
+worktree and remains unpromoted. All nine receiving-main push workflows at
+`218baf09763b211e0849cab5ed15d4553b350942` passed; run IDs and qualification
+scope are recorded in Conductor. This evidence update remains local.

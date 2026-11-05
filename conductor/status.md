@@ -10,12 +10,13 @@ labelled historical in their archived plan, rather than marked as executed.
 ## Latest receiving-main verification — 5 November 2026
 
 All nine post-publication workflows completed successfully at receiving main
-`135487ea288298e43d5592eda08a7ecbf3e90f0b`: empirical longitudinal (41984676678),
-[scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/41984676696),
-[engineering qualification](https://github.com/edithatogo/tobac/actions/runs/41984676733),
-regulatory uncertainty (41984676743), cross-platform Python (41984676816), M3
-research methods (41984676698), publication and source security (41984676808),
-Linux audit lock (41984676748), and package portability (41984677169).
+`218baf09763b211e0849cab5ed15d4553b350942`: Linux audit lock (41989247093),
+package portability (41989247346), cross-platform Python (41989247300),
+publication and source security (41989247148), empirical longitudinal (41989247468),
+[scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/41989247282),
+[M3 research methods](https://github.com/edithatogo/tobac/actions/runs/41989247253),
+regulatory uncertainty (41989247350), and
+[engineering qualification](https://github.com/edithatogo/tobac/actions/runs/41989247161).
 Both reproduction platforms, both M3 jobs, and every engineering job passed.
 These results bind the cited published commit; they do not qualify later metadata
 or dependency candidates. Earlier receiving-main records remain in repository history.
