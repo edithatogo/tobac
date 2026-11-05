@@ -636,3 +636,16 @@ parity job 127035471814 passed signed-input verification using the new OpenSSH
 binary. The other setup-python/Python-build combination with that binary has
 probe evidence only; its full check on that particular image was not observed.
 The Conductor-only evidence update is local pending any future publication.
+
+
+## Receiving-main hosted evidence — 5 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/hosted-main-evidence-20261105`.
+Scope: read-only hosted status and `conductor/status.md` plus this handoff.
+Native scope: none. Next: record actual outcomes for receiving commit
+`669eb8851b89eef91b3b014787639fb2765768ef`; preserve prior assignments.
+
+Terminal readback: all nine workflows at `669eb8851b89eef91b3b014787639fb2765768ef`
+passed. Both reproduction jobs and all engineering jobs report success. The
+Conductor-only evidence update is local pending any future publication.
