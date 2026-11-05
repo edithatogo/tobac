@@ -233,6 +233,13 @@ remains distinct from the later local run.
 
 ## Open dependency maintenance
 
+After `bf77c6b`, Renovate rebased #80 to `cb78160`, #91 to `6705129` and #94
+to `7dffe2f`. Sampled Linux jobs confirm the same [stale signed pin](https://github.com/edithatogo/tobac/actions/runs/41994714877/job/127135001949),
+[Python version mismatch](https://github.com/edithatogo/tobac/actions/runs/41994689381/job/127134919335),
+and [stale lock receipt](https://github.com/edithatogo/tobac/actions/runs/41994730135/job/127135049682).
+These candidates remain unqualified; the earlier local #94 candidate and its
+additional transitive changes remain subject to qualification.
+
 After publication of `218baf0`, Renovate rebased #80 to `e65ca18`, #91 to
 `7c28771`, and #94 to `318fa59`. Sampled current Linux jobs confirm the same
 [signed-pin rejection](https://github.com/edithatogo/tobac/actions/runs/41989343130/job/127117574173),
