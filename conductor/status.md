@@ -9,6 +9,17 @@ labelled historical in their archived plan, rather than marked as executed.
 
 ## Verified baseline
 
+As checked on 5 November, receiving main `927bfdaacc49421456da0f94dc661fd4ec245579`
+completed all nine post-publication workflows successfully: empirical longitudinal
+(41641218791), package portability (41641218788), cross-platform Python
+(41641218822), [scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/41641218932),
+Linux audit lock (41641218703), M3 research methods (41641218714), publication
+and source security (41641218611), [engineering qualification](https://github.com/edithatogo/tobac/actions/runs/41641218726)
+and regulatory uncertainty (41641218904). Both reproduction platforms and all
+engineering jobs passed. PR #121 previously passed 29 checks, with two conditional
+skips, and its receiving commit and tree were verified. These results cover that
+published revision; they do not qualify later changes or the separate dependency PRs.
+
 Consumer main `35f999a42abb7836fde14c58368bb2f356bda0d1` was read back on
 3 November. All nine receiving-main workflows for that exact commit completed
 successfully: empirical longitudinal (41636195121), regulatory uncertainty

@@ -586,3 +586,15 @@ and tree `b80bc11653d601ce8892a9d617132147f8059163`, identical to the local
 qualified tree. This closeout records the completed source publication; its own
 metadata commit still requires guarded publication. ARM evidence covers static
 diagnostics and scanner execution, not ARM scientific reproduction.
+
+
+## Receiving-main hosted verification — 5 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the Conductor-only
+reconciliation in `/Users/doughnut/Documents/tobac`, branch
+`codex/receiving-checks-20261105`; scope is `conductor/status.md` and this
+handoff. Native scope is read-only; no native operation is active. Receiving
+main `927bfdaacc49421456da0f94dc661fd4ec245579` has nine successful push
+workflows, including Linux and Windows reproduction and every engineering job.
+Next operation: validate and commit this evidence update. Earlier assignments
+above remain historical.
