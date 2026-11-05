@@ -7,6 +7,25 @@ The 18 archived tracks have no active execution tasks. Five historical graph
 proposal entries were superseded by bounded inventory acceptance and are explicitly
 labelled historical in their archived plan, rather than marked as executed.
 
+## Hosted runtime renewal — 5 November 2026
+
+PR #122 source `d8afca1` encountered a new macOS OpenSSH binary
+`e9cba2415f13366eb43402ab20218433f585851b4f4a749a6a1e9988e6af9eb5`.
+The frozen verifier correctly rejected it before workload execution. Hosted jobs
+[127021871259](https://github.com/edithatogo/tobac/actions/runs/41959394253/job/127021871259)
+and [127021871304](https://github.com/edithatogo/tobac/actions/runs/41959394384/job/127021871304)
+ran actual signing/valid-signature and tamper-rejection controls on the two
+observed Python 3.15.1 builds. The candidate adds only those two exact runtime
+combinations. All eight accepted native attempts were reopened, the 140 outputs
+verified and a fresh digest-only capsule issued; runner records, native readback
+and scientific inventory match the previous generation. The previous capsule,
+signature, verifier and profiles are preserved in
+`integration/archive/hosted-generation_runtime_20261105.zip`.
+Local signed verification passed for all eight runners; focused lineage and
+workstream checks passed 42 tests with one capability skip, and the selected
+qualified verifier passed separately. Hosted verification of the renewed
+candidate remains pending until its own jobs execute successfully.
+
 ## Verified baseline
 
 As checked on 5 November, receiving main `927bfdaacc49421456da0f94dc661fd4ec245579`
