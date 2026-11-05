@@ -235,10 +235,13 @@ remains distinct from the later local run.
 ## Open dependency maintenance
 
 After publication of `218baf0`, Renovate rebased #80 to `e65ca18`, #91 to
-`7c28771`, and #94 to `318fa59`. Their new hosted checks were still running at
-readback. A [new #80 Linux job](https://github.com/edithatogo/tobac/actions/runs/41989343130/job/127117574173)
-already confirms the same stale native acceptance pin; #91 and #94 new-head
-results remain pending. The details below describe their preceding heads.
+`7c28771`, and #94 to `318fa59`. Sampled current Linux jobs confirm the same
+[signed-pin rejection](https://github.com/edithatogo/tobac/actions/runs/41989343130/job/127117574173),
+[Python version mismatch](https://github.com/edithatogo/tobac/actions/runs/41989320298/job/127117501506),
+and [stale lock receipt](https://github.com/edithatogo/tobac/actions/runs/41989357209/job/127117620150).
+At readback #80 had 21 failures, eight passes and two conditional skips; #91 had
+five failures, 24 passes and two skips; #94 had five failures, 23 passes, two
+skips and one job still running. The details below describe their preceding heads.
 
 These PRs are outside the completed research tracks. On 5 November, the rebased candidate heads below had failing checks against
 receiving main `135487e`. The observations are from their recorded jobs and do not qualify any update; main subsequently advanced to `218baf0`.
