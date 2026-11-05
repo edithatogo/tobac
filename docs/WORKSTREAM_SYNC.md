@@ -711,3 +711,15 @@ GitHub ref and tree readbacks matched. The local #94 candidate lives in its own
 worktree and remains unpromoted. All nine receiving-main push workflows at
 `218baf09763b211e0849cab5ed15d4553b350942` passed; run IDs and qualification
 scope are recorded in Conductor. This evidence update remains local.
+
+## Receiving-main checks at `bf77c6b` — 5 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/verify-bf77c6b`. Scope:
+read-only hosted checks, `conductor/status.md` and this handoff. Native scope:
+none. Next: record outcomes for receiving commit
+`bf77c6b9ac8d36396bbd12713cfc299c8f6735f7` as jobs complete.
+
+Terminal readback: all nine workflows at `bf77c6b9ac8d36396bbd12713cfc299c8f6735f7`
+passed, including scientific reproduction and every engineering job. The
+Conductor evidence update is local pending any future publication.
