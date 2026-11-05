@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software in research, please cite it using this metadata."
+title: "tobac: tobacco policy uncertainty and value-of-information research"
+type: software
+authors:
+  - family-names: Mordaunt
+    given-names: Dylan A
+repository-code: "https://github.com/edithatogo/tobac"
+license: Apache-2.0
+version: 0.2.0

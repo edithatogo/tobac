@@ -757,3 +757,12 @@ Terminal readback: all nine receiving-main workflows for
 passed on its targeted second attempt after its original Actionlint 504.
 Conductor contains the hosted and bounded-scientific review status; this
 update remains local pending any future publication.
+
+## Repository discovery and Scorecard — 5 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/repository-scorecard`.
+Scope: public repository discovery metadata, README, citation, Scorecard workflow,
+publication inventory and status; native scope: exact GitHub repository metadata.
+Next: prepare a narrowly scoped, independently qualified candidate on top of the
+Conductor publication branch. Scientific models and private data remain unchanged.

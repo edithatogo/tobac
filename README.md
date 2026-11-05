@@ -1,5 +1,12 @@
 # tobac
 
+[![Engineering qualification](https://github.com/edithatogo/tobac/actions/workflows/engineering.yml/badge.svg)](https://github.com/edithatogo/tobac/actions/workflows/engineering.yml)
+[![Scientific reproduction](https://github.com/edithatogo/tobac/actions/workflows/scientific-reproduction.yml/badge.svg)](https://github.com/edithatogo/tobac/actions/workflows/scientific-reproduction.yml)
+[![Publication and source security](https://github.com/edithatogo/tobac/actions/workflows/publication-security.yml/badge.svg)](https://github.com/edithatogo/tobac/actions/workflows/publication-security.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/edithatogo/tobac/badge)](https://scorecard.dev/viewer/?uri=github.com/edithatogo/tobac)
+
+[How to cite](CITATION.cff) · [Apache-2.0 licence](LICENSE) · [Security reporting](https://github.com/edithatogo/tobac/security/advisories/new) · [Actions](https://github.com/edithatogo/tobac/actions)
+
 NZ tobacco-regulation uncertainty and wastewater value-of-information research.
 
 **Primary sequence:** regulatory EVPI -> grouped EVPPI -> targeted scientific learning -> study EVSI -> conditional ENBS. Testing, alternative research and no additional study are all permissible conclusions.
@@ -64,9 +71,14 @@ the separate longitudinal Actions workflow. Hosted success is not assumed.
 
 ## Reproduce
 
+The qualified reference interpreter is Python 3.15.1. Select that exact patch
+before creating the repository-local environment:
+
 ```sh
-python -m venv .venv
+python3.15 -c 'import sys; assert sys.version_info[:3] == (3, 15, 1)'
+python3.15 -m venv .venv
 . .venv/bin/activate
+python -c 'import sys; assert sys.version_info[:3] == (3, 15, 1)'
 python -m pip install -r requirements.lock
 python -m pip install --no-deps .
 python -m pytest -q
@@ -115,4 +127,4 @@ The macOS Python 3.15.1 engineering hardening scope is complete. Full-SHA Action
 pins are retained; the rejected tag-based lock proposal is closed. Current scope,
 verification and non-blocking follow-ups are recorded in the
 [completion receipt](integration/engineering_macos_completion_20261026.json) and
-[Conductor registry](conductor/tracks.md). Other platforms remain in the roadmap.
+[Conductor registry](conductor/tracks.md). Linux and Windows tests, packaging and scientific reproduction are qualified for their declared scopes; see [Conductor](conductor/status.md) for current results and remaining research limits.
