@@ -5,7 +5,7 @@
 [![Publication and source security](https://github.com/edithatogo/tobac/actions/workflows/publication-security.yml/badge.svg)](https://github.com/edithatogo/tobac/actions/workflows/publication-security.yml)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/edithatogo/tobac/badge)](https://scorecard.dev/viewer/?uri=github.com/edithatogo/tobac)
 
-[How to cite](CITATION.cff) · [Apache-2.0 licence](LICENSE) · [Security reporting](https://github.com/edithatogo/tobac/security/advisories/new) · [Actions](https://github.com/edithatogo/tobac/actions)
+[How to cite](CITATION.cff) · [Apache-2.0 licence](LICENSE) · [Security reporting](SECURITY.md) · [Actions](https://github.com/edithatogo/tobac/actions)
 
 NZ tobacco-regulation uncertainty and wastewater value-of-information research.
 
