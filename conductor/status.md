@@ -305,9 +305,10 @@ while holding vaping access constant. Its consumption mapping is assumed. The
 published M2 parameter-provenance CSV is not a complete inventory of all M1,
 measurement, or M3 inputs. Field calibration, target/estimand transport,
 matched data, governance and independent outcome validation remain open.
-The detailed internal review and deterministic arithmetic results are retained
-locally under `outputs/research-audit-20261105/`; no scientific parameter or
-model was changed in this check.
+The [bounded adequacy review](../docs/reviews/2026-11-05-scientific-adequacy.md)
+records a current public-source check and its limitations. Deterministic arithmetic
+results remain under local `outputs/research-audit-20261105/`; no scientific
+parameter or model was changed in this check.
 
 [Research gates](research-gates.md) retain the selected target/legal/counterfactual
 facts, source year/unit/channel reconciliation, physical conversions, matched
