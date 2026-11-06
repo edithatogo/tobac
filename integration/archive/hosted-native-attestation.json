@@ -1,9 +1,9 @@
 {
   "inventory_sha256": "0a5e9a8bddbca94f0b19fdea4d90211469c0485efbb44c9a1d0d051661b0c891",
-  "issued_at": "2026-11-06T10:19:25.886187+00:00",
+  "issued_at": "2026-11-06T10:34:19.525658+00:00",
   "issuer": "tobac-native",
   "native_readback": {
-    "checkpoint_sha256": "9c22d5b6f44231dea3bdcb3b6b66f184d20c7ca263150d8395480ab2982774a9",
+    "checkpoint_sha256": "99d0ad648a01530e13dbdf957b221fd1756792713dcd29a6ac7d0ce1c66f54dd",
     "execution_mode": "qualified",
     "native_lineage_qualified": false,
     "producer_revision": "08dc5fedb08ed321a43eccb40270a80bba41f247",
@@ -83,14 +83,14 @@
     "integration/archive/native-source-refs.json": "f75582e8362b39d08bc69ef7196131667bb756e39df285189ca478c2a5bd9ed3",
     "integration/archive/runner-material.json": "05acaa8b21b9aa6a579095725a632a24bbfc02fc0e54133d12f3aadaad991c30",
     "integration/archive/scientific-lineage-checkpoint_20261102.json": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
-    "integration/archive/scientific-lineage-checkpoint_integrated_python3152_20261106.json": "9c22d5b6f44231dea3bdcb3b6b66f184d20c7ca263150d8395480ab2982774a9",
-    "integration/archive/scientific-runner-inputs.json": "8b8f250800bf15d976a89bec582cfa845678655350eac951951038511efeeaaf",
+    "integration/archive/scientific-lineage-checkpoint_integrated_python3152_20261106.json": "99d0ad648a01530e13dbdf957b221fd1756792713dcd29a6ac7d0ce1c66f54dd",
+    "integration/archive/scientific-runner-inputs.json": "668b5c5ef2c76f0c1e0c1af6fa693f20a861f3124b3ca27dd6e1eb3bebe46717",
     "integration/archive/transformation-interface.json": "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373",
     "integration/scientific_reference_20261103.zip": "083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9",
-    "noxfile.py": "13e542a125384cd106601a5acd0b29a3f1f31325549ee9641778e6d227f614f0",
+    "noxfile.py": "9158f39a4c102ab1fcf1692c0ccd668d9f2c35954b55baf8075bf0ad0dfbb51a",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
     "scripts/check_scientific_reproduction.py": "dbf0f7ad90b9f4f0b8bf6907caf75d747816f28014a5558e3e09d7e8695bcb26",
-    "scripts/lineage_preflight.py": "a5deea40335b4b523dfd0f50f1946523ab5847ee476415fed7184af14d6713e0",
+    "scripts/lineage_preflight.py": "38bcef0643ee126f4f0952898722feb00ccf6d38d788898dc4dea4aac6178839",
     "scripts/prepare_synthesis_replay.py": "73a952437e45e434ca9f01b7ba04a5315560c15cbeff4b88566d478ced09be66",
     "scripts/qualify_integrations.py": "81ac958ee42e7f175dcb5eef624734475d6b772c564ede4cd8b34a49bfbf7fff",
     "scripts/run_m1_stage.py": "0e580dfe9ef5e649c9a819b880a89817b4020b9da9155a0add76ffbc372a046e",
@@ -683,5 +683,5 @@
   },
   "schema": "tobac.signed-native-lineage/v1",
   "scope": "Native bytes verified locally; hosted verification authenticates this receipt and rechecks current scientific inputs.",
-  "verifier_sha256": "1f2e2c1606da5a91135e67c30d9baae9e0106fbf0717977164b0ff8822a486ec"
+  "verifier_sha256": "4bb64acadeab9088afa1e8098365af5ac22f00271725a899b04c50435ffb0213"
 }

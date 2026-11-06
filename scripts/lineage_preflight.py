@@ -18,7 +18,7 @@ from source_handoff import checked, read  # noqa: E402 -- Select checkout source
 lazy from extract_moh_lineage import NativeStore  # noqa: E402 -- Producer protocol from this checkout.
 
 CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_integrated_python3152_20261106.json"
-CHECKPOINT_SHA = "9c22d5b6f44231dea3bdcb3b6b66f184d20c7ca263150d8395480ab2982774a9"
+CHECKPOINT_SHA = "99d0ad648a01530e13dbdf957b221fd1756792713dcd29a6ac7d0ce1c66f54dd"
 INTERFACE_SHA = "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373"
 INVENTORY_SHA = "0a5e9a8bddbca94f0b19fdea4d90211469c0485efbb44c9a1d0d051661b0c891"
 

@@ -10,7 +10,7 @@
     "scripts/check_publication_security.py": "a9b8815af7be2473705eba7f3866452403429c3fe0550ea45b15d1f8f9fa2eed",
     "scripts/check_scientific_reproduction.py": "dbf0f7ad90b9f4f0b8bf6907caf75d747816f28014a5558e3e09d7e8695bcb26",
     "scripts/check_security_findings.py": "e673deed326358bc0342fdf3bfb0ddd3c277e741f2dfd736246c401af185fdb6",
-    "scripts/context_bundle.py": "a2cced0e8b96d5f48c3a634b2f945da569767a9cb8655a58c16adb982df92f07",
+    "scripts/context_bundle.py": "0c360bc96eeae856bb02f95e6cd6df1e92753cdd825cbd5877602860ab5448b5",
     "scripts/dependency_snapshot.py": "96f72021a2ec28673ec8ecb64bba9bacda87f3b3484b0a60d4c9fd1b86805bc9",
     "scripts/derive_native_source_refs.py": "b55c7d3f43fb0cb2910c3ec814d7c4cdc38edf8ed1e96b1d0585a5e6868606ed",
     "scripts/extract_moh_lineage.py": "9ea1d3a08e11eca8b0ebd94a9662411c4c849c352ba87ad6f9380d554fe1723d",

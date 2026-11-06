@@ -437,3 +437,28 @@ Remaining for this new snapshot: hosted checks, then guarded publication and
 receiving-ref readback through the existing integrator. The original Phase 8
 completion applies to its published closure and is not substituted for these
 remaining checks. Latest dependency promotion remains separate from this renewal.
+
+## Integrated hosted checks verified — 6 November 2026
+
+PR #139 head `f7b130b51d9e8f7881f7bc4359afbb6aba2bdf80` passes all twelve
+hosted workflows: 29 successful checks, two conditional skips and one neutral
+Scorecard bot result. Scientific reproduction passes on Linux and Windows;
+macOS engineering/runtime qualification, cross-platform tests/package checks,
+all five verifier jobs, audits, advisory diagnostics, CodeQL/security and Scorecard
+are terminal successes. Exact receipts: `outputs/hosted-integrated-20261106/hosted-final.json`
+and `workflows-final.json`.
+
+The earlier advisory report-directory failure and Windows context LF/CRLF
+mismatch were fixed with unchanged gates; current signed native bindings were
+reverified before each normal guarded push. Scientific inputs/oracles were not
+weakened. This Conductor readback is a local post-check commit, not part of the
+tested PR head. Guarded main publication and receiving-ref/post-publication
+verification remain separate work; PR #139 has not been merged by this task.
+
+PR #139 merged with GitHub's exact-head guard at
+`e3a1cf96efb40295a5bc005919f9cb78d9574d77`. The fetched receiving main tree
+`cbeede4651315d48ff15acbf76fbd8a4cc4a2c48` equals the tested `f7b130b` tree.
+This documentation publication preserves that accepted scientific/runtime source.
+Receiving-main workflows require their own terminal readback; none is inferred
+from the PR checks. The remaining operation is this Conductor publication's
+protected merge and final receiving workflow verification.

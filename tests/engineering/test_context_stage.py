@@ -33,7 +33,7 @@ def bundle(tmp_path):
     folder = tmp_path / "bundle"
     folder.mkdir()
     (folder / "manifest.json").write_text(json.dumps(manifest))
-    (folder / "context.md").write_text(text)
+    (folder / "context.md").write_bytes(text.encode("utf-8"))
     return folder
 
 
@@ -48,7 +48,7 @@ def test_success_failure_and_recovery(tmp_path):
     with pytest.raises(ValueError, match="context text changed"):
         module.execute(folder, receipt, log)
     assert not receipt.exists()
-    (folder / "context.md").write_text(original)
+    (folder / "context.md").write_bytes(original.encode("utf-8"))
     module.execute(folder, receipt, log)
     assert [json.loads(line)["status"] for line in log.read_text().splitlines()] == [
         "passed",
