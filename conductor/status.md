@@ -1,4 +1,4 @@
-# Reconciled repository status — 3 November 2026
+# Reconciled repository status — 6 November 2026
 
 DXP1–DXP4 are complete through actual hosted qualification. The advisory
 implementation is qualified and published to main at `672894f`. The retained native-lineage track has
@@ -7,7 +7,96 @@ The 18 archived tracks have no active execution tasks. Five historical graph
 proposal entries were superseded by bounded inventory acceptance and are explicitly
 labelled historical in their archived plan, rather than marked as executed.
 
-## Latest receiving-main verification — 5 November 2026
+## Current published source and reconciliation — 6 November 2026
+
+Main advanced through PR #139 at `e3a1cf96efb40295a5bc005919f9cb78d9574d77`.
+Its complete receiving tree matches tested head `f7b130b`, whose twelve hosted
+workflows passed. The current signed integrated checkpoint is
+`integration/archive/scientific-lineage-checkpoint_integrated_python3152_20261106.json`.
+The earlier #91 runtime-delta checkpoint below remains historical evidence.
+PR #139 receiving workflows and its owner's separate Conductor publication remain
+separate work; neither is inferred from its candidate checks. #135 preserves
+that entire accepted source and reconciles current setup/status documentation.
+
+The managed root graph job also passed on #91's `eca4e8a`, using actual Python
+3.15.2 and parsing `/pyproject.toml` (run 42198793376). A later graph export
+returned 466 PURLs, 453 for PyPI, at 2026-11-06T10:08:58Z. The export is not
+commit-bound and does not prove complete package relationships. Older parser
+blocker observations below are historical for this now-executed runtime.
+
+## Sequential dependency integration — 6 November 2026
+
+[PR #94](https://github.com/edithatogo/tobac/pull/94) merged at
+`e1d9b8848ab261f0ed992a74b3a2750e980512aa` after all candidate checks passed
+at `adb3f8127355f210c1df959d629730873b381fc2`. Receiving ref and full-tree
+readback match the tested candidate. All ten receiving-main workflows passed,
+including [engineering](https://github.com/edithatogo/tobac/actions/runs/42170210863)
+and [scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/42170210761).
+
+[PR #80](https://github.com/edithatogo/tobac/pull/80) merged at
+`b1ccfd549665a69f0412daf3ef39b5509861caa1` after every candidate check completed
+without failure at `ff12683cc9eb259115f225fbde08fa74a00d8f06`. Receiving ref
+and full tree match that candidate. All ten receiving-main workflows passed,
+including [engineering](https://github.com/edithatogo/tobac/actions/runs/42172644130)
+and [scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/42172644125).
+Setup-uv v10.3.3 and uv 0.13.7 retain canonical Python 3.15.1. All eight accepted
+native runs were reopened before renewing the signed workflow binding. Prior
+capsules remain preserved in Git history. The stale native-plan opening is fixed.
+
+PR #133 merged at `15fb177cc8a216df1cdb1fc0741d365c92e5a3e3` after all 29 candidate checks passed. Receiving ref/full-tree readback matched; all ten receiving-main workflows passed. Its local qualification follows. All four lock profiles were generated and
+inspected; only the affected ecosystem lock/receipt is adopted. It changes prek
+0.5.7 to 0.5.9 and threadpoolctl 3.7.0 to 3.8.0. Unchanged runtime, audit and
+Voiage locks retain valid source receipts. The ecosystem candidate hash-installs
+on repo-local Python 3.15.1. Its full test run passed 1,224 cases with 20 skips;
+one committed-source snapshot test initially failed because the new lock was
+uncommitted. After commit `6d7e680`, the failure-only rerun passed that case:
+1,225 unique cases passed across those runs, with the 20 skips retained.
+Prek's read-only configuration validation passes. A real scikit-learn OpenMP
+pool was limited to two threads and restored; its synthetic arithmetic oracle
+passes. BLAS thread control is not qualified on this host: no supported BLAS
+pool was discovered. The original candidate failures and the focused correction remain retained evidence.
+
+PR #134 merged at `58a4b2f602f4678ac5be3b59bd8e6b807ff9ae6d` after every
+candidate check passed at `72e88d75b0ccfff093bc5e021eea137129b0bfc9`.
+Receiving ref and full-tree readback matched; all ten receiving workflows passed.
+The three affected Pydantic lock/receipt pairs were qualified with 1,225 passing
+local cases / 20 capability skips on Python 3.15.1.
+
+[PR #91](https://github.com/edithatogo/tobac/pull/91) merged at
+`eca4e8aaa09c7c5e282c1d0e1aa1398735aaf35d` after all 29 executable checks passed
+at `ba8abacc23c7218fcdeecbdb7a32e0ff288bc614`. GitHub ref and full tree match.
+Python 3.15.2 is now consistent across selectors, Nox, CI, hooks, package floor
+and all five regenerated lock/receipt pairs. The protected branch still requires
+five GitHub-App-bound checks in strict mode with admin enforcement; only the two
+versioned check names changed from 3.15.1 to 3.15.2 after their real jobs passed.
+No administrative merge bypass was used.
+
+Eight new native executions verified 140 outputs and all 82 numerical CSVs equal
+the retained 3.15.1 baseline byte for byte. A tampered copy was rejected. The final
+712-file runtime generation was independently copied, restored and read back.
+The numerical reference archive, source evidence and empirical requirements are
+unchanged. Local full-suite evidence accounts for 1,227 passing cases and 18
+capability skips, followed by four new report-runtime transition cases and 50
+focused integration cases. Clean-package and clean committed publication replays
+pass. The report comparator admits only the explicit qualified runtime transition;
+every scientific field, identity and numerical tolerance is retained.
+
+PR #135 reconciles its duplicate workflow-only update onto that qualified main.
+Its three workflow files are byte-identical to receiving #91; only current
+status/setup documentation changes alongside the ancestry reconciliation. Its
+exact-head checks and publication remain required. #91 receiving-main workflows
+all passed at `eca4e8a`; GitHub retains the exact terminal receipts.
+PR #136 (virtualenv) is the next dependency qualification after #135.
+
+Completed #94 qualification logs were archived and hash-verified before retiring
+its old worktree; the source history remains in the verified local Git bundle.
+Five newly merged local branches and three closed/superseded remote branches were
+pruned. Unfinished Polars/NZ-AU/native renewal lanes, their branches/worktrees and
+all original private bindings remain preserved. The former optional ecosystem-wheel
+limitation was subsequently resolved by the qualified published Voiage 3.1 route
+in #139. Its historical failures remain retained.
+
+## Historical receiving-main verification — 5 November 2026
 
 All nine post-publication workflows passed at receiving main
 `7d24f608803e73cfc910bc766d7e8fcf444d741e`: M3 research methods (42000848891),
@@ -25,7 +114,7 @@ checks were unchanged. The results bind the cited published commit; they do not
 qualify later metadata or dependency candidates. Earlier receiving-main records
 remain in repository history.
 
-## Latest receiving-main hosted results — 5 November 2026
+## Historical receiving-main hosted results — 5 November 2026
 
 All nine post-publication workflows completed successfully at receiving main
 `669eb8851b89eef91b3b014787639fb2765768ef`: package portability (41967153709),
@@ -236,7 +325,40 @@ Full platform numerical reproduction is qualified by DXP3; DXP4 qualifies the ma
 Linux release and lock candidates. DH1 triage and DH2 review are complete locally; the dated hosted mutation count
 remains distinct from the later local run.
 
-## Open dependency maintenance
+## Historical dependency PR snapshot — 6 November 2026, 3:24 pm AEST
+
+Read-only GitHub CLI snapshot at 6 November 2026, 3:24 pm AEST (05:24 UTC). Receiving main was
+`b57b4e12e551c7c7d6db757b8d0f404eb8691146`; these were the only three open PRs.
+Counts distinguish check-run conclusions, unfinished jobs and legacy status contexts.
+This snapshot supersedes earlier candidate-head and stale-lock statements below;
+queued/running jobs are not acceptance evidence.
+
+| PR | Exact head | State | Observed checks |
+| --- | --- | --- | --- |
+| [#80](https://github.com/edithatogo/tobac/pull/80) | `bd19502a23fbc6ddbdad09e3578d65b52dec1a8f` | OPEN | 21 failure, 8 success, 2 skipped, 1 neutral, 1 status context success |
+| [#91](https://github.com/edithatogo/tobac/pull/91) | `5d8cbcf482a6774ac1fef700b68ec695a9e7f1fd` | OPEN | 6 failure, 23 success, 2 skipped, 1 neutral, 1 status context success |
+| [#94](https://github.com/edithatogo/tobac/pull/94) | `adb3f8127355f210c1df959d629730873b381fc2` | OPEN | 12 queued, 3 in progress, 13 success, 2 skipped, 1 neutral |
+
+- **#80:** the current [Linux test log](https://github.com/edithatogo/tobac/actions/runs/42025334896/job/127238003920)
+  rejects `advisory-types.yml` as a stale native acceptance pin before execution.
+  Reconcile and qualify the action changes and renew the signed binding only
+  after the required native readbacks. Other failures may remain after this fix.
+- **#91:** the current [Linux test log](https://github.com/edithatogo/tobac/actions/runs/42025289312/job/127237848913)
+  fails `test_legacy_entrypoint_points_to_one_canonical_pin_source` because
+  `.python-version` says 3.15.2 while the canonical contract remains 3.15.1.
+  A consistent patch migration and operation-specific runtime qualification remain required.
+- **#94:** current head `adb3f8127355f210c1df959d629730873b381fc2`
+  binds the tested ecosystem lock and receipt. The earlier stale-lock rejection
+  describes prior heads, not this candidate. Linux audit, Linux tests and both
+  package jobs have passed at this head; remaining hosted checks are unfinished.
+  The existing qualification lane retains ownership. Its handoff records 1,225
+  tests passed / 20 skipped in the isolated Python 3.15.1 candidate environment;
+  that local evidence is reused, not rerun or presented as full hosted acceptance.
+  Dateutil and typing-inspection changes still require the candidate's scientific
+  and cross-platform qualification before promotion. Neither PR nor main was changed
+  by this read-only refresh.
+
+## Historical dependency maintenance observations — through 5 November 2026
 
 After `bf77c6b`, Renovate rebased #80 to `cb78160`, #91 to `6705129` and #94
 to `7dffe2f`. Sampled Linux jobs confirm the same [stale signed pin](https://github.com/edithatogo/tobac/actions/runs/41994714877/job/127135001949),
@@ -354,6 +476,7 @@ suite passes 41 tests on repository-local Python 3.15.1 under the 4 GiB/40-minut
 guard. Scientific/runtime source is unchanged; the full executed receiving-main
 qualification is reused at its exact baseline. The final publication guard and
 receiving-ref readback are recorded with the reconciliation commit.
+
 
 ## Polars source reconciliation — 6 November 2026
 

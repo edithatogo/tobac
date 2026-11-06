@@ -15,7 +15,7 @@ hash locks are resolver artifacts, not manifests to edit by string replacement.
 After dependency-input changes, generate and inspect all four locks with
 `scripts/lock_receipt.py`, retaining the paired receipts. The manual
 `Reviewable dependency-lock candidates` workflow now creates runtime, audit,
-Voiage and ecosystem candidates and asserts its actual Python 3.15.1 interpreter.
+Voiage and ecosystem candidates and asserts its actual Python 3.15.2 interpreter.
 It verifies source receipts, hash-installs each profile in a fresh Linux environment,
 runs dependency checks and exports inspected review bundles. Downloaded lock/receipt
 hashes and installed inventories pass in [DXP4](../../integration/manual_workflows_20261103.json).
@@ -26,7 +26,9 @@ Automatic merging remains off. Scientific updates, native producer compatibility
 release-age controls, full-SHA Action pins, all existing tests, strict typing,
 reproduction, security audits and artifact provenance remain review/verification
 requirements. Runtime candidates advertised in the dashboard are not qualified
-runtime upgrades. The current qualified Python remains 3.15.1.
+runtime upgrades. The current qualified Python is 3.15.2 through PR #91; its 29 executable
+candidate checks passed and the receiving ref/full tree were verified. Older
+service observations below retain their original runtime and date.
 
 ## GitHub graph parsing is separate from update PRs
 
