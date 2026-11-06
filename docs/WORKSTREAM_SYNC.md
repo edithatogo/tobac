@@ -896,3 +896,10 @@ receiving tree matched the qualified candidate. Next: generate and inspect the
 four main profiles plus the affected advisory profile, qualify changed packages,
 publish at the expected PR head and verify hosted/receiving results. Unfinished
 Polars and NZ/AU work and existing private native resources retain their owners.
+
+PR #134 checkpoint: full isolated ecosystem suite passes 1,225 / 20 skipped at
+`5277a01` on actual Python 3.15.1, 644.2 MiB sampled peak. The three affected
+profiles have fresh verified receipts; runtime/audit retained their unchanged
+qualified locks. #133 receiving-main workflows all passed at `15fb177`. Source
+science and native attempts are unchanged. Next: exact-head publication and hosted
+qualification, then #91 and #135; unfinished source lanes remain preserved.
