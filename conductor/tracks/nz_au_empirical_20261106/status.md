@@ -1,36 +1,34 @@
 # Status — 6 November 2026
 
-Phase 0 is in progress. The isolated empirical branch integrates the owner's Polars
-runner conversion, exact CSV corrections, dataframe-free profiles and Nox/JAX routes
-through b118592.
-All six lock receipts verify; lock, workflow-stage and workstream tests passed 83/83.
-The default environment is hash-synchronised to the integrated runtime lock: actual
-Python 3.15.1, 36 compatible packages, and no importable pandas or xarray.
-Latest-candidate qualification and canonical dependency promotion remain distinct.
+Phase 0 remains in progress. The empirical branch has integrated receiving main's qualified
+Python 3.15.2 baseline and the owner's integrated native renewal. The atomic M1 directory
+correction is included in the signed DAG identity. Original numerical references and prior
+execution receipts remain intact; the progress history is preserved.
 
-The minimal Snakemake analytical DAG implements source/context admission, JSONL events,
-atomic M1 publication and stale-cache/failure/recovery controls. Nox remains the engineering
-runner. Context execution is qualified with the supported greedy scheduler on Apple Silicon;
-the analytical M1 stage awaits renewal of the signed scientific inventory by its owner.
-The integrated runtime full suite reports 16 lineage failures, 1222 passed and 20 skipped.
-The integrated all-eight replay passed all 82 reference CSV tables. Clean wheel and
-sdist-rebuilt installs, API/quick CLI checks and publication security also passed.
-These software results do not close the signed-lineage gate.
+The actual default .venv is hash-installed on Python 3.15.2 with 36 compatible packages and
+no pandas/xarray. The isolated analytics profile is regenerated for 3.15.2 with Snakemake
+9.27.1, Ruff 0.17.4, Polars 2.1.0 and Arrow 26.0.1; its 56-package installation and consistency
+checks pass. All six lock receipts verify. Remaining compatible core/audit/ecosystem updates
+are still a Phase 0 requirement; the dated held-version ledger distinguishes them from
+upstream-incompatible constraints.
 
-Searchright's exact locked source revision was built and its CLI/example plan exercised.
-Its five default provider manifests are fixture-backed; no live systematic search is claimed.
-Innovate 0.6.0 requires pandas/pandasdmx and remains an explicit integration gap. The actual
-Voiage 3.1.0 published wheel passed 90 comparisons and six buffer-ownership checks.
-See phase0-progress.md, phase0-audit.md and library-disposition.md for evidence scope.
+Local attested admission passes all eight runner closures (140 expected outputs). This is
+signature/current-input verification, separate from the owner's direct native byte readback.
+The affected stage/context/workstream selection passes 36 tests on 3.15.2, including a real
+scheduler fixture. The final real M1 DAG and coherent full-suite checkpoint remain open.
+Earlier 3.15.1 suites/replays are historical evidence, not current-runtime acceptance.
 
-The user-approved owner handoff includes the combined snapshot, the lineage renewal request
-and latest-versus-qualified dependency differences. Existing owners retain signing material,
-native resources and shared runtime promotion. No private binding was copied.
+The DAG retains separate context and scientific admission, deterministic settings, attempt
+logs, atomic publication and protected completed directories. Cache selection reopens source
+and output hashes. Nox remains the engineering runner. The earlier manifest-parent creation
+failure was corrected without relaxing the stage's refusal to overwrite existing results.
 
-No new empirical data has been admitted. External archive identities, acquisition rights,
-figure extraction verification, actual NZ/AU calibration, live Searchright providers and
-scientific conclusions remain later-phase requirements. The earlier Hugging Face connector
-failure does not establish that its CLI/API or the user's dataset repositories are unavailable.
+Hardening H0 is complete. README navigation and current Voiage wording were corrected while
+preserving local-only authoring documents. H1/H2 follow-ups remain explicit. No GitHub setting
+or visibility changed.
 
-Requirements, medallion contracts, bounded task cards, standards crosswalk and the companion
-hardening track are recorded. Their design does not prove implementation or compliance.
+No new empirical data is admitted and no current NZ/AU posterior or wastewater funding
+recommendation is claimed. Searchright's fixture-backed CLI is qualified only at its recorded
+scope; live acquisition is open. Innovate's pandas dependency conflict is explicit. External
+archives, data rights, extraction verification, actual calibration and later scientific
+validation remain subsequent-phase requirements.

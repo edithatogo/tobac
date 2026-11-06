@@ -9,7 +9,7 @@ Layer promotion never implies empirical validity, human approval or permission t
 
 | Package | Enabling tools and responsibility | Depends on | Done when |
 |---|---|---|---|
-| E0 Runtime | Python 3.15.1, uv/locks, Nox, Polars/Arrow; existing dependency owner | Baseline ownership | Actual installed versions, parity and lock receipts verified |
+| E0 Runtime | Python 3.15.2, uv/locks, Nox, Polars/Arrow; existing dependency owner | Baseline ownership | Actual installed versions, parity and lock receipts verified |
 | E1 Evidence access | Searchright, existing external archive producer, GitHub/HF supported APIs | E0 for execution | Exact sources/destinations, rights and retrieval/readback qualified |
 | E2 Data contracts | Existing Scope/EvidencePacket/SupplyBasis; schema and unit validation | E1 | Bronze-to-silver validation and quarantine pass |
 | E3 Analytics orchestration | Logged DAG, manifests, resources, seeds, recovery; requested Snakemake qualification | E0 | Failed/stale inputs rejected; resume and offline replay proven |
