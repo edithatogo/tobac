@@ -35,3 +35,11 @@ and Nox tooling. Five exact preview rules are qualified independently; pytest-sp
 exceptions are documented in docs/engineering/RUFF_POLICY.md. macOS verification runs
 under sampled process-group RSS/time budgets with owned-child cleanup; mutation is
 limited to two workers. Budgets do not establish absence of memory leaks.
+
+## Requested analytics target — 6 November 2026
+
+See [design](tracks/nz_au_empirical_20261106/design.md): Snakemake analytical DAG alongside
+Nox engineering gates; Polars/Arrow with no active pandas/xarray; Python 3.15.1 and newest
+qualified locked dependencies. Searchright governs systematic retrieval; Innovate must be
+qualified for diffusion/competition. Existing versions above describe historical execution,
+not acceptance of this target. Coordinate environment promotion with the active Polars owner.

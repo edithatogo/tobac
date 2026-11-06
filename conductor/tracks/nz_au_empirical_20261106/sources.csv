@@ -1,0 +1,18 @@
+source_id,country,source_url,intended_use,status
+NZHS,NZ,https://www.health.govt.nz/monitoring-statistics/surveys/new-zealand-health-survey/publications/202425-survey-publications/trends-in-smoking-and-vaping,prevalence and subgroup uncertainty,discovered_not_newly_admitted
+MOH_RETURNS,NZ,https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025,lawful releases and product reconciliation,discovered_not_newly_admitted
+STATS_TRADE,NZ,https://datainfoplus.stats.govt.nz/item/nz.govt.stats/85d468d4-dd0d-479c-b683-b9347a90afce/30,trade quantities classifications and revisions,discovered_not_newly_admitted
+STATS_CPI,NZ,https://datainfoplus.stats.govt.nz/Item/nz.govt.stats/8b0860b8-cf63-4f12-a578-8eed8ba69ac3,price and affordability scenarios,discovered_not_newly_admitted
+CUSTOMS,NZ,https://www.customs.govt.nz/about-us/corporate-publications,enforcement and expenditure context,discovered_not_newly_admitted
+POLICE_WBE,NZ,https://www.police.govt.nz/about-us/publication/national-drugs-wastewater-testing-programme-2024-annual-overview,sampling infrastructure comparator,discovered_not_newly_admitted
+POLICE_CRIME,NZ,https://www.police.govt.nz/about-us/publications-statistics/data-and-statistics/policedatanz,harm context not tobacco attribution,discovered_not_newly_admitted
+JUSTICE,NZ,https://www.justice.govt.nz/justice-sector-policy/research-data/nzcvs/,victimisation excludes commercial crime,discovered_not_newly_admitted
+WHO,NZ,https://extranet.who.int/fctcapps/fctcapps/fctc/implementation-database/parties/new-zealand,policy inventory and shared-source checks,discovered_not_newly_admitted
+ACIC,AU,https://www.acic.gov.au/sites/default/files/2026-04/Research%20findings.pdf,actual programme comparator,discovered_not_newly_admitted
+AU_WBE,AU,https://pubmed.ncbi.nlm.nih.gov/41661592/,tobacco nicotine separation and calibration,existing_reference_requires_reconciliation
+ABS,AU,https://www.abs.gov.au/articles/household-consumption-illicit-tobacco-and-nicotine-products,alternative accounting model,discovered_not_newly_admitted
+AU_HEALTH,AU,https://www.aihw.gov.au/reports/alcohol/alcohol-tobacco-other-drugs-australia/contents/harm-reduction/wastewater-drug-monitoring,programme and survey triangulation,discovered_not_newly_admitted
+HEALTH_OUTCOMES,BOTH,,mortality morbidity HRQoL and utilities,source_selection_pending
+CESSATION,BOTH,,effectiveness relapse and service costs,source_selection_pending
+COUNCIL_FLOW,BOTH,,catchment population flow sewer characteristics,source_selection_pending
+PROGRAMME_COSTS,BOTH,,incremental sampling laboratory reporting implementation costs,source_selection_pending

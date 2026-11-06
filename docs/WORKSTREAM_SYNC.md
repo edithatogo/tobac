@@ -779,6 +779,29 @@ Next: qualify current PR hosted checks before guarded publication. Native scope:
 no mutations. PR #132 receiving ref/tree is `b57b4e1`; all ten push workflows
 passed and Scorecard API reports that exact commit, score 7/10.
 
+## NZ/AU empirical milestone — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns the isolated managed worktree
+/Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac on codex/nz-au-empirical.
+Scope: conductor/tracks/nz_au_empirical_20261106 and candidate registry/product/stack
+updates. Native scope: read-only discovery. Next: external source and library qualification.
+Preserve existing Polars and Conductor integrator assignments; merge shared files only
+at integration checkpoint. No source data or private bindings moved from their owner.
+
+The same isolated lane additionally owns conductor/tracks/nz_au_hardening_20261106 and
+execution/standards documentation in the empirical track. Native scope remains read-only;
+GitHub cleanup is planned, not executed. Shared registry edits remain integration candidates.
+
+Phase 0 candidate scope additionally includes isolated analytics lock/profile support in
+scripts/lock_receipt.py, its tests, engineering/analytics.*, and Renovate analytics discovery.
+The four existing reference profiles and other owners' environments are preserved. Shared
+file edits require integrator reconciliation; no main or remote runtime promotion occurred.
+
+The empirical lane now owns optional workflow M1 stage and scripts/run_m1_stage.py with tests.
+The existing attested source capsule passed before adding this wrapper, and now correctly
+rejects its changed scientific inventory. Inventory/capsule renewal remains with the native
+lineage owner; do not bypass the guard, move bindings or promote the new stage as accepted.
+
 ## Polars verifier preparation — 6 November 2026
 
 Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
@@ -837,7 +860,6 @@ Terminal source qualification: the final focused selection passes 85 tests in
 21.85 seconds. Full replay's maximum parsed numerical difference is zero; five
 cells differ only in float spelling, besides boolean letter case. All 16 figure
 files remain byte-identical. No scientific calculation module was modified.
-||||||| adb3f81
 
 ## Conductor status reconciliation — 6 November 2026
 

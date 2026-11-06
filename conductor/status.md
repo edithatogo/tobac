@@ -1,4 +1,4 @@
-# Reconciled repository status — 6 November 2026
+# Reconciled repository status — 3 November 2026
 
 DXP1–DXP4 are complete through actual hosted qualification. The advisory
 implementation is qualified and published to main at `672894f`. The retained native-lineage track has
@@ -7,62 +7,7 @@ The 18 archived tracks have no active execution tasks. Five historical graph
 proposal entries were superseded by bounded inventory acceptance and are explicitly
 labelled historical in their archived plan, rather than marked as executed.
 
-## Sequential dependency integration — 6 November 2026
-
-[PR #94](https://github.com/edithatogo/tobac/pull/94) merged at
-`e1d9b8848ab261f0ed992a74b3a2750e980512aa` after all candidate checks passed
-at `adb3f8127355f210c1df959d629730873b381fc2`. Receiving ref and full-tree
-readback match the tested candidate. All ten receiving-main workflows passed,
-including [engineering](https://github.com/edithatogo/tobac/actions/runs/42170210863)
-and [scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/42170210761).
-
-[PR #80](https://github.com/edithatogo/tobac/pull/80) merged at
-`b1ccfd549665a69f0412daf3ef39b5509861caa1` after every candidate check completed
-without failure at `ff12683cc9eb259115f225fbde08fa74a00d8f06`. Receiving ref
-and full tree match that candidate. All ten receiving-main workflows passed,
-including [engineering](https://github.com/edithatogo/tobac/actions/runs/42172644130)
-and [scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/42172644125).
-Setup-uv v10.3.3 and uv 0.13.7 retain canonical Python 3.15.1. All eight accepted
-native runs were reopened before renewing the signed workflow binding. Prior
-capsules remain preserved in Git history. The stale native-plan opening is fixed.
-
-PR #133 merged at `15fb177cc8a216df1cdb1fc0741d365c92e5a3e3` after all 29 candidate checks passed. Receiving ref/full-tree readback matched; all ten receiving-main workflows passed. Its local qualification follows. All four lock profiles were generated and
-inspected; only the affected ecosystem lock/receipt is adopted. It changes prek
-0.5.7 to 0.5.9 and threadpoolctl 3.7.0 to 3.8.0. Unchanged runtime, audit and
-Voiage locks retain valid source receipts. The ecosystem candidate hash-installs
-on repo-local Python 3.15.1. Its full test run passed 1,224 cases with 20 skips;
-one committed-source snapshot test initially failed because the new lock was
-uncommitted. After commit `6d7e680`, the failure-only rerun passed that case:
-1,225 unique cases passed across those runs, with the 20 skips retained.
-Prek's read-only configuration validation passes. A real scikit-learn OpenMP
-pool was limited to two threads and restored; its synthetic arithmetic oracle
-passes. BLAS thread control is not qualified on this host: no supported BLAS
-pool was discovered. The original candidate failures and the focused correction remain retained evidence.
-
-PR #134 is the current candidate. Pydantic 2.14.1 to 2.14.2 changes the Voiage
-input shared by Voiage, ecosystem and advisory profiles. All four main profiles
-and advisory were generated and inspected; the three affected lock/receipt pairs
-are adopted, while runtime/audit remain unchanged. Additional affected-profile
-changes include pydantic-core 2.50.2, dateutil 4.0.0, threadpoolctl 3.8.0 and
-typing-inspection 0.4.5. The hash-installed ecosystem candidate passed the full
-suite on Python 3.15.1: 1,225 passed / 20 skipped at source checkpoint `5277a01`,
-under the 4 GiB/40-minute guard (644.2 MiB sampled peak). Hosted checks and merge
-remain required. #135 carries workflow portions of the same 3.15.2 patch requested
-by #91; both must be reconciled against the canonical runtime and signed evidence.
-
-The legacy optional `ecosystem` Nox session could not proceed because the exact
-hash-pinned Voiage 2.2 compatibility wheel is unavailable at its retained path;
-other local wheel copies have different hashes and were not substituted. This
-remains an open fresh-execution gate, separate from the current required CI and
-published Voiage 3.0 qualification. The failure is retained in local logs.
-
-#91 remains the separate consistent Python 3.15.2 qualification task. A fresh
-repo-local 3.15.2 environment installed the existing hashed runtime lock and passed
-26 cross-workstream tests; native runtime acceptance, complete source/lock alignment
-and hosted patch qualification remain open. Scientific and submission requirements
-below are unchanged. Earlier dependency snapshots are historical.
-
-## Historical receiving-main verification — 5 November 2026
+## Latest receiving-main verification — 5 November 2026
 
 All nine post-publication workflows passed at receiving main
 `7d24f608803e73cfc910bc766d7e8fcf444d741e`: M3 research methods (42000848891),
@@ -80,7 +25,7 @@ checks were unchanged. The results bind the cited published commit; they do not
 qualify later metadata or dependency candidates. Earlier receiving-main records
 remain in repository history.
 
-## Historical receiving-main hosted results — 5 November 2026
+## Latest receiving-main hosted results — 5 November 2026
 
 All nine post-publication workflows completed successfully at receiving main
 `669eb8851b89eef91b3b014787639fb2765768ef`: package portability (41967153709),
@@ -291,40 +236,7 @@ Full platform numerical reproduction is qualified by DXP3; DXP4 qualifies the ma
 Linux release and lock candidates. DH1 triage and DH2 review are complete locally; the dated hosted mutation count
 remains distinct from the later local run.
 
-## Historical dependency PR snapshot — 6 November 2026, 3:24 pm AEST
-
-Read-only GitHub CLI snapshot at 6 November 2026, 3:24 pm AEST (05:24 UTC). Receiving main was
-`b57b4e12e551c7c7d6db757b8d0f404eb8691146`; these were the only three open PRs.
-Counts distinguish check-run conclusions, unfinished jobs and legacy status contexts.
-This snapshot supersedes earlier candidate-head and stale-lock statements below;
-queued/running jobs are not acceptance evidence.
-
-| PR | Exact head | State | Observed checks |
-| --- | --- | --- | --- |
-| [#80](https://github.com/edithatogo/tobac/pull/80) | `bd19502a23fbc6ddbdad09e3578d65b52dec1a8f` | OPEN | 21 failure, 8 success, 2 skipped, 1 neutral, 1 status context success |
-| [#91](https://github.com/edithatogo/tobac/pull/91) | `5d8cbcf482a6774ac1fef700b68ec695a9e7f1fd` | OPEN | 6 failure, 23 success, 2 skipped, 1 neutral, 1 status context success |
-| [#94](https://github.com/edithatogo/tobac/pull/94) | `adb3f8127355f210c1df959d629730873b381fc2` | OPEN | 12 queued, 3 in progress, 13 success, 2 skipped, 1 neutral |
-
-- **#80:** the current [Linux test log](https://github.com/edithatogo/tobac/actions/runs/42025334896/job/127238003920)
-  rejects `advisory-types.yml` as a stale native acceptance pin before execution.
-  Reconcile and qualify the action changes and renew the signed binding only
-  after the required native readbacks. Other failures may remain after this fix.
-- **#91:** the current [Linux test log](https://github.com/edithatogo/tobac/actions/runs/42025289312/job/127237848913)
-  fails `test_legacy_entrypoint_points_to_one_canonical_pin_source` because
-  `.python-version` says 3.15.2 while the canonical contract remains 3.15.1.
-  A consistent patch migration and operation-specific runtime qualification remain required.
-- **#94:** current head `adb3f8127355f210c1df959d629730873b381fc2`
-  binds the tested ecosystem lock and receipt. The earlier stale-lock rejection
-  describes prior heads, not this candidate. Linux audit, Linux tests and both
-  package jobs have passed at this head; remaining hosted checks are unfinished.
-  The existing qualification lane retains ownership. Its handoff records 1,225
-  tests passed / 20 skipped in the isolated Python 3.15.1 candidate environment;
-  that local evidence is reused, not rerun or presented as full hosted acceptance.
-  Dateutil and typing-inspection changes still require the candidate's scientific
-  and cross-platform qualification before promotion. Neither PR nor main was changed
-  by this read-only refresh.
-
-## Historical dependency maintenance observations — through 5 November 2026
+## Open dependency maintenance
 
 After `bf77c6b`, Renovate rebased #80 to `cb78160`, #91 to `6705129` and #94
 to `7dffe2f`. Sampled Linux jobs confirm the same [stale signed pin](https://github.com/edithatogo/tobac/actions/runs/41994714877/job/127135001949),

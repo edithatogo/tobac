@@ -84,3 +84,18 @@ Arrow/Polars buffer ownership/lifetime and strict Patito/msgspec probes pass.
 The prior .1 receipt above remains historical; the current artifact identity is
 in integration/voiage_polars2_compatibility_20261027.json. No Voiage 3 migration,
 scientific calibration or generic structural/EVSI certification is implied.
+
+## Released Polars route — 6 November 2026
+
+The compatibility build described above is historical. Active `voiage` and
+advisory profiles now select published Voiage 3.1.0 with its normal dependencies;
+they no longer build the patched legacy producer or install pandas/xarray.
+The `voiage_polars_candidate` command name remains as a compatibility alias to
+released-producer qualification. The separate exact-wheel published qualification
+still verifies installed bytes, numerical parity and buffer ownership. Existing
+M3, independent numerical and Arrow interchange oracles remain required.
+
+All five source-bound dependency profiles are regenerated for exact Python
+3.15.1. Local installation and software evidence do not renew the signed
+scientific inventory or establish hosted acceptance. Older receipts, source
+patches and third-party history remain available as historical evidence.
