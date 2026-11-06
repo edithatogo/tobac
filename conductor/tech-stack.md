@@ -12,14 +12,15 @@ only a generated/reviewed hash lock qualifies a reproducible release environment
 No second statistical engine, Rust rewrite or universal agent framework without an identified
 need, maintained alternative review and acceptance evidence. Read docs/engineering/READINESS.md.
 
-DCI1 selected a bounded ty 0.0.95/Pyrefly 1.4.0 diagnostic comparison and a
-Linux ARM64 diagnostic leg beside the existing BasedPyright gate. The planned
-isolated profile is not installed or qualified; DCI2–DCI4 remain deferred.
+DCI1–DCI4 qualified and published a bounded ty/Pyrefly diagnostic comparison and a
+Linux ARM64 diagnostic leg beside the existing BasedPyright gate. The latest
+qualified diagnostic tuple is ty 0.0.98/Pyrefly 1.4.1, consumed from frozen 4015cc3;
+its native dependency admission is recorded separately.
 Duplicate action wrappers and prek migration are omitted. See the
 [selection](roadmap/cicd_hardening_20261025/selection_20261103.md). Existing
 reference/canary locks, hook ownership and full-SHA action pins are unchanged.
 
-The optional `interchange` extra uses PyArrow 26.0.0, Polars 2.1.0, Patito 0.8.6
+The optional `interchange` extra uses PyArrow 26.0.1, Polars 2.1.0, Patito 0.8.6
 and msgspec 0.22.0 to transport the existing evidence contract. Required test and
 clean-package environments exercise it; the numerical runtime remains unchanged.
 See docs/engineering/EVIDENCE_INTERCHANGE.md for schema, ownership and hash limits.

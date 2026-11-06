@@ -638,3 +638,27 @@ hooks and source publication boundaries remain intact. The retained native owner
 finishing receiving-main CI; its latest reported macOS test job is queued. That older
 hosted qualification is separate from latest-lock native admission for 4015cc3. No queued
 job or pending signature is recorded as complete.
+
+## Conductor publication and latest dependency admission — 6 November 2026
+
+The requested Conductor publication is complete: expected main 93b019e advanced
+by normal fast-forward to 2e6534d; exact receiving tree readback matched. All twelve
+PR workflows and ten receiving workflows succeeded. The failed local ps monitor
+sample remains in its log; one diagnosed retry passed with unchanged hook/limits.
+
+Frozen b027688/4015cc3 are now integrated locally as eb8c8a5/6b1822a, with
+six valid lock receipts and a fresh hash-installed native Python 3.15.2 environment.
+Eight new native executions, independent byte/source readback and a fresh signed
+capsule qualify 140 outputs; all 82 scientific CSVs equal the original accepted
+bytes. Old admission correctly rejected the changed material. Native and attested
+commands, atomic M1 stage, input/output/signature/runtime rejection controls and
+post-negative native reopening pass. The integrated suite passes 1262 tests / 9
+skips, sampled peak 988.5 MiB; focused changed-source lint passes. Existing latest
+library, audit, typing and clean-package receipts were reused rather than rerun.
+
+Receipt: integration/archive/dependency-admission_20261106.json. The accepted
+original checkpoint/archive and prior attempts are preserved. This establishes
+software/native lineage acceptance, not empirical calibration or outside scientific
+endorsement. The dependency integration is local; its hosted checks/publication
+and originating-lane real-scheduler handoff remain separate from the verified
+Conductor receiving commit. No new empirical inputs or scientific scope were added.

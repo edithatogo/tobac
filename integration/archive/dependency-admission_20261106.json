@@ -1,0 +1,240 @@
+{
+  "schema": "tobac.dependency-admission-renewal.v1",
+  "checkpoint": "integration/archive/scientific-lineage-checkpoint_dependencies_20261106.json",
+  "checkpoint_sha256": "049173c6f9fc518b75e1d4119194507d23dbb1e666425bdefe56e16b917ee680",
+  "capsule_sha256": "b4a0ff66a6e100793a296d86c8b1db4a52f140f3a7cf711d8309d6e808a42245",
+  "signature_sha256": "63707ef7a331adf05dae08299dc82ac86409d328213e6d0a7bc6a2cf878e2501",
+  "native_and_attested_runners": 8,
+  "verified_outputs": 140,
+  "reference_tables": 82,
+  "original_reference_sha256": "083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9",
+  "all_originals_and_cas_objects_reopened_after_negative_tests": true,
+  "full_suite": {
+    "passed": 1262,
+    "skipped": 9,
+    "failed": 0,
+    "seconds": 156.93,
+    "sampled_peak_mib": 988.5
+  },
+  "strict_types": {
+    "source": "reused frozen 4015cc3 qualification",
+    "errors": 0,
+    "warnings": 0
+  },
+  "hosted_checks": "not executed for this new snapshot",
+  "scientific_qualification": false,
+  "candidate": "4015cc351b14762ed38a244309109c7cdbf3a3e6",
+  "prerequisite": "b0276889787995475fb892d1fad9005a4047dd0b",
+  "integrated_commits": [
+    "eb8c8a5",
+    "6b1822a"
+  ],
+  "conductor_receiving_commit": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+  "conductor_receiving_tree": "2b481b7a2d84f67fecf5407d7d859e35d3eb7e79",
+  "conductor_pr_workflows": [
+    {
+      "conclusion": "success",
+      "databaseId": 42214369954,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Empirical longitudinal component",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214369954"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42214370126,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Advisory differential typing",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214370126"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42214369983,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Scientific reproduction qualification",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214369983"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42214370045,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Engineering qualification",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214370045"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42214370113,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "M3 research methods",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214370113"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42214369955,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "OpenSSF Scorecard",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214369955"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42214370139,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Linux audit lock qualification",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214370139"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42214370110,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Cross-platform Python qualification",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214370110"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42214370154,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Package portability qualification",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214370154"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42214370145,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Publication and source security",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214370145"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42214370077,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Regulatory uncertainty milestone",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214370077"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42214370135,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Hosted lineage verifier qualification",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42214370135"
+    }
+  ],
+  "conductor_receiving_workflows": [
+    {
+      "conclusion": "success",
+      "databaseId": 42217895862,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "OpenSSF Scorecard",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42217895862"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42217896081,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Linux audit lock qualification",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42217896081"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42217895883,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Package portability qualification",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42217895883"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42217895854,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Regulatory uncertainty milestone",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42217895854"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42217895940,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Scientific reproduction qualification",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42217895940"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42217895886,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Publication and source security",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42217895886"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42217895881,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "M3 research methods",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42217895881"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42217896060,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Engineering qualification",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42217896060"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42217895792,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Cross-platform Python qualification",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42217895792"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42217895674,
+      "headSha": "2e6534daa3d5fd47aeaa3bd772ef01757f0db2c5",
+      "name": "Empirical longitudinal component",
+      "status": "completed",
+      "url": "https://github.com/edithatogo/tobac/actions/runs/42217895674"
+    }
+  ],
+  "fresh_native_executions": 8,
+  "fresh_execution_peak_mib": 707.7,
+  "exact_scientific_csvs": 82,
+  "native_and_attested_commands_pass": true,
+  "atomic_m1_stage_pass": true,
+  "old_admission_rejected_new_material": true,
+  "native_runtime_lock_sha256": "3b66aae4d5e89e08d38383710d1bf02e62bc624938552dff2da7fb37b307f948",
+  "reused_candidate_evidence": [
+    "whole-source typing",
+    "audit and ecosystem installations/advisory scans",
+    "clean wheel/sdist/API/CLI",
+    "Voiage ownership comparisons",
+    "advisory fixtures and reports"
+  ],
+  "local_evidence_root": "outputs/dependency-admission-20261106",
+  "candidate_publication": "not requested or executed; local integration and admission only",
+  "scientific_calculation_source_configs_observations_unchanged": true,
+  "publication_boundary_tests": {
+    "passed": 21,
+    "failed": 0
+  },
+  "security": {
+    "full_history_staged_secrets_and_actionlint": "passed",
+    "sampled_peak_mib": 228.0,
+    "reviewed_new_digest_only_paths": 2
+  }
+}

@@ -1288,7 +1288,9 @@
     "engineering/clustering.lock",
     "engineering/clustering.lock.json",
     "scripts/verify_sensitivity_clustering.py",
-    "tests/engineering/test_clustering_packet.py"
+    "tests/engineering/test_clustering_packet.py",
+    "integration/archive/dependency-admission_20261106.json",
+    "integration/archive/scientific-lineage-checkpoint_dependencies_20261106.json"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",

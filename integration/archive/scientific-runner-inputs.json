@@ -1,7 +1,7 @@
 {
   "code": {
     "scripts/actions_diagnostics.py": "df733b0bacccf119c9eb915600ee14a3ede9012492f19a29f13ea4a27ab25520",
-    "scripts/advisory_types.py": "d891cf14f11f5967f697b39a2797ad926714a08c9da9a57982da2c797b1e4c16",
+    "scripts/advisory_types.py": "288fbc25aec3cfe94fc4e0e9bf7e275b1fd2bb08dae2af6e0ec8c71ca633701c",
     "scripts/assess_publication_history.py": "89a3098f36ee6daeec6a3debb45d92d8e26204f82057de07a07a865530574602",
     "scripts/check_conductor_track_names.py": "c6e6f8b634cfd323533560db5dc73432959792d95a7234f0b38a5f50b7941368",
     "scripts/check_longitudinal_results.py": "9d0d5d18043039d985a3cb3b32ef5a20284b15c5f89ad3b8c712e337b80a013d",
@@ -25,7 +25,7 @@
     "scripts/qualification_check.py": "46f3cab33b37c3aa8bf37b1f73f80c6bd31b9af31106813e5f104fb0a6de4528",
     "scripts/qualify_clean_package.py": "3f9bf4ed645556ae91a1708fca1a8d6f007503e96cd05c0a5f02b3e08675e797",
     "scripts/qualify_ecosystem.py": "1e1603902f4855474c781ae7f8b1d67c5d7923e5b22ce9beaeebf54a73ee4315",
-    "scripts/qualify_integrations.py": "81ac958ee42e7f175dcb5eef624734475d6b772c564ede4cd8b34a49bfbf7fff",
+    "scripts/qualify_integrations.py": "b8e09d0b31de47ad7476681cf238a93069ea6b1b630d37f46f2531690d1b3ed5",
     "scripts/qualify_interchange.py": "9b022fcf96c6d1dcb711424a75f5d8deae028c7ce2540c9b36453c3149d7388b",
     "scripts/qualify_lineage_recovery.py": "9eab2582e8e75a73214703a271649f3296107b357d3e3388dd8e485a9654ba69",
     "scripts/qualify_m2_pathway.py": "6624ea737865525d3728b831532434af2706674732042379c9504c81ea8a22b6",
@@ -95,7 +95,7 @@
     "src/tobac_supply/longitudinal.py": "3dae712734a760b077f06a7d2ed3acb5f2cbfe7580331fc3fe0d12d95b16bc34",
     "src/tobac_supply/release_calibration.py": "74e56c210ea8f5cd59969298e3e00521d46885b3ecf7b31acd7d4c2069c8962a"
   },
-  "revision": "d0e9fddb422ec472195d81f7a5bf55c14bcbf8fe",
+  "revision": "6b1822ab0492698cf65fe6ff5bf8844f60d3937a",
   "runners": {
     "longitudinal": [
       "configs/empirical_longitudinal_v2.9.0/model.json",

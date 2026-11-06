@@ -954,9 +954,21 @@ and guarded publication remain open.
 - [x] Renew checkpoint, inventory/runtime bindings and signed native capsule; retain the old checkpoint and numerical archive.
 - [x] Verify native and attested commands, actual atomic M1 stage, source/object/signature/runtime rejection controls, and reference closure mapping.
 - [x] Run the complete bound suite: 1,258 passed, 7 skipped; strict whole-source typing: zero errors/warnings.
-- [ ] Run hosted checks for this renewed snapshot.
-- [ ] Publish through the existing guarded integrator and verify the receiving ref.
+- [x] Run hosted checks for this renewed snapshot. All twelve PR #139 workflows and all ten receiving-main workflows passed.
+- [x] Publish through the existing guarded integrator and verify the receiving ref. PR #139 received at e3a1cf9; Conductor received through PR #140 and the guarded PR #141 fast-forward at 2e6534d, with exact tree and terminal hosted readback.
 
-Checkpoint: `integration/archive/scientific-lineage-checkpoint_20261106.json`.
-The historical Phase 8 receipts above are not substituted for the two remaining
-publication tasks. Local proof does not establish empirical scientific adequacy.
+Checkpoint: `integration/archive/scientific-lineage-checkpoint_integrated_python3152_20261106.json`.
+The historical Phase 8 receipts above are separate from the executed renewal checks. Local proof does not establish empirical scientific adequacy.
+
+
+## Dependency candidate 4015cc3 renewal — 6 November 2026
+
+- [x] Integrate frozen b027688 prerequisite and 4015cc3; verify all six lock receipts.
+- [x] Observe old admission rejecting changed material; hash-install a fresh native Python 3.15.2 environment.
+- [x] Execute all eight profiles; independently reopen 140 outputs and source links, with all 82 CSVs byte-identical to prior acceptance.
+- [x] Issue a fresh signed checkpoint; verify native/attested commands, atomic M1, rejection controls and post-negative reopening.
+- [x] Complete coherent integrated suite: 1262 passed / 9 skips. Reuse unchanged candidate type/audit/package/library evidence.
+- [ ] Qualify and publish this changed dependency tree through hosted checks; prior Conductor receiving checks apply to 2e6534d only.
+
+Receipt: `integration/archive/dependency-admission_20261106.json`.
+Original numerical archive, historical checkpoints and accepted attempts remain unchanged.

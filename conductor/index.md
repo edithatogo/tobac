@@ -30,7 +30,7 @@
 
 - [Voiage Polars qualification](./archive/voiage_polars_qualification_20261026/plan.md): published 3.0.0 wheel qualified on Python 3.15.1.
 
-- [Native archival provenance and transformation lineage](./tracks/native_archival_lineage_20261026/index.md). Complete for the last published closure, with producer c76d78df and consumer 14303e4 received. Integrated 6 November lineage renewal is locally verified; its hosted checks and guarded publication remain pending.
+- [Native archival provenance and transformation lineage](./tracks/native_archival_lineage_20261026/index.md). Complete for the last published closure, with producer c76d78df and consumer 14303e4 received. Integrated 6 November lineage renewal is published and verified through PRs #139–#141; the latest dependency renewal is separate.
 
 - [M2 matched evidence pathway](./archive/m2_matched_evidence_20261027/plan.md):
   completed issue #3 bounded source-feasibility audit and self-review;

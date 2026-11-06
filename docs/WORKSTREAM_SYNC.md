@@ -1347,3 +1347,78 @@ profile, audit dependency coverage, Nox/Snakemake and packet verification/recove
 source changes are reviewable candidates; shared main/runtime promotion and the in-progress
 native renewal stay with the existing integrator. No dirty owner source or private bindings
 will be copied. Next: extend the existing closed lock graph and verify the complete packet.
+
+## PR #140 publication verified — 6 November 2026
+
+PR #140 head `3021e559aac83e2cab2f47c3a2ea937da78d6552` completed its
+hosted checks without failures and merged using the exact-head guard at
+`93b019e771bc81d899907c90aae355be5a34a3a5`. Fetched receiving main has tree
+`4908e7534fab0a9261ee0daae06b1518209f9875`, exactly equal to the tested PR tree.
+All ten push workflows at that receiving commit completed successfully:
+engineering, scientific reproduction, package portability, Linux audit,
+cross-platform tests, publication/source security, empirical longitudinal,
+regulatory uncertainty, M3 and OpenSSF Scorecard. All ten receiving workflows for
+PR #139's `e3a1cf9` merge also completed successfully. Queue delays required no
+code changes or weakened gates.
+
+Receipts: `outputs/hosted-integrated-20261106/pr140-final.json`,
+`pr140-receiving-final.json` and `pr139-receiving-final.json`. The run identifiers
+are retained below so the hosted results remain independently retrievable:
+
+Publication and source security: 42211622341; OpenSSF Scorecard: 42211622238; Linux audit lock qualification: 42211622127; M3 research methods: 42211622214; Package portability qualification: 42211622202; Cross-platform Python qualification: 42211622256; Empirical longitudinal component: 42211622095; Regulatory uncertainty milestone: 42211622279; Scientific reproduction qualification: 42211622113; Engineering qualification: 42211622316.
+
+PR #140 and its post-publication verification have no remaining checks. This
+terminal Conductor readback is a local documentation-only reconciliation after
+receiving-main verification; it is not part of the tested receiving commit and
+has not been published. Latest dependency promotion from the empirical lane
+remains separate: frozen `4015cc3` requires integration and fresh native admission
+before promotion; none of its evidence is substituted for the accepted closure.
+
+
+## Dependency admission ownership — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
+`codex/dependency-4015cc3-native-admission`. Conductor commit `2e6534d` was
+published by guarded normal fast-forward from expected main `93b019e`; fetched
+receiving SHA and tree match. All twelve PR workflows and ten receiving workflows
+passed. One interrupted push did not publish; a resource-monitor ps timeout was
+retained, diagnosed and followed by one successful unchanged-hook retry.
+
+Frozen `b027688` and `4015cc3` were consumed as `eb8c8a5` and `6b1822a`.
+Only Conductor records needed conflict reconciliation. All six complete lock
+receipts verify. The old native attempt correctly rejects changed execution
+material before renewal. New execution uses an isolated, hash-installed local
+Python 3.15.2 environment under `outputs/dependency-admission-20261106`, with
+fresh attempts and retained originals/signing ownership. Other worktrees and
+private bindings remain with their owners. Next: native byte/source readback,
+fresh signed admission, command/rejection controls and one coherent suite.
+
+
+## Conductor publication and latest dependency admission — 6 November 2026
+
+The requested Conductor publication is complete: expected main 93b019e advanced
+by normal fast-forward to 2e6534d; exact receiving tree readback matched. All twelve
+PR workflows and ten receiving workflows succeeded. The failed local ps monitor
+sample remains in its log; one diagnosed retry passed with unchanged hook/limits.
+
+Frozen b027688/4015cc3 are now integrated locally as eb8c8a5/6b1822a, with
+six valid lock receipts and a fresh hash-installed native Python 3.15.2 environment.
+Eight new native executions, independent byte/source readback and a fresh signed
+capsule qualify 140 outputs; all 82 scientific CSVs equal the original accepted
+bytes. Old admission correctly rejected the changed material. Native and attested
+commands, atomic M1 stage, input/output/signature/runtime rejection controls and
+post-negative native reopening pass. The integrated suite passes 1262 tests / 9
+skips, sampled peak 988.5 MiB; focused changed-source lint passes. Existing latest
+library, audit, typing and clean-package receipts were reused rather than rerun.
+
+Receipt: integration/archive/dependency-admission_20261106.json. The accepted
+original checkpoint/archive and prior attempts are preserved. This establishes
+software/native lineage acceptance, not empirical calibration or outside scientific
+endorsement. The dependency integration is local; its hosted checks/publication
+and originating-lane real-scheduler handoff remain separate from the verified
+Conductor receiving commit. No new empirical inputs or scientific scope were added.
+
+Final staged security (full-history/staged secret scan and Actionlint) passed at
+228.0 MiB sampled peak. The exact two new digest-only receipt paths were reviewed
+into the existing publication inventory; 21 boundary tests pass. Existing private
+document hashes and all other publication restrictions are retained.
