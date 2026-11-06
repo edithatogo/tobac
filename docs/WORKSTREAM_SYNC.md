@@ -1117,3 +1117,36 @@ failures encountered during renewal remain visible in local logs, not waived.
 Current evidence is in `outputs/lineage-renewal-20261106/`; the full suite with
 renewed native bindings is the next milestone. No hosted run or receiving-ref
 publication is claimed by this local acceptance candidate.
+
+## Integrated native renewal verified — 6 November 2026
+
+Acceptance implementation: `b3f3130`; frozen model source: `619aa99`, integrating
+scientific handoff `b118592` and newer qualified main workflow pins. New checkpoint
+SHA256: `42d7340ffd226a9ee0394a695229991a357f8a7e4d6b08906aeeba932d483517`.
+The original reference archive remains SHA256
+`083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9`.
+
+The complete suite with explicit renewed native bindings passes: **1,258 passed,
+7 skipped**, 61.13 seconds, sampled peak 915.3 MiB. This includes real native
+missing/corrupt/incomplete-object controls, candidate self-acceptance rejection,
+signed payload/authority/runtime/substitution controls, wrong-manifest selection,
+and the added stage/context/DAG source pin rejection controls. All source Ruff
+checks pass; whole-source strict BasedPyright reports zero errors and warnings
+(879.5 MiB sampled peak). The normal scientific comparator passes eight runners /
+82 tables with maximum numerical difference zero. Native/attested command paths
+and the actual M1 atomic stage pass. Post-test native verification reopens all
+originals and CAS objects; all 140 accepted outputs remain intact.
+
+Final readback: `outputs/lineage-renewal-20261106/renewal-verification.json`.
+The original owner binding is unchanged; the fresh qualified binding is retained
+locally at `outputs/lineage-renewal-20261106/env-bindings`, without copying it or
+any private signing/original bytes to other lanes or public source. Earlier
+failed/superseded generations are retained and not represented as final proof.
+
+Terminal source packet: the branch includes the final empirical source plus
+current-main workflows. Integrators must preserve that complete signed pin set;
+cherry-picking the capsule alone onto older workflows correctly rejects stale
+pins. Latest dependency candidates remain held, outside this fixed acceptance.
+Hosted checks and guarded publication/receiving-ref verification of this new
+snapshot remain separate next work. Do not prune its native environment, attempts,
+readback logs or binding as rebuildable cache while this closure is retained.

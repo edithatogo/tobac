@@ -417,3 +417,23 @@ and the renewed active closure are checked separately, with exact CSV object-map
 equality; the normal eight-runner comparator reports zero numerical difference.
 Native/hosted negative controls and the complete suite remain the final local
 verification milestone. Hosted checks/publication remain separate open work.
+
+## Integrated lineage renewal complete locally — 6 November 2026
+
+Implementation `b3f3130` renews the eight-profile native closure for the combined
+Polars/M1-stage source. The final checkpoint SHA256 is
+`42d7340ffd226a9ee0394a695229991a357f8a7e4d6b08906aeeba932d483517`.
+All 140 outputs and original-source links reopen after negative testing; 82 CSVs
+remain byte-identical. The original numerical archive and historical checkpoint
+are preserved, with exact CSV object-map equality required by the comparator.
+
+The full suite with renewed private bindings passes **1,258 tests / 7 skips**;
+strict whole-source typing has zero errors/warnings, and affected lint/format
+checks pass. Native and attested commands, atomic M1 execution, and missing,
+stale, corrupt, substituted and unauthenticated input rejection are verified.
+No scientific calibration or external endorsement is inferred.
+
+Remaining for this new snapshot: hosted checks, then guarded publication and
+receiving-ref readback through the existing integrator. The original Phase 8
+completion applies to its published closure and is not substituted for these
+remaining checks. Latest dependency promotion remains separate from this renewal.

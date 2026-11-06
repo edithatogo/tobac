@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage
 
-Status: **completed** — Phases 1–8 verified for the declared current closure. Producer c76d78df and consumer 14303e4 received and read back. Hosted verification uses signed executed native evidence and checks actual current inputs.
+Status: **completed for the last published closure** — Phases 1–8 verified, with producer c76d78df and consumer 14303e4 received. The integrated 6 November renewal is locally verified (eight native profiles, 140 outputs, 82 unchanged CSVs, 1,258 tests passed); hosted checks and guarded publication of that snapshot remain pending. See the plan renewal checklist.
 Track ID: `native_archival_lineage_20261026`. Type: Feature.
 
 Trace every current and future dataset through native archival preservation,
