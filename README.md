@@ -15,7 +15,9 @@ NZ tobacco-regulation uncertainty and wastewater value-of-information research.
 
 The six approved additions are implemented under [`src/tobac/research`](src/tobac/research/): exact weighted Voiage adaptation and structure-only information; complementary information portfolios and shared costs; unweighted prior/structure robustness; implementation-adjusted decisions; and pilot/continue/stop with matched timing. Uptake and delay materiality is tested before requiring Innovate or Kairos.
 
-Read the [M3 findings](results/milestone3/report.md), [method contract](docs/research/M3_CONTRACT.md), [six-item status](integration/m3_requirement_status.csv) and [execution receipt](integration/m3_local_verification.json). **Bounded installed Voiage qualification now passes on Python 3.15.1** for the source-built `2.2.0+tobac3151.1` candidate: equal/weighted EVPI and finite partitions, not generic EVSI or structural API certification. See the [compatibility receipt](integration/voiage_python315_compatibility_20261026.json). Innovate and Kairos remain optional and unexecuted. All new cost/value calculations are conditional normalised units, not NZ procurement estimates.
+Read the [method contract](docs/research/M3_CONTRACT.md), [six-item status](integration/m3_requirement_status.csv) and [execution receipt](integration/m3_local_verification.json). The authoring report is local-only under the [publication boundary](docs/engineering/PUBLICATION_BOUNDARY.md). **Bounded published Voiage 3.1.0 qualification passes on Python 3.15.1** for equal/weighted EVPI and finite partitions; it does not establish generic EVSI or structural API certification. See the [published-wheel receipt](integration/voiage_published_20261106.json). The earlier [source-built compatibility receipt](integration/voiage_python315_compatibility_20261026.json) is historical. Innovate and Kairos remain optional and unexecuted. All new cost/value calculations are conditional normalised units, not NZ procurement estimates.
+
+The [NZ/AU empirical and wastewater VOI track](conductor/tracks/nz_au_empirical_20261106/index.md) is in Phase 0. Its runtime/workflow qualification does not establish a current NZ/AU empirical fit or a wastewater funding recommendation.
 
 ```sh
 nox -s research_m3
@@ -41,7 +43,7 @@ M1's broad regulatory screening is preserved. M2a adds:
 - release accounting with signed stock change, lawful unrecorded supply, outbound flows and joint reporting error;
 - exact incremental-information identities, invalid-input regression tests and source-effect quadrature checks.
 
-Read [M2a findings](results/milestone2/report.md), [the policy contract](docs/m2_retail_contract.md), [the evidence interface](docs/evidence_interface.md), [source applicability](evidence/m2/source_review.json) and [task status](conductor/tracks.md).
+Read [the policy contract](docs/m2_retail_contract.md), [the evidence interface](docs/evidence_interface.md), [source applicability](evidence/m2/source_review.json) and [task status](conductor/tracks.md). The authoring report is local-only under the publication boundary above.
 
 **These milestones are not a fitted current NZ posterior, an observed regulatory effect, or a funding recommendation.** M2a's published prior component was itself constructed in another model, for a different retailer reduction. Costs, harm weights, source transport and study performance remain explicitly conditional. Synthetic conditioning fixtures are not NZ observations. No individual criminality or ethnicity is inferred from wastewater.
 
@@ -50,7 +52,7 @@ Read [M2a findings](results/milestone2/report.md), [the policy contract](docs/m2
 The v2.8 reported-release and v2.9 historical survey/supply components now reside in
 [`src/tobac_supply/`](src/tobac_supply/), alongside the unchanged regulatory package.
 Read the [integration and reproduction guide](docs/empirical_longitudinal/INTEGRATION.md),
-[historical methods](docs/empirical_longitudinal/METHODS_AND_ASSUMPTIONS_v2.9.0.md),
+[historical model configuration](configs/empirical_longitudinal_v2.9.0/model.json),
 [compact results](results/longitudinal/) and [local verification receipt](integration/longitudinal_local_verification.json).
 
 The import has 151 locally passing component tests and two completed full reruns. It fits
@@ -93,9 +95,9 @@ Use new output directories. M2a `--quick` selects one case/weight; `--quit-point
 
 ## Earlier screening and source migration
 
-[M1 findings](results/milestone1/report.md), [protocol](docs/protocol.md) and [next empirical milestone](docs/next_milestone.md) remain available. M1 evaluates 4,096 hypotheses, nine prior/dependence scenarios, four normative weights and thirteen study designs. The earlier cessation-allocation example is secondary. Nine inherited numerical/physical definitions remain unchanged; see [baseline provenance](integration/baseline.json).
+The M1 authoring report and protocol are local-only under the [publication boundary](docs/engineering/PUBLICATION_BOUNDARY.md). The [next empirical milestone](docs/next_milestone.md) remains available. M1 evaluates 4,096 hypotheses, nine prior/dependence scenarios, four normative weights and thirteen study designs. The earlier cessation-allocation example is secondary. Nine inherited numerical/physical definitions remain unchanged; see [baseline provenance](integration/baseline.json).
 
-This focused repository is not a wholesale migration of the earlier project archives or their Git history. Historical archives and optional health/fiscal engines remain preserved separately. The bounded `tobac_supply` source integration is coordinated in issue #1 and documented above; no parallel regulatory code was replaced.
+This focused repository is not a wholesale migration of the earlier project archives or their Git history. Historical archives and optional health/fiscal engines remain preserved separately. The bounded `tobac_supply` source integration is documented above; issue #1 retains historical coordination context. No parallel regulatory code was replaced.
 
 ## Execution boundaries
 

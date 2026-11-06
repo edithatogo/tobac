@@ -2,9 +2,9 @@
 
 ## H0 — Baseline inventory (with empirical Phase 0)
 
-- [ ] Inspect current main, ownership and existing receipts; identify actual gaps without repeating unchanged audits.
-- [ ] Inventory documentation links, package contents, GitHub metadata and workflow boundaries.
-- [ ] Record findings, severity, allowed files, owner and focused acceptance commands.
+- [x] Inspect current main, ownership and existing receipts; identify actual gaps without repeating unchanged audits. Baseline/receiving refs and retained owners are recorded in index.md.
+- [x] Inventory documentation links, package contents, GitHub metadata and workflow boundaries. Scope and untested link/rendering behavior are explicit in index.md.
+- [x] Record findings, severity, allowed files, owner and focused acceptance commands. See the H0 findings table; inventory does not imply H1/H2 completion.
 
 ## H1 — Incremental hardening (with each analytical package)
 

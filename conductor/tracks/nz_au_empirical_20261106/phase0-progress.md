@@ -490,3 +490,22 @@ checks and targeted rejection controls. No dirty source or private binding was c
 no signed reference was edited in this lane. The owner is still qualifying its packet.
 Added the final task-card execution order, including source freeze/context/terminal-log/
 commit sequencing, so the observed stale-context error is not repeated by the next agent.
+
+## Companion hardening H0 inventory
+
+Completed the companion's H0 baseline inventory while the native owner finished its packet.
+CommonMark parsing covered 180 tracked Markdown files, 490 links and 350 local targets.
+All 21 missing targets are catalogued local-only authoring documents; none was restored.
+Corrected five README destinations/labels and its obsolete active Voiage wording using the
+qualified published-wheel receipt, retaining historical qualification and scientific limits.
+Subsequent inventory has 16 remaining historical/technical references, with none in README.
+External HTTP, anchors, HTML and rendering are explicitly untested. Baseline and subsequent
+inventories are distinct retained artifacts.
+
+Live GitHub metadata matched public visibility, Apache-2.0 and research description/topics;
+no native setting changed. Structural inventory of 15 workflows found no unpinned remote
+action; four named jobs carry feature-specific write scopes. Newer main pins remain in the
+owner's pending packet. Reused package/security/resource receipts at their actual scopes.
+Recorded severity, ownership, allowed files, focused commands and H1/H2 follow-ups in the
+hardening index; marked only H0 complete. Staged publication-boundary validation passed
+(56.2 MiB sampled peak). No source, lock, signed object or workflow was changed here.
