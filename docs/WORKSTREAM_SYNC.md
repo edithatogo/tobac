@@ -1293,3 +1293,17 @@ workstream tests passed; Ruff and formatting passed; final historical coverage a
 with 89.2 MiB bounded sampled group RSS. Tests establish software evidence only. New AU
 originals are external staging, not native archive admission. Phase 0 renewal and Phase 1
 source gates remain open; no empirical fit, funding claim or external publication was made.
+
+## NZ/AU Phase 3 preparation ownership — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns P3.1 on codex/nz-au-empirical at
+/Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac, base 7cd0394. Allowed scope
+is the phase3 task card: module/evidence/formula readiness records and bounded shared
+evidence audit. No numerical source/input changes, native writes, dependency promotion or
+M3 changes. Existing integrator retains latest-lock admission. Next: audit actual handoff
+gaps and freeze mechanism-specific health/equity requirements before empirical expansion.
+
+P3.1 terminal local evidence: 151 focused policy/evidence/value/source-handoff/publication/
+workstream tests passed; shared-evidence audit wrote a blocked 28-row report. Four methods
+and library originals are externally staged with hash readback. No numerical source, inputs,
+locks or native bindings changed. Phase 3 remains an evidence-gated implementation queue.

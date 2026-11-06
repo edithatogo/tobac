@@ -18,3 +18,8 @@
 - [Decision/evidence progress and gaps](phase1-progress.md)
 - [First empirical feasibility task card](phase2-task-card.md)
 - [First empirical NZ/AU feasibility result](phase2-feasibility.md)
+- [Policy, health and equity task card](phase3-task-card.md)
+- [Policy, health and equity expansion contract](phase3-design.md)
+- [Module evidence and validation matrix](phase3-module-matrix.csv)
+- [Expansion readiness and open gates](phase3-progress.md)
+- [Methods and library source receipts](phase3-source-receipts.json)

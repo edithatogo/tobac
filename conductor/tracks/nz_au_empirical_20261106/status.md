@@ -43,3 +43,9 @@ with hashes; rights/archive admission remain open. The Polars audit verifies the
 12-row historical bridge and 16-row tonne series against their consumer inventory. AU
 programme design is documented, including a quarantined narrative/table denominator conflict.
 No current NZ illicit estimate, policy fit, empirical EVSI/ENBS or Phase 2 completion is claimed.
+
+Phase 3 readiness preparation is recorded in phase3-progress.md: 11 module contracts,
+health/cost/equity formula requirements and library reuse disposition. The actual shared
+evidence handoff remains blocked for 28 rows; no health/equity engine or empirical PSA
+was added. vop_poc_nz's current Python/pandas/Polars/Arrow requirements conflict with this
+baseline. Phase 3's original acceptance tasks remain open.

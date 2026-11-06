@@ -45,6 +45,11 @@ scope audit or algebraic argument alone.
 
 ## Phase 3 — Policy, health and equity expansion (R05–R08, R12, R18)
 
+P3.1 readiness preparation is in phase3-design.md and phase3-module-matrix.csv. The actual
+shared-evidence audit reports 28 blocked rows; see phase3-progress.md. Empirical mechanisms,
+health/equity outputs and PSA remain unimplemented pending Phase 0–2 and module-specific
+evidence. The contracts and library review do not close the tasks below.
+
 - [ ] Add accepted excise, retail, nicotine, cohort, cessation, enforcement and product-substitution modules incrementally with independent reference checks.
 - [ ] Add health histories, disease lags, competing risks, HR-QoL and costs only where justified; preserve separate perspectives and subgroup outputs.
 - [ ] Run module-level PSA, structural sensitivity and predictive checks at each addition, not only after expansion.
