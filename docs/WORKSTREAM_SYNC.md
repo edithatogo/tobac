@@ -963,3 +963,14 @@ profiles have fresh verified receipts; runtime/audit retained their unchanged
 qualified locks. #133 receiving-main workflows all passed at `15fb177`. Source
 science and native attempts are unchanged. Next: exact-head publication and hosted
 qualification, then #91 and #135; unfinished source lanes remain preserved.
+
+## Exact CSV and plotting follow-up — 6 November 2026
+
+The source packet's empirical writer now preserves Python float and boolean
+spelling. All eight empirical CSV files are byte-identical to the original
+8,192-draw baseline; no comparator waiver is required. The 13 release tables
+and all figures retain the previously verified values. Three multiline
+Matplotlib calls retain narrowly documented third-party kwargs typing ignores
+at the callable line, addressing the empirical lane's strict-audit findings;
+global typing policy is unchanged. This supersedes the earlier case-only CSV
+qualification rather than weakening the table comparator.

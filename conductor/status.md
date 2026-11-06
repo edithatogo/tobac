@@ -459,3 +459,9 @@ has zero errors. This source packet still requires integration with active
 profile/lock retirement and renewed signed scientific inventory/capsule before
 publication. Historical evidence is retained; no hosted or native acceptance is
 inferred from the local parity result. See `docs/WORKSTREAM_SYNC.md` for receipts.
+
+The Polars CSV follow-up preserves the original boolean and float spelling:
+all eight full-size empirical CSV files are now byte-identical to baseline.
+No table-comparator exemption is needed. The current profile candidate removes
+both retired dependencies and qualifies published Voiage 3.0.0; it remains a
+local source/lock candidate pending integrated native renewal and hosted gates.
