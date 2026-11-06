@@ -238,3 +238,23 @@ Publication security process reached terminal exit 0: existing tree/outgoing bou
 checksum-qualified scanner identities, full-history/staged secret scanning and Actions
 syntax checks completed. Scanner output is retained locally in publication-security.log;
 no secret matches are echoed to chat. This does not establish empirical/native acceptance.
+
+## Native admission and scientific DAG stage
+
+Actual default native M1 preflight failed exit 2 because TOBAC_LINEAGE_ATTEMPTS is absent
+in this checkout. Inspected the maintained attested route and qualified runtime profiles;
+read-only hosted_lineage.py -I -S --runner m1 passed before the new wrapper was introduced.
+No native binding/cache or private journal was moved or rewritten.
+
+Added run_m1_stage.py plus optional analysis=m1 DAG target: fixed attested preflight,
+unchanged M1 runner and output verifier, per-attempt logs/terminal event, staging and atomic
+directory publication. New output paths only; no arbitrary workload/config arguments.
+The real DAG rejected before execution because the added run_* wrapper changes the pinned
+scientific inventory. Reopened attested route confirms `Scientific inventory differs from
+native acceptance`. Do not alter hashes or rename operations to evade this check. Owning
+native-lineage scope must renew acceptance before the stage can execute successfully.
+
+Targeted stage/context/workstream tests passed: 33 tests. Tests include preflight failure
+preventing calculation/publication and rejecting existing/out-of-scope output paths. Native
+success is not mocked as evidence. Static Ruff passed; strict typing result retained in
+m1-stage-types.log. This change is unqualified for native runtime until inventory renewal.

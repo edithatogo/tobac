@@ -8,6 +8,9 @@ PROFILE = config["profile"]
 BUNDLE = config["bundle"]
 OUT = config["out"]
 PYTHON = str(Path(config["python"]).absolute())
+ANALYSIS = config.get("analysis", "context")
+if ANALYSIS not in {"context", "m1"}:
+    raise ValueError("Supported analysis targets: context, m1")
 CONTRACT = json.loads(Path(PROFILE).read_text(encoding="utf-8"))
 # Revalidate even on a cached run: Git HEAD changes and preserved mtimes must not
 # permit a stale bundle to pass merely because Snakemake skips the rule.
@@ -17,9 +20,18 @@ subprocess.run(
     timeout=30,
 )
 
+# Recheck accepted scientific input identities before cache selection as well.
+if ANALYSIS == "m1":
+    subprocess.run(
+        [PYTHON, "-I", "-S", "scripts/hosted_lineage.py", "--runner", "m1"],
+        check=True,
+        timeout=30,
+        stdout=subprocess.DEVNULL,
+    )
+
 rule all:
     input:
-        OUT + "/verified.json"
+        OUT + "/m1/manifest.json" if ANALYSIS == "m1" else OUT + "/verified.json"
 
 rule verify_context:
     input:
@@ -39,3 +51,20 @@ rule verify_context:
     shell:
         "{PYTHON:q} scripts/verify_context_stage.py --bundle {BUNDLE:q} "
         "--receipt {output:q} --log {OUT:q}/events.jsonl > {log:q} 2>&1"
+
+
+rule m1:
+    input:
+        admission=OUT + "/verified.json",
+        wrapper="scripts/run_m1_stage.py",
+        config="configs/regulatory.json",
+        source=sorted(str(p) for p in Path("src/tobac").rglob("*.py")),
+        provenance=sorted(str(p) for p in Path("integration/archive").glob("*.json"))
+    output:
+        OUT + "/m1/manifest.json"
+    log:
+        OUT + "/m1-stage.log"
+    resources:
+        mem_mb=4096
+    shell:
+        "{PYTHON:q} scripts/run_m1_stage.py --out {OUT:q}/m1 > {log:q} 2>&1"

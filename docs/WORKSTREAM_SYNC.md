@@ -796,3 +796,8 @@ Phase 0 candidate scope additionally includes isolated analytics lock/profile su
 scripts/lock_receipt.py, its tests, engineering/analytics.*, and Renovate analytics discovery.
 The four existing reference profiles and other owners' environments are preserved. Shared
 file edits require integrator reconciliation; no main or remote runtime promotion occurred.
+
+The empirical lane now owns optional workflow M1 stage and scripts/run_m1_stage.py with tests.
+The existing attested source capsule passed before adding this wrapper, and now correctly
+rejects its changed scientific inventory. Inventory/capsule renewal remains with the native
+lineage owner; do not bypass the guard, move bindings or promote the new stage as accepted.

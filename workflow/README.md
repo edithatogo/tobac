@@ -20,3 +20,18 @@ a new reviewed bundle. verified.json is context acceptance only. Logs and receip
 outputs; no source data is added to this code repository. The workflow currently has a single
 admission stage; scientific stages must retain existing lineage_preflight.py and native input
 verification rather than treating this receipt as their replacement.
+
+## Scientific M1 target (pending renewed lineage acceptance)
+
+Set `analysis=m1` to require an M1 manifest in the `all` target. Admission reopens the
+existing attested source capsule before cache selection and again inside run_m1_stage.py.
+The wrapper uses the unchanged M1 runner and verifier, deterministic process settings,
+per-attempt logs and a temporary analysis directory. It publishes the completed directory
+by rename only after all checks pass; existing outputs are never overwritten. Failed
+attempt logs remain for diagnosis; partial staged directories are not accepted outputs.
+
+Adding the wrapper changed the scientific operation inventory. The existing attested gate
+currently rejects it with `Scientific inventory differs from native acceptance`. This is
+an open integration requirement, not permission to rename the script to evade inventory,
+edit capsule hashes, copy private bindings or claim a successful scientific DAG. Renew the
+lineage contract through its owning lane before qualification. Context-only mode is separate.
