@@ -1,7 +1,7 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "advisory",
-  "resolver": "uv 0.13.6 (Homebrew 2026-10-26 aarch64-apple-darwin)",
+  "resolver": "uv 0.13.7 (Homebrew 2026-11-03 aarch64-apple-darwin)",
   "command": [
     "/Users/doughnut/.local/bin/uv",
     "--no-config",
@@ -10,7 +10,7 @@
     "engineering/advisory.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/dci3-lock/advisory.lock",
+    "outputs/conductor-status-refresh/pr134-locks/advisory.lock",
     "--universal",
     "--python-version",
     "3.15"
@@ -24,8 +24,8 @@
     "engineering/test-requirements.txt": "aad99922ffbb72dded04118a6a9815be60c7634be925e4fac9d64b51720f6678",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/advisory.in": "edd6096d581fd09808f87f5f7f6ce35c1efa5adffecf3855e847c8cb5fc020a3",
-    "engineering/voiage.in": "95956f53a227749aba89248d67d3374ff3ac0ec1e0588637c06cea21b01bb76a"
+    "engineering/voiage.in": "4ae5d17caba4f1d0078142f98739c8d2b0c63861afb091ff9059b95ccb413f5e"
   },
-  "lock_sha256": "82bb884b347dd2aa085ee2a150d44b08ef46f180b12133a56fdfa73ecb2128d8",
+  "lock_sha256": "9993e829d8aee44194475799817d3cede07beb93d49b4b0df0765b954e6e3289",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

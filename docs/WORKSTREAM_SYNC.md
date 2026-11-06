@@ -885,3 +885,14 @@ wheel, before installing or running its probes. Alternate hashes were rejected;
 no acceptance pin was weakened. Current published Voiage qualification is retained.
 All ten #80 receiving-main workflows now passed at `b1ccfd5`. Next: publication
 boundary and exact-head #133 push, followed by hosted qualification and guarded merge.
+
+## PR #134 resumed qualification — 6 November 2026
+
+Integrator chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` owns
+`codex/qualify-pr134` in `/Users/doughnut/Documents/tobac-conductor-status-20261106`.
+Scope: Pydantic's Voiage input and affected source-bound lock receipts, focused
+qualification and Conductor reconciliation. #133 merged at `15fb177`; its
+receiving tree matched the qualified candidate. Next: generate and inspect the
+four main profiles plus the affected advisory profile, qualify changed packages,
+publish at the expected PR head and verify hosted/receiving results. Unfinished
+Polars and NZ/AU work and existing private native resources retain their owners.
