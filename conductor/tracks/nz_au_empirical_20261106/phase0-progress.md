@@ -167,3 +167,31 @@ and pytest-mock wrapper appraised in test-tool-review.md. Existing coverage.py g
 Added standard-library autospec mock only for a filesystem-error boundary. No mocked empirical
 or native success receipts. Baseline dependency vulnerability audit passed: no known findings
 for the 38-package target environment; analytics audit is still pending.
+
+## Full numerical replay, security and expanded census
+
+After interruption the original session handle was missing. Process inspection showed no
+live replay. Every listed numerical runner and validator had finished; the orchestration
+failed only at final comparator import (parent PYTHONPATH missing). Corrected comparison
+first revealed its expected single-child replay-container layout. Moved this lane's local
+replay outputs under replay-container/baseline, recorded original executed paths in the
+command ledger, and compared existing outputs without rerunning calculations.
+
+Terminal comparison passed all 8 variants / 82 CSV tables against accepted native-byte
+references using existing family tolerances. Receipt full-numerical-reproduction.json
+explicitly limits scope to direct software replay/listed validators, with identical-source
+M1 reused; no Nox native-preflight, producer mutation or empirical acceptance is claimed.
+The original interrupted outer guard has no terminal resource receipt; no full-run peak or
+exit is invented. Final comparator had sampled peak 114.5 MiB, exit 0.
+
+pip-audit 2.10.1 actual baseline and analytics site-package audits both returned no known
+vulnerabilities, exit 0 (sampled peaks 107.0/93.0 MiB). This is dependency advisory evidence,
+not a complete security assurance. Current all-profile PyPI census covers 146 locked package
+identities with zero lookup errors and identifies stable/prerelease status of reported index
+versions; packages outside locks/direct URL revisions remain separate.
+
+Python.org release pages identify available 3.15.2, while actual qualified project runtime
+remains 3.15.1 by current contract. Availability alone does not qualify patch promotion or
+permit changing the other owner's environment. Sources:
+https://www.python.org/downloads/release/python-3152/
+https://www.python.org/downloads/release/python-3151/

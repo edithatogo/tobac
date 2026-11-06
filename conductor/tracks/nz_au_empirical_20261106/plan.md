@@ -12,7 +12,7 @@ R01–R19 are defined in spec.md. Existing owners retain runtime and integration
 - [ ] Coordinate the existing dependency/Polars owner; consume their qualified commits rather than repeat migration or replace their environment.
 - [ ] Resolve newest supported candidates in isolated repo-local Python 3.15.1 environments; use existing lock_receipt.py and reviewed hash locks for all affected profiles, extending coverage for new analytical tools.
 - [ ] Hash-install and verify actual versions, dependency consistency, typing, security, clean packaging and affected numerical parity. Record latest available versus latest qualified, incompatibility and disposition for every held-back dependency.
-- [ ] Mature existing code with bounded fixes, shared-contract reuse, unit/error handling, deterministic RNG, configuration validation and focused regression checks before adding equivalent new machinery.
+- [x] Mature existing code with bounded fixes, shared-contract reuse, unit/error handling, deterministic RNG, configuration validation and focused regression checks before adding equivalent new machinery. Verified context/cache/error guards reuse existing contracts; numerical reference retained.
 - [ ] Implement a minimal logged analytical DAG with immutable manifests and fail-closed input admission; qualify Snakemake separately while retaining Nox engineering sessions. Latest AGENTS.md retains Nox preference: record reconciliation of the explicit Snakemake request before activating a second runner.
 - [ ] Checkpoint: baseline reproduction and affected/workstream tests pass; no unexplained numerical drift; workflow failure/resume checks pass. Empirical expansion requires this gate.
 
