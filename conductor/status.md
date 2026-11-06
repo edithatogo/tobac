@@ -39,28 +39,45 @@ pool was limited to two threads and restored; its synthetic arithmetic oracle
 passes. BLAS thread control is not qualified on this host: no supported BLAS
 pool was discovered. The original candidate failures and the focused correction remain retained evidence.
 
-PR #134 is the current candidate. Pydantic 2.14.1 to 2.14.2 changes the Voiage
-input shared by Voiage, ecosystem and advisory profiles. All four main profiles
-and advisory were generated and inspected; the three affected lock/receipt pairs
-are adopted, while runtime/audit remain unchanged. Additional affected-profile
-changes include pydantic-core 2.50.2, dateutil 4.0.0, threadpoolctl 3.8.0 and
-typing-inspection 0.4.5. The hash-installed ecosystem candidate passed the full
-suite on Python 3.15.1: 1,225 passed / 20 skipped at source checkpoint `5277a01`,
-under the 4 GiB/40-minute guard (644.2 MiB sampled peak). Hosted checks and merge
-remain required. #135 carries workflow portions of the same 3.15.2 patch requested
-by #91; both must be reconciled against the canonical runtime and signed evidence.
+PR #134 merged at `58a4b2f602f4678ac5be3b59bd8e6b807ff9ae6d` after every
+candidate check passed at `72e88d75b0ccfff093bc5e021eea137129b0bfc9`.
+Receiving ref and full-tree readback matched; all ten receiving workflows passed.
+The three affected Pydantic lock/receipt pairs were qualified with 1,225 passing
+local cases / 20 capability skips on Python 3.15.1.
 
-The legacy optional `ecosystem` Nox session could not proceed because the exact
-hash-pinned Voiage 2.2 compatibility wheel is unavailable at its retained path;
-other local wheel copies have different hashes and were not substituted. This
-remains an open fresh-execution gate, separate from the current required CI and
-published Voiage 3.0 qualification. The failure is retained in local logs.
+[PR #91](https://github.com/edithatogo/tobac/pull/91) merged at
+`eca4e8aaa09c7c5e282c1d0e1aa1398735aaf35d` after all 29 executable checks passed
+at `ba8abacc23c7218fcdeecbdb7a32e0ff288bc614`. GitHub ref and full tree match.
+Python 3.15.2 is now consistent across selectors, Nox, CI, hooks, package floor
+and all five regenerated lock/receipt pairs. The protected branch still requires
+five GitHub-App-bound checks in strict mode with admin enforcement; only the two
+versioned check names changed from 3.15.1 to 3.15.2 after their real jobs passed.
+No administrative merge bypass was used.
 
-#91 remains the separate consistent Python 3.15.2 qualification task. A fresh
-repo-local 3.15.2 environment installed the existing hashed runtime lock and passed
-26 cross-workstream tests; native runtime acceptance, complete source/lock alignment
-and hosted patch qualification remain open. Scientific and submission requirements
-below are unchanged. Earlier dependency snapshots are historical.
+Eight new native executions verified 140 outputs and all 82 numerical CSVs equal
+the retained 3.15.1 baseline byte for byte. A tampered copy was rejected. The final
+712-file runtime generation was independently copied, restored and read back.
+The numerical reference archive, source evidence and empirical requirements are
+unchanged. Local full-suite evidence accounts for 1,227 passing cases and 18
+capability skips, followed by four new report-runtime transition cases and 50
+focused integration cases. Clean-package and clean committed publication replays
+pass. The report comparator admits only the explicit qualified runtime transition;
+every scientific field, identity and numerical tolerance is retained.
+
+PR #135 reconciles its duplicate workflow-only update onto that qualified main.
+Its three workflow files are byte-identical to receiving #91; only current
+status/setup documentation changes alongside the ancestry reconciliation. Its
+exact-head checks and publication remain required. #91 receiving-main workflows
+were still running at this checkpoint; GitHub is the authoritative live result.
+PR #136 (virtualenv) is the next dependency qualification after #135.
+
+Completed #94 qualification logs were archived and hash-verified before retiring
+its old worktree; the source history remains in the verified local Git bundle.
+Five newly merged local branches and three closed/superseded remote branches were
+pruned. Unfinished Polars/NZ-AU/native renewal lanes, their branches/worktrees and
+all original private bindings remain preserved. Legacy optional ecosystem-wheel
+availability remains separate from current required CI and published Voiage
+qualification; the unfinished forward ecosystem lane owns its replacement.
 
 ## Historical receiving-main verification — 5 November 2026
 

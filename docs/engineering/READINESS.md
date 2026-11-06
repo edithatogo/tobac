@@ -1,8 +1,13 @@
 # Engineering execution, dependency locks and qualification
 
-Python 3.15.2 patch qualification is in progress in the isolated runtime lane.
-Historical receipts below remain bound to their recorded runtimes; they do not
-qualify the new patch. Promotion requires fresh native and hosted evidence.
+Python 3.15.2 is qualified through PR #91 (`ba8abac`), received on main at
+`eca4e8aaa09c7c5e282c1d0e1aa1398735aaf35d` with an identical full tree. All 29
+executable candidate checks passed, including scientific reproduction on Linux
+and Windows and complete macOS qualification. Eight fresh native runs verified
+140 outputs and all 82 CSVs equal the retained baseline byte for byte. The
+versioned [runtime checkpoint](../../integration/archive/scientific-lineage-checkpoint_python3152_20261106.json)
+and signed capsule bind the new runtime. Historical receipts below remain bound
+to their recorded runtimes. Receiving-main workflows are tracked separately.
 
 ## Current development platform
 

@@ -989,3 +989,29 @@ checkpoint pins retain the same native attempts. Their current readback and the
 712-file independent runtime-delta restore pass (manifest
 `7c122a6fb1832d2a10465a5ec7b818a4f1dc44eec1d81d4b637351c8f7791dab`).
 Clean committed publication replay and the next exact-head Actions remain pending.
+
+
+## PR #91 receiving verification and #135 ownership — 6 November 2026
+
+#91's exact head `ba8abac` passed all 29 executable checks. Clean committed
+publication replay also passed locally at that head, preserving the 1e-10 bound;
+the final focused integration pass was 50 / four capability skips. Receiving main
+`eca4e8aaa09c7c5e282c1d0e1aa1398735aaf35d` matches the complete candidate tree.
+Only two required branch-protection check names were updated to 3.15.2; strict
+mode, all five App bindings, admin enforcement and other protection read back
+unchanged. The first merge correctly refused stale 3.15.1 context names; no bypass.
+
+The same integrator chat owns this managed checkout now on
+`codex/qualify-pr135-python3152`. #135 ancestry is reconciled; conflicting old
+workflow contexts were resolved to exact receiving-main bytes in all three
+workflow files. No scientific/runtime delta remains. Current setup/status docs
+now describe the qualified patch. #91 receiving Actions and #135 exact-head
+Actions remain separate publication evidence.
+
+The controller default was switched at a terminal checkpoint to its own
+hash-installed 3.15.2 environment; its separate native 3.15.2 environment matches
+the accepted fingerprint and reopens all eight current attempts. Original stores,
+keys and owner environments remain untouched. A fresh private binding uses the
+preserved SDK copy and new attempts. The shared installed hook is not changed
+while another lane's push remains in flight. Unfinished lane scopes remain owned
+by their existing chats; this integration does not adopt their unqualified work.
