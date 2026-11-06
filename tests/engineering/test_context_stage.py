@@ -82,3 +82,21 @@ def test_log_must_not_overwrite_bundle(tmp_path):
     with pytest.raises(ValueError, match="overwrite"):
         stage().execute(folder, tmp_path / "receipt.json", folder / "context.md")
     assert (folder / "context.md").read_bytes() == original
+
+
+def test_admission_read_error_removes_stale_success(tmp_path):
+    """A simulated filesystem error cannot leave a successful stage receipt."""
+    from unittest.mock import patch  # noqa: PLC0415 -- Standard-library fault injection at the I/O boundary.
+
+    module = stage()
+    folder = bundle(tmp_path)
+    receipt, log = tmp_path / "verified.json", tmp_path / "events.jsonl"
+    receipt.write_text('{"status":"passed"}')
+    with patch.object(
+        module, "inspect_bundle", autospec=True, side_effect=PermissionError("fixture")
+    ) as read:
+        with pytest.raises(PermissionError, match="fixture"):
+            module.execute(folder, receipt, log)
+        read.assert_called_once_with(folder)
+    assert not receipt.exists()
+    assert json.loads(log.read_text())["status"] == "failed"

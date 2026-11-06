@@ -156,3 +156,14 @@ Clean wheel install/import reached terminal success. Hash-synced .venv-package, 
 only the built wheel with --no-deps, uv pip check passed 39 packages. Python -I imports
 resolved tobac/tobac_supply under site-packages, not the source tree, with actual Python
 3.15.1 asserted. No installed numerical replay or security/native acceptance inferred.
+
+## User-requested test-tool review
+
+Isolated xdist 3.8.0 / pytest-cov 7.1.0 trial: 30 numerical tests passed with two workers,
+6.17 s / 293.8 MiB. Same selection serial: 30 passed, 1.57 s / 106.7 MiB; selected module
+executed/missing lines and branches match. No default adoption: slower on this selection.
+pytest-newer exact PyPI identity unresolved (404); pytest-changed filename/no-match semantics
+and pytest-mock wrapper appraised in test-tool-review.md. Existing coverage.py gate retained.
+Added standard-library autospec mock only for a filesystem-error boundary. No mocked empirical
+or native success receipts. Baseline dependency vulnerability audit passed: no known findings
+for the 38-package target environment; analytics audit is still pending.
