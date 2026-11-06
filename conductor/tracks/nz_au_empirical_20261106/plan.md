@@ -90,7 +90,7 @@ receiving publication and empirical source recovery remain distinct gates below.
 - [ ] Execute full suite, relevant numerical replay, clean-package, security and declared platform gates at the coherent milestone; reuse unchanged receipts.
 - [ ] Verify full source-to-formula-to-output manifests, offline reconstruction, missing/corrupt input rejection and recovery after interrupted execution.
 - [ ] Recheck latest versions at release decision; changed candidates repeat affected gates without silently refreshing frozen results.
-- [ ] Add new dependencies to existing Renovate/lock coverage; retain sole updater, no automatic scientific merges and separate experimental canary.
+- [x] Add new dependencies to existing Renovate/lock coverage; retain sole updater, no automatic scientific merges and separate experimental canary. P6.1 configuration and affected contract tests pass; this does not claim hosted refresh execution.
 - [ ] Verify source revisions/retractions trigger impact analysis and new output versions; preserve old editions and human interpretations.
 - [ ] Reconcile shared Conductor files with the integrator; guarded publication and receiving ref/file readback, then terminal evidence handoff.
 

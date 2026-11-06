@@ -1,23 +1,15 @@
 {
   "schema_version": 1,
   "profile": "nz-au-diffusion",
-  "max_bytes": 60000,
+  "max_bytes": 100000,
   "paths": [
     "AGENTS.md",
-    "conductor/product.md",
-    "conductor/workflow.md",
-    "conductor/tracks/nz_au_empirical_20261106/spec.md",
-    "conductor/tracks/nz_au_empirical_20261106/plan.md",
-    "conductor/tracks/nz_au_empirical_20261106/phase4-task-card.md",
-    "src/tobac/research/implementation.py",
-    "src/tobac/research/staged.py",
-    "src/tobac/research/voiage_adapter.py",
-    "conductor/tracks/nz_au_empirical_20261106/phase4-design.md",
-    "conductor/tracks/nz_au_empirical_20261106/phase4-scenarios.csv"
+    "docs/WORKSTREAM_SYNC.md",
+    "conductor/tracks/nz_au_empirical_20261106/index.md"
   ],
   "base_commit": null,
   "required_paths": [
     "AGENTS.md",
-    "conductor/tracks/nz_au_empirical_20261106/phase4-task-card.md"
+    "docs/WORKSTREAM_SYNC.md"
   ]
 }

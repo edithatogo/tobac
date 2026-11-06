@@ -1,5 +1,10 @@
 # Analytical foundation
 
+NZ/AU context profiles contain repository instructions, current coordination and the track
+index. Before editing, follow the index to the selected phase task card, specification and
+plan; these remain separate reads so the mandatory coordination history fits the bounded
+context budget. Rebuild the bundle after source or ownership changes.
+
 Run from the repository root using repo-local Python 3.15.2. Build a new context bundle
 for the current HEAD/source state before invoking the retained analytics environment:
 

@@ -74,19 +74,53 @@ publication-security and final integration outcomes are recorded at the terminal
 The first complete suite executed: 1265 passed, 17 skipped, 21 failed (80.73 s;
 728.4 MiB). Nineteen failures reject stale signed native requirements.lock identity;
 one dependency-snapshot test correctly rejects uncommitted lock bytes. One genuine source
-defect was a context profile missing the mandatory coordination document. It now includes
-that document and only the essential task/workflow inputs, within the 100000-byte budget;
-actual bundle creation passes. Snapshot acceptance is rechecked after the source commit.
+defect was the new context profile missing the mandatory coordination document; the same
+test subsequently exposed that omission in the four earlier phase profiles. All five now
+load AGENTS.md, the coordination document and track index within the 100000-byte budget. Read the named
+phase task card separately; its instructions and commands remain tracked. This avoids
+silently exceeding the budget as integration appends ownership history. Actual P6 bundle
+creation passes. Snapshot acceptance is rechecked after the source commit.
 No test/assertion was relaxed, and native failures remain open pending owner renewal.
 
 ## Integration/native boundary
 
-The integrator's immutable renewal 413f7b2 is available with a clean owner checkout; its
-hosted checks were still running at discovery. No dirty owner bytes or private binding was
-copied. Source preflight/reconciliation precede consuming that packet. The new profile
-changes signed scripts/lock_receipt.py, so its native acceptance cannot be inferred for
-this extended head. Final renewal remains with the existing native owner; signatures are
-not edited, hash-only promoted or bypassed. Any failed native checks remain failed.
+Source checkpoint 0644b52 records the implementation. Read-only exact-range preflight
+found clean source/target, no staged deletions or missing files, and no equivalent commit
+on target. Immutable renewal 413f7b2 and documentation closeout 8b48e22 were consumed as
+832c7e3 and 2733c50. Five documentation/inventory conflicts preserved both histories and
+the union of exact allowed public paths. Signed payload/signature and native scripts were
+consumed unchanged; no owner environment or private binding was copied. Earlier acceptance
+records retain their original source/runtime epoch. Receiving hosted jobs were still
+running at the last compact observation; no pending job is treated as successful.
+
+The current profile changes signed requirements.lock and scripts/lock_receipt.py, so old
+admission cannot qualify this extended head. After integration the affected selection ran
+94 passes, five skips and 20 failures: nineteen stale native pin failures plus the older
+context-profile omission corrected above. A mistyped initial test filename ran zero tests
+and is not verification. Clean-package first rejected a missing explicit lineage interpreter;
+with the required actual repo-local interpreter and attested route it rejected the stale
+requirements.lock pin before building. Clean-package is therefore BLOCKED, not passed or
+bypassed. Final native renewal remains with existing chat
+01a19a6e-2e47-7b10-8a35-4e7d7fedb965. Signatures are never hash-only promoted.
+
+The full-history/staged secret scan, exact publication boundary and Actionlint passed on
+the initial source packet (231.5 MiB sampled peak). Final integrated security readback and
+focused corrected-context results are recorded below. No push, shared main mutation,
+GitHub settings change or current-head hosted qualification is claimed.
+
+Terminal corrected-source selection: 147 tests pass (3.98 s; 207.4 MiB), including
+committed dependency snapshots, harness/context contracts, clustering packet/recovery,
+lock receipts and workstream integration. Integrated full source strict checks pass:
+nine policy tests, Ruff, 179 formatted files and BasedPyright zero errors/warnings
+(9 s; 896.7 MiB). The full suite's nineteen native failures remain unresolved;
+empirical gates and clean-package remain open. Final context/publication checks follow
+the terminal source/document checkpoint; no unchanged broad suite is repeated.
+
+Integrated publication boundary, full-history/staged secret scans and Actionlint pass
+(226.8 MiB sampled peak). Remaining disposition is the existing owner's current-head
+native renewal, then clean-package/full acceptance and guarded receiving publication.
+This lane's empirical/code changes are committed locally; no cross-chat message is sent
+without the user's explicit authorization for that final packet.
 
 Earlier empirical gaps remain: original rights/destinations, verified current observations,
 policy baseline/causal effects, calibration/product-origin identification, HR-QoL/costs,

@@ -1348,6 +1348,17 @@ source changes are reviewable candidates; shared main/runtime promotion and the 
 native renewal stay with the existing integrator. No dirty owner source or private bindings
 will be copied. Next: extend the existing closed lock graph and verify the complete packet.
 
+P6.1 source checkpoint 0644b52 adds verified atomic synthetic packets, locked offline
+Nox/Snakemake reconstruction and compatible Hypothesis/Ty/Typer refresh. Immutable owner
+renewal 413f7b2 and closeout 8b48e22 were consumed as 832c7e3/2733c50 after exact-range
+preflight; both lanes' history and exact publication entries are retained. No private
+bindings or owner environments were copied. Final typing, offline reconstruction, scheduler
+cache/corrupt-copy and byte-identical synthetic report comparison pass. Full suite ran
+1265 passes/17 skips/21 failures before integration; native stale-pin failures stay open.
+Current requirements.lock/helper differ from signed admission, and clean-package correctly
+rejects before build. See phase6-progress.md for final focused results and terminal gates.
+Shared main/native renewal remain with chat 01a19a6e-2e47-7b10-8a35-4e7d7fedb965.
+
 ## PR #140 publication verified — 6 November 2026
 
 PR #140 head `3021e559aac83e2cab2f47c3a2ea937da78d6552` completed its

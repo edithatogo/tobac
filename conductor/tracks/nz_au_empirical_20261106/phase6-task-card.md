@@ -27,17 +27,12 @@ Reuse lock_receipt closed graphs, source_handoff checked/read/same_hash guards, 
 context verification, protected directory/cache rules, qualifier, Nox environments and
 Renovate as sole updater. Extend existing machinery; no second lake or task runner.
 
-Exact command sequence from root, heavy commands serial; local logs outputs/nz-au-phase6:
-
-```sh
-.venv/bin/python scripts/context_bundle.py --profile engineering/context/nz-au-integration.json --out outputs/nz-au-phase6/context
-.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv/bin/python scripts/lock_receipt.py generate --profile clustering --path outputs/nz-au-phase6/clustering-candidate
-.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv/bin/python scripts/lock_receipt.py generate --profile audit --path outputs/nz-au-phase6/audit-candidate
-.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-audit3152-latest/bin/nox -s clustering --force-python .venv/bin/python
-.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-clustering3152/bin/python -m pytest -q tests/engineering/test_clustering_packet.py tests/engineering/test_clustering_qualification.py tests/engineering/test_lock_receipts.py tests/engineering/test_context_stage.py tests/test_workstream_integration.py
-.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-clustering3152/bin/python -m pytest -q
-git diff --check
-```
+Exact execution commands are in workflow/README.md. Use repository-root cwd and
+scripts/run_bounded.py with --max-rss-mib 4096 --timeout 2400 for every heavy command.
+Generate clustering/audit candidates with scripts/lock_receipt.py generate --profile
+PROFILE --path NEW_DIRECTORY. Run Nox clustering, affected component tests and the full
+suite using the actual qualified Python 3.15.2 interpreters; record their resolved paths
+and logs in phase6-progress.md. Run git diff --check and normal publication-security gates.
 
 Generate into new candidate directories, verify/review changed package graphs, then copy
 only these owned candidate lock/receipt pairs to engineering. Final Nox output is unique;

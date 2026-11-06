@@ -1,22 +1,15 @@
 {
   "schema_version": 1,
   "profile": "nz-au-expansion",
-  "max_bytes": 60000,
+  "max_bytes": 100000,
   "paths": [
     "AGENTS.md",
-    "conductor/product.md",
-    "conductor/workflow.md",
-    "conductor/tracks/nz_au_empirical_20261106/spec.md",
-    "conductor/tracks/nz_au_empirical_20261106/plan.md",
-    "conductor/tracks/nz_au_empirical_20261106/decision-definition.md",
-    "conductor/tracks/nz_au_empirical_20261106/phase3-task-card.md",
-    "src/tobac/regulation.py",
-    "conductor/tracks/nz_au_empirical_20261106/phase3-design.md",
-    "conductor/tracks/nz_au_empirical_20261106/phase3-module-matrix.csv"
+    "docs/WORKSTREAM_SYNC.md",
+    "conductor/tracks/nz_au_empirical_20261106/index.md"
   ],
   "base_commit": null,
   "required_paths": [
     "AGENTS.md",
-    "conductor/tracks/nz_au_empirical_20261106/phase3-task-card.md"
+    "docs/WORKSTREAM_SYNC.md"
   ]
 }
