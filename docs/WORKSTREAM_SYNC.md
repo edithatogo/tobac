@@ -975,3 +975,17 @@ image. Its actual uv/Homebrew and setup-python profiles both passed valid-signat
 and tamper-negative controls before stale fingerprint admission correctly failed.
 Those two observed profiles are now recorded, with the original failures retained.
 No runtime gate, numerical oracle or signature policy was relaxed.
+
+
+Hosted scientific replay exposed the retained report-level `python=3.15.1`
+metadata, while actual replay reports correctly declare 3.15.2. The comparator
+now validates only this explicit baseline/current transition against actual
+runtime before comparing every scientific field at the unchanged tolerance.
+Unknown/missing/wrong runtime identities, nested identity changes and numeric
+changes remain rejected; four new negative/transition cases pass after failing
+before implementation. Original report bytes remain unchanged. The comparator
+is absent from all eight executed scientific inventories; refreshed contract and
+checkpoint pins retain the same native attempts. Their current readback and the
+712-file independent runtime-delta restore pass (manifest
+`7c122a6fb1832d2a10465a5ec7b818a4f1dc44eec1d81d4b637351c8f7791dab`).
+Clean committed publication replay and the next exact-head Actions remain pending.
