@@ -1071,3 +1071,19 @@ The preceding `5c23107` suite was 1,225 passed / 7 skipped / 16 failures, all
 blocked by `Stale native acceptance pin: engineering/requirements.lock`.
 Those signed-input failures remain open for the integrated frozen snapshot;
 this cleanup neither renews nor bypasses native or hosted acceptance.
+
+## Integrated lineage renewal ownership — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
+`codex/lineage-integrated-renewal` and the retained native readback/signing route.
+The frozen scientific source matches empirical handoff `b118592`; newer qualified
+main workflow pins are retained from the root integration rather than rolled back.
+The issuer additionally binds the optional M1 stage, its context verifier and DAG
+source. Latest dependency candidates remain held outside this renewal.
+
+Renewal is in progress: fresh hash-installed Python 3.15.1 native runtime,
+original/registration readback, new candidate attempts, independent output/source
+readback, then a new checkpoint and signed capsule with negative controls.
+Earlier attempts, original registrations, signing identity and binding files are
+preserved. The empirical worktree is read-only; no signing occurs against its
+moving checkout. No native or hosted success is claimed by this ownership entry.
