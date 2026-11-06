@@ -9,5 +9,5 @@ patito==0.8.6
 msgspec==0.22.0
 ty==0.0.94
 pyrefly==1.4.0
-prek==0.5.7
+prek==0.5.9
 pytest-gremlins==1.13.2
