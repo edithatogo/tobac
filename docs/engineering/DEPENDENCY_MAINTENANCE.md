@@ -95,3 +95,14 @@ A hash-installed macOS Python 3.15.1 environment provided an exploratory 37-edge
 no-extra relationship probe. This is not part of the submitted graph and cannot
 represent Linux, other profiles or extra-dependent paths. The open acceptance
 review must record which uses the inventory meets and any unmet graph requirement.
+
+## Isolated analytics profile — 6 November 2026 candidate
+
+`engineering/analytics.in` has an opt-in `analytics` profile in lock_receipt.py. Its
+source-bound lock is separate from the four reference profiles and binds only its closed
+input file; no reference profile hashes or environments are replaced. Generate with
+`python scripts/lock_receipt.py generate --profile analytics --path outputs/my-candidate`.
+Verify with `python scripts/lock_receipt.py verify --profile analytics --path engineering/analytics.lock`.
+Use the explicitly selected repo-local Python 3.15.1 and bounded runner as usual.
+Renovate's requirements matcher includes analytics.in. Universal resolution is not
+cross-platform execution proof; the current installation/DAG checks apply to Apple Silicon.

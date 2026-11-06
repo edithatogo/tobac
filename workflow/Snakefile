@@ -1,0 +1,41 @@
+# Analytical foundation only: source admission and context verification.
+# Invoke from repository root; Nox remains the engineering runner.
+import json
+import subprocess
+from pathlib import Path
+
+PROFILE = config["profile"]
+BUNDLE = config["bundle"]
+OUT = config["out"]
+PYTHON = str(Path(config["python"]).absolute())
+CONTRACT = json.loads(Path(PROFILE).read_text(encoding="utf-8"))
+# Revalidate even on a cached run: Git HEAD changes and preserved mtimes must not
+# permit a stale bundle to pass merely because Snakemake skips the rule.
+subprocess.run(
+    [PYTHON, "scripts/verify_context_stage.py", "--bundle", BUNDLE, "--check-only"],
+    check=True,
+    timeout=30,
+)
+
+rule all:
+    input:
+        OUT + "/verified.json"
+
+rule verify_context:
+    input:
+        manifest=BUNDLE + "/manifest.json",
+        text=BUNDLE + "/context.md",
+        profile=PROFILE,
+        sources=CONTRACT["paths"],
+        verifier="scripts/verify_context_stage.py",
+        context="scripts/context_bundle.py",
+        policy="engineering/publication-policy.json"
+    output:
+        OUT + "/verified.json"
+    log:
+        OUT + "/verify.stderr.log"
+    resources:
+        mem_mb=512
+    shell:
+        "{PYTHON:q} scripts/verify_context_stage.py --bundle {BUNDLE:q} "
+        "--receipt {output:q} --log {OUT:q}/events.jsonl > {log:q} 2>&1"

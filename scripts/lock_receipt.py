@@ -31,7 +31,11 @@ PROFILES = {
     "ecosystem": ("engineering/ecosystem.in", "ecosystem.lock"),
 }
 # Advisory resolution is opt-in; PROFILES remains the four-profile snapshot contract.
-ALL_PROFILES = {**PROFILES, "advisory": ("engineering/advisory.in", "advisory.lock")}
+ALL_PROFILES = {
+    **PROFILES,
+    "advisory": ("engineering/advisory.in", "advisory.lock"),
+    "analytics": ("engineering/analytics.in", "analytics.lock"),
+}
 
 
 # Named bounds preserve the existing scientific/data contract.
@@ -68,18 +72,22 @@ def input_hashes(root: Path, profile: str) -> dict[str, str]:  # noqa: C901  # K
         msg = "Unknown dependency profile"
         raise ValueError(msg)
     paths = (
-        INPUTS
-        + {
-            "runtime": (),
-            "advisory": ("engineering/advisory.in", "engineering/voiage.in"),
-            "audit": ("engineering/audit.in", "engineering/tools-requirements.txt"),
-            "voiage": ("engineering/voiage.in", "engineering/voiage-build-requirements.txt"),
-            "ecosystem": (
-                "engineering/voiage.in",
-                "engineering/voiage-build-requirements.txt",
-                "engineering/ecosystem.in",
-            ),
-        }[profile]
+        ("engineering/analytics.in",)
+        if profile == "analytics"
+        else (
+            INPUTS
+            + {
+                "runtime": (),
+                "advisory": ("engineering/advisory.in", "engineering/voiage.in"),
+                "audit": ("engineering/audit.in", "engineering/tools-requirements.txt"),
+                "voiage": ("engineering/voiage.in", "engineering/voiage-build-requirements.txt"),
+                "ecosystem": (
+                    "engineering/voiage.in",
+                    "engineering/voiage-build-requirements.txt",
+                    "engineering/ecosystem.in",
+                ),
+            }[profile]
+        )
     )
     snapshots = {name: digest(safe_path(root, Path(name))) for name in paths}
     # Closed input profile: a new include needs an explicit addition here, not silent reuse.
@@ -221,7 +229,7 @@ def generate(root: Path, out: Path, profile: str) -> Path:
         "--output-file",
         str(target),
     ]
-    if profile in {"runtime", "ecosystem", "advisory"}:
+    if profile in {"runtime", "ecosystem", "advisory", "analytics"}:
         command += ["--universal", "--python-version", "3.15"]
     else:
         # Audit utilities include Linux-specific tools; they are not a Windows test dependency.
