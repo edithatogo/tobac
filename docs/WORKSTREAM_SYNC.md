@@ -852,3 +852,19 @@ its unavailable online audits are not represented as executed. The source-bound
 signed-input check and 20/20 track-name validation pass. Full scientific source,
 numerical runtime and reference outputs are unchanged; existing #94 software
 qualification is reused, with full hosted #80 gates still required.
+
+## PR #80 merged; PR #133 qualification — 6 November 2026
+
+The integrator now owns `codex/qualify-pr133` in the same isolated standard
+worktree. #80 merged through GitHub's exact-head guard at `b1ccfd5`; its full
+receiving tree matches `ff12683`, which passed all candidate checks. All ten
+#94 receiving-main workflows at `e1d9b88` passed. The #80 receiving-main jobs
+remain pending. Queue order is now #133, then the broader #91 patch migration.
+Scope: prek's ecosystem input and generated lock/receipt, focused read-only tool
+qualification, Conductor status and this handoff. Generate and inspect all four
+profiles; retain unchanged qualified profiles rather than adopting unrelated
+candidates. Native attempts, signing identity, hooks and scientific source are
+unchanged. The separate Python 3.15.2 environment hash-installed the current
+runtime lock and passed 26 synthetic cross-workstream cases as preliminary
+compatibility evidence only. Next: inspect generated profile differences, install
+and qualify the affected ecosystem candidate, then publish and await hosted gates.
