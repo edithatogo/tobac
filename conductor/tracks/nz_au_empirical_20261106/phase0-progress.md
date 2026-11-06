@@ -478,3 +478,15 @@ Read-only remote/main reconciliation observed 58a4b2f602f4678ac5be3b59bd8e6b807f
 It is an ancestor of the owner's combined renewal branch, which preserves newer main
 workflow pins. Those exact pins and the terminal capsule must be consumed together; do
 not overwrite them with this lane's older workflow files. Recheck at final integration.
+
+## Renewal compatibility finding
+
+Bounded public read of the owner's in-progress renewal found that the newly active hosted
+checkpoint hash differs from the original numerical-reference archive's checkpoint, while
+the comparator imports the active checkpoint identity and requires equality. Reported the
+specific mismatch to the native owner before integration. Requested preservation of the
+original finite oracle, explicit separation/mapping of checkpoint roles, retained closure
+checks and targeted rejection controls. No dirty source or private binding was copied and
+no signed reference was edited in this lane. The owner is still qualifying its packet.
+Added the final task-card execution order, including source freeze/context/terminal-log/
+commit sequencing, so the observed stale-context error is not repeated by the next agent.
