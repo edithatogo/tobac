@@ -1071,3 +1071,49 @@ The preceding `5c23107` suite was 1,225 passed / 7 skipped / 16 failures, all
 blocked by `Stale native acceptance pin: engineering/requirements.lock`.
 Those signed-input failures remain open for the integrated frozen snapshot;
 this cleanup neither renews nor bypasses native or hosted acceptance.
+
+## Integrated lineage renewal ownership — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
+`codex/lineage-integrated-renewal` and the retained native readback/signing route.
+The frozen scientific source matches empirical handoff `b118592`; newer qualified
+main workflow pins are retained from the root integration rather than rolled back.
+The issuer additionally binds the optional M1 stage, its context verifier and DAG
+source. Latest dependency candidates remain held outside this renewal.
+
+Renewal is in progress: fresh hash-installed Python 3.15.1 native runtime,
+original/registration readback, new candidate attempts, independent output/source
+readback, then a new checkpoint and signed capsule with negative controls.
+Earlier attempts, original registrations, signing identity and binding files are
+preserved. The empirical worktree is read-only; no signing occurs against its
+moving checkout. No native or hosted success is claimed by this ownership entry.
+
+## Integrated native renewal candidate — 6 November 2026
+
+Fresh native attempts completed for all eight profiles under the exact locked
+Python 3.15.1 producer runtime (725.9 MiB sampled peak). Independent readback
+reopened all originals, input/output CAS objects and transformations: 140 outputs,
+82 scientific CSV files byte-identical to the prior accepted attempts. Forward
+source-impact queries and reverse CLI traces passed for all eight; an isolated
+corrupt output was rejected. Existing observations/configurations are unchanged.
+
+The new checkpoint is `scientific-lineage-checkpoint_20261106.json`; its historical
+20261102 counterpart remains intact. Native runtime bindings and scientific
+inventory were renewed through the owning route. The signed capsule additionally
+binds native preflight and the optional M1 stage/context/DAG source. Both normal
+native and attested command paths pass, and the actual M1 stage admits, executes,
+verifies and atomically publishes its output. Prior bindings/attempts and earlier
+signed generations remain retained outside the public packet.
+
+The original `scientific_reference_20261103.zip` is unchanged. The comparator now
+checks its immutable original checkpoint separately from active lineage and
+requires the complete CSV object map to be identical across both checkpoints.
+New negative tests retain rejection of original-checkpoint tampering and a valid
+object substituted into the active CSV map; existing cell tolerances are unchanged.
+The normal comparator passes all eight runners / 82 tables with maximum absolute
+difference zero. The source/runtime import-path and stale normal-command profile
+failures encountered during renewal remain visible in local logs, not waived.
+
+Current evidence is in `outputs/lineage-renewal-20261106/`; the full suite with
+renewed native bindings is the next milestone. No hosted run or receiving-ref
+publication is claimed by this local acceptance candidate.
