@@ -1349,3 +1349,38 @@ Final staged security (full-history/staged secret scan and Actionlint) passed at
 228.0 MiB sampled peak. The exact two new digest-only receipt paths were reviewed
 into the existing publication inventory; 21 boundary tests pass. Existing private
 document hashes and all other publication restrictions are retained.
+
+
+## Dependency publication verified — 6 November 2026
+
+PR #142 published exact tested head `413f7b2ab3b5187262fc572d379dc3b48dae1826`
+by a guarded normal fast-forward from expected main `2e6534d`. Both publication
+hooks passed with unchanged limits; the main push sampled 222.0 MiB peak RSS.
+Fetched receiving main is exactly the tested commit, with identical tree
+`bed95f1672356da7ea1cb93f7b74db64dabd89cf`.
+
+All twelve PR workflows and all ten receiving-main workflows completed
+successfully. No hosted failure required a source change or a retry. Fresh
+hosted scientific reproduction passes on Linux and Windows; engineering,
+package/portability, audit, CodeQL/public-boundary security, regulatory,
+longitudinal, M3, verifier, advisory and Scorecard scopes retain their distinct
+run receipts. Conditional jobs remain conditional; no empirical scientific
+endorsement is inferred from software qualification.
+
+Receiving-main run IDs:
+
+OpenSSF Scorecard: 42225798062; Scientific reproduction qualification: 42225798013; Engineering qualification: 42225797945; Cross-platform Python qualification: 42225797999; Regulatory uncertainty milestone: 42225797988; Empirical longitudinal component: 42225797921; M3 research methods: 42225798000; Linux audit lock qualification: 42225797910; Publication and source security: 42225797885; Package portability qualification: 42225797880.
+
+Exact local receipts: `outputs/dependency-admission-20261106/publication-pr-final.json`,
+`publication-pr-rollup.json`, `receiving-ref.json` and `publication-receiving-final.json`.
+The acceptance report `integration/archive/dependency-admission_20261106.json`
+remains the immutable pre-publication record. Its open-publication wording is
+superseded by this terminal readback. All eight native executions, 140 output
+links and 82 byte-identical scientific CSVs remain accepted without rerunning
+unchanged local tests. This terminal Conductor reconciliation is a local
+documentation commit after receiving verification; it is not part of the tested
+receiving tree and has not itself been published.
+
+No dependency-publication checks remain for 413f7b2. The originating empirical
+lane's latest real-scheduler handoff and wider Phase 0/research work retain their
+own scope; no unrelated worktree or native binding was changed.

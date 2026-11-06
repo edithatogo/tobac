@@ -968,7 +968,7 @@ The historical Phase 8 receipts above are separate from the executed renewal che
 - [x] Execute all eight profiles; independently reopen 140 outputs and source links, with all 82 CSVs byte-identical to prior acceptance.
 - [x] Issue a fresh signed checkpoint; verify native/attested commands, atomic M1, rejection controls and post-negative reopening.
 - [x] Complete coherent integrated suite: 1262 passed / 9 skips. Reuse unchanged candidate type/audit/package/library evidence.
-- [ ] Qualify and publish this changed dependency tree through hosted checks; prior Conductor receiving checks apply to 2e6534d only.
+- [x] Qualify and publish this changed dependency tree through hosted checks. PR #142 fast-forwarded main to exact tested 413f7b2; all twelve PR and ten receiving-main workflows pass, with identical receiving tree readback. Prior Conductor checks at 2e6534d remain separate.
 
 Receipt: `integration/archive/dependency-admission_20261106.json`.
 Original numerical archive, historical checkpoints and accepted attempts remain unchanged.
