@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage — implementation plan
 
-Status: Phase 1 foundations implemented and reviewed; native integration remains open.
+Status: Complete for the declared current closure — all eight phases and 32 primary tasks verified. See the track index and final Phase 8 acceptance; scientific qualification and wider-estate archival limits remain separate.
 Specification: [approved spec](spec.md), approved by the maintainer on 26 October 2026.
 Planning base: tobac `59bb0e4ebaf1881158849df1702a1d3101aad58f`.
 Method: [shared workflow](../../workflow.md). Tests and reference comparisons precede
