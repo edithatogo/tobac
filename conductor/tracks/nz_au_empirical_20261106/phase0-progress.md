@@ -361,3 +361,25 @@ space rose from 1.9 to 2.8 GiB. Earlier install/qualification receipts for remov
 are historical execution evidence, not assertions those environments still exist. Active
 baseline/latest/analytics/audit/Polars-ecosystem environments retained. Sent this concrete
 resource update under the existing approved handoff scope; no owner files were touched.
+
+## Frozen Polars source integration
+
+Inspected b5610c7fd3ca900aa1fcd87d2f290135490eb80e, parent adb3f81: committed source packet
+with documented terminal 85-test qualification, 21-table parsed numerical parity (maximum
+difference zero), and 16 byte-identical PNG/SVG figures. Read parity.json from the owner's
+frozen local evidence; earlier float-spelling/boolean-case differences remain explicit.
+Preflight showed no dirty overlap/staged deletions in this checkout; source had unrelated
+uncommitted profile work outside the exact packet, which was not copied.
+
+Cherry-picked immutable packet as 2493aa7. Only docs/WORKSTREAM_SYNC.md append conflict;
+resolved by retaining both complete histories. All five runner/verifier/test blobs exactly
+match b5610c7; no calculation module under src changed. In our Polars-only environment,
+two runner test files plus workstream integration passed 77 tests, 12.10 s, sampled peak
+487.2 MiB. No pandas/xarray imports remain in maintained src/scripts/tests by bounded scan.
+Canonical dependency/profile routes and native lineage are still pending owner work.
+
+Whole-source strict BasedPyright in the latest audit candidate now finds three
+reportUnknownMemberType errors at empirical plot/fill_between and release plot calls;
+zero warnings, sampled peak 845.6 MiB. Sent exact log/locations to source owner for a narrow
+interface correction without global relaxation or numerical changes. This is an open gate,
+not covered by earlier pre-conversion type-check success. No runtime promotion occurred.
