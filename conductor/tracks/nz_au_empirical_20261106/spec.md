@@ -31,7 +31,7 @@ matrix, not parameter count. Software execution is not empirical or policy accep
 | R12 | Uncertainty | Correlated probabilistic sensitivity, parameter/structural/prior/value/scenario uncertainty, country heterogeneity, interactions, missingness, measurement error, thresholds, global sensitivity and decision robustness with convergence evidence |
 | R13 | Clustering and prediction | Unsupervised discovery on training simulations; choose scaling/distance/cluster count and assess bootstrap stability; supervised prediction of frozen cluster labels on held-out simulations, country/time splits where applicable; no reuse of discovery data as validation |
 | R14 | Workflow and provenance | Snakemake DAG, structured logs, resource limits, seeds, failures and resume receipts; version inputs, formulae, model code, environment and output manifests; immutable external input references; Nox engineering gates retained |
-| R15 | Runtime | Repo-local Python 3.15.1 and newest qualified dependencies; Polars/Arrow not pandas/xarray; exact locks and candidate compatibility evidence; incompatible latest dependencies remain blocked, no forced bypass |
+| R15 | Runtime | Repo-local Python 3.15.2 and newest qualified dependencies; Polars/Arrow not pandas/xarray; exact locks and candidate compatibility evidence; incompatible latest dependencies remain blocked, no forced bypass |
 | R16 | Validation | Unit dimensional checks, independent numerical oracles, external/temporal validation, posterior predictive checks, calibration, affected and workstream tests, full coherent-milestone replay, receiving-ref readback |
 
 ## Scientific boundaries
@@ -56,5 +56,5 @@ calibration, causal contrasts, costs and governance remain explicit gates.
 Dependencies must be updated through executable qualification tasks, not merely mentioned
 in prose. The latest stable compatible release is the promotion target; bleeding-edge
 prereleases/development commits remain separately identified canaries until qualified.
-Python remains the explicitly verified repo-local 3.15.1 unless a newer patch is qualified
+Python remains the explicitly verified repo-local 3.15.2 unless a newer patch is qualified
 through the owning lane. Never silently downgrade Python to obtain dependency compatibility.

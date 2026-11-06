@@ -449,3 +449,30 @@ snapshot and must be exercised on the qualified receiving patch after integratio
 the isolated Ruff 0.17.4 analytics candidate/receipt, but did not adopt its 3.15.1 resolver
 artifact into a moving runtime baseline. Final profile resolution and signing must use the
 combined source and newest qualified patch, with prior execution receipts kept historical.
+
+## Current 3.15.2 runtime and scheduler qualification
+
+Integrated receiving runtime d0e9fdd as c14cf1b, then immutable signature packet 0008b43 as
+ae6d5fb. The latter includes the protected-directory correction. Its progress-file merge
+proposed deleting 98 lines of owned historical receipts and no new text; preserved this
+lane's complete history after exact stage comparison. No dirty owner files were copied.
+
+Created and hash-installed repo-local .venv3152, verified actual Python 3.15.2 and dependency
+consistency, then confirmed no live process referenced this lane's old default environment.
+Moved that inactive environment to outputs/nz-au-phase0/retired-env3151 and recreated the
+default .venv on the verified 3.15.2 interpreter. Its 36-package hash install, consistency
+and no-pandas/xarray assertions pass. The relocated environment is historical and not an
+active runner; previous execution receipts remain valid at their recorded scope.
+
+Regenerated the owned analytics profile through maintained lock_receipt.py on 3.15.2.
+Only Ruff changes (0.17.3 to 0.17.4); all upstream-constrained transitive versions are retained.
+Adopted complete generated lock/receipt, not a hand merge. Fresh .venv-analytics3152 hash
+installation passes (56 compatible packages; 212.5 MiB sampled peak), actual Snakemake 9.27.1,
+Ruff 0.17.4, Polars 2.1.0 and Arrow 26.0.1, with no pandas/xarray. All six lock receipts verify.
+
+Explicit real 3.15.2 scheduler plus affected stage/context/workstream tests passed 36/36 in
+19.10 seconds (261.3 MiB sampled peak). New attested admission passes all eight runner
+closures and 140 expected outputs. It remains an attested/current-input check, not direct
+native byte readback in this lane. Active specification, plan, execution contract and
+workflow guidance now select the qualified 3.15.2 patch; earlier receipts remain historical.
+Real scientific DAG, remaining compatible dependency promotions and final checkpoint are open.

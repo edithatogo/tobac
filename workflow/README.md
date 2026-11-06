@@ -4,7 +4,7 @@ Run from the repository root using the Phase 0 qualified candidate environment:
 
 ```sh
 .venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- \
-  .venv-analytics/bin/snakemake -s workflow/Snakefile --cores 1 --scheduler greedy \
+  .venv-analytics3152/bin/snakemake -s workflow/Snakefile --cores 1 --scheduler greedy \
   --config profile=outputs/nz-au-phase0/profile.json \
   bundle=outputs/nz-au-phase0/context out=outputs/nz-au-phase0/dag python=.venv/bin/python
 ```
@@ -13,6 +13,10 @@ The explicit user request selects Snakemake for analytical orchestration; Nox re
 engineering runner. This reconciles the earlier Nox preference within this analytical scope.
 The supported greedy scheduler is required by the qualified Apple Silicon candidate because
 the installed default CBC solver is Intel-only. No solver binary workaround is applied.
+
+The current controller and analytics interpreters are repo-local Python 3.15.2. The analytics
+environment is hash-synchronised from engineering/analytics.lock, separately from the core
+runtime. Earlier 3.15.1 environments and receipts are historical, not active defaults.
 
 Supply a reviewed context profile and a bundle from scripts/context_bundle.py. Existing
 bundles are immutable inputs; failed verification requires correcting the source or generating
@@ -36,10 +40,9 @@ before scheduler selection; directory timestamps alone cannot detect corrupted m
 Use a new output root for a changed analysis. Protected results are not automatically
 overwritten when inputs change. See the [Snakemake output rules](https://github.com/snakemake/snakemake/blob/main/docs/snakefiles/rules.rst).
 
-The integrated renewal passed attested admission and the direct M1 stage. Its first real
-DAG invocation exposed the destination-precreation defect above. The directory correction
-passed real-scheduler fixture tests, but changes a signed DAG input and requires another
-owner-issued capsule before real M1 DAG acceptance. Do not bypass signature checks, rename
+The integrated 3.15.2 renewal includes the directory correction and passes attested input
+admission. Real-scheduler fixture tests pass on 3.15.2; the complete scientific DAG still
+requires its own terminal qualification receipt. Do not bypass signature checks, rename
 scripts out of inventory or copy private bindings. Context-only qualification is separate.
 
 The scheduler regression in tests/engineering/test_m1_stage.py uses a clearly labelled
