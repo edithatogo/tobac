@@ -1,6 +1,6 @@
 {
   "inventory_sha256": "0a5e9a8bddbca94f0b19fdea4d90211469c0485efbb44c9a1d0d051661b0c891",
-  "issued_at": "2026-11-06T10:19:25.886187+00:00",
+  "issued_at": "2026-11-06T10:29:27.404155+00:00",
   "issuer": "tobac-native",
   "native_readback": {
     "checkpoint_sha256": "9c22d5b6f44231dea3bdcb3b6b66f184d20c7ca263150d8395480ab2982774a9",
@@ -87,7 +87,7 @@
     "integration/archive/scientific-runner-inputs.json": "8b8f250800bf15d976a89bec582cfa845678655350eac951951038511efeeaaf",
     "integration/archive/transformation-interface.json": "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373",
     "integration/scientific_reference_20261103.zip": "083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9",
-    "noxfile.py": "13e542a125384cd106601a5acd0b29a3f1f31325549ee9641778e6d227f614f0",
+    "noxfile.py": "9158f39a4c102ab1fcf1692c0ccd668d9f2c35954b55baf8075bf0ad0dfbb51a",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
     "scripts/check_scientific_reproduction.py": "dbf0f7ad90b9f4f0b8bf6907caf75d747816f28014a5558e3e09d7e8695bcb26",
     "scripts/lineage_preflight.py": "a5deea40335b4b523dfd0f50f1946523ab5847ee476415fed7184af14d6713e0",

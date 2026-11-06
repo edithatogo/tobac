@@ -740,6 +740,7 @@ def voiage_published(session: nox.Session) -> None:
 @nox.session(python="3.15.2")
 def advisory_types(session: nox.Session) -> None:
     """Run isolated differential diagnostics with a pinned Voiage interface build."""
+    OUT.mkdir(parents=True, exist_ok=True)
     session.env.update(
         OPENBLAS_NUM_THREADS="1",
         RAYON_NUM_THREADS="2",
