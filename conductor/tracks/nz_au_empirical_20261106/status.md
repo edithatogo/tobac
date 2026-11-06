@@ -1,4 +1,11 @@
-# Status — 6 November 2026
+# Status — 7 November 2026
+
+P6.1 current software candidate supersedes the earlier P5 typing limitation below:
+the expanded audit profile passes full source strict typing without suppressions.
+Locked offline Nox reconstruction and actual Snakemake synthetic execution/cache and
+corrupt-copy rejection pass. Hypothesis, Ty and Typer have qualified newer candidates.
+See phase6-progress.md for exact scope and remaining native/release/empirical gates;
+the historical profile counts and admission receipts below retain their original epochs.
 
 Phase 0 remains in progress. The empirical branch has integrated receiving main's qualified
 Python 3.15.2 baseline and the owner's integrated native renewal. The atomic M1 directory

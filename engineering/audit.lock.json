@@ -10,7 +10,7 @@
     "engineering/audit.in",
     "--generate-hashes",
     "--output-file",
-    "resolved-v2/audit/audit.lock",
+    "outputs/nz-au-phase6/final-profiles-v2/audit/audit.lock",
     "--python-version",
     "3.15.2",
     "--python-platform",
@@ -20,13 +20,13 @@
   "inputs": {
     "pyproject.toml": "1fb5faa708887358728abd4accbcde3eac0cdeee04b876e6c6443ae179f32ca0",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
-    "engineering/reference-requirements.txt": "54d9abf7e12f2fff3dd514d7520327b39620862a1dbf97c7231a3d08c5ec463f",
+    "engineering/reference-requirements.txt": "e1845ab04d819c7282b2a480d59cb6fb24e440351180b25668257257ebbbda43",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
-    "engineering/test-requirements.txt": "d75ef7c8bff3088d1765de0d6a511432a06ceee729fd8399f0c152645d9a4d94",
+    "engineering/test-requirements.txt": "e50a4c45a8fbf0eb9b3192d03e745aa5f2d77b99fd280b8751f42820d95f71e4",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/audit.in": "95134db9c7e3e0f7fbee4c506cfa8d4b89a0651dab3f0d94a86c5e9fcf7bb507",
-    "engineering/tools-requirements.txt": "16a59a41abf684eef27b9331838d50feddfa866fb1998b1c0fce92b045b88249"
+    "engineering/tools-requirements.txt": "337bbfa5b122b5e345da9f94fde9a6c799830d432f8efcc6873ec3176ebbf2ab"
   },
-  "lock_sha256": "67756544519af2deaac281a1f6217918e6175e963d5d0bb085fce83aa49fe5c3",
+  "lock_sha256": "4bcb17d64002b597082bb68ac15a71f2b81c114ae167b0c2992e648a44c5d276",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

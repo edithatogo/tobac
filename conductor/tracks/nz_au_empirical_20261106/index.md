@@ -1,5 +1,7 @@
 # NZ/AU empirical policy milestone
 
+- [Reproducibility, refresh and integration task card](phase6-task-card.md)
+- [Reproducibility execution evidence and remaining gates](phase6-progress.md)
 - [Requirements](spec.md)
 - [Design](design.md)
 - [Plan](plan.md)

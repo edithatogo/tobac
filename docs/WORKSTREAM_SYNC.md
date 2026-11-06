@@ -1338,3 +1338,12 @@ vulnerabilities/skips. The existing audit profile fails seven missing-source war
 because optional clustering runtime packages are absent. Reference-profile integration,
 controller coverage and native/hosted promotion remain open with the integrator; no rule
 was weakened or shared environment modified. Empirical clustering remains blocked.
+
+## NZ/AU Phase 6 local source-integration ownership — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns P6.1 on codex/nz-au-empirical at the
+empirical worktree, base eb3a3d5. Scope is the exact phase6 task card: optional clustering
+profile, audit dependency coverage, Nox/Snakemake and packet verification/recovery. Local
+source changes are reviewable candidates; shared main/runtime promotion and the in-progress
+native renewal stay with the existing integrator. No dirty owner source or private bindings
+will be copied. Next: extend the existing closed lock graph and verify the complete packet.

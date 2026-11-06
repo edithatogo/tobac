@@ -1280,7 +1280,15 @@
     "engineering/typings/sklearn/cluster.pyi",
     "engineering/typings/sklearn/linear_model.pyi",
     "engineering/typings/sklearn/dummy.pyi",
-    "engineering/typings/threadpoolctl.pyi"
+    "engineering/typings/threadpoolctl.pyi",
+    "conductor/tracks/nz_au_empirical_20261106/phase6-task-card.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase6-progress.md",
+    "engineering/context/nz-au-integration.json",
+    "engineering/clustering.in",
+    "engineering/clustering.lock",
+    "engineering/clustering.lock.json",
+    "scripts/verify_sensitivity_clustering.py",
+    "tests/engineering/test_clustering_packet.py"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",

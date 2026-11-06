@@ -1,0 +1,5 @@
+# Opt-in synthetic qualification. Core scientific reference pins remain authoritative.
+-r requirements.in
+scikit-learn==1.9.1
+scipy-stubs==1.18.1.1
+nox==2026.10.20

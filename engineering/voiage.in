@@ -6,6 +6,6 @@ pyarrow==26.0.1
 polars==2.1.0
 pydantic==2.14.3
 typing_extensions==4.16.0
-typer==0.27.3
+typer==0.28.0
 # Released Polars-based producer; the patched legacy build is retired.
 voiage==3.1.0

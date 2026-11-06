@@ -82,6 +82,11 @@ PSA, country/group validation or a demographic finding. Original tasks remain op
 
 ## Phase 6 — Reproducibility, refresh and integration (R14–R19)
 
+P6.1 adds locked Nox/Snakemake synthetic reconstruction, atomic packet publication,
+pre-cache integrity validation and dependency refresh qualification. See phase6-progress.md
+and phase6-task-card.md. These are software controls; native renewal, clean-package,
+receiving publication and empirical source recovery remain distinct gates below.
+
 - [ ] Execute full suite, relevant numerical replay, clean-package, security and declared platform gates at the coherent milestone; reuse unchanged receipts.
 - [ ] Verify full source-to-formula-to-output manifests, offline reconstruction, missing/corrupt input rejection and recovery after interrupted execution.
 - [ ] Recheck latest versions at release decision; changed candidates repeat affected gates without silently refreshing frozen results.

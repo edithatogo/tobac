@@ -9,6 +9,7 @@ import platform
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 import polars as pl
 
@@ -30,7 +31,7 @@ def main() -> None:
         "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
         "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
     )
-    rows = []
+    rows: list[dict[str, Any]] = []
     for name in selected:
         matches = [r for r in inventory["inputs"] if r["path"] == name]
         if len(matches) != 1:
@@ -60,7 +61,7 @@ def main() -> None:
                 "new_observations_admitted": False,
             }
         )
-    result = {
+    result: dict[str, Any] = {
         "schema_version": 1,
         "scope": "historical_input_coverage_only_not_fit_or_scientific_acceptance",
         "timestamp": datetime.now(UTC).isoformat(),

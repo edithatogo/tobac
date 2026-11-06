@@ -97,3 +97,30 @@ The existing Voiage 3.1.0 adapter was executed in the retained 3.15.2 ecosystem 
 five finite weighted/partition checks passed at the original 1e-11 tolerance. This is not
 generic EVSI or empirical VOI certification. Existing M3/reference/workstream/publication
 selection passed 82 tests. See phase4-progress.md for commands, scope and remaining gates.
+
+## Phase 6 refresh — 7 November 2026
+
+The 6 November primary-index refresh covered 143 unique packages across all seven current
+lock profiles with zero retrieval errors. Original API responses and the census script
+were content-addressed externally, compressed losslessly and read back. Local records:
+outputs/nz-au-phase6/version-census.json (original lock epoch) and
+version-census-refreshed.json (same frozen observations rebound to the refreshed locks).
+This is dated availability evidence, not a claim of the latest release at a later date.
+
+Three newly available compatible releases were adopted into the local source candidate:
+Hypothesis 6.170.15, Ty 0.0.99 and Typer 0.28.0. Six affected lock/receipt pairs were
+genuinely regenerated; no other existing package version changed and no package was
+removed. Hypothesis requires matching canonical/reference and test declarations, and Ty
+requires matching ecosystem/advisory declarations and its exact version-check adapter;
+the initial duplicate-pin resolver rejection was corrected at those authorities, without
+overrides. Refreshed Nox clustering (47 tests), Voiage (99 tests) and actual Ty/Pyrefly
+advisory runs pass. Whole-source strict checking passes after adding JSON result annotations
+to the existing empirical-coverage auditor. Final native/hosted acceptance remains separate.
+
+The same eight upstream-constrained analytics holds remain. Latest observed
+snakemake-interface-common is now 1.24.1; its packaging requirement conflicts with Snakemake
+9.27.1's packaging<26. The installed Snakemake requirements still bind docutils<0.23,
+pulp<3.4, smart-open<8, report-plugins<2 and sqlmodel<0.0.38. SQLModel 0.0.37 binds
+SQLAlchemy<2.1.0. Packaging 26.3 is used outside analytics; analytics retains 25.0.
+Original parent Requires-Dist metadata and primary-index responses support these holds.
+No bound, interpreter or dependency was omitted to force latest adoption.

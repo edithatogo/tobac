@@ -10,7 +10,7 @@
     "engineering/advisory.in",
     "--generate-hashes",
     "--output-file",
-    "resolved-v2/advisory/advisory.lock",
+    "outputs/nz-au-phase6/final-profiles-v2/advisory/advisory.lock",
     "--universal",
     "--python-version",
     "3.15.2"
@@ -19,13 +19,13 @@
   "inputs": {
     "pyproject.toml": "1fb5faa708887358728abd4accbcde3eac0cdeee04b876e6c6443ae179f32ca0",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
-    "engineering/reference-requirements.txt": "54d9abf7e12f2fff3dd514d7520327b39620862a1dbf97c7231a3d08c5ec463f",
+    "engineering/reference-requirements.txt": "e1845ab04d819c7282b2a480d59cb6fb24e440351180b25668257257ebbbda43",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
-    "engineering/test-requirements.txt": "d75ef7c8bff3088d1765de0d6a511432a06ceee729fd8399f0c152645d9a4d94",
+    "engineering/test-requirements.txt": "e50a4c45a8fbf0eb9b3192d03e745aa5f2d77b99fd280b8751f42820d95f71e4",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
-    "engineering/advisory.in": "304f2763876cdd80de608fe16acd92ddfac5d79455833c89cd65117e0b4923a6",
-    "engineering/voiage.in": "eebfb2d6e09ab524b287e18c2c507dda0a86833901600ebc612c0ba151ded788"
+    "engineering/advisory.in": "83be6bbb5a6ae644281f5a15652880a5288d4c261a2575d238b194bab37bf237",
+    "engineering/voiage.in": "188657badee242daa6ed58db53f5b3236936c17d6b4a460d556f33f647c739db"
   },
-  "lock_sha256": "45c2e15dd8fc4156146ead52ab58b33b6099c21b55b434a3cf60e3fb08fa8db2",
+  "lock_sha256": "624f19930c03b46be24eec7d85a6a216979e04b9cdf30dcc05fc50a02e54717e",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

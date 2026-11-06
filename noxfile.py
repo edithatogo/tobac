@@ -22,13 +22,13 @@ MUTATION_MINIMUM_PERCENT = "60"
 
 def environment(session: nox.Session, profile: str = "runtime", *, require_lock: bool = False) -> None:
     """Exact sync when locked; explicit bootstrap only outside release qualification."""
-    if profile not in {"runtime", "audit"}:
+    if profile not in {"runtime", "audit", "clustering"}:
         session.error("Unknown environment profile")
     if profile == "audit" and sys.platform != "linux":
         session.error("Audit-tool profile is Linux-only; use runtime tests on other platforms")
     session.env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONHASHSEED="0")
     session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
-    name = "requirements.lock" if profile == "runtime" else "audit.lock"
+    name = {"runtime": "requirements.lock", "audit": "audit.lock", "clustering": "clustering.lock"}[profile]
     lock = ROOT / "engineering" / name
     receipt = lock.with_suffix(".lock.json")
     mandatory = require_lock or os.environ.get("TOBAC_REQUIRE_LOCK") == "1"
@@ -86,6 +86,32 @@ def environment(session: nox.Session, profile: str = "runtime", *, require_lock:
 def audit_lock_present() -> bool:
     """Check whether a reviewed Linux audit lock is committed and must be honoured."""
     return (ROOT / "engineering" / "audit.lock").is_file()
+
+
+@nox.session(python="3.15.2")
+def clustering(session: nox.Session) -> None:
+    """Qualify synthetic sensitivity/clustering; never process empirical observations."""
+    environment(session, profile="clustering", require_lock=True)
+    session.env["OMP_NUM_THREADS"] = "1"
+    packet = OUT / f"synthetic-clustering-{uuid4().hex}"
+    session.run(
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/engineering/test_clustering_qualification.py",
+        "tests/engineering/test_clustering_packet.py",
+        "tests/test_workstream_integration.py",
+    )
+    session.run(
+        "python",
+        "scripts/qualify_sensitivity_clustering.py",
+        "--out",
+        str(packet),
+        "--lock",
+        "engineering/clustering.lock",
+    )
+    session.run("python", "scripts/verify_sensitivity_clustering.py", "--out", str(packet))
 
 
 def audit_tools(session: nox.Session) -> None:

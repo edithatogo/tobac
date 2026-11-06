@@ -91,3 +91,31 @@ def test_existing_output_is_preserved(qualifier, tmp_path: Path, monkeypatch: py
     with pytest.raises(ValueError, match="Refusing to overwrite"):
         qualifier.main()
     assert preserved_file.read_text() == "retained"
+
+
+def test_failed_atomic_publication_can_recover(
+    qualifier, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    output = tmp_path / "packet"
+    report = {"source": "synthetic_fixture_only", "clusters": {"bootstrap_ari": [1.0] * 12}}
+    monkeypatch.setattr(qualifier, "qualification_inputs", lambda _root: {"fixture": "a" * 64})
+    # This test isolates filesystem publication; real metadata guards have separate tests.
+    monkeypatch.setattr(qualifier, "verify_packet", lambda *_args: None)
+    lock = tmp_path / "fixture.lock"
+    lock.write_text("synthetic fixture only")
+    rename = Path.rename
+
+    def fail_once(self: Path, target: Path) -> Path:
+        if target == output:
+            msg = "synthetic publication failure"
+            raise OSError(msg)
+        return rename(self, target)
+
+    monkeypatch.setattr(Path, "rename", fail_once)
+    with pytest.raises(OSError, match="synthetic publication failure"):
+        qualifier.publish_packet(output, report, lock)
+    assert not output.exists()
+    assert not list(tmp_path.glob("clustering-attempt-*"))
+    monkeypatch.setattr(Path, "rename", rename)
+    qualifier.publish_packet(output, report, lock)
+    assert {p.name for p in output.iterdir()} == {"summary.json", "stability.csv", "manifest.json"}

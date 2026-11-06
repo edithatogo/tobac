@@ -8,6 +8,8 @@ import importlib.util
 import json
 import logging
 import platform
+import sys
+import tempfile
 from importlib.metadata import distributions, version
 from pathlib import Path
 from typing import Any, cast
@@ -23,6 +25,11 @@ from sklearn.metrics import adjusted_rand_score, balanced_accuracy_score, log_lo
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from threadpoolctl import threadpool_limits
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from lock_receipt import verify as verify_lock  # noqa: E402 -- Resolve sibling scripts for API/CLI use.
+from verify_sensitivity_clustering import qualification_inputs, verify_packet  # noqa: E402
 
 type FloatArray = NDArray[np.float64]
 
@@ -175,6 +182,36 @@ def cluster_check(
         }
 
 
+def publish_packet(out: Path, report: dict[str, Any], lock: Path) -> None:
+    """Publish a complete packet by rename; failed temporary output is never a cache hit."""
+    if out.exists() or out.is_symlink():
+        msg = "Refusing to overwrite a qualification output"
+        raise ValueError(msg)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix="clustering-attempt-", dir=out.parent) as temporary:
+        staged = Path(temporary) / "packet"
+        staged.mkdir()
+        (staged / "summary.json").write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+        pl.DataFrame(
+            {"bootstrap": range(12), "adjusted_rand_index": report["clusters"]["bootstrap_ari"]}
+        ).write_csv(staged / "stability.csv")
+        manifest = {
+            "schema": "tobac.synthetic-qualification-packet.v2",
+            "formula_version": "synthetic-sensitivity-clustering-v1",
+            "script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+            "lock_sha256": hashlib.sha256(lock.read_bytes()).hexdigest(),
+            "installed_packages": dict(sorted((d.metadata["Name"], d.version) for d in distributions())),
+            "files": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in staged.iterdir()},
+            "qualification_inputs": qualification_inputs(Path(__file__).resolve().parents[1]),
+        }
+        (staged / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+        verify_packet(Path(__file__).resolve().parents[1], staged, lock)
+        if out.exists() or out.is_symlink():
+            msg = "Refusing to overwrite a qualification output"
+            raise ValueError(msg)
+        staged.rename(out)
+
+
 def main() -> None:
     """Emit a versioned, non-overwriting qualification packet for synthetic fixtures."""
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -190,7 +227,7 @@ def main() -> None:
     if args.out.exists():
         msg = "Refusing to overwrite a qualification output"
         raise ValueError(msg)
-    lock_hash = hashlib.sha256(args.lock.read_bytes()).hexdigest()
+    verify_lock(Path(__file__).resolve().parents[1], args.lock, "clustering")
     sensitivity = sensitivity_check()
     train, test = synthetic_features()
     clusters = cluster_check(
@@ -208,7 +245,6 @@ def main() -> None:
     if not passed:
         msg = "Synthetic reference qualification failed"
         raise ArithmeticError(msg)
-    args.out.mkdir(parents=True)
     report = {
         "schema_version": 1,
         "success": True,
@@ -223,28 +259,7 @@ def main() -> None:
         "sensitivity": sensitivity,
         "clusters": clusters,
     }
-    (args.out / "summary.json").write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
-    pl.DataFrame({"bootstrap": range(12), "adjusted_rand_index": clusters["bootstrap_ari"]}).write_csv(
-        args.out / "stability.csv"
-    )
-    manifest = {
-        "formula_version": "synthetic-sensitivity-clustering-v1",
-        "script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-        "lock_sha256": lock_hash,
-        "installed_packages": dict(sorted((d.metadata["Name"], d.version) for d in distributions())),
-        "files": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in args.out.iterdir()},
-    }
-    root = Path(__file__).resolve().parents[1]
-    inputs = [
-        root / "engineering/requirements.lock",
-        root / "conductor/tracks/nz_au_empirical_20261106/phase5-qualification.in",
-        root / "engineering/typings/threadpoolctl.pyi",
-        *sorted((root / "engineering/typings/sklearn").glob("*.pyi")),
-    ]
-    manifest["qualification_inputs"] = {
-        p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs
-    }
-    (args.out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    publish_packet(args.out, report, args.lock)
     LOGGER.info("Synthetic qualification passed; empirical qualification remains false")
 
 
