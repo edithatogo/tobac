@@ -10,7 +10,7 @@
     "engineering/ecosystem.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/dependency-pr94/candidate/ecosystem.lock",
+    "outputs/conductor-status-refresh/pr134-locks/ecosystem.lock",
     "--universal",
     "--python-version",
     "3.15"
@@ -23,10 +23,10 @@
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
     "engineering/test-requirements.txt": "aad99922ffbb72dded04118a6a9815be60c7634be925e4fac9d64b51720f6678",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
-    "engineering/voiage.in": "95956f53a227749aba89248d67d3374ff3ac0ec1e0588637c06cea21b01bb76a",
+    "engineering/voiage.in": "4ae5d17caba4f1d0078142f98739c8d2b0c63861afb091ff9059b95ccb413f5e",
     "engineering/voiage-build-requirements.txt": "83bbc382d9b7eb67400eb55f0a6815185532edcdeb709878ccfc68955043effa",
-    "engineering/ecosystem.in": "7b31bd32c96fe6ea3c024a04f3626fc9cbd39feb7ccae6829b58f1d7b89b8b61"
+    "engineering/ecosystem.in": "82b729a474830f18b4cf027f949564bbc260522e326148f55246562a62e15dc6"
   },
-  "lock_sha256": "4ff1afce598f5c9eefbd7ab6ca446172446e0c4dcc999bbeeef88b9fd7f7fbc8",
+  "lock_sha256": "046927785d9ca925f96b0fb8fe56cc1289b5411d19520b4bb223699d9a2cafe2",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

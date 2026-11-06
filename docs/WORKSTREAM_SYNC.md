@@ -837,3 +837,129 @@ Terminal source qualification: the final focused selection passes 85 tests in
 21.85 seconds. Full replay's maximum parsed numerical difference is zero; five
 cells differ only in float spelling, besides boolean letter case. All 16 figure
 files remain byte-identical. No scientific calculation module was modified.
+||||||| adb3f81
+
+## Conductor status reconciliation — 6 November 2026
+
+Chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` owns the isolated standard Git
+worktree `/Users/doughnut/Documents/tobac-conductor-status-20261106`, branch
+`codex/conductor-status-refresh`, based on receiving main `b57b4e1`.
+Scope: native-lineage plan opening status, `conductor/status.md` dependency
+readback and this handoff. Native scope: read-only GitHub PR/check/log queries;
+no mutations. Managed-worktree attempts rejected the supplied local ref; this
+worktree is CLI-created, not app-managed. The shared checkout and active PR #94
+qualification remain with their existing owner. Next: verify the bounded
+documentation diff and hand off; no dependency/runtime promotion is included.
+
+Terminal handoff: the plan opening now matches the completed eight-phase,
+32-task acceptance. GitHub snapshot and sampled #80/#91 failure logs are recorded
+in Conductor; #94 remains in-flight at its exact head. The 20/20 Conductor
+track-name check passes on worktree-local Python 3.15.1 under the 4 GiB/40-minute
+guard (log: `outputs/conductor-status-refresh/track-names.log`);
+`git diff --check` passes. No scientific/runtime source changed and no scientific
+suite was rerun for this documentation-only reconciliation. Changes remain local
+in this isolated lane for the repository integrator; no publication was performed.
+
+## Sequential PR integration ownership — 6 November 2026
+
+Chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` is the repository integrator for
+this owner-authorised merge-and-prune request, using the isolated standard Git
+worktree `/Users/doughnut/Documents/tobac-conductor-status-20261106` on
+`codex/conductor-status-refresh`. Scope: remaining dependency PR qualification,
+Conductor reconciliation, guarded main integration and verified branch/worktree
+cleanup. Sequence: #94, #80, #91, then local history reconciliation and pruning.
+The prior chat is stopped; its dirty Polars source and private native bindings
+remain in the original checkout, with no takeover or environment replacement.
+Existing dependency/native qualification gates remain required. Next: consume
+#94 terminal hosted evidence, then guarded publication at its exact head.
+
+Integration preflight checkpoint: origin/main remains `b57b4e1`; the retained
+branch inventory is `outputs/conductor-status-refresh/branch-inventory.json`.
+The unchanged documentation packet passes 27 focused archive/workstream tests
+on this worktree's hash-installed Python 3.15.1 runtime (151.9 MiB sampled peak),
+and 20/20 track-name checks. The default engineering context exceeded its byte
+budget; a narrowed local engineering profile retaining AGENTS, ownership and
+dependency-maintenance instructions succeeded without increasing the budget.
+
+## PR #94 merged; PR #80 qualification — 6 November 2026
+
+The same integrator chat now owns `codex/qualify-pr80` in the isolated standard
+worktree `/Users/doughnut/Documents/tobac-conductor-status-20261106`. #94 merged
+through GitHub's exact-head merge guard at `e1d9b88`; its receiving ref and full
+tree match the verified candidate. Receiving-main push jobs are still running.
+Scope: #80's workflow pins/uv version, its signed workflow-binding renewal,
+Conductor status and the previously committed stale-plan correction. The latest
+Renovate head `8a5b155` is merged into this lane, retaining its uv 0.13.7 update.
+All setup-python jobs retain the accepted Python patch until #91 is qualified.
+Native scope: read-only verification of the existing eight attempts; local capsule
+issuance with the retained signing identity. No preserved attempts, originals or
+shared environments were changed. The isolated verifier installation includes the
+project metadata and matches the accepted executable/distribution fingerprint.
+Native readback succeeded before issuance (8 runners, 96.0 MiB sampled peak).
+The new NZ/AU empirical chat retains its managed worktree and unfinished source;
+its shared metadata will be integrated only at its own terminal checkpoint.
+Thirty-six ancestor local branches and seven ancestor remote branches are pruned;
+divergent history remains preserved in the verified private bundle. New PR #133
+joins the sequential queue after #91. Next: focused contract checks, publication
+hook, exact-head #80 push, then hosted candidate and receiving-main qualification.
+
+Local #80 checkpoint: the focused workflow/execution/hosted-lineage/archive and
+cross-workstream selection passed 79 tests with one capability skip (no selected
+verifier variable in that invocation). The exact skipped verifier test was then
+executed with the isolated retained-runtime interpreter and passed; no broad rerun.
+Actionlint passed. Pedantic Zizmor's default offline audit reported no findings;
+its unavailable online audits are not represented as executed. The source-bound
+signed-input check and 20/20 track-name validation pass. Full scientific source,
+numerical runtime and reference outputs are unchanged; existing #94 software
+qualification is reused, with full hosted #80 gates still required.
+
+## PR #80 merged; PR #133 qualification — 6 November 2026
+
+The integrator now owns `codex/qualify-pr133` in the same isolated standard
+worktree. #80 merged through GitHub's exact-head guard at `b1ccfd5`; its full
+receiving tree matches `ff12683`, which passed all candidate checks. All ten
+#94 receiving-main workflows at `e1d9b88` passed. The #80 receiving-main jobs
+remain pending. Queue order is now #133, then the broader #91 patch migration.
+Scope: prek's ecosystem input and generated lock/receipt, focused read-only tool
+qualification, Conductor status and this handoff. Generate and inspect all four
+profiles; retain unchanged qualified profiles rather than adopting unrelated
+candidates. Native attempts, signing identity, hooks and scientific source are
+unchanged. The separate Python 3.15.2 environment hash-installed the current
+runtime lock and passed 26 synthetic cross-workstream cases as preliminary
+compatibility evidence only. Next: inspect generated profile differences, install
+and qualify the affected ecosystem candidate, then publish and await hosted gates.
+
+PR #133 local qualification: generated all four source-bound profiles; inspected
+unrelated transitive changes in the other three and retained their existing,
+still-valid qualified locks. The adopted ecosystem candidate changes only prek
+and threadpoolctl package versions. Hash installation succeeded on Python 3.15.1.
+The first full run passed 1,224 tests / 20 skips, with one source-binding failure
+because the lock was not committed. After `6d7e680`, the existing cache selected
+exactly that failed dependency-snapshot test: one pass / 15 deselected; all other
+unchanged results are reused. Prek 0.5.9 validates the existing config without
+installing hooks. A supported OpenMP control/restore probe passes with the new
+threadpoolctl; native BLAS control is unavailable on this host. The earlier BLAS
+probe failure and empty stdin-based attempt are not counted as successful proof.
+The optional legacy ecosystem Nox gate stopped on an unavailable exact Voiage
+wheel, before installing or running its probes. Alternate hashes were rejected;
+no acceptance pin was weakened. Current published Voiage qualification is retained.
+All ten #80 receiving-main workflows now passed at `b1ccfd5`. Next: publication
+boundary and exact-head #133 push, followed by hosted qualification and guarded merge.
+
+## PR #134 resumed qualification — 6 November 2026
+
+Integrator chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` owns
+`codex/qualify-pr134` in `/Users/doughnut/Documents/tobac-conductor-status-20261106`.
+Scope: Pydantic's Voiage input and affected source-bound lock receipts, focused
+qualification and Conductor reconciliation. #133 merged at `15fb177`; its
+receiving tree matched the qualified candidate. Next: generate and inspect the
+four main profiles plus the affected advisory profile, qualify changed packages,
+publish at the expected PR head and verify hosted/receiving results. Unfinished
+Polars and NZ/AU work and existing private native resources retain their owners.
+
+PR #134 checkpoint: full isolated ecosystem suite passes 1,225 / 20 skipped at
+`5277a01` on actual Python 3.15.1, 644.2 MiB sampled peak. The three affected
+profiles have fresh verified receipts; runtime/audit retained their unchanged
+qualified locks. #133 receiving-main workflows all passed at `15fb177`. Source
+science and native attempts are unchanged. Next: exact-head publication and hosted
+qualification, then #91 and #135; unfinished source lanes remain preserved.
