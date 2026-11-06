@@ -996,3 +996,36 @@ Matplotlib calls retain narrowly documented third-party kwargs typing ignores
 at the callable line, addressing the empirical lane's strict-audit findings;
 global typing policy is unchanged. This supersedes the earlier case-only CSV
 qualification rather than weakening the table comparator.
+
+## Polars profile candidate — 6 November 2026
+
+The same lane owns the bounded runtime/profile retirement packet on
+`codex/polars-profiles`, based on the reconciled `58a4b2f` main. Current source
+and prior integrator history were both preserved at the append conflict.
+All five hash locks/receipts were regenerated using uv 0.13.7 and exact Python
+3.15.1; the helper's former minor-only 3.15 resolver target correctly rejected
+published Voiage's patch-level requirement and is now 3.15.1. Runtime/audit
+resolution also changes dateutil, Pydantic/core, typing-inspection and audit-only
+transitives; these are explicit candidates, not silently unchanged reference pins.
+
+Active longitudinal, canary, Voiage and advisory routes no longer install pandas,
+xarray or pandas-stubs. The patched 2.2 producer builder is retired. Published
+Voiage 3.1.0 is the new candidate default, preserving the numerical adapters and
+independent oracles. The historical Polars-candidate Nox name delegates to the
+released-producer checks; historical source patches/receipts remain retained.
+The isolated ecosystem hash installation contains 57 compatible packages and
+neither retired library. Its initial focused run passed 380 tests and found the
+legacy default-version guard; that guard was updated rather than suppressed.
+The installed weighted/partition failure-only rerun passed with 3.0.0 before the
+newest 3.1.0 qualification; final 3.1.0 checks remain separately recorded.
+
+The exact published 3.1.0 wheel was independently downloaded and verified as
+SHA256 `ca1a625ea2e0f6c63ffd306f19cb62c1c69242643164553d5ca633e94146eb5b`.
+Its independent hash-installed published profile passed 90 numerical comparisons
+(max error 2.842170943040401e-14), six buffer-ownership cases and installed/native
+byte verification. The public receipt is `integration/voiage_published_20261106.json`;
+the 3.0.0 receipt remains historical. Whole-source strict BasedPyright passed
+with zero errors/warnings using the empirical lane's existing audit interpreter
+read-only; no environment or source in that lane was modified. Whole-source
+Ruff and all 169 maintained files' formatting pass. Native acceptance still
+requires the final integrated source snapshot; no old capsule is relabelled.

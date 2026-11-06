@@ -558,6 +558,7 @@
     "integration/voiage_polars_consumer_20261027.json",
     "integration/voiage_polars_consumer_20261028.json",
     "integration/voiage_published_20261102.json",
+    "integration/voiage_published_20261106.json",
     "integration/voiage_python315_compatibility_20261026.json",
     "integration/workstream_sync_review_20261025.json",
     "integration/workstream_sync_verification.json",

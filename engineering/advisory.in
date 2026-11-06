@@ -3,6 +3,5 @@
 ty==0.0.95
 pyrefly==1.4.0
 # Match the existing qualified static interface declarations.
-pandas-stubs==3.0.5.260914
 scipy-stubs==1.18.1.1
 types-jsonschema==4.26.0.20261006

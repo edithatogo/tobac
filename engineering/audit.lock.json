@@ -1,32 +1,32 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "audit",
-  "resolver": "uv 0.13.5 (46776a95d 2026-10-21 aarch64-apple-darwin)",
+  "resolver": "uv 0.13.7 (Homebrew 2026-11-03 aarch64-apple-darwin)",
   "command": [
-    "/Users/doughnut/.local/share/tobac-uv135/uv",
+    "/Users/doughnut/.local/bin/uv",
     "--no-config",
     "pip",
     "compile",
     "engineering/audit.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/engineering/lock-candidate-88/audit.lock",
+    "outputs/polars-migration-20261106/locks-310/audit.lock",
     "--python-version",
-    "3.15",
+    "3.15.1",
     "--python-platform",
     "x86_64-unknown-linux-gnu"
   ],
   "resolver_exit_code": 0,
   "inputs": {
-    "pyproject.toml": "2b34aae27610adbfcba3b0a9cdea35447adbd06876c748d3c781a32302ba3f20",
+    "pyproject.toml": "77589aaa97ef2dffa9ca3f18d135422c7cf1c93f0aa351f265ea7e78eff73f4c",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
-    "engineering/reference-requirements.txt": "ee4a0fae35f4e6764c31428a2ade91decc83e90671f808b384d275a8032fb815",
+    "engineering/reference-requirements.txt": "0128d9615ef92cdb58efd146005e146284d7d999d732ee626ebb471ea304f79d",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
     "engineering/test-requirements.txt": "aad99922ffbb72dded04118a6a9815be60c7634be925e4fac9d64b51720f6678",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/audit.in": "7b149445a2ccf7a2417a4668a29a8dd6e927bbcef081de86b50c2450e22304f9",
-    "engineering/tools-requirements.txt": "2f151118147e7e3127a5c57d4c6bf4d902e463df8d4d7634856bdf0675ed5e16"
+    "engineering/tools-requirements.txt": "267cd87ca8cfc60d3f2d0ceaae6060822bf6f11cc94b46037d1d81af61d23aeb"
   },
-  "lock_sha256": "8e3e29a769fc729b46489d296ba32981c8e37587bd55d3a922661156dec4baf9",
+  "lock_sha256": "c0c2fcf10f852abf880b2634342dd61df54feda09f2b869940bbb15e50257752",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

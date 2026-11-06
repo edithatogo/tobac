@@ -1,7 +1,7 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "advisory",
-  "resolver": "uv 0.13.6 (Homebrew 2026-10-26 aarch64-apple-darwin)",
+  "resolver": "uv 0.13.7 (Homebrew 2026-11-03 aarch64-apple-darwin)",
   "command": [
     "/Users/doughnut/.local/bin/uv",
     "--no-config",
@@ -10,22 +10,22 @@
     "engineering/advisory.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/dci3-lock/advisory.lock",
+    "outputs/polars-migration-20261106/locks-310/advisory.lock",
     "--universal",
     "--python-version",
-    "3.15"
+    "3.15.1"
   ],
   "resolver_exit_code": 0,
   "inputs": {
-    "pyproject.toml": "2b34aae27610adbfcba3b0a9cdea35447adbd06876c748d3c781a32302ba3f20",
+    "pyproject.toml": "77589aaa97ef2dffa9ca3f18d135422c7cf1c93f0aa351f265ea7e78eff73f4c",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
-    "engineering/reference-requirements.txt": "ee4a0fae35f4e6764c31428a2ade91decc83e90671f808b384d275a8032fb815",
+    "engineering/reference-requirements.txt": "0128d9615ef92cdb58efd146005e146284d7d999d732ee626ebb471ea304f79d",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
     "engineering/test-requirements.txt": "aad99922ffbb72dded04118a6a9815be60c7634be925e4fac9d64b51720f6678",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
-    "engineering/advisory.in": "edd6096d581fd09808f87f5f7f6ce35c1efa5adffecf3855e847c8cb5fc020a3",
-    "engineering/voiage.in": "95956f53a227749aba89248d67d3374ff3ac0ec1e0588637c06cea21b01bb76a"
+    "engineering/advisory.in": "22aee5642392a5677dfa872976a3cb84798897cb5e5bd43eb026a6c1bccee89a",
+    "engineering/voiage.in": "130978fa422bd696241b87258c4ce7c1487354dc742a526c44564de0d0928360"
   },
-  "lock_sha256": "82bb884b347dd2aa085ee2a150d44b08ef46f180b12133a56fdfa73ecb2128d8",
+  "lock_sha256": "9e4bd85864b8b12540222b63ff8884d9749ab2ffc1fabe1f36d4c9e61f93c1ea",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

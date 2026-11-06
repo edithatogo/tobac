@@ -4,7 +4,6 @@ import hashlib
 import json
 import os
 import shutil
-import subprocess
 import sys
 from pathlib import Path
 from uuid import uuid4
@@ -482,7 +481,7 @@ def canary(session: nox.Session) -> None:
     session.env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONPATH="src")
     session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
     session.install(
-        "--pre", "numpy", "scipy", "pandas", "matplotlib", "pytest", "hypothesis", "jsonschema", "PyYAML"
+        "--pre", "numpy", "scipy", "polars", "matplotlib", "pytest", "hypothesis", "jsonschema", "PyYAML"
     )
     session.run("python", "-c", 'import hypothesis, jsonschema; print("canary dependencies loaded")')
     session.run("python", "-m", "pytest", "-q", "--strict-markers")
@@ -504,10 +503,9 @@ def research_m3(session: nox.Session) -> None:
 
 @nox.session(python="3.15.1")
 def voiage(session: nox.Session) -> None:
-    """Build a pinned, explicitly local-versioned Voiage compatibility candidate."""
+    """Qualify the released Polars producer against all existing reference oracles."""
     session.env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONHASHSEED="0")
     session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
-    # Independent, input-bound dependency lock; the wheel still resolves its dependencies normally.
     session.run(
         "python",
         "scripts/lock_receipt.py",
@@ -522,67 +520,17 @@ def voiage(session: nox.Session) -> None:
         "uv", "pip", "sync", "--python", python, "--require-hashes", "engineering/voiage.lock", external=True
     )
     session.install("--no-deps", "--no-build-isolation", "-e", ".")
+    session.run("uv", "pip", "check", "--python", python, external=True)
+    session.run(
+        "python",
+        "-c",
+        "from importlib.metadata import version; "
+        "from importlib.util import find_spec; assert version('voiage') == '3.1.0'; "
+        "assert find_spec('pandas') is None and find_spec('xarray') is None",
+    )
     base = Path(session.posargs[0]).resolve() if session.posargs else (ROOT / OUT / "voiage").resolve()
     run = base / uuid4().hex
-    source, wheels = run / "source", run / "wheels"
     run.mkdir(parents=True)
-    revision = "7af563c8cb373057d30662650b3f332f39e05b83"
-    patch = ROOT / "engineering/voiage-python315.patch"
-    session.run("git", "init", str(source), external=True)
-    session.run(
-        "git",
-        "-C",
-        str(source),
-        "-c",
-        "credential.helper=",
-        "fetch",
-        "--depth=1",
-        "https://github.com/edithatogo/voiage.git",
-        revision,
-        external=True,
-    )
-    session.run("git", "-C", str(source), "checkout", "--detach", "FETCH_HEAD", external=True)
-    fetched = session.run("git", "-C", str(source), "rev-parse", "HEAD", silent=True, external=True)
-    if not isinstance(fetched, str) or fetched.strip() != revision:
-        session.error("Fetched Voiage source does not match the reviewed revision")
-    session.run("git", "-C", str(source), "apply", "--check", str(patch), external=True)
-    session.run("git", "-C", str(source), "apply", str(patch), external=True)
-    session.run("git", "-C", str(source), "add", "pyproject.toml", external=True)
-    session.run(
-        "git",
-        "-C",
-        str(source),
-        "-c",
-        "user.name=Tobac compatibility build",
-        "-c",
-        "user.email=voiage-compatibility@users.noreply.github.com",
-        "commit",
-        "-m",
-        "Qualify Voiage metadata for tobac Python 3.15.1",
-        external=True,
-        env={
-            "GIT_AUTHOR_DATE": "2026-10-26T00:00:00+00:00",
-            "GIT_COMMITTER_DATE": "2026-10-26T00:00:00+00:00",
-        },
-    )
-    python = str(Path(session.bin).resolve() / "python")
-    session.env["CARGO_TARGET_DIR"] = str(run / "cargo-target")
-    session.run(
-        "uv",
-        "build",
-        "--python",
-        python,
-        "--build-constraint",
-        str(ROOT / "engineering/voiage-build-requirements.txt"),
-        "--wheel",
-        "--out-dir",
-        str(wheels),
-        str(source),
-        external=True,
-    )
-    (wheel,) = wheels.glob("*.whl")
-    session.run("uv", "pip", "install", "--python", python, "--no-index", str(wheel), external=True)
-    session.run("uv", "pip", "check", "--python", python, external=True)
     session.run(
         "python",
         "-m",
@@ -603,31 +551,18 @@ def voiage(session: nox.Session) -> None:
         str(run / "equal-weight.json"),
     )
     session.run("python", "-m", "tobac.research.qualification", "--out", str(run / "weighted.json"))
-    git = shutil.which("git")
-    if git is None:
-        session.error("Git is required to read the Voiage candidate revision")
-    derived = subprocess.check_output(  # noqa: S603 -- Resolved Git executable and fixed local argv.
-        [git, "-C", str(source), "rev-parse", "HEAD"], text=True, encoding="utf-8", timeout=30
-    ).strip()
     record = {
-        "upstream_revision": revision,
-        "patch_sha256": hashlib.sha256(patch.read_bytes()).hexdigest(),
-        "derived_revision": derived,
-        "wheel": wheel.name,
-        "wheel_sha256": hashlib.sha256(wheel.read_bytes()).hexdigest(),
-        "scope": "Metadata-only compatibility build; unchanged Voiage implementation and native code",
+        "version": "3.1.0",
+        "dependency_lock_sha256": hashlib.sha256((ROOT / "engineering/voiage.lock").read_bytes()).hexdigest(),
+        "scope": "Published Polars producer; original numerical and interchange oracles retained",
+        "environment": session.run("uv", "pip", "freeze", "--python", python, silent=True, external=True),
     }
-    record["environment"] = session.run("uv", "pip", "freeze", "--python", python, silent=True, external=True)
     (run / "build-receipt.json").write_text(json.dumps(record, indent=2) + "\n")
-    OUT.mkdir(parents=True, exist_ok=True)
-    # Keep compact receipts without uploading a complete upstream checkout or native target tree.
-
-    receipt_dir = OUT / ("voiage-receipts-" + run.name)
-    receipt_dir.mkdir()
+    receipt_dir = ROOT / OUT / ("voiage-receipts-" + run.name)
+    receipt_dir.mkdir(parents=True)
     for name in ["build-receipt.json", "equal-weight.json", "weighted.json"]:
         shutil.copyfile(run / name, receipt_dir / name)
     shutil.copytree(run / "interchange", receipt_dir / "interchange")
-    session.log(f"Voiage receipt: {receipt_dir}")
 
 
 @nox.session(python="3.15.1")
@@ -741,143 +676,9 @@ def recovery(session: nox.Session) -> None:
 
 @nox.session(python="3.15.1")
 def voiage_polars_candidate(session: nox.Session) -> None:
-    """Build and qualify one immutable unpatched upstream container candidate."""
-    pin = json.loads((ROOT / "engineering/voiage-polars-candidate.json").read_text())
-    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
-    session.run(
-        "python",
-        "scripts/lock_receipt.py",
-        "verify",
-        "--profile",
-        "voiage",
-        "--path",
-        "engineering/voiage.lock",
-    )
-    python = str(Path(session.bin).resolve() / "python")
-    session.env.update(
-        OPENBLAS_NUM_THREADS="1",
-        POLARS_MAX_THREADS="2",
-        RAYON_NUM_THREADS="2",
-        CARGO_BUILD_JOBS="2",
-        PYTHONHASHSEED="0",
-    )
-    session.run(
-        "uv", "pip", "sync", "--python", python, "--require-hashes", "engineering/voiage.lock", external=True
-    )
-    session.install("--no-deps", "--no-build-isolation", "-e", ".")
-    base = (
-        Path(session.posargs[0]).resolve()
-        if session.posargs
-        else (ROOT / OUT / "voiage-polars-candidate").resolve()
-    )
-    run = base / uuid4().hex
-    source, wheels = run / "source", run / "wheels"
-    run.mkdir(parents=True)
-    session.run("git", "init", str(source), external=True)
-    session.run(
-        "git",
-        "-C",
-        str(source),
-        "-c",
-        "credential.helper=",
-        "fetch",
-        "--depth=1",
-        pin["repository"],
-        pin["revision"],
-        external=True,
-    )
-    session.run("git", "-C", str(source), "checkout", "--detach", "FETCH_HEAD", external=True)
-    actual = session.run("git", "-C", str(source), "rev-parse", "HEAD", silent=True, external=True)
-    if not isinstance(actual, str) or actual.strip() != pin["revision"]:
-        session.error("Candidate source differs from the immutable reviewed revision")
-    session.env["CARGO_TARGET_DIR"] = str(run / "cargo-target")
-    session.run(
-        "uv",
-        "build",
-        "--python",
-        python,
-        "--build-constraint",
-        str(ROOT / "engineering/voiage-build-requirements.txt"),
-        "--wheel",
-        "--out-dir",
-        str(wheels),
-        str(source),
-        external=True,
-    )
-    session.run("git", "-C", str(source), "diff", "--exit-code", "HEAD", external=True)
-    (wheel,) = wheels.glob("*.whl")
-    # Actual metadata resolution and installer hash enforcement, with no dependency bypass.
-    wheel_requirement = run / "wheel-requirement.txt"
-    wheel_requirement.write_text(
-        "voiage @ "
-        + wheel.as_uri()
-        + " --hash=sha256:"
-        + hashlib.sha256(wheel.read_bytes()).hexdigest()
-        + "\n",
-        encoding="utf-8",
-    )
-    session.run(
-        "uv",
-        "pip",
-        "install",
-        "--python",
-        python,
-        "--no-index",
-        "--require-hashes",
-        "--reinstall-package",
-        "voiage",
-        "-r",
-        "engineering/voiage.lock",
-        "-r",
-        str(wheel_requirement),
-        external=True,
-    )
-    session.run("uv", "pip", "check", "--python", python, external=True)
-    destination = OUT / "voiage-polars-candidate" / "receipts" / run.name
-    destination.mkdir(parents=True)
-    session.run(
-        "python",
-        "scripts/qualify_voiage_consumer.py",
-        "--wheel",
-        str(wheel),
-        "--buffer-ownership",
-        "--expected-version",
-        pin["expected_version"],
-        "--out",
-        str(destination / "consumer.json"),
-    )
-    session.run(
-        "python",
-        "-m",
-        "pytest",
-        "-q",
-        "tests/test_workstream_integration.py",
-        "tests/m3/test_research.py",
-        "tests/engineering/test_voiage_consumer_surface.py",
-        "tests/engineering/test_voiage_consumer_probe.py",
-    )
-    surface = session.run("python", "scripts/voiage_consumer_surface.py", silent=True)
-    if not isinstance(surface, str):
-        session.error("Consumer surface inventory did not return JSON")
-    (destination / "surface.json").write_text(surface, encoding="utf-8")
-    record = {
-        "source_revision": actual.strip(),
-        "candidate_pin_sha256": hashlib.sha256(
-            (ROOT / "engineering/voiage-polars-candidate.json").read_bytes()
-        ).hexdigest(),
-        "source_pyproject_sha256": hashlib.sha256((source / "pyproject.toml").read_bytes()).hexdigest(),
-        "dependency_lock_sha256": hashlib.sha256((ROOT / "engineering/voiage.lock").read_bytes()).hexdigest(),
-        "source_unpatched": True,
-        "wheel": wheel.name,
-        "wheel_sha256": hashlib.sha256(wheel.read_bytes()).hexdigest(),
-        "kind": pin["kind"],
-        "published_3_0_qualification": "unexecuted; release unavailable",
-        "reference_producer": "retained; candidate is an opt-in qualification lane",
-    }
-    (destination / "build.json").write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-    shutil.copyfile(wheel, destination / wheel.name)
-    shutil.rmtree(source)
-    shutil.rmtree(run / "cargo-target")
+    """Retain the command name while qualifying the now-published Polars producer."""
+    # The unpublished 2.2 container build and its patched predecessor are historical.
+    voiage(session)
 
 
 @nox.session(python="3.15.1")
@@ -887,7 +688,7 @@ def voiage_published(session: nox.Session) -> None:
     python = session.run("python", "-c", "import sys; print(sys.executable)", silent=True)
     if not isinstance(python, str) or not python.strip():
         session.error("Cannot resolve selected interpreter")
-    pin = json.loads((ROOT / "integration/voiage_published_20261102.json").read_text())
+    pin = json.loads((ROOT / "integration/voiage_published_20261106.json").read_text())
     wheel = (ROOT / OUT / "voiage-published" / pin["wheel"]).resolve()
     wheel.parent.mkdir(parents=True, exist_ok=True)
     session.run("curl", "--fail", "--location", "--output", str(wheel), pin["wheel_url"], external=True)
@@ -918,7 +719,7 @@ def voiage_published(session: nox.Session) -> None:
         "--wheel",
         str(wheel),
         "--expected-version",
-        "3.0.0",
+        "3.1.0",
         "--buffer-ownership",
         "--out",
         str(wheel.parent / ("qualification-" + uuid4().hex + ".json")),
@@ -958,53 +759,5 @@ def advisory_types(session: nox.Session) -> None:
         external=True,
     )
     session.install("--no-deps", "--no-build-isolation", "-e", ".")
-    run = ROOT / OUT / "advisory-build" / uuid4().hex
-    source = run / "source"
-    wheels = run / "wheels"
-    run.mkdir(parents=True)
-    revision = "7af563c8cb373057d30662650b3f332f39e05b83"
-    patch = ROOT / "engineering/voiage-python315.patch"
-    session.run("git", "init", str(source), external=True)
-    session.run(
-        "git",
-        "-C",
-        str(source),
-        "-c",
-        "credential.helper=",
-        "fetch",
-        "--depth=1",
-        "https://github.com/edithatogo/voiage.git",
-        revision,
-        external=True,
-    )
-    session.run("git", "-C", str(source), "checkout", "--detach", "FETCH_HEAD", external=True)
-    fetched = session.run("git", "-C", str(source), "rev-parse", "HEAD", silent=True, external=True)
-    if not isinstance(fetched, str) or fetched.strip() != revision:
-        session.error("Fetched Voiage source differs from the reviewed revision")
-    session.run("git", "-C", str(source), "apply", "--check", str(patch), external=True)
-    session.run("git", "-C", str(source), "apply", str(patch), external=True)
-    session.env["CARGO_TARGET_DIR"] = str(run / "cargo-target")
-    session.run(
-        "uv",
-        "build",
-        "--python",
-        python,
-        "--build-constraint",
-        str(ROOT / "engineering/voiage-build-requirements.txt"),
-        "--wheel",
-        "--out-dir",
-        str(wheels),
-        str(source),
-        external=True,
-    )
-    wheel_files = list(wheels.glob("*.whl"))
-    if len(wheel_files) != 1:
-        session.error("Expected exactly one Voiage compatibility wheel")
-    wheel = wheel_files[0]
-    session.run(
-        "uv", "pip", "install", "--python", python, "--no-deps", "--no-index", str(wheel), external=True
-    )
     session.run("uv", "pip", "check", "--python", python, external=True)
-    session.env["TOBAC_ADVISORY_WHEEL"] = str(wheel)
-    session.env["TOBAC_ADVISORY_VOIAGE_REVISION"] = revision
     session.run("python", "scripts/advisory_types.py")

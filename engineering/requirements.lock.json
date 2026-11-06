@@ -1,29 +1,29 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "runtime",
-  "resolver": "uv 0.13.5 (46776a95d 2026-10-21 aarch64-apple-darwin)",
+  "resolver": "uv 0.13.7 (Homebrew 2026-11-03 aarch64-apple-darwin)",
   "command": [
-    "/Users/doughnut/.local/share/tobac-uv135/uv",
+    "/Users/doughnut/.local/bin/uv",
     "--no-config",
     "pip",
     "compile",
     "engineering/requirements.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/engineering/lock-candidate-88/requirements.lock",
+    "outputs/polars-migration-20261106/locks-310/requirements.lock",
     "--universal",
     "--python-version",
-    "3.15"
+    "3.15.1"
   ],
   "resolver_exit_code": 0,
   "inputs": {
-    "pyproject.toml": "2b34aae27610adbfcba3b0a9cdea35447adbd06876c748d3c781a32302ba3f20",
+    "pyproject.toml": "77589aaa97ef2dffa9ca3f18d135422c7cf1c93f0aa351f265ea7e78eff73f4c",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
-    "engineering/reference-requirements.txt": "ee4a0fae35f4e6764c31428a2ade91decc83e90671f808b384d275a8032fb815",
+    "engineering/reference-requirements.txt": "0128d9615ef92cdb58efd146005e146284d7d999d732ee626ebb471ea304f79d",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
     "engineering/test-requirements.txt": "aad99922ffbb72dded04118a6a9815be60c7634be925e4fac9d64b51720f6678",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68"
   },
-  "lock_sha256": "2b0720ad8fcfe353609960609d277ef907e0d5e573a75b5ba008b1b316e0150d",
+  "lock_sha256": "a92d5c9da88d195441f80f8f7abe8d7446bb0ea5e04cfdabbb4fba54fd60b4e9",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
