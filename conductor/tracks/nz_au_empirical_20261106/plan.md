@@ -8,7 +8,7 @@ R01–R19 are defined in spec.md. Existing owners retain runtime and integration
 
 - [ ] Record actual HEAD, ownership, bounded context hashes and reusable baseline receipts; reconcile with current main before integration.
 - [ ] Inventory active source, scripts, notebooks, CI, containers and environments; map existing capabilities, defects, duplicated calculations and pandas/xarray usage.
-- [ ] Record a dated upstream version census for direct and transitive dependencies, including Python patch, Searchright, Innovate, Voiage and Snakemake; distinguish release, prerelease and development revisions.
+- [x] Record a dated upstream version census for direct and transitive dependencies, including Python patch, Searchright, Innovate, Voiage and Snakemake; distinguish release, prerelease and development revisions.
 - [ ] Coordinate the existing dependency/Polars owner; consume their qualified commits rather than repeat migration or replace their environment.
 - [ ] Resolve newest supported candidates in isolated repo-local Python 3.15.1 environments; use existing lock_receipt.py and reviewed hash locks for all affected profiles, extending coverage for new analytical tools.
 - [ ] Hash-install and verify actual versions, dependency consistency, typing, security, clean packaging and affected numerical parity. Record latest available versus latest qualified, incompatibility and disposition for every held-back dependency.

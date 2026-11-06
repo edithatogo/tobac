@@ -272,3 +272,36 @@ coordination file, with differing bytes and no staged deletions. Prepared scoped
 no integration or inter-chat message executed. Searchright exact source revision cloned
 locally for CLI qualification; locked two-job Cargo build is running under the usual limits.
 No search, screening, provider acceptance or publication is inferred from source checkout.
+
+## Searchright local CLI qualification
+
+Locked build of searchright-cli at af8c282f4c0e92a958027ca352e82f1cc7180c57 completed
+with cargo/rustc 1.99.1 (above package MSRV 1.97.1), two compiler jobs, 1m11s build time,
+sampled peak 764.5 MiB, guard exit 0. No shared toolchain override or producer mutation.
+Actual binary reports searchright 0.1.0-alpha.1; --help, provider listing and maintained
+example-plan validation execute successfully. Example returns no findings and readiness
+for strategy design; it is a supplied demonstration, not the NZ/AU review protocol.
+Default CLI lists five fixture-backed providers and does not establish live acquisition.
+Source tree remains clean; binary/Cargo.lock/context-boundary hashes and outputs retained
+in searchright-qualification.json. No systematic search, screening or provider acceptance
+claim. Full Searchright upstream test/verification matrix was not executed for this CLI probe.
+
+A fresh full tobac suite is running after adding the scientific stage and its two tests,
+using the latest baseline candidate. Previous full-suite evidence precedes that code addition
+and is not substituted for this run. Native inventory renewal still blocks the real M1 DAG.
+
+## Fresh full suite and approved owner handoff
+
+Post-M1-stage full suite reached terminal exit 1: 16 failed, 1218 passed, 20 skipped
+in 51.60 s, sampled peak 662.1 MiB. All failures are hosted-lineage tests stopped by
+Scientific inventory differs from native acceptance before intended downstream checks.
+This supersedes any implication that the current operation inventory has a green full suite;
+earlier baseline/candidate passes remain valid historical evidence at their recorded source.
+Do not suppress tests or weaken the guard. Renewed native acceptance is a required gate.
+
+User explicitly authorized sending the prepared handoff to owner chat
+01a19a6e-2e47-7b10-8a35-4e7d7fedb965. First send was rejected because the chat was
+archived; unarchived it solely to perform the approved delivery. Second send succeeded.
+Message includes exact packet, Polars terminal-commit request, native inventory renewal,
+16 failing tests, preserved bindings and coordination-file overlap. No external email,
+GitHub mutation or recurring coordination created. Await event-driven owner evidence.

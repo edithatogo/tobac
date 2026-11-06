@@ -32,3 +32,9 @@ TOBAC_LINEAGE_ATTEMPTS/WHEEL bindings, which are absent here and were not copied
 Polars terminal conversion, runtime/dependency promotion and shared Conductor integration
 retain their owners. Innovate 0.6.0's pandas/pandasdmx dependency conflict remains explicit.
 No source data was pushed, native settings changed or external messages sent.
+
+## Delivery and current test status
+
+User-approved handoff delivered to existing owner chat after unarchiving it. Current
+post-wrapper full suite has 16 hosted-lineage failures at inventory admission, 1218 passed
+and 20 skipped. These failures are an open acceptance gate, not waived by prior green runs.
