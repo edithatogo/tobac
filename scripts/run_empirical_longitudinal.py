@@ -8,6 +8,7 @@ if TYPE_CHECKING:
     from matplotlib.figure import Figure
 
 import argparse
+import csv
 import hashlib
 import json
 import math
@@ -69,6 +70,14 @@ def _git(*args: str) -> str | None:
 def save_json(path: str | Path, data: object) -> None:
     """Write the supplied report as formatted JSON."""
     Path(path).write_text(json.dumps(data, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+
+
+def write_table(table: pl.DataFrame, path: Path) -> None:
+    """Retain Python float and boolean spelling in the established CSV contract."""
+    with path.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(table.columns)
+        writer.writerows(table.iter_rows())
 
 
 def source_table(root: Path = ROOT) -> pl.DataFrame:
@@ -511,7 +520,7 @@ def plots(  # noqa: PLR0913, PLR0915, PLR0917  # Preserve explicit dimensioned i
     f = frames[primary_alignment]
     fig, ax = plt.subplots(figsize=(10, 5.6))  # type: ignore[attr-defined]
     ax.plot(f["year"], f["matched_annual_release"] / 1e9, "o-", label="Period-matched recorded lawful supply")  # type: ignore[attr-defined]
-    ax.plot(
+    ax.plot(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
         f["year"], f["reconstruction_median"] / 1e9, "s--", label="Reconstructed unadjusted survey centre"
     )  # type: ignore[attr-defined]
     ax.fill_between(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
@@ -539,7 +548,7 @@ def plots(  # noqa: PLR0913, PLR0915, PLR0917  # Preserve explicit dimensioned i
     ax.plot(f["year"], np.exp(f["log_reported_ratio"]), "o", label="Interval-derived raw ratio")  # type: ignore[attr-defined]
     h = latent.filter(pl.col("period_role") == "historical")
     ax.plot(h["year"], h["median_ratio"], "-", label="Latent historical ratio, data-conditioned")  # type: ignore[attr-defined]
-    ax.fill_between(
+    ax.fill_between(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
         h["year"], h["lower_95_ratio"], h["upper_95_ratio"], alpha=0.2, label="95% latent interval"
     )  # type: ignore[attr-defined]
     fc = latent.filter(pl.col("period_role") == "extrapolation")
@@ -713,7 +722,7 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
     last_year = int(primary["year"][-1])
     validate_horizon(cfg, last_year)
     out.mkdir(parents=True, exist_ok=True)
-    pl.concat(list(frames.values())).write_csv(out / "aligned_observations.csv")
+    write_table(pl.concat(list(frames.values())), out / "aligned_observations.csv")
     fit = fit_frame(primary, spec)
     future_years = list(range(last_year + 1, int(cfg["forecast_to"]) + 1))
     query_times = np.r_[primary["time"].to_numpy(), primary["time"][-1] + np.arange(1, len(future_years) + 1)]
@@ -722,14 +731,18 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
     summary = summary.with_columns(
         pl.Series("period_role", ["historical"] * len(primary) + ["extrapolation"] * len(future_years))
     )
-    summary.write_csv(out / "latent_ratio_summary.csv")
+    write_table(summary, out / "latent_ratio_summary.csv")
     n = 512 if quick else cfg["draws"]
     paths = sample_temporal(fit, [float(t) for t in primary["time"]], n, cfg["seed"])
-    pl.DataFrame(paths, orient="row", schema=[f"log_ratio_{y}" for y in primary["year"]]).with_row_index(
-        "path_id"
-    ).write_csv(out / "joint_historical_paths.csv")
-    pl.DataFrame({"annual_process_log_sd": spec.process_grid, "posterior_mass": fit.weights}).write_csv(
-        out / "process_sd_posterior.csv"
+    write_table(
+        pl.DataFrame(paths, orient="row", schema=[f"log_ratio_{y}" for y in primary["year"]]).with_row_index(
+            "path_id"
+        ),
+        out / "joint_historical_paths.csv",
+    )
+    write_table(
+        pl.DataFrame({"annual_process_log_sd": spec.process_grid, "posterior_mass": fit.weights}),
+        out / "process_sd_posterior.csv",
     )
     stock_rows: list[dict[str, float | str | int]] = []
     discrepancies: list[dict[str, float | str | int]] = []
@@ -809,9 +822,9 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
             )
             mapped_arrays = {k: v for k, v in mapped.items() if isinstance(v, np.ndarray)}
             discrepancies.extend(summarise_gap(name, primary, mapped_arrays, 0, 0.0, 0.0))
-    pl.DataFrame(stock_rows).write_csv(out / "lawful_stock_ledgers.csv")
+    write_table(pl.DataFrame(stock_rows), out / "lawful_stock_ledgers.csv")
     gaps = pl.DataFrame(discrepancies)
-    gaps.write_csv(out / "signed_discrepancy_sensitivity.csv")
+    write_table(gaps, out / "signed_discrepancy_sensitivity.csv")
     variants: list[tuple[str, pl.DataFrame, TemporalSpec]] = [
         ("primary", primary, spec),
         ("calendar", frames["calendar_replication"], spec),
@@ -868,7 +881,7 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
             )
         )
     sensitivity = pl.DataFrame(sens)
-    sensitivity.write_csv(out / "fit_sensitivity.csv")
+    write_table(sensitivity, out / "fit_sensitivity.csv")
     checks: list[dict[str, float | str | int]] = []
     for alignment in ALIGNMENTS:
         ff = frames[alignment]
@@ -900,7 +913,7 @@ def run(out: str | Path, root: Path = ROOT, quick: bool = False) -> dict[str, An
                     ),
                 )
             )
-    pl.DataFrame(checks, infer_schema_length=None).write_csv(out / "rolling_hindcasts.csv")
+    write_table(pl.DataFrame(checks, infer_schema_length=None), out / "rolling_hindcasts.csv")
     # Preserve published values and flag the original Table 1 arithmetic inconsistency.
     published_lower = 2149262500
     recomputed_lower = 539000 * 3978.5

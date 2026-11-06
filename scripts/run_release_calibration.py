@@ -292,7 +292,7 @@ def figures(  # noqa: PLR0913, PLR0915, PLR0917  # Preserve explicit dimensioned
 
     fig, ax = plt.subplots(figsize=(10, 5.7))
     ax.plot(years, values, "o-", label="Published releases, 2010\u20132025")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
-    ax.plot(
+    ax.plot(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
         chosen["year"], chosen["median"], "o--", label=f"Conditional median: {selected.replace('_', ' ')}"
     )  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.fill_between(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
