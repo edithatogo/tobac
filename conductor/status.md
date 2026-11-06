@@ -1,4 +1,4 @@
-# Reconciled repository status — 3 November 2026
+# Reconciled repository status — 6 November 2026
 
 DXP1–DXP4 are complete through actual hosted qualification. The advisory
 implementation is qualified and published to main at `672894f`. The retained native-lineage track has
@@ -10,28 +10,48 @@ labelled historical in their archived plan, rather than marked as executed.
 ## Sequential dependency integration — 6 November 2026
 
 [PR #94](https://github.com/edithatogo/tobac/pull/94) merged at
-`e1d9b8848ab261f0ed992a74b3a2750e980512aa` after all head checks completed
-without failures at `adb3f8127355f210c1df959d629730873b381fc2`. The receiving
-ref and full tree were read back and match that tested candidate. Its receiving-main
-push workflows remain in progress; they are not yet recorded as accepted.
+`e1d9b8848ab261f0ed992a74b3a2750e980512aa` after all candidate checks passed
+at `adb3f8127355f210c1df959d629730873b381fc2`. Receiving ref and full-tree
+readback match the tested candidate. All ten receiving-main workflows passed,
+including [engineering](https://github.com/edithatogo/tobac/actions/runs/42170210863)
+and [scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/42170210761).
 
-PR #80 is now the active qualification packet. Its latest Renovate head `8a5b155`
-is incorporated without a force update. The candidate uses setup-uv v10.3.3 at
-upstream tag commit `68559e99cc807c1eb7e9238fd43a15bba460eec2` and uv 0.13.7;
-partial setup-python 3.15.2 settings were reconciled to the canonical 3.15.1.
-Python patch promotion remains the separate #91 qualification task. All eight
-native attempts and their actual original/input/output objects were reopened
-before issuing the fresh signed workflow binding. Earlier capsules remain in Git
-history and the retained private history bundle. Hosted candidate qualification
-and publication remain required; local issuance is not hosted acceptance.
+[PR #80](https://github.com/edithatogo/tobac/pull/80) merged at
+`b1ccfd549665a69f0412daf3ef39b5509861caa1` after every candidate check completed
+without failure at `ff12683cc9eb259115f225fbde08fa74a00d8f06`. Receiving ref
+and full tree match that candidate. All ten receiving-main workflows passed,
+including [engineering](https://github.com/edithatogo/tobac/actions/runs/42172644130)
+and [scientific reproduction](https://github.com/edithatogo/tobac/actions/runs/42172644125).
+Setup-uv v10.3.3 and uv 0.13.7 retain canonical Python 3.15.1. All eight accepted
+native runs were reopened before renewing the signed workflow binding. Prior
+capsules remain preserved in Git history. The stale native-plan opening is fixed.
 
-The bounded native-lineage track remains complete for its declared closure; its
-stale opening sentence is corrected in this packet. Earlier dependency snapshots
-below are historical and do not override this disposition. New Renovate PR #133
-updates prek 0.5.7 to 0.5.9 and is queued after #91 for separate lock/tool qualification.
-The scientific and submission requirements remain unchanged.
+PR #133 is the current candidate. All four lock profiles were generated and
+inspected; only the affected ecosystem lock/receipt is adopted. It changes prek
+0.5.7 to 0.5.9 and threadpoolctl 3.7.0 to 3.8.0. Unchanged runtime, audit and
+Voiage locks retain valid source receipts. The ecosystem candidate hash-installs
+on repo-local Python 3.15.1. Its full test run passed 1,224 cases with 20 skips;
+one committed-source snapshot test initially failed because the new lock was
+uncommitted. After commit `6d7e680`, the failure-only rerun passed that case:
+1,225 unique cases passed across those runs, with the 20 skips retained.
+Prek's read-only configuration validation passes. A real scikit-learn OpenMP
+pool was limited to two threads and restored; its synthetic arithmetic oracle
+passes. BLAS thread control is not qualified on this host: no supported BLAS
+pool was discovered. Hosted #133 checks and merge remain pending.
 
-## Latest receiving-main verification — 5 November 2026
+The legacy optional `ecosystem` Nox session could not proceed because the exact
+hash-pinned Voiage 2.2 compatibility wheel is unavailable at its retained path;
+other local wheel copies have different hashes and were not substituted. This
+remains an open fresh-execution gate, separate from the current required CI and
+published Voiage 3.0 qualification. The failure is retained in local logs.
+
+#91 remains the separate consistent Python 3.15.2 qualification task. A fresh
+repo-local 3.15.2 environment installed the existing hashed runtime lock and passed
+26 cross-workstream tests; native runtime acceptance, complete source/lock alignment
+and hosted patch qualification remain open. Scientific and submission requirements
+below are unchanged. Earlier dependency snapshots are historical.
+
+## Historical receiving-main verification — 5 November 2026
 
 All nine post-publication workflows passed at receiving main
 `7d24f608803e73cfc910bc766d7e8fcf444d741e`: M3 research methods (42000848891),
@@ -49,7 +69,7 @@ checks were unchanged. The results bind the cited published commit; they do not
 qualify later metadata or dependency candidates. Earlier receiving-main records
 remain in repository history.
 
-## Latest receiving-main hosted results — 5 November 2026
+## Historical receiving-main hosted results — 5 November 2026
 
 All nine post-publication workflows completed successfully at receiving main
 `669eb8851b89eef91b3b014787639fb2765768ef`: package portability (41967153709),

@@ -868,3 +868,20 @@ unchanged. The separate Python 3.15.2 environment hash-installed the current
 runtime lock and passed 26 synthetic cross-workstream cases as preliminary
 compatibility evidence only. Next: inspect generated profile differences, install
 and qualify the affected ecosystem candidate, then publish and await hosted gates.
+
+PR #133 local qualification: generated all four source-bound profiles; inspected
+unrelated transitive changes in the other three and retained their existing,
+still-valid qualified locks. The adopted ecosystem candidate changes only prek
+and threadpoolctl package versions. Hash installation succeeded on Python 3.15.1.
+The first full run passed 1,224 tests / 20 skips, with one source-binding failure
+because the lock was not committed. After `6d7e680`, the existing cache selected
+exactly that failed dependency-snapshot test: one pass / 15 deselected; all other
+unchanged results are reused. Prek 0.5.9 validates the existing config without
+installing hooks. A supported OpenMP control/restore probe passes with the new
+threadpoolctl; native BLAS control is unavailable on this host. The earlier BLAS
+probe failure and empty stdin-based attempt are not counted as successful proof.
+The optional legacy ecosystem Nox gate stopped on an unavailable exact Voiage
+wheel, before installing or running its probes. Alternate hashes were rejected;
+no acceptance pin was weakened. Current published Voiage qualification is retained.
+All ten #80 receiving-main workflows now passed at `b1ccfd5`. Next: publication
+boundary and exact-head #133 push, followed by hosted qualification and guarded merge.
