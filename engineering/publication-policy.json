@@ -1296,7 +1296,8 @@
     "conductor/tracks/nz_au_hardening_20261106/task-card.md",
     "conductor/tracks/nz_au_hardening_20261106/progress.md",
     "docs/coordination/WORKSTREAM_SYNC_through_20261107.md",
-    "docs/engineering/SOURCE_MAP_NAVIGATION.md"
+    "docs/engineering/SOURCE_MAP_NAVIGATION.md",
+    "integration/archive/scientific-lineage-checkpoint_empirical_phase0_20261107.json"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",
