@@ -258,3 +258,17 @@ Targeted stage/context/workstream tests passed: 33 tests. Tests include prefligh
 preventing calculation/publication and rejecting existing/out-of-scope output paths. Native
 success is not mocked as evidence. Static Ruff passed; strict typing result retained in
 m1-stage-types.log. This change is unqualified for native runtime until inventory renewal.
+
+## Latest audit candidate and handoff
+
+Built an isolated latest audit candidate combining the 38-package latest baseline with
+current-census direct audit-tool pins. Hash resolution/install passed; pip check passed
+95 packages. Actual whole-source Ruff 0.17.4 passed; strict whole-source BasedPyright
+1.40.2 reported 0 errors/warnings, sampled peak 809.6 MiB; zizmor 1.32.0 offline/pedantic
+reported no findings. These are native macOS candidate checks, not Linux audit promotion.
+
+Read-only integration preflight found the source packet overlaps only the shared dirty
+coordination file, with differing bytes and no staged deletions. Prepared scoped handoff;
+no integration or inter-chat message executed. Searchright exact source revision cloned
+locally for CLI qualification; locked two-job Cargo build is running under the usual limits.
+No search, screening, provider acceptance or publication is inferred from source checkout.
