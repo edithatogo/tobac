@@ -1,7 +1,7 @@
 {
   "environment": {
-    "python": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
-    "lock": "a92d5c9da88d195441f80f8f7abe8d7446bb0ea5e04cfdabbb4fba54fd60b4e9",
+    "python": "4e15a990f1c2d4536bf6692e3dea24a57318690ecfbad78d9086602fdbb96693",
+    "lock": "88bb9ffea7a462ebe99ee9c50bc7f22d0b0432835ed099a1532f4fef958ff3c1",
     "distributions": "cc7f1fffabb675020a8542b55abbe461797d6b59cc7f000b967016155709a1d8"
   },
   "inputs": {
