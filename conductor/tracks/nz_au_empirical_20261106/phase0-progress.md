@@ -330,3 +330,13 @@ confirming no qualified conversion commit and the frozen-source prerequisite. Se
 same-scope follow-up to execute the already-owned conversion to its requested terminal
 handoff, not repeat inventory. Owner chat had archived again; unarchived for approved
 delivery. No code ownership or private bindings transferred.
+
+## Forward candidate component and advisory checks
+
+Latest baseline advisory scan passed with no known vulnerabilities (exit 0, sampled peak
+85.1 MiB); pandas/xarray-free forward ecosystem advisory scan also passed (58.3 MiB).
+Executed core regulatory/information, tests/m2, tests/m3 and workstream integration in the
+forward environment: 267 passed in 10.60 seconds, sampled peak 530.1 MiB, exit 0. This is
+explicitly selected component compatibility, not full longitudinal/native acceptance or
+full coverage. Updated stale library-disposition entries from running to their actual
+terminal results. Current full-suite lineage failures remain open until owner renewal.
