@@ -92,5 +92,17 @@
   "scientific_qualification": false,
   "evidence_root": "outputs/empirical-phase0-20261107",
   "phase0_checkpoint": "complete locally",
-  "remaining": "Empirical Phase 1\u20136; current-packet hosted/guarded publication and receiving proof; H2 release/recovery after empirical prerequisites"
+  "remaining": "Empirical Phase 1\u20136; current-packet hosted/guarded publication and receiving proof; H2 release/recovery after empirical prerequisites",
+  "owning_source_worktree_readback": {
+    "source_receiving_head": "c464a32af1b4c110054623bb66e7a6544021cee8",
+    "source_attested_runners": 8,
+    "actual_python": "3.15.2",
+    "private_native_bindings_copied": false,
+    "source_original_byte_readback": "performed in owning root native lane; source consumes signed digest-only proof",
+    "actual_m1_scheduler_execution": true,
+    "cached_noop": true,
+    "m1_csvs_equal_native": 8,
+    "source_clean": true,
+    "evidence_root": "outputs/integrator-phase0-c464a32"
+  }
 }

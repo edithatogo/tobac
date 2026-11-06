@@ -1,4 +1,11 @@
-# Foundation handoff — current frozen dependency packet
+# Foundation handoff — integrated local Phase 0 checkpoint
+
+Current frozen source is 0c4fbc8, fully integrated at 9cccc96 with fresh native
+admission at 41b6e11. The local Phase 0 checkpoint and owning-worktree readback
+are complete; see integration/archive/empirical-phase0-checkpoint_20261107.json.
+Hosted/publication and empirical acceptance retain their separate scope.
+
+## Historical source-lane packet record
 
 Current candidate: 4015cc3, integrated with verified receiving source 3021e55 at 1ed5c9d.
 Writing chat: 01a1af53-2093-7f70-b761-e5f6cb7b769c. Worktree:
@@ -149,3 +156,16 @@ Phase 1–6 empirical acceptance, the changed packet's hosted/guarded publicatio
 receiving checks, and H2's empirical/release/recovery prerequisites remain open.
 The accepted main 8b48e22 closure is retained. No new empirical data, current national
 posterior, field efficacy or funding recommendation is established by this checkpoint.
+
+
+## Owning-worktree readback
+
+The clean idle empirical checkout fast-forwarded to c464a32 and read back all eight
+attested closures without any private native binding. Its actual Python 3.15.2 M1
+DAG and cached no-op passed; all eight scientific CSVs equal the new native objects.
+Both tracked trees match. Local terminal receipts are in
+outputs/empirical-phase0-20261107/source-fast-forward.json and
+source-terminal-readback.json in the root lane. Original byte verification remains
+root-native; this independent checkout consumes the signed proof and current inputs.
+The final metadata-only closeout is fast-forwarded as part of the same checkpoint,
+then the temporary source writing scope ends. Neither environment was transferred.

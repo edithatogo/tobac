@@ -9,7 +9,7 @@ The clean empirical source `0c4fbc81ead0f17e6c2a1657f722d11c5097900f` is frozen 
 `codex/empirical-frozen-20261107` and fully integrated at `9cccc96`, retaining both
 histories, complete generated locks and all publication/private-document bindings.
 
-The current operation is fresh native admission and the combined Phase 0 checkpoint:
+Local native admission and the combined Phase 0 checkpoint are complete:
 actual local Python 3.15.2, seven source-bound profiles, eight native executions,
 independent source/output readback, new signed admission, latest M1/context DAG,
 negative/recovery controls, coherent suite, package and security checks. Evidence is
@@ -21,10 +21,10 @@ No older signature or passing subset substitutes for this changed source epoch.
 
 The empirical lane, chat `01a1af53-2093-7f70-b761-e5f6cb7b769c`, completed its clean
 packet in `/Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac` on
-`codex/nz-au-empirical`. The root integrator temporarily owns public-source fast-forward and attested readback
-in that idle, clean checkout for this checkpoint. Its environments, ignored evidence
-and native bindings retain their existing owner; no dirty tree or private binding
-is copied. After acceptance, fast-forward the public source and verify admission. The separate
+`codex/nz-au-empirical`. The root integrator completed public-source fast-forward and attested readback
+in that idle, clean checkout at c464a32. Its environments, ignored evidence and
+native bindings retain their existing owner; no dirty tree or private binding
+was copied. The source owner retains the checkout after this metadata-only closeout. The separate
 `/Users/doughnut/Documents/tobac-conductor-status-20261106` checkout is unchanged.
 M3 retains ownership of `src/tobac/research` and `tests/m3`; its interfaces and
 scientific meaning are preserved. Earlier assignments remain in the history below.
@@ -44,4 +44,4 @@ Append only current coordination here so bounded phase contexts remain usable.
 
 ## Phase 0 terminal state
 
-Local Phase 0 gates pass; see integration/archive/empirical-phase0-checkpoint_20261107.json and the empirical track audit. The final public checkpoint is to be consumed by fast-forward and attested readback in the idle empirical worktree. This temporary public-source writing scope ends at terminal readback; the source owner then retains that checkout. Private native verification remains in root. Empirical, hosted/publication and H2 gates retain their separate scopes.
+Local Phase 0 gates pass; see integration/archive/empirical-phase0-checkpoint_20261107.json and the empirical track audit. The idle empirical checkout consumed c464a32 by fast-forward and passed eight attested closures plus actual M1/cache and eight exact CSVs. The final documentation-only closeout uses the same accepted code and inputs. The source owner retains that checkout; native/shared-main promotion remains with the root integrator. Private native verification remains in root. Empirical, hosted/publication and H2 gates retain their separate scopes.
