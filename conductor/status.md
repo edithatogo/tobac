@@ -354,3 +354,20 @@ suite passes 41 tests on repository-local Python 3.15.1 under the 4 GiB/40-minut
 guard. Scientific/runtime source is unchanged; the full executed receiving-main
 qualification is reused at its exact baseline. The final publication guard and
 receiving-ref readback are recorded with the reconciliation commit.
+
+## Polars source reconciliation — 6 November 2026
+
+PR #94 is merged at `e1d9b8848ab261f0ed992a74b3a2750e980512aa`, superseding
+its stale-lock blocker above. Its 29 executed hosted checks passed; two jobs
+were conditional skips and the Scorecard bot was neutral. Receiving tree
+`0c209ae2756257a78d47836da024b489db5a919b` equals the qualified head's tree.
+
+Both longitudinal runners and the empirical verifier now use Polars, including
+their runner tests. Full-size replay preserves 21 CSV tables numerically at
+rtol/atol 1e-12 and all 16 figure files byte-for-byte. Models, source values,
+seeds, units, selected model and interpretation caveats are unchanged. Three
+missing-convention/identity controls pass; Ruff passes and selected BasedPyright
+has zero errors. This source packet still requires integration with active
+profile/lock retirement and renewed signed scientific inventory/capsule before
+publication. Historical evidence is retained; no hosted or native acceptance is
+inferred from the local parity result. See `docs/WORKSTREAM_SYNC.md` for receipts.
