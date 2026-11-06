@@ -60,6 +60,30 @@
         2
       ],
       "system": "Linux"
+    },
+    {
+      "base_python_sha256": "0f407a0ac747337b659538c9560e4fdd48b354dbdbe0a143276b56ee23899fb7",
+      "machine": "arm64",
+      "openssh_sha256": "e9cba2415f13366eb43402ab20218433f585851b4f4a749a6a1e9988e6af9eb5",
+      "python_sha256": "0f407a0ac747337b659538c9560e4fdd48b354dbdbe0a143276b56ee23899fb7",
+      "python_version": [
+        3,
+        15,
+        2
+      ],
+      "system": "Darwin"
+    },
+    {
+      "base_python_sha256": "a35b08329e2ecf79a151f8954695d43d6f584ee8483c890295200eaad99c14b7",
+      "machine": "arm64",
+      "openssh_sha256": "e9cba2415f13366eb43402ab20218433f585851b4f4a749a6a1e9988e6af9eb5",
+      "python_sha256": "a35b08329e2ecf79a151f8954695d43d6f584ee8483c890295200eaad99c14b7",
+      "python_version": [
+        3,
+        15,
+        2
+      ],
+      "system": "Darwin"
     }
   ],
   "qualification": {
@@ -72,6 +96,18 @@
       127809063237,
       127809063289
     ],
-    "signature_positive_and_tamper_negative": "passed on all four actual hosted selections and local issuer; previously unknown profiles were correctly rejected before workloads"
+    "signature_positive_and_tamper_negative": "passed on all four actual hosted selections and local issuer; previously unknown profiles were correctly rejected before workloads",
+    "additional_observed_profiles": [
+      {
+        "job": 127812951990,
+        "source_revision": "3bffd4e05003c048e15d1e7291ebfae55f5349ae",
+        "controls": "valid signature and tamper rejection passed; previously unknown macOS image correctly rejected before workload"
+      },
+      {
+        "run": 42194106386,
+        "source_revision": "3bffd4e05003c048e15d1e7291ebfae55f5349ae",
+        "controls": "actual setup-python signature and tamper controls passed; new OpenSSH fingerprint rejected before workload"
+      }
+    ]
   }
 }

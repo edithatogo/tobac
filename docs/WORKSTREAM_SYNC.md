@@ -968,3 +968,10 @@ copied/restored/read back; manifest
 `8d35d130c95974f710b86a346c10e6bea1a145f388644982c06d598cd8fb4276`.
 Earlier failed package/recovery-invocation logs remain private evidence. Full hosted
 acceptance and #91/#135 merges are pending; no empirical acceptance is implied.
+
+
+The next hosted pass admitted Linux/Windows and exercised another current macOS
+image. Its actual uv/Homebrew and setup-python profiles both passed valid-signature
+and tamper-negative controls before stale fingerprint admission correctly failed.
+Those two observed profiles are now recorded, with the original failures retained.
+No runtime gate, numerical oracle or signature policy was relaxed.
