@@ -217,3 +217,24 @@ sampled peak group RSS 654.9 MiB. New full eight-variant numerical replay starte
 .venv-latest-candidate under unchanged resource limits. It reruns M1 as well as all other
 variants, retains per-stage logs/commands, then compares all accepted reference tables.
 Its process handle must be polled before further heavy execution; no replay success yet.
+
+## Latest candidate numerical result
+
+The existing latest-candidate replay reached terminal exit 0: all eight variants reran and
+all 82 accepted CSV tables matched using existing tolerances. Sampled peak group RSS
+640.6 MiB. Receipt is outputs/nz-au-phase0/latest-replay/full-numerical-reproduction.json;
+per-stage commands/logs and actual latest candidate lock remain local. This establishes
+software parity for those eight package updates, not reference/runtime promotion or native
+lineage acceptance. Source main/Polars integration remains owned by its existing lane.
+
+Runtime inventory now records 15 tracked CI workflows, 19 dependency/runtime declarations,
+seven owned local environments and no tracked notebooks/container recipes. Exact path lists
+are in outputs/nz-au-phase0/runtime-inventory.json; declaration matches are retained separately.
+Security tool installer verified pinned archive hashes for native Gitleaks 8.30.1 and
+Actionlint 1.7.12. Existing publication security gate started under the resource guard;
+no terminal scanner success is claimed here until its process is read back.
+
+Publication security process reached terminal exit 0: existing tree/outgoing boundary,
+checksum-qualified scanner identities, full-history/staged secret scanning and Actions
+syntax checks completed. Scanner output is retained locally in publication-security.log;
+no secret matches are echoed to chat. This does not establish empirical/native acceptance.
