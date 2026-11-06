@@ -96,8 +96,8 @@ def installed_versions() -> dict[str, str | None]:
 
 def qualify(wheel: Path, expected_version: str, *, buffer_ownership: bool = False) -> dict[str, object]:
     """Require exact installed wheel identity, native loading and numerical parity."""
-    if sys.version_info[:3] != (3, 15, 1):
-        msg = "Qualified Python 3.15.1 is required"
+    if sys.version_info[:3] != (3, 15, 2):
+        msg = "Qualified Python 3.15.2 is required"
         raise RuntimeError(msg)
     wheel = wheel.resolve(strict=True)
     digest = hashlib.sha256(wheel.read_bytes()).hexdigest()

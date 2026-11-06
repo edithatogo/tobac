@@ -48,7 +48,7 @@ def test_probe_rejects_a_different_installed_wheel(tmp_path, monkeypatch, tamper
 def test_probe_rejects_an_unqualified_python_before_reading_wheel(tmp_path, monkeypatch) -> None:
     module = load()
     monkeypatch.setattr(module.sys, "version_info", (3, 14, 9))
-    with pytest.raises(RuntimeError, match=r"Python 3\.15\.1"):
+    with pytest.raises(RuntimeError, match=r"Python 3\.15\.2"):
         module.qualify(tmp_path / "missing.whl", "2.2.0")
 
 

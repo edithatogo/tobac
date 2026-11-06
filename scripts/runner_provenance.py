@@ -183,8 +183,8 @@ def execute_runner_with_provenance(
     # Prepare the output directory
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    if sys.version_info[:3] != (3, 15, 1):
-        msg = "Runner execution requires Python 3.15.1"
+    if sys.version_info[:3] != (3, 15, 2):
+        msg = "Runner execution requires Python 3.15.2"
         raise RuntimeError(msg)
     venv_python = Path(sys.executable)
 

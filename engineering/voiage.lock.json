@@ -10,15 +10,15 @@
     "engineering/voiage.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/polars-migration-20261106/locks-310/voiage.lock",
+    "outputs/hosted-integrated-20261106/locks/voiage.lock",
     "--python-version",
-    "3.15.1",
+    "3.15.2",
     "--python-platform",
     "x86_64-unknown-linux-gnu"
   ],
   "resolver_exit_code": 0,
   "inputs": {
-    "pyproject.toml": "77589aaa97ef2dffa9ca3f18d135422c7cf1c93f0aa351f265ea7e78eff73f4c",
+    "pyproject.toml": "42078e8ab23d94bce7020ef16bc2c9384f67cfbba2bbef5876105752e8a01f23",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
     "engineering/reference-requirements.txt": "0128d9615ef92cdb58efd146005e146284d7d999d732ee626ebb471ea304f79d",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
@@ -27,6 +27,6 @@
     "engineering/voiage.in": "130978fa422bd696241b87258c4ce7c1487354dc742a526c44564de0d0928360",
     "engineering/voiage-build-requirements.txt": "83bbc382d9b7eb67400eb55f0a6815185532edcdeb709878ccfc68955043effa"
   },
-  "lock_sha256": "2611f2c71076024d2c368559e1d61aaaa12f6d551d90cc917ae14d75baa18c44",
+  "lock_sha256": "ebae3af49637dc62ae62cde23656945cb1364fc618891f4b34e45facdf35da50",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

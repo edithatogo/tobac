@@ -22,8 +22,8 @@ PACKAGES = {
 
 def installed_origins() -> dict[str, str]:
     """Reject editable distributions and packages outside this isolated environment."""
-    if sys.version_info[:3] != (3, 15, 1) or not sys.flags.isolated or sys.prefix == sys.base_prefix:
-        msg = "Select an isolated Python 3.15.1 virtual environment"
+    if sys.version_info[:3] != (3, 15, 2) or not sys.flags.isolated or sys.prefix == sys.base_prefix:
+        msg = "Select an isolated Python 3.15.2 virtual environment"
         raise RuntimeError(msg)
     prefix = Path(sys.prefix).resolve()
     result: dict[str, str] = {}
@@ -122,7 +122,7 @@ def main() -> None:
         if args.out is None:
             parser.error("--runner requires --out")
         data = json.loads(
-            Path("integration/archive/scientific-lineage-checkpoint_20261102.json").read_bytes()
+            Path("integration/archive/scientific-lineage-checkpoint_python3152_20261106.json").read_bytes()
         )
         result = replay(args.runner, args.out.resolve(), data["runner_results"][args.runner])
     else:

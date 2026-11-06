@@ -71,7 +71,7 @@ def dependency_contract(data: bytes, project: dict[str, Any]) -> dict[str, list[
             "sys_platform": sys_platform,
             "platform_machine": "x86_64" if system == "Linux" else "AMD64",
             "python_version": "3.15",
-            "python_full_version": "3.15.1",
+            "python_full_version": "3.15.2",
         }
         for label, extras in selections.items():
             declared = project["dependencies"] + [r for name in extras for r in groups[name]]

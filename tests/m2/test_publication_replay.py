@@ -52,3 +52,21 @@ def test_numeric_looking_identifiers_are_not_relabelled(replay, tmp_path) -> Non
     b.write_text("case,value\n1.0,0.1\n")
     with pytest.raises(ValueError, match="identity"):
         replay.compare_table(a, b)
+
+
+def test_report_runtime_transition_is_exact_and_preserves_scientific_checks(replay) -> None:
+    expected = {"python": "3.15.1", "posterior": {"value": 1.0}}
+    actual = {"python": "3.15.2", "posterior": {"value": 1.0}}
+    assert replay.compare_report(expected, actual) == 0
+    assert expected["python"] == "3.15.1"
+    assert actual["python"] == "3.15.2"
+    with pytest.raises(ValueError, match="Numerical"):
+        replay.compare_report(expected, {**actual, "posterior": {"value": 1.01}})
+    with pytest.raises(ValueError, match="identity"):
+        replay.compare_report({"posterior": {"python": "3.15.1"}}, {"posterior": {"python": "3.15.2"}})
+
+
+@pytest.mark.parametrize(("before", "after"), [("3.14.9", "3.15.2"), ("3.15.1", "3.15.1"), ("3.15.1", None)])
+def test_report_runtime_transition_rejects_unqualified_or_missing_identity(replay, before, after) -> None:
+    with pytest.raises(ValueError, match="runtime"):
+        replay.compare_report({"python": before}, {"python": after})

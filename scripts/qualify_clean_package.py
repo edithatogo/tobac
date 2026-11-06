@@ -21,8 +21,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def qualify(out: Path) -> dict[str, Any]:
     """Keep artifacts and execution records; isolate import paths and dependencies."""
-    if sys.version_info[:3] != (3, 15, 1):
-        msg = "Select repo-local Python 3.15.1"
+    if sys.version_info[:3] != (3, 15, 2):
+        msg = "Select repo-local Python 3.15.2"
         raise RuntimeError(msg)
     out = out.resolve()
     out.mkdir(parents=True, exist_ok=False)
@@ -123,7 +123,7 @@ def qualify(out: Path) -> dict[str, Any]:
                 "assert all(pathlib.Path(m.__file__).resolve()."
                 "is_relative_to(pathlib.Path(sys.prefix).resolve()) "
                 "for m in (tobac,tobac_supply,tobac.research)); "
-                "assert sys.version_info[:3]==(3,15,1); "
+                "assert sys.version_info[:3]==(3,15,2); "
                 "assert exact_evpi(DecisionProblem(np.array([[0.,4.],[3.,0.]]),"
                 "('a','b'),'score',np.array([.75,.25])))==.75; print(p)"
             )

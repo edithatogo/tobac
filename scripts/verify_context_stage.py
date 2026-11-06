@@ -21,8 +21,8 @@ def digest(path: Path) -> str:
 
 def inspect_bundle(bundle: Path) -> dict[str, Any]:
     """Check every invocation, including when workflow outputs appear up to date."""
-    if sys.version_info[:3] != (3, 15, 1) or not Path(sys.prefix).resolve().is_relative_to(ROOT):
-        msg = "Select repo-local Python 3.15.1"
+    if sys.version_info[:3] != (3, 15, 2) or not Path(sys.prefix).resolve().is_relative_to(ROOT):
+        msg = "Select repo-local Python 3.15.2"
         raise ValueError(msg)
     manifest = json.loads((bundle / "manifest.json").read_text(encoding="utf-8"))
     if not isinstance(manifest.get("files"), list) or not manifest["files"]:

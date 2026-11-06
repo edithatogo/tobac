@@ -109,8 +109,8 @@ def verify_attempt(
 
 def verify(attempts: Path, wheel: Path, names: list[str], manifest: Path | None = None) -> dict[str, Any]:
     """Fail before workload launch unless every selected native execution and current input matches."""
-    if sys.version_info[:3] != (3, 15, 1) or not Path(sys.prefix).resolve().is_relative_to(ROOT):
-        msg = "Native verification requires a repo-local Python 3.15.1"
+    if sys.version_info[:3] != (3, 15, 2) or not Path(sys.prefix).resolve().is_relative_to(ROOT):
+        msg = "Native verification requires a repo-local Python 3.15.2"
         raise ValueError(msg)
     checkpoint = checked_pins(ROOT)
     accepted = checkpoint["runner_results"]

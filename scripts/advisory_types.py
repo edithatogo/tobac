@@ -279,8 +279,8 @@ def record_help(name: str, binary: Path, output: Path, checker_env: dict[str, st
 
 def run() -> None:
     """Run both tools serially and write raw diagnostics, exit codes and comparison."""
-    if sys.version_info[:3] != (3, 15, 1) or not Path(sys.executable).absolute().is_relative_to(ROOT):
-        msg = "A repo-local Python 3.15.1 is required"
+    if sys.version_info[:3] != (3, 15, 2) or not Path(sys.executable).absolute().is_relative_to(ROOT):
+        msg = "A repo-local Python 3.15.2 is required"
         raise RuntimeError(msg)
     if importlib.metadata.version("voiage") != "3.1.0":
         msg = "Wrong published Polars producer"
@@ -296,7 +296,7 @@ def run() -> None:
     output.mkdir(parents=True)
     config = output / "pyrefly.toml"
     config.write_text(
-        f'python-version = "3.15.1"\npython-interpreter = {json.dumps(sys.executable)}\n'
+        f'python-version = "3.15.2"\npython-interpreter = {json.dumps(sys.executable)}\n'
         f"search-path = [{json.dumps(str(ROOT / 'src'))}, {json.dumps(str(ROOT / 'scripts'))}]\n",
         encoding="utf-8",
     )

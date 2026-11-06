@@ -191,8 +191,8 @@ def main() -> None:
     parser.add_argument("--objects", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
-    if sys.version_info[:3] != (3, 15, 1):
-        msg = "Consumer requires Python 3.15.1"
+    if sys.version_info[:3] != (3, 15, 2):
+        msg = "Consumer requires Python 3.15.2"
         raise RuntimeError(msg)
     if args.out.exists() or args.objects.exists():
         msg = "Choose new receipt and object staging paths; preserve earlier executions"
