@@ -616,3 +616,25 @@ Removed only eight confirmed inactive, owned reproducible environments after dis
 retained all inputs, wheels, source, results, receipts and other owners' native bindings.
 Cleanup manifest records each path/process check; free space remains an external live state.
 Latest native admission, coherent final suite and final staged security remain open.
+
+## Frozen latest packet and receiving-main readback
+
+Latest profile candidate is committed as 4015cc3 after staged boundary validation passed
+(54.0 MiB sampled peak). The exact committed-snapshot failure-only rerun executed and
+passed one test (0.22 s; 55.4 MiB). New lock admission correctly rejects the stale signed
+engineering/requirements.lock (exit 2), preserving the existing guard. Sent one terminal
+qualified dependency handoff to the retained native/integration owner; latest native
+readback/signature and final coherent local acceptance remain required.
+
+Integrated verified receiving 3021e55 as 1ed5c9d after clean source/target preflight. This
+retains PR139's exact context bytes across Windows newline conventions and associated
+signed provenance. It does not change numerical source or the latest dependency inputs.
+Affected context/stage/snapshot/workstream tests passed 37/37 (6.60 s; 213.6 MiB). No old
+qualification is relabelled as hosted success for the newer dependency packet.
+
+Final local publication/security check on the frozen latest packet and receiving-main merge
+passed at exit 0 (224.9 MiB sampled peak), including the staged document handoff. Ordinary
+hooks and source publication boundaries remain intact. The retained native owner is still
+finishing receiving-main CI; its latest reported macOS test job is queued. That older
+hosted qualification is separate from latest-lock native admission for 4015cc3. No queued
+job or pending signature is recorded as complete.
