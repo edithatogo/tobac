@@ -903,3 +903,17 @@ profiles have fresh verified receipts; runtime/audit retained their unchanged
 qualified locks. #133 receiving-main workflows all passed at `15fb177`. Source
 science and native attempts are unchanged. Next: exact-head publication and hosted
 qualification, then #91 and #135; unfinished source lanes remain preserved.
+
+## Python 3.15.2 candidate ownership — 6 November 2026
+
+Integrator chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` owns the app-managed
+worktree `/Users/doughnut/.codex/worktrees/tobac-python3152/tobac`, branch
+`codex/qualify-pr91-python3152`. Base: the tested #134 candidate `72e88d7`; #134
+hosted acceptance remains pending. Scope: consistent #91 runtime selectors,
+locks, native/runtime qualification and current setup documentation. #135 will
+be reconciled separately after #91 receiving acceptance. The existing 3.15.1
+checkout remains the guarded publication controller until promotion. Existing
+private attempt stores, keys and other source lanes are read-only and unchanged.
+No new runtime acceptance is claimed by these selector changes. Next: regenerate
+locks, build a separate native 3.15.2 environment, re-execute and compare the eight
+scientific runners, qualify signatures on actual hosted runtimes, then publish.

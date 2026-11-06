@@ -49,7 +49,7 @@ def checked_pins(root: Path) -> dict[str, Any]:
     )
     scientific.runners.verified_bytes(
         checked(root, archive + "runner-material.json"),
-        "2c74f2e5b3d72885932a4bec5de549ad747786f295907b2f827af4aad6f287b4",
+        "b85f92c4c7e198e57413337fa06b6592d985d740cedc16a940d7fc4c4d59c1a9",
     )
     if set(checkpoint["runner_results"]) != set(scientific.RUNS):
         msg = "Runner registry differs from the accepted set"
@@ -109,8 +109,8 @@ def verify_attempt(
 
 def verify(attempts: Path, wheel: Path, names: list[str], manifest: Path | None = None) -> dict[str, Any]:
     """Fail before workload launch unless every selected native execution and current input matches."""
-    if sys.version_info[:3] != (3, 15, 1) or not Path(sys.prefix).resolve().is_relative_to(ROOT):
-        msg = "Native verification requires a repo-local Python 3.15.1"
+    if sys.version_info[:3] != (3, 15, 2) or not Path(sys.prefix).resolve().is_relative_to(ROOT):
+        msg = "Native verification requires a repo-local Python 3.15.2"
         raise ValueError(msg)
     checkpoint = checked_pins(ROOT)
     accepted = checkpoint["runner_results"]

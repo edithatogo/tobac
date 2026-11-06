@@ -21,7 +21,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - {os: macos-latest, python: '3.15.1'}
+          - {os: macos-latest, python: '3.15.2'}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20
     steps:
@@ -33,13 +33,13 @@ jobs:
           version: '0.13.7'
           python-version: ${{ matrix.python }}
           enable-cache: false
-      - name: Select repository-local Python 3.15.1
+      - name: Select repository-local Python 3.15.2
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
       - name: Authenticate the signed native lineage route
         run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
-      - run: uv run --python 3.15.1 --no-project python -c "import sys; assert sys.version_info[:3] == (3, 15, 1); from pathlib import Path; Path('outputs/engineering').mkdir(parents=True, exist_ok=True)"
+      - run: uv run --python 3.15.2 --no-project python -c "import sys; assert sys.version_info[:3] == (3, 15, 2); from pathlib import Path; Path('outputs/engineering').mkdir(parents=True, exist_ok=True)"
       - name: Run bounded tests
         env:
           NOX_PYTHON: ${{ matrix.python }}
@@ -68,16 +68,16 @@ jobs:
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
-      - name: Select repository-local Python 3.15.1
+      - name: Select repository-local Python 3.15.2
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
       - name: Authenticate the signed native lineage route
         run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - run: mkdir -p outputs/engineering
-      - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s quality
+      - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s quality
       - name: Install checksum-pinned export scanner
         if: always()
         run: sh scripts/install_security_tools.sh
@@ -103,17 +103,17 @@ jobs:
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
-      - name: Select repository-local Python 3.15.1
+      - name: Select repository-local Python 3.15.2
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
       - name: Authenticate the signed native lineage route
         run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - run: mkdir -p outputs/engineering
       - name: Run qualification enforcement tests
-        run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/qualification-nox.json -s qualification
+        run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/qualification-nox.json -s qualification
       - name: Install checksum-pinned export scanner
         if: always()
         run: sh scripts/install_security_tools.sh
@@ -129,7 +129,7 @@ jobs:
           retention-days: 14
 
   macos-qualification:
-    name: macOS Python 3.15.1 qualification
+    name: macOS Python 3.15.2 qualification
     runs-on: macos-latest
     timeout-minutes: 45
     steps:
@@ -139,17 +139,17 @@ jobs:
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
-      - name: Select repository-local Python 3.15.1
+      - name: Select repository-local Python 3.15.2
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
       - name: Authenticate the signed native lineage route
         run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - run: mkdir -p outputs/engineering
       - name: Qualify the macOS engineering and numerical checks
-        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/macos-nox-report.json -s quality strict_all reproduce package security mutation clean_package recovery
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/macos-nox-report.json -s quality strict_all reproduce package security mutation clean_package recovery
       - name: Install checksum-pinned export scanner
         if: always()
         run: sh scripts/install_security_tools.sh
@@ -183,16 +183,16 @@ jobs:
       - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
-      - name: Select repository-local Python 3.15.1
+      - name: Select repository-local Python 3.15.2
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
       - name: Authenticate the signed native lineage route
         run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - name: Build source-independent artifacts
-        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 900 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s package clean_package security
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 900 -- uvx --python 3.15.2 --from nox==2026.10.20 nox -s package clean_package security
       - name: Bind audit SBOM to exact package subjects
         run: |
           cp outputs/engineering/sbom.json outputs/release-candidate/sbom.json
@@ -224,7 +224,7 @@ jobs:
           retention-days: 14
 
   dependency_submission:
-    name: Python 3.15.1 resolved dependency graph
+    name: Python 3.15.2 resolved dependency graph
     if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
     runs-on: macos-latest
     timeout-minutes: 10
@@ -237,17 +237,17 @@ jobs:
       - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
-      - name: Select repository-local Python 3.15.1
+      - name: Select repository-local Python 3.15.2
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
       - name: Authenticate the signed native lineage route
         run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - name: Verify locks and generate resolved dependency snapshot
         run: |
-          uv venv --python 3.15.1 .venv-dependency-graph
+          uv venv --python 3.15.2 .venv-dependency-graph
           .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uv pip sync --python .venv-dependency-graph/bin/python --require-hashes engineering/requirements.lock
           .venv-dependency-graph/bin/python scripts/dependency_snapshot.py --out outputs/dependency-graph/snapshot.json
       - name: Submit exact snapshot through the supported GitHub API
@@ -279,16 +279,16 @@ jobs:
       - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
-      - name: Select repository-local Python 3.15.1
+      - name: Select repository-local Python 3.15.2
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
       - name: Authenticate the signed native lineage route
         run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - name: Qualify exact unpatched candidate without producer promotion
-        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 1500 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/voiage-candidate-nox.json -s voiage_polars_candidate voiage_published
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 1500 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/voiage-candidate-nox.json -s voiage_polars_candidate voiage_published
       - name: Install checksum-pinned export scanner
         if: always()
         run: sh scripts/install_security_tools.sh

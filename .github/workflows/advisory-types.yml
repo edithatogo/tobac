@@ -29,14 +29,14 @@ jobs:
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
-      - name: Select repository-local Python 3.15.1
+      - name: Select repository-local Python 3.15.2
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
       - name: Run bounded advisory diagnostics
-        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/advisory-nox.json -s advisory_types
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/advisory-nox.json -s advisory_types
       - name: Install and verify native export scanners
         id: scanners
         if: always()

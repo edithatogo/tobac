@@ -147,8 +147,8 @@ def command(args: list[str], *, cwd: Path, env: dict[str, str], log: Path) -> No
 
 def run(root: Path, out: Path) -> Report:
     """Extract committed sources, verify import isolation and replay without source downloads."""
-    if platform.python_version() != "3.15.1":
-        msg = "Publication replay requires actual Python 3.15.1"
+    if platform.python_version() != "3.15.2":
+        msg = "Publication replay requires actual Python 3.15.2"
         raise RuntimeError(msg)
     if out.exists() and any(out.iterdir()):
         msg = "Use a new output directory"

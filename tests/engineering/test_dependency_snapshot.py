@@ -43,7 +43,7 @@ def test_all_four_verified_profiles_are_present_and_no_runtime_is_downgraded() -
     head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()  # noqa: S607 -- Fixed developer tool resolved on the qualified runner PATH.
     data = module().snapshot(head, "refs/heads/main", "synthetic-test")
     assert len(data["manifests"]) == 4
-    assert data["metadata"]["python"] == "3.15.1"
+    assert data["metadata"]["python"] == "3.15.2"
     all_packages = {name for manifest in data["manifests"].values() for name in manifest["resolved"]}
     assert {
         "numpy",

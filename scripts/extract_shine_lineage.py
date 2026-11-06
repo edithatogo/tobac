@@ -119,8 +119,8 @@ def execute(
     if not out.resolve().is_relative_to(ROOT / "outputs"):
         msg = "Keep original bytes and native attempts in consumer-owned private outputs"
         raise ValueError(msg)
-    if sys.version_info[:3] != (3, 15, 1) or not Path(sys.prefix).resolve().is_relative_to(ROOT):
-        msg = "Select a repo-local Python 3.15.1 environment"
+    if sys.version_info[:3] != (3, 15, 2) or not Path(sys.prefix).resolve().is_relative_to(ROOT):
+        msg = "Select a repo-local Python 3.15.2 environment"
         raise RuntimeError(msg)
     if wheel is None:
         msg = "Supply the reviewed producer wheel"

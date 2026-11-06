@@ -6,7 +6,7 @@ repos:
     hooks:
       - id: python-runtime
         name: Required Python runtime
-        entry: python -c "import sys; assert sys.version_info[:3] == (3, 15, 1)"
+        entry: python -c "import sys; assert sys.version_info[:3] == (3, 15, 2)"
         language: python
         pass_filenames: false
         always_run: true

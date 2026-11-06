@@ -53,8 +53,8 @@ def command(argv: list[str], *, data: bytes | None = None) -> subprocess.Complet
 def runtime_profile(executable: Path | None = None) -> dict[str, Any]:
     """Identify the actual Python and signature-verifier binaries on this machine."""
     ssh = shutil.which("ssh-keygen")
-    if ssh is None or sys.version_info[:3] != (3, 15, 1):
-        msg = "Hosted verification requires Python 3.15.1 and OpenSSH ssh-keygen"
+    if ssh is None or sys.version_info[:3] != (3, 15, 2):
+        msg = "Hosted verification requires Python 3.15.2 and OpenSSH ssh-keygen"
         raise ValueError(msg)
     return {
         "system": platform.system(),

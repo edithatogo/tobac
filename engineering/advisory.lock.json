@@ -10,14 +10,14 @@
     "engineering/advisory.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/conductor-status-refresh/pr134-locks/advisory.lock",
+    "outputs/python3152/locks/advisory.lock",
     "--universal",
     "--python-version",
-    "3.15"
+    "3.15.2"
   ],
   "resolver_exit_code": 0,
   "inputs": {
-    "pyproject.toml": "2b34aae27610adbfcba3b0a9cdea35447adbd06876c748d3c781a32302ba3f20",
+    "pyproject.toml": "2addff1903371cb97ea3ca1d5da4b5218619adfb549768cf5b86b890ad0dfb8a",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
     "engineering/reference-requirements.txt": "ee4a0fae35f4e6764c31428a2ade91decc83e90671f808b384d275a8032fb815",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
@@ -26,6 +26,6 @@
     "engineering/advisory.in": "edd6096d581fd09808f87f5f7f6ce35c1efa5adffecf3855e847c8cb5fc020a3",
     "engineering/voiage.in": "4ae5d17caba4f1d0078142f98739c8d2b0c63861afb091ff9059b95ccb413f5e"
   },
-  "lock_sha256": "9993e829d8aee44194475799817d3cede07beb93d49b4b0df0765b954e6e3289",
+  "lock_sha256": "50a3b0a7a7655a1656676ca31e235879117eae15b8656375895fc1008e74f898",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

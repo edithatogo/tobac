@@ -22,8 +22,8 @@ from tobac.backend import evpi
 
 def qualify(out: Path) -> dict[str, Any]:  # noqa: C901, PLR0912, PLR0915  # Keep the bounded native acceptance sequence visible.
     """Exercise weighted/tie/permutation cases and actual Arrow buffer lifetimes."""
-    if sys.version_info[:3] != (3, 15, 1):
-        msg = "Python 3.15.1 required"
+    if sys.version_info[:3] != (3, 15, 2):
+        msg = "Python 3.15.2 required"
         raise RuntimeError(msg)
     if out.exists():
         msg = "Preserve previous qualification receipts"
