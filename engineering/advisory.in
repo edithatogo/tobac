@@ -1,7 +1,7 @@
 # Isolated differential type-checking tools and canonical runtime dependencies.
 -r voiage.in
-ty==0.0.95
-pyrefly==1.4.0
+ty==0.0.98
+pyrefly==1.4.1
 # Match the existing qualified static interface declarations.
 scipy-stubs==1.18.1.1
 types-jsonschema==4.26.0.20261006

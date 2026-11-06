@@ -23,7 +23,7 @@ rerunning. That comparison was subsequently corrected: both baseline and latest-
 eight-runner replays matched all 82 reference CSV tables within existing tolerances. These
 receipts predate the final integrated Polars packet and do not close its lineage gate.
 
-## Integrated held-version ledger
+## Historical integrated held-version ledger
 
 Compared current integrated locks with the 146-package primary-index census retrieved at
 2026-11-06T07:59:30.118460+00:00. These are dated availability observations, not a new
@@ -58,3 +58,28 @@ universal Python 3.15.1 hash resolution changed only Ruff to 0.17.4. An explicit
 snakemake-interface-common==1.24.0 candidate failed resolution on the incompatible packaging
 bounds (exit 1); no dependency constraints were bypassed. Original constraints and canonical
 locks remain intact during native renewal.
+
+## Current foundation candidate disposition
+
+The isolated branch now adopts the reviewed compatible updates for coverage, Hypothesis,
+Arrow, Pydantic/core, Ruff, virtualenv, Zizmor, Prek, Ty and Pyrefly. Five complete generated
+lock/receipt pairs and seven matching input files were copied from the source-bound candidate
+graph. No package was added or removed. The earlier nineteen-difference ledger above is
+historical; current native admission awaits renewal for the new lock bytes.
+
+Eight census differences remain, all in the analytics dependency closure:
+
+| Dependency | Held version | Published bound / reason |
+|---|---|---|
+| docutils | 0.22.4 | Snakemake requires >=0.20,<0.23 |
+| packaging | 25.0 | Snakemake and interface-common require <26 |
+| PuLP | 3.3.2 | Snakemake requires >=2.3.1,<3.4; qualified greedy scheduler used |
+| smart-open | 7.7.1 | Snakemake requires >=4.0,<8.0 |
+| snakemake-interface-common | 1.23.0 | 1.24.0 requires packaging>=26.1; forced resolution proved the conflict |
+| snakemake-interface-report-plugins | 1.3.0 | Snakemake requires >=1.2.0,<2.0.0 |
+| SQLModel | 0.0.37 | Snakemake requires >=0.0.37,<0.0.38 |
+| SQLAlchemy | 2.0.57 | SQLModel requires >=2.0.14,<2.1.0 |
+
+Bounds come from the retained installed Requires-Dist metadata and dated primary-index
+census. No override or dependency omission was used. Innovate's pandas/pandasdmx conflict
+and Searchright's fixture-only acquisition scope remain genuine subsequent-phase gaps.

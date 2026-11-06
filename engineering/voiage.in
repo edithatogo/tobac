@@ -2,9 +2,9 @@
 -r requirements.in
 click==8.5.0
 scikit-learn==1.9.1
-pyarrow==26.0.0
+pyarrow==26.0.1
 polars==2.1.0
-pydantic==2.14.2
+pydantic==2.14.3
 typing_extensions==4.16.0
 typer==0.27.3
 # Released Polars-based producer; the patched legacy build is retired.
