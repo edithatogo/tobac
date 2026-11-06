@@ -22,3 +22,39 @@ or comparison success is inferred from this environment error. Correct exact com
 rerunning. That comparison was subsequently corrected: both baseline and latest-candidate
 eight-runner replays matched all 82 reference CSV tables within existing tolerances. These
 receipts predate the final integrated Polars packet and do not close its lineage gate.
+
+## Integrated held-version ledger
+
+Compared current integrated locks with the 146-package primary-index census retrieved at
+2026-11-06T07:59:30.118460+00:00. These are dated availability observations, not a new
+release check. Every remaining difference has a disposition below. Runtime owners retain
+promotion; installation or an advisory-version observation alone is not full qualification.
+The raw comparison and resolver failure stay in outputs/nz-au-phase0.
+
+| Package / primary metadata | Available at census | Held versions | Rationale / evidence boundary |
+|---|---|---|---|
+| [coverage](https://pypi.org/pypi/coverage/json) | 7.17.2 | 7.17.0 | Latest candidate full tests passed; promotion held by runtime owner for frozen native renewal. |
+| [docutils](https://pypi.org/pypi/docutils/json) | 0.23 | 0.22.4 | Snakemake 9.27.1 requires docutils>=0.20,<0.23; keep resolver-compatible 0.22.4. |
+| [hypothesis](https://pypi.org/pypi/hypothesis/json) | 6.170.14 | 6.170.13 | Latest candidate full tests passed; promotion held by runtime owner for frozen native renewal. |
+| [packaging](https://pypi.org/pypi/packaging/json) | 26.3 | 25.0 | Snakemake 9.27.1 and interface-common 1.23.0 require packaging<26; isolated analytics keeps 25.0. |
+| [prek](https://pypi.org/pypi/prek/json) | 0.5.10 | 0.5.9 | 0.5.10 installed in forward ecosystem; global hooks unchanged and hook-route qualification pending. |
+| [pulp](https://pypi.org/pypi/pulp/json) | 4.2.0 | 3.3.2 | Snakemake 9.27.1 requires pulp>=2.3.1,<3.4; keep 3.3.2. Greedy scheduler avoids incompatible bundled CBC. |
+| [pyarrow](https://pypi.org/pypi/pyarrow/json) | 26.0.1 | 26.0.0 | 26.0.1 passed candidate replay/interchange; canonical 26.0.0 retained until owner promotion. |
+| [pydantic](https://pypi.org/pypi/pydantic/json) | 2.14.3 | 2.14.2 | 2.14.3 installed and component-tested in dataframe-free forward ecosystem; owner promotion pending. |
+| [pydantic-core](https://pypi.org/pypi/pydantic-core/json) | 2.50.4 | 2.50.2 | 2.50.4 accompanies the qualified forward Pydantic candidate; owner promotion pending. |
+| [pyrefly](https://pypi.org/pypi/pyrefly/json) | 1.4.1 | 1.4.0 | 1.4.1 installed in forward ecosystem; maintained advisory receipt still admits 1.4.0. Updated adapter qualification pending. |
+| [ruff](https://pypi.org/pypi/ruff/json) | 0.17.4 | 0.17.3 | 0.17.4 whole-source check passed; fresh analytics resolution selects it. Canonical promotion pending. |
+| [smart-open](https://pypi.org/pypi/smart-open/json) | 9.0.2 | 7.7.1 | Snakemake 9.27.1 requires smart-open>=4.0,<8.0; keep 7.7.1. |
+| [snakemake-interface-common](https://pypi.org/pypi/snakemake-interface-common/json) | 1.24.0 | 1.23.0 | 1.24.0 requires packaging>=26.1, conflicting with Snakemake packaging<26. Forced-resolution control failed as expected; keep 1.23.0. |
+| [snakemake-interface-report-plugins](https://pypi.org/pypi/snakemake-interface-report-plugins/json) | 2.0.1 | 1.3.0 | Snakemake 9.27.1 requires this interface>=1.2.0,<2.0.0; keep 1.3.0. |
+| [sqlalchemy](https://pypi.org/pypi/sqlalchemy/json) | 2.1.8 | 2.0.57 | Installed sqlmodel 0.0.37 requires SQLAlchemy>=2.0.14,<2.1.0; keep 2.0.57. |
+| [sqlmodel](https://pypi.org/pypi/sqlmodel/json) | 0.0.48 | 0.0.37 | Snakemake 9.27.1 requires sqlmodel>=0.0.37,<0.0.38; keep 0.0.37. |
+| [ty](https://pypi.org/pypi/ty/json) | 0.0.98 | 0.0.94, 0.0.95 | 0.0.98 installed in forward ecosystem; maintained advisory receipt still admits 0.0.95. Updated adapter qualification pending. |
+| [virtualenv](https://pypi.org/pypi/virtualenv/json) | 21.15.5 | 21.15.1 | 21.15.5 installed/consistent in latest audit candidate; canonical promotion pending. |
+| [zizmor](https://pypi.org/pypi/zizmor/json) | 1.32.0 | 1.31.1 | 1.32.0 offline pedantic workflow scan passed; canonical promotion pending. |
+
+Analytics constraints were read from installed distribution Requires-Dist metadata. A fresh
+universal Python 3.15.1 hash resolution changed only Ruff to 0.17.4. An explicit
+snakemake-interface-common==1.24.0 candidate failed resolution on the incompatible packaging
+bounds (exit 1); no dependency constraints were bypassed. Original constraints and canonical
+locks remain intact during native renewal.
