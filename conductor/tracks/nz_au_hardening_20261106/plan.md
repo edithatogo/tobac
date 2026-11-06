@@ -11,7 +11,7 @@
 The checks below close the bounded H1.1 source/document package only. Repeat affected
 hardening when a future analytical package changes semantics or execution inputs.
 
-- [x] Correct stale docs/examples and reconcile setup/runtime declarations for H1.1. Current 3.15.2 source and blocked latest-lock promotion are distinct; all 16 withheld-target links are labelled local-only. See progress.md.
+- [x] Correct stale docs/examples and reconcile setup/runtime declarations for H1.1. Current 3.15.2 source and blocked latest-lock promotion are distinct; maintained navigation labels withheld targets, while original capture README/index editions retain their pinned bytes and use separate current navigation. See progress.md.
 - [x] Qualify meaningful contract/property/regression checks, structured error/logging and corrupt-input/resume behavior for the current analytical package. Reuse unchanged Phase 6 atomic/packet/offline/scheduler controls; 85 affected H1.1 checks pass. No mirrored tests added for prose edits.
 - [x] Check locks, dependency licence metadata, secrets exposure, CI permissions/action pins and artifact provenance for H1.1. Inventory and exact scan scope are in progress.md; no legal/hosted certification inferred.
 - [x] Measure bounded runtime/RSS and diagnose regressions without automatically increasing budgets. Current affected tests: 5.39 s, 124.8 MiB; unchanged analytical performance receipts retained.

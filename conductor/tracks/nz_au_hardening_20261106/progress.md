@@ -121,3 +121,8 @@ Before another substantial ownership append, the existing integrator should move
 history to a linked, byte-preserved archive and retain a compact current ownership file.
 This lane does not restructure the shared append-only history, raise the budget or weaken
 its test. The current bundle passes; future expansion must not be silently truncated.
+
+
+## Integrated foundation closeout
+
+The 7 November integration closes local Phase 0 package/suite/native/security gates; see integration/archive/empirical-phase0-checkpoint_20261107.json. Frozen capture README/index editions are preserved byte-for-byte and current links are maintained separately in docs/engineering/SOURCE_MAP_NAVIGATION.md. Earlier zero-missing-link counts describe their recorded source snapshot, not immutable historical captures. H2 remains subject to empirical acceptance, current-packet hosted/receiving proof and release/recovery. No metadata, PR/issue, branch or visibility mutation occurred.

@@ -7,7 +7,7 @@ corrupt-copy rejection pass. Hypothesis, Ty and Typer have qualified newer candi
 See phase6-progress.md for exact scope and remaining native/release/empirical gates;
 the historical profile counts and admission receipts below retain their original epochs.
 
-Phase 0 remains in progress. The empirical branch has integrated receiving main's qualified
+Historical candidate status: Phase 0 was in progress. The empirical branch has integrated receiving main's qualified
 Python 3.15.2 baseline and the owner's integrated native renewal. The atomic M1 directory
 correction is included in the signed DAG identity. Original numerical references and prior
 execution receipts remain intact; the progress history is preserved.
@@ -85,3 +85,8 @@ output directory. Candidate hosted qualification/publication is complete through
 413f7b2: twelve PR workflows and ten receiving-main workflows passed. The separate
 Conductor publication at 2e6534d is not substituted for these new results.
 The latest real-scheduler context/DAG terminal handoff remains with the originating lane.
+
+
+## Current checkpoint
+
+Phase 0 is now complete locally. The final acceptance receipt and corrected integration history are in phase0-progress.md and integration/archive/empirical-phase0-checkpoint_20261107.json. Current source-native and clean-package gates pass; earlier stale-pin failures are retained history. Empirical Phase 1–6 and current-packet hosted/publication/H2 acceptance remain open.

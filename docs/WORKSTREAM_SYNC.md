@@ -21,8 +21,10 @@ No older signature or passing subset substitutes for this changed source epoch.
 
 The empirical lane, chat `01a1af53-2093-7f70-b761-e5f6cb7b769c`, completed its clean
 packet in `/Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac` on
-`codex/nz-au-empirical`. That worktree, environments and local receipts remain
-with its owner. No dirty tree or private binding was copied. The separate
+`codex/nz-au-empirical`. The root integrator temporarily owns public-source fast-forward and attested readback
+in that idle, clean checkout for this checkpoint. Its environments, ignored evidence
+and native bindings retain their existing owner; no dirty tree or private binding
+is copied. After acceptance, fast-forward the public source and verify admission. The separate
 `/Users/doughnut/Documents/tobac-conductor-status-20261106` checkout is unchanged.
 M3 retains ownership of `src/tobac/research` and `tests/m3`; its interfaces and
 scientific meaning are preserved. Earlier assignments remain in the history below.
@@ -39,3 +41,7 @@ All prior coordination and terminal handoffs are preserved byte-for-byte in
 [the closed history](coordination/WORKSTREAM_SYNC_through_20261107.md).
 The archive is an immutable dated edition; retain earlier assignments and receipts.
 Append only current coordination here so bounded phase contexts remain usable.
+
+## Phase 0 terminal state
+
+Local Phase 0 gates pass; see integration/archive/empirical-phase0-checkpoint_20261107.json and the empirical track audit. The final public checkpoint is to be consumed by fast-forward and attested readback in the idle empirical worktree. This temporary public-source writing scope ends at terminal readback; the source owner then retains that checkout. Private native verification remains in root. Empirical, hosted/publication and H2 gates retain their separate scopes.
