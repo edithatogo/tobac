@@ -14,13 +14,13 @@ from pathlib import Path
 from typing import Any
 
 from check_longitudinal_results import ATOL, RTOL
+from hosted_lineage import CHECKPOINT, CHECKPOINT_SHA
 from qualify_publication_replay import IDENTITY_COLUMNS, TOLERANCE
 
 ROOT = Path(__file__).resolve().parents[1]
 REFERENCE = ROOT / "integration/scientific_reference_20261103.zip"
-# The numerical oracle remains the accepted baseline across runtime promotions.
-CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_20261102.json"
-CHECKPOINT_SHA = "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a"
+REFERENCE_CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_20261102.json"
+REFERENCE_CHECKPOINT_SHA = "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a"
 RUNS = {
     "m1": "m1",
     "m2_retail": "m2",
@@ -52,15 +52,28 @@ def reference_tables() -> dict[str, dict[str, dict[str, str]]]:
     if hashlib.sha256(checkpoint).hexdigest() != CHECKPOINT_SHA:
         msg = "Accepted numerical checkpoint changed"
         raise ValueError(msg)
-    accepted = json.loads(checkpoint)["runner_results"]
+    active = json.loads(checkpoint)["runner_results"]
+    original = (ROOT / REFERENCE_CHECKPOINT).read_bytes()
+    if hashlib.sha256(original).hexdigest() != REFERENCE_CHECKPOINT_SHA:
+        msg = "Original numerical reference checkpoint changed"
+        raise ValueError(msg)
+    accepted = json.loads(original)["runner_results"]
     with zipfile.ZipFile(REFERENCE) as archive:
         reference = json.loads(archive.read("reference.json"))
-    if reference["checkpoint_sha256"] != CHECKPOINT_SHA or set(reference["runners"]) != set(accepted):
+    if (
+        reference["checkpoint_sha256"] != REFERENCE_CHECKPOINT_SHA
+        or set(reference["runners"]) != set(accepted)
+        or set(active) != set(accepted)
+    ):
         msg = "Reference runner/checkpoint closure changed"
         raise ValueError(msg)
     tables: dict[str, dict[str, dict[str, str]]] = reference["runners"]
     for name, rows in tables.items():
         expected = {p: key for p, key in accepted[name]["artifacts"].items() if p.endswith(".csv")}
+        current = {p: key for p, key in active[name]["artifacts"].items() if p.endswith(".csv")}
+        if current != expected:
+            msg = "Active numerical closure differs from the frozen reference"
+            raise ValueError(msg)
         if set(rows) != set(expected):
             msg = "Reference CSV inventory changed"
             raise ValueError(msg)
@@ -137,6 +150,7 @@ def verify(replays: Path, no_grid: Path) -> dict[str, Any]:
         "platform": platform.platform(),
         "reference_sha256": hashlib.sha256(REFERENCE.read_bytes()).hexdigest(),
         "checkpoint_sha256": CHECKPOINT_SHA,
+        "reference_checkpoint_sha256": REFERENCE_CHECKPOINT_SHA,
         "runners": reports,
         "scope": (
             "All eight runner variants and 82 CSV tables; existing Nox validators also run; "

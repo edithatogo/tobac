@@ -8,7 +8,7 @@ from dataclasses import asdict, replace
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
+import polars as pl
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -128,16 +128,22 @@ def test_empty_window_mapping_is_honoured() -> None:
 
 def test_forecast_summary_matches_independent_fit(cli_output) -> None:
     cfg = config()
-    frame = pd.read_csv(cli_output / "forecast_summary.csv")
-    assert sorted(frame.horizon.unique().tolist()) == [1, 2, 3, 4, 5]
-    assert sorted(frame.year.unique().tolist()) == [2026, 2027, 2028, 2029, 2030]
-    assert (frame.year == 2025 + frame.horizon).all()
-    assert (frame.lower_95 < frame["median"]).all()
-    assert (frame["median"] < frame.upper_95).all()
-    assert not frame[["mean", "lower_95", "lower_80", "median", "upper_80", "upper_95"]].isna().any().any()
-    series = pd.read_csv(ROOT / cfg["source_table"])
-    years = series.year.to_numpy(dtype=int)
-    values = series.value.to_numpy(dtype=float)
+    frame = pl.read_csv(cli_output / "forecast_summary.csv")
+    assert sorted(frame["horizon"].unique().to_list()) == [1, 2, 3, 4, 5]
+    assert sorted(frame["year"].unique().to_list()) == [2026, 2027, 2028, 2029, 2030]
+    assert (frame["year"] == 2025 + frame["horizon"]).all()
+    assert (frame["lower_95"] < frame["median"]).all()
+    assert (frame["median"] < frame["upper_95"]).all()
+    assert (
+        not frame[["mean", "lower_95", "lower_80", "median", "upper_80", "upper_95"]]
+        .null_count()
+        .sum_horizontal()
+        .item()
+        > 0
+    )
+    series = pl.read_csv(ROOT / cfg["source_table"])
+    years = series["year"].cast(pl.Int64).to_numpy()
+    values = series["value"].cast(pl.Float64).to_numpy()
     from tobac_supply.release_calibration import fit_release_process, forecast_summary  # noqa: PLC0415 -- Import at the exercised capability or monkeypatch boundary.
 
     expected = {
@@ -146,9 +152,9 @@ def test_forecast_summary_matches_independent_fit(cli_output) -> None:
             fit_release_process(years, values, window=4, grid=quick_grid(cfg)), cfg["forecast_horizons"]
         )
     }
-    chosen = frame[frame.model == "recent_4_changes"]
+    chosen = frame.filter(pl.col("model") == "recent_4_changes")
     for horizon in (1, 3, 5):
-        row = chosen[chosen.horizon == horizon].iloc[0]
+        row = chosen.filter(pl.col("horizon") == horizon).row(0, named=True)
         assert row["median"] == pytest.approx(expected[horizon]["median"], rel=1e-9)
         assert row["lower_95"] == pytest.approx(expected[horizon]["lower_95"], rel=1e-9)
         assert row["upper_95"] == pytest.approx(expected[horizon]["upper_95"], rel=1e-9)
@@ -224,9 +230,9 @@ def test_receipts_follow_an_edited_config(tmp_path) -> None:
     manifest = json.loads((out / "run_manifest.json").read_text())
     assert manifest["version"] == "9.9.9"
     assert manifest["analysis_date"] == "2030-01-01"
-    checks = pd.read_csv(out / "rolling_predictive_checks.csv")
-    assert set(checks.stage) == {"exploratory_selection_2016_2021", "reserved_diagnostic_2022_2025"}
-    assert sorted(checks.test_year.unique().tolist()) == list(range(2016, 2026))
+    checks = pl.read_csv(out / "rolling_predictive_checks.csv")
+    assert set(checks["stage"]) == {"exploratory_selection_2016_2021", "reserved_diagnostic_2022_2025"}
+    assert sorted(checks["test_year"].unique().to_list()) == list(range(2016, 2026))
 
 
 def test_interval_score_penalises_misses() -> None:
@@ -266,7 +272,7 @@ def test_selection_receipt_reports_the_ranking_and_margin(cli_output) -> None:
     scores = selection["selection_scores"]
     values = [s["mean_log_predictive_density"] for s in scores]
     assert values == sorted(values, reverse=True)
-    assert {s["model"] for s in scores} == set(pd.read_csv(cli_output / "forecast_summary.csv").model)
+    assert {s["model"] for s in scores} == set(pl.read_csv(cli_output / "forecast_summary.csv")["model"])
     assert selection["margin_over_runner_up"] == values[0] - values[1]
     statistics = {
         "model",
@@ -280,10 +286,10 @@ def test_selection_receipt_reports_the_ranking_and_margin(cli_output) -> None:
 
 def test_selection_scores_come_from_the_predictive_score_frame(cli_output) -> None:
     selection = json.loads((cli_output / "selection_receipt.json").read_text())
-    score = pd.read_csv(cli_output / "predictive_scores.csv")
-    exploratory = score[score.stage.str.startswith("exploratory")].set_index("model")
+    score = pl.read_csv(cli_output / "predictive_scores.csv")
+    exploratory = score.filter(pl.col("stage").str.starts_with("exploratory"))
     for item in selection["selection_scores"]:
-        row = exploratory.loc[item["model"]]
+        row = exploratory.filter(pl.col("model") == item["model"]).row(0, named=True)
         for statistic in (
             "mean_log_predictive_density",
             "rmse_tonnes",
@@ -297,11 +303,11 @@ def test_selection_scores_come_from_the_predictive_score_frame(cli_output) -> No
 
 def test_selection_keys_do_not_change_the_selected_model(cli_output) -> None:
     selection = json.loads((cli_output / "selection_receipt.json").read_text())
-    score = pd.read_csv(cli_output / "predictive_scores.csv")
-    exploratory = score[score.stage.str.startswith("exploratory")].sort_values(
-        "mean_log_predictive_density", ascending=False, kind="stable"
+    score = pl.read_csv(cli_output / "predictive_scores.csv")
+    exploratory = score.filter(pl.col("stage").str.starts_with("exploratory")).sort(
+        "mean_log_predictive_density", descending=True, maintain_order=True
     )
-    assert selection["selected_for_display"] == exploratory.iloc[0].model
+    assert selection["selected_for_display"] == exploratory["model"][0]
     assert selection["selected_for_display"] == selection["selection_scores"][0]["model"]
 
 
@@ -317,7 +323,7 @@ def test_selection_receipt_states_the_rule_and_margin_interpretation(cli_output)
 
 
 def test_selection_report_rejects_a_non_finite_statistic() -> None:
-    frame = pd.DataFrame(
+    frame = pl.DataFrame(
         [
             {
                 "model": "broken",
@@ -333,7 +339,7 @@ def test_selection_report_rejects_a_non_finite_statistic() -> None:
 
 
 def test_single_candidate_has_no_margin() -> None:
-    frame = pd.DataFrame(
+    frame = pl.DataFrame(
         [
             {
                 "model": "only",

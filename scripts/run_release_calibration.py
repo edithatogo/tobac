@@ -8,6 +8,7 @@ if TYPE_CHECKING:
     from matplotlib.figure import Figure
 
 import argparse
+import csv
 import hashlib
 import json
 import math
@@ -21,7 +22,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 import numpy as np  # noqa: E402  # Standalone CLI establishes its local src path before project imports.
-import pandas as pd  # noqa: E402  # Standalone CLI establishes its local src path before project imports.
+import polars as pl  # noqa: E402  # Standalone CLI establishes its local src path before project imports.
 import scipy  # noqa: E402  # Standalone CLI establishes its local src path before project imports.
 lazy from numpy.typing import NDArray  # noqa: E402  # Standalone CLI establishes its local src path before project imports.
 
@@ -43,6 +44,22 @@ WINDOWS: dict[str, int | None] = {
 }
 SELECTION_RULE = "mean_log_predictive_density maximised over the exploratory stage; ties broken by row order"
 SELECTION_STATISTICS = ("mean_log_predictive_density", "rmse_tonnes", "coverage_95", "mean_interval_score_95")
+
+
+def write_table(table: pl.DataFrame, path: Path) -> None:
+    """Retain the release export's 12-significant-digit, empty-missing CSV contract."""
+    with path.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(table.columns)
+        for row in table.iter_rows():
+            writer.writerow(
+                ""
+                if value is None or (isinstance(value, float) and math.isnan(value))
+                else format(value, ".12g")
+                if isinstance(value, float)
+                else value
+                for value in row
+            )
 
 
 def window_names(specs: list[int | None]) -> dict[str, int | None]:
@@ -139,7 +156,7 @@ def reconcile_sources(root: Path | str, cfg: dict[str, Any]) -> dict[str, Any]:
     old = root / "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv"
     raw = root / "data/calibration_20261024/raw/tobacco_returns_completion.txt"
     extracted = parse_release_export(raw.read_text(), range(2010, 2026))
-    existing = pd.read_csv(old)
+    existing = pl.read_csv(old)
     expected = [
         {"year": int(year), "tonnes": int(value)}
         for year, value in zip(
@@ -269,18 +286,20 @@ def figures(  # noqa: PLR0913, PLR0915, PLR0917  # Preserve explicit dimensioned
         fig.savefig(folder / (stem + ".svg"), metadata={"Date": None})  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
         plt.close(fig)
 
-    df = pd.DataFrame(forecasts)
-    h = pd.DataFrame(checks)
-    chosen = df[df.model == selected]
+    df = pl.DataFrame(forecasts)
+    h = pl.DataFrame(checks, infer_schema_length=None)
+    chosen = df.filter(pl.col("model") == selected)
 
     fig, ax = plt.subplots(figsize=(10, 5.7))
     ax.plot(years, values, "o-", label="Published releases, 2010\u20132025")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
-    ax.plot(chosen.year, chosen["median"], "o--", label=f"Conditional median: {selected.replace('_', ' ')}")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    ax.plot(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+        chosen["year"], chosen["median"], "o--", label=f"Conditional median: {selected.replace('_', ' ')}"
+    )  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.fill_between(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
-        chosen.year, chosen.lower_95, chosen.upper_95, alpha=0.14, label="95% predictive interval"
+        chosen["year"], chosen["lower_95"], chosen["upper_95"], alpha=0.14, label="95% predictive interval"
     )
     ax.fill_between(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
-        chosen.year, chosen.lower_80, chosen.upper_80, alpha=0.22, label="80% predictive interval"
+        chosen["year"], chosen["lower_80"], chosen["upper_80"], alpha=0.22, label="80% predictive interval"
     )
     ax.axvline(2025.5, linestyle=":", alpha=0.6)  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.set(
@@ -302,12 +321,16 @@ def figures(  # noqa: PLR0913, PLR0915, PLR0917  # Preserve explicit dimensioned
     save(fig, "01_reported_release_projection")
 
     fig, ax = plt.subplots(figsize=(9, 4.8))
-    one = df[df.horizon == 1].reset_index(drop=True)
-    for i, (_index, r) in enumerate(one.iterrows()):
+    one = df.filter(pl.col("horizon") == 1)
+    for i, r in enumerate(one.iter_rows(named=True)):
         ax.errorbar(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
-            r["median"], i, xerr=[[r["median"] - r.lower_95], [r.upper_95 - r["median"]]], fmt="o", capsize=5
+            r["median"],
+            i,
+            xerr=[[r["median"] - r["lower_95"]], [r["upper_95"] - r["median"]]],
+            fmt="o",
+            capsize=5,
         )
-    ax.set_yticks(range(len(one)), [m.replace("_", " ") for m in one.model])  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    ax.set_yticks(range(len(one)), [m.replace("_", " ") for m in one["model"]])  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.axvline(values[-1], linestyle=":", label="2025 reported value")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.set(
         xlabel="Projected 2026 reported releases (tonnes/year)",
@@ -318,11 +341,15 @@ def figures(  # noqa: PLR0913, PLR0915, PLR0917  # Preserve explicit dimensioned
     save(fig, "02_window_sensitivity")
 
     fig, ax = plt.subplots(figsize=(10, 5.3))
-    observed = h[h.model == selected]
-    ax.plot(observed.test_year, observed.observed_tonnes, "o-", label="Held-out reported releases")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
-    ax.plot(observed.test_year, observed["median"], "s--", label="One-year-ahead predictive median")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    observed = h.filter(pl.col("model") == selected)
+    ax.plot(observed["test_year"], observed["observed_tonnes"], "o-", label="Held-out reported releases")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
+    ax.plot(observed["test_year"], observed["median"], "s--", label="One-year-ahead predictive median")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.fill_between(  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
-        observed.test_year, observed.lower_95, observed.upper_95, alpha=0.2, label="95% predictive interval"
+        observed["test_year"],
+        observed["lower_95"],
+        observed["upper_95"],
+        alpha=0.2,
+        label="95% predictive interval",
     )
     ax.axvline(2022.5, linestyle=":", label="Exploratory selection / reserved diagnostic split")  # pyright: ignore[reportUnknownMemberType]  # Matplotlib kwargs lack types.
     ax.set(
@@ -360,7 +387,7 @@ Source: data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv.
 
 
 def selection_report(
-    select: pd.DataFrame,
+    select: pl.DataFrame,
     start_year: int,
     end_year: int,
 ) -> dict[str, Any]:
@@ -381,13 +408,13 @@ def selection_report(
 
     """
     scores: list[dict[str, Any]] = []
-    for row in select.itertuples(index=False):
-        record: dict[str, Any] = {"model": str(row.model)}
+    for row in select.iter_rows(named=True):
+        record: dict[str, Any] = {"model": str(row["model"])}
         for statistic in SELECTION_STATISTICS:
-            value = float(getattr(row, statistic))
+            value = float(row[statistic])
             if not math.isfinite(value):
                 msg = (
-                    f"Non-finite {statistic} for model {row.model!r}: {value!r}; "
+                    f"Non-finite {statistic} for model {row['model']!r}: {value!r}; "
                     "cannot report a selection margin"
                 )
                 raise ValueError(msg)
@@ -430,41 +457,50 @@ def run(  # noqa: PLR0915  # Keep the declared numerical/report sequence visible
     n = draws if draws is not None else (256 if quick else cfg["path_draws"])
     receipt = reconcile_sources(ROOT, cfg)
     save_json(out / "source_reconciliation.json", receipt)
-    data = pd.read_csv(ROOT / cfg["source_table"])
-    years = data.year.to_numpy(dtype=int)
-    values = data.value.to_numpy(dtype=float)
+    data = pl.read_csv(ROOT / cfg["source_table"])
+    years = data["year"].cast(pl.Int64).to_numpy()
+    values = data["value"].cast(pl.Float64).to_numpy()
     exploratory_stage, _ = stage_names(cfg["hindcast_start"], cfg["selection_end"], years)
-    clean = pd.DataFrame(
+    clean = pl.DataFrame(
         {
             "year": years,
             "reported_tonnes": values.astype(int),
             "year_on_year_percent": np.r_[np.nan, 100 * (values[1:] / values[:-1] - 1)],
-            "source_id": data.source_id,
-            "unit": data.unit,
+            "source_id": data["source_id"],
+            "unit": data["unit"],
         }
     )
-    clean.to_csv(out / "reported_release_series.csv", index=False, float_format="%.12g")
+    write_table(clean, out / "reported_release_series.csv")
     checks = hindcasts(years, values, grid, cfg["hindcast_start"], cfg["selection_end"], windows)
-    checkdf = pd.DataFrame(checks)
-    checkdf.to_csv(out / "rolling_predictive_checks.csv", index=False, float_format="%.12g")
+    checkdf = pl.DataFrame(checks, infer_schema_length=None)
+    write_table(checkdf, out / "rolling_predictive_checks.csv")
     score = (
-        checkdf.groupby(["model", "stage"])
+        checkdf.group_by(["model", "stage"])
         .agg(
-            n=("test_year", "size"),
-            mean_log_predictive_density=("log_predictive_density", "mean"),
-            mape_percent=("absolute_percentage_error", "mean"),
-            mse=("squared_error", "mean"),
-            coverage_95=("covered_95", "mean"),
-            mean_interval_score_95=("interval_score_95", "mean"),
+            pl.len().alias("n"),
+            pl.col("log_predictive_density").mean().alias("mean_log_predictive_density"),
+            pl.col("absolute_percentage_error").mean().alias("mape_percent"),
+            pl.col("squared_error").mean().sqrt().alias("rmse_tonnes"),
+            pl.col("covered_95").mean().alias("coverage_95"),
+            pl.col("interval_score_95").mean().alias("mean_interval_score_95"),
         )
-        .reset_index()
+        .sort(["model", "stage"])
+        .select(
+            "model",
+            "stage",
+            "n",
+            "mean_log_predictive_density",
+            "mape_percent",
+            "coverage_95",
+            "mean_interval_score_95",
+            "rmse_tonnes",
+        )
     )
-    score["rmse_tonnes"] = np.sqrt(score.pop("mse"))
-    score.to_csv(out / "predictive_scores.csv", index=False, float_format="%.12g")
-    select = score[score.stage == exploratory_stage].sort_values(
-        "mean_log_predictive_density", ascending=False, kind="stable"
+    write_table(score, out / "predictive_scores.csv")
+    select = score.filter(pl.col("stage") == exploratory_stage).sort(
+        "mean_log_predictive_density", descending=True, maintain_order=True
     )
-    selected = str(select.iloc[0].model)
+    selected = str(select["model"][0])
     receipt = {
         "selected_for_display": selected,
         "selection_years": [cfg["hindcast_start"], cfg["selection_end"]],
@@ -480,11 +516,11 @@ def run(  # noqa: PLR0915  # Keep the declared numerical/report sequence visible
         for method, window in [("last", None), ("loglinear", 4)]
         for row in rolling_origin_forecasts(years, values, min_train=5, window=window, method=method)
     ]
-    pd.DataFrame(references).to_csv(out / "point_reference_hindcasts.csv", index=False, float_format="%.12g")
+    write_table(pl.DataFrame(references), out / "point_reference_hindcasts.csv")
 
     forecasts: list[dict[str, Any]] = []
     parameters: list[dict[str, Any]] = []
-    posterior_cells: list[pd.DataFrame] = []
+    posterior_cells: list[pl.DataFrame] = []
     sensitivity: list[dict[str, Any]] = []
     convergence: list[dict[str, Any]] = []
     path_stats: list[dict[str, Any]] = []
@@ -505,14 +541,14 @@ def run(  # noqa: PLR0915  # Keep the declared numerical/report sequence visible
             }
         )
         posterior_cells.append(
-            pd.DataFrame({"model": name, "mu": p.mu, "sigma": p.sigma, "posterior_mass": p.weights})
+            pl.DataFrame({"model": name, "mu": p.mu, "sigma": p.sigma, "posterior_mass": p.weights})
         )
         paths = sample_release_paths(p, 5, n, cfg["seed"] + offset)
-        pathdf = pd.DataFrame(paths["values"], columns=[str(y) for y in paths["years"]])
-        pathdf.insert(0, "posterior_sigma", paths["sigma"])
-        pathdf.insert(0, "posterior_mu", paths["mu"])
-        pathdf.insert(0, "path_id", np.arange(n))
-        pathdf.to_csv(out / (name + "_joint_paths.csv"), index=False, float_format="%.12g")
+        pathdf = pl.DataFrame(paths["values"], orient="row", schema=[str(y) for y in paths["years"]])
+        pathdf.insert_column(0, pl.Series("posterior_sigma", paths["sigma"]))
+        pathdf.insert_column(0, pl.Series("posterior_mu", paths["mu"]))
+        pathdf.insert_column(0, pl.Series("path_id", np.arange(n)))
+        write_table(pathdf, out / (name + "_joint_paths.csv"))
         for i, row in enumerate(summaries):
             simulation_mean = float(paths["values"][:, i].mean())
             mcse = float(paths["values"][:, i].std(ddof=1) / np.sqrt(n)) if n > 1 else None
@@ -549,14 +585,12 @@ def run(  # noqa: PLR0915  # Keep the declared numerical/report sequence visible
                 }
                 for measure in ["mean", "median", "lower_95", "upper_95"]
             )
-    pd.DataFrame(forecasts).to_csv(out / "forecast_summary.csv", index=False, float_format="%.12g")
-    pd.DataFrame(parameters).to_csv(
-        out / "posterior_parameter_summary.csv", index=False, float_format="%.12g"
-    )
-    pd.concat(posterior_cells).to_csv(out / "posterior_cells.csv", index=False, float_format="%.12g")
-    pd.DataFrame(sensitivity).to_csv(out / "prior_sensitivity.csv", index=False, float_format="%.12g")
-    pd.DataFrame(convergence).to_csv(out / "grid_convergence.csv", index=False, float_format="%.12g")
-    pd.DataFrame(path_stats).to_csv(out / "monte_carlo_checks.csv", index=False, float_format="%.12g")
+    write_table(pl.DataFrame(forecasts), out / "forecast_summary.csv")
+    write_table(pl.DataFrame(parameters), out / "posterior_parameter_summary.csv")
+    write_table(pl.concat(posterior_cells), out / "posterior_cells.csv")
+    write_table(pl.DataFrame(sensitivity), out / "prior_sensitivity.csv")
+    write_table(pl.DataFrame(convergence), out / "grid_convergence.csv")
+    write_table(pl.DataFrame(path_stats), out / "monte_carlo_checks.csv")
     save_json(
         out / "fit_scope.json",
         {
@@ -612,7 +646,7 @@ def run(  # noqa: PLR0915  # Keep the declared numerical/report sequence visible
                 "python": platform.python_version(),
                 "numpy": np.__version__,
                 "scipy": scipy.__version__,
-                "pandas": pd.__version__,
+                "polars": pl.__version__,
             },
             "sources": [{"path": p, "sha256": sha(ROOT / p)} for p in source_paths],
             "files": [

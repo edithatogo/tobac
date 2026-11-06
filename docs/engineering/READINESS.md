@@ -6,8 +6,11 @@ executable candidate checks passed, including scientific reproduction on Linux
 and Windows and complete macOS qualification. Eight fresh native runs verified
 140 outputs and all 82 CSVs equal the retained baseline byte for byte. The
 versioned [runtime checkpoint](../../integration/archive/scientific-lineage-checkpoint_python3152_20261106.json)
-and signed capsule bind the new runtime. Historical receipts below remain bound
-to their recorded runtimes. Receiving-main workflows are tracked separately.
+records that runtime transition. PR #139 subsequently qualified the integrated
+Polars/Voiage 3.1 source; the current signed checkpoint is
+`integration/archive/scientific-lineage-checkpoint_integrated_python3152_20261106.json`.
+Historical receipts below remain bound to their recorded source and runtimes.
+Receiving-main workflows are tracked separately.
 
 ## Current development platform
 

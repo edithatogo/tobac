@@ -1,8 +1,8 @@
 {
   "environment": {
     "python": "4e15a990f1c2d4536bf6692e3dea24a57318690ecfbad78d9086602fdbb96693",
-    "lock": "c21146f55abb459c73dc0ca26f710bbf2be50722385af41427ff69084f7c8689",
-    "distributions": "069342362ae3cc8dc66c6713f7f750f612585296e50728f9df5accb5a9909556"
+    "lock": "88bb9ffea7a462ebe99ee9c50bc7f22d0b0432835ed099a1532f4fef958ff3c1",
+    "distributions": "cc7f1fffabb675020a8542b55abbe461797d6b59cc7f000b967016155709a1d8"
   },
   "inputs": {
     "tobac-7ee48855a1ed1c4b": [
@@ -21,10 +21,7 @@
         "m1",
         "src/tobac/run.py",
         "e741b366c649a27ef9ed59ac3cf3b8cb842f4fed3ad0a7f6dd3cf750055ea020",
-        [
-          "--config",
-          "<config>"
-        ]
+        []
       ],
       "config": "8fff72e501726af284d5b07bf61a40e803bb6fc41da767f49f77ecc7ec4eaaa7"
     },
@@ -33,10 +30,7 @@
         "m3",
         "src/tobac/research/runner.py",
         "cc254075be4498837843c18989aedae3826aa6c06beea65ed0e569e372168276",
-        [
-          "--config",
-          "<config>"
-        ]
+        []
       ],
       "config": "23528a30122c5de6629b4ff4b9784a24c942d5ed9c28d11924a5427a670c6d8a"
     },
@@ -73,10 +67,30 @@
       "operation": [
         "longitudinal",
         "scripts/run_empirical_longitudinal.py",
-        "239602a4b7e42da3a1a51c4ad6b2255d76bd56b55971a262a67259b4d6bf40cf",
+        "ad6c1f18153228d0adcb468953f2d82c36e7f7c15cd77e9a4fd30c63be1edf3a",
         []
       ],
       "config": "c067ff230546638a28b4edf3ad3555bea9f309a035ff723e8bcd48cb68e95f41"
+    },
+    "m2_retail": {
+      "operation": [
+        "m2_retail",
+        "src/tobac/m2.py",
+        "269a3e302bcdf833deab9ec1e73bffe7a8d1f79601836eeed1978b6c69b8401f",
+        [
+          "--grid-check"
+        ]
+      ],
+      "config": "925746a584e0f986e22b7848bd8fac50ae7fb6ae5e06a1cd8d4bad2742192b3f"
+    },
+    "release_calibration": {
+      "operation": [
+        "release_calibration",
+        "scripts/run_release_calibration.py",
+        "3cda06bcde7d1ecb740e330edbb2294a062477521c67fdd6d4156af4b898c6de",
+        []
+      ],
+      "config": "91c12ebf0e5216fcf2575b1cdc3c4dc9ca6b98972cbe0947c57d362f5e00bb0d"
     }
   }
 }

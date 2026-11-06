@@ -31,6 +31,7 @@ def inputs(root) -> None:
         "engineering/tools-requirements.txt",
         "engineering/ecosystem.in",
         "engineering/advisory.in",
+        "engineering/analytics.in",
         "engineering/voiage.in",
         "engineering/voiage-build-requirements.txt",
     ]
@@ -60,7 +61,7 @@ def fixture(root, profile="runtime"):
     return m, lock
 
 
-@pytest.mark.parametrize("profile", ["runtime", "audit", "voiage", "ecosystem", "advisory"])
+@pytest.mark.parametrize("profile", ["runtime", "audit", "voiage", "ecosystem", "advisory", "analytics"])
 def test_valid_receipt_binds_exact_inputs_and_lock(tmp_path, profile) -> None:
     m, lock = fixture(tmp_path, profile)
     assert m.verify(tmp_path, lock, profile)["status"] == "pass"
@@ -423,4 +424,11 @@ def test_advisory_input_change_invalidates_only_its_profile(tmp_path, target) ->
 def test_advisory_is_opt_in_and_preserves_four_profile_inventory() -> None:
     m = load()
     assert set(m.PROFILES) == {"runtime", "audit", "voiage", "ecosystem"}
-    assert set(m.ALL_PROFILES) == set(m.PROFILES) | {"advisory"}
+    assert set(m.ALL_PROFILES) == set(m.PROFILES) | {"advisory", "analytics"}
+
+
+def test_analytics_input_change_invalidates_candidate(tmp_path):
+    module, lock = fixture(tmp_path, "analytics")
+    (tmp_path / "engineering/analytics.in").write_text("changed")
+    with pytest.raises(ValueError, match="input"):
+        module.verify(tmp_path, lock, "analytics")

@@ -1,0 +1,6 @@
+# Isolated analytical orchestration; separate from scientific reference promotion.
+snakemake==9.27.1
+polars==2.1.0
+pyarrow==26.0.1
+jsonschema==4.26.0
+ruff==0.17.3

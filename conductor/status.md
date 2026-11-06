@@ -7,6 +7,23 @@ The 18 archived tracks have no active execution tasks. Five historical graph
 proposal entries were superseded by bounded inventory acceptance and are explicitly
 labelled historical in their archived plan, rather than marked as executed.
 
+## Current published source and reconciliation — 6 November 2026
+
+Main advanced through PR #139 at `e3a1cf96efb40295a5bc005919f9cb78d9574d77`.
+Its complete receiving tree matches tested head `f7b130b`, whose twelve hosted
+workflows passed. The current signed integrated checkpoint is
+`integration/archive/scientific-lineage-checkpoint_integrated_python3152_20261106.json`.
+The earlier #91 runtime-delta checkpoint below remains historical evidence.
+PR #139 receiving workflows and its owner's separate Conductor publication remain
+separate work; neither is inferred from its candidate checks. #135 preserves
+that entire accepted source and reconciles current setup/status documentation.
+
+The managed root graph job also passed on #91's `eca4e8a`, using actual Python
+3.15.2 and parsing `/pyproject.toml` (run 42198793376). A later graph export
+returned 466 PURLs, 453 for PyPI, at 2026-11-06T10:08:58Z. The export is not
+commit-bound and does not prove complete package relationships. Older parser
+blocker observations below are historical for this now-executed runtime.
+
 ## Sequential dependency integration — 6 November 2026
 
 [PR #94](https://github.com/edithatogo/tobac/pull/94) merged at
@@ -68,16 +85,16 @@ PR #135 reconciles its duplicate workflow-only update onto that qualified main.
 Its three workflow files are byte-identical to receiving #91; only current
 status/setup documentation changes alongside the ancestry reconciliation. Its
 exact-head checks and publication remain required. #91 receiving-main workflows
-were still running at this checkpoint; GitHub is the authoritative live result.
+all passed at `eca4e8a`; GitHub retains the exact terminal receipts.
 PR #136 (virtualenv) is the next dependency qualification after #135.
 
 Completed #94 qualification logs were archived and hash-verified before retiring
 its old worktree; the source history remains in the verified local Git bundle.
 Five newly merged local branches and three closed/superseded remote branches were
 pruned. Unfinished Polars/NZ-AU/native renewal lanes, their branches/worktrees and
-all original private bindings remain preserved. Legacy optional ecosystem-wheel
-availability remains separate from current required CI and published Voiage
-qualification; the unfinished forward ecosystem lane owns its replacement.
+all original private bindings remain preserved. The former optional ecosystem-wheel
+limitation was subsequently resolved by the qualified published Voiage 3.1 route
+in #139. Its historical failures remain retained.
 
 ## Historical receiving-main verification — 5 November 2026
 
@@ -459,3 +476,87 @@ suite passes 41 tests on repository-local Python 3.15.1 under the 4 GiB/40-minut
 guard. Scientific/runtime source is unchanged; the full executed receiving-main
 qualification is reused at its exact baseline. The final publication guard and
 receiving-ref readback are recorded with the reconciliation commit.
+
+
+## Polars source reconciliation — 6 November 2026
+
+PR #94 is merged at `e1d9b8848ab261f0ed992a74b3a2750e980512aa`, superseding
+its stale-lock blocker above. Its 29 executed hosted checks passed; two jobs
+were conditional skips and the Scorecard bot was neutral. Receiving tree
+`0c209ae2756257a78d47836da024b489db5a919b` equals the qualified head's tree.
+
+Both longitudinal runners and the empirical verifier now use Polars, including
+their runner tests. Full-size replay preserves 21 CSV tables numerically at
+rtol/atol 1e-12 and all 16 figure files byte-for-byte. Models, source values,
+seeds, units, selected model and interpretation caveats are unchanged. Three
+missing-convention/identity controls pass; Ruff passes and selected BasedPyright
+has zero errors. This source packet still requires integration with active
+profile/lock retirement and renewed signed scientific inventory/capsule before
+publication. Historical evidence is retained; no hosted or native acceptance is
+inferred from the local parity result. See `docs/WORKSTREAM_SYNC.md` for receipts.
+
+The Polars CSV follow-up preserves the original boolean and float spelling:
+all eight full-size empirical CSV files are now byte-identical to baseline.
+No table-comparator exemption is needed. The current profile candidate removes
+both retired dependencies and qualifies published Voiage 3.0.0; it remains a
+local source/lock candidate pending integrated native renewal and hosted gates.
+
+The active profile candidate now retires pandas, xarray and pandas-stubs from
+all five regenerated hash locks. Published Voiage 3.1.0 replaces the patched
+legacy default, retaining weighted/partition and interchange oracles. Its exact
+wheel and published hash-installed environment pass 90 numerical comparisons,
+six ownership cases and installed/native-byte verification; see
+`integration/voiage_published_20261106.json`. Whole-source strict typing has zero
+errors/warnings; Ruff and formatting pass. Reference/native/hosted integration
+remains separate from this executed local qualification.
+
+## Nox route cleanup — 6 November 2026
+
+The local route cleanup is complete: ecosystem qualification uses the accepted
+published Voiage 3.1.0 wheel and hash-checked lock installation, the JAX adapter
+requires that exact release, and the Polars alias retains its expected receipt
+location. The ecosystem route passes its numerical/interchange probes and 97
+tests; the alias passes 99 tests; 27 focused backend/workflow checks pass. A
+retired 3.0.0 wheel is rejected before installation or execution. Ruff/format
+checks pass and current guidance distinguishes the retired compatibility route.
+
+The prior disk-space and legacy-version failures are retained in the local
+receipts. Final integrated signed-lineage renewal and hosted acceptance remain
+open. In the prior `5c23107` full suite, 16 tests correctly stopped at the stale
+`engineering/requirements.lock` native pin; no gate has been weakened or marked
+passed. See `docs/WORKSTREAM_SYNC.md` for the exact local verification scope.
+
+## Integrated lineage renewal candidate — 6 November 2026
+
+The retained owner route executed eight fresh native profiles and independently
+verified 140 outputs and their original-source links. All 82 scientific CSVs are
+byte-identical to the prior accepted attempts. New checkpoint
+`integration/archive/scientific-lineage-checkpoint_20261106.json` and a fresh
+signed capsule bind the combined source and current-main workflow pins.
+Normal native and attested admission pass; the real M1 stage completes atomically.
+
+The immutable numerical reference remains unchanged. Its original checkpoint
+and the renewed active closure are checked separately, with exact CSV object-map
+equality; the normal eight-runner comparator reports zero numerical difference.
+Native/hosted negative controls and the complete suite remain the final local
+verification milestone. Hosted checks/publication remain separate open work.
+
+## Integrated lineage renewal complete locally — 6 November 2026
+
+Implementation `b3f3130` renews the eight-profile native closure for the combined
+Polars/M1-stage source. The final checkpoint SHA256 is
+`42d7340ffd226a9ee0394a695229991a357f8a7e4d6b08906aeeba932d483517`.
+All 140 outputs and original-source links reopen after negative testing; 82 CSVs
+remain byte-identical. The original numerical archive and historical checkpoint
+are preserved, with exact CSV object-map equality required by the comparator.
+
+The full suite with renewed private bindings passes **1,258 tests / 7 skips**;
+strict whole-source typing has zero errors/warnings, and affected lint/format
+checks pass. Native and attested commands, atomic M1 execution, and missing,
+stale, corrupt, substituted and unauthenticated input rejection are verified.
+No scientific calibration or external endorsement is inferred.
+
+Remaining for this new snapshot: hosted checks, then guarded publication and
+receiving-ref readback through the existing integrator. The original Phase 8
+completion applies to its published closure and is not substituted for these
+remaining checks. Latest dependency promotion remains separate from this renewal.

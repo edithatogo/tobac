@@ -1,0 +1,87 @@
+# Analytical foundation only: source admission and context verification.
+# Invoke from repository root; Nox remains the engineering runner.
+import json
+import subprocess
+from pathlib import Path
+
+PROFILE = config["profile"]
+BUNDLE = config["bundle"]
+OUT = config["out"]
+PYTHON = str(Path(config["python"]).absolute())
+ANALYSIS = config.get("analysis", "context")
+if ANALYSIS not in {"context", "m1"}:
+    raise ValueError("Supported analysis targets: context, m1")
+OUTPUT_ROOT = Path("outputs").resolve()
+OUT_PATH = Path(OUT).resolve()
+RESULT = (OUT_PATH / "m1").resolve()
+if (
+    not OUT_PATH.is_relative_to(OUTPUT_ROOT)
+    or OUT_PATH == OUTPUT_ROOT
+    or not RESULT.is_relative_to(OUT_PATH)
+):
+    raise ValueError("Select an output directory below repository outputs")
+CONTRACT = json.loads(Path(PROFILE).read_text(encoding="utf-8"))
+# Revalidate even on a cached run: Git HEAD changes and preserved mtimes must not
+# permit a stale bundle to pass merely because Snakemake skips the rule.
+subprocess.run(
+    [PYTHON, "scripts/verify_context_stage.py", "--bundle", BUNDLE, "--check-only"],
+    check=True,
+    timeout=30,
+)
+
+# Recheck accepted scientific input identities before cache selection as well.
+if ANALYSIS == "m1":
+    subprocess.run(
+        [PYTHON, "-I", "-S", "scripts/hosted_lineage.py", "--runner", "m1"],
+        check=True,
+        timeout=30,
+        stdout=subprocess.DEVNULL,
+    )
+    # A directory timestamp cannot detect altered/missing members. Reopen the
+    # existing source/output manifest before selecting cached work or reruns.
+    if RESULT.exists():
+        subprocess.run(
+            [PYTHON, "scripts/verify.py", str(RESULT)],
+            check=True,
+            timeout=30,
+        )
+
+rule all:
+    input:
+        OUT + "/m1" if ANALYSIS == "m1" else OUT + "/verified.json"
+
+rule verify_context:
+    input:
+        manifest=BUNDLE + "/manifest.json",
+        text=BUNDLE + "/context.md",
+        profile=PROFILE,
+        sources=CONTRACT["paths"],
+        verifier="scripts/verify_context_stage.py",
+        context="scripts/context_bundle.py",
+        policy="engineering/publication-policy.json"
+    output:
+        OUT + "/verified.json"
+    log:
+        OUT + "/verify.stderr.log"
+    resources:
+        mem_mb=512
+    shell:
+        "{PYTHON:q} scripts/verify_context_stage.py --bundle {BUNDLE:q} "
+        "--receipt {output:q} --log {OUT:q}/events.jsonl > {log:q} 2>&1"
+
+
+rule m1:
+    input:
+        admission=OUT + "/verified.json",
+        wrapper="scripts/run_m1_stage.py",
+        config="configs/regulatory.json",
+        source=sorted(str(p) for p in Path("src/tobac").rglob("*.py")),
+        provenance=sorted(str(p) for p in Path("integration/archive").glob("*.json"))
+    output:
+        protected(directory(OUT + "/m1"))
+    log:
+        OUT + "/m1-stage.log"
+    resources:
+        mem_mb=4096
+    shell:
+        "{PYTHON:q} scripts/run_m1_stage.py --out {OUT:q}/m1 > {log:q} 2>&1"

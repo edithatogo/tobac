@@ -779,6 +779,88 @@ Next: qualify current PR hosted checks before guarded publication. Native scope:
 no mutations. PR #132 receiving ref/tree is `b57b4e1`; all ten push workflows
 passed and Scorecard API reports that exact commit, score 7/10.
 
+## NZ/AU empirical milestone — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns the isolated managed worktree
+/Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac on codex/nz-au-empirical.
+Scope: conductor/tracks/nz_au_empirical_20261106 and candidate registry/product/stack
+updates. Native scope: read-only discovery. Next: external source and library qualification.
+Preserve existing Polars and Conductor integrator assignments; merge shared files only
+at integration checkpoint. No source data or private bindings moved from their owner.
+
+The same isolated lane additionally owns conductor/tracks/nz_au_hardening_20261106 and
+execution/standards documentation in the empirical track. Native scope remains read-only;
+GitHub cleanup is planned, not executed. Shared registry edits remain integration candidates.
+
+Phase 0 candidate scope additionally includes isolated analytics lock/profile support in
+scripts/lock_receipt.py, its tests, engineering/analytics.*, and Renovate analytics discovery.
+The four existing reference profiles and other owners' environments are preserved. Shared
+file edits require integrator reconciliation; no main or remote runtime promotion occurred.
+
+The empirical lane now owns optional workflow M1 stage and scripts/run_m1_stage.py with tests.
+The existing attested source capsule passed before adding this wrapper, and now correctly
+rejects its changed scientific inventory. Inventory/capsule renewal remains with the native
+lineage owner; do not bypass the guard, move bindings or promote the new stage as accepted.
+
+## Polars verifier preparation — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/polars-longitudinal`.
+Scope: `scripts/verify_empirical_longitudinal.py` conversion from pandas to Polars;
+#94 remains frozen at `adb3f81` while hosted qualification runs. Native scope:
+no mutations. Ruff passes; the existing focused verifier tests are running.
+Full runner migration and scientific-lineage renewal remain required before
+publishing this source change.
+
+## Phase 0 integration readback — 6 November 2026
+
+The NZ/AU empirical handoff at `1c07e4c` was read without modifying its worktree.
+No terminal qualified Polars conversion commit exists. This checkout retains its
+dirty verifier and coordination file. The focused Polars verifier tests pass:
+8 passed in 29.92 seconds on repository-local Python 3.15.1 under the resource
+guard, sampled peak 326.9 MiB. Log: `outputs/polars-verifier-20261106/focused.log`.
+The source is not yet admitted by renewed native lineage. Remaining pandas
+runners and legacy dependencies still require conversion and output parity.
+
+The wrapper's inventory mismatch is expected. Renew acceptance only for a frozen
+integrated snapshot through the existing owner native route with signatures and
+negative controls; the other lane's moving dirty tree is not a signing target.
+Existing owner environment/signing paths are retained; no private bytes were
+copied, displayed or changed. No empirical-lane files or native objects were mutated.
+
+## Frozen Polars source packet — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
+`codex/polars-longitudinal`: both longitudinal runners, their verifier and two
+runner test modules. The source packet replaces dataframe operations only;
+NumPy/SciPy models, inputs, seeds and scientific assumptions are unchanged.
+Full-size baseline/Polars runs (8,192 draws each) agree across all 21 CSV tables
+at rtol/atol 1e-12; all 16 PNG/SVG figures are byte-identical. Release exports
+retain 12-significant-digit formatting, empty missing cells, sorted grouping
+and stable selection ties. Empirical boolean CSV spelling changes case only.
+Missing source conventions/identities are rejected explicitly because Polars
+reductions otherwise ignore nulls. Evidence: `outputs/polars-migration-20261106/`.
+Ruff passes; selected BasedPyright reports zero errors (334 existing/interface
+warnings). Focused baseline: 81 pass/one migrated-test API failure; failure-only
+rerun: one pass; three new null controls pass. No full-suite/native acceptance
+claim is made for this source packet. Inventory/capsule renewal must use the
+integrated frozen snapshot, including the empirical lane's optional wrapper.
+
+PR #94 was received as merge `e1d9b8848ab261f0ed992a74b3a2750e980512aa`;
+GitHub tree `0c209ae2756257a78d47836da024b489db5a919b` exactly matches
+qualified head `adb3f81`. All 29 executed checks passed, with two conditional
+skips and the separate neutral Scorecard bot result. Current main contains the
+merge. This lane did not repeat an already-completed publication.
+
+Storage recovery preserved the inactive `.nox/strict_all` environment at
+`/Volumes/PortableSSD/tobac-strict-all-preserved-20261106`; no source, evidence,
+private binding or another lane's environment was removed or replaced.
+
+Terminal source qualification: the final focused selection passes 85 tests in
+21.85 seconds. Full replay's maximum parsed numerical difference is zero; five
+cells differ only in float spelling, besides boolean letter case. All 16 figure
+files remain byte-identical. No scientific calculation module was modified.
+
 ## Conductor status reconciliation — 6 November 2026
 
 Chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` owns the isolated standard Git
@@ -904,6 +986,171 @@ qualified locks. #133 receiving-main workflows all passed at `15fb177`. Source
 science and native attempts are unchanged. Next: exact-head publication and hosted
 qualification, then #91 and #135; unfinished source lanes remain preserved.
 
+## Exact CSV and plotting follow-up — 6 November 2026
+
+The source packet's empirical writer now preserves Python float and boolean
+spelling. All eight empirical CSV files are byte-identical to the original
+8,192-draw baseline; no comparator waiver is required. The 13 release tables
+and all figures retain the previously verified values. Three multiline
+Matplotlib calls retain narrowly documented third-party kwargs typing ignores
+at the callable line, addressing the empirical lane's strict-audit findings;
+global typing policy is unchanged. This supersedes the earlier case-only CSV
+qualification rather than weakening the table comparator.
+
+## Polars profile candidate — 6 November 2026
+
+The same lane owns the bounded runtime/profile retirement packet on
+`codex/polars-profiles`, based on the reconciled `58a4b2f` main. Current source
+and prior integrator history were both preserved at the append conflict.
+All five hash locks/receipts were regenerated using uv 0.13.7 and exact Python
+3.15.1; the helper's former minor-only 3.15 resolver target correctly rejected
+published Voiage's patch-level requirement and is now 3.15.1. Runtime/audit
+resolution also changes dateutil, Pydantic/core, typing-inspection and audit-only
+transitives; these are explicit candidates, not silently unchanged reference pins.
+
+Active longitudinal, canary, Voiage and advisory routes no longer install pandas,
+xarray or pandas-stubs. The patched 2.2 producer builder is retired. Published
+Voiage 3.1.0 is the new candidate default, preserving the numerical adapters and
+independent oracles. The historical Polars-candidate Nox name delegates to the
+released-producer checks; historical source patches/receipts remain retained.
+The isolated ecosystem hash installation contains 57 compatible packages and
+neither retired library. Its initial focused run passed 380 tests and found the
+legacy default-version guard; that guard was updated rather than suppressed.
+The installed weighted/partition failure-only rerun passed with 3.0.0 before the
+newest 3.1.0 qualification; final 3.1.0 checks remain separately recorded.
+
+The exact published 3.1.0 wheel was independently downloaded and verified as
+SHA256 `ca1a625ea2e0f6c63ffd306f19cb62c1c69242643164553d5ca633e94146eb5b`.
+Its independent hash-installed published profile passed 90 numerical comparisons
+(max error 2.842170943040401e-14), six buffer-ownership cases and installed/native
+byte verification. The public receipt is `integration/voiage_published_20261106.json`;
+the 3.0.0 receipt remains historical. Whole-source strict BasedPyright passed
+with zero errors/warnings using the empirical lane's existing audit interpreter
+read-only; no environment or source in that lane was modified. Whole-source
+Ruff and all 169 maintained files' formatting pass. Native acceptance still
+requires the final integrated source snapshot; no old capsule is relabelled.
+
+## Nox route cleanup complete — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` retains the root checkout on
+`codex/polars-profiles`. This terminal packet owns `noxfile.py`, the exact
+published-version guard in `src/tobac/backend.py`, its rejection tests,
+`docs/engineering/VOIAGE_PYTHON315.md` and this Conductor handoff. Native scope:
+no mutations. The empirical and publication integrators retain their worktrees,
+reference promotions, private bindings and final combined-lineage renewal.
+
+The ecosystem command now admits the qualified published Voiage 3.1.0 wheel
+against `integration/voiage_published_20261106.json`, installs it with hash
+checking and the ecosystem lock, and retains normal dependency validation.
+The optional JAX adapter's former 2.2 compatibility-version guard is now exactly
+3.1.0; its numerical transform, float64 requirement and no-fallback policy are
+unchanged. Unknown, retired 2.2 and 3.0 versions remain rejected. The
+`voiage_polars_candidate` alias writes its run receipts under the expected
+`outputs/engineering/voiage-polars-candidate/` directory. Current guidance now
+precedes explicitly labelled historical compatibility evidence.
+
+Qualified Python 3.15.1 commands ran serially under the 4 GiB / 40-minute guard:
+
+- Nox ecosystem: passed installed JAX/Arrow/Polars/strict-codec probes and 97
+  component/M3/workstream tests; 25 seconds, 544.2 MiB sampled peak.
+- Nox Polars alias: passed 99 tests and numerical/interchange probes; 32 seconds,
+  501.9 MiB sampled peak. Its build and weighted receipts exist in the expected
+  directory.
+- Retired-wheel negative control: rejected the original 3.0.0 wheel before any
+  dependency installation or probe execution.
+- Focused backend/workflow contracts: 27 passed in 1.08 seconds, 77.9 MiB peak.
+- Affected Ruff/format checks pass. The preceding final whole-source strict type
+  run completed with zero errors/warnings (739.3 MiB sampled peak).
+
+Logs and the bounded six-file context receipt are retained under
+`outputs/polars-migration-20261106/`. The earlier ecosystem ENOSPC run and the
+subsequent legacy-version rejection remain recorded; neither is counted as a
+successful check. The resumed command passed after those concrete conditions
+were resolved. No broad full-suite rerun was needed for this bounded cleanup.
+The preceding `5c23107` suite was 1,225 passed / 7 skipped / 16 failures, all
+blocked by `Stale native acceptance pin: engineering/requirements.lock`.
+Those signed-input failures remain open for the integrated frozen snapshot;
+this cleanup neither renews nor bypasses native or hosted acceptance.
+
+## Integrated lineage renewal ownership — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
+`codex/lineage-integrated-renewal` and the retained native readback/signing route.
+The frozen scientific source matches empirical handoff `b118592`; newer qualified
+main workflow pins are retained from the root integration rather than rolled back.
+The issuer additionally binds the optional M1 stage, its context verifier and DAG
+source. Latest dependency candidates remain held outside this renewal.
+
+Renewal is in progress: fresh hash-installed Python 3.15.1 native runtime,
+original/registration readback, new candidate attempts, independent output/source
+readback, then a new checkpoint and signed capsule with negative controls.
+Earlier attempts, original registrations, signing identity and binding files are
+preserved. The empirical worktree is read-only; no signing occurs against its
+moving checkout. No native or hosted success is claimed by this ownership entry.
+
+## Integrated native renewal candidate — 6 November 2026
+
+Fresh native attempts completed for all eight profiles under the exact locked
+Python 3.15.1 producer runtime (725.9 MiB sampled peak). Independent readback
+reopened all originals, input/output CAS objects and transformations: 140 outputs,
+82 scientific CSV files byte-identical to the prior accepted attempts. Forward
+source-impact queries and reverse CLI traces passed for all eight; an isolated
+corrupt output was rejected. Existing observations/configurations are unchanged.
+
+The new checkpoint is `scientific-lineage-checkpoint_20261106.json`; its historical
+20261102 counterpart remains intact. Native runtime bindings and scientific
+inventory were renewed through the owning route. The signed capsule additionally
+binds native preflight and the optional M1 stage/context/DAG source. Both normal
+native and attested command paths pass, and the actual M1 stage admits, executes,
+verifies and atomically publishes its output. Prior bindings/attempts and earlier
+signed generations remain retained outside the public packet.
+
+The original `scientific_reference_20261103.zip` is unchanged. The comparator now
+checks its immutable original checkpoint separately from active lineage and
+requires the complete CSV object map to be identical across both checkpoints.
+New negative tests retain rejection of original-checkpoint tampering and a valid
+object substituted into the active CSV map; existing cell tolerances are unchanged.
+The normal comparator passes all eight runners / 82 tables with maximum absolute
+difference zero. The source/runtime import-path and stale normal-command profile
+failures encountered during renewal remain visible in local logs, not waived.
+
+Current evidence is in `outputs/lineage-renewal-20261106/`; the full suite with
+renewed native bindings is the next milestone. No hosted run or receiving-ref
+publication is claimed by this local acceptance candidate.
+
+## Integrated native renewal verified — 6 November 2026
+
+Acceptance implementation: `b3f3130`; frozen model source: `619aa99`, integrating
+scientific handoff `b118592` and newer qualified main workflow pins. New checkpoint
+SHA256: `42d7340ffd226a9ee0394a695229991a357f8a7e4d6b08906aeeba932d483517`.
+The original reference archive remains SHA256
+`083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9`.
+
+The complete suite with explicit renewed native bindings passes: **1,258 passed,
+7 skipped**, 61.13 seconds, sampled peak 915.3 MiB. This includes real native
+missing/corrupt/incomplete-object controls, candidate self-acceptance rejection,
+signed payload/authority/runtime/substitution controls, wrong-manifest selection,
+and the added stage/context/DAG source pin rejection controls. All source Ruff
+checks pass; whole-source strict BasedPyright reports zero errors and warnings
+(879.5 MiB sampled peak). The normal scientific comparator passes eight runners /
+82 tables with maximum numerical difference zero. Native/attested command paths
+and the actual M1 atomic stage pass. Post-test native verification reopens all
+originals and CAS objects; all 140 accepted outputs remain intact.
+
+Final readback: `outputs/lineage-renewal-20261106/renewal-verification.json`.
+The original owner binding is unchanged; the fresh qualified binding is retained
+locally at `outputs/lineage-renewal-20261106/env-bindings`, without copying it or
+any private signing/original bytes to other lanes or public source. Earlier
+failed/superseded generations are retained and not represented as final proof.
+
+Terminal source packet: the branch includes the final empirical source plus
+current-main workflows. Integrators must preserve that complete signed pin set;
+cherry-picking the capsule alone onto older workflows correctly rejects stale
+pins. Latest dependency candidates remain held, outside this fixed acceptance.
+Hosted checks and guarded publication/receiving-ref verification of this new
+snapshot remain separate next work. Do not prune its native environment, attempts,
+readback logs or binding as rebuildable cache while this closure is retained.
+
 ## Python 3.15.2 candidate ownership — 6 November 2026
 
 Integrator chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` owns the app-managed
@@ -1015,3 +1262,42 @@ keys and owner environments remain untouched. A fresh private binding uses the
 preserved SDK copy and new attempts. The shared installed hook is not changed
 while another lane's push remains in flight. Unfinished lane scopes remain owned
 by their existing chats; this integration does not adopt their unqualified work.
+
+
+
+## Integrated hosted qualification ownership — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
+`codex/integrated-hosted-checks`. Current main advanced to `eca4e8a` through
+qualified PR #91 and Python 3.15.2. The hosted candidate therefore integrates
+that runtime and its admitted verifier profiles, retaining Voiage 3.1 producer
+qualification, pandas/xarray removal, analytics ownership and all prior histories.
+It does not restore a superseded 3.15.1 default or adopt held latest-pin candidates.
+
+Six source-bound locks were regenerated for 3.15.2. A fresh hash-installed native
+runtime executed all eight profiles; all 140 outputs reopen and all 82 scientific
+CSVs equal the original accepted bytes. Current local Python/OpenSSH fingerprints
+already belong to main's qualified profile set. The earlier 3.15.1 environments,
+attempts, keys and private binding remain preserved. The inactive root controller
+was preserved separately before selecting its hash-installed 3.15.2 replacement;
+ordinary publication hooks are retained.
+
+Final signing waits for the empirical owner's committed scheduler-boundary fix
+for the optional M1 DAG. That source correction is outside numerical execution
+and requires signature renewal without repeating the scientific runs. Hosted
+publication and checks are the active task; broader latest-pin promotion remains
+with its existing owner. No hosted success is claimed before actual run receipts.
+
+
+## PR #135 receiving-base reconciliation — 6 November 2026
+
+#135's former head `7f799fe` passed all 29 executable checks, but main then
+advanced through #139. This merge retains every accepted #139 source/lock/native
+byte and both lanes' status histories. The still-active Conductor owner keeps
+its separate committed `3021e55` publication and root checkout; it is not silently
+adopted or pruned here. #91 receiving-main workflows all passed. The shared hook
+was promoted with an exact-content guard to Python 3.15.2; all security commands
+remain intact. Old private native generations remain historical; #139 owns the
+current integrated binding. Next: protected checks and exact receiving readback
+for this documentation reconciliation. No old capsule or numerical oracle is
+substituted for the current integrated evidence.

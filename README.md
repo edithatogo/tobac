@@ -75,10 +75,10 @@ The qualified runtime is Python 3.15.2. Select that exact patch
 before creating the repository-local environment:
 
 ```sh
-python3.15 -c 'import sys; assert sys.version_info[:3] == (3, 15, 1)'
+python3.15 -c 'import sys; assert sys.version_info[:3] == (3, 15, 2)'
 python3.15 -m venv .venv
 . .venv/bin/activate
-python -c 'import sys; assert sys.version_info[:3] == (3, 15, 1)'
+python -c 'import sys; assert sys.version_info[:3] == (3, 15, 2)'
 python -m pip install -r requirements.lock
 python -m pip install --no-deps .
 python -m pytest -q
