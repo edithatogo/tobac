@@ -133,8 +133,8 @@ def register_capture(
 
 def derive_native_source_refs(wheel: Path, evidence: Path, destination: Path) -> dict[str, Any]:
     """Account for every bibliography alias and capture via the exact installed producer."""
-    if sys.version_info[:3] != (3, 15, 1):
-        msg = "Python 3.15.1 required"
+    if sys.version_info[:3] != (3, 15, 2):
+        msg = "Python 3.15.2 required"
         raise RuntimeError(msg)
     _, make_store, pin = producer(wheel, PIN)
     aliases, bindings, _ = archive_index(ROOT)

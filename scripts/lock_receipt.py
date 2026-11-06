@@ -230,10 +230,10 @@ def generate(root: Path, out: Path, profile: str) -> Path:
         str(target),
     ]
     if profile in {"runtime", "ecosystem", "advisory", "analytics"}:
-        command += ["--universal", "--python-version", "3.15.1"]
+        command += ["--universal", "--python-version", "3.15.2"]
     else:
         # Audit utilities include Linux-specific tools; they are not a Windows test dependency.
-        command += ["--python-version", "3.15.1", "--python-platform", "x86_64-unknown-linux-gnu"]
+        command += ["--python-version", "3.15.2", "--python-platform", "x86_64-unknown-linux-gnu"]
     try:
         version = subprocess.run(  # noqa: S603  # Reviewed fixed executable/argv, bounded invocation, no shell.
             [uv, "--version"], check=True, text=True, capture_output=True, timeout=30

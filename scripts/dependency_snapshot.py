@@ -124,12 +124,12 @@ def installed_relationships(
 def snapshot(sha: str, ref: str, job: str) -> dict[str, Any]:
     """Verify each generated lock before describing the exact committed inputs."""
     if (
-        sys.version_info[:3] != (3, 15, 1)
+        sys.version_info[:3] != (3, 15, 2)
         or not re.fullmatch(r"[0-9a-f]{40}", sha)
         or not ref.startswith("refs/heads/")
         or not job
     ):
-        msg = "Require Python 3.15.1 and exact source/job identity"
+        msg = "Require Python 3.15.2 and exact source/job identity"
         raise ValueError(msg)
     git = shutil.which("git")
     if git is None:
@@ -172,7 +172,7 @@ def snapshot(sha: str, ref: str, job: str) -> dict[str, Any]:
             "url": "https://github.com/edithatogo/tobac",
         },
         "scanned": datetime.now(UTC).isoformat(),
-        "metadata": {"python": "3.15.1", "service_runtime_bypass": False},
+        "metadata": {"python": "3.15.2", "service_runtime_bypass": False},
         "manifests": manifests,
     }
 

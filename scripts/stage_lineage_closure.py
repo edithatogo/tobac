@@ -53,7 +53,9 @@ def files_for_project() -> list[str]:
             msg = f"Dataset inventory drift: {row['path']}"
             raise ValueError(msg)
         names.add(row["path"])
-    for result in read(ARCHIVE / "scientific-lineage-checkpoint_20261102.json")["runner_results"].values():
+    for result in read(ARCHIVE / "scientific-lineage-checkpoint_python3152_20261106.json")[
+        "runner_results"
+    ].values():
         for name, key in result["executed_input_objects"].items():
             if "sha256:" + digest(ROOT / name) != key:
                 msg = f"Scientific input drift: {name}"
@@ -144,7 +146,7 @@ def main() -> None:
         copy_file(ROOT / name, args.out / "project" / name)
     counts = capture_files(args.captures, args.out / "captures")
     copy_tree(args.registrations, args.out / "registrations")
-    accepted = read(ARCHIVE / "scientific-lineage-checkpoint_20261102.json")["runner_results"]
+    accepted = read(ARCHIVE / "scientific-lineage-checkpoint_python3152_20261106.json")["runner_results"]
     for name, run in accepted.items():
         attempt = args.attempts / name
         terminal = read(attempt / "terminal")

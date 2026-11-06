@@ -2,144 +2,111 @@
   "schema": "tobac.hosted-verifier-profiles/v1",
   "profiles": [
     {
-      "base_python_sha256": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
+      "base_python_sha256": "4e15a990f1c2d4536bf6692e3dea24a57318690ecfbad78d9086602fdbb96693",
       "machine": "arm64",
-      "python_sha256": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
+      "openssh_sha256": "2799fb1e89890d58425e9f3b70dfc989a26749e3fb7dd8dc67bcbc40b2758adc",
+      "python_sha256": "4e15a990f1c2d4536bf6692e3dea24a57318690ecfbad78d9086602fdbb96693",
       "python_version": [
         3,
         15,
-        1
-      ],
-      "system": "Darwin",
-      "openssh_sha256": "2799fb1e89890d58425e9f3b70dfc989a26749e3fb7dd8dc67bcbc40b2758adc"
-    },
-    {
-      "base_python_sha256": "e9437a0f92f635806cb1566d0c7cfe14ad48115394765c43ed259bac9f99fe60",
-      "machine": "arm64",
-      "python_sha256": "e9437a0f92f635806cb1566d0c7cfe14ad48115394765c43ed259bac9f99fe60",
-      "python_version": [
-        3,
-        15,
-        1
-      ],
-      "system": "Darwin",
-      "openssh_sha256": "0d8b8fb52762fa19431b40e8b75cd00b045f10bf206fd67f0598e09bfaad77d0"
-    },
-    {
-      "base_python_sha256": "ea34f2b17bafae58479d70d99d55cb01df65400ded3a9465ba7f1c6637adf8bc",
-      "machine": "AMD64",
-      "python_sha256": "f14d10e954b922d758234ff49335ad0e07e567103e06b38ff675c6bc85282865",
-      "python_version": [
-        3,
-        15,
-        1
-      ],
-      "system": "Windows",
-      "openssh_sha256": "604d127d97502b11ed2d1f6f8191bfe86f443d821322e4ab285c961d0e06f5e1"
-    },
-    {
-      "base_python_sha256": "db158111cfa3108809eb1c09ea40efc976b9dfec1f194067efe20e74cc399dac",
-      "machine": "arm64",
-      "python_sha256": "db158111cfa3108809eb1c09ea40efc976b9dfec1f194067efe20e74cc399dac",
-      "python_version": [
-        3,
-        15,
-        1
-      ],
-      "system": "Darwin",
-      "openssh_sha256": "0d8b8fb52762fa19431b40e8b75cd00b045f10bf206fd67f0598e09bfaad77d0"
-    },
-    {
-      "base_python_sha256": "00e3569b62ae453b0e9000b9a0957f210a2d1de0fad7c439cabd61360ea87228",
-      "machine": "x86_64",
-      "python_sha256": "00e3569b62ae453b0e9000b9a0957f210a2d1de0fad7c439cabd61360ea87228",
-      "python_version": [
-        3,
-        15,
-        1
-      ],
-      "system": "Linux",
-      "openssh_sha256": "33b1c52f8ede26412a1d081cfad3582a9b9816c53461a657bec08757f678a06a"
-    },
-    {
-      "base_python_sha256": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
-      "machine": "arm64",
-      "openssh_sha256": "0d8b8fb52762fa19431b40e8b75cd00b045f10bf206fd67f0598e09bfaad77d0",
-      "python_sha256": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
-      "python_version": [
-        3,
-        15,
-        1
+        2
       ],
       "system": "Darwin"
     },
     {
-      "base_python_sha256": "41a0b796cef86f018ad5a7aba82e33cf4f37f16a1f493978dfd96d6f5e91b72e",
-      "machine": "AMD64",
-      "openssh_sha256": "e68a0ad1eac87c1419c35ba46aa2de410d16a67801ae1661f5d682e65d73fc88",
-      "python_sha256": "0963ac74f59c255d9974f90a15a0e2555481404fb29235307af5888a41a97db9",
+      "base_python_sha256": "4e15a990f1c2d4536bf6692e3dea24a57318690ecfbad78d9086602fdbb96693",
+      "machine": "arm64",
+      "openssh_sha256": "0d8b8fb52762fa19431b40e8b75cd00b045f10bf206fd67f0598e09bfaad77d0",
+      "python_sha256": "4e15a990f1c2d4536bf6692e3dea24a57318690ecfbad78d9086602fdbb96693",
       "python_version": [
         3,
         15,
-        1
+        2
+      ],
+      "system": "Darwin"
+    },
+    {
+      "base_python_sha256": "a35b08329e2ecf79a151f8954695d43d6f584ee8483c890295200eaad99c14b7",
+      "machine": "arm64",
+      "openssh_sha256": "0d8b8fb52762fa19431b40e8b75cd00b045f10bf206fd67f0598e09bfaad77d0",
+      "python_sha256": "a35b08329e2ecf79a151f8954695d43d6f584ee8483c890295200eaad99c14b7",
+      "python_version": [
+        3,
+        15,
+        2
+      ],
+      "system": "Darwin"
+    },
+    {
+      "base_python_sha256": "d4e19e9a33268fb0ce575a24ab2d4b85972524f1933df008a6befc14dce19fbd",
+      "machine": "AMD64",
+      "openssh_sha256": "e68a0ad1eac87c1419c35ba46aa2de410d16a67801ae1661f5d682e65d73fc88",
+      "python_sha256": "15602729911d32e3ec40ba144bca6b720a12176436c867fface126a4d5dccb20",
+      "python_version": [
+        3,
+        15,
+        2
       ],
       "system": "Windows"
     },
     {
-      "base_python_sha256": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
-      "machine": "arm64",
-      "python_sha256": "3717db37edbc1b46d46a979f0cdacb9d328c009e603ffa73a3261f2fe153e229",
+      "base_python_sha256": "3dc83f9d5dca58d83bab77bef85e70cd77c0072c45ecdb11e4786c12295b7aed",
+      "machine": "x86_64",
+      "openssh_sha256": "33b1c52f8ede26412a1d081cfad3582a9b9816c53461a657bec08757f678a06a",
+      "python_sha256": "3dc83f9d5dca58d83bab77bef85e70cd77c0072c45ecdb11e4786c12295b7aed",
       "python_version": [
         3,
         15,
-        1
+        2
       ],
-      "system": "Darwin",
-      "openssh_sha256": "e9cba2415f13366eb43402ab20218433f585851b4f4a749a6a1e9988e6af9eb5"
+      "system": "Linux"
     },
     {
-      "base_python_sha256": "e9437a0f92f635806cb1566d0c7cfe14ad48115394765c43ed259bac9f99fe60",
+      "base_python_sha256": "0f407a0ac747337b659538c9560e4fdd48b354dbdbe0a143276b56ee23899fb7",
       "machine": "arm64",
-      "python_sha256": "e9437a0f92f635806cb1566d0c7cfe14ad48115394765c43ed259bac9f99fe60",
+      "openssh_sha256": "e9cba2415f13366eb43402ab20218433f585851b4f4a749a6a1e9988e6af9eb5",
+      "python_sha256": "0f407a0ac747337b659538c9560e4fdd48b354dbdbe0a143276b56ee23899fb7",
       "python_version": [
         3,
         15,
-        1
+        2
       ],
-      "system": "Darwin",
-      "openssh_sha256": "e9cba2415f13366eb43402ab20218433f585851b4f4a749a6a1e9988e6af9eb5"
+      "system": "Darwin"
+    },
+    {
+      "base_python_sha256": "a35b08329e2ecf79a151f8954695d43d6f584ee8483c890295200eaad99c14b7",
+      "machine": "arm64",
+      "openssh_sha256": "e9cba2415f13366eb43402ab20218433f585851b4f4a749a6a1e9988e6af9eb5",
+      "python_sha256": "a35b08329e2ecf79a151f8954695d43d6f584ee8483c890295200eaad99c14b7",
+      "python_version": [
+        3,
+        15,
+        2
+      ],
+      "system": "Darwin"
     }
   ],
   "qualification": {
-    "hosted_run": "https://github.com/edithatogo/tobac/actions/runs/41415688914",
-    "source_revision": "65949ef0fb60942bc07725810cd7d7f8de0e7b8d",
+    "actual_version": "3.15.2",
+    "source_revision": "6bb88c3a3758cdad75af63a0acde1163f0386586",
+    "hosted_run": "https://github.com/edithatogo/tobac/actions/runs/42192920916",
     "jobs": [
-      125178848601,
-      125178849022,
-      125178849044,
-      125178849205
+      127809062796,
+      127809063171,
+      127809063237,
+      127809063289
     ],
-    "actual_version": "3.15.1",
-    "signature_positive_and_tamper_negative": "passed on all four hosted selections and the local issuer environment",
+    "signature_positive_and_tamper_negative": "passed on all four actual hosted selections and local issuer; previously unknown profiles were correctly rejected before workloads",
     "additional_observed_profiles": [
       {
-        "job": 125185180770,
-        "controls": "valid signature and tamper rejection passed; the then-pinned runtime list correctly rejected this additional Python build"
+        "job": 127812951990,
+        "source_revision": "3bffd4e05003c048e15d1e7291ebfae55f5349ae",
+        "controls": "valid signature and tamper rejection passed; previously unknown macOS image correctly rejected before workload"
       },
       {
-        "job": 125190686332,
-        "image": "windows-2025-vs2026 20261030.294.1",
-        "controls": "actual Python 3.15.1 and OpenSSH signing/verification passed; stale runtime admission was correctly rejected before the workload"
-      },
-      {
-        "job": 127021871259,
-        "url": "https://github.com/edithatogo/tobac/actions/runs/41959394253/job/127021871259",
-        "controls": "Python 3.15.1 runtime probe passed actual valid signature and rejected tampered payload; old profile correctly rejected new OpenSSH before execution"
-      },
-      {
-        "job": 127021871304,
-        "url": "https://github.com/edithatogo/tobac/actions/runs/41959394384/job/127021871304",
-        "controls": "Python 3.15.1 runtime probe passed actual valid signature and rejected tampered payload; old profile correctly rejected new OpenSSH before execution"
+        "run": 42194106386,
+        "source_revision": "3bffd4e05003c048e15d1e7291ebfae55f5349ae",
+        "controls": "actual setup-python signature and tamper controls passed; new OpenSSH fingerprint rejected before workload"
       }
     ]
   }

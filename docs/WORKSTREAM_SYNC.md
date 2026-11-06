@@ -1117,3 +1117,122 @@ failures encountered during renewal remain visible in local logs, not waived.
 Current evidence is in `outputs/lineage-renewal-20261106/`; the full suite with
 renewed native bindings is the next milestone. No hosted run or receiving-ref
 publication is claimed by this local acceptance candidate.
+
+## Integrated native renewal verified — 6 November 2026
+
+Acceptance implementation: `b3f3130`; frozen model source: `619aa99`, integrating
+scientific handoff `b118592` and newer qualified main workflow pins. New checkpoint
+SHA256: `42d7340ffd226a9ee0394a695229991a357f8a7e4d6b08906aeeba932d483517`.
+The original reference archive remains SHA256
+`083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9`.
+
+The complete suite with explicit renewed native bindings passes: **1,258 passed,
+7 skipped**, 61.13 seconds, sampled peak 915.3 MiB. This includes real native
+missing/corrupt/incomplete-object controls, candidate self-acceptance rejection,
+signed payload/authority/runtime/substitution controls, wrong-manifest selection,
+and the added stage/context/DAG source pin rejection controls. All source Ruff
+checks pass; whole-source strict BasedPyright reports zero errors and warnings
+(879.5 MiB sampled peak). The normal scientific comparator passes eight runners /
+82 tables with maximum numerical difference zero. Native/attested command paths
+and the actual M1 atomic stage pass. Post-test native verification reopens all
+originals and CAS objects; all 140 accepted outputs remain intact.
+
+Final readback: `outputs/lineage-renewal-20261106/renewal-verification.json`.
+The original owner binding is unchanged; the fresh qualified binding is retained
+locally at `outputs/lineage-renewal-20261106/env-bindings`, without copying it or
+any private signing/original bytes to other lanes or public source. Earlier
+failed/superseded generations are retained and not represented as final proof.
+
+Terminal source packet: the branch includes the final empirical source plus
+current-main workflows. Integrators must preserve that complete signed pin set;
+cherry-picking the capsule alone onto older workflows correctly rejects stale
+pins. Latest dependency candidates remain held, outside this fixed acceptance.
+Hosted checks and guarded publication/receiving-ref verification of this new
+snapshot remain separate next work. Do not prune its native environment, attempts,
+readback logs or binding as rebuildable cache while this closure is retained.
+
+## Python 3.15.2 candidate ownership — 6 November 2026
+
+Integrator chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` owns the app-managed
+worktree `/Users/doughnut/.codex/worktrees/tobac-python3152/tobac`, branch
+`codex/qualify-pr91-python3152`. Base: the tested #134 candidate `72e88d7`; #134
+merged at `58a4b2f` with all ten receiving workflows passing. Scope: consistent #91 runtime selectors,
+locks, native/runtime qualification and current setup documentation. #135 will
+be reconciled separately after #91 receiving acceptance. The existing 3.15.1
+checkout remains the guarded publication controller until promotion. Existing
+private attempt stores, keys and other source lanes are read-only and unchanged.
+No new runtime acceptance is claimed by these selector changes. Next: regenerate
+locks, build a separate native 3.15.2 environment, re-execute and compare the eight
+scientific runners, qualify signatures on actual hosted runtimes, then publish.
+
+
+## Python 3.15.2 native-byte checkpoint — 6 November 2026
+
+At source selector checkpoint `fa2434a`, all eight fresh native attempts succeeded.
+Independent readback verified 140 outputs and all 82 numerical CSVs equal the
+accepted 3.15.1 baseline byte for byte. A deliberately corrupted private copy was
+rejected with `object_corrupt`. The new versioned checkpoint preserves the
+2 November baseline and does not replace scientific acceptance. All five active
+lock/receipt pairs were regenerated under actual repo-local Python 3.15.2.
+
+An interrupted retail attempt was retained separately without outputs or terminal
+and excluded; its fresh replacement succeeded. Full source tests, independent
+runtime-delta recovery and actual hosted signature profiles remain in progress.
+Original source/private stores, keys and the independently advancing Polars and
+NZ/AU lanes are preserved. Current native generation remains owner-held; only
+digests and signatures are publishable. Hosted runtime admission remains closed
+until each actual build passes signature-positive and tamper-negative controls.
+
+
+The complete 3.15.2 suite ran 1,227 unique cases: 1,224 passed initially, then all
+three failed nodes passed after two version-message expectation fixes and keeping
+the unchanged numerical archive explicitly pinned to its historical baseline.
+18 cases skipped for existing capability conditions. The 710-file runtime-delta
+generation was sealed, independently copied to the external filesystem, restored
+and verified against all eight current native attempts; private recovery manifest
+`3c3222c6362bafcee066477d5fc8a25d3d6a5ddb98f104d6b7cd6828635c385c`.
+This is runtime-delta preservation/readback, not a new full-estate offline replay.
+Hosted 3.15.2 profiles remain pending; this candidate deliberately rejects unknown
+hosted builds before workload execution. No scientific source or numeric tolerance changed.
+
+
+## Python 3.15.2 hosted-profile qualification — 6 November 2026
+
+Probe head `6bb88c3` exercised all four actual hosted runtime selections in run
+42192920916: valid signatures passed and tampered signatures were rejected. Their
+exact build/OpenSSH fingerprints are now admitted alongside the local issuer.
+The prior admission failures remain recorded. The compact clean-package runtime
+assertion was corrected to 3.15.2; it is absent from every scientific runner's
+executed input inventory. Current contract/checkpoint pins were refreshed without
+rewriting native attempts or the historical numerical reference.
+
+Corrected clean-package build, reconstructed sdist, installed imports, evidence
+transport and real M1 CLI passed outside the source checkout. Whole-source strict
+typing: zero errors/warnings; Ruff lint and format pass. Affected tests: 86 passed,
+five existing capability skips. All eight native attempts were reverified before
+renewing the signed capsule. The final 711-file runtime generation was independently
+copied/restored/read back; manifest
+`8d35d130c95974f710b86a346c10e6bea1a145f388644982c06d598cd8fb4276`.
+Earlier failed package/recovery-invocation logs remain private evidence. Full hosted
+acceptance and #91/#135 merges are pending; no empirical acceptance is implied.
+
+
+The next hosted pass admitted Linux/Windows and exercised another current macOS
+image. Its actual uv/Homebrew and setup-python profiles both passed valid-signature
+and tamper-negative controls before stale fingerprint admission correctly failed.
+Those two observed profiles are now recorded, with the original failures retained.
+No runtime gate, numerical oracle or signature policy was relaxed.
+
+
+Hosted scientific replay exposed the retained report-level `python=3.15.1`
+metadata, while actual replay reports correctly declare 3.15.2. The comparator
+now validates only this explicit baseline/current transition against actual
+runtime before comparing every scientific field at the unchanged tolerance.
+Unknown/missing/wrong runtime identities, nested identity changes and numeric
+changes remain rejected; four new negative/transition cases pass after failing
+before implementation. Original report bytes remain unchanged. The comparator
+is absent from all eight executed scientific inventories; refreshed contract and
+checkpoint pins retain the same native attempts. Their current readback and the
+712-file independent runtime-delta restore pass (manifest
+`7c122a6fb1832d2a10465a5ec7b818a4f1dc44eec1d81d4b637351c8f7791dab`).
+Clean committed publication replay and the next exact-head Actions remain pending.

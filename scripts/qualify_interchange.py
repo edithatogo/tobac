@@ -30,8 +30,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def qualify(destination: Path) -> None:
     """Retain actual identities, logical/physical hashes and buffer measurements."""
-    if sys.version_info[:3] != (3, 15, 1):
-        msg = "Select the qualified repo-local Python 3.15.1"
+    if sys.version_info[:3] != (3, 15, 2):
+        msg = "Select the qualified repo-local Python 3.15.2"
         raise RuntimeError(msg)
     destination.mkdir(parents=True, exist_ok=False)
     basis = SupplyBasis(source_ids=("synthetic:source",), observation_years=(2024,))

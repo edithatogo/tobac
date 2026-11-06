@@ -41,7 +41,7 @@ def test_legacy_entrypoint_points_to_one_canonical_pin_source() -> None:
         if line and not line.startswith("#")
     ]
     assert lines == ["-r engineering/reference-requirements.txt"]
-    assert (ROOT / ".python-version").read_text().strip() == "3.15.1"
+    assert (ROOT / ".python-version").read_text().strip() == "3.15.2"
 
 
 def test_canonical_pins_are_unique_and_satisfy_declared_runtime_dependencies() -> None:

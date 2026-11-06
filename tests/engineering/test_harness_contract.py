@@ -93,9 +93,9 @@ def test_newest_ecosystem_is_a_separate_canary_not_a_reference_overwrite() -> No
     assert "require-hashes" in code
     assert "--no-build-isolation" in code
     config = tomllib.loads((ROOT / "pyproject.toml").read_text())
-    assert config["project"]["requires-python"] == ">=3.15.1,<3.16"
+    assert config["project"]["requires-python"] == ">=3.15.2,<3.16"
     assert config["project"]["dependencies"] == ["numpy==2.5.4", "scipy==1.18.1"]
-    assert "sys.version_info[:3] == (3, 15, 1)" in code
+    assert "sys.version_info[:3] == (3, 15, 2)" in code
     strict = ast.parse(code)
     strict_session = next(n for n in strict.body if isinstance(n, ast.FunctionDef) and n.name == "strict_all")
     strict_source = ast.unparse(strict_session)
@@ -168,10 +168,10 @@ def test_lock_candidates_use_selected_repo_local_python() -> None:
         for step in data["jobs"]["resolve"]["steps"]
         if "scripts/lock_receipt.py generate" in step.get("run", "")
     )
-    assert "uv venv --python 3.15.1 .venv-lock" in run
+    assert "uv venv --python 3.15.2 .venv-lock" in run
     assert run.count(".venv-lock/bin/python") == 3
     assert "scripts/run_bounded.py --max-rss-mib 4096 --timeout 900" in run
-    assert "assert sys.version_info[:3] == (3, 15, 1)" in run
+    assert "assert sys.version_info[:3] == (3, 15, 2)" in run
     assert re.search(r"(?m)^\s*python(?:3)?\s", run) is None
 
 
@@ -180,7 +180,7 @@ def assert_advisory_job_guards(data) -> None:
     job = data["jobs"]["advisory"]
     assert job["strategy"]["matrix"]["os"] == ["macos-latest", "ubuntu-latest", "ubuntu-24.04-arm"]
     commands = [step.get("run", "") for step in job["steps"]]
-    assert any("assert sys.version_info[:3] == (3, 15, 1)" in command for command in commands)
+    assert any("assert sys.version_info[:3] == (3, 15, 2)" in command for command in commands)
     assert any(
         "scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400" in c and "-s advisory_types" in c
         for c in commands
@@ -206,7 +206,7 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             }
             assert job["timeout-minutes"] == "10"
             commands = [step.get("run", "") for step in job["steps"]]
-            assert any("uv venv --python 3.15.1 .venv-lineage" in command for command in commands)
+            assert any("uv venv --python 3.15.2 .venv-lineage" in command for command in commands)
             assert any("-I -S scripts/hosted_lineage.py --probe" in command for command in commands)
             assert any(command.endswith("-I -S scripts/hosted_lineage.py") for command in commands)
             assert all("upload-artifact@" not in step.get("uses", "") for step in job["steps"])
@@ -216,7 +216,7 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
             assert job["timeout-minutes"] == "40"
             commands = [step.get("run", "") for step in job["steps"]]
-            assert any("assert sys.version_info[:3] == (3, 15, 1)" in command for command in commands)
+            assert any("assert sys.version_info[:3] == (3, 15, 2)" in command for command in commands)
             assert any(
                 "scripts/run_bounded.py" in command and "nox -s tests" in command for command in commands
             )
@@ -274,7 +274,7 @@ def assert_reference_job_guards(data, path) -> None:
             assert runner in allowed, (path, runner)
         commands = [step.get("run", "") for step in job["steps"]]
         assert any(
-            ".venv-ci/bin/python -c" in command and "assert sys.version_info[:3] == (3, 15, 1)" in command
+            ".venv-ci/bin/python -c" in command and "assert sys.version_info[:3] == (3, 15, 2)" in command
             for command in commands
         ), path
         for command in commands:
@@ -288,7 +288,7 @@ def assert_portable_package_job(data, *, reproduce=False) -> None:
     assert job["timeout-minutes"] == "40"
     assert job["env"]["TOBAC_REQUIRE_LOCK"] == "1"
     commands = [step.get("run", "") for step in job["steps"]]
-    assert any("assert sys.version_info[:3] == (3, 15, 1)" in c for c in commands)
+    assert any("assert sys.version_info[:3] == (3, 15, 2)" in c for c in commands)
     assert any("verify --profile runtime" in c for c in commands)
     assert any("scripts/hosted_lineage.py --configure" in c for c in commands)
     sessions = "-s reproduce" if reproduce else "-s package clean_package"

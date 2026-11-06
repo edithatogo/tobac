@@ -1,5 +1,9 @@
 # Engineering execution, dependency locks and qualification
 
+Python 3.15.2 patch qualification is in progress in the isolated runtime lane.
+Historical receipts below remain bound to their recorded runtimes; they do not
+qualify the new patch. Promotion requires fresh native and hosted evidence.
+
 ## Current development platform
 
 macOS supports full scientific and release qualification. Hosted lineage
@@ -105,7 +109,7 @@ Configure three absolute paths in the environment running the command:
 
 | Variable | Required local resource |
 | --- | --- |
-| `TOBAC_LINEAGE_PYTHON` | Repo-local Python 3.15.1 virtual environment with the Phase 5 verifier runtime and installed producer wheel. |
+| `TOBAC_LINEAGE_PYTHON` | Repo-local Python 3.15.2 virtual environment with the newly qualified verifier runtime and installed producer wheel. |
 | `TOBAC_LINEAGE_WHEEL` | The exact wheel pinned in `integration/archive/transformation-interface.json`. |
 | `TOBAC_LINEAGE_ATTEMPTS` | Parent of the eight accepted Phase 5 attempt directories. Retain their native CAS, initial and terminal records, and complete output files. |
 
@@ -277,9 +281,9 @@ sessions explicitly report bootstrap mode. A partial/stale lock never permits fa
 ## 3. Execution and reports
 
 ```sh
-uvx --python 3.15.1 --from nox==2026.10.20 nox -s tests quality
-uvx --python 3.15.1 --from nox==2026.10.20 nox -s reproduce
-uvx --python 3.15.1 --from nox==2026.10.20 nox -s strict_all security
+uvx --python 3.15.2 --from nox==2026.10.20 nox -s tests quality
+uvx --python 3.15.2 --from nox==2026.10.20 nox -s reproduce
+uvx --python 3.15.2 --from nox==2026.10.20 nox -s strict_all security
 ```
 
 Tests require a genuine Hypothesis import before collection; absent property-test tooling
@@ -289,7 +293,7 @@ independently and produce an overall failure if either fails. Workflow and depen
 checks also both run, with no ignored advisories. Failed setup cannot be called an executed scan.
 
 CI preserves Nox JSON reports, JUnit, environment, coverage and available audit outputs on
-failure. Python 3.15.1 is the required runtime across development, build, tests and CI. The
+failure. Python 3.15.2 is the candidate runtime across development, build, tests and CI. The
 macOS test job uses the portable profile. Linux/Windows runtime tests, package
 and numerical qualification, and the manual Linux release are qualified in the
 separate receipts above. The latest/pre-release canary remains

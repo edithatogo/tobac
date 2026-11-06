@@ -115,6 +115,20 @@ def compare_table(expected: Path, actual: Path) -> Report:
     return {"table": expected.name, "rows": len(first) - 1, "maximum_absolute_difference": maximum}
 
 
+def compare_report(expected: dict[str, object], actual: dict[str, object]) -> float:
+    """Validate the declared patch transition while retaining every scientific comparison."""
+    if "python" in expected or "python" in actual:
+        if (
+            expected.get("python") not in {"3.15.1", "3.15.2"}
+            or actual.get("python") != "3.15.2"
+            or platform.python_version() != "3.15.2"
+        ):
+            msg = "Publication report runtime is outside the qualified patch transition"
+            raise ValueError(msg)
+        actual = {**actual, "python": expected["python"]}
+    return compare_values(expected, actual)
+
+
 def compare_run(expected: Path, actual: Path) -> Report:
     """Verify new output hashes and all primary/nested scientific tables and reports."""
     manifest = read(actual / "manifest.json")
@@ -132,7 +146,7 @@ def compare_run(expected: Path, actual: Path) -> Report:
         for p in sorted(expected.rglob("*.csv"))
     ]
     deltas = [
-        compare_values(read(p), read(actual / p.relative_to(expected))) for p in expected.rglob("report.json")
+        compare_report(read(p), read(actual / p.relative_to(expected))) for p in expected.rglob("report.json")
     ]
     return {"tables": rows, "maximum_report_difference": max(deltas, default=0)}
 
@@ -147,8 +161,8 @@ def command(args: list[str], *, cwd: Path, env: dict[str, str], log: Path) -> No
 
 def run(root: Path, out: Path) -> Report:
     """Extract committed sources, verify import isolation and replay without source downloads."""
-    if platform.python_version() != "3.15.1":
-        msg = "Publication replay requires actual Python 3.15.1"
+    if platform.python_version() != "3.15.2":
+        msg = "Publication replay requires actual Python 3.15.2"
         raise RuntimeError(msg)
     if out.exists() and any(out.iterdir()):
         msg = "Use a new output directory"

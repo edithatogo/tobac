@@ -31,7 +31,7 @@ jobs:
     - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
       with:
         version: 0.13.7
-        python-version: 3.15.1
+        python-version: 3.15.2
         enable-cache: 'false'
     - name: Require the requested immutable source
       env:
@@ -43,8 +43,8 @@ jobs:
         test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
     - name: Resolve from real package metadata
       run: |-
-        uv venv --python 3.15.1 .venv-lock
-        .venv-lock/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+        uv venv --python 3.15.2 .venv-lock
+        .venv-lock/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
         .venv-lock/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 900 -- .venv-lock/bin/python scripts/lock_receipt.py generate --profile "$LOCK_PROFILE" --path outputs/engineering/lock-candidate
     - name: Verify and hash-install the generated candidate in an isolated environment
       run: |-
@@ -55,8 +55,8 @@ jobs:
         esac
         echo "LOCK_NAME=$LOCK_NAME" >> "$GITHUB_ENV"
         .venv-lock/bin/python scripts/lock_receipt.py verify --profile "$LOCK_PROFILE" --path "outputs/engineering/lock-candidate/$LOCK_NAME.lock"
-        uv venv --python 3.15.1 .venv-candidate
-        .venv-candidate/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+        uv venv --python 3.15.2 .venv-candidate
+        .venv-candidate/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
         .venv-lock/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 1800 -- uv pip sync --python .venv-candidate/bin/python --require-hashes "outputs/engineering/lock-candidate/$LOCK_NAME.lock"
         uv pip check --python .venv-candidate/bin/python
         uv pip freeze --python .venv-candidate/bin/python > outputs/engineering/installed.txt
@@ -70,7 +70,7 @@ jobs:
         name=os.environ["LOCK_NAME"]
         base=Path("outputs/engineering/lock-candidate")
         files=[base/(name+".lock"),base/(name+".lock.json"),Path("outputs/engineering/installed.txt")]
-        report={"source_sha":os.environ["GITHUB_SHA"],"profile":os.environ["LOCK_PROFILE"],"python":"3.15.1","platform":"linux-x86_64","installed_with_hashes":True,"dependency_check":"passed","files":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in files}}
+        report={"source_sha":os.environ["GITHUB_SHA"],"profile":os.environ["LOCK_PROFILE"],"python":"3.15.2","platform":"linux-x86_64","installed_with_hashes":True,"dependency_check":"passed","files":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in files}}
         Path("outputs/review/qualification.json").write_text(json.dumps(report,sort_keys=True,indent=2)+"\n")
         with tarfile.open("outputs/review/lock-candidate.tar.gz","w:gz") as archive:
             for path in files:

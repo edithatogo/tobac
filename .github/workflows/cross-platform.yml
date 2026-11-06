@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   tests:
-    name: Tests ${{ matrix.os }} Python 3.15.1
+    name: Tests ${{ matrix.os }} Python 3.15.2
     strategy:
       fail-fast: false
       matrix:
@@ -37,24 +37,24 @@ jobs:
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
       - name: Select and verify repository-local Python
         run: |
-          uv venv --python 3.15.1 .venv-ci
+          uv venv --python 3.15.2 .venv-ci
           if [ "$RUNNER_OS" = Windows ]; then
             echo "PYTHON_LOCAL=$GITHUB_WORKSPACE/.venv-ci/Scripts/python.exe" >> "$GITHUB_ENV"
           else
             echo "PYTHON_LOCAL=$GITHUB_WORKSPACE/.venv-ci/bin/python" >> "$GITHUB_ENV"
           fi
       - name: Verify actual interpreter
-        run: '"$PYTHON_LOCAL" -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"'
+        run: '"$PYTHON_LOCAL" -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"'
       - name: Authenticate the signed native lineage route
         run: |
           "$PYTHON_LOCAL" -I -S scripts/hosted_lineage.py --configure
       - name: Run Linux tests with process-group guard
         if: runner.os == 'Linux'
-        run: '"$PYTHON_LOCAL" scripts/run_bounded.py --max-rss-mib 4096 --timeout 2100 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s tests'
+        run: '"$PYTHON_LOCAL" scripts/run_bounded.py --max-rss-mib 4096 --timeout 2100 -- uvx --python 3.15.2 --from nox==2026.10.20 nox -s tests'
       - name: Run Windows tests
         if: runner.os == 'Windows'
-        run: uvx --python 3.15.1 --from nox==2026.10.20 nox -s tests
+        run: uvx --python 3.15.2 --from nox==2026.10.20 nox -s tests

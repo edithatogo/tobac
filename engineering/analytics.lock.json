@@ -10,15 +10,15 @@
     "engineering/analytics.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/nz-au-phase0/managed-analytics/analytics.lock",
+    "outputs/hosted-integrated-20261106/locks/analytics.lock",
     "--universal",
     "--python-version",
-    "3.15"
+    "3.15.2"
   ],
   "resolver_exit_code": 0,
   "inputs": {
     "engineering/analytics.in": "c6d43bdd1af9bf99a123d7fa52d92df5b4927e9a2b4113938cd32801ba178c4c"
   },
-  "lock_sha256": "a658fa75ffdddb5761d5e123e1d4f64d2f9b2bc02aa138f14e1e0e0950a542a4",
+  "lock_sha256": "a48d87533e1059d9000d931a7bb0709fb6f36338626b37512755b7f396d06e49",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

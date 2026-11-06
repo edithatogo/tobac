@@ -21,8 +21,8 @@ def execute(out: Path) -> None:
     if not out.is_relative_to(ROOT / "outputs") or out == ROOT / "outputs" or out.exists():
         msg = "Select a new analysis directory under repository outputs"
         raise ValueError(msg)
-    if sys.version_info[:3] != (3, 15, 1) or not Path(sys.prefix).resolve().is_relative_to(ROOT):
-        msg = "Select repo-local Python 3.15.1"
+    if sys.version_info[:3] != (3, 15, 2) or not Path(sys.prefix).resolve().is_relative_to(ROOT):
+        msg = "Select repo-local Python 3.15.2"
         raise ValueError(msg)
     out.parent.mkdir(parents=True, exist_ok=True)
     attempt = uuid4().hex

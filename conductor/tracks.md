@@ -125,7 +125,10 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [x] Complete for the declared current closure. Phases 1–8 verified.**
+**Status: [x] Complete for the last published closure. Phases 1–8 verified.**
+
+The integrated 6 November renewal is locally verified; its hosted checks and
+guarded publication remain open in the plan renewal checklist.
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
 The scoped producer port merged through [archive-govt-nz PR #849](https://github.com/edithatogo/archive-govt-nz/pull/849) at
