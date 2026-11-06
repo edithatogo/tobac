@@ -455,3 +455,26 @@ Fresh integrated audit profile: actual Python 3.15.1, 93 compatible packages, no
 pandas/xarray. Final strict whole-source BasedPyright passed with zero errors/warnings,
 733.3 MiB sampled peak. No global type-check relaxation or scientific source change was
 used. Current final full-suite, latest-promotion and signed-native gates remain open.
+
+## Held-dependency reconciliation and latest analytics candidate
+
+Reconciled all six integrated locks against the dated 146-package index census. Nineteen
+remaining differences have individual primary-source/disposition entries in
+library-disposition.md; raw comparison is integrated-held-dependencies.json. Read installed
+Snakemake/interface/SQLModel Requires-Dist bounds rather than inferring compatibility from
+version numbers. Forced interface-common 1.24.0 resolution failed because its packaging>=26.1
+conflicts with Snakemake's packaging<26 (exit 1, 4.6 MiB sampled peak). No bound was relaxed.
+
+Fresh universal Python 3.15.1 analytics resolution changed only Ruff 0.17.3 to 0.17.4.
+Hash installation and dependency consistency passed in .venv-analytics-latest (56 packages,
+94.5 MiB sampled install peak), with no pandas/xarray. Actual CLI package versions are
+Snakemake 9.27.1, Ruff 0.17.4, Polars 2.1.0 and Arrow 26.0.1. The real context DAG passed
+on clean a334aa2 (90.0 MiB sampled peak). Its first invocation rejected a stale bundle after
+this lane committed the ledger while the run was starting; retained that failure and rebuilt
+context at the new HEAD before the successful run. No source guard was weakened. This
+candidate is not promoted while the native owner is issuing against the frozen source.
+
+Read-only remote/main reconciliation observed 58a4b2f602f4678ac5be3b59bd8e6b807ff9ae6d.
+It is an ancestor of the owner's combined renewal branch, which preserves newer main
+workflow pins. Those exact pins and the terminal capsule must be consumed together; do
+not overwrite them with this lane's older workflow files. Recheck at final integration.
