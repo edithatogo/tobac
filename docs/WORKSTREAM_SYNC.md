@@ -766,3 +766,15 @@ Scope: public repository discovery metadata, README, citation, Scorecard workflo
 publication inventory and status; native scope: exact GitHub repository metadata.
 Next: prepare a narrowly scoped, independently qualified candidate on top of the
 Conductor publication branch. Scientific models and private data remain unchanged.
+
+## PR #94 current qualification — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/pr94-current`. Scope: exact
+previously generated ecosystem lock and receipt on PR #94 head `f73c031`.
+Source receipt verification passes. The same candidate hash-installed in the
+isolated Python 3.15.1 worktree and passed 1,225 tests with 20 skips; reuse that
+unchanged result. The candidate also updates dateutil and typing-inspection.
+Next: qualify current PR hosted checks before guarded publication. Native scope:
+no mutations. PR #132 receiving ref/tree is `b57b4e1`; all ten push workflows
+passed and Scorecard API reports that exact commit, score 7/10.
