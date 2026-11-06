@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
+import polars as pl
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -21,12 +21,12 @@ def test_period_alignment_changes_only_denominator() -> None:
     t = runner.source_table()
     a = runner.assembled_inputs(t, alignment="calendar_replication", centre="geometric_interval_midpoint")
     b = runner.assembled_inputs(t, alignment="nominal_survey_year", centre="geometric_interval_midpoint")
-    shared = a[a.year.isin(b.year)].reset_index(drop=True)
-    np.testing.assert_array_equal(shared.reconstruction_median, b.reconstruction_median)
+    shared = a.filter(pl.col("year").is_in(b["year"].to_list()))
+    np.testing.assert_array_equal(shared["reconstruction_median"], b["reconstruction_median"])
     assert len(b) == 11
-    assert b.year.tolist() == list(range(2013, 2024))
-    assert b.matched_annual_release.iloc[-1] > a[a.year == 2023].matched_annual_release.iloc[0]
-    assert (b.log_reported_ratio <= 0).all()
+    assert b["year"].to_list() == list(range(2013, 2024))
+    assert b["matched_annual_release"][-1] > a.filter(pl.col("year") == 2023)["matched_annual_release"][0]
+    assert (b["log_reported_ratio"] <= 0).all()
 
 
 def test_calendar_replication_keeps_2012_but_2011_opening_windows_cannot() -> None:
@@ -37,12 +37,12 @@ def test_calendar_replication_keeps_2012_but_2011_opening_windows_cannot() -> No
     nominal = runner.assembled_inputs(
         t, alignment="nominal_survey_year", centre="geometric_interval_midpoint"
     )
-    assert calendar.year.tolist() == list(range(2012, 2024))
-    assert nominal.year.tolist() == list(range(2013, 2024))
+    assert calendar["year"].to_list() == list(range(2012, 2024))
+    assert nominal["year"].to_list() == list(range(2013, 2024))
     documented = runner.assembled_inputs(
         t, alignment="documented_collection_sensitivity", centre="geometric_interval_midpoint"
     )
-    assert documented.year.tolist() == list(range(2013, 2024))
+    assert documented["year"].to_list() == list(range(2013, 2024))
 
 
 def test_period_origin_labels_the_actual_pairing_start() -> None:
@@ -55,7 +55,7 @@ def test_period_origin_labels_the_actual_pairing_start() -> None:
         alignment="documented_collection_sensitivity",
         centre="geometric_interval_midpoint",
     )
-    assert set(frame.period_origin) == {"documented_window", "nominal_july_june_fallback"}
+    assert set(frame["period_origin"]) == {"documented_window", "nominal_july_june_fallback"}
 
 
 def test_documented_window_overlap_is_recorded_not_hidden() -> None:
@@ -63,27 +63,27 @@ def test_documented_window_overlap_is_recorded_not_hidden() -> None:
     documented = runner.assembled_inputs(
         t, alignment="documented_collection_sensitivity", centre="geometric_interval_midpoint"
     )
-    overlap = dict(zip(documented.year, documented.overlap_days_with_previous_period, strict=False))
+    overlap = dict(zip(documented["year"], documented["overlap_days_with_previous_period"], strict=False))
     assert overlap[2021] == 0
     assert overlap[2022] == 62  # 2021-09-01 end vs 2021-07-01 start
     assert overlap[2023] == 31  # 2022-08-01 end vs 2022-07-01 start
     for alignment in ("nominal_survey_year", "calendar_replication"):
         frame = runner.assembled_inputs(t, alignment=alignment, centre="geometric_interval_midpoint")
-        assert (frame.overlap_days_with_previous_period == 0).all()
+        assert (frame["overlap_days_with_previous_period"] == 0).all()
 
 
 def test_original_negative_source_gaps_preserved() -> None:
     t = runner.source_table()
-    assert t[t.year == 2023].reported_signed_gap.iloc[0] < 0
-    assert t[t.year == 2021].reported_signed_gap.iloc[0] < 0
+    assert t.filter(pl.col("year") == 2023)["reported_signed_gap"][0] < 0
+    assert t.filter(pl.col("year") == 2021)["reported_signed_gap"][0] < 0
 
 
 def test_published_upper_bound_not_default_mean() -> None:
     t = runner.source_table()
     a = runner.assembled_inputs(t, alignment="nominal_survey_year", centre="geometric_interval_midpoint")
     upper = runner.assembled_inputs(t, alignment="nominal_survey_year", centre="published_upper_stress")
-    assert (a.reconstruction_median < upper.reconstruction_median).all()
-    assert not a.published_central_estimate.any()
+    assert (a["reconstruction_median"] < upper["reconstruction_median"]).all()
+    assert not a["published_central_estimate"].any()
 
 
 def test_period_alignment_explicit_pandemic_sensitivity() -> None:
@@ -132,56 +132,56 @@ def test_pipeline_and_no_current_observation_invention(tmp_path) -> None:
     assert scope["current_assay_panel_fitted"] is False
     assert scope["primary_alignment"] == cfg["primary_alignment"]
     assert manifest["version"] == cfg["version"]
-    aligned = pd.read_csv(folder / "aligned_observations.csv")
+    aligned = pl.read_csv(folder / "aligned_observations.csv")
     assert len(aligned) > 0
-    assert len(aligned[aligned.alignment == cfg["primary_alignment"]]) == 11
+    assert len(aligned.filter(pl.col("alignment") == cfg["primary_alignment"])) == 11
     assert len(list((folder / "figures").glob("*.svg"))) == 5
-    checks = pd.read_csv(folder / "rolling_hindcasts.csv")
-    assert (checks.train_end < checks.test_year).all()
+    checks = pl.read_csv(folder / "rolling_hindcasts.csv")
+    assert (checks["train_end"] < checks["test_year"]).all()
     audit = json.loads((folder / "source_audit.json").read_text())
     assert audit["source_2014_lower_count_arithmetic"]["difference"] != 0
     assert audit["raw_paired_nz_assays_added"] == 0
-    assert len(pd.read_csv(folder / "fit_sensitivity.csv")) == 15
-    assert len(pd.read_csv(folder / "signed_discrepancy_sensitivity.csv")) == 15 * 11
+    assert len(pl.read_csv(folder / "fit_sensitivity.csv")) == 15
+    assert len(pl.read_csv(folder / "signed_discrepancy_sensitivity.csv")) == 15 * 11
     for item in manifest["files"]:
         assert runner.digest(folder / item["path"]) == item["sha256"]
     # The base discrepancy scenario must exist and carry finite values.
     base = f"uplift_{float(cfg['source_uplift']):g}_shared_{float(cfg['base_shared_uplift_log_sd']):g}"
-    rows = pd.read_csv(folder / "signed_discrepancy_sensitivity.csv")
-    base_rows = rows[rows.scenario == base]
+    rows = pl.read_csv(folder / "signed_discrepancy_sensitivity.csv")
+    base_rows = rows.filter(pl.col("scenario") == base)
     assert len(base_rows) == 11
-    assert base_rows.signed_gap_median.notna().all()
+    assert base_rows["signed_gap_median"].is_not_null().all()
 
 
 def test_accounting_arms_apply_the_declared_fractions_exactly(tmp_path) -> None:
     runner.run(tmp_path / "result", quick=True)
     folder = tmp_path / "result"
     cfg = json.loads(CONFIG.read_text())
-    ledgers = pd.read_csv(folder / "lawful_stock_ledgers.csv")
+    ledgers = pl.read_csv(folder / "lawful_stock_ledgers.csv")
     for fraction in cfg["unrecorded_lawful_fractions_of_releases"]:
         if not fraction:
             continue
         name = f"unrecorded{fraction * 100:g}pct"
-        rows = ledgers[ledgers.scenario == name]
-        np.testing.assert_allclose(rows.lawful_unrecorded, float(fraction) * rows.release, rtol=1e-12)
-        assert (rows.lawful_unrecorded > 0).all()
+        rows = ledgers.filter(pl.col("scenario") == name)
+        np.testing.assert_allclose(rows["lawful_unrecorded"], float(fraction) * rows["release"], rtol=1e-12)
+        assert (rows["lawful_unrecorded"] > 0).all()
     for visitor in cfg["net_visitor_fraction_sensitivity"]:
         if not visitor:
             continue
         name = f"visitor_{'minus' if visitor < 0 else 'plus'}{abs(visitor) * 100:g}pct"
-        rows = ledgers[ledgers.scenario == name]
-        np.testing.assert_allclose(rows.net_visitors, float(visitor) * rows.release, rtol=1e-12)
+        rows = ledgers.filter(pl.col("scenario") == name)
+        np.testing.assert_allclose(rows["net_visitors"], float(visitor) * rows["release"], rtol=1e-12)
     for days in cfg["stock_days"]:
         if not days:
             continue
-        rows = ledgers[ledgers.scenario == f"stock{days:g}"]
-        expected = runner.stock_scenario(rows.release.to_numpy(float), float(days))
-        np.testing.assert_allclose(rows.opening_stock, expected[:-1], rtol=1e-12)
-        np.testing.assert_allclose(rows.closing_stock, expected[1:], rtol=1e-12)
+        rows = ledgers.filter(pl.col("scenario") == f"stock{days:g}")
+        expected = runner.stock_scenario(rows["release"].cast(pl.Float64).to_numpy(), float(days))
+        np.testing.assert_allclose(rows["opening_stock"], expected[:-1], rtol=1e-12)
+        np.testing.assert_allclose(rows["closing_stock"], expected[1:], rtol=1e-12)
     # Changing the unrecorded assumption must move the reported discrepancy.
-    rows = pd.read_csv(folder / "signed_discrepancy_sensitivity.csv")
-    small = rows[rows.scenario == "unrecorded2pct"].set_index("year").signed_gap_median
-    large = rows[rows.scenario == "unrecorded5pct"].set_index("year").signed_gap_median
+    rows = pl.read_csv(folder / "signed_discrepancy_sensitivity.csv")
+    small = rows.filter(pl.col("scenario") == "unrecorded2pct")["signed_gap_median"]
+    large = rows.filter(pl.col("scenario") == "unrecorded5pct")["signed_gap_median"]
     assert len(small) == len(large) == 11
     assert not np.allclose(small.to_numpy(), large.to_numpy())
 
@@ -190,13 +190,13 @@ def test_hindcast_count_and_training_end_are_pinned(tmp_path) -> None:
     runner.run(tmp_path / "result", quick=True)
     folder = tmp_path / "result"
     cfg = json.loads(CONFIG.read_text())
-    checks = pd.read_csv(folder / "rolling_hindcasts.csv")
+    checks = pl.read_csv(folder / "rolling_hindcasts.csv")
     years = list(range(cfg["hindcast_start_year"], 2024))
     assert len(checks) == len(years) * 3
-    assert sorted(checks.test_year.unique().tolist()) == years
-    assert checks.train_end.max() == 2022
-    assert (checks.train_end < checks.test_year).all()
-    assert set(checks.alignment) == set(runner.ALIGNMENTS)
+    assert sorted(checks["test_year"].unique().to_list()) == years
+    assert checks["train_end"].max() == 2022
+    assert (checks["train_end"] < checks["test_year"]).all()
+    assert set(checks["alignment"]) == set(runner.ALIGNMENTS)
 
 
 def test_primary_alignment_is_propagated_to_every_derived_arm(monkeypatch, tmp_path) -> None:
@@ -283,17 +283,17 @@ def test_source_input_rejects_missing_or_duplicate_year(tmp_path) -> None:
     t = runner.source_table()
     target = tmp_path / "data/empirical_intake_20261024"
     target.mkdir(parents=True)
-    t.iloc[:-1].to_csv(target / "nz_historical_legal_supply.csv", index=False)
+    t.head(-1).write_csv(target / "nz_historical_legal_supply.csv")
     with pytest.raises(ValueError, match="complete"):
         runner.source_table(tmp_path)
 
 
 def test_source_input_rejects_unit_substitution(tmp_path) -> None:
     t = runner.source_table()
-    t["unit"] = "tonnes/year"
+    t = t.with_columns(pl.lit("tonnes/year").alias("unit"))
     target = tmp_path / "data/empirical_intake_20261024"
     target.mkdir(parents=True)
-    t.to_csv(target / "nz_historical_legal_supply.csv", index=False)
+    t.write_csv(target / "nz_historical_legal_supply.csv")
     with pytest.raises(ValueError, match="tonne"):
         runner.source_table(tmp_path)
 
@@ -337,9 +337,21 @@ def test_emitted_ledgers_and_receipt_declare_source_identity(monkeypatch, tmp_pa
     assert declared["observation_years"] == list(range(2012, 2024))
     assert declared["unit"] == "cigarette_equivalents"
     # The emitted ledger rows span exactly the declared observation years.
-    ledgers = pd.read_csv(tmp_path / "result/lawful_stock_ledgers.csv")
-    assert set(ledgers.year) == set(range(2012, 2024))
-    assert set(ledgers.unit) == {"cigarette_equivalents/calendar_year"}
+    ledgers = pl.read_csv(tmp_path / "result/lawful_stock_ledgers.csv")
+    assert set(ledgers["year"]) == set(range(2012, 2024))
+    assert set(ledgers["unit"]) == {"cigarette_equivalents/calendar_year"}
     # The scope receipt is part of the audited manifest output set.
     listed = {item["path"] for item in manifest["files"]}
     assert "fit_scope.json" in listed
+
+
+@pytest.mark.parametrize("column", ["unit", "uplift_factor", "source_id"])
+def test_source_input_rejects_missing_convention_or_identity(tmp_path, column) -> None:
+    table = runner.source_table().with_columns(
+        pl.when(pl.col("year") == 2015).then(None).otherwise(pl.col(column)).alias(column)
+    )
+    target = tmp_path / "data/empirical_intake_20261024"
+    target.mkdir(parents=True)
+    table.write_csv(target / "nz_historical_legal_supply.csv")
+    with pytest.raises(ValueError, match="missing"):
+        runner.source_table(tmp_path)

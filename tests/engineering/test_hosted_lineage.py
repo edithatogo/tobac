@@ -49,7 +49,19 @@ def test_actual_signed_native_acceptance_and_all_inputs() -> None:
 
 
 @pytest.mark.parametrize(
-    "case", ["missing", "signature", "payload", "source", "inventory", "runtime", "authority"]
+    "case",
+    [
+        "missing",
+        "signature",
+        "payload",
+        "source",
+        "inventory",
+        "runtime",
+        "authority",
+        "stage",
+        "stage_context",
+        "dag",
+    ],
 )
 def test_rejection_precedes_hosted_workload(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, case: str
@@ -66,6 +78,13 @@ def test_rejection_precedes_hosted_workload(
         capsule = hosted.authenticate(root)
         name = next(iter(capsule["runners"]["m1"]["executed_input_objects"]))
         (root / name).write_bytes(b"changed scientific input")
+    elif case in {"stage", "stage_context", "dag"}:
+        path = {
+            "stage": "scripts/run_m1_stage.py",
+            "stage_context": "scripts/verify_context_stage.py",
+            "dag": "workflow/Snakefile",
+        }[case]
+        (root / path).write_bytes(b"changed admitted stage source")
     elif case == "inventory":
         (root / "data/unreviewed.csv").write_bytes(b"new source")
     elif case == "runtime":
@@ -94,6 +113,9 @@ def test_rejection_precedes_hosted_workload(
         "inventory": "Scientific inventory",
         "runtime": "runtime differs",
         "authority": "signing authority",
+        "stage": "Stale native acceptance pin",
+        "stage_context": "Stale native acceptance pin",
+        "dag": "Stale native acceptance pin",
     }
     with pytest.raises((ValueError, FileNotFoundError), match=reasons[case]):
         workload()

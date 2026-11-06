@@ -10,23 +10,23 @@
     "engineering/ecosystem.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/python3152/locks/ecosystem.lock",
+    "outputs/hosted-integrated-20261106/locks/ecosystem.lock",
     "--universal",
     "--python-version",
     "3.15.2"
   ],
   "resolver_exit_code": 0,
   "inputs": {
-    "pyproject.toml": "2addff1903371cb97ea3ca1d5da4b5218619adfb549768cf5b86b890ad0dfb8a",
+    "pyproject.toml": "42078e8ab23d94bce7020ef16bc2c9384f67cfbba2bbef5876105752e8a01f23",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
-    "engineering/reference-requirements.txt": "ee4a0fae35f4e6764c31428a2ade91decc83e90671f808b384d275a8032fb815",
+    "engineering/reference-requirements.txt": "0128d9615ef92cdb58efd146005e146284d7d999d732ee626ebb471ea304f79d",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
     "engineering/test-requirements.txt": "aad99922ffbb72dded04118a6a9815be60c7634be925e4fac9d64b51720f6678",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
-    "engineering/voiage.in": "4ae5d17caba4f1d0078142f98739c8d2b0c63861afb091ff9059b95ccb413f5e",
+    "engineering/voiage.in": "130978fa422bd696241b87258c4ce7c1487354dc742a526c44564de0d0928360",
     "engineering/voiage-build-requirements.txt": "83bbc382d9b7eb67400eb55f0a6815185532edcdeb709878ccfc68955043effa",
     "engineering/ecosystem.in": "82b729a474830f18b4cf027f949564bbc260522e326148f55246562a62e15dc6"
   },
-  "lock_sha256": "62c7fa74566ff784356763269393438e349d1e820b99e30815a75ef7f4682cb9",
+  "lock_sha256": "2a8e4b467ef0bc5622fdbae5da88004e64811d1d573b16f8045b5c4d38dfe232",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

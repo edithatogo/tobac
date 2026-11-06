@@ -125,7 +125,10 @@ disagreement and conditional decision value. No requests or submissions.
 
 ## Native archival provenance and transformation lineage
 
-**Status: [x] Complete for the declared current closure. Phases 1–8 verified.**
+**Status: [x] Complete for the last published closure. Phases 1–8 verified.**
+
+The integrated 6 November renewal is locally verified; its hosted checks and
+guarded publication remain open in the plan renewal checklist.
 Track: `conductor/tracks/native_archival_lineage_20261026/`.
 
 The scoped producer port merged through [archive-govt-nz PR #849](https://github.com/edithatogo/archive-govt-nz/pull/849) at
@@ -160,3 +163,13 @@ Ubuntu and 1,041 passed / 28 skipped on Windows, each with 92% coverage. Linux u
 the process-group RSS guard; Windows used the hosted job timeout. Existing macOS
 and security checks remain in place. This evidence does not qualify the unexecuted
 platform-specific release or research jobs.
+
+## NZ/AU comprehensive policy and empirical wastewater VOI — 6 November 2026
+
+- [~] [Requirements, design and implementation plan](tracks/nz_au_empirical_20261106/index.md).
+  Isolated candidate; empirical admission and runtime qualification remain open.
+
+## NZ/AU repository and analytical hardening — 6 November 2026
+
+- [ ] [Companion hardening track](tracks/nz_au_hardening_20261106/index.md).
+  Baseline/incremental work accompanies empirical implementation; release acceptance follows it.

@@ -45,6 +45,7 @@ def issue(key: Path, out: Path) -> None:
     )
     pins = [
         CHECKPOINT,
+        ARCHIVE + "scientific-lineage-checkpoint_20261102.json",
         PROFILES,
         ARCHIVE + "scientific-runner-inputs.json",
         ARCHIVE + "native-source-refs.json",
@@ -57,6 +58,10 @@ def issue(key: Path, out: Path) -> None:
         "scripts/check_scientific_reproduction.py",
         "integration/scientific_reference_20261103.zip",
         "scripts/qualify_integrations.py",
+        "scripts/lineage_preflight.py",
+        "scripts/run_m1_stage.py",
+        "scripts/verify_context_stage.py",
+        "workflow/Snakefile",
     ]
     pins.extend(p.relative_to(ROOT).as_posix() for p in (ROOT / ".github/workflows").glob("*.yml"))
     document = {

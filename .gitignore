@@ -47,3 +47,6 @@ mutants/
 /results/milestone3/report.md
 /artifact-exports/
 /.security-tools/
+
+# Local analytical scheduler metadata
+/.snakemake/

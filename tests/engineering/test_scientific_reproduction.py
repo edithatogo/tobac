@@ -3,6 +3,7 @@
 import hashlib
 import importlib
 import json
+import shutil
 from pathlib import Path
 
 import pytest
@@ -108,3 +109,27 @@ def test_synthesis_view_rejects_hash_changes_and_aliases(synthesis_view, tmp_pat
         synthesis_view.canonical_inputs(tmp_path, {r"a\input": "0" * 64})
     with pytest.raises(ValueError, match="Duplicate"):
         synthesis_view.canonical_inputs(tmp_path, {r"a\input": value, "a/input": value})
+
+
+@pytest.mark.parametrize("case", ["original_checkpoint", "active_csv"])
+def test_renewal_cannot_replace_frozen_reference_closure(checker, monkeypatch, tmp_path, case) -> None:
+    for name in (checker.CHECKPOINT, checker.REFERENCE_CHECKPOINT):
+        target = tmp_path / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / name, target)
+    monkeypatch.setattr(checker, "ROOT", tmp_path)
+    if case == "original_checkpoint":
+        path = tmp_path / checker.REFERENCE_CHECKPOINT
+        path.write_bytes(path.read_bytes() + b" ")
+        reason = "Original numerical reference checkpoint changed"
+    else:
+        path = tmp_path / checker.CHECKPOINT
+        document = json.loads(path.read_bytes())
+        artifacts = document["runner_results"]["m1"]["artifacts"]
+        tables = [p for p in artifacts if p.endswith(".csv")]
+        artifacts[tables[0]] = artifacts[tables[1]]
+        path.write_text(json.dumps(document), encoding="utf-8")
+        monkeypatch.setattr(checker, "CHECKPOINT_SHA", hashlib.sha256(path.read_bytes()).hexdigest())
+        reason = "Active numerical closure differs"
+    with pytest.raises(ValueError, match=reason):
+        checker.reference_tables()

@@ -58,7 +58,7 @@
   "dependencyDashboard": true,
   "pip_requirements": {
     "managerFilePatterns": [
-      "/^engineering/(requirements|audit|voiage|ecosystem)\\.in$/"
+      "/^engineering/(requirements|audit|voiage|ecosystem|analytics)\\.in$/"
     ]
   },
   "prBodyNotes": [

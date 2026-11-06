@@ -1,6 +1,6 @@
 # Native archival provenance and transformation lineage — implementation plan
 
-Status: Complete for the declared current closure — all eight phases and 32 primary tasks verified. See the track index and final Phase 8 acceptance; scientific qualification and wider-estate archival limits remain separate.
+Status: Complete for the last published closure — all eight phases and 32 primary tasks verified. The integrated 6 November renewal is locally verified; its hosted checks and publication remain pending. Scientific qualification and wider-estate archival limits remain separate.
 Specification: [approved spec](spec.md), approved by the maintainer on 26 October 2026.
 Planning base: tobac `59bb0e4ebaf1881158849df1702a1d3101aad58f`.
 Method: [shared workflow](../../workflow.md). Tests and reference comparisons precede
@@ -944,3 +944,19 @@ bytes in the four declared generations were verified. Full consumer suite:
 sessions passed. Strict checks passed after type annotations at 6bcba3d.
 AC13 is verified for this declared private closure. Phase 8 integrated acceptance
 and guarded publication remain open.
+
+
+## Integrated snapshot renewal — 6 November 2026
+
+- [x] Freeze the combined Polars/M1-stage source and retain current-main workflow pins.
+- [x] Execute eight fresh native profiles; reopen originals, registrations, CAS objects and transformations.
+- [x] Verify 140 outputs and all 82 scientific CSVs byte-identical to prior acceptance.
+- [x] Renew checkpoint, inventory/runtime bindings and signed native capsule; retain the old checkpoint and numerical archive.
+- [x] Verify native and attested commands, actual atomic M1 stage, source/object/signature/runtime rejection controls, and reference closure mapping.
+- [x] Run the complete bound suite: 1,258 passed, 7 skipped; strict whole-source typing: zero errors/warnings.
+- [ ] Run hosted checks for this renewed snapshot.
+- [ ] Publish through the existing guarded integrator and verify the receiving ref.
+
+Checkpoint: `integration/archive/scientific-lineage-checkpoint_20261106.json`.
+The historical Phase 8 receipts above are not substituted for the two remaining
+publication tasks. Local proof does not establish empirical scientific adequacy.

@@ -1,0 +1,24 @@
+{
+  "schema": "tobac.lock-receipt.v1",
+  "profile": "analytics",
+  "resolver": "uv 0.13.7 (Homebrew 2026-11-03 aarch64-apple-darwin)",
+  "command": [
+    "/Users/doughnut/.local/bin/uv",
+    "--no-config",
+    "pip",
+    "compile",
+    "engineering/analytics.in",
+    "--generate-hashes",
+    "--output-file",
+    "outputs/hosted-integrated-20261106/locks/analytics.lock",
+    "--universal",
+    "--python-version",
+    "3.15.2"
+  ],
+  "resolver_exit_code": 0,
+  "inputs": {
+    "engineering/analytics.in": "c6d43bdd1af9bf99a123d7fa52d92df5b4927e9a2b4113938cd32801ba178c4c"
+  },
+  "lock_sha256": "a48d87533e1059d9000d931a7bb0709fb6f36338626b37512755b7f396d06e49",
+  "qualification": "candidate; review before committing; not approval or signed provenance"
+}
