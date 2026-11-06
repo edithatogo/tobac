@@ -14,11 +14,13 @@ from pathlib import Path
 from typing import Any
 
 from check_longitudinal_results import ATOL, RTOL
-from hosted_lineage import CHECKPOINT, CHECKPOINT_SHA
 from qualify_publication_replay import IDENTITY_COLUMNS, TOLERANCE
 
 ROOT = Path(__file__).resolve().parents[1]
 REFERENCE = ROOT / "integration/scientific_reference_20261103.zip"
+# The numerical oracle remains the accepted baseline across runtime promotions.
+CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_20261102.json"
+CHECKPOINT_SHA = "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a"
 RUNS = {
     "m1": "m1",
     "m2_retail": "m2",

@@ -909,7 +909,7 @@ qualification, then #91 and #135; unfinished source lanes remain preserved.
 Integrator chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` owns the app-managed
 worktree `/Users/doughnut/.codex/worktrees/tobac-python3152/tobac`, branch
 `codex/qualify-pr91-python3152`. Base: the tested #134 candidate `72e88d7`; #134
-hosted acceptance remains pending. Scope: consistent #91 runtime selectors,
+merged at `58a4b2f` with all ten receiving workflows passing. Scope: consistent #91 runtime selectors,
 locks, native/runtime qualification and current setup documentation. #135 will
 be reconciled separately after #91 receiving acceptance. The existing 3.15.1
 checkout remains the guarded publication controller until promotion. Existing
@@ -917,3 +917,33 @@ private attempt stores, keys and other source lanes are read-only and unchanged.
 No new runtime acceptance is claimed by these selector changes. Next: regenerate
 locks, build a separate native 3.15.2 environment, re-execute and compare the eight
 scientific runners, qualify signatures on actual hosted runtimes, then publish.
+
+
+## Python 3.15.2 native-byte checkpoint — 6 November 2026
+
+At source selector checkpoint `fa2434a`, all eight fresh native attempts succeeded.
+Independent readback verified 140 outputs and all 82 numerical CSVs equal the
+accepted 3.15.1 baseline byte for byte. A deliberately corrupted private copy was
+rejected with `object_corrupt`. The new versioned checkpoint preserves the
+2 November baseline and does not replace scientific acceptance. All five active
+lock/receipt pairs were regenerated under actual repo-local Python 3.15.2.
+
+An interrupted retail attempt was retained separately without outputs or terminal
+and excluded; its fresh replacement succeeded. Full source tests, independent
+runtime-delta recovery and actual hosted signature profiles remain in progress.
+Original source/private stores, keys and the independently advancing Polars and
+NZ/AU lanes are preserved. Current native generation remains owner-held; only
+digests and signatures are publishable. Hosted runtime admission remains closed
+until each actual build passes signature-positive and tamper-negative controls.
+
+
+The complete 3.15.2 suite ran 1,227 unique cases: 1,224 passed initially, then all
+three failed nodes passed after two version-message expectation fixes and keeping
+the unchanged numerical archive explicitly pinned to its historical baseline.
+18 cases skipped for existing capability conditions. The 710-file runtime-delta
+generation was sealed, independently copied to the external filesystem, restored
+and verified against all eight current native attempts; private recovery manifest
+`3c3222c6362bafcee066477d5fc8a25d3d6a5ddb98f104d6b7cd6828635c385c`.
+This is runtime-delta preservation/readback, not a new full-estate offline replay.
+Hosted 3.15.2 profiles remain pending; this candidate deliberately rejects unknown
+hosted builds before workload execution. No scientific source or numeric tolerance changed.

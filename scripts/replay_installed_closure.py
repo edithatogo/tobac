@@ -122,7 +122,7 @@ def main() -> None:
         if args.out is None:
             parser.error("--runner requires --out")
         data = json.loads(
-            Path("integration/archive/scientific-lineage-checkpoint_20261102.json").read_bytes()
+            Path("integration/archive/scientific-lineage-checkpoint_python3152_20261106.json").read_bytes()
         )
         result = replay(args.runner, args.out.resolve(), data["runner_results"][args.runner])
     else:

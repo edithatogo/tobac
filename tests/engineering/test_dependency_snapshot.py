@@ -60,7 +60,7 @@ def test_all_four_verified_profiles_are_present_and_no_runtime_is_downgraded() -
 def test_invalid_source_identity_fails_closed() -> None:
     with pytest.raises(
         ValueError,
-        match=(r"^(?:Require\ Python\ 3\.15\.1\ and\ exact\ source/job\ identity)"),
+        match=(r"^(?:Require\ Python\ 3\.15\.2\ and\ exact\ source/job\ identity)"),
     ):
         module().snapshot("short", "refs/heads/main", "test")
 
