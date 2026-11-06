@@ -1,11 +1,14 @@
 # NZ/AU repository and analytical hardening
 
-Status: H0 inventoried; H1 has scoped corrections, with remaining gates open. Owner: current empirical lane for scoped candidate work;
+Status: H0 inventoried; H1.1 local corrections/verification are recorded in progress.md;
+H2 release/native/empirical gates remain open. Owner: current empirical lane for scoped candidate work;
 shared integration/runtime/native GitHub settings retain their existing owners.
 
 - [Specification and acceptance](spec.md)
 - [Plan](plan.md)
 - [Metadata](metadata.json)
+- [Incremental hardening task card](task-card.md)
+- [Current execution evidence and dispositions](progress.md)
 
 ## H0 evidence and findings — 6 November 2026
 

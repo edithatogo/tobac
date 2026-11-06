@@ -3,8 +3,8 @@
 Completed bounded map, 27 October 2026. Public sources only; no requests were sent
 or prepared by this completion phase. Earlier letters remain withdrawn.
 
-[Methods](../../../docs/research/M2_PUBLIC_SOURCE_METHOD.md) and
-[completion report](../../../docs/research/M2_PUBLIC_SOURCE_COMPLETION.md) define
+Methods (local-only authoring document: `docs/research/M2_PUBLIC_SOURCE_METHOD.md`) and
+completion report (local-only authoring document: `docs/research/M2_PUBLIC_SOURCE_COMPLETION.md`) define
 coverage and limitations. This is not an exhaustive systematic review.
 
 - [Source index](source_index.csv): 35 document records, including the two retrieved

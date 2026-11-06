@@ -1,9 +1,9 @@
 # Post-primary robustness results
 
 Executed 13-specification challenge grid, computed with the source commit recorded in
-[report.json](report.json). [Current manuscript](../../docs/research/M2_MANUSCRIPT.md),
-[protocol](../../docs/research/M2_READINESS_PROTOCOL.md),
-[supplement](../../docs/research/M2_MANUSCRIPT_SUPPLEMENT.md).
+[report.json](report.json). Current manuscript (local-only authoring document: `docs/research/M2_MANUSCRIPT.md`),
+protocol (local-only authoring document: `docs/research/M2_READINESS_PROTOCOL.md`),
+supplement (local-only authoring document: `docs/research/M2_MANUSCRIPT_SUPPLEMENT.md`).
 
 - decisions.csv: 1625 matched profiles, all current co-optimal actions and min/max regret over baseline ties.
 - grouped_evppi.csv: 11375 finite overlapping-partition values, not additive measures.

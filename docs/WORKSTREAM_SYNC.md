@@ -1339,6 +1339,15 @@ because optional clustering runtime packages are absent. Reference-profile integ
 controller coverage and native/hosted promotion remain open with the integrator; no rule
 was weakened or shared environment modified. Empirical clustering remains blocked.
 
+## NZ/AU H1.1 hardening ownership — 7 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns the scoped hardening task card on
+codex/nz-au-empirical, empirical worktree, base f575fb9. Scope: public navigation/setup,
+contribution guidance, track/publication metadata and read-only GitHub/licence/workflow
+inventory. Numerical source, locks, CI settings and native admission remain unchanged.
+The existing integrator retains shared main/native renewal. Next: correct documented
+defects and verify links, publication boundaries and affected contracts.
+
 ## NZ/AU Phase 6 local source-integration ownership — 6 November 2026
 
 Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns P6.1 on codex/nz-au-empirical at the
