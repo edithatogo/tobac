@@ -756,7 +756,7 @@
   "forward_cli_verified": true,
   "scientific_qualification": false,
   "qualification_scope": "Fresh candidate execution followed by independent native byte/source readback for eight frozen profiles. Software lineage acceptance only; no empirical calibration or scientific endorsement.",
-  "pinned_contract_sha256": "8b8f250800bf15d976a89bec582cfa845678655350eac951951038511efeeaaf",
+  "pinned_contract_sha256": "668b5c5ef2c76f0c1e0c1af6fa693f20a861f3124b3ca27dd6e1eb3bebe46717",
   "verified_output_count": 140,
   "csv_exact_count": 82,
   "previous_checkpoint": {

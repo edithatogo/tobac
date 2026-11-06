@@ -150,7 +150,7 @@ def main() -> None:
         raise ValueError("Output must be a new directory")
     manifest, text = build(ROOT, json.loads(args.profile.read_text(encoding="utf-8")))
     args.out.mkdir(parents=True)
-    (args.out / "context.md").write_text(text, encoding="utf-8")
+    (args.out / "context.md").write_bytes(text.encode("utf-8"))
     (args.out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     print(
         json.dumps(
