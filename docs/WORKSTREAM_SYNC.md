@@ -1259,3 +1259,17 @@ for the optional M1 DAG. That source correction is outside numerical execution
 and requires signature renewal without repeating the scientific runs. Hosted
 publication and checks are the active task; broader latest-pin promotion remains
 with its existing owner. No hosted success is claimed before actual run receipts.
+
+## PR #139 hosted terminal handoff — 6 November 2026
+
+All twelve hosted workflows pass at exact head `f7b130b` (29 success, two
+conditional skips, one neutral Scorecard bot result). Runs: engineering
+42203854793; scientific reproduction 42203855052; regulatory 42203854932;
+longitudinal 42203854905; M3 42203855101; verifier 42203854916; cross-platform
+42203854969; package 42203855000; Linux audit 42203854920; advisory 42203854999;
+security 42203854847; Scorecard 42203855069. The normal publication hook passed
+and remote branch SHA was read back after the fixes. No running jobs remain.
+
+This local documentation-only handoff preserves PR #139's tested head. The
+remaining operation is guarded main publication, then receiving ref and its own
+push workflow readback. No merge or post-publication success is inferred here.
