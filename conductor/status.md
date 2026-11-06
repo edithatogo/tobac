@@ -236,7 +236,40 @@ Full platform numerical reproduction is qualified by DXP3; DXP4 qualifies the ma
 Linux release and lock candidates. DH1 triage and DH2 review are complete locally; the dated hosted mutation count
 remains distinct from the later local run.
 
-## Open dependency maintenance
+## Dependency PR refresh — 6 November 2026
+
+Read-only GitHub CLI snapshot at 6 November 2026, 3:24 pm AEST (05:24 UTC). Receiving main was
+`b57b4e12e551c7c7d6db757b8d0f404eb8691146`; these were the only three open PRs.
+Counts distinguish check-run conclusions, unfinished jobs and legacy status contexts.
+This snapshot supersedes earlier candidate-head and stale-lock statements below;
+queued/running jobs are not acceptance evidence.
+
+| PR | Exact head | State | Observed checks |
+| --- | --- | --- | --- |
+| [#80](https://github.com/edithatogo/tobac/pull/80) | `bd19502a23fbc6ddbdad09e3578d65b52dec1a8f` | OPEN | 21 failure, 8 success, 2 skipped, 1 neutral, 1 status context success |
+| [#91](https://github.com/edithatogo/tobac/pull/91) | `5d8cbcf482a6774ac1fef700b68ec695a9e7f1fd` | OPEN | 6 failure, 23 success, 2 skipped, 1 neutral, 1 status context success |
+| [#94](https://github.com/edithatogo/tobac/pull/94) | `adb3f8127355f210c1df959d629730873b381fc2` | OPEN | 12 queued, 3 in progress, 13 success, 2 skipped, 1 neutral |
+
+- **#80:** the current [Linux test log](https://github.com/edithatogo/tobac/actions/runs/42025334896/job/127238003920)
+  rejects `advisory-types.yml` as a stale native acceptance pin before execution.
+  Reconcile and qualify the action changes and renew the signed binding only
+  after the required native readbacks. Other failures may remain after this fix.
+- **#91:** the current [Linux test log](https://github.com/edithatogo/tobac/actions/runs/42025289312/job/127237848913)
+  fails `test_legacy_entrypoint_points_to_one_canonical_pin_source` because
+  `.python-version` says 3.15.2 while the canonical contract remains 3.15.1.
+  A consistent patch migration and operation-specific runtime qualification remain required.
+- **#94:** current head `adb3f8127355f210c1df959d629730873b381fc2`
+  binds the tested ecosystem lock and receipt. The earlier stale-lock rejection
+  describes prior heads, not this candidate. Linux audit, Linux tests and both
+  package jobs have passed at this head; remaining hosted checks are unfinished.
+  The existing qualification lane retains ownership. Its handoff records 1,225
+  tests passed / 20 skipped in the isolated Python 3.15.1 candidate environment;
+  that local evidence is reused, not rerun or presented as full hosted acceptance.
+  Dateutil and typing-inspection changes still require the candidate's scientific
+  and cross-platform qualification before promotion. Neither PR nor main was changed
+  by this read-only refresh.
+
+## Historical dependency maintenance observations — through 5 November 2026
 
 After `bf77c6b`, Renovate rebased #80 to `cb78160`, #91 to `6705129` and #94
 to `7dffe2f`. Sampled Linux jobs confirm the same [stale signed pin](https://github.com/edithatogo/tobac/actions/runs/41994714877/job/127135001949),
