@@ -1,16 +1,16 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "voiage",
-  "resolver": "uv 0.13.5 (46776a95d 2026-10-21 aarch64-apple-darwin)",
+  "resolver": "uv 0.13.7 (Homebrew 2026-11-03 aarch64-apple-darwin)",
   "command": [
-    "/Users/doughnut/.local/share/tobac-uv135/uv",
+    "/Users/doughnut/.local/bin/uv",
     "--no-config",
     "pip",
     "compile",
     "engineering/voiage.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/engineering/lock-candidate-88/voiage.lock",
+    "outputs/conductor-status-refresh/pr134-locks/voiage.lock",
     "--python-version",
     "3.15",
     "--python-platform",
@@ -24,9 +24,9 @@
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
     "engineering/test-requirements.txt": "aad99922ffbb72dded04118a6a9815be60c7634be925e4fac9d64b51720f6678",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
-    "engineering/voiage.in": "95956f53a227749aba89248d67d3374ff3ac0ec1e0588637c06cea21b01bb76a",
+    "engineering/voiage.in": "4ae5d17caba4f1d0078142f98739c8d2b0c63861afb091ff9059b95ccb413f5e",
     "engineering/voiage-build-requirements.txt": "83bbc382d9b7eb67400eb55f0a6815185532edcdeb709878ccfc68955043effa"
   },
-  "lock_sha256": "0c4b5e69af45a3845157278c6a01693d474d1dd6d8ba4aad9996b5d427ffed51",
+  "lock_sha256": "ef042725fe72d0ecd644d065ac154825b93a706a59e570f84253a1942bca145e",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

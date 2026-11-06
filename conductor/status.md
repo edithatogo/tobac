@@ -26,7 +26,7 @@ Setup-uv v10.3.3 and uv 0.13.7 retain canonical Python 3.15.1. All eight accepte
 native runs were reopened before renewing the signed workflow binding. Prior
 capsules remain preserved in Git history. The stale native-plan opening is fixed.
 
-PR #133 is the current candidate. All four lock profiles were generated and
+PR #133 merged at `15fb177cc8a216df1cdb1fc0741d365c92e5a3e3` after all 29 candidate checks passed. Receiving ref/full-tree readback matched; all ten receiving-main workflows passed. Its local qualification follows. All four lock profiles were generated and
 inspected; only the affected ecosystem lock/receipt is adopted. It changes prek
 0.5.7 to 0.5.9 and threadpoolctl 3.7.0 to 3.8.0. Unchanged runtime, audit and
 Voiage locks retain valid source receipts. The ecosystem candidate hash-installs
@@ -37,7 +37,18 @@ uncommitted. After commit `6d7e680`, the failure-only rerun passed that case:
 Prek's read-only configuration validation passes. A real scikit-learn OpenMP
 pool was limited to two threads and restored; its synthetic arithmetic oracle
 passes. BLAS thread control is not qualified on this host: no supported BLAS
-pool was discovered. Hosted #133 checks and merge remain pending.
+pool was discovered. The original candidate failures and the focused correction remain retained evidence.
+
+PR #134 is the current candidate. Pydantic 2.14.1 to 2.14.2 changes the Voiage
+input shared by Voiage, ecosystem and advisory profiles. All four main profiles
+and advisory were generated and inspected; the three affected lock/receipt pairs
+are adopted, while runtime/audit remain unchanged. Additional affected-profile
+changes include pydantic-core 2.50.2, dateutil 4.0.0, threadpoolctl 3.8.0 and
+typing-inspection 0.4.5. The hash-installed ecosystem candidate passed the full
+suite on Python 3.15.1: 1,225 passed / 20 skipped at source checkpoint `5277a01`,
+under the 4 GiB/40-minute guard (644.2 MiB sampled peak). Hosted checks and merge
+remain required. #135 carries workflow portions of the same 3.15.2 patch requested
+by #91; both must be reconciled against the canonical runtime and signed evidence.
 
 The legacy optional `ecosystem` Nox session could not proceed because the exact
 hash-pinned Voiage 2.2 compatibility wheel is unavailable at its retained path;
