@@ -151,3 +151,5 @@ pins are retained; the rejected tag-based lock proposal is closed. Current scope
 verification and non-blocking follow-ups are recorded in the
 [completion receipt](integration/engineering_macos_completion_20261026.json) and
 [Conductor registry](conductor/tracks.md). Linux and Windows tests, packaging and scientific reproduction are qualified for their declared scopes; see [Conductor](conductor/status.md) for current results and remaining research limits.
+
+Current [public source-map navigation](docs/engineering/SOURCE_MAP_NAVIGATION.md) preserves the original captured evidence editions.
