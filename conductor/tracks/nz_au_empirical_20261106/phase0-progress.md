@@ -305,3 +305,28 @@ archived; unarchived it solely to perform the approved delivery. Second send suc
 Message includes exact packet, Polars terminal-commit request, native inventory renewal,
 16 failing tests, preserved bindings and coordination-file overlap. No external email,
 GitHub mutation or recurring coordination created. Await event-driven owner evidence.
+
+## Owner response and forward ecosystem candidate
+
+Compact owner snapshot confirms its turn is active: no terminal qualified Polars conversion,
+verifier remains uncommitted and both longitudinal runners still use pandas. Capsule renewal
+requires a frozen integrated source snapshot plus native readbacks/negative controls. No
+source edits or bindings borrowed. This is an explicit unresolved dependency, not a live
+process handle for the native renewal itself.
+
+Resolved/hash-installed latest inherited ecosystem compatibility candidate, then removed
+obsolete direct pandas/xarray pins for a separate Polars-only forward profile with the exact
+published Voiage 3.1.0 wheel. Both local input/lock editions retained. The forward candidate
+hash-sync removed pandas/xarray; consistency passed 58 packages. Actual Python 3.15.1 and
+absence assertions passed; NumPy/SciPy/Polars/Arrow/JAX/Voiage imports and tiny CPU JIT returned
+[2.0,5.0]. Tiny smoke is not GPU, full ML or scientific validation. Existing canonical
+reference/legacy ecosystem locks are unchanged pending owning-lane integration. Exact installed
+Voiage consumer qualification is running in this forward environment before any promotion.
+
+Forward ecosystem Voiage consumer probe reached terminal success: 90 comparisons, max
+absolute difference 2.842170943040401e-14, six buffer-ownership cases; sampled peak
+261.4 MiB. No reference promotion. Owner returned a terminal incomplete-status report,
+confirming no qualified conversion commit and the frozen-source prerequisite. Sent a
+same-scope follow-up to execute the already-owned conversion to its requested terminal
+handoff, not repeat inventory. Owner chat had archived again; unarchived for approved
+delivery. No code ownership or private bindings transferred.
