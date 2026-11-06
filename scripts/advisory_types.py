@@ -23,12 +23,10 @@ VERSIONS = {"ty": "ty 0.0.95", "pyrefly": "pyrefly 1.4.0"}
 REQUIRED_MODULES = (
     "numpy",
     "scipy",
-    "pandas",
     "pyarrow",
     "polars",
     "patito",
     "msgspec",
-    "xarray",
     "sklearn",
     "pydantic",
     "voiage.analysis",
@@ -160,7 +158,6 @@ def input_hashes() -> dict[str, str]:
             "engineering/advisory.lock",
             "engineering/advisory.lock.json",
             "engineering/voiage.in",
-            "engineering/voiage-python315.patch",
             "engineering/voiage-build-requirements.txt",
             ".github/workflows/advisory-types.yml",
         )
@@ -285,13 +282,11 @@ def run() -> None:
     if sys.version_info[:3] != (3, 15, 1) or not Path(sys.executable).absolute().is_relative_to(ROOT):
         msg = "A repo-local Python 3.15.1 is required"
         raise RuntimeError(msg)
-    wheel = Path(os.environ["TOBAC_ADVISORY_WHEEL"])
-    revision = os.environ["TOBAC_ADVISORY_VOIAGE_REVISION"]
-    if revision != "7af563c8cb373057d30662650b3f332f39e05b83" or not wheel.is_file():
-        msg = "Pinned Voiage build receipt is missing"
+    if importlib.metadata.version("voiage") != "3.1.0":
+        msg = "Wrong published Polars producer"
         raise RuntimeError(msg)
-    if importlib.metadata.version("voiage") != "2.2.0+tobac3151.2":
-        msg = "Wrong Voiage compatibility build"
+    if any(importlib.util.find_spec(name) is not None for name in ("pandas", "xarray")):
+        msg = "Retired dataframe dependency remains installed"
         raise RuntimeError(msg)
     missing = [name for name in REQUIRED_MODULES if importlib.util.find_spec(name) is None]
     if missing:
@@ -380,7 +375,7 @@ def run() -> None:
         "config_sha256": digest(config),
         "config": config.read_text(encoding="utf-8"),
         "checker_environment": "TY_ and PYREFLY_ overrides and PYTHONPATH removed",
-        "voiage": {"source_revision": revision, "wheel": wheel.name, "wheel_sha256": digest(wheel)},
+        "voiage": {"version": "3.1.0", "dependency_lock_sha256": digest(ROOT / "engineering/advisory.lock")},
         "comparison": comparison,
         "fixtures": fixture_results,
     }

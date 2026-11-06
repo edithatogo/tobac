@@ -465,3 +465,12 @@ all eight full-size empirical CSV files are now byte-identical to baseline.
 No table-comparator exemption is needed. The current profile candidate removes
 both retired dependencies and qualifies published Voiage 3.0.0; it remains a
 local source/lock candidate pending integrated native renewal and hosted gates.
+
+The active profile candidate now retires pandas, xarray and pandas-stubs from
+all five regenerated hash locks. Published Voiage 3.1.0 replaces the patched
+legacy default, retaining weighted/partition and interchange oracles. Its exact
+wheel and published hash-installed environment pass 90 numerical comparisons,
+six ownership cases and installed/native-byte verification; see
+`integration/voiage_published_20261106.json`. Whole-source strict typing has zero
+errors/warnings; Ruff and formatting pass. Reference/native/hosted integration
+remains separate from this executed local qualification.

@@ -64,7 +64,7 @@ def _read_csv(path: Path) -> tuple[list[str], list[list[str]]]:
 def _is_numeric_column(*columns: list[str]) -> bool:
     """Check that every non-empty cell parses as a float.
 
-    An empty cell is the pandas CSV spelling of NaN, so it does not by itself
+    An empty cell is the retained CSV spelling of a missing value, so it does not by itself
     make a column non-numeric.
     """
     for column in columns:
