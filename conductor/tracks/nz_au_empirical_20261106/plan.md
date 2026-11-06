@@ -57,6 +57,12 @@ evidence. The contracts and library review do not close the tasks below.
 
 ## Phase 4 — Diffusion, competition and extended VOI (R10–R12)
 
+P4.1 reuses existing M3 components and qualified installed Voiage on finite synthetic cases;
+see phase4-progress.md. Current Innovate still requires pandas/pandasdmx. Scenario and
+formula contracts are in phase4-design.md and phase4-scenarios.csv. Empirical diffusion,
+competition and monetary VOI remain gated; no task below is closed by source inspection
+or synthetic qualification alone.
+
 - [ ] Qualify actual Innovate release/API early via Phase 0; now integrate only accepted policy mechanisms and adoption evidence.
 - [ ] Execute uptake, competition, spillover and delay scenarios with empirical and hypothetical inputs labelled separately.
 - [ ] Evaluate EVPI/EVPPI/EVSI/ENBS, implementation-adjusted and staged studies; check simulation bias and convergence against finite oracles and avoid adding overlapping information values.

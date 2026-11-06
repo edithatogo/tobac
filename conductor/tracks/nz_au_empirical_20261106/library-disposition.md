@@ -83,3 +83,17 @@ Eight census differences remain, all in the analytics dependency closure:
 Bounds come from the retained installed Requires-Dist metadata and dated primary-index
 census. No override or dependency omission was used. Innovate's pandas/pandasdmx conflict
 and Searchright's fixture-only acquisition scope remain genuine subsequent-phase gaps.
+
+## Phase 4 source and installed-component recheck — 6 November 2026
+
+Innovate 0.6.0 PyPI metadata and main b9998addf32717438df92b23a306903e4db51620 still
+require pandas/pandasdmx. The optional dataframe extra adds Polars without removing them.
+Python >=3.15.1,<3.16 is compatible with the actual 3.15.2 interpreter; the no-pandas runtime
+conflict remains. BassModel and LotkaVolterraCompetition were inspected at source only;
+no installed Innovate execution or adapter qualification is claimed. Four original files
+are externally staged with exact readback; see phase4-source-receipts.json.
+
+The existing Voiage 3.1.0 adapter was executed in the retained 3.15.2 ecosystem environment:
+five finite weighted/partition checks passed at the original 1e-11 tolerance. This is not
+generic EVSI or empirical VOI certification. Existing M3/reference/workstream/publication
+selection passed 82 tests. See phase4-progress.md for commands, scope and remaining gates.

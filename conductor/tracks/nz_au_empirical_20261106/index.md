@@ -23,3 +23,8 @@
 - [Module evidence and validation matrix](phase3-module-matrix.csv)
 - [Expansion readiness and open gates](phase3-progress.md)
 - [Methods and library source receipts](phase3-source-receipts.json)
+- [Diffusion and extended VOI task card](phase4-task-card.md)
+- [Diffusion, competition and extended VOI contract](phase4-design.md)
+- [Diffusion and research scenario matrix](phase4-scenarios.csv)
+- [Finite qualification and remaining gates](phase4-progress.md)
+- [Innovate source and dependency receipts](phase4-source-receipts.json)

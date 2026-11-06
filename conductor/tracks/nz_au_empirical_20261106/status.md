@@ -49,3 +49,9 @@ health/cost/equity formula requirements and library reuse disposition. The actua
 evidence handoff remains blocked for 28 rows; no health/equity engine or empirical PSA
 was added. vop_poc_nz's current Python/pandas/Polars/Arrow requirements conflict with this
 baseline. Phase 3's original acceptance tasks remain open.
+
+Phase 4 preparation is in phase4-progress.md: ten scenario contracts, explicit reuse of
+M3 implementation/portfolio/staged methods and actual Voiage 3.1.0 finite qualification.
+Innovate source/API discovery confirms the pandas/pandasdmx incompatibility remains.
+No empirical uptake, competition, spillover, monetary EVSI/ENBS or whole-phase completion
+is claimed; existing source, inputs and native owners are preserved.

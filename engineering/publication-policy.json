@@ -1259,7 +1259,13 @@
     "conductor/tracks/nz_au_empirical_20261106/phase3-module-matrix.csv",
     "conductor/tracks/nz_au_empirical_20261106/phase3-progress.md",
     "conductor/tracks/nz_au_empirical_20261106/phase3-source-receipts.json",
-    "engineering/context/nz-au-expansion.json"
+    "engineering/context/nz-au-expansion.json",
+    "conductor/tracks/nz_au_empirical_20261106/phase4-task-card.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase4-design.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase4-scenarios.csv",
+    "conductor/tracks/nz_au_empirical_20261106/phase4-progress.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase4-source-receipts.json",
+    "engineering/context/nz-au-diffusion.json"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",

@@ -1307,3 +1307,17 @@ P3.1 terminal local evidence: 151 focused policy/evidence/value/source-handoff/p
 workstream tests passed; shared-evidence audit wrote a blocked 28-row report. Four methods
 and library originals are externally staged with hash readback. No numerical source, inputs,
 locks or native bindings changed. Phase 3 remains an evidence-gated implementation queue.
+
+## NZ/AU Phase 4 qualification ownership — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns P4.1 at the empirical worktree on
+codex/nz-au-empirical, base 79050c4. Scope is current Innovate source/metadata discovery,
+scenario contracts and synthetic qualification of existing M3 components. M3 source/tests,
+inputs, locks and native operations retain their owners. No empirical fitting or library
+installation. Next: execute the installed Voiage qualifier and existing finite-oracle tests.
+
+P4.1 terminal local evidence: installed Voiage 3.1.0 qualification passed five finite checks
+on Python 3.15.2; 82 M3/reference/workstream/publication tests passed. Innovate source and
+PyPI dependency inspection still block no-pandas integration. Ten scenario contracts are
+recorded; empirical trajectories/competition/VOI remain unexecuted. No M3 source, numerical
+inputs, dependency graph, reference outputs or native bindings changed.
