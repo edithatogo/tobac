@@ -1274,6 +1274,99 @@ This local documentation-only handoff preserves PR #139's tested head. The
 remaining operation is guarded main publication, then receiving ref and its own
 push workflow readback. No merge or post-publication success is inferred here.
 
+## NZ/AU Phase 1 preparation ownership — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns the bounded P1.1 preparation card on
+codex/nz-au-empirical at /Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac,
+base 848da48. Scope: track decision/search/appraisal metadata, bounded context profile,
+exact publication inventory entries and ignored discovery receipts. No empirical input
+admission, fitting, external repository writes, shared runtime promotion or native operation.
+Latest-lock signature renewal remains with its existing owner. Next: freeze pre-fit choices,
+qualify the actual Searchright strategy interface and record source access/rights gaps.
+
+P2.1 scope now also includes scripts/audit_empirical_coverage.py and this track's feasibility
+result/task card. The audit only inventories existing CSV bytes with Polars and existing
+source-handoff guards; it performs no fitting or empirical admission. Native ownership is unchanged.
+
+P1.1/P2.1 terminal local evidence: 103 affected/context/source-handoff/publication-boundary/
+workstream tests passed; Ruff and formatting passed; final historical coverage audit passed
+with 89.2 MiB bounded sampled group RSS. Tests establish software evidence only. New AU
+originals are external staging, not native archive admission. Phase 0 renewal and Phase 1
+source gates remain open; no empirical fit, funding claim or external publication was made.
+
+## NZ/AU Phase 3 preparation ownership — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns P3.1 on codex/nz-au-empirical at
+/Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac, base 7cd0394. Allowed scope
+is the phase3 task card: module/evidence/formula readiness records and bounded shared
+evidence audit. No numerical source/input changes, native writes, dependency promotion or
+M3 changes. Existing integrator retains latest-lock admission. Next: audit actual handoff
+gaps and freeze mechanism-specific health/equity requirements before empirical expansion.
+
+P3.1 terminal local evidence: 151 focused policy/evidence/value/source-handoff/publication/
+workstream tests passed; shared-evidence audit wrote a blocked 28-row report. Four methods
+and library originals are externally staged with hash readback. No numerical source, inputs,
+locks or native bindings changed. Phase 3 remains an evidence-gated implementation queue.
+
+## NZ/AU Phase 4 qualification ownership — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns P4.1 at the empirical worktree on
+codex/nz-au-empirical, base 79050c4. Scope is current Innovate source/metadata discovery,
+scenario contracts and synthetic qualification of existing M3 components. M3 source/tests,
+inputs, locks and native operations retain their owners. No empirical fitting or library
+installation. Next: execute the installed Voiage qualifier and existing finite-oracle tests.
+
+P4.1 terminal local evidence: installed Voiage 3.1.0 qualification passed five finite checks
+on Python 3.15.2; 82 M3/reference/workstream/publication tests passed. Innovate source and
+PyPI dependency inspection still block no-pandas integration. Ten scenario contracts are
+recorded; empirical trajectories/competition/VOI remain unexecuted. No M3 source, numerical
+inputs, dependency graph, reference outputs or native bindings changed.
+
+## NZ/AU Phase 5 software qualification ownership — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns P5.1 in the empirical worktree,
+codex/nz-au-empirical, base 1596819. Scope: synthetic sensitivity/clustering qualifier,
+its tests, isolated candidate environment and track/context/publication metadata. Scientific
+inputs, existing locks, M3 and native latest-lock admission retain their owners. No empirical
+clustering or shared runtime promotion. Next: hash-lock/install the isolated scikit-learn
+candidate, then test training-only discovery and held-out prediction on synthetic fixtures.
+
+P5.1 terminal candidate evidence: actual Python 3.15.2, scikit-learn 1.9.1, 44 hash-installed
+pandas-free packages; 107 focused tests, Ruff/format and isolated strict typing pass.
+Synthetic output/input/lock hashes read back; pip-audit covers all 44 with zero known
+vulnerabilities/skips. The existing audit profile fails seven missing-source warnings
+because optional clustering runtime packages are absent. Reference-profile integration,
+controller coverage and native/hosted promotion remain open with the integrator; no rule
+was weakened or shared environment modified. Empirical clustering remains blocked.
+
+## NZ/AU H1.1 hardening ownership — 7 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns the scoped hardening task card on
+codex/nz-au-empirical, empirical worktree, base f575fb9. Scope: public navigation/setup,
+contribution guidance, track/publication metadata and read-only GitHub/licence/workflow
+inventory. Numerical source, locks, CI settings and native admission remain unchanged.
+The existing integrator retains shared main/native renewal. Next: correct documented
+defects and verify links, publication boundaries and affected contracts.
+
+## NZ/AU Phase 6 local source-integration ownership — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns P6.1 on codex/nz-au-empirical at the
+empirical worktree, base eb3a3d5. Scope is the exact phase6 task card: optional clustering
+profile, audit dependency coverage, Nox/Snakemake and packet verification/recovery. Local
+source changes are reviewable candidates; shared main/runtime promotion and the in-progress
+native renewal stay with the existing integrator. No dirty owner source or private bindings
+will be copied. Next: extend the existing closed lock graph and verify the complete packet.
+
+P6.1 source checkpoint 0644b52 adds verified atomic synthetic packets, locked offline
+Nox/Snakemake reconstruction and compatible Hypothesis/Ty/Typer refresh. Immutable owner
+renewal 413f7b2 and closeout 8b48e22 were consumed as 832c7e3/2733c50 after exact-range
+preflight; both lanes' history and exact publication entries are retained. No private
+bindings or owner environments were copied. Final typing, offline reconstruction, scheduler
+cache/corrupt-copy and byte-identical synthetic report comparison pass. Full suite ran
+1265 passes/17 skips/21 failures before integration; native stale-pin failures stay open.
+Current requirements.lock/helper differ from signed admission, and clean-package correctly
+rejects before build. See phase6-progress.md for final focused results and terminal gates.
+Shared main/native renewal remain with chat 01a19a6e-2e47-7b10-8a35-4e7d7fedb965.
 
 ## PR #140 publication verified — 6 November 2026
 

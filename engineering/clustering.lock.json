@@ -1,0 +1,30 @@
+{
+  "schema": "tobac.lock-receipt.v1",
+  "profile": "clustering",
+  "resolver": "uv 0.13.7 (Homebrew 2026-11-03 aarch64-apple-darwin)",
+  "command": [
+    "/Users/doughnut/.local/bin/uv",
+    "--no-config",
+    "pip",
+    "compile",
+    "engineering/clustering.in",
+    "--generate-hashes",
+    "--output-file",
+    "outputs/nz-au-phase6/final-profiles-v2/clustering/clustering.lock",
+    "--universal",
+    "--python-version",
+    "3.15.2"
+  ],
+  "resolver_exit_code": 0,
+  "inputs": {
+    "pyproject.toml": "1fb5faa708887358728abd4accbcde3eac0cdeee04b876e6c6443ae179f32ca0",
+    "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
+    "engineering/reference-requirements.txt": "e1845ab04d819c7282b2a480d59cb6fb24e440351180b25668257257ebbbda43",
+    "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
+    "engineering/test-requirements.txt": "e50a4c45a8fbf0eb9b3192d03e745aa5f2d77b99fd280b8751f42820d95f71e4",
+    "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
+    "engineering/clustering.in": "b48f0b99e49bee2e5ae7ab45b15cf0467a3fab36fc16f3221b67e187c71b5fdc"
+  },
+  "lock_sha256": "2e6ecc87016c36421d536dad76fa5a3ffdb2aea49345352467df12a227040932",
+  "qualification": "candidate; review before committing; not approval or signed provenance"
+}

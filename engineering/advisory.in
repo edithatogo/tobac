@@ -1,6 +1,6 @@
 # Isolated differential type-checking tools and canonical runtime dependencies.
 -r voiage.in
-ty==0.0.98
+ty==0.0.99
 pyrefly==1.4.1
 # Match the existing qualified static interface declarations.
 scipy-stubs==1.18.1.1

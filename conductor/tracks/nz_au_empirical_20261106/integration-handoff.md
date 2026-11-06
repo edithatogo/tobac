@@ -1,4 +1,32 @@
-# Phase 0 source and native-lineage handoff
+# Foundation handoff — current frozen dependency packet
+
+Current candidate: 4015cc3, integrated with verified receiving source 3021e55 at 1ed5c9d.
+Writing chat: 01a1af53-2093-7f70-b761-e5f6cb7b769c. Worktree:
+/Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac, codex/nz-au-empirical.
+Owned scope: reviewed dependency inputs/locks, exact advisory tool-version guard, analytical
+DAG/helpers/tests and this track's evidence. Shared main/runtime promotion and native
+signing remain with the existing integrator/owner. This lane has no native mutation scope.
+
+All six receipts verify. Latest package changes add/remove no packages. Actual 3.15.2
+candidate full compatibility is 1256 passed / 15 skipped; mandatory typing has zero errors
+or warnings. Static checks, installed dependency advisory scans and clean package/API/CLI
+qualification pass. All eight candidate variants / 82 tables compare successfully against
+the immutable original reference; original replay resource summary is unavailable after
+interruption, with a separately bounded comparison retained. See phase0-audit.md and
+phase0-progress.md for exact scopes and failures/corrections.
+
+The committed-snapshot gate passed after freezing (one exact failure-only rerun). Admission
+correctly rejects the changed engineering/requirements.lock until the native owner renews
+through its qualified workflow. The owner was sent immutable 4015cc3 under the user's
+existing approved handoff. Next: receive final latest-lock native proof/signature, perform
+local admission, coherent suite and real DAG/readback; preserve the original references,
+current receiving-main fixes and existing owners' private bindings. No hash-only bypass.
+
+Receiving-main's exact context-byte correction is integrated. Its affected context/stage,
+committed-snapshot and workstream selection passed 37 tests on 3.15.2 (6.60 s; 213.6 MiB).
+No numerical calculation source changed in that receiving update.
+
+## Prior handoff history
 
 Owner: current empirical lane, worktree /Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac.
 Source packet base adb3f8127355f210c1df959d629730873b381fc2; reviewed implementation tip c1f1470.
@@ -53,4 +81,28 @@ signed runtime identity in hosted-lineage admission. This remains an open gate; 
 passing baseline evidence is not substituted. Approved cross-chat delivery was executed
 and includes the request to renew the combined scientific inventory, plus latest-qualified
 pin differences for the existing dependency owner. Direct integrated numerical replay is
-in progress and does not replace signed native acceptance.
+now passed all 82 reference CSV tables and does not replace signed native acceptance.
+
+The subsequent owner Nox/JAX correction is integrated at b118592, which was sent as the
+final combined source freeze. Affected backend/ecosystem/workstream tests passed 42/42.
+Clean-package qualification passed wheel/sdist-rebuild equality, isolated installed APIs
+and quick CLI in Unicode/space paths. Publication security passed at exit 0. The owner is
+executing native renewal; this lane retains only its own outputs and track evidence.
+
+
+## Integrator freeze — 7 November 2026
+
+Chat 01a19a6e-2e47-7b10-8a35-4e7d7fedb965 owns the root checkout
+/Users/doughnut/Documents/tobac on codex/empirical-phase0-20261107.
+The originating chat is terminal and its clean 0c4fbc8 packet is frozen as
+codex/empirical-frozen-20261107. The source worktree and its environments remain
+unchanged. Read-only preflight and freeze receipts are retained under
+outputs/empirical-phase0-20261107. Current main is verified 8b48e22.
+
+The integrator consumes complete source lock/receipt pairs, resolves documentation
+against the source's retained main readbacks, and preserves every existing public
+path/private-document binding. Seven receipts verify. Retained owner-local source
+objects, old attempts and signing authority remain in the root lane. Next: fresh
+native environment/execution/readback, signed admission, qualified commands,
+latest real M1 DAG and final Phase 0 suite/package/security checkpoint. No
+empirical Phase 1–6 completion or external-data admission is implied by this freeze.

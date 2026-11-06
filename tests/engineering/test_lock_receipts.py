@@ -2,6 +2,7 @@
 
 import importlib.util
 import json
+import re
 import subprocess
 from pathlib import Path
 
@@ -32,6 +33,7 @@ def inputs(root) -> None:
         "engineering/ecosystem.in",
         "engineering/advisory.in",
         "engineering/analytics.in",
+        "engineering/clustering.in",
         "engineering/voiage.in",
         "engineering/voiage-build-requirements.txt",
     ]
@@ -61,7 +63,9 @@ def fixture(root, profile="runtime"):
     return m, lock
 
 
-@pytest.mark.parametrize("profile", ["runtime", "audit", "voiage", "ecosystem", "advisory", "analytics"])
+@pytest.mark.parametrize(
+    "profile", ["runtime", "audit", "voiage", "ecosystem", "advisory", "analytics", "clustering"]
+)
 def test_valid_receipt_binds_exact_inputs_and_lock(tmp_path, profile) -> None:
     m, lock = fixture(tmp_path, profile)
     assert m.verify(tmp_path, lock, profile)["status"] == "pass"
@@ -424,7 +428,7 @@ def test_advisory_input_change_invalidates_only_its_profile(tmp_path, target) ->
 def test_advisory_is_opt_in_and_preserves_four_profile_inventory() -> None:
     m = load()
     assert set(m.PROFILES) == {"runtime", "audit", "voiage", "ecosystem"}
-    assert set(m.ALL_PROFILES) == set(m.PROFILES) | {"advisory", "analytics"}
+    assert set(m.ALL_PROFILES) == set(m.PROFILES) | {"advisory", "analytics", "clustering"}
 
 
 def test_analytics_input_change_invalidates_candidate(tmp_path):
@@ -432,3 +436,32 @@ def test_analytics_input_change_invalidates_candidate(tmp_path):
     (tmp_path / "engineering/analytics.in").write_text("changed")
     with pytest.raises(ValueError, match="input"):
         module.verify(tmp_path, lock, "analytics")
+
+
+@pytest.mark.parametrize("package", ["nox", "scikit-learn"])
+def test_clustering_tool_pins_match_reviewed_audit_tools(package: str) -> None:
+    def pin(path: Path) -> str:
+        return next(
+            line for line in path.read_text(encoding="utf-8").splitlines() if line.startswith(package + "==")
+        )
+
+    assert pin(ROOT / "engineering/clustering.in") == pin(ROOT / "engineering/tools-requirements.txt")
+
+
+def test_clustering_input_revision_invalidates_receipt(tmp_path: Path) -> None:
+    checker, lock = fixture(tmp_path, "clustering")
+    (tmp_path / "engineering/clustering.in").write_text("changed profile\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="input"):
+        checker.verify(tmp_path, lock, "clustering")
+
+
+def test_clustering_and_tools_are_covered_by_the_sole_updater() -> None:
+    config = json.loads((ROOT / "renovate.json").read_text(encoding="utf-8"))
+    patterns = config["pip_requirements"]["managerFilePatterns"]
+    for name in ["engineering/clustering.in", "engineering/tools-requirements.txt"]:
+        assert any(re.search(pattern.strip("/"), name) for pattern in patterns)
+    assert config["automerge"] is False
+    rule = next(
+        item for item in config["packageRules"] if "scikit-learn" in item.get("matchPackageNames", [])
+    )
+    assert rule["automerge"] is False

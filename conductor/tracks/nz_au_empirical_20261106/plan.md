@@ -18,6 +18,10 @@ R01–R19 are defined in spec.md. Existing owners retain runtime and integration
 
 ## Phase 1 — Decision definition and systematic evidence (R01–R06, R18–R19)
 
+Preparation delivered in decision-definition.md, systematic-search.md and
+phase1-appraisal.csv; qualification/gaps are in phase1-progress.md. These are partial
+deliverables, not closure of the source-admission or systematic-search gates below.
+
 - [ ] Freeze initial decision, target populations/products, dated NZ/AU policy baselines, perspectives, horizon, estimands and validation split before fitting.
 - [ ] Qualify Searchright CLI/provider routes; run versioned searches with seed checks, source-specific queries, screening, exclusions and update rules.
 - [ ] Verify existing external archive/GitHub/Hugging Face identities, rights, exact destinations and readback; save originals outside tobac.
@@ -27,6 +31,12 @@ R01–R19 are defined in spec.md. Existing owners retain runtime and integration
 
 ## Phase 2 — First empirical vertical slice (R03–R10, R16, R18)
 
+P2.1 feasibility executed: existing NZ coverage audited with Polars, actual AU programme
+design checked and an ACIC denominator discrepancy quarantined. See phase2-feasibility.md.
+Current illicit consumption and empirical monetary VOI are not identified/admitted; fitting
+and held-out comparison remain gated by Phase 0 and Phase 1. No row below is closed by a
+scope audit or algebraic argument alone.
+
 - [ ] Integrate qualified NZ survey, lawful releases, prices, trade and denominators using Polars; add actual Australian wastewater programme design and measurement evidence.
 - [ ] Reconcile dates, products, catchments, lawful unrecorded flows, stock, shared sources and calibration. Assess identifiability before fitting; retain partial-identification bounds where needed.
 - [ ] Fit the supported baseline and one existing retail/cessation contrast; preserve original finite-state reference results separately.
@@ -35,12 +45,23 @@ R01–R19 are defined in spec.md. Existing owners retain runtime and integration
 
 ## Phase 3 — Policy, health and equity expansion (R05–R08, R12, R18)
 
+P3.1 readiness preparation is in phase3-design.md and phase3-module-matrix.csv. The actual
+shared-evidence audit reports 28 blocked rows; see phase3-progress.md. Empirical mechanisms,
+health/equity outputs and PSA remain unimplemented pending Phase 0–2 and module-specific
+evidence. The contracts and library review do not close the tasks below.
+
 - [ ] Add accepted excise, retail, nicotine, cohort, cessation, enforcement and product-substitution modules incrementally with independent reference checks.
 - [ ] Add health histories, disease lags, competing risks, HR-QoL and costs only where justified; preserve separate perspectives and subgroup outputs.
 - [ ] Run module-level PSA, structural sensitivity and predictive checks at each addition, not only after expansion.
 - [ ] Checkpoint: verify subgroup aggregation, double-counting prevention, horizon/discounting, external validation and incremental explanatory value against the simpler baseline.
 
 ## Phase 4 — Diffusion, competition and extended VOI (R10–R12)
+
+P4.1 reuses existing M3 components and qualified installed Voiage on finite synthetic cases;
+see phase4-progress.md. Current Innovate still requires pandas/pandasdmx. Scenario and
+formula contracts are in phase4-design.md and phase4-scenarios.csv. Empirical diffusion,
+competition and monetary VOI remain gated; no task below is closed by source inspection
+or synthetic qualification alone.
 
 - [ ] Qualify actual Innovate release/API early via Phase 0; now integrate only accepted policy mechanisms and adoption evidence.
 - [ ] Execute uptake, competition, spillover and delay scenarios with empirical and hypothetical inputs labelled separately.
@@ -49,6 +70,11 @@ R01–R19 are defined in spec.md. Existing owners retain runtime and integration
 
 ## Phase 5 — Cross-model sensitivity and clustering (R12–R13, R18)
 
+P5.1 implements a synthetic SciPy/scikit-learn qualifier with training-only cluster
+discovery, bootstrap stability, supervised label prediction and no-use/leakage checks.
+See phase5-progress.md. It is an isolated software candidate, not cross-model empirical
+PSA, country/group validation or a demographic finding. Original tasks remain open.
+
 - [ ] Execute joint correlated PSA, global/structural/prior/value sensitivity, thresholds, interactions and decision regret on validated models.
 - [ ] Discover clusters on training simulations only; select scaling/features/cluster count and assess bootstrap stability and interpretability.
 - [ ] Train supervised predictors of frozen cluster labels; validate on held-out seeds/parameter regions and country/time groups where applicable. Compare simple baselines and report imbalance/calibration.
@@ -56,10 +82,15 @@ R01–R19 are defined in spec.md. Existing owners retain runtime and integration
 
 ## Phase 6 — Reproducibility, refresh and integration (R14–R19)
 
+P6.1 adds locked Nox/Snakemake synthetic reconstruction, atomic packet publication,
+pre-cache integrity validation and dependency refresh qualification. See phase6-progress.md
+and phase6-task-card.md. These are software controls; native renewal, clean-package,
+receiving publication and empirical source recovery remain distinct gates below.
+
 - [ ] Execute full suite, relevant numerical replay, clean-package, security and declared platform gates at the coherent milestone; reuse unchanged receipts.
 - [ ] Verify full source-to-formula-to-output manifests, offline reconstruction, missing/corrupt input rejection and recovery after interrupted execution.
 - [ ] Recheck latest versions at release decision; changed candidates repeat affected gates without silently refreshing frozen results.
-- [ ] Add new dependencies to existing Renovate/lock coverage; retain sole updater, no automatic scientific merges and separate experimental canary.
+- [x] Add new dependencies to existing Renovate/lock coverage; retain sole updater, no automatic scientific merges and separate experimental canary. P6.1 configuration and affected contract tests pass; this does not claim hosted refresh execution.
 - [ ] Verify source revisions/retractions trigger impact analysis and new output versions; preserve old editions and human interpretations.
 - [ ] Reconcile shared Conductor files with the integrator; guarded publication and receiving ref/file readback, then terminal evidence handoff.
 

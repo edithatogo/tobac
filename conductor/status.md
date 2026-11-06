@@ -463,7 +463,6 @@ Receiving-main workflows require their own terminal readback; none is inferred
 from the PR checks. The remaining operation is this Conductor publication's
 protected merge and final receiving workflow verification.
 
-
 ## PR #140 publication verified — 6 November 2026
 
 PR #140 head `3021e559aac83e2cab2f47c3a2ea937da78d6552` completed its
