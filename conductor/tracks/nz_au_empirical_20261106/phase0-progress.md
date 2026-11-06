@@ -509,3 +509,41 @@ owner's pending packet. Reused package/security/resource receipts at their actua
 Recorded severity, ownership, allowed files, focused commands and H1/H2 follow-ups in the
 hardening index; marked only H0 complete. Staged publication-boundary validation passed
 (56.2 MiB sampled peak). No source, lock, signed object or workflow was changed here.
+
+## Integrated renewal and real-DAG defect
+
+Merged the owner's immutable b3f3130 packet as cd147ba after preflight: clean target, no
+overlap/staged deletions; dirty owner Conductor edits were not copied. All 33 signed pin
+blobs match that packet. Attested admission verifies all eight runner closures; the original
+numerical archive remains byte-identical (SHA256 083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9).
+This lane's renewed full suite passed 1245 tests, with 20 capability skips, in 49.13 seconds
+(744.2 MiB sampled peak). Owner native bindings separately passed 1258 / 7 skipped.
+
+The real M1 Snakemake invocation then failed before scientific execution: a file output
+at m1/manifest.json made Snakemake precreate m1, which the atomic stage correctly rejects.
+Direct stage success and unit tests had not covered that scheduler boundary. Preserved the
+failure logs and the stage's existing-output guard. Changed the DAG to a protected directory
+output, validates output containment and reopens existing source/output manifests before
+cache selection. No calculation, source data or numerical tolerance changed.
+
+The actual maintained rule was executed with real Snakemake 9.27.1 and an explicitly labelled
+fixture writer: fresh destination success, cache no-op, protected rerun refusal with previous
+bytes retained. A separate actual-workflow invocation rejects an outside destination before
+reading inputs. These fixture checks do not bypass or qualify native admission. Explicit
+TOBAC_SNAKEMAKE plus stage/context/workstream tests: 36 passed, 5.96 seconds, 207.2 MiB sampled
+peak. Ruff/format pass. Tests require the real optional analytics capability, with a reasoned
+skip when it is absent. Current signed DAG identity is now stale until owner renewal.
+
+Asked the retained dependency/native owner to qualify remaining compatible latest profile
+pins before the next combined freeze/signature, preserving Python 3.15.1, original oracles,
+upstream constraints and global hooks. This closes the outstanding newest-qualified runtime
+requirement in the correct sequence. Actual M1 DAG, final full suite and latest promotion
+remain open; no current Phase 0 completion claim is made.
+
+Receiving main has since advanced to eca4e8a (Python 3.15.2). The retained owner is qualifying
+that integrated native runtime; it is now the receiving baseline to reconcile before final
+acceptance. The scheduler correction above was tested on the earlier qualified 3.15.1
+snapshot and must be exercised on the qualified receiving patch after integration. Preserved
+the isolated Ruff 0.17.4 analytics candidate/receipt, but did not adopt its 3.15.1 resolver
+artifact into a moving runtime baseline. Final profile resolution and signing must use the
+combined source and newest qualified patch, with prior execution receipts kept historical.

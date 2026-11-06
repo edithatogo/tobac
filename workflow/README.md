@@ -17,21 +17,33 @@ the installed default CBC solver is Intel-only. No solver binary workaround is a
 Supply a reviewed context profile and a bundle from scripts/context_bundle.py. Existing
 bundles are immutable inputs; failed verification requires correcting the source or generating
 a new reviewed bundle. verified.json is context acceptance only. Logs and receipts are local
-outputs; no source data is added to this code repository. The workflow currently has a single
-admission stage; scientific stages must retain existing lineage_preflight.py and native input
-verification rather than treating this receipt as their replacement.
+outputs; no source data is added to this code repository. The scientific target retains
+separate attested input admission; the context receipt does not replace native input verification.
 
-## Scientific M1 target (pending renewed lineage acceptance)
+## Scientific M1 target
 
-Set `analysis=m1` to require an M1 manifest in the `all` target. Admission reopens the
+Set `analysis=m1` to require a completed M1 directory containing its manifest. Admission reopens the
 existing attested source capsule before cache selection and again inside run_m1_stage.py.
 The wrapper uses the unchanged M1 runner and verifier, deterministic process settings,
 per-attempt logs and a temporary analysis directory. It publishes the completed directory
 by rename only after all checks pass; existing outputs are never overwritten. Failed
 attempt logs remain for diagnosis; partial staged directories are not accepted outputs.
 
-Adding the wrapper changed the scientific operation inventory. The existing attested gate
-currently rejects it with `Scientific inventory differs from native acceptance`. This is
-an open integration requirement, not permission to rename the script to evade inventory,
-edit capsule hashes, copy private bindings or claim a successful scientific DAG. Renew the
-lineage contract through its owning lane before qualification. Context-only mode is separate.
+The completed directory is a protected Snakemake directory output. Declaring the inner
+manifest as a file output would cause Snakemake to precreate the destination and conflict
+with atomic publication. A cached invocation verifies the existing source/output manifest
+before scheduler selection; directory timestamps alone cannot detect corrupted members.
+Use a new output root for a changed analysis. Protected results are not automatically
+overwritten when inputs change. See the [Snakemake output rules](https://github.com/snakemake/snakemake/blob/main/docs/snakefiles/rules.rst).
+
+The integrated renewal passed attested admission and the direct M1 stage. Its first real
+DAG invocation exposed the destination-precreation defect above. The directory correction
+passed real-scheduler fixture tests, but changes a signed DAG input and requires another
+owner-issued capsule before real M1 DAG acceptance. Do not bypass signature checks, rename
+scripts out of inventory or copy private bindings. Context-only qualification is separate.
+
+The scheduler regression in tests/engineering/test_m1_stage.py uses a clearly labelled
+fixture writer and the actual maintained M1 rule. It proves scheduling, cache and output
+preservation behavior, not native or scientific acceptance. Supply the actual qualified
+Snakemake executable through TOBAC_SNAKEMAKE; an environment without the optional analytics
+tool reports that capability as skipped rather than substituting a fake scheduler.
