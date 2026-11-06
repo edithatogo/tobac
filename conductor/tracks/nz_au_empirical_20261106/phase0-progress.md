@@ -411,3 +411,237 @@ completed with 1222 passed, 20 skipped and 16 failures in 55.60 seconds, sampled
 910.1 MiB. Every failure is in test_hosted_lineage.py and rejects the stale signed
 engineering/requirements.lock pin before the workload; inventory renewal is also still
 required. No failure was suppressed and no signed reference was edited.
+
+## Integrated numerical replay and final Voiage routes
+
+All eight variants executed serially in the dataframe-free canonical runtime. The existing
+reference comparator passed all 82 CSV tables with its unchanged identity/schema/tolerance
+checks; sampled group peak 819.7 MiB, exit 0. Full M1 was recomputed rather than copied.
+Report: outputs/nz-au-phase0/integrated-replay/full-numerical-reproduction.json. This is
+direct software/reference parity, not renewed native or empirical acceptance.
+
+After that run was terminal, clean read-only integration preflight found no dirty overlaps
+or staged deletions for owner commit 6b98348. Integrated it as b118592: published-wheel Nox
+routes and exact Voiage 3.1.0 JAX guard, retaining rejection of unknown/retired versions.
+No numerical formula changed. Affected backend/ecosystem/workstream tests passed 42/42
+in 1.67 seconds, sampled peak 118.2 MiB. An initial invocation named a nonexistent workflow
+test file and collected no tests (exit 4); the corrected exact existing selection above
+provides the evidence. Owner's qualified Nox receipts remain separate and are reused.
+
+Sent b118592 as the combined source/Nox freeze for retained native readback and signing.
+No source, lock or Nox edits are planned while issuance runs. Dependency promotion timing
+was explicitly requested before issuance; owner/integrator retains that scope. Track-only
+evidence updates do not change the frozen scientific source.
+
+The existing clean-package qualifier passed directly on b118592 (133.5 MiB sampled peak).
+It built wheel/sdist, rebuilt the wheel from the sdist with equal member contents, checked
+Apache-2.0 metadata/notice and dependency-marker contracts, hash-installed into fresh external
+Unicode/space paths, verified site-packages imports and finite-oracle/interchange APIs, and
+ran the installed quick M1 CLI for both wheels. Both external environments were automatically
+removed at terminal exit. Scope is software packaging and quick CLI, not the lineage-gated
+Nox clean_package session or full-platform scientific acceptance. Receipt retained under
+outputs/nz-au-phase0/integrated-clean-package/receipt.json. Whole maintained-source Ruff
+check with the latest qualified 0.17.4 passed (8.8 MiB sampled peak).
+
+The interrupted publication-security process reached terminal success (exit 0, sampled
+peak 182.5 MiB). Its log was recovered rather than starting a duplicate scan. It exercised
+the maintained public-path/history, pinned Gitleaks and Actionlint checks. The native owner
+has an actual active renewal operation on the combined source; this lane has not written
+its native objects or copied its credentials. Installed a fresh canonical audit environment
+from the integrated hash lock to verify final source typing without the historical latest
+audit candidate's former pandas packages. Installation passed at 131.4 MiB sampled peak.
+
+Fresh integrated audit profile: actual Python 3.15.1, 93 compatible packages, no importable
+pandas/xarray. Final strict whole-source BasedPyright passed with zero errors/warnings,
+733.3 MiB sampled peak. No global type-check relaxation or scientific source change was
+used. Current final full-suite, latest-promotion and signed-native gates remain open.
+
+## Held-dependency reconciliation and latest analytics candidate
+
+Reconciled all six integrated locks against the dated 146-package index census. Nineteen
+remaining differences have individual primary-source/disposition entries in
+library-disposition.md; raw comparison is integrated-held-dependencies.json. Read installed
+Snakemake/interface/SQLModel Requires-Dist bounds rather than inferring compatibility from
+version numbers. Forced interface-common 1.24.0 resolution failed because its packaging>=26.1
+conflicts with Snakemake's packaging<26 (exit 1, 4.6 MiB sampled peak). No bound was relaxed.
+
+Fresh universal Python 3.15.1 analytics resolution changed only Ruff 0.17.3 to 0.17.4.
+Hash installation and dependency consistency passed in .venv-analytics-latest (56 packages,
+94.5 MiB sampled install peak), with no pandas/xarray. Actual CLI package versions are
+Snakemake 9.27.1, Ruff 0.17.4, Polars 2.1.0 and Arrow 26.0.1. The real context DAG passed
+on clean a334aa2 (90.0 MiB sampled peak). Its first invocation rejected a stale bundle after
+this lane committed the ledger while the run was starting; retained that failure and rebuilt
+context at the new HEAD before the successful run. No source guard was weakened. This
+candidate is not promoted while the native owner is issuing against the frozen source.
+
+Read-only remote/main reconciliation observed 58a4b2f602f4678ac5be3b59bd8e6b807ff9ae6d.
+It is an ancestor of the owner's combined renewal branch, which preserves newer main
+workflow pins. Those exact pins and the terminal capsule must be consumed together; do
+not overwrite them with this lane's older workflow files. Recheck at final integration.
+
+## Renewal compatibility finding
+
+Bounded public read of the owner's in-progress renewal found that the newly active hosted
+checkpoint hash differs from the original numerical-reference archive's checkpoint, while
+the comparator imports the active checkpoint identity and requires equality. Reported the
+specific mismatch to the native owner before integration. Requested preservation of the
+original finite oracle, explicit separation/mapping of checkpoint roles, retained closure
+checks and targeted rejection controls. No dirty source or private binding was copied and
+no signed reference was edited in this lane. The owner is still qualifying its packet.
+Added the final task-card execution order, including source freeze/context/terminal-log/
+commit sequencing, so the observed stale-context error is not repeated by the next agent.
+
+## Companion hardening H0 inventory
+
+Completed the companion's H0 baseline inventory while the native owner finished its packet.
+CommonMark parsing covered 180 tracked Markdown files, 490 links and 350 local targets.
+All 21 missing targets are catalogued local-only authoring documents; none was restored.
+Corrected five README destinations/labels and its obsolete active Voiage wording using the
+qualified published-wheel receipt, retaining historical qualification and scientific limits.
+Subsequent inventory has 16 remaining historical/technical references, with none in README.
+External HTTP, anchors, HTML and rendering are explicitly untested. Baseline and subsequent
+inventories are distinct retained artifacts.
+
+Live GitHub metadata matched public visibility, Apache-2.0 and research description/topics;
+no native setting changed. Structural inventory of 15 workflows found no unpinned remote
+action; four named jobs carry feature-specific write scopes. Newer main pins remain in the
+owner's pending packet. Reused package/security/resource receipts at their actual scopes.
+Recorded severity, ownership, allowed files, focused commands and H1/H2 follow-ups in the
+hardening index; marked only H0 complete. Staged publication-boundary validation passed
+(56.2 MiB sampled peak). No source, lock, signed object or workflow was changed here.
+
+## Integrated numerical replay and final Voiage routes
+
+All eight variants executed serially in the dataframe-free canonical runtime. The existing
+reference comparator passed all 82 CSV tables with its unchanged identity/schema/tolerance
+checks; sampled group peak 819.7 MiB, exit 0. Full M1 was recomputed rather than copied.
+Report: outputs/nz-au-phase0/integrated-replay/full-numerical-reproduction.json. This is
+direct software/reference parity, not renewed native or empirical acceptance.
+
+After that run was terminal, clean read-only integration preflight found no dirty overlaps
+or staged deletions for owner commit 6b98348. Integrated it as b118592: published-wheel Nox
+routes and exact Voiage 3.1.0 JAX guard, retaining rejection of unknown/retired versions.
+No numerical formula changed. Affected backend/ecosystem/workstream tests passed 42/42
+in 1.67 seconds, sampled peak 118.2 MiB. An initial invocation named a nonexistent workflow
+test file and collected no tests (exit 4); the corrected exact existing selection above
+provides the evidence. Owner's qualified Nox receipts remain separate and are reused.
+
+Sent b118592 as the combined source/Nox freeze for retained native readback and signing.
+No source, lock or Nox edits are planned while issuance runs. Dependency promotion timing
+was explicitly requested before issuance; owner/integrator retains that scope. Track-only
+evidence updates do not change the frozen scientific source.
+
+The existing clean-package qualifier passed directly on b118592 (133.5 MiB sampled peak).
+It built wheel/sdist, rebuilt the wheel from the sdist with equal member contents, checked
+Apache-2.0 metadata/notice and dependency-marker contracts, hash-installed into fresh external
+Unicode/space paths, verified site-packages imports and finite-oracle/interchange APIs, and
+ran the installed quick M1 CLI for both wheels. Both external environments were automatically
+removed at terminal exit. Scope is software packaging and quick CLI, not the lineage-gated
+Nox clean_package session or full-platform scientific acceptance. Receipt retained under
+outputs/nz-au-phase0/integrated-clean-package/receipt.json. Whole maintained-source Ruff
+check with the latest qualified 0.17.4 passed (8.8 MiB sampled peak).
+
+The interrupted publication-security process reached terminal success (exit 0, sampled
+peak 182.5 MiB). Its log was recovered rather than starting a duplicate scan. It exercised
+the maintained public-path/history, pinned Gitleaks and Actionlint checks. The native owner
+has an actual active renewal operation on the combined source; this lane has not written
+its native objects or copied its credentials. Installed a fresh canonical audit environment
+from the integrated hash lock to verify final source typing without the historical latest
+audit candidate's former pandas packages. Installation passed at 131.4 MiB sampled peak.
+
+Fresh integrated audit profile: actual Python 3.15.1, 93 compatible packages, no importable
+pandas/xarray. Final strict whole-source BasedPyright passed with zero errors/warnings,
+733.3 MiB sampled peak. No global type-check relaxation or scientific source change was
+used. Current final full-suite, latest-promotion and signed-native gates remain open.
+
+## Held-dependency reconciliation and latest analytics candidate
+
+Reconciled all six integrated locks against the dated 146-package index census. Nineteen
+remaining differences have individual primary-source/disposition entries in
+library-disposition.md; raw comparison is integrated-held-dependencies.json. Read installed
+Snakemake/interface/SQLModel Requires-Dist bounds rather than inferring compatibility from
+version numbers. Forced interface-common 1.24.0 resolution failed because its packaging>=26.1
+conflicts with Snakemake's packaging<26 (exit 1, 4.6 MiB sampled peak). No bound was relaxed.
+
+Fresh universal Python 3.15.1 analytics resolution changed only Ruff 0.17.3 to 0.17.4.
+Hash installation and dependency consistency passed in .venv-analytics-latest (56 packages,
+94.5 MiB sampled install peak), with no pandas/xarray. Actual CLI package versions are
+Snakemake 9.27.1, Ruff 0.17.4, Polars 2.1.0 and Arrow 26.0.1. The real context DAG passed
+on clean a334aa2 (90.0 MiB sampled peak). Its first invocation rejected a stale bundle after
+this lane committed the ledger while the run was starting; retained that failure and rebuilt
+context at the new HEAD before the successful run. No source guard was weakened. This
+candidate is not promoted while the native owner is issuing against the frozen source.
+
+Read-only remote/main reconciliation observed 58a4b2f602f4678ac5be3b59bd8e6b807ff9ae6d.
+It is an ancestor of the owner's combined renewal branch, which preserves newer main
+workflow pins. Those exact pins and the terminal capsule must be consumed together; do
+not overwrite them with this lane's older workflow files. Recheck at final integration.
+
+## Renewal compatibility finding
+
+Bounded public read of the owner's in-progress renewal found that the newly active hosted
+checkpoint hash differs from the original numerical-reference archive's checkpoint, while
+the comparator imports the active checkpoint identity and requires equality. Reported the
+specific mismatch to the native owner before integration. Requested preservation of the
+original finite oracle, explicit separation/mapping of checkpoint roles, retained closure
+checks and targeted rejection controls. No dirty source or private binding was copied and
+no signed reference was edited in this lane. The owner is still qualifying its packet.
+Added the final task-card execution order, including source freeze/context/terminal-log/
+commit sequencing, so the observed stale-context error is not repeated by the next agent.
+
+## Companion hardening H0 inventory
+
+Completed the companion's H0 baseline inventory while the native owner finished its packet.
+CommonMark parsing covered 180 tracked Markdown files, 490 links and 350 local targets.
+All 21 missing targets are catalogued local-only authoring documents; none was restored.
+Corrected five README destinations/labels and its obsolete active Voiage wording using the
+qualified published-wheel receipt, retaining historical qualification and scientific limits.
+Subsequent inventory has 16 remaining historical/technical references, with none in README.
+External HTTP, anchors, HTML and rendering are explicitly untested. Baseline and subsequent
+inventories are distinct retained artifacts.
+
+Live GitHub metadata matched public visibility, Apache-2.0 and research description/topics;
+no native setting changed. Structural inventory of 15 workflows found no unpinned remote
+action; four named jobs carry feature-specific write scopes. Newer main pins remain in the
+owner's pending packet. Reused package/security/resource receipts at their actual scopes.
+Recorded severity, ownership, allowed files, focused commands and H1/H2 follow-ups in the
+hardening index; marked only H0 complete. Staged publication-boundary validation passed
+(56.2 MiB sampled peak). No source, lock, signed object or workflow was changed here.
+
+## Integrated renewal and real-DAG defect
+
+Merged the owner's immutable b3f3130 packet as cd147ba after preflight: clean target, no
+overlap/staged deletions; dirty owner Conductor edits were not copied. All 33 signed pin
+blobs match that packet. Attested admission verifies all eight runner closures; the original
+numerical archive remains byte-identical (SHA256 083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9).
+This lane's renewed full suite passed 1245 tests, with 20 capability skips, in 49.13 seconds
+(744.2 MiB sampled peak). Owner native bindings separately passed 1258 / 7 skipped.
+
+The real M1 Snakemake invocation then failed before scientific execution: a file output
+at m1/manifest.json made Snakemake precreate m1, which the atomic stage correctly rejects.
+Direct stage success and unit tests had not covered that scheduler boundary. Preserved the
+failure logs and the stage's existing-output guard. Changed the DAG to a protected directory
+output, validates output containment and reopens existing source/output manifests before
+cache selection. No calculation, source data or numerical tolerance changed.
+
+The actual maintained rule was executed with real Snakemake 9.27.1 and an explicitly labelled
+fixture writer: fresh destination success, cache no-op, protected rerun refusal with previous
+bytes retained. A separate actual-workflow invocation rejects an outside destination before
+reading inputs. These fixture checks do not bypass or qualify native admission. Explicit
+TOBAC_SNAKEMAKE plus stage/context/workstream tests: 36 passed, 5.96 seconds, 207.2 MiB sampled
+peak. Ruff/format pass. Tests require the real optional analytics capability, with a reasoned
+skip when it is absent. Current signed DAG identity is now stale until owner renewal.
+
+Asked the retained dependency/native owner to qualify remaining compatible latest profile
+pins before the next combined freeze/signature, preserving Python 3.15.1, original oracles,
+upstream constraints and global hooks. This closes the outstanding newest-qualified runtime
+requirement in the correct sequence. Actual M1 DAG, final full suite and latest promotion
+remain open; no current Phase 0 completion claim is made.
+
+Receiving main has since advanced to eca4e8a (Python 3.15.2). The retained owner is qualifying
+that integrated native runtime; it is now the receiving baseline to reconcile before final
+acceptance. The scheduler correction above was tested on the earlier qualified 3.15.1
+snapshot and must be exercised on the qualified receiving patch after integration. Preserved
+the isolated Ruff 0.17.4 analytics candidate/receipt, but did not adopt its 3.15.1 resolver
+artifact into a moving runtime baseline. Final profile resolution and signing must use the
+combined source and newest qualified patch, with prior execution receipts kept historical.

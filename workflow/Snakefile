@@ -11,6 +11,15 @@ PYTHON = str(Path(config["python"]).absolute())
 ANALYSIS = config.get("analysis", "context")
 if ANALYSIS not in {"context", "m1"}:
     raise ValueError("Supported analysis targets: context, m1")
+OUTPUT_ROOT = Path("outputs").resolve()
+OUT_PATH = Path(OUT).resolve()
+RESULT = (OUT_PATH / "m1").resolve()
+if (
+    not OUT_PATH.is_relative_to(OUTPUT_ROOT)
+    or OUT_PATH == OUTPUT_ROOT
+    or not RESULT.is_relative_to(OUT_PATH)
+):
+    raise ValueError("Select an output directory below repository outputs")
 CONTRACT = json.loads(Path(PROFILE).read_text(encoding="utf-8"))
 # Revalidate even on a cached run: Git HEAD changes and preserved mtimes must not
 # permit a stale bundle to pass merely because Snakemake skips the rule.
@@ -28,10 +37,18 @@ if ANALYSIS == "m1":
         timeout=30,
         stdout=subprocess.DEVNULL,
     )
+    # A directory timestamp cannot detect altered/missing members. Reopen the
+    # existing source/output manifest before selecting cached work or reruns.
+    if RESULT.exists():
+        subprocess.run(
+            [PYTHON, "scripts/verify.py", str(RESULT)],
+            check=True,
+            timeout=30,
+        )
 
 rule all:
     input:
-        OUT + "/m1/manifest.json" if ANALYSIS == "m1" else OUT + "/verified.json"
+        OUT + "/m1" if ANALYSIS == "m1" else OUT + "/verified.json"
 
 rule verify_context:
     input:
@@ -61,7 +78,7 @@ rule m1:
         source=sorted(str(p) for p in Path("src/tobac").rglob("*.py")),
         provenance=sorted(str(p) for p in Path("integration/archive").glob("*.json"))
     output:
-        OUT + "/m1/manifest.json"
+        protected(directory(OUT + "/m1"))
     log:
         OUT + "/m1-stage.log"
     resources:
