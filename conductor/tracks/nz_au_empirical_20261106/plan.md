@@ -6,14 +6,14 @@ R01–R19 are defined in spec.md. Existing owners retain runtime and integration
 
 ## Phase 0 — Baseline, runtime and workflow foundation (R14–R17)
 
-- [ ] Record actual HEAD, ownership, bounded context hashes and reusable baseline receipts; reconcile with current main before integration.
-- [ ] Inventory active source, scripts, notebooks, CI, containers and environments; map existing capabilities, defects, duplicated calculations and pandas/xarray usage.
+- [x] Record actual HEAD, ownership, bounded context hashes and reusable baseline receipts; reconcile with current main before integration. Receiving 3.15.2 source and exact owner packets are integrated; final publication readback remains separate.
+- [x] Inventory active source, scripts, notebooks, CI, containers and environments; map existing capabilities, defects, duplicated calculations and pandas/xarray usage. See phase0-inventory.md and its integrated disposition; historical/environment boundaries remain explicit.
 - [x] Record a dated upstream version census for direct and transitive dependencies, including Python patch, Searchright, Innovate, Voiage and Snakemake; distinguish release, prerelease and development revisions.
 - [x] Coordinate the existing dependency/Polars owner; consume their qualified commits rather than repeat migration or replace their environment. Frozen source/profile/Nox packets integrated through b118592; final lineage and latest-pin promotion remain separate open gates below.
-- [ ] Resolve newest supported candidates in isolated repo-local Python 3.15.2 environments; use existing lock_receipt.py and reviewed hash locks for all affected profiles, extending coverage for new analytical tools. Preserve earlier 3.15.1 qualification as history; receiving main qualified the newer patch in PR #91.
+- [x] Resolve newest supported candidates in isolated repo-local Python 3.15.2 environments; use existing lock_receipt.py and reviewed hash locks for all affected profiles, extending coverage for new analytical tools. Five reviewed latest profiles plus analytics resolve; upstream-conflicting holds are explicit. Earlier 3.15.1 qualification remains history.
 - [ ] Hash-install and verify actual versions, dependency consistency, typing, security, clean packaging and affected numerical parity. Record latest available versus latest qualified, incompatibility and disposition for every held-back dependency.
 - [x] Mature existing code with bounded fixes, shared-contract reuse, unit/error handling, deterministic RNG, configuration validation and focused regression checks before adding equivalent new machinery. Verified context/cache/error guards reuse existing contracts; numerical reference retained.
-- [ ] Implement a minimal logged analytical DAG with immutable manifests and fail-closed input admission; qualify Snakemake separately while retaining Nox engineering sessions. Latest AGENTS.md retains Nox preference: record reconciliation of the explicit Snakemake request before activating a second runner.
+- [x] Implement a minimal logged analytical DAG with immutable manifests and fail-closed input admission; qualify Snakemake separately while retaining Nox engineering sessions. Explicit analytical Snakemake selection is reconciled in workflow/README.md; real M1, cache, preservation and corrupt-copy checks passed. Latest signed-lock admission remains a final checkpoint gate.
 - [ ] Checkpoint: baseline reproduction and affected/workstream tests pass; no unexplained numerical drift; workflow failure/resume checks pass. Empirical expansion requires this gate.
 
 ## Phase 1 — Decision definition and systematic evidence (R01–R06, R18–R19)

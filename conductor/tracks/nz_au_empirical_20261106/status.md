@@ -8,14 +8,17 @@ execution receipts remain intact; the progress history is preserved.
 The actual default .venv is hash-installed on Python 3.15.2 with 36 compatible packages and
 no pandas/xarray. The isolated analytics profile is regenerated for 3.15.2 with Snakemake
 9.27.1, Ruff 0.17.4, Polars 2.1.0 and Arrow 26.0.1; its 56-package installation and consistency
-checks pass. All six lock receipts verify. Remaining compatible core/audit/ecosystem updates
-are still a Phase 0 requirement; the dated held-version ledger distinguishes them from
-upstream-incompatible constraints.
+checks pass. All six lock receipts verify. The eleven compatible held updates are now adopted in this isolated branch; all six lock
+receipts verify. Eight upstream-constrained analytics dependencies remain justified. Shared
+promotion and renewed signed admission for the new core lock remain open.
 
-Local attested admission passes all eight runner closures (140 expected outputs). This is
-signature/current-input verification, separate from the owner's direct native byte readback.
-The affected stage/context/workstream selection passes 36 tests on 3.15.2, including a real
-scheduler fixture. The final real M1 DAG and coherent full-suite checkpoint remain open.
+Before the latest lock update, local attested admission passed all eight runner closures
+(140 expected outputs). Current admission awaits renewed lock identity. Attested verification
+is separate from the owner's direct native byte readback.
+The real M1 DAG, published-output check, unchanged cache and corrupt-copy rejection pass
+on the admitted baseline. Baseline full suite: 1251 passed / 20 skipped; latest ecosystem
+compatibility suite: 1256 passed / 15 skipped. Latest typing, static checks, advisory scans
+and clean packaging pass. Final coherent admission/suite for the adopted lock is open.
 Earlier 3.15.1 suites/replays are historical evidence, not current-runtime acceptance.
 
 The DAG retains separate context and scientific admission, deterministic settings, attempt

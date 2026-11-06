@@ -476,3 +476,45 @@ closures and 140 expected outputs. It remains an attested/current-input check, n
 native byte readback in this lane. Active specification, plan, execution contract and
 workflow guidance now select the qualified 3.15.2 patch; earlier receipts remain historical.
 Real scientific DAG, remaining compatible dependency promotions and final checkpoint are open.
+
+## Latest compatible profile candidate — frozen acceptance preparation
+
+Real M1 DAG at b027688 passed on 3.15.2 (218.3 MiB sampled peak), post-publish verification
+and cached no-op passed, and an isolated corrupted copy was rejected before calculation.
+Original protected bytes and its single stage event remain unchanged. The immutable
+m1-dag3152-qualification.json records environments, locks, workflow, context and log hashes.
+The current baseline suite passed 1251 / 20 skipped (58.12 s; 927.2 MiB sampled peak).
+
+Prepared an isolated 13-input graph for the eleven compatible held dependency updates.
+The first resolver rejected a missed duplicate Hypothesis pin; corrected both declarations,
+retained v1 failure/manifest and generated all five v2 profiles through lock_receipt.py.
+Review found only intended version changes, with no additions/removals or pandas/xarray.
+Latest ecosystem hash install/consistency passed (57 installed packages); full compatibility
+suite passed 1256 / 15 skipped (99.13 s; 1005.0 MiB peak). JAX/interchange passed (337.0 MiB).
+The registry install initially lacked wheel-origin metadata; the maintained Voiage probe
+rejected it. Explicit hash-bound original-wheel installation preserved dependency validation;
+198 wheel members, 90 comparisons and six ownership cases then passed (228.9 MiB peak).
+
+Latest audit installation/consistency passed (93 packages), strict whole-source typing had
+zero errors/warnings (858.6 MiB), and whole-source Ruff/format plus offline pedantic Zizmor
+passed. Installed ecosystem/audit advisory scans covered 57/93 packages without skipped
+coverage or known vulnerabilities (126.5 MiB peak). These are advisory-database scopes.
+
+All eight latest-candidate computations and 82 tables reached persisted comparison success.
+The final original resource-guard summary was lost on interruption, so no replay peak is
+claimed. Rechecked all saved tables using the maintained comparator under a fresh guard
+(107.8 MiB, exit 0). Original reference archive/checkpoint roles and tolerances are unchanged.
+
+Adopted seven matching candidate inputs and five complete generated lock/receipt pairs into
+this isolated branch; all six receipts verify. Updated only the exact admitted Ty/Pyrefly
+version tuple. Their actual eleven fixture/crash cases and full diagnostic reports completed
+(309.6 MiB); diagnostic exits remain visible and are not zero-error claims. Default .venv
+was hash-synced from the latest runtime lock using a different controller environment.
+Clean wheel/sdist-rebuild, external install/API and installed quick CLI passed (164.7 MiB).
+Focused adopted-input tests passed 111, with one expected committed-snapshot rejection
+because the reviewed lock bytes were not yet committed. Freeze, then rerun that exact node.
+
+Removed only eight confirmed inactive, owned reproducible environments after disk pressure;
+retained all inputs, wheels, source, results, receipts and other owners' native bindings.
+Cleanup manifest records each path/process check; free space remains an external live state.
+Latest native admission, coherent final suite and final staged security remain open.

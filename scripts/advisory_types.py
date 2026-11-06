@@ -19,7 +19,7 @@ from uuid import uuid4
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "outputs" / "advisory"
-VERSIONS = {"ty": "ty 0.0.95", "pyrefly": "pyrefly 1.4.0"}
+VERSIONS = {"ty": "ty 0.0.98", "pyrefly": "pyrefly 1.4.1"}
 REQUIRED_MODULES = (
     "numpy",
     "scipy",

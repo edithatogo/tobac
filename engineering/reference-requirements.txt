@@ -11,10 +11,10 @@ matplotlib==3.11.2
 # Engineering contract/property tests, not scientific runtime dependencies.
 jsonschema==4.26.0
 PyYAML==6.0.3
-hypothesis==6.170.13
+hypothesis==6.170.14
 
 # Qualified optional interchange; exercised in required package/test environments.
-pyarrow==26.0.0
+pyarrow==26.0.1
 polars==2.1.0
 patito==0.8.6
 msgspec==0.22.0
