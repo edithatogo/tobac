@@ -1,6 +1,7 @@
 # Phase 0 capability and ownership inventory
 
-Inspected 6 November 2026 at adb3f8127355f210c1df959d629730873b381fc2.
+Initial inspection: 6 November 2026 at adb3f8127355f210c1df959d629730873b381fc2.
+The initial table is retained as baseline history; the integrated disposition follows below.
 
 | Scope | Existing implementation | Maturation action / evidence |
 |---|---|---|
@@ -29,3 +30,26 @@ candidate: Snakemake 9.27.1, Polars 2.1.0, PyArrow 26.0.1; install/execution res
 
 Current shared checkout still has dirty docs/WORKSTREAM_SYNC.md and
 scripts/verify_empirical_longitudinal.py owned by the Polars lane. No changes copied.
+
+## Integrated disposition at de1c887
+
+The owner's committed runner/verifier conversion, exact CSV corrections and profile
+retirement are integrated. Maintained src/scripts/tests no longer import pandas/xarray.
+This lane's actual default Python 3.15.1 environment is hash-synchronised, has 36 compatible
+packages and cannot import either library. All six lock receipts verify. Optional analytics
+is a separately closed input profile; Nox remains the engineering runner.
+
+The bounded runtime inventory records 15 tracked CI workflows, 19 dependency/runtime
+declarations and no tracked notebook or container definition. The raw inventory's former
+local-environment list is historical: the four redundant inactive package/quality/test-tool/
+Voiage environments were removed after qualification, preserving their receipts. Active
+baseline, analytics, latest-baseline, latest-audit and forward-ecosystem environments remain.
+The dated dependency census was expanded from the initial 42 to 146 identities, with zero
+lookup failures; available and qualified versions remain distinct.
+
+Existing finite calculations, evidence/state IDs and covariance/dependence guards were
+retained. New workflow code wraps existing calculations; it introduces no parallel numerical
+engine. Targeted and whole-source type evidence is in phase0-progress.md. Remaining defects
+are the stale signed runtime/inventory acceptance, optional Innovate's pandas dependency
+conflict and Apple's incompatible default Snakemake ILP solver (qualified greedy route
+used). None is silently converted into successful empirical or native acceptance.
