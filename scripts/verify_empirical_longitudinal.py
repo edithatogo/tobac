@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 from typing import Any, cast
 
-import pandas as pd
+import polars as pl
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -109,25 +109,31 @@ def verify(out: str | Path, root: Path = ROOT) -> dict[str, Any]:  # noqa: C901,
         # a literal repeated in both receipts.
         aligned = out / "aligned_observations.csv"
         if aligned.is_file() and isinstance(manifest.get("primary_alignment"), str):
-            frame = pd.read_csv(aligned)
-            if "alignment" not in frame:
+            frame = pl.read_csv(aligned)
+            if "alignment" not in frame.columns:
                 errors.append("Aligned observations carry no alignment field")
-                subset = frame.iloc[0:0]
+                subset = frame.head(0)
             else:
-                subset = frame.loc[frame["alignment"].eq(str(manifest["primary_alignment"]))]
-            if subset.empty:
+                subset = frame.filter(pl.col("alignment") == str(manifest["primary_alignment"]))
+            if subset.is_empty():
                 errors.append("No aligned observations for the declared primary alignment")
-            elif int(subset.year.max()) != scope.get("latest_paired_year"):
+            elif int(cast("int", subset["year"].max())) != scope.get("latest_paired_year"):
                 errors.append("latest_paired_year does not match the primary aligned rows")
         discrepancy = out / "signed_discrepancy_sensitivity.csv"
         if discrepancy.is_file():
-            frame = pd.read_csv(discrepancy)
-            if "interpretation" not in frame:
+            frame = pl.read_csv(discrepancy)
+            if "interpretation" not in frame.columns:
                 errors.append("Signed discrepancy rows carry no interpretation field")
-            elif not (frame.interpretation.astype(str).str.endswith("NOT_illicit_consumption")).all():
+            elif (
+                not frame["interpretation"]
+                .cast(pl.String)
+                .fill_null("nan")
+                .str.ends_with("NOT_illicit_consumption")
+                .all()
+            ):
                 errors.append("Signed discrepancy rows do not all deny illicit-consumption inference")
             base = f"uplift_{float(manifest.get('source_uplift', 0)):g}"
-            if not frame.scenario.astype(str).str.startswith(base).any():
+            if not frame["scenario"].cast(pl.String).fill_null("nan").str.starts_with(base).any():
                 errors.append("Declared base uplift scenario is absent from the discrepancy table")
     return {
         "status": "fail" if errors else "pass",

@@ -801,3 +801,62 @@ The empirical lane now owns optional workflow M1 stage and scripts/run_m1_stage.
 The existing attested source capsule passed before adding this wrapper, and now correctly
 rejects its changed scientific inventory. Inventory/capsule renewal remains with the native
 lineage owner; do not bypass the guard, move bindings or promote the new stage as accepted.
+
+## Polars verifier preparation — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
+`/Users/doughnut/Documents/tobac`, branch `codex/polars-longitudinal`.
+Scope: `scripts/verify_empirical_longitudinal.py` conversion from pandas to Polars;
+#94 remains frozen at `adb3f81` while hosted qualification runs. Native scope:
+no mutations. Ruff passes; the existing focused verifier tests are running.
+Full runner migration and scientific-lineage renewal remain required before
+publishing this source change.
+
+## Phase 0 integration readback — 6 November 2026
+
+The NZ/AU empirical handoff at `1c07e4c` was read without modifying its worktree.
+No terminal qualified Polars conversion commit exists. This checkout retains its
+dirty verifier and coordination file. The focused Polars verifier tests pass:
+8 passed in 29.92 seconds on repository-local Python 3.15.1 under the resource
+guard, sampled peak 326.9 MiB. Log: `outputs/polars-verifier-20261106/focused.log`.
+The source is not yet admitted by renewed native lineage. Remaining pandas
+runners and legacy dependencies still require conversion and output parity.
+
+The wrapper's inventory mismatch is expected. Renew acceptance only for a frozen
+integrated snapshot through the existing owner native route with signatures and
+negative controls; the other lane's moving dirty tree is not a signing target.
+Existing owner environment/signing paths are retained; no private bytes were
+copied, displayed or changed. No empirical-lane files or native objects were mutated.
+
+## Frozen Polars source packet — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
+`codex/polars-longitudinal`: both longitudinal runners, their verifier and two
+runner test modules. The source packet replaces dataframe operations only;
+NumPy/SciPy models, inputs, seeds and scientific assumptions are unchanged.
+Full-size baseline/Polars runs (8,192 draws each) agree across all 21 CSV tables
+at rtol/atol 1e-12; all 16 PNG/SVG figures are byte-identical. Release exports
+retain 12-significant-digit formatting, empty missing cells, sorted grouping
+and stable selection ties. Empirical boolean CSV spelling changes case only.
+Missing source conventions/identities are rejected explicitly because Polars
+reductions otherwise ignore nulls. Evidence: `outputs/polars-migration-20261106/`.
+Ruff passes; selected BasedPyright reports zero errors (334 existing/interface
+warnings). Focused baseline: 81 pass/one migrated-test API failure; failure-only
+rerun: one pass; three new null controls pass. No full-suite/native acceptance
+claim is made for this source packet. Inventory/capsule renewal must use the
+integrated frozen snapshot, including the empirical lane's optional wrapper.
+
+PR #94 was received as merge `e1d9b8848ab261f0ed992a74b3a2750e980512aa`;
+GitHub tree `0c209ae2756257a78d47836da024b489db5a919b` exactly matches
+qualified head `adb3f81`. All 29 executed checks passed, with two conditional
+skips and the separate neutral Scorecard bot result. Current main contains the
+merge. This lane did not repeat an already-completed publication.
+
+Storage recovery preserved the inactive `.nox/strict_all` environment at
+`/Volumes/PortableSSD/tobac-strict-all-preserved-20261106`; no source, evidence,
+private binding or another lane's environment was removed or replaced.
+
+Terminal source qualification: the final focused selection passes 85 tests in
+21.85 seconds. Full replay's maximum parsed numerical difference is zero; five
+cells differ only in float spelling, besides boolean letter case. All 16 figure
+files remain byte-identical. No scientific calculation module was modified.
