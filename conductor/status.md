@@ -402,3 +402,18 @@ receipts. Final integrated signed-lineage renewal and hosted acceptance remain
 open. In the prior `5c23107` full suite, 16 tests correctly stopped at the stale
 `engineering/requirements.lock` native pin; no gate has been weakened or marked
 passed. See `docs/WORKSTREAM_SYNC.md` for the exact local verification scope.
+
+## Integrated lineage renewal candidate — 6 November 2026
+
+The retained owner route executed eight fresh native profiles and independently
+verified 140 outputs and their original-source links. All 82 scientific CSVs are
+byte-identical to the prior accepted attempts. New checkpoint
+`integration/archive/scientific-lineage-checkpoint_20261106.json` and a fresh
+signed capsule bind the combined source and current-main workflow pins.
+Normal native and attested admission pass; the real M1 stage completes atomically.
+
+The immutable numerical reference remains unchanged. Its original checkpoint
+and the renewed active closure are checked separately, with exact CSV object-map
+equality; the normal eight-runner comparator reports zero numerical difference.
+Native/hosted negative controls and the complete suite remain the final local
+verification milestone. Hosted checks/publication remain separate open work.

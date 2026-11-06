@@ -1087,3 +1087,33 @@ readback, then a new checkpoint and signed capsule with negative controls.
 Earlier attempts, original registrations, signing identity and binding files are
 preserved. The empirical worktree is read-only; no signing occurs against its
 moving checkout. No native or hosted success is claimed by this ownership entry.
+
+## Integrated native renewal candidate — 6 November 2026
+
+Fresh native attempts completed for all eight profiles under the exact locked
+Python 3.15.1 producer runtime (725.9 MiB sampled peak). Independent readback
+reopened all originals, input/output CAS objects and transformations: 140 outputs,
+82 scientific CSV files byte-identical to the prior accepted attempts. Forward
+source-impact queries and reverse CLI traces passed for all eight; an isolated
+corrupt output was rejected. Existing observations/configurations are unchanged.
+
+The new checkpoint is `scientific-lineage-checkpoint_20261106.json`; its historical
+20261102 counterpart remains intact. Native runtime bindings and scientific
+inventory were renewed through the owning route. The signed capsule additionally
+binds native preflight and the optional M1 stage/context/DAG source. Both normal
+native and attested command paths pass, and the actual M1 stage admits, executes,
+verifies and atomically publishes its output. Prior bindings/attempts and earlier
+signed generations remain retained outside the public packet.
+
+The original `scientific_reference_20261103.zip` is unchanged. The comparator now
+checks its immutable original checkpoint separately from active lineage and
+requires the complete CSV object map to be identical across both checkpoints.
+New negative tests retain rejection of original-checkpoint tampering and a valid
+object substituted into the active CSV map; existing cell tolerances are unchanged.
+The normal comparator passes all eight runners / 82 tables with maximum absolute
+difference zero. The source/runtime import-path and stale normal-command profile
+failures encountered during renewal remain visible in local logs, not waived.
+
+Current evidence is in `outputs/lineage-renewal-20261106/`; the full suite with
+renewed native bindings is the next milestone. No hosted run or receiving-ref
+publication is claimed by this local acceptance candidate.
