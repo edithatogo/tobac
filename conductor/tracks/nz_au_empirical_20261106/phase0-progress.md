@@ -195,3 +195,25 @@ remains 3.15.1 by current contract. Availability alone does not qualify patch pr
 permit changing the other owner's environment. Sources:
 https://www.python.org/downloads/release/python-3152/
 https://www.python.org/downloads/release/python-3151/
+
+## Latest baseline compatibility candidate
+
+Generated an isolated dated candidate from the baseline's 38 installed package identities
+using the all-profile index census. Eight changed versions: coverage 7.17.2, Hypothesis
+6.170.14, pandas 3.1.1, PyArrow 26.0.1, Pydantic 2.14.3, pydantic-core 2.50.4,
+python-dateutil 4.0.0 and typing-inspection 0.4.5. Resolution succeeded with hashes and
+installed into .venv-latest-candidate; pip check passed 38 packages. Full suite is running
+under the unchanged 4096 MiB/2400-second guard. No terminal test result claimed yet.
+
+This candidate tests compatibility of the existing longitudinal implementation; pandas is
+not accepted for the target Polars-only runtime. The existing environment and four reference
+profiles are untouched. Raw inputs/lock/diff/hashes and logs remain in outputs/nz-au-phase0.
+The candidate does not have a promoted canonical lock receipt; integration remains owned by
+the reference/Polars lane. Do not conflate newest metadata, successful resolution, install,
+full tests, scientific replay and final promotion.
+
+Latest candidate full suite reached exit 0: 1232 passed, 20 skipped in 98.73 seconds;
+sampled peak group RSS 654.9 MiB. New full eight-variant numerical replay started in
+.venv-latest-candidate under unchanged resource limits. It reruns M1 as well as all other
+variants, retains per-stage logs/commands, then compares all accepted reference tables.
+Its process handle must be polled before further heavy execution; no replay success yet.
