@@ -411,3 +411,47 @@ completed with 1222 passed, 20 skipped and 16 failures in 55.60 seconds, sampled
 910.1 MiB. Every failure is in test_hosted_lineage.py and rejects the stale signed
 engineering/requirements.lock pin before the workload; inventory renewal is also still
 required. No failure was suppressed and no signed reference was edited.
+
+## Integrated numerical replay and final Voiage routes
+
+All eight variants executed serially in the dataframe-free canonical runtime. The existing
+reference comparator passed all 82 CSV tables with its unchanged identity/schema/tolerance
+checks; sampled group peak 819.7 MiB, exit 0. Full M1 was recomputed rather than copied.
+Report: outputs/nz-au-phase0/integrated-replay/full-numerical-reproduction.json. This is
+direct software/reference parity, not renewed native or empirical acceptance.
+
+After that run was terminal, clean read-only integration preflight found no dirty overlaps
+or staged deletions for owner commit 6b98348. Integrated it as b118592: published-wheel Nox
+routes and exact Voiage 3.1.0 JAX guard, retaining rejection of unknown/retired versions.
+No numerical formula changed. Affected backend/ecosystem/workstream tests passed 42/42
+in 1.67 seconds, sampled peak 118.2 MiB. An initial invocation named a nonexistent workflow
+test file and collected no tests (exit 4); the corrected exact existing selection above
+provides the evidence. Owner's qualified Nox receipts remain separate and are reused.
+
+Sent b118592 as the combined source/Nox freeze for retained native readback and signing.
+No source, lock or Nox edits are planned while issuance runs. Dependency promotion timing
+was explicitly requested before issuance; owner/integrator retains that scope. Track-only
+evidence updates do not change the frozen scientific source.
+
+The existing clean-package qualifier passed directly on b118592 (133.5 MiB sampled peak).
+It built wheel/sdist, rebuilt the wheel from the sdist with equal member contents, checked
+Apache-2.0 metadata/notice and dependency-marker contracts, hash-installed into fresh external
+Unicode/space paths, verified site-packages imports and finite-oracle/interchange APIs, and
+ran the installed quick M1 CLI for both wheels. Both external environments were automatically
+removed at terminal exit. Scope is software packaging and quick CLI, not the lineage-gated
+Nox clean_package session or full-platform scientific acceptance. Receipt retained under
+outputs/nz-au-phase0/integrated-clean-package/receipt.json. Whole maintained-source Ruff
+check with the latest qualified 0.17.4 passed (8.8 MiB sampled peak).
+
+The interrupted publication-security process reached terminal success (exit 0, sampled
+peak 182.5 MiB). Its log was recovered rather than starting a duplicate scan. It exercised
+the maintained public-path/history, pinned Gitleaks and Actionlint checks. The native owner
+has an actual active renewal operation on the combined source; this lane has not written
+its native objects or copied its credentials. Installed a fresh canonical audit environment
+from the integrated hash lock to verify final source typing without the historical latest
+audit candidate's former pandas packages. Installation passed at 131.4 MiB sampled peak.
+
+Fresh integrated audit profile: actual Python 3.15.1, 93 compatible packages, no importable
+pandas/xarray. Final strict whole-source BasedPyright passed with zero errors/warnings,
+733.3 MiB sampled peak. No global type-check relaxation or scientific source change was
+used. Current final full-suite, latest-promotion and signed-native gates remain open.

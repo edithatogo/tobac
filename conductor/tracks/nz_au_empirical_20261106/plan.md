@@ -7,9 +7,9 @@ R01–R19 are defined in spec.md. Existing owners retain runtime and integration
 ## Phase 0 — Baseline, runtime and workflow foundation (R14–R17)
 
 - [ ] Record actual HEAD, ownership, bounded context hashes and reusable baseline receipts; reconcile with current main before integration.
-- [ ] Inventory active source, scripts, notebooks, CI, containers and environments; map existing capabilities, defects, duplicated calculations and pandas/xarray usage.
+- [x] Inventory active source, scripts, notebooks, CI, containers and environments; map existing capabilities, defects, duplicated calculations and pandas/xarray usage. See phase0-inventory.md and its integrated disposition; historical/environment boundaries remain explicit.
 - [x] Record a dated upstream version census for direct and transitive dependencies, including Python patch, Searchright, Innovate, Voiage and Snakemake; distinguish release, prerelease and development revisions.
-- [ ] Coordinate the existing dependency/Polars owner; consume their qualified commits rather than repeat migration or replace their environment.
+- [x] Coordinate the existing dependency/Polars owner; consume their qualified commits rather than repeat migration or replace their environment. Frozen source/profile/Nox packets integrated through b118592; final lineage and latest-pin promotion remain separate open gates below.
 - [ ] Resolve newest supported candidates in isolated repo-local Python 3.15.1 environments; use existing lock_receipt.py and reviewed hash locks for all affected profiles, extending coverage for new analytical tools.
 - [ ] Hash-install and verify actual versions, dependency consistency, typing, security, clean packaging and affected numerical parity. Record latest available versus latest qualified, incompatibility and disposition for every held-back dependency.
 - [x] Mature existing code with bounded fixes, shared-contract reuse, unit/error handling, deterministic RNG, configuration validation and focused regression checks before adding equivalent new machinery. Verified context/cache/error guards reuse existing contracts; numerical reference retained.

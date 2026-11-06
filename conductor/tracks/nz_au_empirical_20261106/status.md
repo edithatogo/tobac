@@ -1,7 +1,8 @@
 # Status — 6 November 2026
 
 Phase 0 is in progress. The isolated empirical branch integrates the owner's Polars
-runner conversion, exact CSV corrections and dataframe-free profile packet at de1c887.
+runner conversion, exact CSV corrections, dataframe-free profiles and Nox/JAX routes
+through b118592.
 All six lock receipts verify; lock, workflow-stage and workstream tests passed 83/83.
 The default environment is hash-synchronised to the integrated runtime lock: actual
 Python 3.15.1, 36 compatible packages, and no importable pandas or xarray.
@@ -12,7 +13,9 @@ atomic M1 publication and stale-cache/failure/recovery controls. Nox remains the
 runner. Context execution is qualified with the supported greedy scheduler on Apple Silicon;
 the analytical M1 stage awaits renewal of the signed scientific inventory by its owner.
 The integrated runtime full suite reports 16 lineage failures, 1222 passed and 20 skipped.
-Earlier passing baselines and 82-table numerical replays do not close that gate.
+The integrated all-eight replay passed all 82 reference CSV tables. Clean wheel and
+sdist-rebuilt installs, API/quick CLI checks and publication security also passed.
+These software results do not close the signed-lineage gate.
 
 Searchright's exact locked source revision was built and its CLI/example plan exercised.
 Its five default provider manifests are fixture-backed; no live systematic search is claimed.

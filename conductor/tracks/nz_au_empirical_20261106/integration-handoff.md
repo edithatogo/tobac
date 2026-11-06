@@ -53,4 +53,10 @@ signed runtime identity in hosted-lineage admission. This remains an open gate; 
 passing baseline evidence is not substituted. Approved cross-chat delivery was executed
 and includes the request to renew the combined scientific inventory, plus latest-qualified
 pin differences for the existing dependency owner. Direct integrated numerical replay is
-in progress and does not replace signed native acceptance.
+now passed all 82 reference CSV tables and does not replace signed native acceptance.
+
+The subsequent owner Nox/JAX correction is integrated at b118592, which was sent as the
+final combined source freeze. Affected backend/ecosystem/workstream tests passed 42/42.
+Clean-package qualification passed wheel/sdist-rebuild equality, isolated installed APIs
+and quick CLI in Unicode/space paths. Publication security passed at exit 0. The owner is
+executing native renewal; this lane retains only its own outputs and track evidence.
