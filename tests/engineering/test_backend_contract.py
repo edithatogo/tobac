@@ -22,7 +22,8 @@ def test_default_backend_retains_reference_and_unknown_names_fail() -> None:
         evpi(problem(), backend="auto")
 
 
-def test_unqualified_optional_library_is_rejected(monkeypatch) -> None:
-    monkeypatch.setattr(importlib.metadata, "version", lambda _: "unknown")
+@pytest.mark.parametrize("version", ["unknown", "2.2.0+tobac3151.2", "3.0.0"])
+def test_unqualified_optional_library_is_rejected(monkeypatch, version) -> None:
+    monkeypatch.setattr(importlib.metadata, "version", lambda _: version)
     with pytest.raises(RuntimeError, match="Unqualified"):
         evpi(problem(), backend="jax")

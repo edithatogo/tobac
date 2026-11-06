@@ -474,3 +474,19 @@ six ownership cases and installed/native-byte verification; see
 `integration/voiage_published_20261106.json`. Whole-source strict typing has zero
 errors/warnings; Ruff and formatting pass. Reference/native/hosted integration
 remains separate from this executed local qualification.
+
+## Nox route cleanup — 6 November 2026
+
+The local route cleanup is complete: ecosystem qualification uses the accepted
+published Voiage 3.1.0 wheel and hash-checked lock installation, the JAX adapter
+requires that exact release, and the Polars alias retains its expected receipt
+location. The ecosystem route passes its numerical/interchange probes and 97
+tests; the alias passes 99 tests; 27 focused backend/workflow checks pass. A
+retired 3.0.0 wheel is rejected before installation or execution. Ruff/format
+checks pass and current guidance distinguishes the retired compatibility route.
+
+The prior disk-space and legacy-version failures are retained in the local
+receipts. Final integrated signed-lineage renewal and hosted acceptance remain
+open. In the prior `5c23107` full suite, 16 tests correctly stopped at the stale
+`engineering/requirements.lock` native pin; no gate has been weakened or marked
+passed. See `docs/WORKSTREAM_SYNC.md` for the exact local verification scope.
