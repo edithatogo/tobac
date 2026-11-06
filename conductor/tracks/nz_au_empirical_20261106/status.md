@@ -55,3 +55,13 @@ M3 implementation/portfolio/staged methods and actual Voiage 3.1.0 finite qualif
 Innovate source/API discovery confirms the pandas/pandasdmx incompatibility remains.
 No empirical uptake, competition, spillover, monetary EVSI/ENBS or whole-phase completion
 is claimed; existing source, inputs and native owners are preserved.
+
+Phase 5 now has an executable synthetic sensitivity/clustering qualification candidate;
+see phase5-progress.md. It uses a new isolated hash-installed scikit-learn 1.9.1 environment,
+training-only discovery/scaling/bootstrap, supervised frozen-label prediction and explicit
+no-use/overlap/holdout guards. Core profiles and empirical inputs are unchanged. This does
+not establish empirical clusters, country transport or whole-phase completion.
+
+P5.1 final local candidate checks: 107 tests, Ruff/format, isolated strict typing and all
+44-package advisory coverage pass. The existing audit profile still fails seven warnings
+for absent optional runtime modules; reference integration/release is not accepted.

@@ -1265,7 +1265,22 @@
     "conductor/tracks/nz_au_empirical_20261106/phase4-scenarios.csv",
     "conductor/tracks/nz_au_empirical_20261106/phase4-progress.md",
     "conductor/tracks/nz_au_empirical_20261106/phase4-source-receipts.json",
-    "engineering/context/nz-au-diffusion.json"
+    "engineering/context/nz-au-diffusion.json",
+    "conductor/tracks/nz_au_empirical_20261106/phase5-task-card.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase5-qualification.in",
+    "conductor/tracks/nz_au_empirical_20261106/phase5-progress.md",
+    "scripts/qualify_sensitivity_clustering.py",
+    "tests/engineering/test_clustering_qualification.py",
+    "engineering/context/nz-au-clustering.json",
+    "conductor/tracks/nz_au_empirical_20261106/phase5-source-receipts.json",
+    "engineering/typings/sklearn/metrics.pyi",
+    "engineering/typings/sklearn/pipeline.pyi",
+    "engineering/typings/sklearn/preprocessing.pyi",
+    "engineering/typings/sklearn/__init__.pyi",
+    "engineering/typings/sklearn/cluster.pyi",
+    "engineering/typings/sklearn/linear_model.pyi",
+    "engineering/typings/sklearn/dummy.pyi",
+    "engineering/typings/threadpoolctl.pyi"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",

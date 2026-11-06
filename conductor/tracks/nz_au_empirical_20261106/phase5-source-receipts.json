@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "purpose": "software_methods_metadata_not_empirical_data",
+  "sources": [
+    {
+      "source_id": "SKLEARN_PYPI",
+      "url": "https://pypi.org/pypi/scikit-learn/1.9.1/json",
+      "retrieved_at": "2026-11-06T12:53:00.675241+00:00",
+      "rights": "not_assessed",
+      "archive_admitted": false,
+      "resolved_url": "https://pypi.org/pypi/scikit-learn/1.9.1/json",
+      "status": "external_staging_readback_passed",
+      "sha256": "504deae727e6f297cc441e5208453ec61edb2e923052ff19db712630a62d7de2",
+      "bytes": 47462,
+      "filename": "SKLEARN_PYPI-504deae727e6f297cc441e5208453ec61edb2e923052ff19db712630a62d7de2.json"
+    },
+    {
+      "source_id": "SALIB_PYPI",
+      "url": "https://pypi.org/pypi/SALib/1.6.0/json",
+      "retrieved_at": "2026-11-06T12:53:01.029315+00:00",
+      "rights": "not_assessed",
+      "archive_admitted": false,
+      "resolved_url": "https://pypi.org/pypi/SALib/1.6.0/json",
+      "status": "external_staging_readback_passed",
+      "sha256": "c759b673b918b4f6ac4f0481fe180d6d131698288be60638f2333eecae6f6749",
+      "bytes": 14095,
+      "filename": "SALIB_PYPI-c759b673b918b4f6ac4f0481fe180d6d131698288be60638f2333eecae6f6749.json"
+    },
+    {
+      "source_id": "SKLEARN_LEAKAGE",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "retrieved_at": "2026-11-06T12:53:01.335082+00:00",
+      "rights": "not_assessed",
+      "archive_admitted": false,
+      "resolved_url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "status": "external_staging_readback_passed",
+      "sha256": "21fac11c181ab35624dcf8673f0475d403d4f6ecf0f9bead01a573d7642b515c",
+      "bytes": 109748,
+      "filename": "SKLEARN_LEAKAGE-21fac11c181ab35624dcf8673f0475d403d4f6ecf0f9bead01a573d7642b515c.html"
+    },
+    {
+      "source_id": "SKLEARN_CLUSTERING",
+      "url": "https://scikit-learn.org/stable/modules/clustering.html",
+      "retrieved_at": "2026-11-06T12:53:01.822186+00:00",
+      "rights": "not_assessed",
+      "archive_admitted": false,
+      "resolved_url": "https://scikit-learn.org/stable/modules/clustering.html",
+      "status": "external_staging_readback_passed",
+      "sha256": "3c8d5481d8092e86fe47ff269e134510dedd006360aeaf30b9b982c91a01de1c",
+      "bytes": 245702,
+      "filename": "SKLEARN_CLUSTERING-3c8d5481d8092e86fe47ff269e134510dedd006360aeaf30b9b982c91a01de1c.html"
+    },
+    {
+      "source_id": "SCIPY_SOBOL",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.sobol_indices.html",
+      "retrieved_at": "2026-11-06T12:53:02.331350+00:00",
+      "rights": "not_assessed",
+      "archive_admitted": false,
+      "resolved_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.sobol_indices.html",
+      "status": "external_staging_readback_passed",
+      "sha256": "b6c657f45d3bce43d056ea9fa85a9560be23aaa3b70636a7d3a3a089bf7af313",
+      "bytes": 68838,
+      "filename": "SCIPY_SOBOL-b6c657f45d3bce43d056ea9fa85a9560be23aaa3b70636a7d3a3a089bf7af313.html"
+    }
+  ]
+}

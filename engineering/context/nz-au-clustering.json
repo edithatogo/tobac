@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "profile": "nz-au-clustering",
+  "max_bytes": 60000,
+  "paths": [
+    "AGENTS.md",
+    "conductor/product.md",
+    "conductor/workflow.md",
+    "conductor/tracks/nz_au_empirical_20261106/spec.md",
+    "conductor/tracks/nz_au_empirical_20261106/plan.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase5-task-card.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase5-qualification.in",
+    "scripts/qualify_sensitivity_clustering.py",
+    "tests/engineering/test_clustering_qualification.py"
+  ],
+  "base_commit": null,
+  "required_paths": [
+    "AGENTS.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase5-task-card.md"
+  ]
+}

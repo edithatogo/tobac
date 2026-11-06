@@ -28,3 +28,6 @@
 - [Diffusion and research scenario matrix](phase4-scenarios.csv)
 - [Finite qualification and remaining gates](phase4-progress.md)
 - [Innovate source and dependency receipts](phase4-source-receipts.json)
+- [Sensitivity/clustering qualification task card](phase5-task-card.md)
+- [Synthetic qualification and empirical requirements](phase5-progress.md)
+- [Methods and package metadata receipts](phase5-source-receipts.json)

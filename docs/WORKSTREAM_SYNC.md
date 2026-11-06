@@ -1321,3 +1321,20 @@ on Python 3.15.2; 82 M3/reference/workstream/publication tests passed. Innovate 
 PyPI dependency inspection still block no-pandas integration. Ten scenario contracts are
 recorded; empirical trajectories/competition/VOI remain unexecuted. No M3 source, numerical
 inputs, dependency graph, reference outputs or native bindings changed.
+
+## NZ/AU Phase 5 software qualification ownership — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns P5.1 in the empirical worktree,
+codex/nz-au-empirical, base 1596819. Scope: synthetic sensitivity/clustering qualifier,
+its tests, isolated candidate environment and track/context/publication metadata. Scientific
+inputs, existing locks, M3 and native latest-lock admission retain their owners. No empirical
+clustering or shared runtime promotion. Next: hash-lock/install the isolated scikit-learn
+candidate, then test training-only discovery and held-out prediction on synthetic fixtures.
+
+P5.1 terminal candidate evidence: actual Python 3.15.2, scikit-learn 1.9.1, 44 hash-installed
+pandas-free packages; 107 focused tests, Ruff/format and isolated strict typing pass.
+Synthetic output/input/lock hashes read back; pip-audit covers all 44 with zero known
+vulnerabilities/skips. The existing audit profile fails seven missing-source warnings
+because optional clustering runtime packages are absent. Reference-profile integration,
+controller coverage and native/hosted promotion remain open with the integrator; no rule
+was weakened or shared environment modified. Empirical clustering remains blocked.

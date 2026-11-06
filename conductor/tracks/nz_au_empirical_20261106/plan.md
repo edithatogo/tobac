@@ -70,6 +70,11 @@ or synthetic qualification alone.
 
 ## Phase 5 — Cross-model sensitivity and clustering (R12–R13, R18)
 
+P5.1 implements a synthetic SciPy/scikit-learn qualifier with training-only cluster
+discovery, bootstrap stability, supervised label prediction and no-use/leakage checks.
+See phase5-progress.md. It is an isolated software candidate, not cross-model empirical
+PSA, country/group validation or a demographic finding. Original tasks remain open.
+
 - [ ] Execute joint correlated PSA, global/structural/prior/value sensitivity, thresholds, interactions and decision regret on validated models.
 - [ ] Discover clusters on training simulations only; select scaling/features/cluster count and assess bootstrap stability and interpretability.
 - [ ] Train supervised predictors of frozen cluster labels; validate on held-out seeds/parameter regions and country/time groups where applicable. Compare simple baselines and report imbalance/calibration.
