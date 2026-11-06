@@ -35,3 +35,11 @@ recommendation is claimed. Searchright's fixture-backed CLI is qualified only at
 scope; live acquisition is open. Innovate's pandas dependency conflict is explicit. External
 archives, data rights, extraction verification, actual calibration and later scientific
 validation remain subsequent-phase requirements.
+
+Decision/evidence preparation and the first empirical feasibility analysis are now recorded
+in phase1-progress.md and phase2-feasibility.md. The Searchright S1 syntax/translation passes;
+live search remains unqualified. Three original AU publisher files are externally staged
+with hashes; rights/archive admission remain open. The Polars audit verifies the existing
+12-row historical bridge and 16-row tonne series against their consumer inventory. AU
+programme design is documented, including a quarantined narrative/table denominator conflict.
+No current NZ illicit estimate, policy fit, empirical EVSI/ENBS or Phase 2 completion is claimed.

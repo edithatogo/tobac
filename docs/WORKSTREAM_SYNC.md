@@ -1273,3 +1273,23 @@ and remote branch SHA was read back after the fixes. No running jobs remain.
 This local documentation-only handoff preserves PR #139's tested head. The
 remaining operation is guarded main publication, then receiving ref and its own
 push workflow readback. No merge or post-publication success is inferred here.
+
+## NZ/AU Phase 1 preparation ownership — 6 November 2026
+
+Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns the bounded P1.1 preparation card on
+codex/nz-au-empirical at /Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac,
+base 848da48. Scope: track decision/search/appraisal metadata, bounded context profile,
+exact publication inventory entries and ignored discovery receipts. No empirical input
+admission, fitting, external repository writes, shared runtime promotion or native operation.
+Latest-lock signature renewal remains with its existing owner. Next: freeze pre-fit choices,
+qualify the actual Searchright strategy interface and record source access/rights gaps.
+
+P2.1 scope now also includes scripts/audit_empirical_coverage.py and this track's feasibility
+result/task card. The audit only inventories existing CSV bytes with Polars and existing
+source-handoff guards; it performs no fitting or empirical admission. Native ownership is unchanged.
+
+P1.1/P2.1 terminal local evidence: 103 affected/context/source-handoff/publication-boundary/
+workstream tests passed; Ruff and formatting passed; final historical coverage audit passed
+with 89.2 MiB bounded sampled group RSS. Tests establish software evidence only. New AU
+originals are external staging, not native archive admission. Phase 0 renewal and Phase 1
+source gates remain open; no empirical fit, funding claim or external publication was made.

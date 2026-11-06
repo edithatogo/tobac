@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "purpose": "read_only_discovery_not_archive_admission",
+  "staging_root": "/Users/doughnut/Documents/tobac-evidence-intake-20261106",
+  "sources": [
+    {
+      "source_id": "NZ_POLICY",
+      "url": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco",
+      "retrieved_at": "2026-11-06T12:05:51.012938+00:00",
+      "status": "failed",
+      "archive_admitted": false,
+      "redistribution_rights": "not_assessed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source_id": "AU_POLICY",
+      "url": "https://www.health.gov.au/give-up-for-good/reforms",
+      "retrieved_at": "2026-11-06T12:05:51.204865+00:00",
+      "status": "retrieved_external_staging",
+      "archive_admitted": false,
+      "redistribution_rights": "not_assessed",
+      "resolved_url": "https://www.health.gov.au/give-up-for-good/reforms",
+      "content_type": "text/html; charset=utf-8",
+      "http_status": 200,
+      "sha256": "81376106b90288e2405757e83f8751e4dc2c225844efd4f480dec86022b9ee4e",
+      "bytes": 27389,
+      "external_filename": "AU_POLICY-81376106b90288e2405757e83f8751e4dc2c225844efd4f480dec86022b9ee4e.html"
+    },
+    {
+      "source_id": "AU_ABS_NICOTINE",
+      "url": "https://www.abs.gov.au/articles/household-consumption-illicit-tobacco-and-nicotine-products",
+      "retrieved_at": "2026-11-06T12:05:51.542840+00:00",
+      "status": "retrieved_external_staging",
+      "archive_admitted": false,
+      "redistribution_rights": "not_assessed",
+      "resolved_url": "https://www.abs.gov.au/articles/household-consumption-illicit-tobacco-and-nicotine-products",
+      "content_type": "text/html; charset=utf-8",
+      "http_status": 200,
+      "sha256": "586cf2c0bcc148a14339c7c4fb2ff34e83b55d5895bfb6b215baf3bc48001797",
+      "bytes": 364618,
+      "external_filename": "AU_ABS_NICOTINE-586cf2c0bcc148a14339c7c4fb2ff34e83b55d5895bfb6b215baf3bc48001797.html"
+    },
+    {
+      "source_id": "AU_ACIC_REPORT25",
+      "url": "https://www.acic.gov.au/sites/default/files/2026-04/Research%20findings.pdf",
+      "retrieved_at": "2026-11-06T12:05:51.848418+00:00",
+      "status": "retrieved_external_staging",
+      "archive_admitted": false,
+      "redistribution_rights": "not_assessed",
+      "resolved_url": "https://www.acic.gov.au/sites/default/files/2026-04/Research%20findings.pdf",
+      "content_type": "application/pdf",
+      "http_status": 200,
+      "sha256": "8e1dd8cfb754ea8fd577ee086a98e336384ffd10d8a1c5829e7f47bc72c1e741",
+      "bytes": 11817238,
+      "external_filename": "AU_ACIC_REPORT25-8e1dd8cfb754ea8fd577ee086a98e336384ffd10d8a1c5829e7f47bc72c1e741.pdf"
+    }
+  ]
+}

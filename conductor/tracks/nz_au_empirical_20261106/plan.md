@@ -18,6 +18,10 @@ R01–R19 are defined in spec.md. Existing owners retain runtime and integration
 
 ## Phase 1 — Decision definition and systematic evidence (R01–R06, R18–R19)
 
+Preparation delivered in decision-definition.md, systematic-search.md and
+phase1-appraisal.csv; qualification/gaps are in phase1-progress.md. These are partial
+deliverables, not closure of the source-admission or systematic-search gates below.
+
 - [ ] Freeze initial decision, target populations/products, dated NZ/AU policy baselines, perspectives, horizon, estimands and validation split before fitting.
 - [ ] Qualify Searchright CLI/provider routes; run versioned searches with seed checks, source-specific queries, screening, exclusions and update rules.
 - [ ] Verify existing external archive/GitHub/Hugging Face identities, rights, exact destinations and readback; save originals outside tobac.
@@ -26,6 +30,12 @@ R01–R19 are defined in spec.md. Existing owners retain runtime and integration
 - [ ] Checkpoint: evidence lineage and retrieval/recovery pass; identified gaps constrain claims rather than being filled with invented values.
 
 ## Phase 2 — First empirical vertical slice (R03–R10, R16, R18)
+
+P2.1 feasibility executed: existing NZ coverage audited with Polars, actual AU programme
+design checked and an ACIC denominator discrepancy quarantined. See phase2-feasibility.md.
+Current illicit consumption and empirical monetary VOI are not identified/admitted; fitting
+and held-out comparison remain gated by Phase 0 and Phase 1. No row below is closed by a
+scope audit or algebraic argument alone.
 
 - [ ] Integrate qualified NZ survey, lawful releases, prices, trade and denominators using Polars; add actual Australian wastewater programme design and measurement evidence.
 - [ ] Reconcile dates, products, catchments, lawful unrecorded flows, stock, shared sources and calibration. Assess identifiability before fitting; retain partial-identification bounds where needed.

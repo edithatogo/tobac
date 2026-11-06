@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "profile": "nz-au-evidence",
+  "max_bytes": 60000,
+  "paths": [
+    "AGENTS.md",
+    "conductor/product.md",
+    "conductor/workflow.md",
+    "conductor/tracks/nz_au_empirical_20261106/spec.md",
+    "conductor/tracks/nz_au_empirical_20261106/plan.md",
+    "conductor/tracks/nz_au_empirical_20261106/execution.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase1-task-card.md",
+    "conductor/tracks/nz_au_empirical_20261106/decision-definition.md",
+    "conductor/tracks/nz_au_empirical_20261106/systematic-search.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase2-task-card.md",
+    "scripts/audit_empirical_coverage.py"
+  ],
+  "base_commit": null,
+  "required_paths": [
+    "AGENTS.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase1-task-card.md"
+  ]
+}
