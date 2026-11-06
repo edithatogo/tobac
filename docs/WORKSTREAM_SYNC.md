@@ -1029,3 +1029,45 @@ with zero errors/warnings using the empirical lane's existing audit interpreter
 read-only; no environment or source in that lane was modified. Whole-source
 Ruff and all 169 maintained files' formatting pass. Native acceptance still
 requires the final integrated source snapshot; no old capsule is relabelled.
+
+## Nox route cleanup complete — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` retains the root checkout on
+`codex/polars-profiles`. This terminal packet owns `noxfile.py`, the exact
+published-version guard in `src/tobac/backend.py`, its rejection tests,
+`docs/engineering/VOIAGE_PYTHON315.md` and this Conductor handoff. Native scope:
+no mutations. The empirical and publication integrators retain their worktrees,
+reference promotions, private bindings and final combined-lineage renewal.
+
+The ecosystem command now admits the qualified published Voiage 3.1.0 wheel
+against `integration/voiage_published_20261106.json`, installs it with hash
+checking and the ecosystem lock, and retains normal dependency validation.
+The optional JAX adapter's former 2.2 compatibility-version guard is now exactly
+3.1.0; its numerical transform, float64 requirement and no-fallback policy are
+unchanged. Unknown, retired 2.2 and 3.0 versions remain rejected. The
+`voiage_polars_candidate` alias writes its run receipts under the expected
+`outputs/engineering/voiage-polars-candidate/` directory. Current guidance now
+precedes explicitly labelled historical compatibility evidence.
+
+Qualified Python 3.15.1 commands ran serially under the 4 GiB / 40-minute guard:
+
+- Nox ecosystem: passed installed JAX/Arrow/Polars/strict-codec probes and 97
+  component/M3/workstream tests; 25 seconds, 544.2 MiB sampled peak.
+- Nox Polars alias: passed 99 tests and numerical/interchange probes; 32 seconds,
+  501.9 MiB sampled peak. Its build and weighted receipts exist in the expected
+  directory.
+- Retired-wheel negative control: rejected the original 3.0.0 wheel before any
+  dependency installation or probe execution.
+- Focused backend/workflow contracts: 27 passed in 1.08 seconds, 77.9 MiB peak.
+- Affected Ruff/format checks pass. The preceding final whole-source strict type
+  run completed with zero errors/warnings (739.3 MiB sampled peak).
+
+Logs and the bounded six-file context receipt are retained under
+`outputs/polars-migration-20261106/`. The earlier ecosystem ENOSPC run and the
+subsequent legacy-version rejection remain recorded; neither is counted as a
+successful check. The resumed command passed after those concrete conditions
+were resolved. No broad full-suite rerun was needed for this bounded cleanup.
+The preceding `5c23107` suite was 1,225 passed / 7 skipped / 16 failures, all
+blocked by `Stale native acceptance pin: engineering/requirements.lock`.
+Those signed-input failures remain open for the integrated frozen snapshot;
+this cleanup neither renews nor bypasses native or hosted acceptance.

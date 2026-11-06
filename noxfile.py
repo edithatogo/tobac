@@ -528,7 +528,8 @@ def voiage(session: nox.Session) -> None:
         "from importlib.util import find_spec; assert version('voiage') == '3.1.0'; "
         "assert find_spec('pandas') is None and find_spec('xarray') is None",
     )
-    base = Path(session.posargs[0]).resolve() if session.posargs else (ROOT / OUT / "voiage").resolve()
+    default_folder = "voiage-polars-candidate" if session.name == "voiage_polars_candidate" else "voiage"
+    base = Path(session.posargs[0]).resolve() if session.posargs else (ROOT / OUT / default_folder).resolve()
     run = base / uuid4().hex
     run.mkdir(parents=True)
     session.run(
@@ -623,11 +624,9 @@ def ecosystem(session: nox.Session) -> None:
     """Probe natively with a hash-bound, already qualified macOS Voiage wheel."""
     session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
     if len(session.posargs) != 1:
-        session.error("Supply the qualified macOS Voiage compatibility wheel path")
+        session.error("Supply the qualified published macOS Voiage wheel path")
     wheel = Path(session.posargs[0]).resolve()
-    expected = json.loads((ROOT / "integration/voiage_polars2_compatibility_20261027.json").read_text())[
-        "build"
-    ]["wheel_sha256"]
+    expected = json.loads((ROOT / "integration/voiage_published_20261106.json").read_text())["wheel_sha256"]
     if not wheel.is_file() or hashlib.sha256(wheel.read_bytes()).hexdigest() != expected:
         session.error("Voiage wheel differs from the qualified artifact")
     session.run(
@@ -652,7 +651,19 @@ def ecosystem(session: nox.Session) -> None:
         external=True,
     )
     session.install("--no-deps", "--no-build-isolation", "-e", ".")
-    session.run("uv", "pip", "install", "--python", python, "--no-index", str(wheel), external=True)
+    session.run(
+        "uv",
+        "pip",
+        "install",
+        "--python",
+        python,
+        "--no-index",
+        "--require-hashes",
+        "-r",
+        "engineering/ecosystem.lock",
+        "voiage @ " + wheel.as_uri() + "#sha256=" + expected,
+        external=True,
+    )
     session.run("uv", "pip", "check", "--python", python, external=True)
     destination = str(OUT / "ecosystem" / ("native-" + uuid4().hex + ".json"))
     session.run("python", "scripts/qualify_ecosystem.py", "--out", destination)
