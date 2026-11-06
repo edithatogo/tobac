@@ -34,7 +34,41 @@ def test_preflight_failure_never_starts_model_or_publishes(tmp_path, monkeypatch
     assert json.loads((out.parent / "analysis-events.jsonl").read_text())["status"] == "failed"
 
 
-def test_existing_output_is_never_overwritten(tmp_path):
+def test_existing_output_is_never_overwritten(tmp_path, monkeypatch):
     module = load()
+    monkeypatch.setattr(module, "ROOT", tmp_path)
+    out = tmp_path / "outputs" / "existing"
+    out.mkdir(parents=True)
+    original = out / "manifest.json"
+    original.write_text('{"fixture":"previous verified result"}')
     with pytest.raises(ValueError, match="new analysis directory"):
-        module.execute(tmp_path)
+        module.execute(out)
+    assert original.read_text() == '{"fixture":"previous verified result"}'
+
+
+def test_final_verifier_failure_never_publishes(tmp_path, monkeypatch):
+    """Fixture-only subprocess responses test publication, not native/model validity."""
+    module = load()
+    monkeypatch.setattr(module, "ROOT", tmp_path)
+    monkeypatch.setattr(module.sys, "prefix", str(tmp_path / ".venv"))
+    out = tmp_path / "outputs" / "model"
+    calls = []
+
+    def fixture_command(command, **_kwargs):
+        calls.append(command)
+        if "tobac.run" in command:
+            staged = Path(command[-1])
+            staged.mkdir()
+            (staged / "manifest.json").write_text('{"fixture":"not verified"}')
+        if str(tmp_path / "scripts/verify.py") in command:
+            raise subprocess.CalledProcessError(1, command)
+
+    with (
+        patch.object(module.subprocess, "run", autospec=True, side_effect=fixture_command),
+        pytest.raises(subprocess.CalledProcessError),
+    ):
+        module.execute(out)
+    assert len(calls) == 3
+    assert not out.exists()
+    assert not list(out.parent.glob("m1-stage-*"))
+    assert json.loads((out.parent / "analysis-events.jsonl").read_text())["status"] == "failed"

@@ -340,3 +340,24 @@ forward environment: 267 passed in 10.60 seconds, sampled peak 530.1 MiB, exit 0
 explicitly selected component compatibility, not full longitudinal/native acceptance or
 full coverage. Updated stale library-disposition entries from running to their actual
 terminal results. Current full-suite lineage failures remain open until owner renewal.
+
+## Failure-path review and disk-pressure mitigation
+
+Strengthened the existing-output unit test to create a real prior result under the allowed
+output root and assert its bytes are preserved. Added explicitly fixture-only final-verifier
+failure injection: staged fixture output is never published, temporary staging is cleaned,
+and failure is logged. No native/model acceptance inferred from these mocks. Focused stage,
+context and integration selection: 34 passed in 2.32 s, sampled peak 122.3 MiB. Ruff clean
+after combining equivalent nested context managers; no production source changed.
+
+Owner reported intermittent ENOSPC during conversion. Verified this lane had no processes
+using four redundant environments, then removed only .venv-package, .venv-quality,
+.venv-test-tools and .venv-voiage-candidate. Preserved every source, lock, original wheel,
+receipt/log and all other lanes' native/private state. Moved the qualified Searchright
+binary out of its compiler target, rechecked its stored SHA256 and --version, then removed
+that rebuildable compiler target only. CLI now at outputs/nz-au-phase0/searchright-bin/searchright.
+Cleanup manifest retains the removed-path list and preserved binary identity. Available
+space rose from 1.9 to 2.8 GiB. Earlier install/qualification receipts for removed environments
+are historical execution evidence, not assertions those environments still exist. Active
+baseline/latest/analytics/audit/Polars-ecosystem environments retained. Sent this concrete
+resource update under the existing approved handoff scope; no owner files were touched.
