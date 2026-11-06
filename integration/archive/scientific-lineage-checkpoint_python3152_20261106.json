@@ -2,10 +2,10 @@
   "baseline_checkpoint_sha256": "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a",
   "csv_exact_count": 82,
   "model_revision": "ce40fa1be5125bbdb8b5a6904a4cbacae2eec6ee",
-  "pinned_contract_sha256": "fd73a6db5f65f3db2f189815130dce6979b721585aa429b14701396bc15583b3",
+  "pinned_contract_sha256": "9dcaa49987437f7b3b06bf195286d140a7c26577059c6e8525539cb895888c5a",
   "producer_revision": "08dc5fedb08ed321a43eccb40270a80bba41f247",
   "producer_wheel_sha256": "ed77a01418c8b03d8467e06fc1cdd13df9fdf14a8b1f05bbec23458e63dc02a5",
-  "qualification_scope": "Fresh Python 3.15.2 execution and native-byte readback of eight unchanged scientific runner profiles. All 82 CSVs equal the accepted Python 3.15.1 baseline; 140 outputs verified. Historical source-sensitivity and full-estate recovery evidence are retained separately, not re-executed by this patch qualification.",
+  "qualification_scope": "Fresh Python 3.15.2 execution and native-byte readback of eight unchanged scientific runner profiles. All 82 CSVs equal the accepted Python 3.15.1 baseline; 140 outputs verified. Historical source-sensitivity and full-estate recovery evidence are retained separately, not re-executed by this patch qualification. The clean-package helper guard was corrected separately; it is absent from every executed runner input inventory, so these native attempts are unchanged.",
   "runner_results": {
     "longitudinal": {
       "artifacts": {

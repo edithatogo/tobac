@@ -123,7 +123,7 @@ def qualify(out: Path) -> dict[str, Any]:
                 "assert all(pathlib.Path(m.__file__).resolve()."
                 "is_relative_to(pathlib.Path(sys.prefix).resolve()) "
                 "for m in (tobac,tobac_supply,tobac.research)); "
-                "assert sys.version_info[:3]==(3,15,1); "
+                "assert sys.version_info[:3]==(3,15,2); "
                 "assert exact_evpi(DecisionProblem(np.array([[0.,4.],[3.,0.]]),"
                 "('a','b'),'score',np.array([.75,.25])))==.75; print(p)"
             )

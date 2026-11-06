@@ -947,3 +947,24 @@ and verified against all eight current native attempts; private recovery manifes
 This is runtime-delta preservation/readback, not a new full-estate offline replay.
 Hosted 3.15.2 profiles remain pending; this candidate deliberately rejects unknown
 hosted builds before workload execution. No scientific source or numeric tolerance changed.
+
+
+## Python 3.15.2 hosted-profile qualification — 6 November 2026
+
+Probe head `6bb88c3` exercised all four actual hosted runtime selections in run
+42192920916: valid signatures passed and tampered signatures were rejected. Their
+exact build/OpenSSH fingerprints are now admitted alongside the local issuer.
+The prior admission failures remain recorded. The compact clean-package runtime
+assertion was corrected to 3.15.2; it is absent from every scientific runner's
+executed input inventory. Current contract/checkpoint pins were refreshed without
+rewriting native attempts or the historical numerical reference.
+
+Corrected clean-package build, reconstructed sdist, installed imports, evidence
+transport and real M1 CLI passed outside the source checkout. Whole-source strict
+typing: zero errors/warnings; Ruff lint and format pass. Affected tests: 86 passed,
+five existing capability skips. All eight native attempts were reverified before
+renewing the signed capsule. The final 711-file runtime generation was independently
+copied/restored/read back; manifest
+`8d35d130c95974f710b86a346c10e6bea1a145f388644982c06d598cd8fb4276`.
+Earlier failed package/recovery-invocation logs remain private evidence. Full hosted
+acceptance and #91/#135 merges are pending; no empirical acceptance is implied.

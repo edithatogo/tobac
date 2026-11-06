@@ -12,11 +12,66 @@
         2
       ],
       "system": "Darwin"
+    },
+    {
+      "base_python_sha256": "4e15a990f1c2d4536bf6692e3dea24a57318690ecfbad78d9086602fdbb96693",
+      "machine": "arm64",
+      "openssh_sha256": "0d8b8fb52762fa19431b40e8b75cd00b045f10bf206fd67f0598e09bfaad77d0",
+      "python_sha256": "4e15a990f1c2d4536bf6692e3dea24a57318690ecfbad78d9086602fdbb96693",
+      "python_version": [
+        3,
+        15,
+        2
+      ],
+      "system": "Darwin"
+    },
+    {
+      "base_python_sha256": "a35b08329e2ecf79a151f8954695d43d6f584ee8483c890295200eaad99c14b7",
+      "machine": "arm64",
+      "openssh_sha256": "0d8b8fb52762fa19431b40e8b75cd00b045f10bf206fd67f0598e09bfaad77d0",
+      "python_sha256": "a35b08329e2ecf79a151f8954695d43d6f584ee8483c890295200eaad99c14b7",
+      "python_version": [
+        3,
+        15,
+        2
+      ],
+      "system": "Darwin"
+    },
+    {
+      "base_python_sha256": "d4e19e9a33268fb0ce575a24ab2d4b85972524f1933df008a6befc14dce19fbd",
+      "machine": "AMD64",
+      "openssh_sha256": "e68a0ad1eac87c1419c35ba46aa2de410d16a67801ae1661f5d682e65d73fc88",
+      "python_sha256": "15602729911d32e3ec40ba144bca6b720a12176436c867fface126a4d5dccb20",
+      "python_version": [
+        3,
+        15,
+        2
+      ],
+      "system": "Windows"
+    },
+    {
+      "base_python_sha256": "3dc83f9d5dca58d83bab77bef85e70cd77c0072c45ecdb11e4786c12295b7aed",
+      "machine": "x86_64",
+      "openssh_sha256": "33b1c52f8ede26412a1d081cfad3582a9b9816c53461a657bec08757f678a06a",
+      "python_sha256": "3dc83f9d5dca58d83bab77bef85e70cd77c0072c45ecdb11e4786c12295b7aed",
+      "python_version": [
+        3,
+        15,
+        2
+      ],
+      "system": "Linux"
     }
   ],
   "qualification": {
     "actual_version": "3.15.2",
-    "local_controls": "valid signature and tamper rejection passed",
-    "hosted_profiles": "pending actual probes; fail closed until independently observed"
+    "source_revision": "6bb88c3a3758cdad75af63a0acde1163f0386586",
+    "hosted_run": "https://github.com/edithatogo/tobac/actions/runs/42192920916",
+    "jobs": [
+      127809062796,
+      127809063171,
+      127809063237,
+      127809063289
+    ],
+    "signature_positive_and_tamper_negative": "passed on all four actual hosted selections and local issuer; previously unknown profiles were correctly rejected before workloads"
   }
 }
