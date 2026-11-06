@@ -17,8 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def verify(store: Path, warcs: Path) -> dict[str, Any]:
     """Require actual CAS/WARC bytes and URL-bound payload agreement for all nine assets."""
-    if sys.version_info[:3] != (3, 15, 1) or importlib.metadata.version("warcio") != "1.8.1":
-        msg = "Select the qualified native-provider Python 3.15.1 / warcio 1.8.1 environment"
+    if sys.version_info[:3] != (3, 15, 2) or importlib.metadata.version("warcio") != "1.8.1":
+        msg = "Select the qualified native-provider Python 3.15.2 / warcio 1.8.1 environment"
         raise RuntimeError(msg)
     reader = importlib.import_module("warcio.archiveiterator")
     manifest = ROOT / "integration/reconciliation_2025/source-assets.json"

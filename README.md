@@ -71,7 +71,7 @@ the separate longitudinal Actions workflow. Hosted success is not assumed.
 
 ## Reproduce
 
-The qualified reference interpreter is Python 3.15.1. Select that exact patch
+The patch-qualification candidate is Python 3.15.2. Select that exact patch
 before creating the repository-local environment:
 
 ```sh

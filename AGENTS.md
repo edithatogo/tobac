@@ -31,7 +31,7 @@ numerical pins and experimental canary are separate. Missing locks or tools are 
 successful checks.
 
 On macOS, run expensive tests, audits, numerical replays, builds and mutation through
-`scripts/run_bounded.py` with an explicitly selected repo-local Python 3.15.1. Use
+`scripts/run_bounded.py` with an explicitly selected repo-local Python 3.15.2. Use
 4 GiB sampled process-group RSS and a 40-minute ceiling by default; run heavyweight
 commands serially. Mutation uses at most two children. A budget breach is a failed
 run: diagnose it before changing a limit, without automatic retries. Keep child

@@ -26,16 +26,16 @@ jobs:
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
       - name: Verify selected Linux interpreter and source-bound audit lock
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c "import platform,sys; print(sys.executable, sys.version, platform.platform()); assert sys.version_info[:3] == (3, 15, 1); assert sys.platform == 'linux' and platform.machine() == 'x86_64'"
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c "import platform,sys; print(sys.executable, sys.version, platform.platform()); assert sys.version_info[:3] == (3, 15, 2); assert sys.platform == 'linux' and platform.machine() == 'x86_64'"
           .venv-ci/bin/python scripts/lock_receipt.py verify --profile audit --path engineering/audit.lock
           mkdir -p outputs/engineering
       - name: Execute strict and security sessions through the hash-locked Linux profile
-        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2100 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/linux-audit-nox.json -s strict_all security
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2100 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/linux-audit-nox.json -s strict_all security
       - name: Verify lock and cross-workstream contracts in the installed audit environment
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 300 -- .nox/security/bin/python -m pytest -q tests/engineering/test_lock_receipts.py tests/engineering/test_execution_contracts.py tests/engineering/test_harness_contract.py tests/test_workstream_integration.py
       - name: Install checksum-pinned export scanner

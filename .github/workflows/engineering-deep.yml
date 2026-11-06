@@ -24,17 +24,17 @@ jobs:
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
-      - name: Select repository-local Python 3.15.1
+      - name: Select repository-local Python 3.15.2
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
       - run: mkdir -p outputs/engineering
       - name: Run selected bounded audit
         env:
           NOX_SESSION: ${{ matrix.session }}
-        run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s "$NOX_SESSION"
+        run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s "$NOX_SESSION"
       - name: Install checksum-pinned export scanner
         if: always()
         run: sh scripts/install_security_tools.sh
@@ -49,7 +49,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
   canary:
-    name: Python 3.15.1 ecosystem canary (not release qualification)
+    name: Python 3.15.2 ecosystem canary (not release qualification)
     runs-on: macos-latest
     timeout-minutes: 20
     steps:
@@ -59,14 +59,14 @@ jobs:
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
-      - name: Select repository-local Python 3.15.1
+      - name: Select repository-local Python 3.15.2
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
       - run: mkdir -p outputs/engineering
-      - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s canary
+      - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s canary
       - name: Install checksum-pinned export scanner
         if: always()
         run: sh scripts/install_security_tools.sh

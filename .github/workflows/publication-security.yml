@@ -22,14 +22,14 @@ jobs:
       - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
       - name: Select repository-local interpreter
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c 'import sys; assert sys.version_info[:3] == (3, 15, 1)'
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c 'import sys; assert sys.version_info[:3] == (3, 15, 2)'
       - run: sh scripts/install_security_tools.sh
-      - run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox -s publication
+      - run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox -s publication
   codeql:
     name: CodeQL Python and Actions
     runs-on: macos-latest
@@ -44,12 +44,12 @@ jobs:
       - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
         with:
           version: '0.13.7'
-          python-version: '3.15.1'
+          python-version: '3.15.2'
           enable-cache: false
       - name: Select repository-local Python for analysis
         run: |
-          uv venv --python 3.15.1 .venv-ci
-          .venv-ci/bin/python -c 'import sys; assert sys.version_info[:3] == (3, 15, 1)'
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c 'import sys; assert sys.version_info[:3] == (3, 15, 2)'
           echo "$GITHUB_WORKSPACE/.venv-ci/bin" >> "$GITHUB_PATH"
       - uses: github/codeql-action/setup-codeql@9b3254085494b55a0f7c4c2b3d2d52cc712ce370
         id: codeql

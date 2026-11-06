@@ -18,10 +18,10 @@ ROOT = Path(__file__).resolve().parents[1]
 ARCHIVE = "integration/archive/"
 CAPSULE = ARCHIVE + "hosted-native-attestation.json"
 SIGNERS = ARCHIVE + "hosted-native-signers"
-CHECKPOINT = ARCHIVE + "scientific-lineage-checkpoint_20261102.json"
-CHECKPOINT_SHA = "63eaf457ae3ff03fc688f830f24ebb640f01dbbf8dc2e912887c10ec7f6e090a"
+CHECKPOINT = ARCHIVE + "scientific-lineage-checkpoint_python3152_20261106.json"
+CHECKPOINT_SHA = "4007066e5880e42d08aaecbb56b3fdcbda6f248e1a6f100d4a38bb998221b331"
 PROFILES = ARCHIVE + "hosted-verifier-profiles.json"
-PROFILES_SHA = "681ec6036f8cec35ea7011c1de3f2fd24f86c44f14f5e27bcbf3abac714521ca"
+PROFILES_SHA = "0bc9d49a72f7c3f991c8f61672fad8dc60d6a51ff31b97cf3e9065727b03ae82"
 SIGNERS_SHA = "0661923a19e1d4ed38a3e0938b94a25b03cdedd3145d63959825871ce05eeec9"
 NAMESPACE = "tobac-native-lineage"
 IDENTITY = "tobac-native"
@@ -53,8 +53,8 @@ def command(argv: list[str], *, data: bytes | None = None) -> subprocess.Complet
 def runtime_profile(executable: Path | None = None) -> dict[str, Any]:
     """Identify the actual Python and signature-verifier binaries on this machine."""
     ssh = shutil.which("ssh-keygen")
-    if ssh is None or sys.version_info[:3] != (3, 15, 1):
-        msg = "Hosted verification requires Python 3.15.1 and OpenSSH ssh-keygen"
+    if ssh is None or sys.version_info[:3] != (3, 15, 2):
+        msg = "Hosted verification requires Python 3.15.2 and OpenSSH ssh-keygen"
         raise ValueError(msg)
     return {
         "system": platform.system(),

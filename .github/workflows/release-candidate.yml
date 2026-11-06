@@ -30,7 +30,7 @@ jobs:
     - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
       with:
         version: 0.13.7
-        python-version: 3.15.1
+        python-version: 3.15.2
         enable-cache: 'false'
     - name: Require the requested immutable source
       env:
@@ -42,8 +42,8 @@ jobs:
         test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
     - name: Select repository-local interpreter
       run: |-
-        uv venv --python 3.15.1 .venv-ci
-        .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 1)"
+        uv venv --python 3.15.2 .venv-ci
+        .venv-ci/bin/python -c "import sys; print(sys.executable, sys.version); assert sys.version_info[:3] == (3, 15, 2)"
     - name: Require source-bound locks and native lineage before execution
       run: |-
         git ls-files --error-unmatch engineering/requirements.lock engineering/requirements.lock.json engineering/audit.lock engineering/audit.lock.json
@@ -61,7 +61,7 @@ jobs:
         echo "SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)" >> "$GITHUB_ENV"
         mkdir -p outputs/engineering
     - name: Qualify locked internal candidate
-      run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.1 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s tests quality strict_all
+      run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s tests quality strict_all
         security reproduce package clean_package
     - name: Compare all eight accepted scientific variants
       run: |-

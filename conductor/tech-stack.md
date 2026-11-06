@@ -1,6 +1,6 @@
 # Stack and reuse
 
-Reference calculation: Python 3.15.1, NumPy 2.5.4, SciPy 1.18.1. Longitudinal exports use pandas
+Reference calculation: Python 3.15.2, NumPy 2.5.4, SciPy 1.18.1. Longitudinal exports use pandas
 3.1.0 and matplotlib 3.11.2. Regulatory/evidence contracts live in tobac; longitudinal accounting/model
 components in tobac_supply. M3 owns the additive research portfolio and weighted-library work.
 

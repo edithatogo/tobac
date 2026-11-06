@@ -28,7 +28,7 @@ def environment(session: nox.Session, profile: str = "runtime", *, require_lock:
     if profile == "audit" and sys.platform != "linux":
         session.error("Audit-tool profile is Linux-only; use runtime tests on other platforms")
     session.env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONHASHSEED="0")
-    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
     name = "requirements.lock" if profile == "runtime" else "audit.lock"
     lock = ROOT / "engineering" / name
     receipt = lock.with_suffix(".lock.json")
@@ -50,7 +50,7 @@ def environment(session: nox.Session, profile: str = "runtime", *, require_lock:
         if not isinstance(python, str) or not python.strip():
             session.error("Could not resolve the isolated interpreter")
         if profile == "audit":
-            session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+            session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
         session.run(
             "uv", "pip", "sync", "--python", python.strip(), "--require-hashes", str(lock), external=True
         )
@@ -107,7 +107,7 @@ def audit_tools(session: nox.Session) -> None:
         + ("" if audit_lock_present() else "; no audit lock is committed yet")
     )
     session.env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONHASHSEED="0")
-    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
     # The audit checks import the project and jsonschema, so the ordinary dependency set is
     # required too; installing only the tool pins leaves basedpyright unable to resolve imports.
     session.install(
@@ -163,14 +163,14 @@ def verify_evidence(session: nox.Session, label: str) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def evidence(session: nox.Session) -> None:
     """Offline standard-library check; no package install or empirical conditioning."""
-    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
     verify_evidence(session, "evidence")
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def tests(session: nox.Session) -> None:
     """Run the full source-coverage test suite in the qualified environment."""
     verify_evidence(session, "tests")
@@ -198,7 +198,7 @@ def tests(session: nox.Session) -> None:
     session.run("python", "-m", "coverage", "report", "--fail-under=90")
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def quality(session: nox.Session) -> None:
     """Run baseline lint and component typing checks."""
     audit_tools(session)
@@ -225,7 +225,7 @@ def quality(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def types_longitudinal(session: nox.Session) -> None:
     """Strict typing of the empirical runner using this session's interpreter."""
     audit_tools(session)
@@ -238,7 +238,7 @@ def types_longitudinal(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def strict_all(session: nox.Session) -> None:
     """Lint and format all maintained Python and check whole-source typing."""
     audit_tools(session)
@@ -279,7 +279,7 @@ def strict_all(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def source_handoff(session: nox.Session) -> None:
     """Validate source/observation declarations; blocked scientific gaps remain explicit."""
     environment(session)
@@ -292,7 +292,7 @@ def source_handoff(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def reproduce(session: nox.Session) -> None:
     """Replay the numerical reference and verify its outputs."""
     verify_evidence(session, "reproduce")
@@ -357,7 +357,7 @@ def reproduce(session: nox.Session) -> None:
     session.run("python", "scripts/qualify_publication_replay.py", "--out", str(replay_root / "paper_replay"))
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def security(session: nox.Session) -> None:
     """Run dependency and workflow security checks."""
     audit_tools(session)
@@ -378,7 +378,7 @@ def security(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def publication(session: nox.Session) -> None:
     """Qualify the public boundary and pinned native macOS scanners."""
     environment(session)
@@ -386,7 +386,7 @@ def publication(session: nox.Session) -> None:
     session.run("python", "scripts/check_publication_security.py")
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def qualification(session: nox.Session) -> None:
     """Reopen the native evidence before running enforcement regression tests."""
     verify_lineage(session, "qualification")
@@ -401,10 +401,10 @@ def qualification(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def lock(session: nox.Session) -> None:
     """Produce review candidates, not automatic trusted locks or source commits."""
-    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
     destination = session.posargs[0] if session.posargs else "outputs/engineering/lock-candidate"
     for profile in ["runtime", "audit"]:
         session.run(
@@ -412,7 +412,7 @@ def lock(session: nox.Session) -> None:
         )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def package(session: nox.Session) -> None:
     """Build internal source/wheel candidates after exact locked installation."""
     verify_evidence(session, "package")
@@ -434,7 +434,7 @@ def package(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def mutation(session: nox.Session) -> None:
     """Mutation score gate; mutmut enforces no threshold of its own."""
     audit_tools(session)
@@ -457,7 +457,7 @@ def mutation(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def profile(session: nox.Session) -> None:
     """Profile the empirical quick runner with the maintained Scalene tool."""
     audit_tools(session)
@@ -476,11 +476,11 @@ def profile(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def canary(session: nox.Session) -> None:
     """Latest/pre-release source-only experiment; cannot qualify the reference environment."""
     session.env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONPATH="src")
-    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
     session.install(
         "--pre", "numpy", "scipy", "pandas", "matplotlib", "pytest", "hypothesis", "jsonschema", "PyYAML"
     )
@@ -488,7 +488,7 @@ def canary(session: nox.Session) -> None:
     session.run("python", "-m", "pytest", "-q", "--strict-markers")
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def research_m3(session: nox.Session) -> None:
     """M3 uses the existing reference environment and preserves its lock gates."""
     verify_evidence(session, "research_m3")
@@ -502,11 +502,11 @@ def research_m3(session: nox.Session) -> None:
     session.run("python", "scripts/verify.py", destination)
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def voiage(session: nox.Session) -> None:
     """Build a pinned, explicitly local-versioned Voiage compatibility candidate."""
     session.env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONHASHSEED="0")
-    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
     # Independent, input-bound dependency lock; the wheel still resolves its dependencies normally.
     session.run(
         "python",
@@ -558,7 +558,7 @@ def voiage(session: nox.Session) -> None:
         "user.email=voiage-compatibility@users.noreply.github.com",
         "commit",
         "-m",
-        "Qualify Voiage metadata for tobac Python 3.15.1",
+        "Qualify Voiage metadata for tobac Python 3.15.2",
         external=True,
         env={
             "GIT_AUTHOR_DATE": "2026-10-26T00:00:00+00:00",
@@ -630,14 +630,14 @@ def voiage(session: nox.Session) -> None:
     session.log(f"Voiage receipt: {receipt_dir}")
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def moh_workbook(session: nox.Session) -> None:
     """Explicit local native-producer verification; no acquisition or source mutation."""
     environment(session)
     session.run("python", "scripts/qualify_moh_workbook.py", *session.posargs)
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def native_moh_lineage(session: nox.Session) -> None:
     """Consume an explicit repo-local installed producer; never mutate its live estate."""
     if not session.posargs:
@@ -649,7 +649,7 @@ def native_moh_lineage(session: nox.Session) -> None:
     session.run(str(selected), "scripts/extract_moh_lineage.py", *session.posargs[1:], external=True)
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def native_shine_lineage(session: nox.Session) -> None:
     """Consume an explicit repo-local installed producer; never mutate its live estate."""
     if not session.posargs:
@@ -661,7 +661,7 @@ def native_shine_lineage(session: nox.Session) -> None:
     session.run(str(selected), "scripts/extract_shine_lineage.py", *session.posargs[1:], external=True)
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def product_reconciliation(session: nox.Session) -> None:
     """Recompute dated source-bound product tables; no source acquisition or conditioning."""
     environment(session)
@@ -674,7 +674,7 @@ def product_reconciliation(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def clean_package(session: nox.Session) -> None:
     """Real artifact execution outside source and sibling checkouts."""
     verify_lineage(session, "clean_package")
@@ -683,10 +683,10 @@ def clean_package(session: nox.Session) -> None:
     session.run("python", "scripts/qualify_clean_package.py", "--out", destination)
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def ecosystem(session: nox.Session) -> None:
     """Probe natively with a hash-bound, already qualified macOS Voiage wheel."""
-    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
     if len(session.posargs) != 1:
         session.error("Supply the qualified macOS Voiage compatibility wheel path")
     wheel = Path(session.posargs[0]).resolve()
@@ -732,18 +732,18 @@ def ecosystem(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def recovery(session: nox.Session) -> None:
     """Actual runner interruption/resume and immutable-receipt comparison."""
     environment(session)
     session.run("python", "scripts/qualify_recovery.py", "--out", str(OUT / "recovery" / uuid4().hex))
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def voiage_polars_candidate(session: nox.Session) -> None:
     """Build and qualify one immutable unpatched upstream container candidate."""
     pin = json.loads((ROOT / "engineering/voiage-polars-candidate.json").read_text())
-    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
     session.run(
         "python",
         "scripts/lock_receipt.py",
@@ -880,10 +880,10 @@ def voiage_polars_candidate(session: nox.Session) -> None:
     shutil.rmtree(run / "cargo-target")
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def voiage_published(session: nox.Session) -> None:
     """Qualify the hash-pinned published wheel with its genuine runtime dependencies."""
-    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
     python = session.run("python", "-c", "import sys; print(sys.executable)", silent=True)
     if not isinstance(python, str) or not python.strip():
         session.error("Cannot resolve selected interpreter")
@@ -925,7 +925,7 @@ def voiage_published(session: nox.Session) -> None:
     )
 
 
-@nox.session(python="3.15.1")
+@nox.session(python="3.15.2")
 def advisory_types(session: nox.Session) -> None:
     """Run isolated differential diagnostics with a pinned Voiage interface build."""
     session.env.update(
@@ -936,7 +936,7 @@ def advisory_types(session: nox.Session) -> None:
         PYTHONPATH="",
         PYTHONNOUSERSITE="1",
     )
-    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 1)")
+    session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
     session.run(
         "python",
         "scripts/lock_receipt.py",
