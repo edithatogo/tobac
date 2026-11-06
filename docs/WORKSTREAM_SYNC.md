@@ -852,3 +852,36 @@ its unavailable online audits are not represented as executed. The source-bound
 signed-input check and 20/20 track-name validation pass. Full scientific source,
 numerical runtime and reference outputs are unchanged; existing #94 software
 qualification is reused, with full hosted #80 gates still required.
+
+## PR #80 merged; PR #133 qualification — 6 November 2026
+
+The integrator now owns `codex/qualify-pr133` in the same isolated standard
+worktree. #80 merged through GitHub's exact-head guard at `b1ccfd5`; its full
+receiving tree matches `ff12683`, which passed all candidate checks. All ten
+#94 receiving-main workflows at `e1d9b88` passed. The #80 receiving-main jobs
+remain pending. Queue order is now #133, then the broader #91 patch migration.
+Scope: prek's ecosystem input and generated lock/receipt, focused read-only tool
+qualification, Conductor status and this handoff. Generate and inspect all four
+profiles; retain unchanged qualified profiles rather than adopting unrelated
+candidates. Native attempts, signing identity, hooks and scientific source are
+unchanged. The separate Python 3.15.2 environment hash-installed the current
+runtime lock and passed 26 synthetic cross-workstream cases as preliminary
+compatibility evidence only. Next: inspect generated profile differences, install
+and qualify the affected ecosystem candidate, then publish and await hosted gates.
+
+PR #133 local qualification: generated all four source-bound profiles; inspected
+unrelated transitive changes in the other three and retained their existing,
+still-valid qualified locks. The adopted ecosystem candidate changes only prek
+and threadpoolctl package versions. Hash installation succeeded on Python 3.15.1.
+The first full run passed 1,224 tests / 20 skips, with one source-binding failure
+because the lock was not committed. After `6d7e680`, the existing cache selected
+exactly that failed dependency-snapshot test: one pass / 15 deselected; all other
+unchanged results are reused. Prek 0.5.9 validates the existing config without
+installing hooks. A supported OpenMP control/restore probe passes with the new
+threadpoolctl; native BLAS control is unavailable on this host. The earlier BLAS
+probe failure and empty stdin-based attempt are not counted as successful proof.
+The optional legacy ecosystem Nox gate stopped on an unavailable exact Voiage
+wheel, before installing or running its probes. Alternate hashes were rejected;
+no acceptance pin was weakened. Current published Voiage qualification is retained.
+All ten #80 receiving-main workflows now passed at `b1ccfd5`. Next: publication
+boundary and exact-head #133 push, followed by hosted qualification and guarded merge.
