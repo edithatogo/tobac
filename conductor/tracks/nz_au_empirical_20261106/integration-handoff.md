@@ -38,3 +38,19 @@ No source data was pushed, native settings changed or external messages sent.
 User-approved handoff delivered to existing owner chat after unarchiving it. Current
 post-wrapper full suite has 16 hosted-lineage failures at inventory admission, 1218 passed
 and 20 skipped. These failures are an open acceptance gate, not waived by prior green runs.
+
+## Integrated checkpoint de1c887
+
+The earlier source-ownership observations above are historical. The owner's immutable
+Polars conversion, exact CSV corrections and profile retirement are now integrated
+(2493aa7, efe1b4d, de1c887). No dirty owner work was copied. All six dependency receipts
+verify. The actual default environment hash-sync passed, with Python 3.15.1 and no
+pandas/xarray imports. Profile/stage/workstream selection passed 83 tests; strict whole-source
+typing passed with zero errors/warnings using the qualified audit interpreter.
+
+Integrated full suite: 16 failed, 1222 passed, 20 skipped. All failures reject stale
+signed runtime identity in hosted-lineage admission. This remains an open gate; prior
+passing baseline evidence is not substituted. Approved cross-chat delivery was executed
+and includes the request to renew the combined scientific inventory, plus latest-qualified
+pin differences for the existing dependency owner. Direct integrated numerical replay is
+in progress and does not replace signed native acceptance.

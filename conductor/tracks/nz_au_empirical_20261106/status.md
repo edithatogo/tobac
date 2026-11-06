@@ -1,31 +1,33 @@
 # Status — 6 November 2026
 
-Requirements/design/plan recorded. No new empirical data admitted, model run, dependency
-promotion or hosted publication is claimed. GitHub connector confirmed edithatogo/searchright
-and edithatogo/innovate. Searchright README inspected through gh; no executable on PATH.
-Hugging Face connector dataset_search failed UNAVAILABLE (tool absent from tools/list).
-This does not establish that the CLI/API or user's dataset repositories are unavailable.
-Existing external archival producer has qualified historical scope; new sources require
-operation-specific qualification. Existing Polars migration is owned by another chat.
+Phase 0 is in progress. The isolated empirical branch integrates the owner's Polars
+runner conversion, exact CSV corrections and dataframe-free profile packet at de1c887.
+All six lock receipts verify; lock, workflow-stage and workstream tests passed 83/83.
+The default environment is hash-synchronised to the integrated runtime lock: actual
+Python 3.15.1, 36 compatible packages, and no importable pandas or xarray.
+Latest-candidate qualification and canonical dependency promotion remain distinct.
 
-Next: locate/qualify Searchright executable and external dataset destination, then run
-source inventory/extraction. Shared registry edits here are an isolated integration candidate,
-not a second writer on main. Scientific calibration, real costs, native Innovate/Snakemake
-execution and all phase acceptance remain open.
+The minimal Snakemake analytical DAG implements source/context admission, JSONL events,
+atomic M1 publication and stale-cache/failure/recovery controls. Nox remains the engineering
+runner. Context execution is qualified with the supported greedy scheduler on Apple Silicon;
+the analytical M1 stage awaits renewal of the signed scientific inventory by its owner.
+The integrated runtime full suite reports 16 lineage failures, 1222 passed and 20 skipped.
+Earlier passing baselines and 82-table numerical replays do not close that gate.
 
-## Sequencing review
+Searchright's exact locked source revision was built and its CLI/example plan exercised.
+Its five default provider manifests are fixture-backed; no live systematic search is claimed.
+Innovate 0.6.0 requires pandas/pandasdmx and remains an explicit integration gap. The actual
+Voiage 3.1.0 published wheel passed 90 comparisons and six buffer-ownership checks.
+See phase0-progress.md, phase0-audit.md and library-disposition.md for evidence scope.
 
-Moved runtime, dependency qualification, Polars coordination and minimal logged workflow to
-Phase 0. Added explicit existing-code maturation, baseline parity, initial estimand/validation
-freeze, a first empirical vertical slice, continuous sensitivity checks, identifiability,
-source refresh/retraction handling and dated latest-versus-qualified dependency accounting.
-This is a plan correction, not executed dependency updates or model qualification.
-Latest supplied AGENTS.md retains the Nox preference; the explicit earlier Snakemake request
-is recorded for reconciliation before runner activation. No runner was installed or changed.
+The user-approved owner handoff includes the combined snapshot, the lineage renewal request
+and latest-versus-qualified dependency differences. Existing owners retain signing material,
+native resources and shared runtime promotion. No private binding was copied.
 
-## Enablement and hardening refinement
+No new empirical data has been admitted. External archive identities, acquisition rights,
+figure extraction verification, actual NZ/AU calibration, live Searchright providers and
+scientific conclusions remain later-phase requirements. The earlier Hugging Face connector
+failure does not establish that its CLI/API or the user's dataset repositories are unavailable.
 
-Added E0–E6 enablement packages, external bronze/silver/gold/platinum contracts, explicit
-promotion/quarantine semantics, bounded agent task template and primary-source standards
-crosswalk. Added separate H0–H2 hardening track. No lake, promotion validators, runner or
-standards compliance is claimed implemented. Task cards require exact commands before execution.
+Requirements, medallion contracts, bounded task cards, standards crosswalk and the companion
+hardening track are recorded. Their design does not prove implementation or compliance.

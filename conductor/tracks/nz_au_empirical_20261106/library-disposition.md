@@ -10,11 +10,15 @@
 | Searchright | main af8c282f4c0e92a958027ca352e82f1cc7180c57 | Locked CLI build/version/help/example validation passed; five fixture provider manifests enumerated | Live-provider acquisition and review-specific protocol qualification; no systematic search executed |
 
 All original PyPI metadata, candidate wheel/locks and logs stay in local outputs/nz-au-phase0.
-These are execution evidence, not public source datasets. Candidate locks are unpromoted;
-existing four-profile lock_receipt.py coverage must be extended/reconciled by the integrator.
+These are execution evidence, not public source datasets. Owner profile retirement was
+integrated at de1c887; all six lock receipts verify, including opt-in analytics. The actual
+default runtime is now hash-synchronised with no pandas/xarray. Newer candidate pins and
+full integrated scientific qualification remain separate from this installation evidence.
 
-Full M1 calculation executed at current source, not --quick. Existing verify.py reported
+Historical pre-wrapper full M1 calculation executed without --quick. Existing verify.py reported
 nine core definitions verified and run_verified true. Native-byte numerical reference
 comparison initially failed at import because PYTHONPATH omitted src; no numerical mismatch
 or comparison success is inferred from this environment error. Correct exact command before
-rerunning. Full eight-runner reproduction remains distinct from the M1 result.
+rerunning. That comparison was subsequently corrected: both baseline and latest-candidate
+eight-runner replays matched all 82 reference CSV tables within existing tolerances. These
+receipts predate the final integrated Polars packet and do not close its lineage gate.

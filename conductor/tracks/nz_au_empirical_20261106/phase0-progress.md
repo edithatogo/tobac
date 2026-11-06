@@ -383,3 +383,31 @@ reportUnknownMemberType errors at empirical plot/fill_between and release plot c
 zero warnings, sampled peak 845.6 MiB. Sent exact log/locations to source owner for a narrow
 interface correction without global relaxation or numerical changes. This is an open gate,
 not covered by earlier pre-conversion type-check success. No runtime promotion occurred.
+
+## Corrected source and profile integration
+
+Consumed exact owner commits 4178c34 and 5c23107 as efe1b4d and de1c887. Retained both
+coordination histories and removed one inherited conflict marker without dropping content.
+Generated locks were restored as complete immutable owner blobs, with their matching
+inputs; they were not hand merged. Preserved this lane's opt-in analytics profile and
+explicit 3.15.1 resolver selection. All six dependency receipts verify. The default
+environment was still the earlier installed baseline at this checkpoint.
+
+Lock-receipt, context/M1 stage and workstream tests passed 83/83 in 2.64 seconds, sampled
+peak 123.3 MiB. Whole-source strict typing passed with zero errors/warnings, sampled peak
+823.7 MiB, using the explicitly selected latest audit interpreter with its SciPy stubs.
+Two preliminary type-check invocations used incomplete import/stub environments and failed;
+their logs are retained as environment errors, not waived source diagnostics.
+
+Sent the approved owner handoff with this exact combined snapshot and the latest candidate
+pin differences. Signed scientific inventory renewal and shared runtime promotion retain
+their existing owners. No native keys, journals or bindings were copied. Canonical pins
+remain distinct from the newer locally qualified candidates until owner promotion.
+
+Hash-synchronised this lane's inactive default .venv with the integrated runtime lock.
+Actual Python 3.15.1 assertion, absence of pandas/xarray imports and uv pip check passed
+(36 installed packages). Installer sampled peak 61.1 MiB. Integrated full suite then
+completed with 1222 passed, 20 skipped and 16 failures in 55.60 seconds, sampled peak
+910.1 MiB. Every failure is in test_hosted_lineage.py and rejects the stale signed
+engineering/requirements.lock pin before the workload; inventory renewal is also still
+required. No failure was suppressed and no signed reference was edited.
