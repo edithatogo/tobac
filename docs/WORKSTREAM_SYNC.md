@@ -1273,3 +1273,30 @@ and remote branch SHA was read back after the fixes. No running jobs remain.
 This local documentation-only handoff preserves PR #139's tested head. The
 remaining operation is guarded main publication, then receiving ref and its own
 push workflow readback. No merge or post-publication success is inferred here.
+
+
+## PR #140 publication verified — 6 November 2026
+
+PR #140 head `3021e559aac83e2cab2f47c3a2ea937da78d6552` completed its
+hosted checks without failures and merged using the exact-head guard at
+`93b019e771bc81d899907c90aae355be5a34a3a5`. Fetched receiving main has tree
+`4908e7534fab0a9261ee0daae06b1518209f9875`, exactly equal to the tested PR tree.
+All ten push workflows at that receiving commit completed successfully:
+engineering, scientific reproduction, package portability, Linux audit,
+cross-platform tests, publication/source security, empirical longitudinal,
+regulatory uncertainty, M3 and OpenSSF Scorecard. All ten receiving workflows for
+PR #139's `e3a1cf9` merge also completed successfully. Queue delays required no
+code changes or weakened gates.
+
+Receipts: `outputs/hosted-integrated-20261106/pr140-final.json`,
+`pr140-receiving-final.json` and `pr139-receiving-final.json`. The run identifiers
+are retained below so the hosted results remain independently retrievable:
+
+Publication and source security: 42211622341; OpenSSF Scorecard: 42211622238; Linux audit lock qualification: 42211622127; M3 research methods: 42211622214; Package portability qualification: 42211622202; Cross-platform Python qualification: 42211622256; Empirical longitudinal component: 42211622095; Regulatory uncertainty milestone: 42211622279; Scientific reproduction qualification: 42211622113; Engineering qualification: 42211622316.
+
+PR #140 and its post-publication verification have no remaining checks. This
+terminal Conductor readback is a local documentation-only reconciliation after
+receiving-main verification; it is not part of the tested receiving commit and
+has not been published. Latest dependency promotion from the empirical lane
+remains separate: frozen `4015cc3` requires integration and fresh native admission
+before promotion; none of its evidence is substituted for the accepted closure.
