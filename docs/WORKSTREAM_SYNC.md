@@ -820,3 +820,35 @@ on this worktree's hash-installed Python 3.15.1 runtime (151.9 MiB sampled peak)
 and 20/20 track-name checks. The default engineering context exceeded its byte
 budget; a narrowed local engineering profile retaining AGENTS, ownership and
 dependency-maintenance instructions succeeded without increasing the budget.
+
+## PR #94 merged; PR #80 qualification — 6 November 2026
+
+The same integrator chat now owns `codex/qualify-pr80` in the isolated standard
+worktree `/Users/doughnut/Documents/tobac-conductor-status-20261106`. #94 merged
+through GitHub's exact-head merge guard at `e1d9b88`; its receiving ref and full
+tree match the verified candidate. Receiving-main push jobs are still running.
+Scope: #80's workflow pins/uv version, its signed workflow-binding renewal,
+Conductor status and the previously committed stale-plan correction. The latest
+Renovate head `8a5b155` is merged into this lane, retaining its uv 0.13.7 update.
+All setup-python jobs retain the accepted Python patch until #91 is qualified.
+Native scope: read-only verification of the existing eight attempts; local capsule
+issuance with the retained signing identity. No preserved attempts, originals or
+shared environments were changed. The isolated verifier installation includes the
+project metadata and matches the accepted executable/distribution fingerprint.
+Native readback succeeded before issuance (8 runners, 96.0 MiB sampled peak).
+The new NZ/AU empirical chat retains its managed worktree and unfinished source;
+its shared metadata will be integrated only at its own terminal checkpoint.
+Thirty-six ancestor local branches and seven ancestor remote branches are pruned;
+divergent history remains preserved in the verified private bundle. New PR #133
+joins the sequential queue after #91. Next: focused contract checks, publication
+hook, exact-head #80 push, then hosted candidate and receiving-main qualification.
+
+Local #80 checkpoint: the focused workflow/execution/hosted-lineage/archive and
+cross-workstream selection passed 79 tests with one capability skip (no selected
+verifier variable in that invocation). The exact skipped verifier test was then
+executed with the isolated retained-runtime interpreter and passed; no broad rerun.
+Actionlint passed. Pedantic Zizmor's default offline audit reported no findings;
+its unavailable online audits are not represented as executed. The source-bound
+signed-input check and 20/20 track-name validation pass. Full scientific source,
+numerical runtime and reference outputs are unchanged; existing #94 software
+qualification is reused, with full hosted #80 gates still required.

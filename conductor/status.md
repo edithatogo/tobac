@@ -7,6 +7,30 @@ The 18 archived tracks have no active execution tasks. Five historical graph
 proposal entries were superseded by bounded inventory acceptance and are explicitly
 labelled historical in their archived plan, rather than marked as executed.
 
+## Sequential dependency integration — 6 November 2026
+
+[PR #94](https://github.com/edithatogo/tobac/pull/94) merged at
+`e1d9b8848ab261f0ed992a74b3a2750e980512aa` after all head checks completed
+without failures at `adb3f8127355f210c1df959d629730873b381fc2`. The receiving
+ref and full tree were read back and match that tested candidate. Its receiving-main
+push workflows remain in progress; they are not yet recorded as accepted.
+
+PR #80 is now the active qualification packet. Its latest Renovate head `8a5b155`
+is incorporated without a force update. The candidate uses setup-uv v10.3.3 at
+upstream tag commit `68559e99cc807c1eb7e9238fd43a15bba460eec2` and uv 0.13.7;
+partial setup-python 3.15.2 settings were reconciled to the canonical 3.15.1.
+Python patch promotion remains the separate #91 qualification task. All eight
+native attempts and their actual original/input/output objects were reopened
+before issuing the fresh signed workflow binding. Earlier capsules remain in Git
+history and the retained private history bundle. Hosted candidate qualification
+and publication remain required; local issuance is not hosted acceptance.
+
+The bounded native-lineage track remains complete for its declared closure; its
+stale opening sentence is corrected in this packet. Earlier dependency snapshots
+below are historical and do not override this disposition. New Renovate PR #133
+updates prek 0.5.7 to 0.5.9 and is queued after #91 for separate lock/tool qualification.
+The scientific and submission requirements remain unchanged.
+
 ## Latest receiving-main verification — 5 November 2026
 
 All nine post-publication workflows passed at receiving main
@@ -236,7 +260,7 @@ Full platform numerical reproduction is qualified by DXP3; DXP4 qualifies the ma
 Linux release and lock candidates. DH1 triage and DH2 review are complete locally; the dated hosted mutation count
 remains distinct from the later local run.
 
-## Dependency PR refresh — 6 November 2026
+## Historical dependency PR snapshot — 6 November 2026, 3:24 pm AEST
 
 Read-only GitHub CLI snapshot at 6 November 2026, 3:24 pm AEST (05:24 UTC). Receiving main was
 `b57b4e12e551c7c7d6db757b8d0f404eb8691146`; these were the only three open PRs.
