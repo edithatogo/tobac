@@ -68,7 +68,9 @@ def test_scheduler_preserves_atomic_destination_and_completed_outputs(tmp_path, 
     config.write_text('{"fixture":true}')
     # Reuse the maintained rule, including its actual output declaration and
     # command. The isolated fixture deliberately has no scientific admission.
-    rule = (ROOT / "workflow/Snakefile").read_text().split("\nrule m1:", 1)[1]
+    workflow = (ROOT / "workflow/Snakefile").read_text()
+    # Isolate this maintained rule from optional rules appended after it.
+    rule = workflow.split("\nrule m1:", 1)[1].split("\nrule ", 1)[0]
     prefix = (
         "from pathlib import Path\n"
         f"PYTHON={str(Path(sys.executable).absolute())!r}\n"
