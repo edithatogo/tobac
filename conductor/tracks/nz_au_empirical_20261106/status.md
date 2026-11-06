@@ -81,6 +81,7 @@ Frozen 4015cc3 plus prerequisite b027688 are consumed in the integrator checkout
 Receipt: `integration/archive/dependency-admission_20261106.json`.
 Checkpoint: `integration/archive/scientific-lineage-checkpoint_dependencies_20261106.json`.
 Normal commands use the new retained owner-only env-bindings in the receipt's local
-output directory. Candidate hosted qualification/publication remains separate; the
-successful Conductor publication at 2e6534d does not qualify this changed dependency tree.
+output directory. Candidate hosted qualification/publication is complete through PR #142 at exact
+413f7b2: twelve PR workflows and ten receiving-main workflows passed. The separate
+Conductor publication at 2e6534d is not substituted for these new results.
 The latest real-scheduler context/DAG terminal handoff remains with the originating lane.
