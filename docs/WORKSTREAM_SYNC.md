@@ -1236,3 +1236,26 @@ checkpoint pins retain the same native attempts. Their current readback and the
 712-file independent runtime-delta restore pass (manifest
 `7c122a6fb1832d2a10465a5ec7b818a4f1dc44eec1d81d4b637351c8f7791dab`).
 Clean committed publication replay and the next exact-head Actions remain pending.
+
+## Integrated hosted qualification ownership — 6 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
+`codex/integrated-hosted-checks`. Current main advanced to `eca4e8a` through
+qualified PR #91 and Python 3.15.2. The hosted candidate therefore integrates
+that runtime and its admitted verifier profiles, retaining Voiage 3.1 producer
+qualification, pandas/xarray removal, analytics ownership and all prior histories.
+It does not restore a superseded 3.15.1 default or adopt held latest-pin candidates.
+
+Six source-bound locks were regenerated for 3.15.2. A fresh hash-installed native
+runtime executed all eight profiles; all 140 outputs reopen and all 82 scientific
+CSVs equal the original accepted bytes. Current local Python/OpenSSH fingerprints
+already belong to main's qualified profile set. The earlier 3.15.1 environments,
+attempts, keys and private binding remain preserved. The inactive root controller
+was preserved separately before selecting its hash-installed 3.15.2 replacement;
+ordinary publication hooks are retained.
+
+Final signing waits for the empirical owner's committed scheduler-boundary fix
+for the optional M1 DAG. That source correction is outside numerical execution
+and requires signature renewal without repeating the scientific runs. Hosted
+publication and checks are the active task; broader latest-pin promotion remains
+with its existing owner. No hosted success is claimed before actual run receipts.

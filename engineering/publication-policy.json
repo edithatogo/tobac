@@ -1240,7 +1240,8 @@
     "vendor/conductor",
     "workflow/README.md",
     "workflow/Snakefile",
-    "integration/archive/scientific-lineage-checkpoint_python3152_20261106.json"
+    "integration/archive/scientific-lineage-checkpoint_python3152_20261106.json",
+    "integration/archive/scientific-lineage-checkpoint_integrated_python3152_20261106.json"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",
