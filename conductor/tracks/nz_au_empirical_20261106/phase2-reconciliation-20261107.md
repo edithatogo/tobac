@@ -2874,3 +2874,24 @@ counts and the sampling status of any finer age series require
 separate qualification. Neither age scenario measures take-up.
 
 [Stats NZ December 2023 travel release](https://www.stats.govt.nz/information-releases/international-travel-december-2023/).
+
+## P2.135 Reported duty-free releases for sale
+
+The authors' 2015–2024 analysis of manufacturer and importer
+returns reports 4,600,000 duty-free cigarettes and 1,817.7 kg
+of duty-free roll-your-own tobacco in the 2023 table row.
+These annual releases for sale describe a different quantity
+from the allowance scenarios in P2.131–134. This is a
+published aggregate candidate pending reconciliation to the
+company returns. Both sources describe the same underlying
+returns and must share provenance if used together.
+
+Domestic duty-free releases may include purchases leaving
+New Zealand. Traveller imports can also come from overseas
+purchases. Adding the two quantities could count the same
+tobacco twice. The annual release row gives neither net
+inbound quantity nor consumption in May–October catchments.
+Keep sticks and RYO mass separate.
+
+[Original analysis, PubMed record](https://pubmed.ncbi.nlm.nih.gov/41587826/)
+and [Ministry of Health company returns for 2023](https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2023).
