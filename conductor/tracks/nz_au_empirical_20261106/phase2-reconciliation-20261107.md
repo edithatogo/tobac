@@ -3446,3 +3446,22 @@ and absence of a physical-quantity bridge remain.
 
 [September interim statements, Note 2](https://www.treasury.govt.nz/sites/default/files/2023-11/fsgnz-3mths-sep23.pdf)
 and [October interim statements, Note 2](https://www.treasury.govt.nz/sites/default/files/2023-12/fsgnz-4mths-oct23.pdf).
+
+## P2.163 Conditional duty-to-quantity sensitivity
+
+Under a two-product scenario with all NZ$674.273 million in
+P2.159 recognised contemporaneously at P2.67 rates, let N be
+light cigarette sticks and M kilograms of RYO tobacco.
+The revenue equation is 1.17775 N + 1678.29 M = 674273000.
+Its endpoints are approximately 572.51 million light sticks
+or 401.762 tonnes of RYO. Every nonnegative mix on the line
+has the same revenue. Using the paper's 0.7 g convention for
+RYO only, N + 1000 M / 0.7 lies between 572.51 million and
+573.95 million equivalents in this scenario. The narrow
+range results from the two per-equivalent rates being close.
+
+This range depends on the imposed product scope and recognition
+assumption. The pooled fiscal series does not verify those
+assumptions, the stock-to-consumption bridge or the catchment
+allocation. Keep the conversion as a sensitivity and retain
+the monthly fiscal observation in its original currency units.
