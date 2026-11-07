@@ -3765,3 +3765,21 @@ The threshold is an accounting sensitivity. Actual
 shipment linkage, eligibility, refund dates and amounts are
 unverified. Positive evidence of re-export volume alone does
 not establish that this threshold was met.
+
+## P2.180 Evidence needed to verify a re-export credit
+
+Customs' drawback procedure requires an application that
+links the export to the import entry, states duty paid and
+the amount claimed, and includes supporting documents. Late
+and periodic claims can be separate from export entries.
+The statistical export month therefore does not establish
+the claim, its approval or the month credited.
+
+Testing P2.179 empirically requires linked quantities and
+approved drawback amounts by subcode, together with the
+posting dates and whether the OIA paid series includes
+those credits. The available monthly trade quantities and
+paid heading totals do not provide those fields. Keep the
+25.9013% threshold as a conditional sensitivity.
+
+[Customs refunds and drawbacks procedure](https://www.customs.govt.nz/business/import/refunds-and-drawbacks).
