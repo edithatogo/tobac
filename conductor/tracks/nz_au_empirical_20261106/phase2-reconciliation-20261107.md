@@ -2465,3 +2465,18 @@ ten displayed rows. Original CSV and technical notes remain
 to be acquired before admission.
 
 [Health NZ Pharmaceutical Data web tool](https://tewhatuora.shinyapps.io/pharmaceutical-data-web-tool/).
+
+## P2.109 Chemical-level funded varenicline reach
+
+The same Health NZ edition's chemical-level national view,
+initial dispensings, identifies varenicline tartrate as ChemID
+3920. Its 2021–2025 initial dispensing counts are 15,617,
+125, 34, 23 and 7,569, respectively. NumPpl is 8,902, 91, 22,
+18 and 4,285. The 2025 initial dispensing total equals the
+sum of the two formulation rows in P2.108, while the reported
+people total is lower than their sum (7,000). Use the published
+chemical-level people count for aggregate reach. If both
+formulation rows enumerate the same covered population and
+the chemical total is their union, their overlap is 2,715.
+The display does not establish course completion, service
+participation or incremental uptake under a policy change.
