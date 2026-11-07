@@ -3465,3 +3465,25 @@ assumption. The pooled fiscal series does not verify those
 assumptions, the stock-to-consumption bridge or the catchment
 allocation. Keep the conversion as a sensitivity and retain
 the monthly fiscal observation in its original currency units.
+
+## P2.164 Product-scope limits on duty inversion
+
+The 2023 schedule includes other tobacco such as cigars at
+NZ$1,472.14 per kg tobacco content and water-pipe tobacco at
+NZ$251.74 per kg. Their revenue has no factory-made or RYO
+stick-equivalent interpretation. Heavy cigarettes are taxed
+at NZ$1,678.29 per kg tobacco content and exceed 0.8 g
+content per stick. Their duty therefore exceeds NZ$1.342632
+per stick. Even allocating the entire campaign revenue to
+heavy cigarettes gives fewer than 502.21 million sticks
+under contemporaneous recognition.
+
+If a fraction f of pooled revenue belongs to products outside
+the light-cigarette and RYO scenario, its conditional interval
+scales by 1-f. Without a bound on f, the fiscal total alone
+gives no positive lower bound on that two-product quantity.
+For example, 10% outside scope reduces the lower endpoint
+by about 57.25 million equivalents, far more than the
+1.44 million width due to mix within the two products.
+
+[Customs January 2023 rate notice](https://www.customs.govt.nz/about-us/news/important-notices-archive/important-notices-archive-2022/new-excise-duty-rates-for-tobacco-and-tobacco-products-from-1-january-2023).
