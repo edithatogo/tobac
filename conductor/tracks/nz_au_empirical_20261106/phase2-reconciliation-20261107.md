@@ -2440,3 +2440,28 @@ simplified bridge. Dropping equal intensity requires a
 consumption-weighted reach measure, and dropping the full-horizon
 assumption requires post-quit trajectories. The six-month trial
 estimate is not a cumulative one-year demand reduction.
+
+## P2.108 National funded varenicline dispensing readback
+
+Health NZ's public Pharmaceutical Data web tool, version
+7 August 2026 (collection extract 9 July), rendered in the
+Codex internal browser. The NZ total, initial dispensings,
+chemical formulation view gives the following counts.
+
+| Calendar year | Starter initial dispensings | Starter NumPpl | 1 mg initial dispensings | 1 mg NumPpl |
+| --- | ---: | ---: | ---: | ---: |
+| 2021 | 8,580 | 8,269 | 7,037 | 6,679 |
+| 2022 | 68 | 67 | 57 | 57 |
+| 2023 | 18 | 18 | 16 | 16 |
+| 2024 | 17 | 17 | 6 | 6 |
+| 2025 | 4,385 | 4,173 | 3,184 | 2,827 |
+
+The table reports people per formulation and year. Overlap
+between formulations is unknown from these rows. The starter
+count anchors funded dispensing activity and does not identify
+completed courses, Quitline reach, or the number newly reached
+by a hypothetical policy. Source is browser readback of the
+ten displayed rows. Original CSV and technical notes remain
+to be acquired before admission.
+
+[Health NZ Pharmaceutical Data web tool](https://tewhatuora.shinyapps.io/pharmaceutical-data-web-tool/).
