@@ -2165,3 +2165,19 @@ External P2.39 intake retains layer-111198.json, SHA256
 c78dcec40debb484ac1bdfe5232b5e6f50ae2246196063c05f68f03507a5ae61.
 
 [Stats NZ layer API](https://datafinder.stats.govt.nz/services/api/v1/layers/111198/).
+
+## P2.91 Observed NZ cessation service funnel
+
+Ministry aide-mémoire H2024036635 reports 1,522 enrolments in
+the Counties Manukau stop-smoking service from October 2022
+through September 2023. Of these, 770 set a quit date and 626
+had a biochemically validated four-week quit. The reported 81%
+uses quit-date setters as its denominator (81.30%); the same
+numerator divided by all enrolments is 41.13%. The briefing's
+one-year figure is an extrapolation from relapse evidence.
+The local funnel gives a measured historical service example
+and separates enrolment, quit-date setting and short-term
+outcome. It supplies neither national reach nor a causal
+contrast with unaided quitting.
+
+[Ministry aide-mémoire, pp. 3–4](https://www.health.govt.nz/system/files/2024-08/h2024036635_briefing_-_stop_smoking_services_and_health_promotion_activities_black_box.pdf).
