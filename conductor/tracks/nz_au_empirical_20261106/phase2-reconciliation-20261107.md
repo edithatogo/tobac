@@ -2695,3 +2695,17 @@ rows have suppressed dispensing and people cells. Keep the
 separately published national totals and preserve every
 suppressed cell. These arithmetic checks do not establish
 catchment membership or independent district observations.
+
+## P2.125 Dispensing coverage against the prespecified holdout gate
+
+The P2.123 packet supplies five consecutive national calendar-year
+rows per chemical and measure. At the row-coverage level, 2025
+has four earlier years for a descriptive dispensing-count series.
+Varenicline 2025 straddles the funded restart, so that split would
+test across an access change. The series contains no full calendar
+year after the restart. The counts lack smoking indication,
+quit outcomes and catchment exposure. They cannot supply the
+country-year policy outcome required by the frozen holdout rule
+or evaluate incremental wastewater information. Retain all years
+and both measures as source context. No model-selection holdout
+is frozen from this packet.
