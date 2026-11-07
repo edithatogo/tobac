@@ -4778,3 +4778,29 @@ consumption outcomes, stock reconciliation and a verified
 separation from the wastewater information being scored.
 
 [ITEC Commissioner report 2024–25, methodology appendix](https://www.itec.gov.au/sites/default/files/2025-12/ITEC-Commissioner-Report-2024-25.pdf).
+
+## P2.227 ABS experimental quarterly outcome screen
+
+ABS Graph 1 publishes quarterly national quantities from
+December 2016 through December 2025 in kilograms of
+nicotine. Summing the four unrounded graph values for
+calendar 2023 gives 11,660.5 kg for illicit cigarettes
+(including loose leaf) and 10,197.6 kg for legal tobacco.
+The illicit category represents 53.35% of those two
+categories' nicotine mass, or about 48.18% of the
+24,203.4 kg all-product nicotine total. Neither denominator
+is the tobacco mass used in the Wang and FTI comparison.
+
+The ABS method starts from ACIC quarterly wastewater
+catchment data, aggregates to state, and uses a Kalman
+filter with survey and administrative inputs to assign
+nicotine to four products. It uses retail scanner and ATO
+tax data to inform the legal component. Graph 1 is an
+experimental national model output. Its extra quarters do
+not provide independently measured product quantities or
+the dated catchment identities needed for separate folds.
+Exact overlap with the Wang study remains unresolved.
+Treat the series as a candidate methodology comparison
+outside the independent incremental-information score.
+
+[ABS experimental household consumption article, Method and Graph 1](https://www.abs.gov.au/articles/household-consumption-illicit-tobacco-and-nicotine-products).
