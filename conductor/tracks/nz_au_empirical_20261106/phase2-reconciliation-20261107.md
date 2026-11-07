@@ -2812,3 +2812,21 @@ this concession calculation.
 
 [Stats NZ 2023 travel release](https://www.stats.govt.nz/information-releases/international-travel-december-2023/)
 and [NZ concession change](https://www.beehive.govt.nz/release/duty-free-tobacco-limit-lowered-today).
+
+## P2.132 Campaign-window traveller concession scenario
+
+Table 2 C20:D25 of Stats NZ's December 2023 travel workbook
+gives 1,210,238 overseas visitor and 1,512,209 resident traveller
+arrivals across May–October. The two selected categories total
+2,722,447 crossings. Using P2.131's full allowance scenario
+gives 136,122,350 cigarettes or, alternatively, 136.12235
+tonnes of other tobacco. The workbook's total movements column
+has wider coverage and was excluded. The scenario describes
+allowance scale for the covered crossings. It leaves eligibility,
+take-up, timing of consumption and catchment allocation open.
+
+External intake /Volumes/PortableSSD/tobac-p2-travel.nyh97n
+retains travel.xlsx, SHA256
+87741e86da61c18b9ab1dd7b371995522bd49fdf633baff0620e4cfe34277bf4.
+
+[Stats NZ December 2023 travel release](https://www.stats.govt.nz/information-releases/international-travel-december-2023/).
