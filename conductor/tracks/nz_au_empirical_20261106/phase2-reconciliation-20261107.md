@@ -1523,3 +1523,25 @@ The 15+ estimate does not establish the population served by any plant
 or the eligible survey population after survey-specific exclusions.
 
 [Stats NZ original June release and workbook](https://www.stats.govt.nz/information-releases/national-population-estimates-at-30-june-2023/).
+
+## P2.50 Earlier national 15+ context
+
+The original 16 August 2022 release supplies a June 2022 annual
+reference for the 90 occasions preceding or on the August 2023
+release date. Table 2 E19:G19 sums to 4,159,800 aged 15+, which also
+equals the published all-ages figure (5,124,100) less under-15s
+(964,300). The August 2023 edition gives 4,153,400 for June 2022
+by summing those same broad age bands, a revision of −6,400.
+Use the original annual estimate if carrying forward a known
+historical context value. The December 2022 and March 2023 release
+pages direct age-specific queries to Infoshare and do not expose an
+original workbook. Those quarterly age-specific vintages remain
+unverified. Any annual carry-forward has a different reference
+period and should be explicitly identified in analysis.
+
+External intake /Volumes/PortableSSD/tobac-p2-erp-vintage.zR7Cpn retains:
+
+- june2022.html SHA256 1b5387fdb77870f2ce3bb8616e0f7c650fbfcc06bb75e89bb26ec849115337d6
+- june2022.xlsx SHA256 deac1050f80b949094fed32bbaee28ae02956977683197ba8335f4efce922b43
+
+[Stats NZ June 2022 release and workbook](https://www.stats.govt.nz/information-releases/national-population-estimates-at-30-june-2022/).
