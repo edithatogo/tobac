@@ -3747,3 +3747,21 @@ infeasibility is therefore sensitive to the treatment of
 re-exports. The trade records do not establish drawback
 eligibility, credited amounts or shipment-month matching,
 so the sensitivity cannot resolve actual settlement.
+
+## P2.179 Break-even re-export credit fraction
+
+In the P2.178 sensitivity, let a common fraction of each
+month's re-export quantity reduce same-month nominal
+cigarette-smoking tobacco duty at the standard rate.
+The October–January capacity constraint requires at least
+1,988,744.27 / 7,678,176.75 = 25.9013% of the October–December
+re-export duty equivalent. At this fraction, the greedy
+May–December allocation satisfies every next-month capacity
+and uses the entire January capacity for December carry-out.
+The fraction is therefore the minimum under this relaxed
+model, which reserves no January capacity for competing claims.
+
+The threshold is an accounting sensitivity. Actual
+shipment linkage, eligibility, refund dates and amounts are
+unverified. Positive evidence of re-export volume alone does
+not establish that this threshold was met.
