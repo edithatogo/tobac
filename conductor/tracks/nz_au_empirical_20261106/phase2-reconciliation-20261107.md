@@ -3712,3 +3712,20 @@ rates, zero May carry-in and no downward adjustments.
 The light-cigarette carry-out fits but January imports
 are outside this check. The earlier six-cohort witness
 remains valid within its stated window.
+
+## P2.177 Binding payment window and minimum adjustment
+
+October–December nominal cigarette-smoking tobacco duty sums
+to NZ$226,792,362.57. Under same- or next-month settlement,
+every payment for those three cohorts must fall in October
+through January. The entire paid 24.03 heading provides
+NZ$224,803,618.30 over that window. The resulting
+NZ$1,988,744.27 shortfall is independent of September carry-in.
+Any competing subcode payments reduce available capacity.
+
+In the relaxed model of P2.176, a downward adjustment of
+exactly that amount to December's nominal liability makes the
+greedy allocation feasible through January for the May–December
+cohorts. Thus the bound is sharp under that model. The
+December placement is a mathematical witness and provides
+no evidence of an actual adjustment or its timing.
