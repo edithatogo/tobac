@@ -1583,3 +1583,21 @@ national context with training plants. Such a split can assess
 spatial transfer conditional on shared context, but cannot establish
 performance at a new national price or population vintage. The
 counts describe support and do not estimate a price effect.
+
+## P2.53 Shared collection-date support across plants
+
+The 142 P2.47 keys define a bipartite incidence graph with 12 plant
+labels and 43 dates. There are two connected components. Invercargill
+and Westport share a component with 12 dates. The other ten labels
+share a component with 31 dates. An additive plant-and-date design
+therefore has rank 53 (12 + 43 − 2). A plant contrast across the two
+components is confounded with the date offsets unless an additional
+assumption links their time baselines.
+
+Within the October price regime, Wellington occupies two dates in
+its own component. The other five labels occupy three dates and
+are connected through shared collection dates. Three of the five
+October dates have only one label. This limits within-regime
+comparison even when conditioning on the same national covariate
+values. The graph uses study labels and dates. It makes no claim
+about catchment comparability or covariance.
