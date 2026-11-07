@@ -2654,3 +2654,18 @@ The P2.101 external intake holds all twelve PDFs and
 All twelve PDF hashes passed readback.
 
 [Pharmac schedule archive](https://schedule.pharmac.govt.nz/cpsschedules.php).
+
+## P2.122 Historical transport of patch strength
+
+Habitrol data sheet v7.0, revised 17 January 2024, lists
+application and safety changes, removal of printing ink
+excipients and sponsor changes in its revision summary. It
+lists no change to section 2 nicotine content or nominal
+delivery strength. This supports continuity across that
+revision when paired with the 2023 listings in P2.121.
+An original 2023 product sheet and claim-level composition
+remain unverified. The P2.119 conversion stays a conditional
+product-quantity estimate, with use and wastewater attribution
+outside its scope.
+
+[Habitrol data sheet, revision summary](https://www.medsafe.govt.nz/profs/datasheet/h/HabitrolTTS.pdf#page=12).
