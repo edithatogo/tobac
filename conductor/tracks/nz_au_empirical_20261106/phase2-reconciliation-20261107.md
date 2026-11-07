@@ -3581,3 +3581,21 @@ Keep the physical border quantities and fiscal measures
 separate. They do not establish campaign consumption.
 
 [Customs response, quantity and duty scope](https://www.kiwiblog.co.nz/wp-content/uploads/2025/01/24-675-Jordan-Williams-Response_Redacted.pdf).
+
+## P2.170 Minimum monthly adjustments for the duty bridge
+
+The P2.169 nominal light-cigarette duty exceeds paid heading
+24.02 duty in May, June, August and October. Nominal
+cigarette-smoking tobacco duty exceeds paid heading 24.03
+duty in every campaign month except September. If other
+subcodes contribute nonnegative duty, the sum of positive
+monthly excesses is a lower bound on the downward adjustments
+needed to reconcile the nominal calculation month by month.
+The bounds are NZ$9,957,152.32 for 24.02 and NZ$9,938,983.67
+for 24.03, using the printed quantities and rates.
+
+These are constraints on the proposed accounting bridge.
+They do not attribute differences to particular exemptions,
+timing or revisions. Summing across months first would net
+positive and negative differences and understate the
+adjustment required by a same-month model.
