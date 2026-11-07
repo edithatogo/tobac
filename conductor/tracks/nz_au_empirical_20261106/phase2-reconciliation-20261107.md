@@ -3298,3 +3298,23 @@ from about -141.15 million to +28.01 million equivalents.
 This pairing with a fixed upper count is a sensitivity,
 without joint confidence coverage. Product eligibility and
 campaign alignment remain unverified.
+
+## P2.155 Correct survey start-year mapping and pair same-vintage inputs
+
+P2.154 assigned the retained export's year 2023 row to the
+wrong survey period. As documented in the P2 receipt, this
+field is survey start year. The 8.7–9.9 intensity interval
+belongs to 2023/24. For 2022/23, select year 2022. That row
+also reports 9.3 cigarettes per day, with bounds 8.5–10.1.
+The same-vintage daily-smoker row reports 285,000 with bounds
+255,000–315,000, distinct from the paper's 284,000 and
+254,000–314,000. Keep the vintages separate.
+
+Using the paired 2022 rows, a fixed uplift of 1.23, 365 days
+and the P2.149 adjusted legal total gives a point residual
+of about -177.65 million stick equivalents. Taking the
+Cartesian product of the positive marginal intervals gives
+extrema of -394.49 million and +60.74 million equivalents.
+This is a conditional range over marginal endpoints with no
+joint 95% coverage claim. The ambiguity in sign persists
+after correcting the survey period, with no campaign fit.
