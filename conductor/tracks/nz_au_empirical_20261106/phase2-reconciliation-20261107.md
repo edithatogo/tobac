@@ -2061,3 +2061,21 @@ catchments, and a numerical cap does not locate approved stores
 or establish realised accessibility.
 
 [Ministry area schedule](https://www.health.govt.nz/publications/maximum-numbers-of-approved-smoked-tobacco-retail-premises-permitted-in-areas-of-new-zealand).
+
+## P2.84 Geographic keys for the revoked NZ retail allocation
+
+The 15 September 2023 Ministry schedule keys urban areas to
+Stats NZ Urban–Rural 2023 generalised (layer 111198) and rural
+areas to Regional Council 2023 generalised (111182). Airside
+allocations are separate and use SA2 layer 111227 and meshblock
+layer 111228. The Ministry lists the schedule as CC BY 4.0.
+
+A label-only review associates the twelve Kim plant labels with
+nine urban names and 78 nominal approvals, counting Auckland's
+25 once for its four labels. That total excludes airside and
+rural allocations. It is a lookup diagnostic, not a spatial
+allocation. The underlying polygons and qualified wastewater
+catchment boundaries are required to resolve intersections
+before using these caps to model retail access.
+
+[Ministry schedule and boundary references](https://www.health.govt.nz/publications/maximum-numbers-of-approved-smoked-tobacco-retail-premises-permitted-in-areas-of-new-zealand).
