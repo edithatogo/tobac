@@ -2327,3 +2327,22 @@ unfilled.
 
 [Medsafe committee minutes](https://www.medsafe.govt.nz/profs/class/Minutes/2021-2025/73mccMin26Feb2025.htm)
 and [Gazette classification notice](https://gazette.govt.nz/notice/id/2025-go4844).
+
+## P2.101 November community funding schedule check
+
+The original 352-page November 2026 Pharmac Schedule was retained
+and extracted with pdftotext. Case-insensitive searches of the
+full extracted text for cytisin, baptitoxin, sophorine, Tabex,
+Asmoken and Desmoxan returned no matches. The same extraction
+finds varenicline tartrate and SA1845, providing a positive
+control in the relevant therapeutic section. There is no
+verified routine cytisine community listing in this edition
+under the checked terms. This check does not determine product
+approval, private access, individual exceptions or hospital-only
+funding.
+
+External intake /Volumes/PortableSSD/tobac-p2-pharmac.Up2f8q
+retains Schedule.pdf, SHA256
+493e12c67ba65438d18b9a8ab0cd4b2bdda1df0da604bc326abe015ab87354c6.
+
+[Pharmac November 2026 Schedule](https://schedule.pharmac.govt.nz/2026/11/01/Schedule.pdf).
