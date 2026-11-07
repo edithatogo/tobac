@@ -2954,3 +2954,28 @@ intake directory, SHA256
 1ba9d73f458d34a263590cec849684543131087b3fb50ab2e018c8035eb14a8a.
 
 [Lotte Travel 2023 return](https://www.health.govt.nz/system/files/2024-05/lotte_travel_-_2023_tobacco_return.xlsx).
+
+## P2.139 Lotte unit checks and historical correction
+
+The Ministry-hosted illicit trade baseline report, Table 4
+footnotes, records direct confirmation from Lotte that its
+2022 RYO return used package counts despite the tonnes label.
+The report also excludes a 2021 RYO example. These corrections
+are year-specific. In 2023 each of the seven non-example RYO
+quantities converts at printed precision into a whole number
+of 50 g packs, 205, 881, 334, 732, 166, 459 and 296. Reading
+the raw decimal values as counts would imply fractional packs
+in every row. This supports the 153.65 kg interpretation for
+2023 while keeping the historical correction confined to 2022.
+
+For cigarettes, at least the 69 reported against a 20-stick
+pack and 1,006 against a 25-stick pack are incompatible with
+whole-pack sales if the entries count sticks. A comparable
+2020 filer explicitly specified packs in the equivalent
+column, while BAT reported sticks. The 246,775-stick pack
+interpretation is therefore more plausible for Lotte under
+whole-pack sales. Direct 2023 confirmation is still absent.
+Supplier overlap and travel direction remain unresolved.
+
+[Baseline report, Table 4](https://www.health.govt.nz/system/files/2023-10/report-on-illicit-tobacco-trade-baseline-report-oct23.v3.pdf)
+and [2020 New World return](https://www.health.govt.nz/system/files/2024-05/new-world-tobacco-returns-and-report-for-2020.pdf).
