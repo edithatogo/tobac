@@ -485,3 +485,24 @@ The executed report hash is
 `8ac4db8401ad4799666d55adbd98ba0c6efae578d94413f9a440c64e50c39caf`.
 Source admission, product conversion, calibration and held-out fitting
 remain open.
+
+## P2.11 trade product and unit coverage
+
+The prior turn established historical month coverage. The product audit
+checks the pinned CSVs over the 13 intersecting months and finds 203 HS24
+import records and 91 export records. Tobacco cigarettes (240220) include
+a MIL code present in both flows in all 13 months and a heavier-cigarette
+KTC code present in four import months and one export month. Smoking tobacco
+under 240319 includes KTC records in both flows in every intersecting month.
+The six-digit group also needs its full product descriptions for allocation.
+Cigars, water-pipe products, heated tobacco and other nicotine products
+require separate dispositions. Absent product-month rows remain missing.
+Any eventual stock-flow reconciliation needs explicit product conversions,
+an export/re-export accounting rule and coverage of stock and lawful flows.
+
+The bounded Polars audit and JSON are in
+`/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`.
+The first execution treated month bounds as column names. Explicit string
+literals corrected the filter and the second execution exited zero. The
+report SHA256 is
+`112bbcdb46d1b7d1bf2cf3b99bc5a7c48073b2626d50dafbc10f0b622fc68964`.
