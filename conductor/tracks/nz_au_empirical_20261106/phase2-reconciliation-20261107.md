@@ -4859,3 +4859,28 @@ geographic support. It cannot substitute for the prespecified
 consumption holdout.
 
 [AIHW NDSHS 2025 insights, illicit tobacco measures and source tables](https://www.aihw.gov.au/reports/illicit-use-of-drugs/national-drug-strategy-household-survey/contents/insights).
+
+## P2.230 Survey remoteness cannot recover wastewater catchment folds
+
+AIHW's 2025 NDSHS Table 1.42 reports recent illicit
+tobacco prevalence by residential remoteness. Its 2025
+points include 3.6% for major cities and 7.5% for remote
+and very remote areas combined. AIHW flags the latter
+estimate for high relative standard error. The Wang
+national wastewater design combines outer regional and
+remote plants and includes no very remote plant (P2.210).
+Using the survey remote/very remote estimate to label
+that wastewater group would conflate different geographic
+compositions.
+
+Even a comparable remoteness aggregate would pool multiple
+plants. An aggregate prevalence and its uncertainty cannot
+recover the plant-specific survey estimates or their joint
+uncertainty. Matching needs dated sewer service boundaries,
+survey geographic support within them, and a common
+estimand. The published survey categories do not supply the
+four comparable catchment folds. This is a scope finding
+separate from the absence of tobacco mass in P2.229.
+
+[AIHW illicit tobacco survey report, Table 1.42](https://www.aihw.gov.au/reports/illicit-use-of-drugs/illicit-tobacco-in-the-ndshs).
+[Wang et al., Data Analysis](https://doi.org/10.1001/jamanetworkopen.2025.57319).
