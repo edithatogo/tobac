@@ -4884,3 +4884,27 @@ separate from the absence of tobacco mass in P2.229.
 
 [AIHW illicit tobacco survey report, Table 1.42](https://www.aihw.gov.au/reports/illicit-use-of-drugs/illicit-tobacco-in-the-ndshs).
 [Wang et al., Data Analysis](https://doi.org/10.1001/jamanetworkopen.2025.57319).
+
+## P2.231 Survey packet-count item and partial identification
+
+The 2022–23 NDSHS questionnaire does include a product
+quantity proxy beyond the prevalence chart. C24 routes
+respondents who saw tobacco without Australian plain
+packaging or warnings to C25, which asks for packet
+purchases over three months. Its positive bands begin
+at 1, 3, 6, 10 and 15 packets. The last band is open-ended.
+
+If same-denominator survey-weighted counts by band
+become available, multiplying them by these lower
+endpoints and summing gives a lower bound on reported
+packets in the routed population. A positive weighted
+count in the open band leaves the upper bound unbounded
+without another assumption. Neither bound translates
+directly to illicit tobacco consumption. The questionnaire
+item classifies by packaging, counts purchases rather than
+use, and does not establish tobacco mass per packet.
+This is a viable independent purchase-quantity diagnostic
+if the band tabulations can be qualified. It leaves the
+consumption outcome and catchment requirements open.
+
+[AIHW 2022–23 NDSHS questionnaire, items C24–C27](https://www.aihw.gov.au/getmedia/97c2aff7-6194-4946-bb02-a38c3d05a44e/aihw-phe340-ndshs-questionnaire-2022.pdf).
