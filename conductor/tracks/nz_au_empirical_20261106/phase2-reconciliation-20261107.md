@@ -1129,3 +1129,28 @@ summaries do not establish uncertainty for a national or NZ catchment
 conversion. Retain the 1.13 factor as a source-linked sensitivity
 scenario and keep its denominator, transport and internal reconciliation
 conditions explicit. No calibrated likelihood has been admitted.
+
+## P2.34 National residual dependence and calibration sensitivity
+
+Wang national Eq. 2–5 and Figure 4, checked in the retained
+PMC12887742 XML (SHA256
+6cc389a161ce27d498d20beb959441cbd6161bffed48230f1db751ea4b3d7c23),
+derive tobacco nicotine from anabasine using the cigarette conversion.
+The national estimates combine remoteness strata with population
+weights of 72%, 18% and 10%. The annual tobacco mass calculation
+assumes 0.7 g per cigarette. Subtracting the FTI lawful estimate
+from that annual mass yields the reported illicit residual.
+Treat that residual and the reported annual WBE total as linked
+outputs. The residual also inherits FTI coverage and stock assumptions.
+
+Using the rounded published endpoint totals, implied lawful inputs
+are 13,300 tonnes in 2017 and 6,900 tonnes in 2023. A one-factor
+arithmetic diagnostic holds those inputs, all observed loads and
+other conversions fixed and replaces 1.13 with 0.91 µg/cigarette.
+The endpoint residuals then move from 1,350 and 3,400 tonnes to
+approximately 4,892 and 5,890 tonnes. The endpoint increase changes
+from 2,050 to about 998 tonnes. This calculation tests dependence
+on the factor and rounded inputs. It does not estimate illicit use,
+transport the Queensland factor, or supply an uncertainty interval.
+Any empirical comparison needs a common calibration basis and
+separate verification of lawful-flow coverage.
