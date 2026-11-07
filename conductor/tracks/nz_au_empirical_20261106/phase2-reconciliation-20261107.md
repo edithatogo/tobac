@@ -1203,3 +1203,25 @@ Keep those components grouped with their enforcement inputs.
 The fiscal-year administrative series is a candidate comparator
 pending a period and stock bridge. A direct substitution into
 Wang's calendar-year residual would confound those differences.
+
+## P2.37 NZ wastewater candidate review packet
+
+The external intake now contains a single review manifest binding
+the original supplement, occasion and load extracts, and three
+diagnostic tables by SHA256. The bounded assembly verified that all
+142 plant/date keys occur in each diagnostic and have exactly four
+analyte statuses in the load extract. It records 451 quantified and
+117 censored dated cells, preserves whole-occasion grouping, and
+identifies nicotine totals and normalization diagnostics as derived.
+
+The artifact is
+/Volumes/PortableSSD/tobac-p2-kim.lBTiOt/candidate-review-packet.json
+(SHA256 e311db792b39a967146061c7fc156955f5d6cb9c4125e4964be80b2e760ef21d).
+The assembly script has SHA256
+1fcee31e12b1072c2eacbc40ea95873ccc2eb479919977277f4d03e27d7c8c08.
+This review packet has zero admitted observations. It records the
+remaining rights and archive readback, contributing population and
+occasion flow provenance, effective censoring and processing, paired
+replicates, calibration transport and comparable holdout requirements.
+The current integrator checkout still reports c239b18, covering Phase 0.
+The proposed admission handoff remains pending messaging authorization.
