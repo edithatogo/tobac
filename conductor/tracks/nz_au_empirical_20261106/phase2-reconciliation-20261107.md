@@ -3191,3 +3191,26 @@ total and a net-consumption bridge remain open. The paper's
 stick weight or biomarker conversion.
 
 [Original analysis, legal sales methods](https://bmjpublichealth.bmj.com/content/3/2/e002853).
+
+## P2.150 Non-daily consumption sensitivity
+
+The published supplement's scenario subtracts the upper
+daily-smoker count from the upper current-smoker count
+(385,000 minus 314,000) and assigns the resulting 71,000
+people 12 sticks each annually. Subtracting two marginal
+confidence endpoints does not produce a confidence bound
+for the subgroup. That requires their joint survey variance.
+Twelve sticks is a scenario assumption, with no observed
+average intensity implied by at-least-monthly smoking.
+
+At the P2.149 adjusted legal total and upper daily endpoint,
+the remaining 56.57 million equivalent gap would require
+about 797 additional adjusted equivalents per scenario
+non-daily smoker per year. If the same 1.23 uplift were
+applied to their raw counts, this corresponds to about 648
+raw sticks per year. These are conditional break-even values.
+The scenario's 12 raw sticks contributes 852,000 before
+uplift and cannot close that gap. A matched joint survey
+estimate and intensity evidence remain necessary.
+
+[Original analysis, prevalence methods and supplemental scenario](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/).
