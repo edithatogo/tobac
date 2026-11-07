@@ -4753,3 +4753,28 @@ Numerical proximity cannot qualify that pair for scoring.
 
 [ATO October 2024 tobacco tax gap, estimates and methodology](https://www.ato.gov.au/api/public/content/0-882626e8-a57b-4b7a-ab16-0894492a4ff2).
 [ATO October 2023 tobacco tax gap](https://www.ato.gov.au/api/public/content/0-ee16a084-49b5-4bb4-8704-f0df5b644cb3).
+
+## P2.226 ITEC projection inherits the ATO baseline and uses wastewater
+
+The Commissioner's 2024–25 report uses the ATO fiscal
+2022–23 estimate as its baseline. Its method appendix
+reports a 3,695-tonne reduction in regulated imports
+through fiscal 2024–25. The high scenario primarily
+interprets that reduction as substitution toward illicit
+tobacco, with smoking and vaping adjustments. The low
+scenario adjusts smoking rates to allow for greater demand
+reduction. This is a projection using the earlier ATO
+estimate, so it does not supply a same-year ATO revision.
+
+Step 5 checks projected whole-market volume against
+University of Queensland wastewater analysis and regulated
+volume against Treasury excise estimates. The appendix does
+not establish which wastewater observations were reused or
+whether that check changed any projections. Preserve
+dependency pending exact inputs and the pre-check projection.
+The import decline is measured at a supply boundary. An
+independent consumption holdout would still need dated
+consumption outcomes, stock reconciliation and a verified
+separation from the wastewater information being scored.
+
+[ITEC Commissioner report 2024–25, methodology appendix](https://www.itec.gov.au/sites/default/files/2025-12/ITEC-Commissioner-Report-2024-25.pdf).
