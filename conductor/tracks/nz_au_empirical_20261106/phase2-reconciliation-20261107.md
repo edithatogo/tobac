@@ -3064,3 +3064,25 @@ gap as independent evidence would reuse the same information.
 No transferable campaign baggage detection fraction follows.
 
 [Illicit trade baseline, Tables 4–6](https://www.health.govt.nz/system/files/2023-10/report-on-illicit-tobacco-trade-baseline-report-oct23.v3.pdf).
+
+## P2.144 Dependency of the published 2023 consumption gap
+
+The published national consumption-gap analysis pairs the
+July 2022–June 2023 NZHS with January–December 2023 company
+returns published by the Ministry. The shared inputs put its
+2023 output in the same evidence lineage as those inputs.
+Use it as a methodological comparison conditional on its
+survey uplift and sales assumptions. Treating the gap as
+another observation alongside the survey and company releases
+would reuse both sources.
+
+The two input windows overlap in January–June 2023. Of the
+May–October wastewater campaign, only May and June fall
+within the survey window. The company return totals cover all
+six campaign months within an annual aggregate. Equal annual
+durations therefore leave a time-alignment gap for the
+campaign and do not provide a monthly or catchment holdout.
+The negative estimated 2023 gap is compatible with measurement
+and scope mismatch and cannot identify negative illicit use.
+
+[Original consumption-gap analysis](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/).
