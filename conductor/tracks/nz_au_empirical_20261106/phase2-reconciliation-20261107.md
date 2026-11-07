@@ -3943,3 +3943,21 @@ bridge to a mass-weighted illicit share. Keep it outside
 the wastewater validation target.
 
 [ITC Wave 5 questionnaire, printed pages 35–36](https://itcproject.org/surveys/new-zealand/nzl5-cohort2/).
+
+## P2.189 ACIC 2021 regional comparator coverage
+
+ACIC Report 15 covers 58 plants nationally in August 2021
+and 20 capital-city sites in October. October did not
+sample regional sites. Appendix 3 reports nicotine above
+the detection limit in 100% of August regional samples
+and displays a dash for October regional samples.
+Preserve the October cell as absent by design.
+
+The August regional round can provide pre-September
+programme context. Pairing it with October capital-city
+data would confound period and location for the regional
+contrast. The published coverage counts and detection
+percentages provide neither matched regional site outcomes
+nor the independent post-change validation outcome.
+
+[ACIC Report 15 and Appendix 3](https://www.acic.gov.au/publications/national-wastewater-drug-monitoring-program-reports/report-15-national-wastewater-drug-monitoring-program).
