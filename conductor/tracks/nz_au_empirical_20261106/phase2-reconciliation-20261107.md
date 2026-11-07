@@ -2852,3 +2852,25 @@ duty-free tobacco brought in.
 
 [NZ Customs August 2023 tariff concessions, item 82](https://www.customs.govt.nz/media/qn4ilim2/concessions-24-august-2023.pdf)
 and [2023 arriving passenger and crew declaration amendment](https://www.customs.govt.nz/media/wiai1fde/customs-arriving-passenger-and-crew-declarations-amendment-rules-2023.pdf).
+
+## P2.134 Calendar-year age sensitivity and campaign limits
+
+Table 8 of the retained P2.132 workbook gives annual 2023
+under-15 and 15–24 counts of 265,161 and 312,011 for visitors
+(G8:G9), and 307,079 and 284,082 for returning residents
+(G46:G47). The two annual totals (G16 and G54) sum to 5,640,594.
+Treating the published age cells as counts for this sensitivity,
+the eligible count ranges from 4,472,261 to 5,068,354 by assigning
+the entire 15–24 band below or above the eligibility cutoff.
+The upper endpoint implies 253,417,700 cigarettes or 253.4177
+tonnes in the alternative 50 g scenario at full take-up.
+
+The workbook's age table reports December and the full year.
+Using annual margins alone, all 572,240 under-15 crossings can fit
+outside May–October, even after excluding December's 70,768.
+Thus the margins cannot reduce the campaign ceiling in P2.132.
+This is a sensitivity based on published cells. Exact campaign age
+counts and the sampling status of any finer age series require
+separate qualification. Neither age scenario measures take-up.
+
+[Stats NZ December 2023 travel release](https://www.stats.govt.nz/information-releases/international-travel-december-2023/).
