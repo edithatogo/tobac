@@ -2749,3 +2749,14 @@ funding district as a fallback. These definitions support the
 chemical-level people counts and explain why district labels
 cannot be assumed to identify residences in a wastewater catchment.
 The technical notes and aggregate ZIP remain external review inputs.
+
+## P2.128 Dispensing packet readback with technical definitions
+
+The external P2.101 intake retains national-nicotine-dispensing-review-v2.json,
+SHA256 facc0b484c9e196e0b960686ff68f60ba1a2d51a87d0f26335d0b61262cfc113.
+It pins the prior packet, aggregate ZIP and original technical
+notes. Readback matched every field of all 20 candidate rows
+against its logical record in the source CSV, with no extra or
+missing national rows under the frozen selector. The version adds
+people-count, district and suppression definitions. Its status
+remains candidate review pending with zero admitted observations.
