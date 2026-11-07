@@ -2264,3 +2264,20 @@ support with NRT, and the abstract does not supply uncertainty
 suitable for calibrating the proposed current policy effect.
 
 [Randomized Quitline trial](https://pubmed.ncbi.nlm.nih.gov/16548938/).
+
+## P2.97 New Zealand randomized medication comparator
+
+Walker et al. randomly allocated 1,310 adult daily smokers
+who called the national Quitline and were motivated to quit
+to 25 days of cytisine or eight weeks of nicotine replacement
+therapy. At one month, self-reported continuous abstinence
+was 264/655 and 203/655, respectively. The published absolute
+difference is 9.3 percentage points (95% CI 4.2–14.5).
+This compares two offers within an open-label trial and
+provides a candidate contrast for appraisal. It supplies
+neither a comparison to unaided quitting nor an estimate
+of national uptake. Keep the one-month self-reported
+outcome separate from the local biochemically validated
+four-week metric and from longer-term abstinence.
+
+[Walker et al., randomized trial](https://pubmed.ncbi.nlm.nih.gov/25517706/).
