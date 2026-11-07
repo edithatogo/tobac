@@ -3214,3 +3214,26 @@ uplift and cannot close that gap. A matched joint survey
 estimate and intensity evidence remain necessary.
 
 [Original analysis, prevalence methods and supplemental scenario](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/).
+
+## P2.151 Non-daily subgroup and survey fieldwork
+
+The paper's reported current and daily point counts imply
+approximately 66,000 current non-daily smokers by subtraction
+(350,000 minus 284,000), conditional on the same weighted
+population and nested definitions. The marginal intervals
+[314,000, 385,000] and [254,000, 314,000] permit a difference
+of 0 to 131,000 over their Cartesian product with nesting.
+This is interval arithmetic, without a joint 95% coverage
+claim. The 71,000 from P2.150 is one corner pairing.
+The Ministry showcard A3.15 distinguishes at least weekly
+and at least monthly frequency from daily smoking. Those
+categories do not specify sticks per occasion.
+
+P2.144 describes the article's July–June analytical convention.
+The Ministry reports actual 2022/23 fieldwork from July 2022
+through July 2023. July 2023 may therefore also contribute
+interviews. Neither convention supplies month-specific
+smoking intensity, recall alignment or catchment outcomes.
+
+[NZHS 2022/23 annual update](https://www.health.govt.nz/publications/annual-update-of-key-results-202223-new-zealand-health-survey)
+and [adult showcards](https://www.health.govt.nz/system/files/2023-12/2022-23-nzhs-adult-showcards.pdf).
