@@ -86,3 +86,94 @@ DXP1–DXP4, DCI1–DCI4 and the two optional hardening tasks are complete.
 The advisory lane is published and its receiving tree verified.
 See [current status](status.md) for completed gates, open dependency-update PRs,
 scientific requirements and the disposition of superseded decision drafts.
+
+## Application-to-provider promotion — 8 November 2026
+
+Status: maintainer-requested planning; implementation remains conditional on
+qualified providers. Preserve current scientific assumptions, accepted reference
+outputs, source/forecast identities, data-once guards, research gates and
+no-outreach/no-submission boundaries. This plan is kept in the existing reviewed
+roadmap path; no publication allowlist or security rule is relaxed.
+
+### Responsibility
+
+`tobac` remains a tobacco-specific research application. It is not a parallel
+general diffusion, simulation, game-theory or VOI library. Promote reusable
+methods to their authoritative provider only when a supported application need
+and independent verification justify it.
+
+| Reusable capability | Provider | What stays in tobac |
+|---|---|---|
+| Uptake, diffusion, competition, substitution, hype impact, repeat use | Innovate | Tobacco-product/state definitions, evidence, population assumptions and policy scenarios. |
+| Simulation execution/time/resources/state/RNG | Kairos | Tobacco behaviour/process models and interpretation. |
+| Decision uncertainty, perspective/equity and VOI | Voiage | Valuation choices, local costs/outcomes and application study design. |
+| Generic game representation/solving | Paignia | Tobacco-market institutions, players, payoff construction and calibration. |
+| Validated spline/surrogate fitting | MARS where appropriate | Domain training-design and approximation acceptance. |
+
+Paignia is a working name for the Rust capability incubated in
+`new-drug-reimbursement-game` Track T17; no extracted repository or published
+`paignia-*` dependency is asserted. An optional game adapter requires an actual
+application need. VOP is a separate proof of concept whose generic decision
+capabilities belong in Voiage.
+
+### Bounded execution leaves
+
+Use existing engineering/test conventions. Each leaf changes one behaviour,
+touches at most five files and records a failing assertion before implementation.
+Resolve actual model/adapter paths before editing. Proposed test/ledger files
+below are future work, not existing acceptance receipts.
+
+#### [ ] TP01 — classify reuse candidates
+
+Create `integration/provider-promotion-ledger.json` and
+`tests/test_provider_promotion_ledger.py`. Inventory demonstrated methods; label
+application-specific, existing-provider, reusable-candidate or unsupported. Test
+that every generic candidate names one provider and no empirical gate is passed
+by metadata. Run `python -m pytest tests/test_provider_promotion_ledger.py` with
+nonzero tests. Do not infer method correctness from coverage or a publication
+table. Review and register any new path under the existing publication policy
+in the same bounded change; preserve all private bindings and history checks.
+
+#### [ ] TP02 — independent scientific fixture before moving code
+
+For one candidate, freeze a small independent numerical/reference case, its
+parameter/data provenance and invalid-input controls. Extend existing evidence
+contracts rather than duplicate acquisition. Distinguish adoption from repeated
+consumption, switching and cessation; aggregate consumption is not first adopters.
+Test that adding a provider does not silently change the study estimand or priors.
+Promote/fix the method in the provider repository first.
+
+#### [ ] TP03 — exact installed-provider migration
+
+After upstream acceptance, change the adapter, focused test, dependency
+manifest/lock and receipt; split if this exceeds five files. Require source and
+package hashes, actual native dispatch, units/perspective/population/time/draw IDs
+and known-reference output. A missing native provider fails explicitly on the
+new path rather than invoking an undisclosed local replacement. Preserve the
+accepted NumPy research baseline as an isolated reference during evaluation;
+do not claim the existing application is already Rust-only.
+
+#### [ ] TP04 — application reproduction and research boundaries
+
+Run the existing scientific reproduction workflow with accepted source/input
+identities. Compare affected published outputs and disclose scientifically
+justified versioned differences; do not alter evidence to manufacture parity.
+Preserve open empirical/posterior/decision-use gates. Test decision ranking and
+uncertainty before adopting a surrogate or strategic model; speed alone is
+insufficient.
+
+#### [ ] TP05 — optional integration and release
+
+Test that unrelated consumers do not acquire mandatory Innovate/Paignia/Kairos
+imports. Feed Voiage explicitly valued joint outcomes, not raw consumption.
+Feedback is an application-orchestrated strategy/study artefact, not a core
+import cycle. Candidates follow exact security/build/numerical/consumer/resource
+qualification and existing lock/source binding. No pin advance, retrospective
+evidence rewrite or automatic package/manuscript publication is included.
+
+### Coordination
+
+Central policy: repository-standards PR #120. Innovate implementation/validation:
+PR #570. Paignia extraction: reimbursement-game T17/PR #101. Kairos boundary:
+PR #381. Voiage provider/VOP promotion: PR #1287. These proposed changes do not
+supersede tobac's accepted scientific and provenance programme.
