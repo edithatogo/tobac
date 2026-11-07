@@ -2930,3 +2930,27 @@ df0f4254ea7a16c4801a10de54714d2e9f6fc1b23f8ac0aa0e793fa839fc8020.
 
 [BAT cigarette return](https://www.health.govt.nz/system/files/2024-05/bat_nz_-_cigarettes_volumes_2023.pdf)
 and [BAT RYO return](https://www.health.govt.nz/system/files/2024-05/bat_nz_-_cigarettes_tobacco_volumes_2023.pdf).
+
+## P2.138 Airport retailer return and overlap
+
+Lotte Travel's 2023 workbook lists 24 cigarette rows after
+excluding the template example. The volume column sums to
+10,390 in the reported units. Its header does not specify
+sticks or packs. If entries count packs, multiplying by each
+row's stated pack size yields 246,775 sticks. Keep both
+interpretations pending confirmation. Seven RYO rows sum to
+153.65 kg at displayed precision, excluding the example.
+Pipe tobacco, cigars and cigarillos each say nil to report.
+
+The cigarette and RYO lists include variants also reported
+by suppliers in P2.136–137. This makes overlap plausible.
+Product names alone cannot match physical flows, and the
+workbook does not split purchases by travel direction. Keep
+the retailer return separate until the reporting unit,
+supplier overlap and arrival coverage are established.
+
+Original lotte.xlsx is retained externally under the P2.137
+intake directory, SHA256
+1ba9d73f458d34a263590cec849684543131087b3fb50ab2e018c8035eb14a8a.
+
+[Lotte Travel 2023 return](https://www.health.govt.nz/system/files/2024-05/lotte_travel_-_2023_tobacco_return.xlsx).
