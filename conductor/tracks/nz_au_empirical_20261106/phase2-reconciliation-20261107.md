@@ -2079,3 +2079,22 @@ catchment boundaries are required to resolve intersections
 before using these caps to model retail access.
 
 [Ministry schedule and boundary references](https://www.health.govt.nz/publications/maximum-numbers-of-approved-smoked-tobacco-retail-premises-permitted-in-areas-of-new-zealand).
+
+## P2.85 Wellington urban geography candidate
+
+Stats NZ identifies Wellington as Urban–Rural 2023 code 1402.
+The ArcGIS mirror returned a single code 1402 polygon in
+NZTM2000 (EPSG:2193), matching the coordinate system of both
+P2.39 wastewater candidate polygons. The mirror is clipped to
+the coastline, while the Ministry schedule cites layer 111198.
+Its bounding rectangle intersects both candidate rectangles
+and contains neither. This does not establish actual polygon
+overlap or select the Kim catchment.
+
+External intake /Volumes/PortableSSD/tobac-p2-wellington.MjqdNf
+retains urban-1402-clipped.json, SHA256
+1514613f0283918fef7fcc77b18787c86b915b48bb8a1f2c7a806bc76f9a76e4.
+The exact schedule-layer geometry and plant identity remain required.
+
+[Stats NZ schedule layer](https://datafinder.stats.govt.nz/layer/111198-urban-rural-2023-generalised/)
+and [clipped ArcGIS mirror](https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/UR2023/FeatureServer/0).
