@@ -3169,3 +3169,25 @@ lawful traveller contribution during the 2023 campaign.
 
 [Consumption-gap methods](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/)
 and [Wilson discarded-pack study](https://pubmed.ncbi.nlm.nih.gov/36028304/).
+
+## P2.149 Combined duty-free sensitivity on the published basis
+
+The published gap analysis also includes duty-free loose
+tobacco, converted at 0.7 g per RYO stick. On that accounting
+basis the 1,817.7 kg reconciled in P2.137 represents about
+2,596,714 stick equivalents. Adding 4,600,000 factory-made
+sticks gives about 7,196,714 equivalents. Removing that
+combined quantity from the paper's legal total gives
+1,367,591,262 equivalents, rounded at the end. The residual
+at the upper reported consumption endpoint is still about
+-56,567,472 equivalents. At that endpoint, the conditional
+break-even uplift falls from 1.28982 to 1.28307.
+
+This scenario assumes the reconciled quantities are included
+in the paper's reported total and excludes them in full for
+sensitivity. A return-by-return reconciliation of that legal
+total and a net-consumption bridge remain open. The paper's
+0.7 g convention applies to RYO, with no implied factory-made
+stick weight or biomarker conversion.
+
+[Original analysis, legal sales methods](https://bmjpublichealth.bmj.com/content/3/2/e002853).
