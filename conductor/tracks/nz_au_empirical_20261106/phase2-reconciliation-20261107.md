@@ -2018,3 +2018,20 @@ catchment-level retail access unfilled pending dated outlet evidence.
 
 [Modelling team's briefing](https://www.phcc.org.nz/briefing/would-reducing-number-tobacco-retail-outlets-achieve-smokefree-2025-goal)
 and [Ministry consultation](https://consult.health.govt.nz/tobacco-control/proposals-for-the-smoked-tobacco-regulato/supporting_documents/Proposals%20for%20regulation%20%20Smokefree%20Environments%20and%20Regulated%20Products%20Act%201990%20%2022%20Dec%20final.pdf).
+
+## P2.81 New Zealand outlet estimate and enumeration scope
+
+Robertson et al. report 5,008 outlets identified from District
+Health Board lists and distinguish an industry estimate of about
+8,000. The 2021 Ministry consultation cites their work for a
+5,000–8,000 range. The 2023 TDB/Infometrics analysis estimates
+7,100 by updating a 2012 benchmark using growth in selected
+Stats NZ business categories to 2022. Its high assumption of
+8,700 uses the total businesses in those categories. That
+adjustment updates the proxy's date but does not enumerate
+which stores sold tobacco. The estimates are suitable for
+historical sensitivity scenarios with explicit provenance.
+Current outlet coverage remains unverified.
+
+[Robertson et al.](https://nzmj.org.nz/journal/vol-129-no-1432/regulating-tobacco-retail-in-new-zealand-what-can-we-learn-from-overseas)
+and [TDB/Infometrics analysis](https://www.tdb.co.nz/wp-content/uploads/2023/04/TDB-Infometrics-Smoked-Tobacco-Amendment-Act-Review.2023.pdf).
