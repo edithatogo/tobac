@@ -110,11 +110,13 @@ and independent verification justify it.
 | Generic game representation/solving | Paignia | Tobacco-market institutions, players, payoff construction and calibration. |
 | Validated spline/surrogate fitting | MARS where appropriate | Domain training-design and approximation acceptance. |
 
-Paignia is a working name for the Rust capability incubated in
-`new-drug-reimbursement-game` Track T17; no extracted repository or published
-`paignia-*` dependency is asserted. An optional game adapter requires an actual
-application need. VOP is a separate proof of concept whose generic decision
-capabilities belong in Voiage.
+Paignia is the reusable Rust provider at `edithatogo/paignia`. Its bounded
+`paignia-core` / `paignia-solve` seed was transferred from reimbursement Track T17
+at revision `12b22ce7571b9c590405bf53c2c1c5862b49cd64`. Source transfer is not
+registry publication, broad solver qualification or acceptance by tobac. An
+optional game adapter still requires an actual application need and TP02–TP04
+evidence. VOP remains a separate proof of concept whose reusable decision
+capabilities belong in Voiage after verification.
 
 ### Bounded execution leaves
 
