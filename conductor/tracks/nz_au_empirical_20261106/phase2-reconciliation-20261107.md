@@ -3318,3 +3318,22 @@ extrema of -394.49 million and +60.74 million equivalents.
 This is a conditional range over marginal endpoints with no
 joint 95% coverage claim. The ambiguity in sign persists
 after correcting the survey period, with no campaign fit.
+
+## P2.156 Two-wave temporal identification check
+
+Even granting exact additive consumption totals for two
+disjoint nominal July–June years, the campaign total would
+remain unidentified. For each wave write its annual total A
+as campaign consumption C plus outside-window consumption O.
+For any C between zero and A, O = A - C reproduces the same
+annual observation. Each nominal wave contains both types of
+months, so the two annual totals permit a campaign sum anywhere
+from zero to their sum under nonnegativity alone. The endpoints
+are mathematical witnesses and imply no plausible seasonality.
+
+The observed survey inputs in P2.155 are weighted cross-sectional
+counts and means, with overlapping actual fieldwork documented
+in P2.38. They do not meet even the exact additive-total
+assumption. An equal-per-month split would impose a temporal
+model. It would add no observed campaign consumption and would
+reuse each annual input across any rows derived from it.
