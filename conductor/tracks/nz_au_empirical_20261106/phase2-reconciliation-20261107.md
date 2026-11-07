@@ -4398,3 +4398,24 @@ do not verify the four comparable catchments required
 for a fold or demonstrate September 2021 coverage.
 
 [National study supplement, eTable 2](https://pmc-oa-opendata.s3.amazonaws.com/PMC12887742.1/jamanetwopen-e2557319-s001.pdf).
+
+## P2.212 National anabasine data access boundary
+
+Supplement 2 states that de-identified data are available
+upon request, for approved research use with investigator
+support. The statement lists no supporting documents.
+A public article and supplement therefore do not establish
+access to the dated outcomes or authorisation to reuse them.
+
+For the specific 2021 comparator, the minimum useful request
+would seek de-identified pool identifiers, collection dates,
+constituent day counts, measured anabasine and censoring
+fields, catchment population and flow basis, and an approved
+way to assess overlap with the ACIC programme codes. A
+September coverage confirmation would address the timing
+gate even before outcome transfer. No request was sent.
+
+External supp2.pdf under the P2.210 intake directory has SHA256
+1cd8b2cbe63a319a75696e238d939c1720bf89577a1b5a7c86b89364e70d7df8.
+
+[National study data-sharing statement](https://pmc-oa-opendata.s3.amazonaws.com/PMC12887742.1/jamanetwopen-e2557319-s002.pdf).
