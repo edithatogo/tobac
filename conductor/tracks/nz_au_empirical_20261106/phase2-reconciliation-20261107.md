@@ -3924,3 +3924,22 @@ The retained official instrument is instrument.pdf under
 61b3f8bcc45f5c5918581de775c66c974f76b371260226ecde91f12f23d2ce52.
 
 [ITC Wave 5 questionnaire](https://itcproject.org/surveys/new-zealand/nzl5-cohort2/).
+
+## P2.188 ITC purchase item routing and estimand
+
+The Wave 5 instrument asks purchase-source item SO08221
+before PU08782, which asks perceived likelihood that the
+last purchase was foreign, counterfeit or smuggled. PU08782
+is routed only for source codes 16–25, 88 and 99. A missing
+response due to routing cannot be counted as a negative.
+The item concerns one purchase and combines lawful foreign
+purchases with suspected illicit products. The checked block
+does not date the purchase to a campaign month.
+
+A weighted estimate from this item would target perceived
+likelihood among the eligible routed respondents. It would
+require routing and nonresponse accounting and a separate
+bridge to a mass-weighted illicit share. Keep it outside
+the wastewater validation target.
+
+[ITC Wave 5 questionnaire, printed pages 35–36](https://itcproject.org/surveys/new-zealand/nzl5-cohort2/).
