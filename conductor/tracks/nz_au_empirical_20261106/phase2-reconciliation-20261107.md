@@ -1545,3 +1545,17 @@ External intake /Volumes/PortableSSD/tobac-p2-erp-vintage.zR7Cpn retains:
 - june2022.xlsx SHA256 deac1050f80b949094fed32bbaee28ae02956977683197ba8335f4efce922b43
 
 [Stats NZ June 2022 release and workbook](https://www.stats.govt.nz/information-releases/national-population-estimates-at-30-june-2022/).
+
+## P2.51 Annual national age-specific crosswalk
+
+The annual context crosswalk preserves all 142 unique plant-date keys
+from P2.48 and selects the latest of the two verified original June
+workbooks released strictly before collection. It carries the June
+2022 value for 90 keys, including six on 16 August 2023, and the June
+2023 value for 52 keys. Each row carries both the estimate date and
+publication date. This is an annual context series with carry-forward.
+Quarterly age-specific estimates and catchment denominators remain open.
+
+External intake /Volumes/PortableSSD/tobac-p2-erp-vintage.zR7Cpn retains
+lagged-annual-15plus-candidates.csv, SHA256
+1241a9a77e0d7a776beb245f3d4014abfcb605ced9fcab69c8657605ad74bb32.
