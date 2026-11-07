@@ -2046,3 +2046,18 @@ These are changes in national premise counts under a hypothetical
 scheme. They cannot be mapped directly to reductions in access,
 sales, or smoking. A spatial contrast still requires the
 placement of retained outlets and a compatible baseline map.
+
+## P2.83 Published allocation for the revoked retail scheme
+
+The Ministry's published area schedule allocated 599 premises
+(354 urban and 245 rural), within the 600 national ceiling used
+in P2.82. Using the exact allocation and the 5,008–8,700
+historical scenarios gives hypothetical reductions of 88.04% to
+93.11% if all approvals are used. The Ministry marks the area
+schedule revoked. It is a dated counterfactual design input.
+Urban allocation examples include Auckland 25, Christchurch 13,
+Hamilton 9 and Wellington 8. These areas are not wastewater
+catchments, and a numerical cap does not locate approved stores
+or establish realised accessibility.
+
+[Ministry area schedule](https://www.health.govt.nz/publications/maximum-numbers-of-approved-smoked-tobacco-retail-premises-permitted-in-areas-of-new-zealand).
