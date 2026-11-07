@@ -718,3 +718,39 @@ No maintained executable source changed, so unchanged software/reference checks
 are reused. S1/S3/S5 PubMed, screening, other Phase 1 gates, source admission,
 calibration and eligible frozen holdout still precede the P2 fit. Current owner
 readback remains idle with only Phase 0 accepted at c239b18; no chat message sent.
+
+## P2.19 PubMed S5 and source-kind correction
+
+Native publication-cut-off ESearch and ten connector pages reconcile 475 IDs.
+The connector hydrates 474; the exact-ID request also reports PMID 30212113
+missing. Native EFetch recovers the PubmedBookArticle chapter. The chapter's
+ArticleTitle and three chapter authors are preserved, rather than substituting
+the parent book title or its four editors. Three author-field continuations
+on parent offset 300 recover all 395 authors of PMID 27490260. Source pages,
+field fragments, failure evidence and exact request remain external.
+
+The supported CSV import accepts 475 candidates with zero quarantines and
+verified identifier/title/abstract round-trip. A subsequent semantic check
+finds the importer defaults to journal_article, including the recovered S4
+book. Supported CSL imports correct the book and chapter kinds without altering
+source titles, abstracts or authors. Corrected S4/S5 candidate sets retain
+101/475 IDs. The prior imports and receipts are preserved, with their kind
+representations explicitly superseded. No Searchright code or native source
+was changed to achieve this correction.
+
+Eight actual title/abstract assessments have recorded per-record reasons and
+source pointers. Six go to the full-text queue; two remain pending full-text
+transferability assessment. The other 467 are unscreened. These are AI-assisted
+single-owner assessments, not independent review, full-text inclusion decisions,
+admitted observations or numerical effect extraction. Prioritisation by NZ
+mention did not exclude any other country or method.
+
+Originals, transformations, corrected editions and screening data remain under
+/Volumes/PortableSSD/tobac-p2-search-s5.jLmFdk. Hash pointers are in the existing
+context receipt. Guarded source/read and local audits peak at 38.7 MiB sampled
+group RSS; screening-receipt verification peaks at 18.4 MiB. Actual local Python
+3.15.2 and the 4096 MiB / 2400 s guard remain in use. Existing maintained-source
+software/reference receipts are reused; no new model execution is claimed.
+S1/S3 retrieval, remaining screening, current policy completion, archive/source
+admission, calibration and frozen eligible holdout remain open. No chat message
+or other-owner/native write occurred.

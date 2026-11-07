@@ -191,3 +191,34 @@ closes retrieval of this exact source/query edition only: no title/abstract or
 full-text decisions, duplicate-study adjudication or new admission are counted.
 S1/S3/S5 PubMed, grey sources, citation coverage and the other Phase 1 gates
 remain open; the frozen earlier search editions are preserved.
+
+## PubMed S5 and book-kind correction — 7 November 2026
+
+The prespecified S5 title/abstract concept groups now have a native PubMed
+edition with 475 identifiers, matching an explicit publication-cut-off ESearch
+query. Ten connector pages returned 474 unique articles. Three same-parent
+continuations recovered the remaining author fragments for PMID 27490260,
+preserving all 395 authors. Native EFetch recovered the connector-omitted
+PMID 30212113 as a book chapter. Its chapter title and three chapter authors
+were retained separately from its parent book and four book editors.
+
+Semantic inspection found the CSV importer defaults to journal_article. The
+initial S5 chapter and the earlier S4 book therefore required a correction:
+supported CSL import now retains Other(chapter) and Other(book), respectively.
+The original CSV imports remain preserved as superseded kind representations.
+Corrected editions retain all 475 S5 and 101 S4 IDs with unchanged titles,
+abstracts and source authors. The correction does not imply that the remaining
+record types or fields have all received full semantic appraisal.
+
+Eight actual title/abstract assessments are recorded externally: seven records
+prioritised by an NZ mention and the recovered chapter. Six enter the full-text
+retrieval queue; two await full-text assessment of methodological transferability.
+This prioritisation is not an eligibility rule. The remaining 467 S5 records
+are unscreened. No final inclusion, exclusion, duplicate-study adjudication or
+empirical admission is claimed. Assessment is single-owner and AI-assisted;
+there is no claimed independent human review. See the per-record reasons and
+source hashes under /Volumes/PortableSSD/tobac-p2-search-s5.jLmFdk.
+
+S1/S3 PubMed retrieval, remaining screening, grey sources, citation coverage,
+source verification and archive admission remain open. These source/query
+retrieval results do not complete the systematic evidence or P2 fit gates.

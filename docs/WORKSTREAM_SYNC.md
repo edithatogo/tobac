@@ -198,3 +198,12 @@ connector missing-ID result and XML import warning remain preserved. Exact
 cut-off and title/abstract round-trip checks pass. Original records stay external;
 retrieval is not screening or empirical admission. Same lane/file ownership and
 all fit/holdout gates remain. Integrator readback is idle at c239b18; handoff unsent.
+
+P2.19 from 68ca7f2 reconciles all 475 PubMed S5 IDs, including a connector-omitted
+chapter and 395-author field continuation. Semantic checks expose the CSV
+importer's journal-article default; supported CSL imports preserve the recovered
+S4 book and S5 chapter kinds in new external editions without losing their source
+metadata. Eight selected abstracts are assessed: six full-text queue, two pending
+transferability, 467 unscreened. None is an included study or admitted input.
+Originals and failed/superseded representations remain external and preserved.
+Same owner/scope; no source admission, native write, empirical fit or chat message.

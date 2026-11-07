@@ -263,3 +263,22 @@ Do not label retrieval or deduplication as screening, study inclusion or admissi
 All expensive local import/audit work uses actual local Python 3.15.2 and the
 4096 MiB / 2400 s guard. No native/other-owner writes or cross-chat messages.
 Preserve old search editions; failed/truncated pages remain visible and incomplete.
+
+## P2.19 PubMed S5 retrieval and selected eligibility review — 7 November 2026
+
+Same owner/worktree/branch, clean base 68ca7f2. Translate the existing S5
+tobacco AND policy AND (diffusion OR competition OR spillover OR adoption)
+title/abstract strategy directly to PubMed. Save the exact request before execution;
+retain the publication cut-off of 6 November, with no language/country restriction.
+Own only this card, systematic-search continuation, P2 reconciliation/receipt
+metadata and WORKSTREAM_SYNC. Originals and per-record screening decisions remain
+external under /Volumes/PortableSSD/tobac-p2-search-s5.jLmFdk; logs remain ignored
+under outputs/nz-au-phase2-search-s5-20261107. Follow native connector offsets and
+field continuations, reconcile the actual ID universe with native NCBI ESearch,
+and retain count mismatches and exact-ID recovery attempts. Reuse the supported
+Searchright source-native import route; no fixture search or keyword rule is
+represented as live retrieval or eligibility review. Inspect actual title/abstract
+content for any recorded screening decision, keeping a full-text queue and source
+identity; unavailable text stays pending. No inclusion, source admission, model fit,
+native writes or messages to the retained integrator are implied. Local expensive
+work uses actual Python 3.15.2, serial 4096 MiB / 2400 s guards and zero blind retries.
