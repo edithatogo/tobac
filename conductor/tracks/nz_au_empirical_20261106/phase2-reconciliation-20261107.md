@@ -3375,3 +3375,27 @@ the 2021/22 wave. Calendar aggregates and a pairing rule
 cannot meet the complete-year validation requirement.
 
 [Original analysis, Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/).
+
+## P2.159 Monthly tobacco duty revenue candidate
+
+Treasury's January 2024 historical tax workbook has a monthly
+actual revenue series for customs and excise duty on tobacco.
+AllRevenue MV23:NA23 matches May–October 2023 via row 1's
+Excel dates. At NZ$ million precision to three decimals the
+values are 76.825, 126.957, 83.581, 43.264, 111.235 and
+232.411, totalling 674.273. These are unconsolidated revenue
+values from a superseded dated vintage, separate from cash
+receipts. OIA 20240151 points to this same row.
+
+The line pools duties across products and gives no physical
+product quantities. Recognition timing, product mix, refunds
+and any differences between assessed duty and release month
+must be resolved before inference about clearances. It is a
+monthly fiscal candidate, with no catchment or consumption
+quantity inferred.
+
+External original /Volumes/PortableSSD/tobac-p2-tax.YQRgw1/tax.xlsx
+has SHA256 b3234c996d8a9b035e16bd5c889f8487566d6f42de9184347b689d5452dea6f7.
+
+[Treasury January 2024 tax outturn](https://www.treasury.govt.nz/publications/tax-outturn-data/tax-outturn-data-january-2024)
+and [OIA 20240151](https://www.treasury.govt.nz/sites/default/files/2024-04/oia-20240151.pdf).
