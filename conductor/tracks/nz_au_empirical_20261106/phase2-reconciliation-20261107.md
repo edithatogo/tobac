@@ -128,3 +128,19 @@ but the clean-source publication replay refused the uncommitted checkout. Source
 be committed before that required clean-source operation is rerun; this is not a waived
 gate or a successful full reproduction claim. Terminal clean-source evidence follows
 as a separate metadata closeout. No empirical likelihood or native original is changed.
+
+## Terminal clean-source reproduction
+
+Nox reproduce passes from clean source a818f28860196e61661fdb2b685320699c892ad2
+using actual repo-local Python 3.15.2 (705.5 MiB sampled group peak, exit 0). Its
+independent clone has the same commit and source tree. Both publication variants
+reproduce all 29 compared CSV tables with zero numerical difference and zero report
+difference. The source-defined absolute comparison tolerance remains 1e-10; none was
+changed. This reuses qualified dependencies and is not a fresh/offline install or
+OS network-isolation claim. The earlier dirty-source refusal remains in the receipt.
+
+Source code is frozen at a818f28; the subsequent closeout changes metadata only. The
+P1 branch remains frozen at 403600b. The existing integrator is idle at the scoped
+readback and retains native/archive ownership. The three new NZHS originals and their
+87 candidate records still require exact destination/source admission before fitting.
+No cross-chat message, external upload or publication has been performed.

@@ -422,7 +422,9 @@
       "candidate_sha256": "07013c889fe3e44f421853373d3e0248df77432f6456c7dcb45211c45fc87e51",
       "scope": "Local field/fixity verification only; no external archival admission or fit"
     },
-    "final_guarded_run_log": "outputs/nz-au-phase2-20261107/slice-reconciliation-v3.log"
+    "final_guarded_run_log": "outputs/nz-au-phase2-20261107/slice-reconciliation-v3.log",
+    "final_guarded_run_sampled_peak_mib": 0.5,
+    "resource_limit_note": "The v3 process completed quickly; this sampled value is not an allocation maximum or proof of no leak."
   },
   "unchanged_historical_coverage": [
     {
@@ -629,11 +631,32 @@
         ]
       },
       "reproduce": {
-        "status": "pre_publication_steps_completed_clean_source_replay_refused_dirty_checkout",
-        "exit_code": 1,
-        "failure": "Commit tracked changes before a clean-source publication replay",
-        "pending_action": "Freeze this source commit, then rerun Nox reproduce from clean checkout",
-        "log": "outputs/nz-au-phase2-20261107/nox-final-tests-reproduce.log"
+        "status": "passed_from_clean_source",
+        "exit_code": 0,
+        "source_commit": "a818f28860196e61661fdb2b685320699c892ad2",
+        "sampled_peak_mib": 705.5,
+        "log": "outputs/nz-au-phase2-20261107/nox-clean-reproduce.log",
+        "earlier_dirty_attempt": {
+          "status": "pre_publication_steps_completed_clean_source_replay_refused_dirty_checkout",
+          "exit_code": 1,
+          "failure": "Commit tracked changes before a clean-source publication replay",
+          "pending_action": "Freeze this source commit, then rerun Nox reproduce from clean checkout",
+          "log": "outputs/nz-au-phase2-20261107/nox-final-tests-reproduce.log"
+        },
+        "independent_publication_replay": {
+          "receipt_path": "outputs/engineering/replays/1cf8d91eddf541608287792f3797a302/paper_replay/receipt.json",
+          "receipt_sha256": "70fd7c86cac7478d257bd14a06079d310a7d862e79178e0b759816a54b7b583c",
+          "source_commit": "a818f28860196e61661fdb2b685320699c892ad2",
+          "source_tree": "de2f78ff2331445b6372c8ba9f5f09e0d37661f4",
+          "clone_commit": "a818f28860196e61661fdb2b685320699c892ad2",
+          "clone_tree": "de2f78ff2331445b6372c8ba9f5f09e0d37661f4",
+          "python": "3.15.2",
+          "compared_tables": 29,
+          "maximum_numeric_difference": 0.0,
+          "absolute_tolerance": 1e-10,
+          "maximum_report_difference": 0,
+          "scope": "Fresh committed sources; no source-download command during replay. Reuses qualified dependencies; not a fresh/offline install or OS network isolation."
+        }
       },
       "sampled_peak_mib_for_combined_attempt": 774.8
     }
@@ -656,5 +679,31 @@
     "status": "not_published",
     "remote_main_readback": "8b48e223896d191485cfef3324944924e4f03834",
     "route": "git ls-remote origin refs/heads/main; no shared ref changed"
+  },
+  "retained_execution_helpers": {
+    "location": "External intake edition execution-scripts",
+    "files": [
+      {
+        "file": "acquire.py",
+        "sha256": "287c1757099df1f7b35583c6088e6fecec82dac1dc5bf00c46ff7bc4462395f8",
+        "bytes": 1859
+      },
+      {
+        "file": "verify-candidate.py",
+        "sha256": "ec43171361b32776435480400645c5caeeacbc6cbea7002959122e00b692a888",
+        "bytes": 1750
+      }
+    ],
+    "maintained_source_helper": "scripts/audit_empirical_coverage.py at a818f28860196e61661fdb2b685320699c892ad2"
+  },
+  "handoff": {
+    "source_commit": "a818f28860196e61661fdb2b685320699c892ad2",
+    "p1_frozen_branch": "codex/p1-evidence-20261107",
+    "p1_frozen_commit": "403600b775ccef5a0121dde1c5619e50d2728815",
+    "native_owner_thread": "01a19a6e-2e47-7b10-8a35-4e7d7fedb965",
+    "owner_status_observed": "idle; Phase 0 local checkpoint complete",
+    "native_admission_of_new_csvs": "not_performed",
+    "cross_chat_message_sent": false,
+    "publication": "local source and metadata only; no remote push, source upload or visibility change"
   }
 }

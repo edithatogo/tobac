@@ -90,3 +90,14 @@ archive destinations and main promotion remain with their prior owners. Existing
 scientific inputs, runtime locks, signatures and M3 interfaces are unchanged. Final
 commands use the public attested route and the lane's own Python 3.15.2 environments;
 no native private binding is transferred. Full P2 requirements remain open.
+
+P2.2 source is frozen at a818f28860196e61661fdb2b685320699c892ad2. Final full Nox
+tests pass 1,289 / 22 capability skips with 92% src coverage; whole-source typing
+passes with zero errors/warnings; clean-source Nox reproduction and independent
+29-table publication replay pass with zero numerical/report difference. Earlier
+failures and scope limits remain in phase2-receipts-20261107.json. P1 remains frozen
+as codex/p1-evidence-20261107 at 403600b. Existing root native/source-admission
+owner was read as idle; no message, private binding transfer or native write occurred.
+Next: exact external destination/source admission, compatible measurement/period and
+policy-baseline reconciliation, then the prespecified empirical fit and validation.
+P2 is not complete; this is a terminal enabling-source packet for the existing integrator.
