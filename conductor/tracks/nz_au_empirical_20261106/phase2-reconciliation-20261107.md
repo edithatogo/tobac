@@ -2389,3 +2389,19 @@ The current SA1845 eligibility population and treatment uptake
 still require a separate transport assessment.
 
 [Walker et al., Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC8519028/).
+
+## P2.105 Cross-country varenicline comparator scope
+
+Courtney et al. in Australia compared 25 days of cytisine
+with 84 days of varenicline. Verified six-month continuous
+abstinence was 85/725 versus 97/727. The risk difference was
+−1.62 percentage points and the one-sided 97.5% lower bound
+was −5.02, narrowly missing the −5-point noninferiority margin.
+The NZ Māori and whānau trial in P2.104 offered 12 weeks in
+both arms and used a −10-point margin. Keep the trial estimates
+separate. Regimens, recruited populations and decision margins
+differ, and the difference in estimates does not isolate a
+country effect.
+
+[Australian randomized trial](https://jamanetwork.com/journals/jama/fullarticle/2781643)
+and [New Zealand randomized trial](https://pmc.ncbi.nlm.nih.gov/articles/PMC8519028/).
