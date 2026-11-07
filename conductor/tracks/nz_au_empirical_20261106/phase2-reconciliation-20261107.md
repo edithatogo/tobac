@@ -2181,3 +2181,18 @@ outcome. It supplies neither national reach nor a causal
 contrast with unaided quitting.
 
 [Ministry aide-mémoire, pp. 3–4](https://www.health.govt.nz/system/files/2024-08/h2024036635_briefing_-_stop_smoking_services_and_health_promotion_activities_black_box.pdf).
+
+## P2.92 National cessation monitoring metrics
+
+Page 23 of Health NZ's Getting to Smokefree 2025 plan describes
+a four-week validated quit conversion of 50% at the time of
+the plan and a 60% performance target. A separate 60% target
+concerns enrolments among referrals. The indexed page does not
+provide the numerator, denominator definition or observation
+period for the 50% figure, so it cannot be reconciled to either
+Counties Manukau denominator in P2.91. Neither target supplies
+measured attainment or national service reach. Direct full-text
+retrieval returned 403 in the web route. This read uses the
+indexed publisher page and retains the metric as context only.
+
+[Health NZ plan, p. 23](https://www.tewhatuora.govt.nz/assets/Publications/Smokefree/Getting-to-Smokefree-2025-The-final-push-to-achieving-the-Smokefree-2025-goal.pdf).
