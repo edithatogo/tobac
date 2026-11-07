@@ -4353,3 +4353,26 @@ September observations. The article's overall date
 range does not establish that intermediate exposure.
 
 [Wang et al., national study](https://doi.org/10.1001/jamanetworkopen.2025.57319).
+
+## P2.210 National anabasine supplement and site-code boundary
+
+Recovered Supplement 1 from the public PMC Open Access
+archive after the publisher route failed. eTable 1 lists site
+numbers, states, population bands and remoteness. eTable 2
+gives anabasine batches and pooling frequency, but no dated
+site-by-month roster. It describes bimonthly pools for the
+first batch and monthly pools for the second. The first-batch
+header ends in June 2023 while the article and eMethods give
+April 2023 for overall sampling. Preserve both dates pending
+clarification.
+
+The article's site numbers cannot be joined to ACIC by
+padding them with zeros. For example, anabasine site 42 is
+Western Australia and site 53 is New South Wales, while
+both padded codes in P2.191 denote Queensland. September
+2021 coverage and occasion overlap remain unverified.
+
+External supp1.pdf under /Volumes/PortableSSD/tobac-p2-wang-national.Mf5A9X
+has SHA256 b9ba104635b3b5c6efeef4860dbd184417c6abacc5f376f7654d960048b70d08.
+
+[PMC Supplement 1](https://pmc-oa-opendata.s3.amazonaws.com/PMC12887742.1/jamanetwopen-e2557319-s001.pdf).
