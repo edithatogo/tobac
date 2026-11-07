@@ -3783,3 +3783,25 @@ paid heading totals do not provide those fields. Keep the
 25.9013% threshold as a conditional sensitivity.
 
 [Customs refunds and drawbacks procedure](https://www.customs.govt.nz/business/import/refunds-and-drawbacks).
+
+## P2.181 Disposition for the P2 campaign panel
+
+Retain three separate candidate measures with their native
+units and periods. Treasury supplies recognised revenue in
+NZ dollars, Customs supplies import duty in NZ dollars by
+heading, and Stats NZ supplies physical border quantities
+by subcode. They share border activity and cannot count as
+independent observations of campaign consumption. The
+P2.167–180 checks rule out direct substitution and show that
+some reconciliation scenarios are feasible only with
+unobserved adjustments or timing choices.
+
+The required empirical bridge would tie cleared quantities
+to duty treatment, opening and closing stock, lawful
+traveller flows and the sampled population. An admitted
+catchment outcome with comparable observation periods is
+also needed for the held-out WBE comparison. With these
+links missing, the fiscal and trade candidates support
+source diagnostics and conditional sensitivities only.
+They supply no likelihood row, validation target, or
+decision ceiling for the 2023 campaign.
