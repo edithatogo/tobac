@@ -2511,3 +2511,15 @@ completeness among counted prescription items. It does not
 measure treatment follow-up.
 
 [Health NZ Pharmaceutical Data web tool, Technical information](https://tewhatuora.shinyapps.io/pharmaceutical-data-web-tool/).
+
+## P2.112 National funded nicotine dispensing context
+
+The P2.109 national chemical-level initial dispensing view also
+identifies nicotine (ChemID 3722). For 2021 through 2025 the
+published initial dispensing counts are 170,541, 163,032,
+202,546, 230,680 and 244,477. The corresponding NumPpl counts
+are 54,114, 50,640, 60,796, 68,141 and 72,592. These cover
+funded community pharmacy records under P2.111's definition.
+The display does not identify indication, direct supply outside
+claims, adherence or cessation. Do not add nicotine and
+varenicline people counts without a joint deduplicated source.
