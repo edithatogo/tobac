@@ -4532,3 +4532,35 @@ A comparison of illicit estimates that reuse lawful inputs
 cannot establish independent predictive performance.
 
 [FTI report, sections 3.3 and 4.1 and Figures 4-1 and 5-1](https://www.pmi.com/content/dam/pmicom/markets/australia/docs/fti-consulting-illicit-tobacco-in-australia-2024-full-report.pdf).
+
+## P2.218 Shared inputs in the Australian illicit comparison
+
+FTI Appendix B demonstrates the dependency for 2024.
+Let D be lawful domestic manufactured sales, p the
+non-domestic share from discarded packs, and T lawful
+traveller volume. Tables B-1 and B-2 give total manufactured
+volume as D / (1 - p) and illicit non-domestic volume as
+D * p / (1 - p) - T before allocation to counterfeit and
+contraband. The wastewater residual subtracts D and T
+as parts of its legal term. A shared one-tonne increase in
+T lowers both residuals by one tonne, holding other inputs
+fixed. A one-tonne increase in D lowers the wastewater
+residual by one tonne and raises the FTI non-domestic
+component by about 0.202 tonnes at the rounded 2024 p
+of 16.8%. These are component sensitivities, with no
+implied empirical covariance or assumption that the 2024
+coefficients apply to 2017–2023.
+
+Section 3.1 excludes counterfeit RYO pouches and estimates
+domestic growing only within the loose-leaf category. The
+biomarker residual has no pack-category labels. Appendix
+Table B-3 also lists 4,472 tonnes as the manufactured
+denominator, but 12.23% of 4,472 gives 547 tonnes rather
+than the listed 583 tonnes. Applying the share to the
+4,772 tonnes in Table B-2 gives about 584 tonnes. Retain
+the discrepancy and do not substitute a corrected input.
+These dependencies and scope gaps preclude treating
+agreement between the two published series as held-out
+validation of illicit consumption.
+
+[FTI report, sections 3.1–3.3 and Appendix B](https://www.pmi.com/content/dam/pmicom/markets/australia/docs/fti-consulting-illicit-tobacco-in-australia-2024-full-report.pdf).
