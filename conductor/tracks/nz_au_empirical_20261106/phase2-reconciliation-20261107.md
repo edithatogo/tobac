@@ -2760,3 +2760,20 @@ against its logical record in the source CSV, with no extra or
 missing national rows under the frozen selector. The version adds
 people-count, district and suppression definitions. Its status
 remains candidate review pending with zero admitted observations.
+
+## P2.129 Origin identification with tobacco-specific biomarkers
+
+Strengthen the feasibility check by granting an exact matched
+combustible exposure total T from a perfectly calibrated
+tobacco-specific marker. If lawful and illicit combustible
+products have the same marker response per unit, any split
+(T − I, I) with 0 ≤ I ≤ T produces the same marker and total
+nicotine observations. This remains true if funded NRT
+exposure were known exactly. The 2023 dispensing records are
+weaker than that assumption because they measure supply.
+Thus their admission could help bound a noncombustible source
+but cannot resolve origin. An independent matched restriction
+on lawful consumption or a validated origin-specific response
+is still required. Administrative releases cannot serve as
+that restriction without the stock, product and lawful-flow
+reconciliation in the feasibility analysis.
