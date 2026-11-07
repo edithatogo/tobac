@@ -119,3 +119,13 @@ index-derived from June 2006 weighted levels, not independent transaction-price
 observations. Only the P2 task/reconciliation/receipt metadata and this handoff change;
 no source/model/runtime/native promotion. Next: qualified rights/source admission,
 period/product/denominator matching and current policy baseline before fit/holdout.
+
+P2.5 same-owner continuation at 1e227d6 downloads the source NZHS methodology by
+internal browser after CLI-specific 403s. Verified actual 2024/25 fieldwork windows,
+non-private accommodation coverage, ERP benchmark rule and jackknife dependence;
+later-vintage ERP average differs from the published survey benchmark and is not
+substituted. Only P2 metadata plus its focused context selection change. Context
+ceiling remains unchanged; originals/extractions stay external. Low volume headroom
+caused one pre-execution shell temporary-file failure; preserve native/archive owners
+and avoid broad runs or cleanup. Next: historical methods, source admission and
+policy/product/period matching before supported fit and held-out information analysis.

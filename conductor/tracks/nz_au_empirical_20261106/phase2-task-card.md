@@ -133,3 +133,28 @@ tobac in a new edition; preserve source units/status, source dates and pack-size
 revisions. Compare overlapping published current-quarter price and index without
 conflating them. Do not estimate elasticity, interpolate, infer a paid-price/consumption
 bridge or fit past the still-open P1 admission/rights/policy/validation gates.
+
+## P2.5 survey-period and denominator bridge — 7 November 2026
+
+R03/R04/R16/R18; same chat/worktree/branch, clean base 1e227d6. Own only this
+card, existing P2 reconciliation/receipt metadata and WORKSTREAM_SYNC continuation;
+ignored outputs/nz-au-phase2-methods-20261107 and a new external intake edition
+hold acquisition/extraction artifacts. The existing Ministry CLI annual-page and
+method-PDF 403 receipts are retained. Use internal-browser native access for the
+concrete inaccessible source, verify source links before downloads, then return to
+CLI for exact-byte checks and page/section extraction. Observable deliverable:
+source-bound period/frame restrictions and a supported matching/no-matching
+assessment, preserving pandemic interruptions, survey-year labels, private-household
+eligibility, age and denominator differences. No numerical population calibration,
+interpolation, new likelihood/fit, original-owner/archive write or source admission.
+Use actual repo-local Python 3.15.2 and the existing 4096 MiB / 2400 s bounded guard
+for extraction; stream logs under that ignored output. Stop on access boundaries or
+missing source definitions; retain failures and continue independent checks only.
+Reuse unchanged maintained-source tests/typing/replay; exact original hashes, PDF
+locations, extraction outcome and remaining limits must accompany the result.
+
+P2.5 context-start failed the unchanged 100,000-byte serialized budget. Narrow the
+same owned engineering/context/nz-au-evidence.json by removing the two unchanged
+P1 model-appraisal documents from this survey-methods task's selected context;
+retain them on disk and retain P1 progress/gates, P2 contracts and audit/tests.
+No budget increase or archive deletion. Rebuild into a new context edition.

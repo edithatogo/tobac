@@ -163,7 +163,8 @@ none enters the likelihood or existing scientific inputs.
   rounding footnote accompanies age-sum residuals of −100, 0 or 100; no tolerance,
   adjustment or independent status is invented. The export records 2023 ERP and
   post-2018 revisions, last updated 18 August 2026. ERP is not automatically the
-  NZHS eligible private-household population or a wastewater catchment denominator.
+  NZHS source-defined survey population or a wastewater catchment denominator.
+  P2.5 below corrects the earlier private-household-only shorthand.
 - Price: September 2026 official CPI CSVs and original XLSX downloaded through
   publisher links. Windows-1252 decoding of the Infoshare CSV roundtrips exactly;
   no replacement characters or edited originals. The broad 42 current-quarter
@@ -238,3 +239,69 @@ coverage of that particular published proxy. It does not establish paid-price le
 causal elasticity, source admission, empirical consumption, a policy contrast or
 validation. No maintained code/runtime/scientific inputs changed, so unchanged P2.2
 full tests/typing/numerical replay remain reused. P2 remains incomplete.
+
+## P2.5 source-defined survey periods and benchmark — 7 November 2026
+
+The existing CLI 403s remain route-specific failures. The internal browser opens the
+actual Ministry annual and methodology publication pages, and downloads the original
+55-page 2024/25 methodology PDF from the observed publisher link. SHA256:
+b938a5bd2959468a5da5be1d7d56539f215d1c2a0589753bd8410c7a22cd210b.
+Publication page: 19 November 2025, Ministry-owned CC BY 4.0; this is source rights
+metadata, not a native archive admission. Originals, rendered pages, an external
+quarter ledger and saved extraction scripts remain outside tobac in
+`/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-methods`.
+
+Ten complete relevant PDF pages were rendered and visually checked against extracted
+text. PDF page numbers count from one; printed numbers differ by six:
+
+- PDF 11–12 / printed 5–6: target is the usually resident population, including
+  non-private accommodation. The covered survey includes rest homes and specified
+  student accommodation, with explicit exclusions including hospitals, prisons and
+  higher-level care. This corrects this lane's overly narrow private-household-only
+  shorthand; it does not make the survey frame identical to catchment contributors.
+- PDF 32–33 / printed 26–27: ERP counts inform calibration. Total population benchmarks
+  average quarter-end ERP over a survey year. The survey uses census-rebased benchmarks
+  and does not typically adopt every subsequent quarterly revision. Survey estimated
+  numbers, prevalence and these calibration totals cannot be conditioned on independently.
+- PDF 35 / printed 29: 100 delete-a-group jackknife replicates are recalibrated. Since
+  2015/16, reused PSUs retain replicate groups across adjacent years to account for
+  clustering in differences and pooled estimates. The marginal CSV intervals do not
+  supply that joint covariance or prove independent annual errors.
+- PDF 43–44 / printed 37–38, Tables 5–7: nominal survey quarters are July–September,
+  October–December, January–March and April–June. Actual 2024/25 fieldwork ran
+  9 July 2024–20 July 2025; quarter-specific interview windows overlap and extend
+  beyond their nominal quarters. Four adult counts sum exactly to 9,253 and four
+  child counts to 2,805. Do not use those counts as interview-date or calibration
+  weights for quarterly prices. This verifies this edition's dates only, without
+  assigning normal July–June fieldwork to pandemic-affected historical years.
+- PDF 49 / printed 43, Table 9: published adult population count is 4,339,820;
+  published gender population subtotals sum one lower (children one higher). Retain
+  published totals and rounded subtotals without an invented adjustment. Current ERP
+  sex categories are not a substitute for reported survey gender categories.
+- PDF 52–53 / printed 46–47: the 2024/25 edition rebases historical weights. Specific
+  interviewer-item corrections for 2023/24 list GP access, mental health, child sleep,
+  food security and diet, not tobacco/vaping. This does not prove tobacco estimates
+  unchanged across editions because population rebasing is a separate revision.
+
+The guarded Polars/stdlib reconciliation verifies the four-quarter source ledger,
+ISO conversions, respondent totals, original hash, source locations and exact CSV
+roundtrip. Applying the documented equal-quarter average to the later DPE054AA
+18 August 2026 edition's Total age-15-plus As-at counts yields 4,338,100, 1,720 below
+Table 9. Two selected ERP quarters are provisional. This is a cross-vintage diagnostic,
+not evidence that either publisher is wrong, a measure of excluded people or an
+accepted denominator replacement. No point population, mean-year-ended population,
+rounded prevalence inversion or arbitrary fieldwork allocation is substituted.
+
+The existing source receipt now binds methods, ledger and extractor hashes. The
+context builder initially exceeded its unchanged 100,000-byte ceiling; two frozen P1
+model appraisals were removed from this task's context selection, not from the repo,
+and the narrowed context passes. One shell heredoc failed for lack of temporary
+space before executing its diagnostic. A scoped write/fsync/readback probe and small
+bounded reconciliations subsequently pass; shared-volume headroom remains low.
+No unrelated caches, archives, environments or native objects were removed or changed.
+
+This advances period/frame/dependence matching. Historical methods, source/rights
+admission, lawful-product/stock flows, causal policy effects and the frozen validation
+manifest still constrain the first empirical fit. P2 remains active and incomplete;
+no maintained model/audit/runtime source changed, so prior P2.2 tests/typing/replay
+are reused at their original scope.

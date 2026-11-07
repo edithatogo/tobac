@@ -393,5 +393,126 @@
     "verification_scope": "82 exact source record/value matches, contiguous quarters, native query/time/series/options, source unit/method footnotes, current-quarter CSV numeric equality and workbook rounded change; not source admission or fitting",
     "new_findings": "Historical price levels are calculated using index movements from June 2006 prices; preserve dependence and do not use as independent paid-price observations.",
     "maintained_source_changed": false
+  },
+  "survey_methods_continuation": {
+    "base_commit": "1e227d6df9f4b1b6836707d21f4a6e76f6274d64",
+    "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-methods",
+    "original": {
+      "source_url": "https://www.health.govt.nz/system/files/2025-11/methodology-report-2024-25.pdf",
+      "publication_page": "https://www.health.govt.nz/publications/methodology-report-202425-new-zealand-health-survey",
+      "method": "Internal-browser download of observed publisher PDF link; successful downloadMedia after exact accessible-name selector failed",
+      "file": "NZHS-methodology-2024-25-b938a5bd2959468a5da5be1d7d56539f215d1c2a0589753bd8410c7a22cd210b.pdf",
+      "sha256": "b938a5bd2959468a5da5be1d7d56539f215d1c2a0589753bd8410c7a22cd210b",
+      "bytes": 865131,
+      "observed_download_completed_by": "2026-11-07T02:56:05.683404+00:00",
+      "publication_date_observed": "2025-11-19",
+      "copyright_status_observed": "Owned by Ministry of Health; licensed CC BY 4.0 on methodology publication page",
+      "admitted": false
+    },
+    "reconciliation": {
+      "source_sha256": "b938a5bd2959468a5da5be1d7d56539f215d1c2a0589753bd8410c7a22cd210b",
+      "survey_year": "2024/25",
+      "actual_collection_interval": [
+        "2024-07-09",
+        "2025-07-20"
+      ],
+      "nominal_sample_quarters": [
+        "2024Q3",
+        "2024Q4",
+        "2025Q1",
+        "2025Q2"
+      ],
+      "candidate_file": "survey-quarter-candidates.csv",
+      "candidate_sha256": "eb9adc8c73261cc60ab5430ef788b342d11bccc434b96e8ec35c6072585921d7",
+      "pdf_pages_visually_checked": [
+        11,
+        12,
+        32,
+        33,
+        35,
+        43,
+        44,
+        49,
+        52,
+        53
+      ],
+      "source_locations": {
+        "population": "PDF 11\u201312 / printed 5\u20136, Target and survey population",
+        "benchmark_rule": "PDF 32\u201333 / printed 26\u201327, Calibration and Benchmarks for the total population",
+        "dependence": "PDF 35 / printed 29, Jackknife replicate weights",
+        "periods_and_counts": "PDF 43\u201344 / printed 37\u201338, Tables 5\u20137",
+        "denominator": "PDF 49 / printed 43, Table 9",
+        "revisions": "PDF 52\u201353 / printed 46\u201347"
+      },
+      "table9_adult_population_count": "4339820",
+      "table9_adult_interviews": 9253,
+      "table9_adult_gender_population_sum_minus_printed_total": -1,
+      "table9_child_gender_population_sum_minus_printed_total": 1,
+      "latest_erp_quarterly_average_diagnostic": {
+        "rule": "Equal average of nominal survey-year quarter-end total ERP age15plus; source method, not interview-date weights",
+        "source_candidate_sha256": "87240f43e3532dcf84b27401183c5da361a53fdd215ca4c66b42ab5b579c2330",
+        "source_version": "DPE054AA last updated 18 August 2026",
+        "average": "4338100",
+        "minus_published_methodology_table9": "-1720",
+        "matches_exactly": false,
+        "disposition": "Do not substitute a later-vintage ERP average for the source-published survey benchmark or infer error/eligible exclusions from their difference",
+        "selected_source_coordinates": [
+          {
+            "source_csv_record": "139",
+            "source_value_column": "16",
+            "quarter": "2024Q3"
+          },
+          {
+            "source_csv_record": "140",
+            "source_value_column": "16",
+            "quarter": "2024Q4"
+          },
+          {
+            "source_csv_record": "141",
+            "source_value_column": "16",
+            "quarter": "2025Q1"
+          },
+          {
+            "source_csv_record": "142",
+            "source_value_column": "16",
+            "quarter": "2025Q2"
+          }
+        ]
+      },
+      "interpretation": [
+        "Survey includes some non-private accommodation; previous private-household-only shorthand is too narrow",
+        "Actual collection intervals overlap and extend beyond nominal quarters; no interview-time price weighting from counts",
+        "ERP already informs survey calibration; estimated counts and prevalence are not independent population measurements",
+        "100 jackknife replicates account for reused PSUs across adjacent years; marginal CSV intervals do not establish joint covariance",
+        "Specific interviewer-data correction topics omit tobacco/vaping, but population rebase revises historical weights; do not claim tobacco unchanged across release vintages",
+        "Only 2024/25 exact dates are verified here; historical methods/pandemic interruptions still need source-level matching"
+      ],
+      "admitted": false,
+      "fit_executed": false
+    },
+    "reconciliation_sha256": "139502ddf21f569a6f03bffdac83290ef587dd7020099822cdacfe62c735b7b2",
+    "external_extractors": {
+      "render-pages.py": "da5af47399ae1907861bfadb32c95cb2b3189455d8e22c43bb1b52641d2a67fe",
+      "reconcile.py": "ad66fbf94cb4f6fb953e675337e9333e4c8adfbe8bac9d49032d863f89066008"
+    },
+    "logs": "outputs/nz-au-phase2-methods-20261107",
+    "guarded_extraction_status": 0,
+    "guarded_render_status": 0,
+    "guarded_reconciliation_status": 0,
+    "render_sampled_group_rss_mib": 51.1,
+    "reconciliation_sampled_group_rss_mib": 0.7,
+    "runtime": "actual repo-local Python 3.15.2",
+    "maintained_source_changed": false,
+    "failures_retained": [
+      "Bounded context builder exceeded unchanged 100000-byte ceiling; removed two unrelated frozen P1 model appraisals from current task profile, retained files and rebuilt successfully",
+      "Exact accessible-name PDF locator matched none; observed href locator downloaded valid original PDF",
+      "First denominator diagnostic shell heredoc failed before execution with no space left; df and statvfs observed available space, exclusive 1 KiB write/fsync/readback probe passed; subsequent bounded small writes succeeded. No unrelated files or caches removed; low shared-volume headroom remains a limitation"
+    ],
+    "conclusions": [
+      "Corrects private-household-only shorthand: current survey includes specified non-private accommodation",
+      "Verifies 2024/25 exact fieldwork and published population-benchmark rule; historical years still need their own methods",
+      "Later ERP cannot silently replace vintage-bound published benchmark; no double conditioning on population-informed survey counts",
+      "No covariance, observation admission, fit, causal contrast or predictive validation created"
+    ]
   }
 }
