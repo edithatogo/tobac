@@ -2311,3 +2311,19 @@ candidate estimates of a randomized offer comparison, with current
 policy transport and source admission still open.
 
 [Publisher Table 2](https://www.nejm.org/cms/10.1056/NEJMoa1407764/asset/01905b09-ba9f-4b61-9456-0be7f7481613/assets/images/large/nejmoa1407764_t2.jpg).
+
+## P2.100 NZ cytisine classification and trial transport
+
+Medsafe's February 2025 committee minutes record that no cytisine
+products were approved at the time of that meeting. The August
+2025 Gazette notice subsequently classifies divided oral and
+oromucosal cytisine preparations for withdrawal from nicotine
+dependence in adults as restricted medicines. Classification does
+not establish a product approval, funded listing or access in
+the 2026 baseline. No product-level approval or funded listing
+was verified in this check. Keep the P2.99 trial as an offer
+contrast for appraisal, with routine availability and uptake
+unfilled.
+
+[Medsafe committee minutes](https://www.medsafe.govt.nz/profs/class/Minutes/2021-2025/73mccMin26Feb2025.htm)
+and [Gazette classification notice](https://gazette.govt.nz/notice/id/2025-go4844).
