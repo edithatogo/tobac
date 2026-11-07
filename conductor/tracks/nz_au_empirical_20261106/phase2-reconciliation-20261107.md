@@ -2669,3 +2669,16 @@ product-quantity estimate, with use and wastewater attribution
 outside its scope.
 
 [Habitrol data sheet, revision summary](https://www.medsafe.govt.nz/profs/datasheet/h/HabitrolTTS.pdf#page=12).
+
+## P2.123 National dispensing source review packet
+
+The P2.101 external intake holds national-nicotine-dispensing-review.json,
+SHA256 a4478a08142fa896ed1206af7ae233a4fc9b1c15ebc36f08965aaaf8c27ea183.
+It pins the original P2.114 ZIP and chemical table member, retains all
+source fields and one-based logical record ordinals excluding the header,
+and validates 20 distinct chemical-year-measure rows for 2021–2025.
+Initial and all-dispensing rows are nested measures from the same
+collection. The packet records the supply break, population scope and
+limits on interpreting uptake and courses. It is ready for source review
+with zero admitted observations. Archive approval and canonical
+readback remain separate from this external review packet.
