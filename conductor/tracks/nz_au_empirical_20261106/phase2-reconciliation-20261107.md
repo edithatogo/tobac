@@ -1707,3 +1707,16 @@ The site maxima incorporate observations across the campaign, so
 they cannot supply training-only limits for held-out observations.
 Effective assay thresholds and unconditional monthly upper
 bounds remain unresolved.
+
+## P2.60 September-to-October ANBA contrast under conditional bounds
+
+Restrict to the ten labels with two observations per month and a
+numerical P2.59 envelope. This excludes Auckland North and Whangārei.
+Holding quantified points fixed, the September sampled mean is
+conditionally bounded by 2.320–10.675 and October by 3.825–7.685
+mg/day/1,000 people. The October-minus-September contrast ranges
+from −6.850 to +5.365 at the displayed precision. Both signs are
+compatible with these constraints alone, even on the balanced
+plant panel. The sign remains unresolved under these bounds.
+This uses full-campaign site summaries for retrospective sensitivity.
+It does not establish predictive limits or a policy contrast.
