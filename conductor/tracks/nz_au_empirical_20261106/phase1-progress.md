@@ -54,3 +54,109 @@ sent. The earlier Phase 0 handoff had already been delivered under the user's au
 Next: qualify exact source/destination rights and current policy inputs, then complete the
 Phase 1 gate before fitting. Complete the initial empirical slice only after admission,
 source verification, matched-unit reconciliation and prespecified holdout eligibility pass.
+
+## P1.2 executed continuation — 7 November 2026
+
+Phase 0's local gate is now accepted by its retained integrated checkpoint; the earlier
+statements above that its renewal is unavailable are historical. This separate managed
+worktree starts at c239b18 on codex/p1-evidence-20261107. P1 remains incomplete.
+No source/runtime promotion, original upload, native signing or empirical fit occurred.
+
+### Retrieval and actual tool qualification
+
+Current Searchright main 4ddfbdbc54c500719889e09942783bdc04ee832b built successfully
+with locked Cargo dependencies, two workers and a 741.6 MiB sampled peak. The actual
+binary reports 0.1.0-alpha.1 and five fixture-backed providers. Its live providers remain
+unqualified. Five new source-specific portable strategies compile exactly without
+warnings; the separate S3 v3 recall repair also compiles exactly. The earlier declared-
+dialect mismatch warning from compiling the original PubMed S1 to Europe PMC is retained.
+
+Source-native Europe PMC retrieval preserves exact frozen queries, UTC request times,
+content types, cursor chains, response hashes and native identities outside tobac:
+
+| Family/edition | Provider hits | Unique records returned | Terminal disposition |
+|---|---:|---:|---|
+| S1 | 25,237 | 25,236 | Incomplete: exhausted cursor with one-record count discrepancy |
+| S2 | 231 | 231 | Complete retrieval for this exact source/query/date range |
+| S3 v2 | 2,451 | 2,451 | Complete query retrieval; NZ seed missed |
+| S3 v3 | 3,175 | 3,175 | Complete query retrieval; NZ seed recovered |
+| S4 | 132 | 132 | Complete retrieval for this exact source/query/date range |
+| S5 | 420 | 420 | Complete retrieval for this exact source/query/date range |
+
+Both prespecified bibliographic seeds resolve individually; S1 recovers both and S2
+recovers the Australian seed. The impossible-ID negative query returns zero records.
+S3 v3 adds 724 native identities and removes none compared with v2, verified from the
+actual sets. This is a recall repair, not proof that all relevant studies were found.
+The executed date lower bound and provider-field differences remain explicit protocol
+limits in systematic-search.md.
+
+S1's continuation failed its completeness assertion at exit 1 (130.2 MiB sampled peak).
+It did not silently accept 25,236 as 25,237. A bounded diagnostic fetched the affected
+page in lite mode: both modes return the same 999 native IDs and the same next cursor.
+The one-record index discrepancy is unresolved; no unknown ID or metadata was fabricated.
+All received pages remain available for bounded screening, with the incomplete flag.
+
+PubMed S2 was retrieved across all five connector offsets: 222 distinct PMIDs, no
+pagination limit, no clipped fields and no provider warnings. Its overlap with Europe
+PMC is 213 PMIDs; nine PubMed-only PMIDs and 18 Europe PMC non-MED records remain distinct
+source records for review. Do not assume provider coverage or indexing is identical.
+Both source sets pass real Searchright import: 231 and 222 records, zero quarantine,
+with identity checks against the original exports. All 453 source records are preserved.
+Searchright proposes 213 candidate duplicate clusters and 218 duplicates, with 235
+retained candidate representatives. Those are software candidate counts, not confirmed
+unique studies or a completed PRISMA flow. A synthetic unterminated XML record is actually
+quarantined by the CLI.
+
+### Original-source appraisal and preservation limits
+
+Four original objects (two seed XMLs, Australian supplemental ZIP and later calibration
+XML) were acquired and hash-verified in the external intake edition. The Australian ZIP's
+two original PDFs were extracted without modifying them. Article XML, PDF text, selected
+rendered supplemental tables and equation images were inspected at the recorded scope.
+The [Australian appraisal](phase1-wang-appraisal.md) distinguishes aggregate metabolites,
+anabasine calibration, legal-sales accounting and shared NWDMP/FTI dependencies. It
+records the visually verified site 33 state discrepancy and request-only raw-data access.
+No request was sent. The later Weng calibration has a different dimensional basis and
+possible vaping contribution; it was not substituted for a mass-per-cigarette factor.
+
+The [NZ model appraisal](phase1-nz-model-appraisal.md) records partial structural review,
+NZHS-derived calibration dependence, CC BY-NC terms, explicit-relapse limitations, HALY
+versus QALY requirements and two original-text reconciliation gaps. Full supplement/code
+and parameter/formula review remains open. The appraisal queue now has 38 rows; statuses
+remain separate from intended dispositions and no new empirical parameter is adopted.
+
+Local offline readback verifies 41 page occurrences and all four original objects against
+retained hashes. A selected original copy reopens, rejects actual corrupt/missing copies,
+and recovers from its preserved original. This is same-host local recovery for that
+selection; no independent archive destination, remote readback or durable preservation
+is claimed. Rights and existing archive-owner scope remain prerequisites to promotion.
+Only metadata/hash pointers and project-owned query definitions enter this source packet.
+Original articles, abstracts, supplements, import records and screening data stay outside
+this repository in tobac-evidence-intake-20261107-p1.
+
+### Verification and next work
+
+Actual repo-local Python is 3.15.2. Hash-sync of the unchanged reference lock passes
+(115.3 MiB sampled peak); its six source inputs verify, and uv reports 36 compatible
+installed packages. The scoped context/source-handoff/publication-boundary/workstream
+selection passes 99 tests in 28.53 seconds (161.0 MiB sampled peak). No numerical code,
+scientific input, lock or native profile changes: prior Phase 0 full-suite and numerical
+replay receipts are reused at their original scope. This packet does not renew a native
+acceptance or report hosted/release execution.
+
+Metadata receipt: phase1-search-receipts-20261107.json. Local command logs and actual
+qualification outputs: outputs/nz-au-phase1-20261107. The bounded context now includes
+these phase's protocol, task, progress, appraisals and source-specific strategies; it
+retains the existing 100,000-byte ceiling and public/private classifications.
+
+Remaining: finish PubMed S1/S3/S4/S5 and G1/G2/citation coverage; retain or resolve S1's
+index discrepancy; adjudicate duplicate candidates and screen with explicit exclusions;
+freeze current operative NZ/AU baselines and actual observation/holdout identities;
+finish original extraction, dimensions, covariance and formula matrices; qualify exact
+external archive rights/destination/readback/recovery through its existing owner.
+No Phase 1 plan checkbox is closed by this partial qualification. The next empirical
+fit remains gated; no national posterior, empirical policy effect or monetary VOI is claimed.
+
+Final boundary/context selection also passes 43 tests in 9.84 seconds (60.6 MiB sampled
+peak). Staged publication-boundary inspection passes at 53.1 MiB. No staged deletions
+or whitespace errors were found. These checks do not establish hosted or empirical acceptance.

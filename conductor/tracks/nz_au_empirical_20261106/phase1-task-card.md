@@ -49,3 +49,28 @@ Stop on ownership conflict, failed prerequisite, unidentified source, unresolved
 dimension. Preserve all earlier receipts; corrections are new editions. Rollback only this
 card's exact owned changes. Terminal outcomes and next task belong in phase1-progress.md;
 Phase 1 stays incomplete until all six plan rows have their actual evidence.
+
+## P1.2 continuation — 7 November 2026
+
+Base c239b18; writing chat 01a1b3ac-76ef-7b12-a919-91fcb05de339, managed worktree
+/Users/doughnut/.codex/worktrees/tobac-p1-evidence/tobac, codex/p1-evidence-20261107.
+Phase 0's local gate is now accepted by its retained checkpoint; hosted and empirical
+acceptance remain separate. Own only this phase's protocol/queries/progress and
+coordination addition. No source/runtime/native mutation or external upload.
+
+Use actual isolated .venv Python 3.15.2, hash-sync engineering/requirements.lock,
+context_bundle with nz-au-evidence profile and new output directories. Requalify
+Searchright current main 4ddfbdbc54c500719889e09942783bdc04ee832b from its own
+source, retaining fixture/no-network limits. Qualify source-native retrieval if
+live execution is unavailable; keep responses outside tobac and metadata only here.
+Freeze queries before execution. Check count/cursor completeness and seed identities;
+retain errors and pending screening. No arbitrary retrieval cap may imply completeness.
+
+All expensive commands use scripts/run_bounded.py, 4096 MiB / 2400 seconds, serially.
+Logs: outputs/nz-au-phase1-20261107. External staging:
+/Users/doughnut/Documents/tobac-evidence-intake-20261107-p1.
+Verification: exact CLI/import positive/negative cases, affected context and source
+handoff tests, tests/test_workstream_integration.py, git diff --check. Numerical
+source/inputs unchanged: reuse Phase 0 replay; no new scientific result claimed.
+Stop dependent admission on rights/destination, original verification or search gaps;
+record terminal receipts and continue independent bounded evidence work.

@@ -1,0 +1,111 @@
+{
+  "schema_version": "org.searchright.search-strategy.v1",
+  "strategy_id": "tobac-s2-europepmc-v2",
+  "review_id": "tobac-nz-au-evidence-20261106",
+  "source_id": "europe-pmc",
+  "dialect": "europe_pmc",
+  "query": {
+    "op": "and",
+    "children": [
+      {
+        "op": "or",
+        "children": [
+          {
+            "op": "term",
+            "term": {
+              "text": "nicotine",
+              "fields": [
+                "title_abstract"
+              ],
+              "vocabulary": null,
+              "explode": false,
+              "phrase": false,
+              "truncation": false
+            }
+          },
+          {
+            "op": "term",
+            "term": {
+              "text": "cotinine",
+              "fields": [
+                "title_abstract"
+              ],
+              "vocabulary": null,
+              "explode": false,
+              "phrase": false,
+              "truncation": false
+            }
+          },
+          {
+            "op": "term",
+            "term": {
+              "text": "hydroxycotinine",
+              "fields": [
+                "title_abstract"
+              ],
+              "vocabulary": null,
+              "explode": false,
+              "phrase": false,
+              "truncation": false
+            }
+          },
+          {
+            "op": "term",
+            "term": {
+              "text": "anabasine",
+              "fields": [
+                "title_abstract"
+              ],
+              "vocabulary": null,
+              "explode": false,
+              "phrase": false,
+              "truncation": false
+            }
+          }
+        ]
+      },
+      {
+        "op": "or",
+        "children": [
+          {
+            "op": "term",
+            "term": {
+              "text": "wastewater",
+              "fields": [
+                "title_abstract"
+              ],
+              "vocabulary": null,
+              "explode": false,
+              "phrase": false,
+              "truncation": false
+            }
+          },
+          {
+            "op": "term",
+            "term": {
+              "text": "sewage",
+              "fields": [
+                "title_abstract"
+              ],
+              "vocabulary": null,
+              "explode": false,
+              "phrase": false,
+              "truncation": false
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "limits": {
+    "publication_date": null,
+    "languages": [],
+    "publication_types": [],
+    "filters": [],
+    "rationale": []
+  },
+  "translated_from": null,
+  "notes": [
+    "Source-specific portable strategy. Execution query, date limit, raw hashes and completeness are separately bound in the retrieval receipt. No search completeness or empirical admission is implied by compiler success."
+  ]
+}

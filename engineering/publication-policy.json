@@ -1298,7 +1298,16 @@
     "docs/coordination/WORKSTREAM_SYNC_through_20261107.md",
     "docs/engineering/SOURCE_MAP_NAVIGATION.md",
     "integration/archive/scientific-lineage-checkpoint_empirical_phase0_20261107.json",
-    "integration/archive/empirical-phase0-checkpoint_20261107.json"
+    "integration/archive/empirical-phase0-checkpoint_20261107.json",
+    "conductor/tracks/nz_au_empirical_20261106/phase1-wang-appraisal.md",
+    "conductor/tracks/nz_au_empirical_20261106/searchright-s1-europepmc.json",
+    "conductor/tracks/nz_au_empirical_20261106/searchright-s2-europepmc.json",
+    "conductor/tracks/nz_au_empirical_20261106/searchright-s3-europepmc.json",
+    "conductor/tracks/nz_au_empirical_20261106/searchright-s4-europepmc.json",
+    "conductor/tracks/nz_au_empirical_20261106/searchright-s5-europepmc.json",
+    "conductor/tracks/nz_au_empirical_20261106/searchright-s3-europepmc-v3.json",
+    "conductor/tracks/nz_au_empirical_20261106/phase1-nz-model-appraisal.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase1-search-receipts-20261107.json"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",

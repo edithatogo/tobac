@@ -45,3 +45,27 @@ Append only current coordination here so bounded phase contexts remain usable.
 ## Phase 0 terminal state
 
 Local Phase 0 gates pass; see integration/archive/empirical-phase0-checkpoint_20261107.json and the empirical track audit. The idle empirical checkout consumed c464a32 by fast-forward and passed eight attested closures plus actual M1/cache and eight exact CSVs. The final documentation-only closeout uses the same accepted code and inputs. The source owner retains that checkout; native/shared-main promotion remains with the root integrator. Private native verification remains in root. Empirical, hosted/publication and H2 gates retain their separate scopes.
+
+## P1 evidence continuation — 7 November 2026
+
+Chat `01a1b3ac-76ef-7b12-a919-91fcb05de339` owns the managed worktree
+`/Users/doughnut/.codex/worktrees/tobac-p1-evidence/tobac`, branch
+`codex/p1-evidence-20261107`, based on clean `c239b18`. Scope: Phase 1 protocol,
+query/qualification metadata and appraisal evidence under the empirical track;
+exact publication-policy classifications if required; ignored local receipts.
+External public API originals remain in a separate evidence-intake edition.
+No shared runtime/main promotion, M3 source, native signing, tenant objects,
+external upload or fitting is owned here. Next: qualify current Searchright and
+source-native retrieval/import, retain seed and pagination failures, then report
+remaining source-rights/admission and screening gates. Existing assignments above
+remain unchanged; this ownership addition is for integrator consumption only.
+
+P1.2 terminal packet: actual Searchright build/strategy/import/negative qualification,
+Europe PMC S2–S5 and S3 recall repair, full PubMed S2, preserved duplicate candidates,
+partial original seed/calibration appraisals and source quarantines. S1 received 25,236
+of 25,237 provider hits and remains incomplete after a bounded lite diagnostic. Scoped
+checks pass 99 tests; local original-copy recovery passes at its explicitly limited
+scope. The metadata receipt and remaining work are in phase1-progress.md and
+phase1-search-receipts-20261107.json. No source data or abstract corpus is tracked;
+no shared-main/native promotion or empirical acceptance is implied. Integrator consumes
+this lane's scoped commit; existing external archive and main owners retain their work.

@@ -101,3 +101,65 @@ Disposition vocabulary: adopted, adapted, alternative, context-only, excluded, u
 Disposition is intended use; verification/admission status is separate. No pending row is an
 adopted empirical input. Capture gaps explicitly, including programme costs, origin/product
 attribution, representative catchments, utility tariffs and transportable intervention effects.
+
+## Executed continuation — 7 November 2026
+
+This edition supersedes the earlier statement that no live source-native retrieval
+has run. It does not supersede the requirement for screening, grey-source coverage,
+original verification or external archive admission. See phase1-progress.md and the
+metadata-only phase1-search-receipts-20261107.json for actual terminal counts and gaps.
+
+Current Searchright main 4ddfbdbc54c500719889e09942783bdc04ee832b was fetched and built
+with its own locked Cargo dependencies. The actual CLI reports 0.1.0-alpha.1 and five
+fixture-backed providers with no network hosts. No fixture search was represented as
+a live search. The source-native export/import alternative is now exercised: Europe
+PMC REST search/core/cursor exports and the PubMed connector are retained outside
+this repository, then bibliographic transport CSVs are imported by the real CLI.
+This is supported interchange qualification, not a new Searchright live provider.
+
+Before the first Europe PMC request, exact S1–S5 native queries, scope, cutoff and
+pagination policy were persisted in the external protocol.json. Source-specific
+Searchright ASTs in searchright-s1-europepmc.json through searchright-s5-europepmc.json
+were subsequently authored and validated/compiled with exact fidelity and no warnings.
+They document translation qualification after that initial run; do not backdate them
+as its prespecified executable strategies. The original S1 PubMed-declared strategy
+also remains unchanged. Compiling it directly to Europe PMC correctly emits a declared-
+dialect mismatch warning, which is retained rather than suppressed.
+
+Executed Europe PMC queries use TITLE_ABS fields and FIRST_PDATE from 1800-01-01
+through the retained evidence cutoff 2026-11-06. That explicit lower date boundary is
+a restriction relative to version 1's unrestricted-date intent; no unrestricted or
+exhaustive historical-recall claim is made. Results also depend on each provider's
+current indexing and date conventions. No country or language restriction was applied.
+S1 initially retained one page, then a separately frozen continuation consumed its
+cursor. Completeness requires terminal record/unique-ID counts to equal hitCount;
+empty responses, repeated cursors, duplicates or count drift fail that check.
+
+S2 PubMed used the corresponding explicit [tiab] Boolean terms, publication-date
+cutoff 2026/11/06, publication-date ordering and all five returned offsets. Exact
+query translation, connector response and field-pagination metadata are retained.
+Its first-page retrieval time is known only to the date from the retained invocation;
+subsequent pages have explicit UTC start times. Do not invent missing timestamp precision.
+PubMed [tiab], Europe PMC TITLE_ABS, indexing and date semantics are not assumed identical:
+the actual S2 PMID overlap and source-only records are reported separately.
+
+The real Searchright CSV imports reopen the retained exports, bind receipt IDs and
+check imported identity/title/count against source records. CSV transport omits some
+native metadata and does not independently parse Europe PMC's authorString into author
+identities. Native exports remain authoritative. The malformed-XML negative control
+is quarantined by the actual CLI. Deduplication produces candidates; original source
+records are preserved and no candidate cluster is an adjudicated study identity.
+
+S3 v2 missed the prespecified NZ endgame seed, whose title/abstract uses inequity and
+HALYs. The separately persisted searchright-s3-europepmc-v3.json adds explicit health-
+and cost-related synonyms before fitting. It compiled without translation loss and
+was then executed through the source API, recovering the seed. Retain both editions
+and compare actual added/removed identities rather than subtracting hit counts to
+invent flow totals. This is a documented recall repair, not complete PRESS validation.
+
+S2's Australian seed is individually appraised in phase1-wang-appraisal.md; its later
+calibration study is also considered there. The NZ model seed is partially appraised
+in phase1-nz-model-appraisal.md. Those selected appraisals do not screen the remaining
+corpus. S1/S3/S4/S5 PubMed retrieval, G1/G2 official-source coverage, citation chasing,
+full-text decisions/exclusions and comprehensive parameter/formula matrices remain open.
+No automated keyword filter has been counted as a completed eligibility assessment.
