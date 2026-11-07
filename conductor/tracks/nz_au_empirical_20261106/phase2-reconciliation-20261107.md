@@ -3430,3 +3430,19 @@ the monthly revenue spike or distinguish clearance timing
 from demand. The publications share fiscal reporting lineage.
 
 [Treasury October 2023 interim statements, Note 2](https://www.treasury.govt.nz/sites/default/files/2023-12/fsgnz-4mths-oct23.pdf).
+
+## P2.162 October revenue increment across contemporaneous releases
+
+September's interim Note 2 reports NZ$238 million cumulative
+tobacco excise and duty. October's corresponding NZ$470 million
+implies a rounded increase of NZ$232 million. With each source
+rounded to the nearest million, their difference is consistent
+with NZ$231–233 million before rounding, which contains the
+workbook's NZ$232.411 million. July–September workbook values
+also sum to NZ$238.080 million. This checks the October
+increment against successive contemporaneous reporting, subject
+to any revisions between releases. The common fiscal lineage
+and absence of a physical-quantity bridge remain.
+
+[September interim statements, Note 2](https://www.treasury.govt.nz/sites/default/files/2023-11/fsgnz-3mths-sep23.pdf)
+and [October interim statements, Note 2](https://www.treasury.govt.nz/sites/default/files/2023-12/fsgnz-4mths-oct23.pdf).
