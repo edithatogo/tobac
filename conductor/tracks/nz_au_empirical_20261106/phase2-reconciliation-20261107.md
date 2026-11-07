@@ -2248,3 +2248,19 @@ the underlying design for the Queensland completer comparison
 in P2.94. Preserve endpoint, comparator, and cohort distinctions.
 
 [South Australian Quitline study](https://pmc.ncbi.nlm.nih.gov/articles/PMC2655041/).
+
+## P2.96 Randomized Australian cessation comparator
+
+A trial of 1,457 Quitline callers recruited in 2000–2001
+compared usual care with an offer of five proactive calls
+added to usual care. The intention-to-treat contrast is
++1.3 percentage points for six-month 24-hour point abstinence
+(20.2% versus 18.9%) and −0.2 percentage points for prolonged
+abstinence at 12 months (9.3% versus 9.5%). The authors report
+no significant abstinence differences. Randomization supports
+the offer comparison within the recruited population. The
+intervention is distinct from current Queensland intensive
+support with NRT, and the abstract does not supply uncertainty
+suitable for calibrating the proposed current policy effect.
+
+[Randomized Quitline trial](https://pubmed.ncbi.nlm.nih.gov/16548938/).
