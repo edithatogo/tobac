@@ -2231,3 +2231,20 @@ without its underlying comparison design and denominators.
 
 [Queensland Health annual report, p. 43](https://www.health.qld.gov.au/__data/assets/pdf_file/0025/1466125/annual-report-2024-2025.pdf)
 and [Chief Health Officer service description](https://www.choreport.health.qld.gov.au/our-lifestyle/spotlight).
+
+## P2.95 Australian cessation outcome definitions and selection
+
+The South Australian study of subsidised NRT plus Quitline versus
+standard Quitline recruited 1,000 versus 377 participants. Table 3
+reports six-month point-prevalence quit rates of 30.9% and 21.2%
+using all enrolled participants as denominators, versus 2.0% and
+1.6% for continuous abstinence from the three- to six-month
+interviews. Follow-up reached 832 and 305 participants at six
+months. The subsidy offer changed recruitment, and the authors
+report baseline dependence differences and confounding of
+outcome comparisons. The 9.7 percentage-point point-prevalence
+difference is therefore descriptive. The study does not supply
+the underlying design for the Queensland completer comparison
+in P2.94. Preserve endpoint, comparator, and cohort distinctions.
+
+[South Australian Quitline study](https://pmc.ncbi.nlm.nih.gov/articles/PMC2655041/).
