@@ -4002,3 +4002,26 @@ measure still pools multiple sources.
 
 [ACIC Report 15](https://www.acic.gov.au/sites/default/files/2022-03/National%20Wastewater%20Drug%20Monitoring%20Program%20Report%2015%20%28v13_FINAL%20no%20UE%29.PDF)
 and [ACIC Report 16](https://www.acic.gov.au/sites/default/files/2022-06/National%20Wastewater%20Drug%20Monitoring%20Program%20Report%2016.PDF).
+
+## P2.192 ACIC figure readback limits
+
+The retained August Report 15 Figure 9 (PDF page 37) and
+December Report 16 Figure 7 (PDF page 30) expose plot labels
+and axes. The chart pages contain vector marks with no
+embedded raster images or page annotations. Neither PDF has
+embedded files. Text extraction does not expose the numeric
+site outcomes. Vector coordinate recovery would therefore
+be digitisation, with precision and point assignment needing
+validation, rather than readback of source table cells.
+
+The roster supplies 56 sampling days per round across the
+eight matched regional codes. Both reports give 100%
+detection among their national regional nicotine samples.
+That detection statistic has a wider scope and does not
+supply the Queensland site values or day-level dates.
+
+Originals retained under /Volumes/PortableSSD/tobac-p2-acic.RvZGbz.
+SHA256 15.pdf is
+5ef56359bef73b7660e7bf1d6eebfb5218e5b3fc4d88cba58ac98d1fc6b531c0.
+SHA256 16.pdf is
+3df56eb7f3ffeb7145be40e98194a2fbe64af5f51e1b6a5826399790c225b913.
