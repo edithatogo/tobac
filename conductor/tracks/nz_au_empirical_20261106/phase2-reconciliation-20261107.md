@@ -1427,3 +1427,29 @@ prespecified complete-year and catchment validation gates open.
 
 - [September 2023 CPI release](https://www.stats.govt.nz/information-releases/consumers-price-index-september-2023-quarter/)
 - [2023-base population release date](https://www.stats.govt.nz/assets/Uploads/Legislation-page/registers/Register-of-people-who-received-2023-estimated-resident-population-data-and-methodology-under-embargo.pdf)
+
+## P2.46 Lagged price availability candidates
+
+The official CPI release dates for 2023 Q1, Q2 and Q3 are 20 April,
+19 July and 17 October. Selecting the latest release strictly
+before the recorded sampling date gives 66 Q1, 64 Q2 and 12 Q3
+occasion memberships. Six July 19 occasions retain Q1 because the
+manifest has a date and no collection timestamp. This conservative
+rule avoids assuming that the same-day release preceded sampling.
+
+The 20 April Stats NZ release independently confirms the exact
+NZD 48.71 per 25-cigarette figure in the retained historical series.
+The later CPI release dates are verified, while the exact selected
+item values from those contemporaneous editions remain unverified.
+The candidate CSV records those 76 values as blank and preserves
+release-date eligibility separately from verification of the value.
+The national price proxy still requires an appropriate prediction
+origin and source admission before model use.
+
+The external lagged-price-candidates.csv has SHA256
+5e92d37a0fb518a57def6616b2b205b974ac84a9d774a82292075a4e623b0ef3
+under /Volumes/PortableSSD/tobac-p2-trade2023.3PoIyO.
+
+- [Stats NZ March 2023 release and cigarette price](https://www.stats.govt.nz/news/annual-inflation-6-7-percent/)
+- [Stats NZ June 2023 release listing](https://www.stats.govt.nz/information-releases/?filters=Housing%2CBuilding+consents+issued&sort=2&start=492)
+- [Stats NZ September 2023 release](https://www.stats.govt.nz/information-releases/consumers-price-index-september-2023-quarter/)
