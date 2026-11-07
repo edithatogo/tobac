@@ -4025,3 +4025,19 @@ SHA256 15.pdf is
 5ef56359bef73b7660e7bf1d6eebfb5218e5b3fc4d88cba58ac98d1fc6b531c0.
 SHA256 16.pdf is
 3df56eb7f3ffeb7145be40e98194a2fbe64af5f51e1b6a5826399790c225b913.
+
+## P2.193 Vector marks for the matched Queensland roster
+
+MuPDF SVG conversion exposes the regional nicotine boxes as
+filled paths. Filtering grey rectangles to the Queensland
+background and the nicotine panel transform yields eight
+distinct boxes in each round after removing identical paths.
+In Report 16 the alcohol panel reuses local coordinates
+with a different transform. Filtering by coordinates alone
+returns 16 boxes and would mix the two outcomes.
+
+This establishes a reproducible way to isolate the plot
+geometry. Numeric use still requires axis calibration and
+verification of which statistic the box boundaries and
+internal lines represent. The geometry does not supply
+seven separate daily outcomes for each site.
