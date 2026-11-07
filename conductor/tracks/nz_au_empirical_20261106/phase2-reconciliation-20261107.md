@@ -3255,3 +3255,27 @@ uncertainty for intensity and prevalence from the shared
 survey and supplies no independent 2023 campaign observation.
 
 [Original analysis, smoking intensity and Tables 1–2](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/).
+
+## P2.153 Survey intensity denominator compatibility
+
+The 2022/23 adult showcards separately identify daily smoking
+frequency (A3.15) and main product (A3.17), including pipe and
+cigar options. They do not show an intensity response card.
+The 2015/16 indicator guide excludes people who mainly smoke
+pipes or cigars from the cigarette-intensity mean and applies
+fixed scores to response bands. That older rule is evidence of
+a possible denominator mismatch, with 2022/23 scoring and
+eligibility still to be verified from the corresponding release.
+
+If the same exclusion applies in 2022/23 and the daily count
+includes those people, the cigarette-consumption product must
+use the weighted count eligible for the mean. Writing e for
+the eligible fraction, the corrected product is e times the
+P2.152 product, under otherwise identical assumptions. This
+adjustment can only decrease that cigarette estimate. It does
+not supply e or account for the excluded products separately.
+The edition-specific explorer returned 404 and the retained
+prevalence export did not supply a mean or its interval.
+
+[2022/23 adult showcards](https://www.health.govt.nz/system/files/2023-12/2022-23-nzhs-adult-showcards.pdf)
+and [2015/16 indicator guide](https://www.health.govt.nz/system/files/2016-12/indicator-interpretation-guide-2015-16-nzhs-dec16.pdf).
