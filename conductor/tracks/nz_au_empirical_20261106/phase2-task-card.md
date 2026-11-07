@@ -226,3 +226,22 @@ model appraisal and retail source/test for this source-to-formula task, replacin
 coverage audit/test and the accumulated reconciliation narrative in selection only.
 No file/history deletion or context-budget increase. All empirical acceptance gates
 remain; the independent arithmetic check is not a replacement fit or validation.
+
+## P2.17 cessation baseline continuation — 7 November 2026
+
+Same sole owner/worktree/branch, clean base 47dc6f9. Own this card,
+decision-definition's selected verified cessation context, reconciliation metadata
+and the scoped WORKSTREAM_SYNC continuation. Qualify the official 2026 guidance
+edition and source-dated medicine/service access before describing the policy
+contrast. Public originals, failure bodies and acquisition receipts remain outside
+tobac under /Volumes/PortableSSD/tobac-p2-cessation.GtD3YW; ignored command logs
+remain under outputs/nz-au-phase2-cessation-20261107. First use exact-target CLI
+reads; use only the internal browser for an identified CLI access gap. Preserve
+the 6 November evidence cut-off and distinguish publication from retrieval dates.
+Do not equate funding eligibility, listed subsidies, clinical guidance or service
+availability with uptake, effectiveness, actual delivery cost or source admission.
+No native/integrator write, external message, model fit, personal clinical advice
+or scientific-input adoption. Actual local Python 3.15.2, existing 4096 MiB /
+2400-second guard, serial extraction and no blind retries. Reuse unchanged
+software tests; verify source bytes, exact rule locations and publication boundary
+for this metadata-only change. Messaging authorization remains unanswered.

@@ -950,5 +950,66 @@
     "admitted": false,
     "fit_executed": false,
     "next_evidence": "Acquire HS10 periods overlapping fieldwork and verify earlier complete scope windows, source admission and calibration/policy/holdout gates before an empirical join/fit"
+  },
+  "cessation_context_p2_17": {
+    "base_commit": "47dc6f96f1f713b93c422e25605a2865974f1cc6",
+    "external_intake": "/Volumes/PortableSSD/tobac-p2-cessation.GtD3YW",
+    "html_receipts_sha256": "186c234800ead8f0081d21a20aa67538e8a33c8553a92483018d299113d4a8e3",
+    "pdf_receipts_sha256": "6783516bd296133f4aea6dd551c41d3af85f7b79ab038af4e94ae972b21ad079",
+    "announcement": {
+      "url": "https://www.healthnz.govt.nz/news-and-updates/updated-stop-smoking-guidelines-and-learning-resources-now-available",
+      "file": "announcement.html",
+      "sha256": "186c7164d9ce305bc244805b589f1e4511248b83141ffba2721e64cdef4b82c0",
+      "displayed_publication_date": "2026-08-20"
+    },
+    "guidance_page": {
+      "url": "https://www.healthnz.govt.nz/health-professionals/guidance-standards/topic/new-zealand-guidelines-for-helping-people-to-stop-smoking",
+      "file": "guidance.html",
+      "sha256": "b9e1443a0123542f7d3782f6985ebcf76b5b495cd20948a4e94c34d59def8f95",
+      "disposition": "Publisher states 2026 edition replaces 2021"
+    },
+    "guideline": {
+      "url": "https://static.info.content.health.nz/docs/smoking/Helping%20People%20to%20Stop%20Smoking%20Guidelines.pdf",
+      "file": "guidelines.pdf",
+      "sha256": "a859dc297b3f8f31087a5292e1baa39eb89e180c5d848da658d907151f125c73",
+      "visually_verified_pdf_pages": [2, 82],
+      "publication_month": "2026-08",
+      "rights": "CC BY 4.0 as printed on page 2; attribution and change identification retained; no upload performed",
+      "disposition": "Selected policy context only; no effect or uptake adoption"
+    },
+    "summary": {
+      "url": "https://static.info.content.health.nz/docs/health-pros/topics/summary-new-zealand-guidelines-helping-people-stop-smoking.pdf",
+      "file": "summary.pdf",
+      "sha256": "12c3e1f756b6bbbb6cf60cedb728c2847bf6ade3c9364512a13cf7e205f26b2c",
+      "disposition": "Acquired and text inspected; no separate effect extraction or visual-content acceptance"
+    },
+    "varenicline_schedule": {
+      "url": "https://schedule.pharmac.govt.nz/ScheduleOnline.php?osq=Varenicline",
+      "file": "schedule.html",
+      "sha256": "cec34f3a2dab07217192819de34a29cb25c9cfca6ada3861b167641a50b65e65",
+      "displayed_edition": "November 2026",
+      "disposition": "Listed subsidies are not adopted as total programme or resource costs"
+    },
+    "funding_form": {
+      "url": "https://schedule.pharmac.govt.nz/latest/SA1845.pdf",
+      "final_url": "https://schedule.pharmac.govt.nz/2026/11/01/SA1845.pdf",
+      "file": "SA1845.pdf",
+      "sha256": "ba42291d5aa9c92be57b0f862c9adc7a1256e0be9f90d8051991c7bc4c5d9075",
+      "visually_verified_pdf_pages": [1],
+      "disposition": "Retain full initial AND/OR and renewal conditions; funding access does not establish actual uptake"
+    },
+    "nrt_provider_route": {
+      "url": "https://www.pharmac.govt.nz/medicine-funding-and-supply/medicine-supply-management/smoking-cessation-ordering-nicotine-replacement-therapy-nrt-products",
+      "file": "ordering.html",
+      "sha256": "e145a57f3efd8881edbb5b23b9ce659c6f83562fb70c23226e20721492ae86fd",
+      "disposition": "Authorised-provider ordering/payment context, not measured service coverage or cost"
+    },
+    "evidence_cutoff": "2026-11-06",
+    "retrieval_date_utc": "2026-11-07",
+    "all_cli_statuses": 200,
+    "separate_web_reader_healthnz_status": 403,
+    "logs": "outputs/nz-au-phase2-cessation-20261107",
+    "admitted": false,
+    "fit_executed": false
   }
 }

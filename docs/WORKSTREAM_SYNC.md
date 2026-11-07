@@ -181,3 +181,12 @@ native/admission ownership. This chat remains the sole writer of the P2
 worktree. Next operation is one authorized handoff to that retained owner;
 messaging authorization is still unanswered. The full P1/P2 acceptance rows
 remain open, including policy, matching, rights and frozen holdout gates.
+
+P2.17 resumed independent source work from 47dc6f9. The dated August 2026
+Health NZ cessation guideline and November SA1845 funding form now qualify
+selected status-quo context, with original publication/rights pages and funding
+conditions visually checked. Full originals and receipts remain external;
+decision-definition and reconciliation retain the distinction between guidance,
+funding, actual uptake, effects and costs. No source admission or fit is implied.
+This lane retains its existing worktree scope; the integrator retains native
+ownership and the proposed cross-chat handoff remains unsent pending permission.

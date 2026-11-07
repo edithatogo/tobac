@@ -645,3 +645,43 @@ expansion. No message has been sent: the chat messaging tool explicitly
 requires human authorization to message the destination chat, and the prior
 request has no recorded answer. Further source arithmetic does not resolve
 this recurring admission dependency.
+
+## P2.17 dated cessation guidance and funding context
+
+Independent work after the goal's reactivation qualified a missing part of the
+status-quo comparator. The official Health NZ announcement is dated 20 August
+2026. The linked guideline's PDF page 2 states publication in August 2026 and
+CC BY 4.0 licensing; the publisher page says this edition replaces 2021.
+PDF page 82 expressly separates extended treatment from current funding.
+Both pages were rendered and visually inspected. No guideline effect estimate
+or recommendation has been converted to a population transition parameter.
+
+The Pharmac varenicline page is the November 2026 edition; its SA1845 link
+redirects to `/2026/11/01/SA1845.pdf`. The single-page form was rendered and
+visually checked, preserving the initial criteria's AND/OR grouping and the
+separate renewal criteria. A funded course is capped at 12 weeks; five-month
+approval validity and six-month approval spacing are distinct. Initial access
+also requires monitored support and prior unsuccessful treatment, with further
+conditions retained in the original form. These are constraints on funding,
+not observed uptake or effectiveness. No patient-specific inference is made.
+
+The official NRT provider ordering page limits that route to authorised stop
+smoking providers and says Pharmac pays the invoices. It supplies no measured
+treatment coverage or delivered programme cost. Listed medicine subsidies on
+the schedule are not adopted as total resource or incremental programme costs.
+
+All four exact-target CLI HTML reads and three linked PDF reads returned 200
+and passed content checks. This qualifies this CLI route despite the web
+reader's separate 403 responses for the Health NZ pages; no browser was needed.
+Originals, extracted text, page images, scripts and acquisition receipts remain
+under `/Volumes/PortableSSD/tobac-p2-cessation.GtD3YW`. The receipt JSON hashes
+and exact original hashes are recorded in phase2-context-receipts-20261107.json.
+Acquisition peaks were 33.7 and 35.1 MiB sampled group RSS; extraction/rendering
+completed under the same 4096 MiB / 2400 s guard, with a 39.0 MiB sampled peak.
+The 6 November cut-off is retained separately from 7 November retrieval.
+
+Only metadata changes. Existing full tests/typing/reference replay are reused;
+no software, fit or native-admission verification is newly claimed. Complete
+policy implementation, service coverage, costs, source admission, calibration
+and frozen holdout gates remain open. Goal reactivation did not answer the
+pending permission to message the retained integrator, and no handoff was sent.

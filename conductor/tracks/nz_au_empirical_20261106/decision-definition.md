@@ -107,9 +107,31 @@ compliance remain unqualified. The latest legal route was retrieved after the fi
 6 November cut-off; no live alert state or absence of later/prospective changes is
 claimed. These selected statutory facts do not admit a complete numerical baseline.
 
+NZ cessation context check, 7 November 2026: Health NZ's 20 August announcement
+and the original guideline's publication page establish the August 2026 edition
+within the evidence cut-off. The publisher says it replaces the 2021 edition.
+The guideline is CC BY 4.0; verified PDF pages 2 and 82 distinguish publication/
+rights and recommended care from medicine funding. Clinical recommendations do
+not establish service uptake, delivered treatment, achieved quit rates or costs.
+
+The retrieved Pharmac Special Authority form resolves to the dated 1 November
+2026 SA1845 edition. Its initial criteria include readiness to stop, enrolment
+in monitored support, prior unsuccessful NRT or specified alternative treatment,
+restrictions on concurrent pharmacological treatment, pregnancy and recent
+approval, and a maximum funded course of 12 weeks. Initial and renewal approvals
+are valid for five months; renewal retains the six-month spacing rule. These
+are source-specific funding conditions, not population eligibility assignments
+or permission to treat the whole smoking population as receiving treatment.
+The guideline's discussion of extended treatment does not remove that funding
+boundary. Pharmac's provider page describes NRT ordering and invoice payment
+for authorised providers; it does not measure service coverage or resource cost.
+Exact source URLs, hashes, dated redirect and verification locations are in the
+P2.17 reconciliation and phase2-context-receipts-20261107.json. No treatment
+effect, programme uptake or numerical cost has been adopted from these checks.
+
 Both baselines still require exact current excise schedules, indexation, retail rules,
-product standards, vaping/NRT access, cessation coverage and enforcement practice, including
-later legal changes. These are blocking missing inputs, not zero-valued settings.
+product standards, full vaping/NRT access, measured cessation coverage and enforcement
+practice, including later legal changes. These are blocking missing inputs, not zero-valued settings.
 The [ABS experimental nicotine estimates](https://www.abs.gov.au/articles/household-consumption-illicit-tobacco-and-nicotine-products)
 reuse ACIC WBE: retain shared-source identity and alternative assumptions rather than
 conditioning on both as independent observations. Programme methodology and figures await
