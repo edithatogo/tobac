@@ -1720,3 +1720,20 @@ compatible with these constraints alone, even on the balanced
 plant panel. The sign remains unresolved under these bounds.
 This uses full-campaign site summaries for retrospective sensitivity.
 It does not establish predictive limits or a policy contrast.
+
+## P2.61 Censoring precision needed to resolve the sampled contrast
+
+For the balanced P2.60 panel, quantified loads sum to 46.4 in
+September and 76.5 in October. With quantified points fixed and
+October's eight censored loads bounded below by zero, a strictly
+positive lower bound on the contrast requires the sum of upper
+bounds on September's 12 censored loads to be below 30.1
+mg/day/1,000 people (an average below 2.5083 per occasion).
+
+Under a hypothetical common concentration cap and the P2.26
+upper Q/P endpoints, the cap would need to be below about
+2.925 ng/L. The nominal undiluted 12.5 ng/L volume-only conversion
+from P2.27 would instead give a September upper contribution
+of 128.634 on the summed load scale. This is a sufficient-condition
+sensitivity calculation. Sample-specific caps or tighter Q/P
+bounds could change it. No effective assay threshold was inferred.
