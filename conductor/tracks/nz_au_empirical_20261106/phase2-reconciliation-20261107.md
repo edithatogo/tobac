@@ -3961,3 +3961,23 @@ percentages provide neither matched regional site outcomes
 nor the independent post-change validation outcome.
 
 [ACIC Report 15 and Appendix 3](https://www.acic.gov.au/publications/national-wastewater-drug-monitoring-program-reports/report-15-national-wastewater-drug-monitoring-program).
+
+## P2.190 Queensland December regional round
+
+ACIC's Queensland summaries report eight regional and three
+capital-city sites in both August and December 2021. December
+restores regional coverage after the capital-only October
+round. Equal counts leave roster overlap unresolved. The
+December summary reports decreased average regional nicotine
+and increased capital-city nicotine. Report 16 explains
+that its cotinine and hydroxycotinine measure pools nicotine
+from tobacco, vaping and replacement therapies.
+
+December is a post-September aggregate comparator candidate.
+Before matching it to August or to Wang's sites, verify
+stable site labels and coverage across the two reports.
+A measured change in pooled nicotine cannot by itself
+establish a change in combustible use or an excise effect.
+
+[ACIC Queensland August summary](https://www.acic.gov.au/sites/default/files/2022-03/Key%20findings%20Queensland%E2%80%94Report%2015%20.pdf)
+and [ACIC Queensland December summary](https://www.acic.gov.au/sites/default/files/2022-06/Key%20findings%20Queensland%E2%80%94Report%2016.PDF).
