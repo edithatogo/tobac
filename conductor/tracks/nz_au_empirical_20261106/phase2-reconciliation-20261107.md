@@ -1291,3 +1291,31 @@ No candidate population was joined into the load table. The CSV is
 /Volumes/PortableSSD/tobac-p2-wellington.MjqdNf/roster-crosswalk-candidates.csv
 with SHA256 7d15d4fc2ba7998ef757d2b67ae1ef3b917b22ae81c64e096a44eab686d42502.
 The counts reconcile to the 142 dated occasions.
+
+## P2.41 Study sampling rules and population-class crosswalk
+
+Figure S3 on PDF page 6 is a settlement map. It shows a single
+Auckland marker and lacks plant identifiers. Table S2 on page 7
+retains the settlement classes used by the study. Indexed publisher
+§2.3.1 defines major urban as a plant-served population above 100,000
+and large urban as 30,000–99,999. Applying these definitions to the
+separate ESR roster narrows the Wellington candidates to Moa Point
+and the Dunedin candidates to Tahuna. The screen is conditional on
+the study and roster using comparable catchment population bases.
+It does not identify the denominator used in the published load.
+The three unresolved Auckland aliases remain open. Section 2.3.2
+describes inlet autosampling, while the ESR Westport row describes
+grab sampling for its own programme. Keep those sampling protocols
+separate.
+
+Section 2.3.1 explicitly permits Tuesday or Thursday as Wednesday
+replacements and Monday as a Sunday replacement. All seven flagged
+Table S3 dates satisfy those rules. Six are weekday replacements.
+Auckland West on 22 May was collected Monday in the nominal Sunday
+slot. Preserve the actual weekday for calendar-based analysis and
+the nominal slot for reconstructing the paper's contrast. The
+study also attributes the two missing Whangārei October occasions
+to plant maintenance. These checks resolve scheduling semantics
+without changing the original dates or imputing load values.
+
+[Publisher article](https://doi.org/10.1016/j.scitotenv.2025.181223)
