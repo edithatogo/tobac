@@ -1954,7 +1954,7 @@ Recomputing from the rounded concentrations in Wang regional
 Table S4, direct injection changes the combined COT and COT-OH
 concentration by −12.50% to +14.95% relative to large-volume
 injection across five paired days. ANBA / (COT + COT-OH) changes
-by −13.01% to +28.05%, with three increases and two decreases.
+by −13.01% to +28.05%, with two increases and three decreases.
 The same day and sample enter both sides. This demonstrates
 method sensitivity even for a ratio that cancels common
 flow/population normalization. The range is descriptive for
