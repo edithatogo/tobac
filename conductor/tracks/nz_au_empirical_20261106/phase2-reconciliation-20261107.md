@@ -1079,3 +1079,27 @@ before any use with NZ solid-phase extraction.
 The supplement provides assay QA and the five paired comparisons.
 The complete date-by-analyte series, cross-paper sample keys and a
 prespecified eligible holdout still require verification.
+
+## P2.32 National and regional Australian calibration crosswalk
+
+The retained Wang national XML (PMC12887742, Eq. 2–3) gives 1.13
+µg anabasine per cigarette and 0.9 mg nicotine per cigarette. The
+regional Queensland study uses 0.91 µg anabasine per cigarette.
+At fixed anabasine load and with other corrections held equal, the
+national factor yields 0.8053 times the regional cigarette estimate.
+This is a calibration-only sensitivity ratio. It leaves assay,
+sewer, denominator and sampling differences unresolved.
+
+The national supplement eTable 2 lists Queensland sites 2, 5, 12,
+22 and 24 in its first anabasine batch and 11, 19, 23, 28 and 36 in
+its second. The first pools one week of daily samples every two
+months. The second pools one week of daily samples monthly.
+Sites 22 and 24 have first-batch population bands that contain the
+regional study's approximate population of 100,000. That filter
+identifies possible matches only. The table supplies coded site
+identities and bands, while §e2.2 describes plant questionnaires for
+daily flows and interpolated census populations from boundary overlays.
+The table does not resolve a cross-paper plant identity or link the
+regional daily measurements to national composite pool members.
+Treat overlaps as unresolved when evaluating independence and fold
+eligibility. The existing site 33 state discrepancy remains quarantined.
