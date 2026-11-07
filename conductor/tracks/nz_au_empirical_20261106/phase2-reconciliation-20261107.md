@@ -1933,3 +1933,17 @@ Even under this calendar assumption, the aggregate count cannot
 verify that both sides of the tariff change have observations.
 A dated sampling roster or an explicit period-level count is
 needed before a pre/post split can be qualified.
+
+## P2.75 Tariff context for the Australian paired-assay bridge
+
+Australian Customs Notice 2016/27 gives the rates effective
+1 September 2016 as AUD 0.61054 per stick and AUD 763.20 per kg
+of tobacco content for the relevant cigarette categories. Both
+the excise and excise-equivalent schedules use those rates.
+This supplies the historical tariff context for the five February
+2017 paired-method samples in P2.31. Each pair reuses the same
+sample, so the tariff exposure is identical within the pair.
+Differences within those pairs can inform method comparability.
+They provide no within-pair evidence on response to duty changes.
+
+[Australian Customs Notice 2016/27](https://www.abf.gov.au/help-and-support-subsite/CustomsNotices/2016-27.pdf).
