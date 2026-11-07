@@ -1248,3 +1248,24 @@ a supported geographic and estimand bridge before a numerical join.
 
 - [2022/23 methodology report](https://www.health.govt.nz/system/files/2023-12/methodology-report-2022-23-new-zealand-health-survey-dec23.pdf)
 - [2023/24 methodology report](https://www.health.govt.nz/system/files/2024-11/methodology-report-2023-24-new-zealand-health-survey-nov24.pdf)
+
+## P2.39 Wellington catchment candidate check
+
+The public [Wellington Water catchment layer](https://gis.wellingtonwater.co.nz/server/rest/services/Hosted/Wastewater_Treatment_Plant_Catchments_View/FeatureServer/0)
+describes a 29 June 2021 InfoAsset export. Its native API returns
+distinct Moa Point and Western plant polygons. The bounded candidate
+query returned both named features in NZTM2000 (EPSG:2193) with
+closed rings. The polygons are retained externally at
+/Volumes/PortableSSD/tobac-p2-wellington.MjqdNf/candidate-polygons.json
+(SHA256 6aaddddd74633ec55828cfab2f48d2facb9aaf0c04178b1b6cc790541e1351db).
+
+The [September 2023 ESR surveillance report](https://www.phfscience.nz/media/mybppfcs/esr-wastewater-monthly-surveillance-report-september-2023.pdf)
+lists these as separate Wellington sites, with populations of
+168,000 and 14,000 respectively. Its retained PDF has SHA256
+7c79d06da42f33272ca4d65abb0023ecabd01118d513ff65f673b737be4d572f.
+Those populations are twelvefold apart and apply to that surveillance
+report. Kim Table S3 identifies twelve occasions only as Wellington.
+The public operator layer and contemporaneous surveillance report
+establish candidate catchments, while the plant key, boundary vintage,
+age structure and denominator used by Kim remain unverified.
+Keep the Wellington join pending a source crosswalk.
