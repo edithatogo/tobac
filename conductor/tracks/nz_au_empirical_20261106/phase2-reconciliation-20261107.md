@@ -1377,3 +1377,28 @@ Originals and outputs remain under
 - coverage.json: da78b7fb07618e1ea1a5d83244a1ef10bc69a1285951221b3caa641e1303741a
 
 [Stats NZ trade datasets](https://www.stats.govt.nz/large-datasets/csv-files-for-download/overseas-merchandise-trade-datasets/)
+
+## P2.44 Occasion-level context coverage keys
+
+The bounded Polars check maps all 142 unique dated plant occasions
+to six national trade months, three price and estimated resident
+population quarters, and the single 2023 annual release period.
+Quarter counts are 48, 72 and 22 for Q2, Q3 and Q4. It retains both
+survey fieldwork memberships where the annual waves overlap.
+The price and population files were checked against their existing
+byte pins and source headings. The release check reads the existing
+2023 source row of 1,052 tonnes.
+
+The output contains period keys and survey envelope flags. These
+keys preserve the many-to-one source relationships for a later
+admission review. Quarter-end population figures do not establish
+the contributing population on any sample date. Quarterly prices
+are national index-derived proxies. Full calendar-year releases
+and revised trade and population editions require explicit availability
+and stock treatment for a prospective held-out comparison.
+
+The external output
+/Volumes/PortableSSD/tobac-p2-trade2023.3PoIyO/occasion-context-keys.csv
+has SHA256 3ee1d4670696e35f5bd13cba59a830914fbb9ef9bbe961769a6863228f1363b6.
+The guarded assembly script occasion-coverage.py has SHA256
+b90467f9248c5b0d9248a455f3705ed8741bb605c8ff074d10086da701af5613.
