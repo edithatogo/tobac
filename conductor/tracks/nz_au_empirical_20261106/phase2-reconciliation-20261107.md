@@ -1987,3 +1987,20 @@ This is a lower bound on residual discrepancy within the
 rounded pairs. It does not estimate a population error term.
 A harmonization model needs residual variation beyond a single
 fixed shift to accommodate both pairs.
+
+## P2.79 NZ retail display and wholesale notification baseline inputs
+
+Ministry guidance requires general retailers to conceal regulated
+products and packaging from public areas inside and outside the
+store, subject to limited visibility during delivery. Separately,
+smoked-tobacco distributors have had to notify the Director-General
+of wholesale sales and product types since 1 October 2023, with
+annual renewal. The Ministry describes notification at the legal
+person level, including one notification for a person with multiple
+stores. The notification count therefore cannot measure outlet
+density. These controls can coexist with repeal of the approved
+smoked-tobacco retailer scheme. Observed store coverage, enforcement,
+and compliance remain separate baseline inputs.
+
+[Retail display guidance](https://www.health.govt.nz/regulation-legislation/vaping-herbal-smoking-and-smokeless-tobacco/retailers-of-vaping-and-tobacco-products/retail-visibility-and-display-of-regulated-products)
+and [distributor notification guidance](https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-distributors).
