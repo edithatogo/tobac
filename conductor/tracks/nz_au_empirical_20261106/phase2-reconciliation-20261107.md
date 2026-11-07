@@ -3655,3 +3655,19 @@ payment timing and reporting scope remain unresolved.
 
 [Stats NZ trade methodology](https://datainfoplus.stats.govt.nz/Item/nz.govt.stats/6ed114da-3571-40d4-a89f-932068a4c753)
 and [Customs 2023 deferred-account notice](https://www.customs.govt.nz/about-us/news/important-notices-archive/important-notices-archive-2023/cancelling-unused-deferred-payment-accounts-over-2-years).
+
+## P2.174 Constant mixed payment timing fails the August check
+
+Under standard rates, July and August nominal light-cigarette
+duty is NZ$55,204,675.75 and NZ$40,823,170.50. If the same
+fraction f of each month's liability settles the following
+month, August contains f times July plus (1-f) times August.
+For every f from zero to one, this amount is at least
+NZ$40,823,170.50. The actual August paid total for the wider
+24.02 heading is NZ$39,465,697.60. Other nonnegative
+subcode contributions would widen the discrepancy.
+
+A common deferral fraction cannot reconcile the series under
+this model. Month-specific fractions, adjustments and other
+reporting differences remain possible. The comparison does
+not estimate which entries were deferred.
