@@ -4177,3 +4177,24 @@ bounds of approximately 625 to 712. This refines P2.194's
 variance limitation. The summaries leave exact variance,
 day ordering, serial dependence and uncertainty of the
 site mean unresolved. Digitisation uncertainty is separate.
+
+## P2.201 Dispersion bounds across the matched roster
+
+All 16 site-round summaries pass the seven-day feasibility
+check from P2.200. Rounded conditional sample standard
+deviation bounds are below, in mg nicotine per 1,000
+people per day.
+
+| Round | 012 | 024 | 028 | 029 | 033 | 042 | 053 | 077 |
+|---|---|---|---|---|---|---|---|---|
+| August | 625–712 | 248–430 | 229–395 | 591–1047 | 164–259 | 76–133 | 208–370 | 800–1217 |
+| December | 429–781 | 196–353 | 150–238 | 193–282 | 195–319 | 178–283 | 1517–2286 | 230–410 |
+
+The initial extraction admitted another panel with the same
+page transform. The corrected run also filters transformed
+vertical positions to the nicotine panel and verifies one
+box per roster code. External dispersion.py beside the
+pinned reports has SHA256
+186c03a40dc7ded222a746ea0af07bb92b9302bb895720e47badbb13dac72c92.
+The bounds condition on fixed chart calibration and do not
+estimate sampling errors of the site-round means.
