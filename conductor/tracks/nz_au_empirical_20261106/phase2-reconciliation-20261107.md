@@ -3729,3 +3729,21 @@ greedy allocation feasible through January for the May–December
 cohorts. Thus the bound is sharp under that model. The
 December placement is a mathematical witness and provides
 no evidence of an actual adjustment or its timing.
+
+## P2.178 Re-export sensitivity for the extended settlement model
+
+The pinned final trade ZIP reports 2,583, 1,674 and 318 kg
+of 2403199015 re-exports in October, November and December.
+The ordinary export quantity is zero in each month. Their
+combined standard-rate equivalent is NZ$7,678,176.75,
+above the P2.177 gross-import shortfall.
+
+In a sensitivity deducting each May–December re-export from
+same-month imports before assessing duty, the P2.175 greedy
+allocation remains feasible. It leaves NZ$3,670,155.59 at
+December end, within the NZ$9,359,588.07 January heading
+capacity before January liabilities. The gross-import
+infeasibility is therefore sensitive to the treatment of
+re-exports. The trade records do not establish drawback
+eligibility, credited amounts or shipment-month matching,
+so the sensitivity cannot resolve actual settlement.
