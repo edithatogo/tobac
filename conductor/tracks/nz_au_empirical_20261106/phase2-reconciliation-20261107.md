@@ -3487,3 +3487,20 @@ by about 57.25 million equivalents, far more than the
 1.44 million width due to mix within the two products.
 
 [Customs January 2023 rate notice](https://www.customs.govt.nz/about-us/news/important-notices-archive/important-notices-archive-2022/new-excise-duty-rates-for-tobacco-and-tobacco-products-from-1-january-2023).
+
+## P2.165 Product-specific duty data and zero handling
+
+Treasury OIA 20250377, Item 3, publishes a Customs-derived
+monthly table for 2024 heated tobacco imports, with separate
+tobacco-content mass and duty charged. September shows 0.17 kg
+alongside zero duty. October instead shows a dash for mass
+alongside zero duty. Keep those states distinct. The table
+demonstrates that a zero duty value need not imply zero
+physical quantity, even within a named product series.
+
+The verified monthly table covers 2024 and spans the July
+concession change. It cannot supply the 2023 campaign share
+of pooled tobacco revenue. It also reports import duty charged,
+which needs a timing and scope bridge to recognised revenue.
+
+[Treasury OIA 20250377, Item 3](https://www.treasury.govt.nz/sites/default/files/2025-07/oia-20250377.pdf).
