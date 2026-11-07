@@ -2777,3 +2777,20 @@ on lawful consumption or a validated origin-specific response
 is still required. Administrative releases cannot serve as
 that restriction without the stock, product and lawful-flow
 reconciliation in the feasibility analysis.
+
+## P2.130 Bounds from a matched lawful-consumption interval
+
+For one population, period and mass unit, suppose total combustible
+consumption is bounded by [Tlo, Thi] and lawful consumption by
+[Llo, Lhi]. If the intervals are the only constraints apart from
+0 ≤ L ≤ T, the feasible illicit consumption interval is
+[max(0, Tlo − Lhi), Thi − Llo], provided Llo ≤ Thi.
+If Llo exceeds Thi, the constraints are inconsistent and require
+reconciliation. A strictly positive lower bound requires Tlo
+to exceed Lhi. A justified joint constraint on total and lawful
+consumption may tighten these endpoints.
+
+The candidate release and trade series have no verified conversion
+to the required catchment consumption interval. This result defines
+what the missing matched lawful-flow evidence must establish.
+It supplies no empirical endpoints from administrative flows.
