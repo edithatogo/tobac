@@ -3524,3 +3524,24 @@ and month allocation, with no observed quantities inferred.
 
 [Customs OIA 25-395](https://www.customs.govt.nz/media/up4pimtv/oia-25-395-_.pdf)
 and [Customs OIA 24-675 response copy](https://www.kiwiblog.co.nz/wp-content/uploads/2025/01/24-675-Jordan-Williams-Response_Redacted.pdf).
+
+## P2.167 Campaign import duty by tariff heading
+
+Located the Customs OIA 24-675 enclosure as a public mirror
+copy. Its May–October 2023 table cells sum to NZ$464,555,958.76
+for 24.02, NZ$223,330,113.83 for 24.03 and NZ$4,441,312.55
+for 24.04. The combined NZ$692,327,385.14 exceeds the P2.159
+recognised revenue total by NZ$18,054,385.14 at workbook
+precision. The measures require a reconciliation of scope,
+recognition and revisions before combining them. Headings
+pool tariff subcodes and the table supplies no volumes.
+The annual 24.04 total exceeds the P2.166 heated tobacco
+total by NZ$11,668.94, so keep the scopes distinct.
+
+The local layout extraction lost cells where text wrapped.
+The subtotal uses the separately read table cells and sums
+in integer cents. The retained mirror PDF oia24-675.pdf under
+the P2.159 intake directory has SHA256
+1d818e8d68b3d80d9e4d1b06c740c7b72ddff0ce3e68ecb0549447cb0e043687.
+
+[Customs OIA 24-675 enclosure, public mirror](https://www.kiwiblog.co.nz/wp-content/uploads/2025/01/OIA-24-675-tobacco-import-duty-1-January-2023-22-October-2024.pdf).
