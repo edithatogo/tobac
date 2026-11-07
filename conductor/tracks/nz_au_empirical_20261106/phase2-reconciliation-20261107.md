@@ -969,3 +969,28 @@ The trial table records tested factors and responses. Effective
 sample thresholds require the selected processing path, recovery and
 concentration-scale convention. The nominal thresholds remain diagnostic
 and the 117 censored cells retain symbolic bounds in the candidate data.
+
+## P2.28 Nicotine-total reconstruction and denominator provenance
+
+Indexed publisher text in [Kim et al. §2.5.5](https://doi.org/10.1016/j.scitotenv.2025.181223)
+attributes daily flow to wastewater plants and catchment population to
+councils. The data availability statement specifies access by request.
+The supplement gives normalized results. The actual plant flow and
+council denominator series remain unavailable in the checked sources.
+
+The paper reports a nicotine correction factor of 1.35 for COT and
+COT-OH. Using the printed loads, the candidate reconstruction
+1.35 × (COT + COT-OH) was checked against every Table S23 mean.
+136 of 142 agree within 1.85 mg/day/1,000 people, the maximum rounding
+residual if the two source loads and the total each round to a nearest
+integer and the factor is exact. Six exceed that tolerance. Hamilton
+June Sunday has the largest residual, with 3133 reported and 3123.90
+reconstructed. Keep both values and flag the discrepancy pending the
+unrounded inputs and exact processing. Treat S23 as a derived summary
+of the same metabolites when constructing the likelihood.
+
+The guarded check retained all 142 residuals outside Git at
+/Volumes/PortableSSD/tobac-p2-kim.lBTiOt/nicotine-total-crosscheck.csv
+(SHA256 0a0341ca8311fb9593a4e5bf58ae71b00d0a6ee38e204c371a9988727b6580f1).
+The script check-nicotine-total.py has SHA256
+ba5dfb1baa80fcd8139ca77b7955cbf321165a5cd513ede95f5e48ec4a72de82.
