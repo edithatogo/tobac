@@ -2296,3 +2296,18 @@ differ. Exact six-month abstinence cells in the publisher's
 Table 2 image remain unverified.
 
 [Walker et al., publisher text](https://www.nejm.org/doi/full/10.1056/NEJMoa1407764).
+
+## P2.99 Verified six-month randomized cessation cells
+
+Visual readback of publisher Table 2 verifies continuous abstinence
+in 143/655 cytisine participants and 100/655 NRT participants at
+six months. The published risk difference is 6.6 percentage points
+(95% CI 2.4–10.8). Seven-day point prevalence is 206/655 versus
+196/655, difference 1.5 points (95% CI −3.5 to 6.5). Both use the
+intention-to-treat denominator and classify missing outcomes as
+smoking. Continuous abstinence uses the trial's allowance for up
+to five cigarettes. Both endpoints share participants. They are
+candidate estimates of a randomized offer comparison, with current
+policy transport and source admission still open.
+
+[Publisher Table 2](https://www.nejm.org/cms/10.1056/NEJMoa1407764/asset/01905b09-ba9f-4b61-9456-0be7f7481613/assets/images/large/nejmoa1407764_t2.jpg).
