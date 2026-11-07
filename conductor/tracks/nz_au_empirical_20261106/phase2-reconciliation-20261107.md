@@ -3086,3 +3086,24 @@ The negative estimated 2023 gap is compatible with measurement
 and scope mismatch and cannot identify negative illicit use.
 
 [Original consumption-gap analysis](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/).
+
+## P2.145 Conditional break-even for the published 2023 gap
+
+The paper's Table 2 gives 2023 consumption endpoints of
+1,060,509,690 and 1,311,023,790 stick equivalents at uplift
+1.23, with legal releases fixed at 1,374,787,976. Its Figure 2
+varies the daily-smoker estimate across its survey interval
+while holding the uplift fixed. Those bounds do not propagate
+uncertainty in uplift, releases, stock or time alignment.
+
+Holding every other input fixed and scaling consumption
+linearly with uplift, the break-even uplift is 1.23 times
+legal releases divided by the corresponding consumption.
+It is 1.28982 at the reported upper consumption endpoint and
+1.59451 at the lower endpoint. These are sensitivity thresholds
+for the sign of the national residual under the paper's
+inputs. They do not calibrate uplift or identify a campaign
+illicit share. The calculation uses the printed endpoints and
+does not infer an unreported midpoint from the table.
+
+[Original analysis, Table 2 and Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/).
