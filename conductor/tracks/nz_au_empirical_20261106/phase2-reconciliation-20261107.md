@@ -3805,3 +3805,23 @@ links missing, the fiscal and trade candidates support
 source diagnostics and conditional sensitivities only.
 They supply no likelihood row, validation target, or
 decision ceiling for the 2023 campaign.
+
+## P2.182 Independent outcome screening
+
+The FTI report hosted by BAT gives retrospective 2023 national
+model estimates of 14.6 tonnes of legal non-domestic tobacco
+and 331 tonnes of illicit tobacco. Its illicit-consumption
+figure cites Kantar consumer survey, WSPM empty packs, retail
+scan data and NZHS inputs. The report also shows 2023 Q2 and
+Q4 consumer-survey waves for home-growing measures. These are
+potential comparison sources with different observation units.
+
+The national model outputs cannot serve as an independent
+catchment holdout alongside their shared survey inputs.
+The underlying pack occasion dates, site identifiers, raw
+classification counts and access rights have yet to be
+qualified. The Q2 and Q4 consumer figures do not fill those
+pack or campaign-month gaps. Keep the reported totals as
+context pending component-level evidence.
+
+[FTI report hosted by BAT, sections 4.2–5](https://www.batnz.com/content/dam/endmarkets/nz/en/download/media/15-August-2025-New_Zealands_growing_illicit_tobacco_trade_calls_for_decisive_action_with_more_than_one_in_four_cigarettes_smoked_in_New_Zealand_being_illegal.pdf).
