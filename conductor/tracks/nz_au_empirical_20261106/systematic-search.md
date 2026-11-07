@@ -163,3 +163,31 @@ in phase1-nz-model-appraisal.md. Those selected appraisals do not screen the rem
 corpus. S1/S3/S4/S5 PubMed retrieval, G1/G2 official-source coverage, citation chasing,
 full-text decisions/exclusions and comprehensive parameter/formula matrices remain open.
 No automated keyword filter has been counted as a completed eligibility assessment.
+
+## PubMed S4 continuation — 7 November 2026
+
+The existing S4 concept groups were translated directly to PubMed Title/Abstract
+fields, with the 6 November publication cut-off and no language/country limit.
+The exact request was saved before execution. Five connector pages at offsets
+0/25/50/75/100 reached the terminal cursor without field continuations or a
+pagination limit, but returned only 100 unique records against 101 advertised.
+This first terminal result was retained as incomplete.
+
+An exact-query native ESearch read identified PMID 42659019 as the missing ID.
+The connector's exact-ID retrieval reported it missing; native EFetch returned
+a PubmedBookArticle. Searchright's PubMed XML importer returned zero records
+and an explicit no-PubmedArticle warning. Its supported CSV import then accepted
+all 101 candidates, including the source-bound book title, book authors, DOI and
+12 abstract sections; no journal was manufactured for the book. Every identifier
+matches the native search set. Titles and abstracts round-trip without loss.
+An explicit native publication-date-range diagnostic returns the same 101 IDs
+and exposes the translated cut-off in its response. The diagnostic's year-1000
+lower endpoint removed no IDs relative to the original query.
+
+Original responses, transport/import, failed-route evidence and terminal receipts
+remain outside tobac under /Volumes/PortableSSD/tobac-p2-search-s4.x181rk.
+Metadata/hash pointers are in the P2 context receipt and reconciliation. This
+closes retrieval of this exact source/query edition only: no title/abstract or
+full-text decisions, duplicate-study adjudication or new admission are counted.
+S1/S3/S5 PubMed, grey sources, citation coverage and the other Phase 1 gates
+remain open; the frozen earlier search editions are preserved.

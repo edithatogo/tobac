@@ -1011,5 +1011,33 @@
     "logs": "outputs/nz-au-phase2-cessation-20261107",
     "admitted": false,
     "fit_executed": false
+  },
+  "pubmed_s4_p2_18": {
+    "base_commit": "1a96485519d94bed8e431e93edad24cf3ebb4c92",
+    "external_intake": "/Volumes/PortableSSD/tobac-p2-search-s4.x181rk",
+    "query": "(\"value of information\"[Title/Abstract] OR \"expected value of sample information\"[Title/Abstract]) AND (monitoring[Title/Abstract] OR \"public health\"[Title/Abstract])",
+    "publication_date_to": "2026/11/06",
+    "retrieval_date_utc": "2026-11-07",
+    "connector_page_offsets": [0, 25, 50, 75, 100],
+    "native_advertised_count": 101,
+    "connector_unique_articles": 100,
+    "connector_missing_pmid": "42659019",
+    "native_recovered_book_records": 1,
+    "native_missing_xml_sha256": "ff183c7b07dee85589ebe8808f2e9302ff1960b4e1e034f3b8963dabc00ed2e8",
+    "native_xml_import_warning": "PubMed input contained no PubmedArticle elements; zero records retained as failed route",
+    "supported_csv_import_records": 101,
+    "quarantined_records": 0,
+    "all_native_ids_reconciled": true,
+    "titles_and_abstracts_roundtrip": true,
+    "explicit_cutoff_same_id_set": true,
+    "terminal_receipt_sha256": "5b4bbf93281cf6e4d84656af3b752fee605d1ec6aebb565d3f150b2b320c19d3",
+    "cutoff_receipt_sha256": "5757a396519e1dfef5ae3a21edd0497bde2c997cda0dee75703a99f72b46ba35",
+    "transport_sha256": "bdd6c122b2b0fa822cc130aca9d18c1ecc46c3efb0e539304e2e906878d92f7d",
+    "import_sha256": "136c44c53286c8f32d6c5f13965722b09e92b1c3ae907f465bb0b775ae3a7016",
+    "logs": "outputs/nz-au-phase2-search-s4-20261107",
+    "screened_records": 0,
+    "study_inclusion_decisions": 0,
+    "admitted_observations": 0,
+    "fit_executed": false
   }
 }

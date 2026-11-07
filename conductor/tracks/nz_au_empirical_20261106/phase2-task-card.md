@@ -245,3 +245,21 @@ or scientific-input adoption. Actual local Python 3.15.2, existing 4096 MiB /
 2400-second guard, serial extraction and no blind retries. Reuse unchanged
 software tests; verify source bytes, exact rule locations and publication boundary
 for this metadata-only change. Messaging authorization remains unanswered.
+
+## P2.18 prespecified PubMed S4 retrieval — 7 November 2026
+
+Same owner/worktree/branch, clean base 1a96485. Advance the open prerequisite
+search for monitoring/public-health value-of-information methods. Translate the
+existing S4 title/abstract concept groups directly to PubMed field syntax; retain
+the 6 November publication-date cut-off, no language/country restriction and no
+outcome-driven query change. Exact request is frozen externally before execution.
+Own only this card, systematic-search's executed continuation, P2 reconciliation/
+receipt metadata and WORKSTREAM_SYNC. Native connector page responses, bibliographic
+transport/import and audit artifacts stay under
+/Volumes/PortableSSD/tobac-p2-search-s4.x181rk. Retain cursor/offset, total counts,
+field continuations, hashes, query translation and actual terminal status. Use the
+existing qualified Searchright source-native import contract, not fixture searches.
+Do not label retrieval or deduplication as screening, study inclusion or admission.
+All expensive local import/audit work uses actual local Python 3.15.2 and the
+4096 MiB / 2400 s guard. No native/other-owner writes or cross-chat messages.
+Preserve old search editions; failed/truncated pages remain visible and incomplete.

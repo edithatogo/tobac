@@ -685,3 +685,36 @@ no software, fit or native-admission verification is newly claimed. Complete
 policy implementation, service coverage, costs, source admission, calibration
 and frozen holdout gates remain open. Goal reactivation did not answer the
 pending permission to message the retained integrator, and no handoff was sent.
+
+## P2.18 PubMed S4 prerequisite retrieval
+
+The open monitoring/public-health VOI search now has an executed PubMed edition.
+Five connector pages advertise 101 records and return 100 unique hydrated
+articles. Exact native ESearch identifies the missing PMID 42659019; the
+connector exact-ID request also reports it missing. Native EFetch recovers it
+as a PubmedBookArticle. Both routes and the initial incomplete page audit are
+retained. The qualified Searchright binary is unchanged at SHA256
+ebe162f2d4076f085af0702733d9623f22a2b1783c4d7571b354f3880a93297a.
+Its native XML import warns that no PubmedArticle elements exist and yields
+zero records. Supported CSV transport/import then accepts all 101 candidates
+with zero quarantines. The book's original title, book authors, DOI and all
+12 abstract sections are mapped explicitly; no journal is invented.
+
+All 101 imported identifiers equal the native search ID set. Titles and
+abstracts round-trip exactly after the importer's outer-whitespace trimming.
+The explicit publication-cut-off diagnostic returns the identical ID set.
+This is exact-query retrieval evidence, not 101 included studies, screening
+or empirical observations. No parameter or likelihood has been adopted.
+
+External originals and scripts: /Volumes/PortableSSD/tobac-p2-search-s4.x181rk.
+Terminal receipt SHA256
+5b4bbf93281cf6e4d84656af3b752fee605d1ec6aebb565d3f150b2b320c19d3;
+explicit cut-off/round-trip receipt SHA256
+5757a396519e1dfef5ae3a21edd0497bde2c997cda0dee75703a99f72b46ba35.
+Local guarded logs: outputs/nz-au-phase2-search-s4-20261107. Native source
+reads used at most 31.0 MiB sampled group RSS; local import/audit used at most
+1.5 MiB. Existing 4096 MiB / 2400 s guard and actual Python 3.15.2 were retained.
+No maintained executable source changed, so unchanged software/reference checks
+are reused. S1/S3/S5 PubMed, screening, other Phase 1 gates, source admission,
+calibration and eligible frozen holdout still precede the P2 fit. Current owner
+readback remains idle with only Phase 0 accepted at c239b18; no chat message sent.

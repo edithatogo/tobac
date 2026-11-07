@@ -190,3 +190,11 @@ decision-definition and reconciliation retain the distinction between guidance,
 funding, actual uptake, effects and costs. No source admission or fit is implied.
 This lane retains its existing worktree scope; the integrator retains native
 ownership and the proposed cross-chat handoff remains unsent pending permission.
+
+P2.18 from 1a96485 executes the prespecified PubMed S4 prerequisite. All 101
+native IDs are recovered and imported through the existing Searchright CSV
+contract. A connector-omitted book record required exact native EFetch; the
+connector missing-ID result and XML import warning remain preserved. Exact
+cut-off and title/abstract round-trip checks pass. Original records stay external;
+retrieval is not screening or empirical admission. Same lane/file ownership and
+all fit/holdout gates remain. Integrator readback is idle at c239b18; handoff unsent.
