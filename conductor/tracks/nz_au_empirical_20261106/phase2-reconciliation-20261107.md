@@ -1479,3 +1479,29 @@ The external intake /Volumes/PortableSSD/tobac-p2-trade2023.3PoIyO retains:
 
 [June release](https://www.stats.govt.nz/information-releases/consumers-price-index-june-2023-quarter/)
 and [September release](https://www.stats.govt.nz/information-releases/consumers-price-index-september-2023-quarter/).
+
+## P2.48 Population available before collection
+
+Stats NZ's original provisional national all-ages estimates were
+5,151,600 at December 2022 (released 20 February 2023), 5,199,100
+at March 2023 (18 May), and 5,223,100 at June 2023 (16 August).
+Selecting the latest release strictly before collection assigns
+18, 72, and 52 of the 142 unique plant-date keys to those vintages.
+One occasion on 18 May and six on 16 August retain the preceding
+release under this date-only rule. The June 2023 census-rebased
+estimate of 5,200,000 belongs to a later vintage. The crosswalk
+provides national context only. Adult and plant-specific contributing
+populations require separate evidence.
+
+The external intake /Volumes/PortableSSD/tobac-p2-erp-vintage.zR7Cpn retains:
+
+- 31-december-2022.html SHA256 4afc037f3b1cbcb5ddf4f267417e8f7c8a1c45df959575679b96c514a5e637a8
+- 31-march-2023.html SHA256 a88500ba4a06a4790e3d2524722d778b848fd2d431269867d9ecaea69a8dff2a
+- 30-june-2023.html SHA256 7b596cf740993f527c21fcb2221fe7bd3371e86eec27a18c2e686129ec9baeb7
+- june.xlsx SHA256 498354eea1b3ec90452871ee72008ee3e79c15d6625fd9f4ad6947337bf4f2d9
+- lagged-population-candidates.csv SHA256 68a1611f32721a94fccb8c08ee39485d7490fa92ab01f25c35eeccb8530f53d9
+
+[December release](https://www.stats.govt.nz/information-releases/national-population-estimates-at-31-december-2022/),
+[March release](https://www.stats.govt.nz/information-releases/national-population-estimates-at-31-march-2023/),
+[June release](https://www.stats.govt.nz/information-releases/national-population-estimates-at-30-june-2023/),
+and [2023 census rebasing](https://datainfoplus.stats.govt.nz/item/nz.govt.stats/57468853-e913-43df-8cca-51b40bf558f0).
