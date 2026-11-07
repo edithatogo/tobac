@@ -1225,3 +1225,26 @@ occasion flow provenance, effective censoring and processing, paired
 replicates, calibration transport and comparable holdout requirements.
 The current integrator checkout still reports c239b18, covering Phase 0.
 The proposed admission handoff remains pending messaging authorization.
+
+## P2.38 NZ survey fieldwork and wastewater overlap
+
+The Ministry's 2022/23 methodology report, Table 5, gives 19 July
+2023 as the last collection date. Three nominal sampling quarters
+were opened, with overlapping actual interview windows. Its fourth
+quarter was unopened. The 2023/24 methodology report, section 9,
+gives 13 July 2023 as the first collection date and 24 July 2024
+as the last. These are national fieldwork envelopes.
+
+Comparing the 142 Kim plant/date keys with those inclusive envelopes
+gives 56 occasions within 2022/23 only, 76 within 2023/24 only and
+10 within both. The overlapping occasions occur on 16 July (four)
+and 19 July (six). This date check uses the verified Table S3
+manifest. Assigning waves by a 1 July boundary would discard the
+earlier wave's overlapping fieldwork. The annual survey aggregates
+do not supply interview-level timing, plant catchment assignments
+or age-aligned contributing populations. Retain both wave memberships
+for the ten overlapping occasions as coverage metadata and require
+a supported geographic and estimand bridge before a numerical join.
+
+- [2022/23 methodology report](https://www.health.govt.nz/system/files/2023-12/methodology-report-2022-23-new-zealand-health-survey-dec23.pdf)
+- [2023/24 methodology report](https://www.health.govt.nz/system/files/2024-11/methodology-report-2023-24-new-zealand-health-survey-nov24.pdf)
