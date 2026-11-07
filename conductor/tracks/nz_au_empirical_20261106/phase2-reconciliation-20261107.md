@@ -1052,3 +1052,30 @@ group. Exact sample overlap with the later 2013–2021 study and the
 national Wang study remains unresolved. Keep the factor as an
 Australian calibration candidate, with distinct assay, sewer and
 product applicability checks before any NZ transport or fit.
+
+## P2.31 Queensland longitudinal comparison and assay overlap
+
+Wang et al. (Water Research 250, 121040, PMID 38154341) explicitly
+uses the Zheng et al. 0.91 µg/cigarette anabasine factor in Eq. 2.
+Any comparison of cigarette estimates derived in these studies must
+share that calibration dependency. The 2013–2017 Wang measurements
+use large-volume injection. The 2018–2021 series uses direct injection.
+A temporal split across that boundary also changes assay method.
+
+The [publisher supplement](https://ars.els-cdn.com/content/image/1-s2.0-S004313542301480X-mmc1.docx)
+is retained at /Volumes/PortableSSD/tobac-p2-wang-queensland.GOsVz8/mmc1.docx
+with SHA256 02da1df22e87de9cd23f07e7342e141da5683b686b857b0d02dd1fc92b6347a6.
+Table S4 identifies five paired method comparisons on 12–16 February
+2017. The same samples appear under both methods. Group the two
+measurements by occasion in any calibration or validation split.
+Reported signed differences span 0–17% for anabasine, −5–19%
+for cotinine and −17–14% for hydroxycotinine. These paired comparisons
+inform the assay transition within this catchment and retain their
+sample dependence. Table S2 gives direct-injection anabasine detection
+and quantification limits of 1 and 3 ng/L in wastewater. These limits
+apply to that method and matrix and require separate qualification
+before any use with NZ solid-phase extraction.
+
+The supplement provides assay QA and the five paired comparisons.
+The complete date-by-analyte series, cross-paper sample keys and a
+prespecified eligible holdout still require verification.
