@@ -568,3 +568,22 @@ duty-free and time coverage and credible stock constraints.
 The script and result are under
 `/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`. Result SHA256
 `18d3518cdbf697e785d942d8ca37f15b5bdc591aa12124fdc0f668a2649abf3d`.
+
+## P2.15 Customs and Stats NZ import cross-check
+
+[Customs OIA 25-187](https://www.customs.govt.nz/media/adyjbo2l/volume-and-excise-collected-on-various-tobacco-imports.pdf)
+Appendix 1, PDF pages 6–7, reports quantities by entry lodgement month from
+a 28 March 2025 extract. The light-cigarette tariff line reports thousands
+of sticks despite the request specifying kilograms. Visual transcription
+and the pinned Stats NZ CSV comparison give differences of −63, +1, −1,
++32, 0, 0, +1 and +69 thousand sticks from July 2024 through February 2025,
+respectively, for a net difference of +39 thousand sticks. Keep the
+extracts separate and treat them as linked Customs-derived evidence.
+Vintage, timing and coverage remain possible explanations for the differences.
+The duty column is monetary, and the appendix supplies neither actual tobacco
+mass for the light line nor a measured opening or closing stock.
+
+The original PDF, page renders, script and result are under
+`/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`. The guarded
+comparison passed. Result SHA256
+`0ef4fafde0b23aad6c7a1d4c838e8563106d09aade8393fc9b1ec7393d072a58`.
