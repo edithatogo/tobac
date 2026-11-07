@@ -1904,3 +1904,19 @@ calendar across that interval yields 54 nominal weeks or 378
 daily slots. The difference of 38 prevents treating the
 nominal cadence as a complete daily roster. It does not
 locate the gaps or determine why the counts differ.
+
+## P2.73 Publisher licence metadata and full-text access
+
+The Crossref version-of-record licence is CC BY 4.0, effective
+19 December 2023. Elsevier's exact article XML metadata independently
+identifies full open access and gives the same CC BY 4.0 licence URL.
+This resolves the published-version metadata in favor of the
+publisher declaration over UQ's CC BY 3.0 display. The default
+article XML contains core metadata only. An explicit FULL request
+returned HTTP 401, and the internal browser showed a CAPTCHA on the
+publisher landing page. The article bytes and daily sampling roster
+remain unverified. The article licence does not establish rights
+for underlying sampling records.
+
+[Crossref record](https://api.crossref.org/works/10.1016/j.watres.2023.121040)
+and [Elsevier article metadata](https://api.elsevier.com/content/article/PII:S004313542301480X?httpAccept=text/xml).
