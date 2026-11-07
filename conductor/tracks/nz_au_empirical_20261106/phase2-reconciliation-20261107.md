@@ -1816,3 +1816,17 @@ historical sample dates and from retail price or pass-through.
 [Excise gazette](https://www.legislation.gov.au/C2026G00551/asmade/2026-09-01/text/original/pdf),
 [customs gazette](https://www.legislation.gov.au/C2026G00591/asmade/2026-09-07/text/original/pdf),
 and [Treasury equivalisation schedule](https://treasury.gov.au/sites/default/files/2025-12/p2025-721342.pdf).
+
+## P2.67 NZ excise during the 2023 wastewater campaign
+
+The 1 January 2023 schedule sets NZD 1,177.75 per 1,000
+manufactured cigarettes containing at most 0.8 kg tobacco per 1,000
+and NZD 1,678.29 per kg tobacco content for heavier cigarettes
+and smoking tobacco, before GST. The light-cigarette rate implies
+NZD 29.44375 per 25 cigarettes. It is constant across the May–October
+campaign. The three observed national retail price vintages in P2.47
+therefore do not provide within-campaign variation in this statutory
+rate. The 2026 rate in P2.65 belongs to the later policy baseline.
+
+[2023 amendment order](https://www.customs.govt.nz/media/45sl0kmj/order-in-council-excise-and-excise-equivalent-duties-table-tobacco-products-indexation-amendment-order-2022.pdf)
+and [Customs rate notice](https://www.customs.govt.nz/about-us/news/important-notices-archive/important-notices-archive-2022/new-excise-duty-rates-for-tobacco-and-tobacco-products-from-1-january-2023).
