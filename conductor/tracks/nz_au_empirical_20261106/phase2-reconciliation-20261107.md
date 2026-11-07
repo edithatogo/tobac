@@ -4079,3 +4079,22 @@ and pixel tick locations. They expose mixed site directions.
 The site mean is not the programme's population-weighted
 aggregate. Exact source values, calibration error,
 independent review, admission and daily data remain open.
+
+## P2.196 Population weighting sensitivity
+
+Using the rounded site means in P2.195, the population bands
+in Appendix 2 admit opposite signs for the matched regional
+change even with weights held fixed across the two rounds.
+In roster order, populations in thousands of
+(160, 100, 100, 100, 100, 100, 20, 20) give a weighted change
+of -140 mg nicotine per 1,000 people per day. Another
+band-consistent allocation, (151, 100, 31, 149, 31, 149, 29, 29),
+gives about +87 in the same units.
+
+These allocations are hypothetical and use the pilot
+digitisation as given. They show that the published site
+bands alone do not recover the programme's weighting or
+determine the sign from the site means. This does not dispute
+the programme's reported regional decline using its own
+weights. Exact denominators and aggregation rules are still
+needed to reproduce that figure.
