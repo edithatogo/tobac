@@ -2536,3 +2536,18 @@ SA1845's concurrent-treatment rule does not exclude sequential
 use in the same year. The bound covers two funded chemicals
 only and does not measure all cessation support, unique course
 starts or additional reach under a policy change.
+
+## P2.114 Original aggregate dispensing export
+
+The public Health NZ app's Full data set control returned
+PharmsFullData_2026-07-09.zip. The external P2.101 intake
+retains the original ZIP with SHA256
+a82ea5fca0f0ceff8a54f09d1c545845b34a20577c046c4e59d79a5f968a6c28.
+It contains four aggregate data tables and the pharmaceutical
+lookup. A bounded read of Data_ByChemical.csv matched all ten
+national initial-dispensing rows for ChemIDs 3920 and 3722 in
+P2.109 and P2.112, including people and dispensing counts.
+This verifies the displayed counts against original export
+bytes. Archive admission and policy applicability remain open.
+
+[Health NZ Pharmaceutical Data web tool](https://tewhatuora.shinyapps.io/pharmaceutical-data-web-tool/).
