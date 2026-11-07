@@ -3130,3 +3130,24 @@ historical survey and release lineage and supplies no direct
 campaign calibration.
 
 [Original analysis, under-reporting adjustment](https://bmjpublichealth.bmj.com/content/bmjph/3/2/e002853.full.pdf).
+
+## P2.147 Discarded-pack anchor and site sensitivity
+
+The original November 2012–January 2013 study identified 103
+foreign packs among 1,776 collected across seven locations.
+The 1,673 count is the domestic-classified remainder. The
+foreign category uses warning-label features and includes
+multiple acquisition routes. The authors note that NZ airport
+duty-free packs carry domestic warnings and are indistinguishable
+by that rule from duty-paid packs.
+
+Wellington and Christchurch accounted for 86% of collected
+packs. The authors report 3.9% foreign after excluding
+Christchurch, compared with 5.8% overall. Substituting 3.9%
+as the assumed illicit share in P2.146 gives an uplift of
+1.20499 with the historical releases and survey count fixed.
+This is a site-exclusion sensitivity, with no national
+sampling or legal-status adjustment. It further limits
+transfer of this historical uplift to the 2023 catchments.
+
+[Original discarded-pack study](https://nzmj.org.nz/journal/vol-126-no-1386/missed-tobacco-tax-revenue-from-foreign-packs-in-new-zealand-results-from-a-discarded-pack-collection-study).
