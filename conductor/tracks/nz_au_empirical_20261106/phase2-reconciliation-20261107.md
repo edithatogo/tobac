@@ -1797,3 +1797,22 @@ retail prices, and the accepted full policy baseline open.
 
 [Amendment order](https://www.customs.govt.nz/media/qkvjprql/excise-and-excise-equivalent-duties-table-tobacco-products-indexation-2025.pdf)
 and [Customs rate notice](https://www.customs.govt.nz/about-us/news/important-notices-archive/important-notices-archive-2025/new-excise-duty-rates-for-tobacco-products-from-1-january-2026).
+
+## P2.66 Australian statutory excise inputs for the policy baseline
+
+Effective 1 September 2026, the Commonwealth Gazette sets excise
+at AUD 1.55274 per stick under item 5.1 and AUD 2,587.90 per kg
+of tobacco content under item 5.5. The corresponding customs
+notice covers specified imported products from the same effective
+date. The per-stick rate implies AUD 38.81850 per 25 sticks.
+The 0.8 g per-stick classification boundary differs from the
+0.60 g equivalisation weight used to set the per-kg rate:
+1.55274 divided by 0.00060 equals 2,587.90. The latter is a
+tariff calculation parameter and supplies no empirical conversion
+for wastewater, sales or trade mass. Ordinary indexation uses
+AWOTE in March and September. Keep these rates separate from
+historical sample dates and from retail price or pass-through.
+
+[Excise gazette](https://www.legislation.gov.au/C2026G00551/asmade/2026-09-01/text/original/pdf),
+[customs gazette](https://www.legislation.gov.au/C2026G00591/asmade/2026-09-07/text/original/pdf),
+and [Treasury equivalisation schedule](https://treasury.gov.au/sites/default/files/2025-12/p2025-721342.pdf).
