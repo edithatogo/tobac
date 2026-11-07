@@ -2709,3 +2709,29 @@ country-year policy outcome required by the frozen holdout rule
 or evaluate incremental wastewater information. Retain all years
 and both measures as source context. No model-selection holdout
 is frozen from this packet.
+
+## P2.126 Review sequence for the empirical slice
+
+At evidence head 33cb3e4 the owning checkout still reads c239b18,
+with its Phase 0 receipt and a clean worktree. The P2.37 Kim and
+P2.123 dispensing review packets match their pinned hashes. Each
+has zero admitted observations.
+
+1. Source review can separate the verified Kim printed loads and
+   dates from their unresolved catchment identity, flow, effective
+   ANBA limits and assay dependence. The Australian regional source
+   still lacks a daily roster. Verify rights and approved archive
+   readback for each proposed source before canonical admission.
+2. Treat the verified dispensing packet as historical service
+   context. It cannot supply an incremental reach estimate or the
+   policy validation outcome. Keep the two nested count measures
+   and shared person populations distinct.
+3. Before fitting, resolve the matched baseline and prespecified
+   target. P2.106–107 identify the missing bridge from randomized
+   medication offers to population demand. P2.54–56 and P2.125
+   give coverage diagnostics without establishing holdout eligibility.
+4. If the accepted evidence cannot identify the policy response or
+   support a holdout, carry the documented non-identification into
+   the checkpoint review. The reference case remains a separate
+   numerical result. No empirical fit or monetary value of
+   information follows from this review sequence.
