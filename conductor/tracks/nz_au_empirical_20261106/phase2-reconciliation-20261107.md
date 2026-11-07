@@ -3399,3 +3399,17 @@ has SHA256 b3234c996d8a9b035e16bd5c889f8487566d6f42de9184347b689d5452dea6f7.
 
 [Treasury January 2024 tax outturn](https://www.treasury.govt.nz/publications/tax-outturn-data/tax-outturn-data-january-2024)
 and [OIA 20240151](https://www.treasury.govt.nz/sites/default/files/2024-04/oia-20240151.pdf).
+
+## P2.160 Cash receipts scope differs from revenue
+
+The same Treasury workbook's AllReceipts sheet dates May–October
+2023 at OF1:OK1. The historical Tobacco excise line at row 19
+has no values for those columns. Row 21 has values but is
+labelled Customs duty without a tobacco split. The tobacco
+revenue row in AllRevenue therefore has no same-scope cash
+counterpart in this workbook. Treat the blank cells as
+unavailable for comparison. Reading the broader Customs duty
+series as tobacco receipts would change product scope and
+could falsely attribute that difference to accounting timing.
+
+[Treasury January 2024 tax outturn](https://www.treasury.govt.nz/publications/tax-outturn-data/tax-outturn-data-january-2024).
