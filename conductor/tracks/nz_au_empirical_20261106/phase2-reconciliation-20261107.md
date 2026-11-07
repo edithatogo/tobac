@@ -1618,3 +1618,21 @@ to shared dates would cover 135 occasions and omit observations
 unevenly across plants. Record coverage separately before comparing
 scores. These are candidate fold diagnostics. Catchment qualification
 and the prespecified holdout gate still apply.
+
+## P2.55 Candidate spatial holdouts with disjoint collection dates
+
+For each held-out label, exclude from training every P2.47 key
+whose collection date occurs for that label. Keep test membership
+limited to the held-out label and keep each occasion intact. The
+12 resulting designs leave 74–118 training occasions and 8–11
+training labels per fold. All three price vintages remain present
+in every training fold.
+
+Auckland Central, Auckland South and Hamilton each lose the same
+four labels from training, including Whangārei. Holding out either
+Invercargill or Westport removes both labels from training. The
+other seven folds lose only the held-out label. This sensitivity
+design removes exact date overlap but retains shared national
+vintages, and changes spatial coverage in five folds. It does
+not replace the prespecified catchment qualification or constitute
+a temporal holdout. No outcomes were used to construct these counts.
