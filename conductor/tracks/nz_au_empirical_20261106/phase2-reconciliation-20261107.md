@@ -994,3 +994,31 @@ The guarded check retained all 142 residuals outside Git at
 (SHA256 0a0341ca8311fb9593a4e5bf58ae71b00d0a6ee38e204c371a9988727b6580f1).
 The script check-nicotine-total.py has SHA256
 ba5dfb1baa80fcd8139ca77b7955cbf321165a5cd513ede95f5e48ec4a72de82.
+
+## P2.29 Duplicate-measurement spread compatibility
+
+Table S23 describes duplicate-measurement SDs. Under the candidate
+linear reconstruction with exact factor 1.35, a joint replicate SD
+lies between 1.35 times the absolute difference of the two metabolite
+SDs and 1.35 times their sum. With exactly two paired replicates and
+the same SD convention, only the two endpoints are possible. The check
+widens each printed SD by half its last displayed unit before testing
+the resulting intervals.
+
+Of 142 occasions, 137 are compatible with at least one paired endpoint,
+two fit the broader correlation envelope only, and three lie outside
+even the broader envelope. The strongest discrepancy is Auckland South
+on 22 October, with reported total SD 325 and upper bound 105.30
+mg/day/1,000 people. The two other broader-envelope discrepancies
+are Auckland North on 16 August and 21 September. These checks depend
+on the stated linear transform, identical replicate pairs and SD
+conventions. The compatible cases establish feasibility under those
+assumptions. They do not identify a population covariance or justify
+using S23 spreads to calibrate a joint likelihood. Original paired
+replicates and processing details remain necessary.
+
+The bounded check passed and retained 142 comparisons externally at
+/Volumes/PortableSSD/tobac-p2-kim.lBTiOt/nicotine-spread-crosscheck.csv
+(SHA256 462131de4a9ad9bde4a6f3d483199859449e4dce1ce2284a7a11373addf58f91).
+The script check-nicotine-spread.py has SHA256
+d016a55e9ad4159eb795fc30eb305aa3de422eb99153105bdeba975e788fe2b7.
