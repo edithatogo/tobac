@@ -2281,3 +2281,18 @@ outcome separate from the local biochemically validated
 four-week metric and from longer-term abstinence.
 
 [Walker et al., randomized trial](https://pubmed.ncbi.nlm.nih.gov/25517706/).
+
+## P2.98 Six-month endpoint distinction in the NZ medication trial
+
+The publisher text for P2.97 reports a significant six-month
+continuous-abstinence comparison, whereas the six-month
+seven-day point-prevalence comparison was not significant.
+Its separate time-to-relapse analysis reports a hazard ratio
+of 0.8 (95% CI 0.7–0.9), with 348 and 389 reported relapses.
+These are different endpoints from the same randomized cohort.
+Relapse counts cannot be complemented to reconstruct
+continuous-abstinence counts because censoring and follow-up
+differ. Exact six-month abstinence cells in the publisher's
+Table 2 image remain unverified.
+
+[Walker et al., publisher text](https://www.nejm.org/doi/full/10.1056/NEJMoa1407764).
