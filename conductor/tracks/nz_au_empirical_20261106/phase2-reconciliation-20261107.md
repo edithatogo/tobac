@@ -2577,3 +2577,17 @@ assignment. A numerical join to Moa Point or Western requires
 compatible district attribution, observation period, and
 contributing-population geography. These 2025 counts postdate
 the 2023 wastewater campaign.
+
+## P2.117 Campaign-year dispensing context and suppression
+
+The P2.114 chemical export gives 17,128 nicotine dispensings
+to 3,552 people in Capital & Coast and 8,846 to 1,789 people in
+Hutt Valley in 2023, including repeats. National counts are
+317,342 and 61,983. Varenicline has 36 dispensings to 23 people
+nationally. Hutt Valley's varenicline cells are suppressed as
+less than six. No matching Capital & Coast varenicline row was
+returned. Preserve that absence separately from suppression
+and an observed zero. Calendar 2023 overlaps the wastewater
+campaign but includes months outside May–October. The July
+2026 extract does not establish information available on the
+sampling dates or within-catchment exposure.
