@@ -4475,3 +4475,29 @@ candidates. The public evidence supports a bounded
 non-identification finding for the proposed comparisons.
 Source admission, baseline and contrast fit, held-out
 evaluation and guarded publication remain open under plan.md.
+
+## P2.216 Australian tobacco-mass sensitivity
+
+Hold the wastewater cigarette-equivalent estimates and the implied
+FTI lawful tonnages fixed. For a common mass (m) grams per
+cigarette, multiply each wastewater total by `m / 0.7` before
+subtracting lawful tonnage. The rounded Figure 4 estimates give
+these conditional sign thresholds.
+
+| Quantity | Recalculation in tonnes | Zero at grams per cigarette |
+|---|---:|---:|
+| 2017 residual | `14650 * m / 0.7 - 13300` | 0.635 |
+| 2023 residual | `10300 * m / 0.7 - 6900` | 0.469 |
+| 2023 minus 2017 residual | `6400 - 4350 * m / 0.7` | 1.030 |
+
+The annualised total declines for any common positive multiplier
+under this sensitivity. The residual rises for a common mass below
+about 1.030 g and falls above it. Both endpoint residuals are
+nonnegative only at about 0.635 g or above. Negative results indicate
+a discrepancy between the two estimates under the chosen inputs.
+These are algebraic thresholds from rounded points. They give no
+empirical range for mass, account for no changing product mix, and
+hold lawful tonnage fixed even if its own conversion could change
+with mass. They do not qualify the residual as a holdout outcome.
+
+[Original study, Equations 5–6 and Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
