@@ -1453,3 +1453,29 @@ under /Volumes/PortableSSD/tobac-p2-trade2023.3PoIyO.
 - [Stats NZ March 2023 release and cigarette price](https://www.stats.govt.nz/news/annual-inflation-6-7-percent/)
 - [Stats NZ June 2023 release listing](https://www.stats.govt.nz/information-releases/?filters=Housing%2CBuilding+consents+issued&sort=2&start=492)
 - [Stats NZ September 2023 release](https://www.stats.govt.nz/information-releases/consumers-price-index-september-2023-quarter/)
+
+## P2.47 Exact archived lagged price values
+
+Stats NZ's June and September release-page metadata links the original
+Infoshare CSVs. The archived files each contain one FINAL row for
+CPIQ.SAP0240 in their respective reference quarter. The values are
+NZD 48.75 in June and NZD 49.01 in September, matching the retained
+historical series. The first parser attempt rejected a Windows-1252
+byte under UTF-8. Explicit Windows-1252 decoding recovered both rows
+while retaining original bytes. The workbook reader was unavailable
+and exact verification used the publisher CSVs.
+
+The v2 crosswalk verifies all 142 prior-release price values:
+66 at 48.71, 64 at 48.75, and 12 at 49.01. Each release date strictly
+precedes its sampling date. The six same-day exclusions remain.
+This is verified national price context. It still requires source
+admission and a defined prediction origin for a model comparison.
+
+The external intake /Volumes/PortableSSD/tobac-p2-trade2023.3PoIyO retains:
+
+- cpi-june-infoshare.csv SHA256 78a1c0fb1cc8b7dc6333d52d4c921eb00504873c9a8098d1feae24c2b451996d
+- cpi-september-infoshare.csv SHA256 5ac018004e2fbd95e46038494ff8377548fa6117d47cd9ee6c9a412bef3bcace
+- lagged-price-candidates-v2.csv SHA256 c3f18c3e2a39d70b4a3017821dd46473800614839805b921d603f510ce042fc9
+
+[June release](https://www.stats.govt.nz/information-releases/consumers-price-index-june-2023-quarter/)
+and [September release](https://www.stats.govt.nz/information-releases/consumers-price-index-september-2023-quarter/).
