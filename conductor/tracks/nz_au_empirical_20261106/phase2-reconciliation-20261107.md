@@ -2979,3 +2979,28 @@ Supplier overlap and travel direction remain unresolved.
 
 [Baseline report, Table 4](https://www.health.govt.nz/system/files/2023-10/report-on-illicit-tobacco-trade-baseline-report-oct23.v3.pdf)
 and [2020 New World return](https://www.health.govt.nz/system/files/2024-05/new-world-tobacco-returns-and-report-for-2020.pdf).
+
+## P2.140 Customs seizure data and clearance scope
+
+Customs OIA 25-083 reports formally seized quantities by
+calendar year, goods description, transport and export country.
+The 11 accompanied-baggage rows for 2023 loose tobacco sum to
+4,156.85 g in the extract. The table is annual and has no
+May–October subdivision. The cigarette page's text extraction
+interleaves watermark digits with some cells, so no cigarette
+subtotal is inferred from that extraction.
+
+The OIA notes distinguish detention followed by release,
+including after duty and GST payment, from formal seizure.
+The accompanying table covers seizure only. The Customs
+interceptions page also includes abandoned goods in the wider
+detention category. These scopes leave cleared duty-paid
+quantities and the undetected share unresolved. The seizure
+subtotal cannot serve as a measure of tobacco consumed.
+
+External oia.pdf under /Volumes/PortableSSD/tobac-p2-seizures.ku7cHn
+has SHA256
+6f2b925e74e756d34b08ad613cc35e6127b77d55c3ef137aa7ad8bb99535fbd5.
+
+[Customs OIA 25-083](https://www.customs.govt.nz/media/u0hhdp2f/oia-25-083-proactive-release.pdf)
+and [Customs interception definitions](https://www.customs.govt.nz/information-releases-and-legislation/statistics/non-drug-interceptions).
