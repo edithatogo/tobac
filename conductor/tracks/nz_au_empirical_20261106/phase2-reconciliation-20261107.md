@@ -2196,3 +2196,20 @@ retrieval returned 403 in the web route. This read uses the
 indexed publisher page and retains the metric as context only.
 
 [Health NZ plan, p. 23](https://www.tewhatuora.govt.nz/assets/Publications/Smokefree/Getting-to-Smokefree-2025-The-final-push-to-achieving-the-Smokefree-2025-goal.pdf).
+
+## P2.93 National Quitline reach and product scope
+
+Whakarongorau's impact summary in ProCare's 2025 annual report
+records 15,670 people supported by Quitline in the year to
+30 June 2025, 23% Māori among enrolments, and 1,629 quit-vaping
+programme enrollees. The 2024 impact summary gives approximately
+16,200 people supported in the preceding year. These are national
+Quitline service counts with mixed smoking and vaping scope.
+The 1,629 figure is programme enrolment, so subtracting it from
+all people supported does not identify smoking-only reach without
+a common cohort definition and overlap readback. The count does
+not include qualified coverage of other cessation providers.
+Keep smoking-only reach and matched outcome rates open.
+
+[2025 impact summary](https://www.procare.co.nz/media/4009/procare-annualreport-2025-final.pdf)
+and [2024 impact summary](https://www.procare.co.nz/media/3866/procare-annualreport-2024-final-compressed.pdf).
