@@ -1781,3 +1781,19 @@ falls from 2.278 to 2.114 (13 paired declines), so assuming a fixed
 empirical metabolite ratio would discard observed composition
 variation. These comparisons reuse the same measurements and
 retain the shared-multiplier and assay qualifications in P2.63.
+
+## P2.65 NZ statutory excise inputs for the policy baseline
+
+The order effective 1 January 2026 sets NZD 1,309.71 per 1,000
+manufactured cigarettes at or below 0.8 kg tobacco per 1,000 and
+NZD 1,866.34 per kg tobacco content for cigarettes above that
+threshold and other smoking tobacco. Rates exclude GST. Customs
+reports a 2.96% indexation based on the 12 months to September 2025
+using all-groups CPI excluding credit services. The light-cigarette
+rate implies NZD 32.74275 excise per pack of 25 before GST.
+Weight-based rates require actual tobacco content. This dated
+schedule supplies statutory inputs and leaves pass-through,
+retail prices, and the accepted full policy baseline open.
+
+[Amendment order](https://www.customs.govt.nz/media/qkvjprql/excise-and-excise-equivalent-duties-table-tobacco-products-indexation-2025.pdf)
+and [Customs rate notice](https://www.customs.govt.nz/about-us/news/important-notices-archive/important-notices-archive-2025/new-excise-duty-rates-for-tobacco-products-from-1-january-2026).
