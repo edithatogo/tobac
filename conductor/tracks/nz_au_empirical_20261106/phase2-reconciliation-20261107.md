@@ -2618,3 +2618,22 @@ Both totals are conditional and neither measures use, absorbed
 dose or disposal into sewers. Keep these pathways separate.
 
 [Habitrol data sheet, section 2](https://www.medsafe.govt.nz/profs/datasheet/h/HabitrolTTS.pdf).
+
+## P2.120 Campaign-period patch brand checks
+
+Pharmac's May and October 2023 schedules list Habitrol at 7,
+14 and 21 mg, both for standard pharmacy packs and separate
+direct-distribution packs. The endpoint editions support the
+historical brand mapping for funded products. They do not
+identify brands in individual claims or cover the entire
+calendar-year volume used in P2.119. The 2024 product sheet's
+content and nominal delivery conversion remains conditional
+for that annual volume.
+
+External P2.101 intake retains Schedule-2023-05.pdf (SHA256
+e8a0dbff740e521e5ab36e5395f18188afc038303badd9972fa552bee25eeffb)
+and Schedule-2023-10.pdf (SHA256
+522d54085adc4d24669b02cddc5ede07023befb2e1673151c34075fc95001252).
+
+[May schedule](https://schedule.pharmac.govt.nz/2023/05/01/Schedule.pdf)
+and [October schedule](https://schedule.pharmac.govt.nz/2023/10/01/Schedule.pdf).
