@@ -4974,3 +4974,23 @@ survey error and purchase-to-consumption gap still preclude
 using these floors as a consumption holdout.
 
 [AIHW tobacco workbook, Table 1.33](https://www.aihw.gov.au/getmedia/5fc9ac6e-2f49-415e-a4fa-001a72fcad52/aihw-phe-371-Tobacco.xlsx).
+
+## P2.235 Open-band threshold for the survey purchase trend
+
+Using the printed percentages in Table 1.33, the first
+four 2022–23 purchase bands contribute less than 27.3
+packets per 100 current smokers when each is evaluated
+at its upper endpoint. This includes up to 1.4 packets
+from the flagged less-than-0.1% band. With 4.0% in the
+open band, an upper bound on its conditional mean of
+43.2 packets would keep the 2022–23 point reconstruction
+below the 2025 floor of 200.1 packets per 100 smokers.
+
+The 43.2 threshold follows from (200.1 - 27.3) / 4.
+The workbook does not establish that upper bound on the
+open-band mean. This is a sensitivity for the direction
+of reported purchases under rounded point inputs, with
+no allowance for survey error, stock or package mass.
+It cannot establish the direction of illicit consumption.
+
+[AIHW tobacco workbook, Table 1.33](https://www.aihw.gov.au/getmedia/5fc9ac6e-2f49-415e-a4fa-001a72fcad52/aihw-phe-371-Tobacco.xlsx).
