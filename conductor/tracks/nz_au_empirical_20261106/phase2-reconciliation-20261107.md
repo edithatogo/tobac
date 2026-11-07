@@ -4376,3 +4376,25 @@ External supp1.pdf under /Volumes/PortableSSD/tobac-p2-wang-national.Mf5A9X
 has SHA256 b9ba104635b3b5c6efeef4860dbd184417c6abacc5f376f7654d960048b70d08.
 
 [PMC Supplement 1](https://pmc-oa-opendata.s3.amazonaws.com/PMC12887742.1/jamanetwopen-e2557319-s001.pdf).
+
+## P2.211 Queensland anabasine roster by pooling batch
+
+Supplement eTable 2 lists five Queensland sites in the
+bimonthly batch and five in the monthly batch. Two in the
+first batch and four in the second are outside the ABS
+major-cities category. The remaining four are major-city
+sites across the two batches. Under a strict requirement
+that ACIC regional sites match only non-major-city sites,
+no more than six of the eight ACIC regional sites could
+have an anabasine counterpart across both batches, and
+no more than four could have a monthly counterpart.
+
+This ceiling assumes compatible geography categories.
+ACIC capital/regional and ABS remoteness are distinct
+classifications, so it does not establish the actual
+overlap. Even the monthly roster lacks an observed
+site-by-month ledger. Four candidates at that frequency
+do not verify the four comparable catchments required
+for a fold or demonstrate September 2021 coverage.
+
+[National study supplement, eTable 2](https://pmc-oa-opendata.s3.amazonaws.com/PMC12887742.1/jamanetwopen-e2557319-s001.pdf).
