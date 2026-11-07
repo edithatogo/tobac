@@ -4329,3 +4329,27 @@ to the published month-level design. A verified September
 round or an independently justified differential exposure
 would change the design. The October round alone cannot
 separate the two effects.
+
+## P2.209 National Australian anabasine comparator
+
+Wang et al. (JAMA Network Open, 2026, e2557319) analyse
+NWDMP samples from April 2017 to April 2023. This is a
+distinct publication from the regional Wang study. It uses
+cotinine and hydroxycotinine for pooled nicotine and
+anabasine for a tobacco-derived estimate. Its conversion
+uses 1.13 micrograms anabasine per cigarette and 0.9 mg
+nicotine per cigarette, with 0.7 g tobacco per cigarette
+for annual mass. Keep these factors distinct from ACIC's
+displayed cigarette-equivalent axis.
+
+The national study supplies a candidate product-source
+bridge. Its samples come from the same programme as the
+ACIC reports, so check occasion-level overlap before
+treating its outputs as independent. Its annual illicit
+estimate also uses sales and is a derived residual.
+Supplement eTables 1–2 are the source to check for
+2021 collection windows, catchment scope and any
+September observations. The article's overall date
+range does not establish that intermediate exposure.
+
+[Wang et al., national study](https://doi.org/10.1001/jamanetworkopen.2025.57319).
