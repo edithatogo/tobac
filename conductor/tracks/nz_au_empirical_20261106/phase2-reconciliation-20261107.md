@@ -911,3 +911,39 @@ Auckland North has only censored anabasine. Catchment fold eligibility
 still depends on matched population and flow provenance, comparable
 coverage and a supported censoring likelihood. Dropping censored cells
 would select on the response. No eligible fold has been frozen.
+
+## P2.26 Conditional normalization and censoring bounds
+
+Table S20 gives plant-level ANTA concentration ranges in ng/L. Pairing
+these ranges with the Table S17 occasion loads gives 142 conditional
+intervals for flow per contributing person. If the same concentration
+statistic enters the normalized load, the unit relation is
+Q/P = 1000 × normalized load / concentration, in L/person/day.
+The lower endpoint divides the lower printed-load rounding bound by
+the upper concentration rounding bound. The upper endpoint reverses
+those choices. These intervals assume nearest rounding and that the
+site range encloses the occasion concentration. They identify a ratio
+conditional on the published processing and leave flow and population
+separately unidentified. They are derived from the same assay data and
+therefore share its evidence dependence.
+
+At the 25 quantified ANBA occasions the paired ANBA/ANTA printed mean
+load ratio cancels a common flow/population multiplier. This diagnostic
+retains the assay and source-attribution limitations of both analytes.
+For the 117 censored ANBA occasions, Table S19 gives the detection to
+quantification interval symbolically. The supplement's visual detection
+limit example describes COT calibration standards and says ANBA has a
+higher quantification limit. It does not supply a verified effective
+ANBA threshold in influent units for each occasion. The seven dilution
+cases further motivate checking occasion-specific conversion. Numeric
+censoring limits therefore remain open even with conditional Q/P bounds.
+
+The guarded calculation passed for 142 intervals and 25 quantified
+ratios. External intake /Volumes/PortableSSD/tobac-p2-kim.lBTiOt retains
+check-normalization.py (SHA256
+55933dfb8877b5914f5a6c1a2250be5315ee0dcda7c0e29a132bf25fc7717097)
+and conditional-normalization.csv (SHA256
+0efff53a12b3c91d364c1a26013e3cdf45d11228f0105da0cfb4b9e2f69463b8).
+These diagnostics remain candidates for appraisal. Fit and holdout
+eligibility still require source admission and supported normalization,
+catchment and censoring semantics.
