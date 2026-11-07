@@ -1559,3 +1559,27 @@ Quarterly age-specific estimates and catchment denominators remain open.
 External intake /Volumes/PortableSSD/tobac-p2-erp-vintage.zR7Cpn retains
 lagged-annual-15plus-candidates.csv, SHA256
 1241a9a77e0d7a776beb245f3d4014abfcb605ced9fcab69c8657605ad74bb32.
+
+## P2.52 Joint time support for lagged national context
+
+An exact inner join of the pinned P2.47, P2.48 and P2.51 crosswalks
+preserved all 142 unique plant-date keys. The three national covariates
+are constant across plants within each of the 43 collection dates.
+Their joint support consists of five chronological regimes.
+
+| NZD per 25 | Annual 15+ ERP | Quarterly all-ages ERP | Occasions | Dates | Plant labels |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 48.71 | 4,159,800 | 5,151,600 | 18 | 6 | 12 |
+| 48.71 | 4,159,800 | 5,199,100 | 48 | 13 | 12 |
+| 48.75 | 4,159,800 | 5,199,100 | 24 | 7 | 12 |
+| 48.75 | 4,254,800 | 5,223,100 | 40 | 12 | 12 |
+| 49.01 | 4,254,800 | 5,223,100 | 12 | 5 | 6 |
+
+Both population series change on the August release transition.
+The final price regime has half the plant-label coverage of the
+earlier regimes. Collection-date fixed effects absorb all variation
+in these national covariates. A held-out plant can still share its
+national context with training plants. Such a split can assess
+spatial transfer conditional on shared context, but cannot establish
+performance at a new national price or population vintage. The
+counts describe support and do not estimate a price effect.
