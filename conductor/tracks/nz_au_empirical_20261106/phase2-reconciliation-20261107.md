@@ -2735,3 +2735,17 @@ has zero admitted observations.
    the checkpoint review. The reference case remains a separate
    numerical result. No empirical fit or monetary value of
    information follows from this review sequence.
+
+## P2.127 Original dispensing technical notes
+
+The publisher's Technical notes control returned
+PharmsTechDoc_2026-07-09.docx, retained in the P2.101 external
+intake with SHA256
+eeaca87ae5ba56be2def9d8ff6fc1efad936dced35932e513fc5c674580cde8a.
+The document defines NumPpl as a distinct count of master NHI
+and suppresses it below 90% NHI completeness. District assignment
+uses residence at dispensing when known and the pharmacy's
+funding district as a fallback. These definitions support the
+chemical-level people counts and explain why district labels
+cannot be assumed to identify residences in a wastewater catchment.
+The technical notes and aggregate ZIP remain external review inputs.
