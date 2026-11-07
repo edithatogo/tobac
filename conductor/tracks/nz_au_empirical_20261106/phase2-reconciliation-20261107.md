@@ -790,3 +790,30 @@ failed/recovered XML, actual import and membership results. Earlier Europe PMC
 S1 drift, translation review, grey-source/citation and screening gates remain;
 no new eligibility decision, scientific admission, fit or holdout score exists.
 No maintained code changed; existing software/reference checks are reused.
+
+## P2.21 wastewater measurement screening
+
+Eight S1 title/abstract records prioritised for the observation model were
+assessed against the frozen protocol. This was an AI-assisted first pass.
+The source is the retained S1 import at
+/Volumes/PortableSSD/tobac-p2-search-s1s3.mV6Dai/s1-imported-records.jsonl,
+SHA256 a3145b7a29cabbf9f070296214eefd27ea1348fb5e7f7a34288fb280f10d9a38.
+All eight proceed to full-text review. The targeted selection leaves the
+rest of the corpus in its existing screening state.
+
+| PMID | Reason for full-text review |
+| --- | --- |
+| 41447812 | NZ multi-site 2023 sampling directly informs catchment and observation-period matching. Check site-level data availability, flow and denominator definitions, and the ratio used to separate nicotine sources. |
+| 37192131 | Queensland pooled urine and wastewater analysis supplies a candidate cigarette-specific excretion calibration. Check shared samples and conversion assumptions before combining with downstream Australian estimates. |
+| 32506745 | Australian product, urine and wastewater measurements bridge analyte loads to cigarette use. Separate per-person excretion from per-cigarette calibration and check overlap with other Australian work. |
+| 32653706 | Australian reactor and influent experiments inform analyte-specific sewer loss and assay recovery. Check hydraulic conditions before transporting corrections to NZ catchments. |
+| 26198173 | Municipal wastewater assay validation informs biomarker choice and analytical uncertainty. Check sampling scope and distinguish normalized analyte loads from consumption estimates. |
+| 26980372 | Concurrent Belgian survey and wastewater sampling provides a matched-design comparator. The abstract reports no demonstrated correlation and low survey response. Review uncertainty and sampling alignment before using any validation statistic. |
+| 26888732 | Dalian Monte Carlo analysis informs propagation of uncertainty through nicotine back-calculation. Check which inputs drive the interval and whether the cigarette-only attribution is defensible for the target setting. |
+| 38154341 | Australian repeated sampling with tobacco and nicotine biomarkers informs temporal comparison. Check dependence on earlier excretion factors and distinguish a sales discrepancy from measured illicit origin. |
+
+The immediate extraction priorities are the NZ site-by-occasion measurement
+availability and the Australian calibration lineage. The abstract evidence
+supports separate assay, sewer, excretion and population components in the
+appraisal. Full-text eligibility, calibration transport, admission, fitting
+and held-out validation remain open.
