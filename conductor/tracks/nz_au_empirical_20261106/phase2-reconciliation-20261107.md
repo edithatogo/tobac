@@ -817,3 +817,30 @@ availability and the Australian calibration lineage. The abstract evidence
 supports separate assay, sewer, excretion and population components in the
 appraisal. Full-text eligibility, calibration transport, admission, fitting
 and held-out validation remain open.
+
+## P2.22 NZ wastewater supplement and occasion matching
+
+The [Kim et al. publisher supplement](https://ars.els-cdn.com/content/image/1-s2.0-S0048969725028657-mmc1.pdf)
+for PMID 41447812 returned HTTP 200. The PDF is retained at
+/Volumes/PortableSSD/tobac-p2-kim.lBTiOt/mmc1.pdf with SHA256
+c2ce1d0c3fcc95e9c49acb5bf403cc2598b999a97b8a9e558557a3aa1614046c.
+The article page returned 403 on the checked routes, so this appraisal
+covers the supplement and bibliographic record.
+
+Table S3, PDF page 8, contains 142 printed dates across 12 plants. This
+matches the abstract's sample count. Whangārei has two blank October
+slots. A calendar check finds seven actual dates outside Wednesday or
+Sunday, including Auckland West on 18 and 22 May. Use the printed date
+as the occasion key and retain the source column label separately.
+A weekday contrast requires explicit adjudication of the seven cases.
+
+Tables S13, S15, S17 and S19 provide occasion-level normalized loads for
+cotinine, hydroxycotinine, anatabine and anabasine. Preserve duplicate
+measurement variability separately from catchment and temporal uncertainty.
+Preserve censoring such as below quantification and above detection as
+reported. Table S20 describes differing populations and daily flows.
+The checked tables supply normalized loads and settlement classifications.
+Exact contributing population and occasion flow inputs still require
+verification before reconstructing the normalization or joining to survey
+denominators. The supplement supports a candidate occasion-level extraction.
+Admission, reuse rights, calibration and eligible holdout remain open.
