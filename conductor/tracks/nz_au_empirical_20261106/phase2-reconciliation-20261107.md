@@ -4645,3 +4645,31 @@ would need an independent outcome or qualified information
 on calibration drift before attributing the trend to use.
 
 [Wang et al., Equations 2 and 5–6 and Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
+
+## P2.222 Integration review checkpoint
+
+The reviewed evidence packet is `c239b18139b91dc170758f88a343b987fb7d880f..e421cdd55815c78192877dad97ed5f801cea08e1`.
+It starts with P1 prerequisite `403600b` and P2 starts
+at `a818f28`. The read-only preflight against the owning
+checkout at the packet base found 225 commits and 27 changed
+paths, with both worktrees clean and no overlaps, staged
+deletions or missing tracked paths. The last seven commits
+alone depend on the earlier introduction of this file.
+The preflight is a snapshot. Repeat it for the exact range
+and receiving ref selected by the integrator.
+
+| Plan item | Evidence for review | Evidence still required |
+|---|---|---|
+| NZ and AU integration | P2.9 Polars audit and P2.126 candidate packets. ACIC repeated-site design and Wang pool structure in P2.191–215. | Source admission with exact rights, archive readback and matched identities, periods and units. |
+| Reconciliation | NZ stock and lawful-flow bounds in P2.125–126 and later reconciliations. AU scope, dependence and calibration in P2.215–221. | Qualified stock and lawful-flow constraints and a product-specific catchment/calibration bridge for inference. |
+| Baseline and retail or cessation contrast | Finite-state reference replay remains separately recorded. P2.106–107 document the transport gap for cessation. | Eligible empirical baseline and independently supported contrast inputs before fit. |
+| Held-out score and ceiling | P2.215 records failure to qualify the prespecified country-year and catchment splits. | Frozen independent outcomes and eligible splits, then paired predictions and a decision model on the same scope. |
+| Publication | The local packet contains an explicit non-identification finding for these comparisons. | Integrator review of permitted payload, current receiving head and guarded publication with readback. |
+
+The retained verification is 87 focused tests and a full Nox
+run with 1,299 passed, 22 capability skips and 92% source-only
+coverage at the candidate-matching milestone. The later
+Australian sensitivity entries are reconciliation metadata.
+See [the matching task card](phase2-matching-task-card.md)
+for the qualified commands and failure/recovery history.
+The source review sequence in P2.126 still applies.
