@@ -3848,3 +3848,25 @@ does not establish campaign dates or catchment counts for
 the underlying packs.
 
 [FTI report hosted by BAT, Appendix A.4 and Table A.4](https://www.batnz.com/content/dam/endmarkets/nz/en/download/media/15-August-2025-New_Zealands_growing_illicit_tobacco_trade_calls_for_decisive_action_with_more_than_one_in_four_cigarettes_smoked_in_New_Zealand_being_illegal.pdf).
+
+## P2.184 Contraband output depends on traveller assumptions
+
+FTI Tables A.3–A.6 scale domestic cigarette sales D from
+retail scans by 1/(1-p), where p is the non-domestic share
+from empty packs. They subtract D, estimated counterfeit
+volume and modelled legal non-domestic volume L to obtain
+contraband. With counterfeit share c, the published formula
+is D(p-c)/(1-p) - L. Thus L changes the contraband estimate
+one-for-one with the pack observations held fixed. For
+example, removing the 14.6-tonne 2023 lawful allowance term
+would raise the reported approximately 205-tonne contraband
+estimate by 14.6 tonnes on that accounting basis.
+
+The result is a model sensitivity. Empty-pack classification
+alone does not distinguish lawfully carried tobacco from
+contraband. The combined output cannot validate the traveller
+term independently. Keep counterfeit separate and avoid
+adding non-domestic illicit whites again, since Table A.6
+includes those in contraband.
+
+[FTI report hosted by BAT, Tables A.3–A.6](https://www.batnz.com/content/dam/endmarkets/nz/en/download/media/15-August-2025-New_Zealands_growing_illicit_tobacco_trade_calls_for_decisive_action_with_more_than_one_in_four_cigarettes_smoked_in_New_Zealand_being_illegal.pdf).
