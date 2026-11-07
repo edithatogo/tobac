@@ -3107,3 +3107,26 @@ illicit share. The calculation uses the printed endpoints and
 does not infer an unreported midpoint from the table.
 
 [Original analysis, Table 2 and Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/).
+
+## P2.146 Historical anchor for the consumption uplift
+
+The paper derives the uplift from 2012 legal releases of
+2,864,000,000, unadjusted survey consumption of 2,473,240,000
+and an assumed illicit share of 5.8% based on foreign discarded
+packs in 2012/2013. This reproduces 1.22929 before rounding.
+The pack measure can include lawful foreign purchases. If the
+5.8% were entirely lawful and other inputs stayed fixed, the
+same formula would give 1.15800. These two scenarios isolate
+classification of the foreign-pack share. They do not bound
+all illicit tobacco, because domestic illicit products and
+differential pack disposal could also affect the comparison.
+
+At fixed 2012 releases and survey consumption, reaching the
+2023 upper-endpoint break-even uplift from P2.145 would require
+a historical illicit share of approximately 10.22% in the same
+formula. This illustrates how the residual depends on an
+assumption transported across years. The uplift shares the
+historical survey and release lineage and supplies no direct
+campaign calibration.
+
+[Original analysis, under-reporting adjustment](https://bmjpublichealth.bmj.com/content/bmjph/3/2/e002853.full.pdf).
