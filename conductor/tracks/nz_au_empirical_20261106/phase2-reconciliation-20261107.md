@@ -4908,3 +4908,24 @@ if the band tabulations can be qualified. It leaves the
 consumption outcome and catchment requirements open.
 
 [AIHW 2022–23 NDSHS questionnaire, items C24–C27](https://www.aihw.gov.au/getmedia/97c2aff7-6194-4946-bb02-a38c3d05a44e/aihw-phe340-ndshs-questionnaire-2022.pdf).
+
+## P2.232 Published survey top-band purchase floor
+
+AIHW reports that about 4% of current smokers in 2022–23
+and 10% in 2025 bought at least 15 packets without
+Australian plain packaging in the preceding three months.
+Using only this band gives rounded point floors of about
+60 and 150 reported packets per 100 current smokers over
+the respective recall windows. These calculations multiply
+the published point percentages by 15 and set all other
+bands to zero. They are neither survey confidence limits
+nor annual national packet totals. The two floors can rise
+even if the underlying mean falls because the open band's
+conditional average and all other bands remain unknown.
+
+The top-band release supplies an independent purchase
+intensity signal. It still leaves package size, lawful
+status, survey timing and purchase-to-use reconciliation
+open for the prespecified consumption outcome.
+
+[AIHW tobacco summary, illicit tobacco section](https://www.aihw.gov.au/reports/alcohol/alcohol-tobacco-other-drugs-australia/contents/drug-types/tobacco).
