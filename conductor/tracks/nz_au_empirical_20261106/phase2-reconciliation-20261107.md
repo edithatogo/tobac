@@ -1178,3 +1178,28 @@ adjustment and product-to-mass treatment remain open. Keep the lawful
 series and Wang residual linked in the dependence map. Source
 verification supports comparator appraisal and leaves empirical
 admission and rights to reproduce the underlying material open.
+
+## P2.36 Australian administrative clearance comparator
+
+The [ATO 2024 tobacco tax gap edition](https://www.ato.gov.au/api/public/content/0-882626e8-a57b-4b7a-ab16-0894492a4ff2)
+reports 7,736 tonnes of lawful clearances for financial year 2022–23.
+Its reported market total of 9,392 tonnes reconciles to clearances
+plus the estimated 1,656-tonne net illicit gap. Gross attempted
+supply is a different quantity that includes intercepted material.
+The original is retained at
+/Volumes/PortableSSD/tobac-p2-ato.zYOhCK/report.pdf with SHA256
+55548c04af658ffea51933a3593eed1c99e9bf2c8763313b6f0dda8ab9a7c734.
+
+The lawful-clearance row offers an administrative comparator to
+the FTI retail series. ATO's 7,736 tonnes falls between the rounded
+FTI calendar-year domestic sales values of 8,500 and 6,900 tonnes
+for 2022 and 2023. The overlapping periods prevent an exact match.
+For an aligned period, reconciling clearances with retail sales
+requires a bridge for changes in stocks after clearance, coverage
+and other flows. Traveller allowances also need a separate basis.
+The ATO illicit gap is modelled from importation, cultivation,
+historical warehouse leakage and enforcement adjustments.
+Keep those components grouped with their enforcement inputs.
+The fiscal-year administrative series is a candidate comparator
+pending a period and stock bridge. A direct substitution into
+Wang's calendar-year residual would confound those differences.
