@@ -1670,3 +1670,20 @@ indicator without assigning a numerical load to censored cells.
 Its target depends on assay and reporting conditions. It cannot
 substitute for the censored-load likelihood or establish the
 incremental value of wastewater for predicting the policy outcome.
+
+## P2.58 Partial bounds on sampled ANBA means
+
+Treating published quantified point values as fixed and censored
+loads as nonnegative, the quantified sum divided by all observed
+occasions gives a lower bound on the unweighted sampled mean.
+The May through October bounds are 1.221, 0.233, 0, 0.133,
+1.933 and 3.477 mg/day/1,000 people (rounded to three decimals).
+The denominator is 24 occasions per month through September and
+22 in October. The two missing October slots are excluded.
+
+The zero July bound reflects zero quantified loads. A finite upper
+bound from the censoring labels would require numerical thresholds
+on the load scale. These lower bounds alone cannot order the true
+sampled monthly means. The calculation neither imputes censored
+loads nor propagates error in the published quantified point values.
+It does not estimate a population-weighted mean or a policy effect.
