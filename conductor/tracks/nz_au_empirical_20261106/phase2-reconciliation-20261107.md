@@ -2496,3 +2496,18 @@ events outside the displayed dispensing years.
 
 [Pharmac funding restart](https://www.pharmac.govt.nz/medicine-funding-and-supply/medicine-notices/varenicline)
 and [Pharmac brand transition](https://www.pharmac.govt.nz/medicine-funding-and-supply/medicine-notices/varenicline-champix-your-brand-is-changing).
+
+## P2.111 Dispensing denominator definition
+
+Health NZ's Technical information tab defines initial dispensings
+as the initial or all-at-once dispensing of a prescription item,
+excluding repeats. NumPpl under that selector excludes anyone
+who only received repeat dispensings of the item during the
+calendar year. The 4,285 chemical-level people in P2.109 therefore
+measure receipt of at least one qualifying initial dispensing
+in 2025. They do not enumerate repeat-only recipients, unique
+treatment starts or completed courses. NHIComp is identifier
+completeness among counted prescription items. It does not
+measure treatment follow-up.
+
+[Health NZ Pharmaceutical Data web tool, Technical information](https://tewhatuora.shinyapps.io/pharmaceutical-data-web-tool/).
