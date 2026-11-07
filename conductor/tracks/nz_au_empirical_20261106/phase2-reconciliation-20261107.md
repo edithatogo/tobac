@@ -1920,3 +1920,16 @@ for underlying sampling records.
 
 [Crossref record](https://api.crossref.org/works/10.1016/j.watres.2023.121040)
 and [Elsevier article metadata](https://api.elsevier.com/content/article/PII:S004313542301480X?httpAccept=text/xml).
+
+## P2.74 What the Australian sample total can verify
+
+If all 340 analysed samples occupy distinct slots of the strict
+378-slot nominal calendar in P2.72, the 38 unoccupied slots can
+be allocated anywhere absent a roster. The resulting conditional
+count bounds for 2021 are 4–42 overall, 0–28 before the September
+tariff change, and 0–14 after it. The period-specific bounds are
+marginal and their lower endpoints cannot both occur together.
+Even under this calendar assumption, the aggregate count cannot
+verify that both sides of the tariff change have observations.
+A dated sampling roster or an explicit period-level count is
+needed before a pre/post split can be qualified.
