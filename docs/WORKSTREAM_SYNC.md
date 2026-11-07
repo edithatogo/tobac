@@ -171,3 +171,13 @@ candidate CLI verifies both flows in all 13 fieldwork-intersecting months.
 See phase2-reconciliation-20261107.md for the report and source receipt hashes.
 The next empirical gates are product and measurement compatibility, earlier
 fieldwork coverage, and existing-owner source admission.
+
+P2 source packet through 2f16206 is frozen for an admission handoff. P2.11–16
+retain product-level trade units, mass bounds, stock feasibility and dependent
+Customs-vintage comparisons in phase2-reconciliation-20261107.md. No new
+scientific input or empirical fit is admitted. The integration checkout is
+clean at c239b18139b91dc170758f88a343b987fb7d880f; its existing chat retains
+native/admission ownership. This chat remains the sole writer of the P2
+worktree. Next operation is one authorized handoff to that retained owner;
+messaging authorization is still unanswered. The full P1/P2 acceptance rows
+remain open, including policy, matching, rights and frozen holdout gates.

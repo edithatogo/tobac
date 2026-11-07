@@ -606,3 +606,42 @@ rendered Customs page. Script and result are retained under
 `/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`.
 Result SHA256
 `6571fc19c72120371be4ddbff1c699553577a80c56176c1988e4a54bd837017c`.
+
+## P2 terminal source packet and admission gate audit
+
+The source packet through `2f16206` is ready for the existing integrator's
+consideration. P1 is frozen at `403600b`; P2.2 closes at `b1cb8f4`;
+the executable candidate reconciler is `12c0716`; P2.10–P2.16 add historical
+trade, product/unit, stock-feasibility and Customs-vintage evidence above.
+These later additions change metadata only. Original sources and derived
+candidate artifacts remain at their recorded external paths.
+
+The latest full software receipt remains 1,299 passed and 22 capability skips,
+with 92% source coverage and zero strict typing errors or warnings. The
+initial storage failure and subsequent corrected full run remain recorded.
+No new model code requires repeating that unchanged software evidence.
+The existing numerical replay is reference-model evidence, not a fitted
+empirical result.
+
+Current readback finds the native/integration checkout clean at
+`c239b18139b91dc170758f88a343b987fb7d880f`. Its owner remains chat
+`01a19a6e-2e47-7b10-8a35-4e7d7fedb965`; this lane has not mutated its
+checkout, private bindings or source admission. Phase 0 local qualification
+does not close Phase 1 or Phase 2.
+
+The next dependency is the existing owner's source-admission decision using
+the frozen packet. Before fitting, the plan also requires resolved rights
+and destinations, original-source acceptance, compatible product/period/
+denominator and dependence semantics, a complete dated policy contrast,
+and a frozen eligible observation/holdout manifest. Source inventories,
+mass bounds and stock witnesses cannot close those tasks. No new empirical
+baseline, policy fit, held-out predictive score or WBE information result
+has been produced. All Phase 1 and Phase 2 acceptance rows remain open.
+
+Proposed single handoff: ask the retained integrator to review this packet
+for its existing admission scope and return an exact acceptance or blocker
+receipt. It does not authorize publication, native activation or scope
+expansion. No message has been sent: the chat messaging tool explicitly
+requires human authorization to message the destination chat, and the prior
+request has no recorded answer. Further source arithmetic does not resolve
+this recurring admission dependency.
