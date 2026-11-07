@@ -4994,3 +4994,25 @@ no allowance for survey error, stock or package mass.
 It cannot establish the direction of illicit consumption.
 
 [AIHW tobacco workbook, Table 1.33](https://www.aihw.gov.au/getmedia/5fc9ac6e-2f49-415e-a4fa-001a72fcad52/aihw-phe-371-Tobacco.xlsx).
+
+## P2.236 Survey uncertainty sensitivity for the purchase threshold
+
+Table 1.33 cells E68:F72 report marginal margins of
+error for the five purchase bands. Move the 2025 band
+prevalences down by their respective margins and the
+2022–23 band prevalences up, starting its flagged
+less-than-0.1% cell at 0.1%. Apply the same band
+endpoints as in P2.234–235. The resulting 2025 floor
+is about 147.5 packets per 100 current smokers and the
+earlier closed bands contribute at most about 39.3.
+With the earlier top-band share increased to about
+4.97%, the corresponding conditional mean threshold
+falls from 43.2 to about 21.8 packets.
+
+This is a simultaneous perturbation of marginal estimates,
+with no joint coverage claim. The workbook does not supply
+cross-band covariance in this table. The top-band mean
+remains unobserved, and the direction of consumption
+remains unresolved.
+
+[AIHW tobacco workbook, Table 1.33](https://www.aihw.gov.au/getmedia/5fc9ac6e-2f49-415e-a4fa-001a72fcad52/aihw-phe-371-Tobacco.xlsx).
