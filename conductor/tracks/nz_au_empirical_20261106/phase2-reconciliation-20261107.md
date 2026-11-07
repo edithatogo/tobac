@@ -4253,3 +4253,24 @@ from these survey waves.
 
 [AIHW 2019 metadata](https://www.aihw.gov.au/about-our-data/our-data-collections/national-drug-strategy-household-survey/2019-ndshs)
 and [AIHW 2022–23 metadata](https://www.aihw.gov.au/about-our-data/our-data-collections/national-drug-strategy-household-survey/2022-ndshs).
+
+## P2.205 ABS smoking denominator screening
+
+ABS tested a smoking-status question for the 2021 Census
+and omitted it from the final collection. Census small-area
+population totals therefore cannot directly supply a
+contemporaneous smoking-status numerator.
+
+The experimental ABS Smoker Status 2021–22 dataset pools
+four household surveys collected from July 2021 to June 2022.
+That envelope covers both ACIC rounds. It reports daily
+smoking prevalence of 15.7% for outer regional and remote
+adults and 8.9% for major-city adults nationally. These
+remoteness aggregates do not map to the eight anonymised
+Queensland catchments or resolve August-to-December change.
+The measure includes cigars and pipes and excludes vaping.
+It provides prevalence context without the nicotine mass
+or product mix needed to narrow P2.203.
+
+[ABS 2021 Census topic decisions](https://www.abs.gov.au/statistics/research/2021-census-topics-and-data-release-plan)
+and [ABS Smoker Status 2021–22](https://www.abs.gov.au/articles/insights-australian-smokers-2021-22).
