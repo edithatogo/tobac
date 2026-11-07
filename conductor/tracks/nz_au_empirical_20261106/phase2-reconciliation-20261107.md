@@ -3279,3 +3279,22 @@ prevalence export did not supply a mean or its interval.
 
 [2022/23 adult showcards](https://www.health.govt.nz/system/files/2023-12/2022-23-nzhs-adult-showcards.pdf)
 and [2015/16 indicator guide](https://www.health.govt.nz/system/files/2016-12/indicator-interpretation-guide-2015-16-nzhs-dec16.pdf).
+
+## P2.154 Retained survey export verifies intensity interval
+
+This supersedes the P2.153 statement about the prevalence
+export. The earlier search used longer indicator phrases and
+missed the actual label, Mean number of cigarettes. The
+2024/25-vintage NZHS export retained in P2 has a unique
+adults, 2023, Total row at CSV line 19,942. It reports 9.3
+and a marginal interval of 8.7–9.9. The verified file SHA256
+is 6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915.
+This is a later-vintage readback for the 2022/23 survey.
+
+The P2.152 break-even of 9.70127 falls inside that interval.
+Varying intensity alone from 8.7 to 9.9 at 314,000 daily
+smokers and uplift 1.23 moves the P2.149 adjusted residual
+from about -141.15 million to +28.01 million equivalents.
+This pairing with a fixed upper count is a sensitivity,
+without joint confidence coverage. Product eligibility and
+campaign alignment remain unverified.
