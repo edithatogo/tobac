@@ -2523,3 +2523,16 @@ funded community pharmacy records under P2.111's definition.
 The display does not identify indication, direct supply outside
 claims, adherence or cessation. Do not add nicotine and
 varenicline people counts without a joint deduplicated source.
+
+## P2.113 Bounds on combined medication dispensing reach
+
+The 2025 national initial-dispensing marginals in P2.109 and
+P2.112 bound the number of people receiving nicotine or
+varenicline at 72,592–76,877, conditional on both published
+counts enumerating people in the same calendar-year claims
+universe. The lower bound places every varenicline recipient
+in the nicotine group and the upper bound assumes no overlap.
+SA1845's concurrent-treatment rule does not exclude sequential
+use in the same year. The bound covers two funded chemicals
+only and does not measure all cessation support, unique course
+starts or additional reach under a policy change.
