@@ -947,3 +947,25 @@ and conditional-normalization.csv (SHA256
 These diagnostics remain candidates for appraisal. Fit and holdout
 eligibility still require source admission and supported normalization,
 catchment and censoring semantics.
+
+## P2.27 Anabasine threshold and dilution cross-check
+
+Indexed publisher text for [Kim et al.](https://doi.org/10.1016/j.scitotenv.2025.181223)
+exposes Table 1 and section 2.4.2. Table 1 gives ANBA LoD 0.5 ng/mL and
+LoQ 2.5 ng/mL on the calibration scale. Section 2.4.2 describes loading
+100 mL of wastewater and reconstituting the residue in 0.5 mL.
+The nominal volume-only conversion under unit recovery and no further
+dilution gives 2.5 and 12.5 ng/L on the influent scale.
+
+Table S12 identifies seven distinct dilution-trial occasions, including
+two trial factors for Hamilton June Wednesday. Joining these seven keys
+to the verified S19 export finds six censored cells and one quantified
+cell, Hamilton June Wednesday (5.6 ± 1 mg/day/1,000 people).
+Applying a factor of two indiscriminately to that occasion would put its
+nominal influent LoQ at 25 ng/L. This exceeds the Hamilton site maximum
+of 18.7 ng/L in S20 despite the quantified S19 cell. The inconsistency
+rules out that blanket mapping under the volume-only assumptions.
+The trial table records tested factors and responses. Effective
+sample thresholds require the selected processing path, recovery and
+concentration-scale convention. The nominal thresholds remain diagnostic
+and the 117 censored cells retain symbolic bounds in the candidate data.
