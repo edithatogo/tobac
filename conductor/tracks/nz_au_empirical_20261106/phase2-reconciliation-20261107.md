@@ -5016,3 +5016,23 @@ remains unobserved, and the direction of consumption
 remains unresolved.
 
 [AIHW tobacco workbook, Table 1.33](https://www.aihw.gov.au/getmedia/5fc9ac6e-2f49-415e-a4fa-001a72fcad52/aihw-phe-371-Tobacco.xlsx).
+
+## P2.237 AIHW replay receipt and validation disposition
+
+The external AIHW intake keeps the workbook identified
+in P2.234 beside replay-purchase-bounds.py, SHA256
+c2a0b42f1cf4f2314dcfcdb0b3f871d93afcae6e3633b6b29e03b373b9d311ce.
+Running that script with repo-local Python 3.15.2 verifies
+workbook fixity and the worksheet and year identifiers.
+It reproduces the 75.6 and 200.1 point floors and the
+43.2 and 21.8 conditional thresholds. The script and original
+remain in the external intake. This is local replay evidence.
+
+For the P2.222 integration review, the survey now supplies
+a reproducible independent purchase diagnostic. It lacks
+the outcome units, dates and catchment support required
+for the prespecified holdout. Keep the survey diagnostic
+separate from the dependent ABS and ITEC model outputs
+and the ATO supply series. The integration checkout still
+reads c239b18. No source-admission receipt for this survey
+or a consumption fit follows from the local replay.
