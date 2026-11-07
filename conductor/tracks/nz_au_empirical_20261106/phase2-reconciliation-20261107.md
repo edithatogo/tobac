@@ -1601,3 +1601,20 @@ October dates have only one label. This limits within-regime
 comparison even when conditioning on the same national covariate
 values. The graph uses study labels and dates. It makes no claim
 about catchment comparability or covariance.
+
+## P2.54 Date support under candidate plant holdouts
+
+Leaving out each plant label in turn, 135 of the 142 test occasions
+have at least one training occasion on the same collection date.
+Seven dates vanish from training in their respective folds: one
+each for Auckland North and Dunedin, three for Auckland West, and
+two for Wellington. The other eight folds retain every test date
+in training. Counts use the unique P2.47 plant-date keys and keep
+all analytes for each key together.
+
+A spatial evaluation with date effects estimated only from training
+would require a prediction rule for unseen dates. A score restricted
+to shared dates would cover 135 occasions and omit observations
+unevenly across plants. Record coverage separately before comparing
+scores. These are candidate fold diagnostics. Catchment qualification
+and the prespecified holdout gate still apply.
