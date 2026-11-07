@@ -3671,3 +3671,22 @@ A common deferral fraction cannot reconcile the series under
 this model. Month-specific fractions, adjustments and other
 reporting differences remain possible. The comparison does
 not estimate which entries were deferred.
+
+## P2.175 Feasibility of month-specific deferral
+
+Treat the wider heading's paid duty as monthly capacity for
+the selected subcode. Start with zero carry-in and settle
+prior-month deferred liability first, then as much of this
+month's nominal liability as the remaining capacity allows.
+Defer only this month's excess. For both subcodes the
+incoming balance fits within each following month's paid
+capacity. At October end the light-cigarette and smoking-tobacco
+balances are NZ$5,250,871.74 and NZ$7,553,093.95. Both fit
+within November's respective wider-heading totals.
+
+This is a feasibility witness for the six campaign cohorts
+under variable same- or next-month settlement and nonnegative
+unspecified residuals. It does not assign November imports,
+identify the residuals or infer actual deferral fractions.
+P2.174 rules out a common fraction, while the paid aggregates
+alone leave variable deferral compatible with the data.
