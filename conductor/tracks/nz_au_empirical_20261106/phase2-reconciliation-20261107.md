@@ -1875,3 +1875,16 @@ matching must use actual dates, and this single regional series
 would still lack an independent untreated comparison.
 
 [Wang et al., regional study](https://pubmed.ncbi.nlm.nih.gov/38154341/).
+
+## P2.71 Exact institutional record for the regional study
+
+UQ's author publication list links DOI 10.1016/j.watres.2023.121040
+to eSpace record UQ:2198f1f. The exact public record returned HTTP
+403 in both web retrieval and a bounded direct CLI request. The
+candidate UQ library API path also returned 403 and was not qualified
+as a record route. The institutional listing verifies the record
+identity. Manuscript availability and a daily sampling roster
+remain unknown behind the access response.
+
+[UQ author publications](https://about.uq.edu.au/experts-publication/49869/4748)
+and [eSpace record](https://espace.library.uq.edu.au/view/UQ%3A2198f1f).
