@@ -4120,3 +4120,20 @@ programme weighting uncertainty are separate. These bounds
 are conditional on common weights, the eight-site roster and
 the chart-derived means. They leave the sign unidentified
 from the public population bands alone.
+
+## P2.198 Replay the pilot site means from pinned reports
+
+The retained replay-means.py verifies both P2.192 PDF hashes,
+reads the eight regional codes from each sampling appendix,
+regenerates both SVG pages and requires one deduplicated
+internal line at each recorded box edge. It reproduces all
+16 rounded values in P2.195. The bounded repo-local Python
+3.15.2 run passed at 73.8 MiB sampled group peak. The
+external script beside the originals has SHA256
+9b8ee98a9b96c7ba95786c36919177e6bb6d675eba0398390a18f3f40c9334bf.
+
+Calibration still uses the recorded raster tick separation.
+Several estimates sit near rounding boundaries, including
+August site 029 at 2649.92 and December site 053 at 4353.62.
+The replay proves repeatability at the chosen coordinates.
+It leaves axis uncertainty and exact source values open.
