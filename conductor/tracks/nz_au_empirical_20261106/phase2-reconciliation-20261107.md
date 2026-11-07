@@ -2213,3 +2213,21 @@ Keep smoking-only reach and matched outcome rates open.
 
 [2025 impact summary](https://www.procare.co.nz/media/4009/procare-annualreport-2025-final.pdf)
 and [2024 impact summary](https://www.procare.co.nz/media/3866/procare-annualreport-2024-final-compressed.pdf).
+
+## P2.94 Queensland Quitline service activity
+
+Queensland Health's 2024/25 annual report (p. 43) records 12,134
+completed single support sessions and 6,292 intensive programs.
+The latter include access to free nicotine replacement therapy.
+The Chief Health Officer describes both smoking and vaping support,
+and intensive service eligibility for selected groups. The activity
+counts have different units and cannot be added as unique people
+or compared directly with the NZ Quitline count of people supported.
+They provide a Queensland service delivery anchor. A smoking-only
+denominator, measured quit outcomes, and Australian national reach
+remain open. The Chief Health Officer's six-month comparison is
+reported for program completers and supplies no causal contrast
+without its underlying comparison design and denominators.
+
+[Queensland Health annual report, p. 43](https://www.health.qld.gov.au/__data/assets/pdf_file/0025/1466125/annual-report-2024-2025.pdf)
+and [Chief Health Officer service description](https://www.choreport.health.qld.gov.au/our-lifestyle/spotlight).
