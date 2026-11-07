@@ -2604,3 +2604,17 @@ at 21 mg. The patch label denotes a delivery strength, so
 summing patch and oral strengths would mix quantities with
 different meanings. None supplies the dose actually used,
 systemic exposure or mass entering wastewater.
+
+## P2.119 Patch content versus nominal delivery
+
+The January 2024 Habitrol data sheet lists 17.5, 35 and 52.5 mg
+of nicotine content per patch for nominal 24-hour delivery
+strengths of 7, 14 and 21 mg respectively. If the 2023 formulation
+rows in P2.118 all follow that specification, the dispensed
+patches represent 89.783 kg of product content and 35.913 kg
+of nominal 24-hour delivery capacity. The formulation export
+does not prove the brand mix or historical specification.
+Both totals are conditional and neither measures use, absorbed
+dose or disposal into sewers. Keep these pathways separate.
+
+[Habitrol data sheet, section 2](https://www.medsafe.govt.nz/profs/datasheet/h/HabitrolTTS.pdf).
