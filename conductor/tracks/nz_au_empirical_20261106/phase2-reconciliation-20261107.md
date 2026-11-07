@@ -2637,3 +2637,20 @@ and Schedule-2023-10.pdf (SHA256
 
 [May schedule](https://schedule.pharmac.govt.nz/2023/05/01/Schedule.pdf)
 and [October schedule](https://schedule.pharmac.govt.nz/2023/10/01/Schedule.pdf).
+
+## P2.121 Full-year funded patch listing continuity
+
+The first-of-month Pharmac Schedule editions for all twelve months
+of 2023 list Habitrol at each of the three patch strengths in
+P2.118. No other brand appears on the matching patch lines in
+those editions. This supports a calendar-year funded brand
+mapping at monthly schedule resolution. Claim-level brand,
+any intervening corrections, and historical formulation
+equivalence to the January 2024 sheet remain separate checks.
+
+The P2.101 external intake holds all twelve PDFs and
+2023-schedule-sha256.txt (SHA256
+409c9d4941bf79029d4eb3c8c747ddd86e73a7609925f59026c959a95659e553).
+All twelve PDF hashes passed readback.
+
+[Pharmac schedule archive](https://schedule.pharmac.govt.nz/cpsschedules.php).
