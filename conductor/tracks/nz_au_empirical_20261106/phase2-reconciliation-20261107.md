@@ -1769,3 +1769,15 @@ composition diagnostic. Differential recovery, source mixtures
 and sewer behavior remain possible explanations. The ratio shares
 evidence with all three component measurements and should not enter
 a likelihood as an independent observation.
+
+## P2.64 Sensitivity to the cotinine denominator
+
+For the 40 P2.63 occasions, the mean occasion-level ANTA/COT ratio
+falls from 0.010999 to 0.008935 between September and October
+(14 of 20 paired declines). ANTA/COT-OH falls from 0.004837 to
+0.004223 (13 paired declines). The sign of the sampled mean change
+persists with either denominator. Meanwhile the COT-OH/COT ratio
+falls from 2.278 to 2.114 (13 paired declines), so assuming a fixed
+empirical metabolite ratio would discard observed composition
+variation. These comparisons reuse the same measurements and
+retain the shared-multiplier and assay qualifications in P2.63.
