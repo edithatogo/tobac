@@ -207,3 +207,12 @@ metadata. Eight selected abstracts are assessed: six full-text queue, two pendin
 transferability, 467 unscreened. None is an included study or admitted input.
 Originals and failed/superseded representations remain external and preserved.
 Same owner/scope; no source admission, native write, empirical fit or chat message.
+
+P2.20 from 66807d1 verifies 25,067 S1 and 3,048 S3-v3 PubMed candidate IDs,
+original XML and kind-preserving imports, with prespecified seed checks.
+The first upstream 503/partial response is retained; one exact-batch recovery
+and hash-verified reuse complete retrieval without repeating prior batches.
+Five PubMed families index 27,507 exact PMIDs. Cross-dialect human-review flags,
+Europe PMC S1 discrepancy and all remaining systematic screening/source/fit
+gates are retained. Original payloads and import/ID artifacts remain external.
+Same ownership; no native/other-owner mutation, source admission or message.

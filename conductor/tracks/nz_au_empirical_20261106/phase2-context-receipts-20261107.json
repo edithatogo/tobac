@@ -1070,5 +1070,30 @@
     "admitted_observations": 0,
     "fit_executed": false,
     "logs": "outputs/nz-au-phase2-search-s5-20261107"
+  },
+  "pubmed_s1_s3_p2_20": {
+    "base_commit": "66807d11e165ea8b453725fee74d6ee76a051342",
+    "external_intake": "/Volumes/PortableSSD/tobac-p2-search-s1s3.mV6Dai",
+    "publication_cutoff": "2026-11-06",
+    "retrieval_date_utc": "2026-11-07",
+    "s1_compilation_sha256": "b21063c015cdac15942be279c3f25225d92062c8eb42e599024b589ae7e83a3f",
+    "s3_compilation_sha256": "57b33abd719c700d20fde7b4a31d81ce46742d3b97f3ef70f72dad2c210aed50",
+    "cross_dialect_human_review_required": true,
+    "initial_census_sha256": "153161751570a374a341c60b56385528f8fde72ee96b655be22881211ddf1b2c",
+    "retrieval_receipt_sha256": "cb01e062e8f4534839a1056013857ba5d7851f167b21170242a37caef6eb9efe",
+    "import_receipt_sha256": "502af2993dc05435e35ed87dff8624bae47e7fdeb9e50e4bde626eda4c43e12d",
+    "membership_receipt_sha256": "1203e736e2d0c07bf9513c855fe914fa27562081f76c3a6e802af6e6c95f1b10",
+    "s1": {"unique_ids": 25067, "complete_date_leaves": 9, "repeated_leaf_occurrences": 695, "xml_batches": 126, "book_or_chapter_records": 41, "recovered_seed_pmids": ["36627213", "41661592"]},
+    "s3_v3": {"unique_ids": 3048, "complete_date_leaves": 1, "xml_batches": 16, "book_or_chapter_records": 35, "recovered_seed_pmids": ["36627213"]},
+    "first_failure": {"verified_records_before_failure": 9800, "http_status": 200, "embedded_upstream_status": 503, "terminal_exit": 1, "xml_sha256": "2735badd3243ff65bfee5d226a0a976ad8ee04ebc253be37261e7a1dd7ef5466"},
+    "exact_recovery": {"attempts": 1, "requested_ids": 200, "xml_sha256": "67becbc04b6c774d3511532e2c9bffacee63c1f3e137d4a90c77c460477aa0f3", "prior_complete_batches_reused": true},
+    "pubmed_query_occurrences": 28913,
+    "pubmed_unique_pmids": 27507,
+    "pubmed_pmids_in_multiple_families": 1388,
+    "screening_complete": false,
+    "new_screening_decisions": 0,
+    "admitted_observations": 0,
+    "fit_executed": false,
+    "logs": "outputs/nz-au-phase2-search-s1s3-20261107"
   }
 }

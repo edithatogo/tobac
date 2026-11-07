@@ -754,3 +754,39 @@ software/reference receipts are reused; no new model execution is claimed.
 S1/S3 retrieval, remaining screening, current policy completion, archive/source
 admission, calibration and frozen eligible holdout remain open. No chat message
 or other-owner/native write occurred.
+
+## P2.20 complete S1/S3 candidate retrieval and PubMed memberships
+
+Frozen S1 and S3-v3 concepts compile to PubMed Title/Abstract queries with a
+cross-dialect human-review warning retained. Original XML retrieval and
+import are executed evidence for these candidate query editions. They do not
+resolve that review flag or admit any evidence. The native date cut-off is
+6 November 2026; retrieval is 7 November. Initial and final root counts and
+available IDs match. S1's nine complete date leaves preserve 695 repeated ID
+occurrences and reconcile to 25,067 IDs; S3's single leaf reconciles to 3,048.
+Prespecified S1 seeds 36627213 and 41661592, and S3-v3 seed 36627213, are present.
+
+The first acquisition terminates at 9,800 valid S1 records with an HTTP 200
+partial XML response and an embedded upstream 503. No scientific rows are
+read from that response. One exact 200-ID recovery succeeds under a new file;
+the old bytes and receipt are preserved. All 126 S1 and 16 S3 verified XML
+batches bind received IDs to requested IDs. Retained response volume for the
+successful request set is 498,279,162 bytes, excluding the separate first
+failure. Sampled peaks: initial failure 104.6 MiB, successful continuation
+128.5 MiB. No resource limit changed.
+
+Searchright native XML imports retain 25,026 S1 and 3,013 S3 journal-article
+records. Supported CSL imports retain the source book/chapter kinds for the
+other 41 and 35 occurrences. Full imported ID sets, source title/plain abstract
+text and author counts reconcile. Article abstract section labels are omitted
+by the native importer but retained in original XML. Import passed at 239.1 MiB
+sampled peak. Exact PMID membership across the five query families gives
+28,913 occurrences, 27,507 unique IDs and 1,388 IDs in multiple families.
+This does not assert unique studies or propagate screening decisions.
+
+Originals/scripts/receipts remain under /Volumes/PortableSSD/tobac-p2-search-s1s3.mV6Dai.
+Only metadata/hash pointers enter tobac. The context receipt pins the acquisition,
+failed/recovered XML, actual import and membership results. Earlier Europe PMC
+S1 drift, translation review, grey-source/citation and screening gates remain;
+no new eligibility decision, scientific admission, fit or holdout score exists.
+No maintained code changed; existing software/reference checks are reused.

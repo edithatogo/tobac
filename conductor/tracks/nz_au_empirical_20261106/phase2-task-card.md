@@ -282,3 +282,37 @@ content for any recorded screening decision, keeping a full-text queue and sourc
 identity; unavailable text stays pending. No inclusion, source admission, model fit,
 native writes or messages to the retained integrator are implied. Local expensive
 work uses actual Python 3.15.2, serial 4096 MiB / 2400 s guards and zero blind retries.
+
+## P2.20 S1/S3 native PubMed candidate retrieval — 7 November 2026
+
+Same owner/worktree/branch, clean base 66807d1. Advance the remaining source
+retrieval prerequisite using the existing S1 and amended S3-v3 concepts.
+Searchright's PubMed compiler exposes a cross-dialect human-review warning;
+retain it, with no claim of approved PRESS review or completed systematic evidence.
+Initial exact native reads return 25,067 S1 and 3,048 S3 IDs/hits; S1 exceeds
+the connector's 10,000-result window. Use qualified native NCBI ESearch/EFetch
+for explicit inclusive publication-date partitioning and bulk original XML,
+retaining every request/response/hash and count. No query vocabulary is changed.
+Keep the 6 November cut-off and distinguish candidate retrieval from approval,
+screening, study inclusion or empirical admission. Preserve cross-partition ID
+overlaps rather than treating them as separate studies. Stop on unknown XML
+record types, failed requests, ID/count drift or incomplete returned sets.
+
+Own only this card, systematic-search continuation, P2 reconciliation/context
+receipts and WORKSTREAM_SYNC. Originals, scripts and candidate outputs stay
+under /Volumes/PortableSSD/tobac-p2-search-s1s3.mV6Dai; logs remain ignored under
+outputs/nz-au-phase2-search-s1s3-20261107. No private/native/other-owner write,
+runtime change or external message. Local acquisition/import runs serially via
+actual Python 3.15.2 and the 4096 MiB / 2400 s guard, below three NCBI requests
+per second without API keys. Zero retries; retain failures and completed batches.
+Check actual IDs, source kinds, query translation and prespecified seeds before
+claiming candidate retrieval completeness; existing scientific gates remain.
+
+P2.20 first acquisition stops after 9,800 verified S1 XML records. The next
+HTTP 200 response contains an embedded upstream 503 and lacks a complete XML
+root (SHA256 2735badd3243ff65bfee5d226a0a976ad8ee04ebc253be37261e7a1dd7ef5466).
+Retain that failed source and terminal status 1 (104.6 MiB sampled peak).
+One identified transient read-only recovery is permitted for exactly that
+200-ID batch, under a new recovery1 filename. Revalidate and reuse existing
+hash/URL-bound requests and complete batches; do not repeat the whole search.
+Future failures stop without automatic retry. No resource limit is changed.

@@ -222,3 +222,38 @@ source hashes under /Volumes/PortableSSD/tobac-p2-search-s5.jLmFdk.
 S1/S3 PubMed retrieval, remaining screening, grey sources, citation coverage,
 source verification and archive admission remain open. These source/query
 retrieval results do not complete the systematic evidence or P2 fit gates.
+
+## PubMed S1 and S3-v3 candidate editions — 7 November 2026
+
+The retained Searchright compiler translated the frozen S1 and amended S3-v3
+ASTs to PubMed Title/Abstract syntax. Both compiled receipts flag a different
+declared dialect and require human review; these runs qualify source retrieval
+and seeds without claiming approved PRESS review or an accepted translation.
+The explicit publication cut-off remains 6 November. Native ESearch was used
+to reconcile the ID universe, and EFetch retains original XML for those IDs.
+
+S1 exceeds the PubMed result window: the root exposes 9,999 of 25,067 IDs.
+Nine complete inclusive date leaves contain 695 repeated ID occurrences;
+their union matches 25,067, including the available root IDs. S3 returns all
+3,048 IDs in one leaf. Root counts and available ID sets stay stable from
+initial to final read. Both designated S1 seeds and the amended S3-v3 seed
+are recovered. The earlier Europe PMC S1 count discrepancy stays open.
+
+Original XML and exact ID sets reconcile across 126 S1 and 16 S3 batches.
+The first S1 run stopped at 9,800 verified records on an HTTP 200 partial
+XML response with an embedded upstream 503. That response and failed run
+remain preserved; one exact-batch recovery succeeded, with prior verified
+batches reused. Existing Searchright PubMed XML import and kind-preserving
+CSL transport account for all 25,067/3,048 records, including 41/35 native
+book or chapter occurrences. Source title, plain abstract text and author
+counts were checked. Article abstract section labels remain in original XML;
+the article importer joins the text without those labels.
+
+Across all five PubMed query families, 28,913 occurrences represent 27,507
+unique PMIDs, including 1,388 with multiple family memberships. The external
+membership index preserves source links and performs no title/DOI or study
+deduplication. No new screening decisions were made in this retrieval run;
+the eight earlier S5 assessments remain at their original scope. Remaining
+translation review, grey sources/citations, screening, original appraisal
+and archive/admission gates stay open. Originals, exact requests, failed
+response, corrected continuation and hashes are in the P2.20 external intake.
