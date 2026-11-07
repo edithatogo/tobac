@@ -4592,3 +4592,28 @@ bias, policy effects or incremental held-out performance.
 
 [Wang et al., Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
 [FTI report, Figures 5-1 and 5-2 and Appendix B](https://www.pmi.com/content/dam/pmicom/markets/australia/docs/fti-consulting-illicit-tobacco-in-australia-2024-full-report.pdf).
+
+## P2.220 Can a constant calibration reconcile both Australian endpoints?
+
+Wang Equations 2 and 5 scale estimated tobacco tonnes by
+the ratio of tobacco mass per cigarette to anabasine yield
+per cigarette. Holding biomarker loads, annualisation and
+FTI quantities fixed, matching the 2023 FTI implied total
+requires a multiplier of 9,700 / 10,300 = 0.942. Applied
+one input at a time, this is about 0.659 g per cigarette
+at the published 1.13 micrograms of anabasine per cigarette,
+or about 1.200 micrograms per cigarette at the published
+0.7 g. The total alone cannot distinguish those changes.
+
+For 2017, FTI Figure 5-1 gives 13,500 lawful plus 2,300
+illicit tonnes. Matching that total requires 15,800 /
+14,650 = 1.078. Using the 13,300-tonne domestic figure as
+a sensitivity instead gives 1.065. Thus a single constant
+multiplier cannot reconcile both rounded endpoints under
+either 2017 convention. This check fixes FTI outputs and
+varies only wastewater calibration. It supplies no
+estimate of time-varying biomarker yield, product mix,
+programme coverage or error in the legal and illicit inputs.
+
+[Wang et al., Equations 2 and 5 and Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
+[FTI report, Figures 4-1 and 5-1](https://www.pmi.com/content/dam/pmicom/markets/australia/docs/fti-consulting-illicit-tobacco-in-australia-2024-full-report.pdf).
