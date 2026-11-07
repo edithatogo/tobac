@@ -3981,3 +3981,24 @@ establish a change in combustible use or an excise effect.
 
 [ACIC Queensland August summary](https://www.acic.gov.au/sites/default/files/2022-03/Key%20findings%20Queensland%E2%80%94Report%2015%20.pdf)
 and [ACIC Queensland December summary](https://www.acic.gov.au/sites/default/files/2022-06/Key%20findings%20Queensland%E2%80%94Report%2016.PDF).
+
+## P2.191 Matched ACIC regional site codes
+
+Appendix 2 of Reports 15 and 16 confirms that the same eight
+anonymised Queensland regional codes participated in August
+and December 2021. They are 012, 024, 028, 029, 033, 042,
+053 and 077, each with seven sampling days in each round.
+Both reports describe codes as unique for the course of the
+programme. This resolves within-ACIC regional roster overlap
+from P2.190 without mapping codes to named plants. The
+three capital codes also recur, but site 005 has five days
+in December versus seven in August.
+
+This is programme design evidence for eight repeated regional
+sites. It does not establish numeric nicotine readback,
+sample-date alignment, independence from Wang or a shared
+catchment identity across studies. The published nicotine
+measure still pools multiple sources.
+
+[ACIC Report 15](https://www.acic.gov.au/sites/default/files/2022-03/National%20Wastewater%20Drug%20Monitoring%20Program%20Report%2015%20%28v13_FINAL%20no%20UE%29.PDF)
+and [ACIC Report 16](https://www.acic.gov.au/sites/default/files/2022-06/National%20Wastewater%20Drug%20Monitoring%20Program%20Report%2016.PDF).
