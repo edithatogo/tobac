@@ -3355,3 +3355,23 @@ The pairs lack a matched lawful-consumption quantity and
 independent outcome on the same time, population and product
 basis. Annualisation also leaves the COVID-affected fieldwork
 windows unresolved. Do not freeze a holdout from these rows.
+
+## P2.158 Historical legal-release pairing sensitivity
+
+The published consumption-gap Table 2 gives calendar 2019–22
+legal releases of 2,141,165,458, 2,036,927,425, 1,897,417,427
+and 1,555,851,255 stick equivalents, respectively. Holding
+the P2.157 survey quantity fixed, pairing to the calendar
+end year instead of the start year increases the subtraction
+residual by 104,238,033, 139,509,998 and 341,566,172 equivalents
+for the 2019/20, 2020/21 and 2021/22 waves, respectively.
+The change is exactly the difference in the two release totals
+and requires no choice of survey uplift.
+
+The article uses end-year pairing. Both choices shift the
+calendar coverage and neither gives actual releases during
+each survey window. The discrepancy is especially large for
+the 2021/22 wave. Calendar aggregates and a pairing rule
+cannot meet the complete-year validation requirement.
+
+[Original analysis, Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/).
