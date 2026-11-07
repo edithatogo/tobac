@@ -1830,3 +1830,16 @@ rate. The 2026 rate in P2.65 belongs to the later policy baseline.
 
 [2023 amendment order](https://www.customs.govt.nz/media/45sl0kmj/order-in-council-excise-and-excise-equivalent-duties-table-tobacco-products-indexation-amendment-order-2022.pdf)
 and [Customs rate notice](https://www.customs.govt.nz/about-us/news/important-notices-archive/important-notices-archive-2022/new-excise-duty-rates-for-tobacco-and-tobacco-products-from-1-january-2023).
+
+## P2.68 Australian historical import duty anchor
+
+ABF notice ACN 2021/34 records excise-equivalent customs duty from
+1 September 2021 of AUD 1.11905 per stick for tariff subheading
+2402.20.20 and AUD 1,598.64 per kg tobacco content for 2402.20.80.
+These give a historical policy anchor at the end of the regional
+study's 2013–2021 coverage. They cannot be carried back across the
+study years. Each observation needs its own date match to the
+applicable schedule, and tariff units do not identify tobacco
+consumed, inventory movement or illicit share.
+
+[Australian Border Force notice](https://www.abf.gov.au/help-and-support-subsite/CustomsNotices/2021-34.pdf).
