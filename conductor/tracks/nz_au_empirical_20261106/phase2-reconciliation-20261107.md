@@ -3151,3 +3151,21 @@ sampling or legal-status adjustment. It further limits
 transfer of this historical uplift to the 2023 catchments.
 
 [Original discarded-pack study](https://nzmj.org.nz/journal/vol-126-no-1386/missed-tobacco-tax-revenue-from-foreign-packs-in-new-zealand-results-from-a-discarded-pack-collection-study).
+
+## P2.148 Duty-free treatment in the published comparison
+
+The published consumption-gap methods explicitly include
+duty-free factory-made cigarettes in the company-sales total.
+Holding all other terms fixed, removing the reconciled 4.6
+million duty-free cigarette releases from the P2.145 legal
+total moves the upper-endpoint residual from -63,764,186 to
+-59,164,186 stick equivalents. This is a mechanical sensitivity.
+It makes no RYO adjustment and does not infer how much of the
+removed supply was consumed domestically. A net adjustment
+would require direction, consumption and overlap evidence.
+The 2021/22 Wilson discarded-pack study took place under
+international travel restrictions and does not measure the
+lawful traveller contribution during the 2023 campaign.
+
+[Consumption-gap methods](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/)
+and [Wilson discarded-pack study](https://pubmed.ncbi.nlm.nih.gov/36028304/).
