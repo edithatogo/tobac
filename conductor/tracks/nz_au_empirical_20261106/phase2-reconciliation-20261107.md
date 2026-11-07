@@ -1269,3 +1269,25 @@ The public operator layer and contemporaneous surveillance report
 establish candidate catchments, while the plant key, boundary vintage,
 age structure and denominator used by Kim remain unverified.
 Keep the Wellington join pending a source crosswalk.
+
+## P2.40 September 2023 surveillance roster crosswalk
+
+All twelve Kim labels were checked against Appendix B of the retained
+September 2023 ESR report. Seven labels covering 82 occasions have a
+single same-name candidate after normalizing the Whangārei macron.
+Dunedin and Wellington account for 24 occasions and have three and
+two named candidates respectively. The other 36 occasions use
+Auckland Central, North or South, whose literal labels do not appear
+in that roster. The report has other Auckland site names and a
+source-supported alias mapping remains necessary. Even the single
+label matches require confirmation of the sampling location and the
+denominator used by Kim. Westport, for example, is listed as grab
+sampling in the ESR roster, which is programme-specific metadata.
+
+The candidate CSV keeps the published ESR population and sampling
+method separate from the Kim occasion counts. It retains every
+ambiguous candidate and blank fields for unresolved aliases.
+No candidate population was joined into the load table. The CSV is
+/Volumes/PortableSSD/tobac-p2-wellington.MjqdNf/roster-crosswalk-candidates.csv
+with SHA256 7d15d4fc2ba7998ef757d2b67ae1ef3b917b22ae81c64e096a44eab686d42502.
+The counts reconcile to the 142 dated occasions.
