@@ -1402,3 +1402,28 @@ The external output
 has SHA256 3ee1d4670696e35f5bd13cba59a830914fbb9ef9bbe961769a6863228f1363b6.
 The guarded assembly script occasion-coverage.py has SHA256
 b90467f9248c5b0d9248a455f3705ed8741bb605c8ff074d10086da701af5613.
+
+## P2.45 As-of availability of occasion context
+
+All 142 occasions precede the end of their matched trade month,
+price quarter and release year. This checks availability for a
+prediction dated at the sampling occasion. The matched complete
+period values would use information after that origin. For example,
+Stats NZ published the September 2023 CPI on 17 October, after all
+September sample dates. The retained 2023 HS10 annual archives are
+the final September 2026 edition. The retained population edition
+uses a census base that Stats NZ first released on 16 April 2025.
+Earlier contemporaneous estimates could differ from these values.
+
+The external occasion-availability-audit.csv retains the checks for
+all occasion keys and labels their context as retrospective candidate.
+It has SHA256
+71b43a276c6b2b4af13297a5853da65a8fbaf9ef845ed9617d00b86c909a9a0e
+under /Volumes/PortableSSD/tobac-p2-trade2023.3PoIyO.
+A prospective comparison needs an explicit prediction origin and
+verified earlier vintages or lagged values. These checks preserve
+the same-time context for retrospective appraisal and leave the
+prespecified complete-year and catchment validation gates open.
+
+- [September 2023 CPI release](https://www.stats.govt.nz/information-releases/consumers-price-index-september-2023-quarter/)
+- [2023-base population release date](https://www.stats.govt.nz/assets/Uploads/Legislation-page/registers/Register-of-people-who-received-2023-estimated-resident-population-data-and-methodology-under-embargo.pdf)
