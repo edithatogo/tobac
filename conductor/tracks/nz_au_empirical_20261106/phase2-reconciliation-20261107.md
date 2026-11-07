@@ -3904,3 +3904,23 @@ dates alone provide no such link. The cohort starts at
 age 18, another scope difference from NZHS adults aged 15+.
 
 [ITC New Zealand cohort schedule](https://itcproject.org/countries/new-zealand/).
+
+## P2.187 ITC Wave 5 recall windows
+
+The official Wave 5 instrument has separate last purchase
+and homegrown/illicit sections. Its last-pack item groups
+foreign-bought, counterfeit and smuggled products in one
+response category. It supplies no campaign date in that item.
+Homegrown-use items use 30 days or six months. Even the
+earliest Wave 5 interview on 10 June 2024 puts a six-month
+lookback after October 2023. The 12-month growing-history
+item can overlap the campaign for some interviews, but
+measures growing status over the interval, without dating
+campaign consumption. No item checked supplies a comparable
+campaign-specific illicit-consumption outcome.
+
+The retained official instrument is instrument.pdf under
+/Volumes/PortableSSD/tobac-p2-itc.1sVd24, SHA256
+61b3f8bcc45f5c5918581de775c66c974f76b371260226ecde91f12f23d2ce52.
+
+[ITC Wave 5 questionnaire](https://itcproject.org/surveys/new-zealand/nzl5-cohort2/).
