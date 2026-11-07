@@ -3599,3 +3599,21 @@ They do not attribute differences to particular exemptions,
 timing or revisions. Summing across months first would net
 positive and negative differences and understate the
 adjustment required by a same-month model.
+
+## P2.171 Export-netting sensitivity for the duty comparison
+
+The P2.43 matched final export rows sum to 22.168 million
+light cigarettes and 5,684 kg cigarette-smoking tobacco,
+including re-exports. Deducting all of these from the
+corresponding imports before applying standard rates reverses
+both campaign-wide nominal-minus-paid differences. The new
+differences are -NZ$20,857,490.26 and -NZ$3,945,723.32.
+Even this full-netting scenario leaves a positive excess of
+NZ$3,647,019.05 for light cigarettes in May and positive
+excesses for smoking tobacco in June, July and October.
+
+Full same-month netting is a sensitivity. Exports may come
+from earlier stock and the trade rows do not identify duty
+drawbacks or link shipments to the Customs paid table.
+The aggregate sign reversal cannot validate a monthly duty
+or consumption bridge.
