@@ -1103,3 +1103,29 @@ The table does not resolve a cross-paper plant identity or link the
 regional daily measurements to national composite pool members.
 Treat overlaps as unresolved when evaluating independence and fold
 eligibility. The existing site 33 state discrepancy remains quarantined.
+
+## P2.33 Original denominator for the national calibration
+
+The [Bade et al. accepted manuscript](https://digital.library.adelaide.edu.au/items/4be605da-7620-4946-87f7-460bc02cfc91)
+for DOI 10.1002/dta.2874 is retained at
+/Volumes/PortableSSD/tobac-p2-bade.WnW42y/manuscript.pdf with SHA256
+b6b7402a66a987eb453c2935356bb38655ff647ee0ab085832e2e92ef3e25a88.
+The abstract describes 1.13 in per-person daily units. The methods
+and results establish the intended per-cigarette denominator. The
+authors divide individual urine concentrations by self-reported
+cigarettes in the preceding day and multiply by an assumed 1.5 L
+daily urine volume. The narrative value 0.75 µg/L per cigarette
+gives 1.125 µg per cigarette, consistent with 1.13 after rounding.
+
+Table 2 prints a different normalized mean, 0.78, which gives
+1.17 under the same conversion. The printed mass-load median
+0.47 is also incompatible with converting the printed concentration
+median 1.43 by a common factor of 1.5. Preserve these discrepancies
+pending original calculation inputs or an authoritative correction.
+The factor is based on ten regular smokers of lawful cigarettes,
+with reported daily counts ranging from 2 to 25. The printed
+mass-load CV is 104%, with a range of 0.03–5.74. Those participant
+summaries do not establish uncertainty for a national or NZ catchment
+conversion. Retain the 1.13 factor as a source-linked sensitivity
+scenario and keep its denominator, transport and internal reconciliation
+conditions explicit. No calibrated likelihood has been admitted.
