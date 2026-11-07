@@ -864,3 +864,28 @@ pinned PDF. Python 3.15.2 and the resource guard passed. The explicit
 site/month/nominal-day fields provide the bridge to the load tables, whose
 site order differs from Table S3. Load cells, normalization inputs and
 eligibility still require verification before a fit or holdout.
+
+## P2.24 NZ wastewater load extraction
+
+The bounded extraction joined PDF pages 34, 37, 40 and 42 to the Table S3
+occasion manifest by plant, month and nominal day. PDF word positions assign
+wrapped values to the twelve source columns. The export retains the printed
+load string, collection date, duplicate-measurement mean and SD, and censoring
+status. The source load unit is mg/day/1,000 people.
+
+Each analyte has 144 slots and two missing Whangārei October occasions.
+COT, COT-OH and ANTA each have 142 quantified cells. ANBA has 25 quantified
+cells and 117 reported below LoQ. The extraction retains those 117 cells
+as censored with empty numeric fields. Checks confirm 576 unique slot/analyte
+keys, missing-date consistency and selected exact source cells, including a
+wrapped COT value and a censored ANBA value. Full independent cell review
+and sample-specific numeric censoring bounds remain open.
+
+The external intake at /Volumes/PortableSSD/tobac-p2-kim.lBTiOt retains
+candidate-loads.csv (SHA256
+1ee56fec14d8f81b7d1be1d2ee148f1c29fdc234adcff39dec4095784ef5f942)
+and extract-loads.py (SHA256
+b92422026b870b83b28d2d92453de9f01da39ee7d2cc1fd1fc8ff10aa4c64574).
+The 568 dated analyte cells share 142 collection occasions. Preserve this
+grouping for any future holdout. Normalization provenance, admission,
+calibration and eligible holdout selection remain open.
