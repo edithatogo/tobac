@@ -2124,3 +2124,15 @@ in that operator export. Geographic adjacency still permits
 shared exposures, sewer operations or correlated measurement
 errors. The topology alone does not verify the Kim plant key,
 2023 contributing populations or independent validation folds.
+
+## P2.88 Replay of the Wellington geometry diagnostics
+
+The external P2.39 intake now retains check-overlap.py (SHA256
+2527ece2bd7822f4c2b6d98c3eb1c17a4738b3fee693dae0e98cf8633d2f8ed1).
+With the external spatial-deps target on PYTHONPATH and repo-local
+Python 3.15.2, it verifies both input hashes, EPSG:2193, unique
+feature identities, ring validity and output topology. It
+reproduces P2.86 and verifies 1,990.172 m of shared catchment
+boundary. Reported overlap percentages use full operator
+polygon area as denominator. They are not separately measured
+land-only, population, or outlet shares.
