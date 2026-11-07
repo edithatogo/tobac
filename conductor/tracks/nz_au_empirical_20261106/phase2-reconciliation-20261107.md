@@ -4041,3 +4041,19 @@ geometry. Numeric use still requires axis calibration and
 verification of which statistic the box boundaries and
 internal lines represent. The geometry does not supply
 seven separate daily outcomes for each site.
+
+## P2.194 ACIC site box semantics
+
+Both retained ACIC reports' guide to individual-site plots
+defines the box ends as the minimum and maximum daily
+estimated consumption and the internal mark as the mean
+across sampling days. This resolves the statistic ambiguity
+in P2.193. The cross-panel reference lines are different
+statistics, with programme-level population weighting.
+They must be excluded when extracting individual marks.
+
+A digitised min, mean and max can support a site-round
+summary comparison after axis and label verification. They
+cannot reconstruct the daily series, day ordering, variance
+or a daily likelihood. Keep the pooled nicotine unit on the
+left axis and preserve the dual-axis equivalent separately.
