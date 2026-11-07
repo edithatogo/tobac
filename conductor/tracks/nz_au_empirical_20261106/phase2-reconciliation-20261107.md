@@ -2035,3 +2035,14 @@ Current outlet coverage remains unverified.
 
 [Robertson et al.](https://nzmj.org.nz/journal/vol-129-no-1432/regulating-tobacco-retail-in-new-zealand-what-can-we-learn-from-overseas)
 and [TDB/Infometrics analysis](https://www.tdb.co.nz/wp-content/uploads/2023/04/TDB-Infometrics-Smoked-Tobacco-Amendment-Act-Review.2023.pdf).
+
+## P2.82 Retail contrast scale under historical outlet scenarios
+
+Holding the proposed 600-premise ceiling fixed, full take-up of
+all 600 approvals would imply national outlet reductions of
+88.02%, 90.00%, 91.55%, and 93.10% against the historical
+5,008, 6,000, 7,100, and 8,700 scenarios in P2.80–81.
+These are changes in national premise counts under a hypothetical
+scheme. They cannot be mapped directly to reductions in access,
+sales, or smoking. A spatial contrast still requires the
+placement of retained outlets and a compatible baseline map.
