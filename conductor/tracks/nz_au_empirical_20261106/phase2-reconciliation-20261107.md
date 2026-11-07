@@ -3825,3 +3825,26 @@ pack or campaign-month gaps. Keep the reported totals as
 context pending component-level evidence.
 
 [FTI report hosted by BAT, sections 4.2–5](https://www.batnz.com/content/dam/endmarkets/nz/en/download/media/15-August-2025-New_Zealands_growing_illicit_tobacco_trade_calls_for_decisive_action_with_more_than_one_in_four_cigarettes_smoked_in_New_Zealand_being_illegal.pdf).
+
+## P2.183 FTI traveller estimate shares survey and travel inputs
+
+FTI Appendix A.4.2, Table A.4, shows that the 14.6-tonne
+2023 estimate is modelled from Stats NZ trips, smoking
+prevalence and the statutory allowance. The resident
+calculation uses a 65.8% take-up propensity from a 2019
+consumer survey and scales the top-country coverage by
+1/0.84. The non-resident calculation assumes full
+take-up among the selected smokers and includes permanent
+and long-term arrivals in its trip inputs.
+
+The estimate therefore shares inputs with P2's survey
+and traveller scenarios and has wider trip coverage than
+P2.132. It provides no independent observation of tobacco
+actually brought in or consumed. Retain the take-up
+assumptions as context rather than using 14.6 tonnes to
+calibrate or validate the 2023 campaign likelihood.
+Appendix A.4 describes quarterly model aggregation but
+does not establish campaign dates or catchment counts for
+the underlying packs.
+
+[FTI report hosted by BAT, Appendix A.4 and Table A.4](https://www.batnz.com/content/dam/endmarkets/nz/en/download/media/15-August-2025-New_Zealands_growing_illicit_tobacco_trade_calls_for_decisive_action_with_more_than_one_in_four_cigarettes_smoked_in_New_Zealand_being_illegal.pdf).
