@@ -4057,3 +4057,25 @@ summary comparison after axis and label verification. They
 cannot reconstruct the daily series, day ordering, variance
 or a daily likelihood. Keep the pooled nicotine unit on the
 left axis and preserve the dual-axis equivalent separately.
+
+## P2.195 Pilot digitisation of matched site means
+
+Matched the internal line of each regional nicotine box to
+its left edge in the two SVG nicotine panels, deduplicating
+identical paths. Calibrated the left axis from the vector
+zero line and the rendered 7,000 (August) and 9,000
+(December) tick positions at 105 dpi. In roster order
+012, 024, 028, 029, 033, 042, 053, 077 the chart-derived
+means rounded to the nearest 100 mg nicotine per 1,000
+people per day are:
+
+| Round | 012 | 024 | 028 | 029 | 033 | 042 | 053 | 077 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| August | 2700 | 2900 | 3600 | 2600 | 2700 | 2900 | 3800 | 4300 |
+| December | 2100 | 2900 | 2900 | 3300 | 2100 | 3100 | 4400 | 5600 |
+
+These are approximate pilot readbacks from figure geometry
+and pixel tick locations. They expose mixed site directions.
+The site mean is not the programme's population-weighted
+aggregate. Exact source values, calibration error,
+independent review, admission and daily data remain open.
