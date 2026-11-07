@@ -1888,3 +1888,19 @@ remain unknown behind the access response.
 
 [UQ author publications](https://about.uq.edu.au/experts-publication/49869/4748)
 and [eSpace record](https://espace.library.uq.edu.au/view/UQ%3A2198f1f).
+
+## P2.72 Public eSpace readback and cadence coverage
+
+The Codex internal browser rendered the exact P2.71 record
+without login. Its public Links section points to the publisher
+DOI for full text and displays no institutional manuscript or
+sampling roster. The record labels access as Hybrid and lists
+CC BY 3.0 in its metadata. The licence of an actual source
+file still needs verification against that file.
+
+The record reports 340 analysed daily samples for February
+2013 through December 2021. A strict every-two-months
+calendar across that interval yields 54 nominal weeks or 378
+daily slots. The difference of 38 prevents treating the
+nominal cadence as a complete daily roster. It does not
+locate the gaps or determine why the counts differ.
