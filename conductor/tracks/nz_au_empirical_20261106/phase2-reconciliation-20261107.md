@@ -527,3 +527,20 @@ The guarded Decimal audit reads both pinned CSVs and verifies unique
 monthly records and final status. Its source and result are retained in
 `/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`. Result SHA256
 `25c84d74f1c6d06c84537e35c1e164a094e3dcef78ead6e1cc6a7a74b0ede260`.
+
+## P2.13 reported net cigarette trade interval
+
+The heavier cigarette line (2402201000) reports 596 kg of imported tobacco
+content across four rows and 1 kg of re-exported content in one row. The
+lighter line (2402209000) contributes between zero and its classification
+ceiling on each side. Subtracting opposite endpoints yields an outer
+interval of −34,029 to 742,862.2 kg for net tobacco mass in the reported
+rows of both lines across July 2024–July 2025. The interval spans zero.
+Its width follows from unknown tobacco mass per stick. The calculation
+uses complete calendar months and applies only to visible rows, with
+withheld flows, stock movements and survey alignment still open.
+
+The bounded Decimal audit checks the pinned CSV hashes, unique heavy-line
+months, KTC units and the export identity. The script and report are under
+`/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`. Report SHA256
+`386cb0c3440609d29ba40da6f66a5bd204e27dbfdd571b697d5e7e8718f333ed`.
