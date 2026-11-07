@@ -4310,3 +4310,22 @@ compliance and direction of response unresolved. The pooled
 ACIC outcome does not separate vaping and smoking responses.
 
 [TGA 2021 import fact sheet](https://www.tga.gov.au/sites/default/files/consumer-fact-sheet-regulatory-changes-to-importing-nicotine-vaping-products.pdf).
+
+## P2.208 October capital round and policy design rank
+
+Appendix 2 confirms capital codes 002, 005 and 011 each
+contributed seven sampling days in August and October.
+They also recur in December with seven, five and seven
+days, respectively. At nominal month resolution the
+September excise and October vaping-import indicators
+are both (0, 1, 1) for August, October and December.
+Adding the October capital round does not increase the
+rank of the two policy columns. Site fixed effects do
+not resolve their collinearity.
+
+The appendices give counts by month and do not expose
+daily collection dates. The rank check therefore applies
+to the published month-level design. A verified September
+round or an independently justified differential exposure
+would change the design. The October round alone cannot
+separate the two effects.
