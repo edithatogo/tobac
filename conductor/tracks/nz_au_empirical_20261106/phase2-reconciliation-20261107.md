@@ -1843,3 +1843,19 @@ applicable schedule, and tariff units do not identify tobacco
 consumed, inventory movement or illicit share.
 
 [Australian Border Force notice](https://www.abf.gov.au/help-and-support-subsite/CustomsNotices/2021-34.pdf).
+
+## P2.69 Australian 2021 pre-indexation anchor
+
+ABF's tariff pages in ACN 2021/30 show AUD 1.10360 per stick
+for cigarette subheading 2402.20.20 and AUD 1,576.57 per kg
+tobacco content for 2402.20.80 for the illustrated originating
+goods schedule on 2 August 2021. ATO's domestic excise example
+independently uses AUD 1.10360 per stick on 10 March 2021.
+The P2.68 September import rates are about 1.4% higher in both
+units. These are dated anchors. Applying them to actual regional
+samples requires collection dates and the applicable tariff scope.
+The August notice itself addresses alcohol CPI indexation and
+does not establish a new August tobacco rate.
+
+[ABF August tariff pages](https://www.abf.gov.au/help-and-support-subsite/CustomsNotices/2021-30.pdf)
+and [ATO tobacco excise guidelines](https://www.ato.gov.au/law/view/pdf?DocId=SAV%2FTOBACCO%2F00005&PiT=99991231235958&filename=law%2Fview%2Fpdf%2Fsos%2Ftobacco20211217.pdf).
