@@ -4274,3 +4274,19 @@ or product mix needed to narrow P2.203.
 
 [ABS 2021 Census topic decisions](https://www.abs.gov.au/statistics/research/2021-census-topics-and-data-release-plan)
 and [ABS Smoker Status 2021–22](https://www.abs.gov.au/articles/insights-australian-smokers-2021-22).
+
+## P2.206 Australian ITC product-use coverage
+
+The ITC Australian 4CV schedule places wave 3 on 24 February–
+1 June 2020 and wave 4 on 4 August–19 December 2022. The
+September 2021 technical-report index entry refers to a
+pretest report for wave 3, without a 2021 fieldwork wave in
+the Australian roster. Neither survey window intersects the
+two ACIC rounds. The wave 4 sample includes smokers, quitters,
+nicotine vaping product users and dual users. Their raw
+sample proportions cannot stand in for catchment prevalence
+or nicotine mass. The cohort is product-use context and
+does not resolve the 2021 source decomposition.
+
+[ITC Australia fieldwork schedule](https://itcproject.org/countries/australia/)
+and [ITC Australian technical reports](https://itcproject.org/methods/technical-reports/?country=australia).
