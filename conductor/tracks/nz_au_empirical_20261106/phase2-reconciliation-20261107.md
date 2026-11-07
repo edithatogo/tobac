@@ -3004,3 +3004,17 @@ has SHA256
 
 [Customs OIA 25-083](https://www.customs.govt.nz/media/u0hhdp2f/oia-25-083-proactive-release.pdf)
 and [Customs interception definitions](https://www.customs.govt.nz/information-releases-and-legislation/statistics/non-drug-interceptions).
+
+## P2.141 Cigarette seizure subtotal after rendered readback
+
+Rendered page 6 of the P2.140 Customs table resolves the India
+and Japan cells to 20 and 924 items. The extraneous digits in
+the layout extract belong to the watermark. The accompanied
+baggage block starts with Argentina (357) on printed page 5
+and ends with Vietnam on page 6 before Air Cargo. The 21
+reported rows sum to 37,822 cigarette items. Both China rows
+(13,812 and 311) are retained as reported. The annual subtotal
+measures formal seizure in this transport category. Clearance,
+detection probability and campaign consumption remain open.
+
+[Customs OIA 25-083, printed pages 5–6](https://www.customs.govt.nz/media/u0hhdp2f/oia-25-083-proactive-release.pdf).
