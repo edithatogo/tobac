@@ -2405,3 +2405,20 @@ country effect.
 
 [Australian randomized trial](https://jamanetwork.com/journals/jama/fullarticle/2781643)
 and [New Zealand randomized trial](https://pmc.ncbi.nlm.nih.gov/articles/PMC8519028/).
+
+## P2.106 Mapping cessation evidence to the existing contrast
+
+The existing retail case uses net_cessation as an additional
+population-level fraction under a retailer cap. Its expanded
+cessation action applies a separate cessation fraction to
+baseline demand. The trials in P2.97–105 estimate abstinence
+differences among people randomized to specific treatment offers.
+Neither identifies either demand fraction directly. A bridge
+would require the number and baseline consumption of people
+newly reached, a compatible counterfactual offer and outcome
+horizon, and post-quit consumption and relapse assumptions.
+Retail access and service reach can affect the same people, so
+their effects also require an overlap rule before combination.
+Keep the finite reference's transported retail prior separate
+from empirical medication effects and leave both population
+fractions uncalibrated by these trial records.
