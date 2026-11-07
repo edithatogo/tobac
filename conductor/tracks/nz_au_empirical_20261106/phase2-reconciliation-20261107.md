@@ -198,3 +198,43 @@ changed: reuse P2.2's full test/typing/reproduction evidence at its stated scope
 P1 source/rights/policy gates and P2 period/product/dependence/calibration/holdout
 identification remain open. This source reconciliation is not an empirical fit,
 held-out result, policy contrast, VOI result or a completed P2 task.
+
+## P2.4 historical cigarette-price proxy — 7 November 2026
+
+Official Infoshare exact-series search CPIQ.SAP0240 returned the selected quarterly
+weighted-average price table. Internal-browser native exports retain all 82 quarters,
+2006Q2–2026Q3, two decimal places, ShowZeroRows and ShowNonFinalFlags. The options
+initially inherited zero decimal places from population work; these were changed to
+two before the first price download, avoiding rounded price originals. CSV SHA256
+62071f35b5e4c70fdf84c2733a084c26282d67f8199bbc2c2fe39e183e40a1ce;
+TQX SHA256 dbd805e1fd7e05f33ad6b745742b399386fb373061c715a7e189c9836762621d.
+Native query tableID CPI324601 differs from the published table reference CPI019AA;
+retain both rather than inferring table identity from a download filename.
+
+The original CSV footnote confirms `$`, units, cigarettes from supermarket/convenience
+stores, pack of 25. Crucially, it says these levels are calculated by applying index
+movements to June 2006 weighted prices and are not statistically accurate measures of
+average transaction-price levels. They support percentage price movements within the
+publisher's stated scope. This refines P2.3's provisional price disposition: **retain
+as an index-derived price proxy, not independent observed paid prices**. Do not condition
+on the proxy and its source index movements as independent measurements. The separate
+SE9022 subgroup includes cigarettes and other tobacco; it is not automatically the
+exact item index generating SAP0240. Historical pack-definition revisions, currency/tax
+metadata and survey-period compatibility still require qualification.
+
+Originals and the native query are outside tobac in
+`/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-price`, with a saved
+extractor and immutable candidate CSV. The guarded Python 3.15.2 / Polars extraction
+passes: 82 contiguous unique quarters, all source-record/value roundtrips, query
+series/time/options equality, exact unit/method footnotes and numeric agreement with
+the earlier September 2026 CLI CSV. The Jun–Sep rounded percent change also agrees
+with workbook sheet 4. No non-final flag cells appear in this export; no status,
+confidence interval or covariance column is invented. Source last-updated is
+22 October 2026 10:45am, distinct from retrieval and observation periods.
+
+See phase2-context-receipts-20261107.json historical_price_continuation for exact
+original/candidate/extractor hashes and execution scope. This closes historical
+coverage of that particular published proxy. It does not establish paid-price levels,
+causal elasticity, source admission, empirical consumption, a policy contrast or
+validation. No maintained code/runtime/scientific inputs changed, so unchanged P2.2
+full tests/typing/numerical replay remain reused. P2 remains incomplete.

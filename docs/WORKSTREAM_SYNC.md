@@ -111,3 +111,11 @@ hashes, retained failures and gaps. No native/archive, M3, shared-main, runtime 
 scientific-input mutation. Next: source/rights/policy admission and historical
 product/period/population matching before identified fitting and held-out testing.
 P2 remains active; prior owner's archive lane and unanswered messaging approval stand.
+
+P2.4 same-owner continuation at base 31be90b acquires the historical SAP0240 price
+proxy by internal-browser native export (82 quarters) and preserves its query and
+exact-field checks externally. Its source footnote changes the price disposition:
+index-derived from June 2006 weighted levels, not independent transaction-price
+observations. Only the P2 task/reconciliation/receipt metadata and this handoff change;
+no source/model/runtime/native promotion. Next: qualified rights/source admission,
+period/product/denominator matching and current policy baseline before fit/holdout.

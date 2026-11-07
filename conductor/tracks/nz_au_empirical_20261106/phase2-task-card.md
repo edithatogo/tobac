@@ -120,3 +120,16 @@ versus-price, and re-export/transit-versus-consumption distinctions. Do not infe
 calendar-period bridge or a causal price response from these acquisitions. Reuse the
 unchanged P2.2 full test/typing/reproduction receipts; qualify any new extraction at its
 actual scope before source admission or fitting.
+
+## P2.4 historical price bridge — 7 November 2026
+
+Same sole owner chat/worktree/branch, clean base 31be90b. Own only this task card,
+P2 reconciliation/receipt metadata and WORKSTREAM_SYNC continuation, plus ignored
+outputs/nz-au-phase2-price-20261107. Reuse existing maintained code and P2.2 checks.
+Acquire the actual SAP0240 historical selected-item cigarette price series through
+the official Infoshare selection after the qualified quarterly CLI source proved
+current-quarter-only. Keep native CSV/query originals and derived candidates outside
+tobac in a new edition; preserve source units/status, source dates and pack-size
+revisions. Compare overlapping published current-quarter price and index without
+conflating them. Do not estimate elasticity, interpolate, infer a paid-price/consumption
+bridge or fit past the still-open P1 admission/rights/policy/validation gates.

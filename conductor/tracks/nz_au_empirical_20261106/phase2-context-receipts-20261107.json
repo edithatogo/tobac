@@ -322,5 +322,76 @@
       "sampled_group_rss_mib": 1.8
     }
   ],
-  "resource_limit_note": "4096 MiB sampled process-group RSS / 2400 seconds; fast-script samples do not establish allocation peaks or leak freedom."
+  "resource_limit_note": "4096 MiB sampled process-group RSS / 2400 seconds; fast-script samples do not establish allocation peaks or leak freedom.",
+  "historical_price_continuation": {
+    "base_commit": "31be90b36664665e81b3fc272daa79b5ed1e7472",
+    "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-price",
+    "native_downloads": [
+      {
+        "source_id": "prices",
+        "file": "prices-62071f35b5e4c70fdf84c2733a084c26282d67f8199bbc2c2fe39e183e40a1ce.csv",
+        "sha256": "62071f35b5e4c70fdf84c2733a084c26282d67f8199bbc2c2fe39e183e40a1ce",
+        "bytes": 2223,
+        "observed_download_completed_by": "2026-11-07T02:52:11.156609+00:00",
+        "method": "Internal browser native Infoshare export; series-identifier search CPIQ.SAP0240",
+        "selected_periods": 82,
+        "decimal_places": 2,
+        "status_flags": true,
+        "source_origin": "https://infoshare.stats.govt.nz/",
+        "admitted": false
+      },
+      {
+        "source_id": "query",
+        "file": "query-dbd805e1fd7e05f33ad6b745742b399386fb373061c715a7e189c9836762621d.tqx",
+        "sha256": "dbd805e1fd7e05f33ad6b745742b399386fb373061c715a7e189c9836762621d",
+        "bytes": 4169,
+        "observed_download_completed_by": "2026-11-07T02:52:11.157310+00:00",
+        "method": "Internal browser native Infoshare export; series-identifier search CPIQ.SAP0240",
+        "selected_periods": 82,
+        "decimal_places": 2,
+        "status_flags": true,
+        "source_origin": "https://infoshare.stats.govt.nz/",
+        "admitted": false
+      }
+    ],
+    "reconciliation": {
+      "source_sha256": "62071f35b5e4c70fdf84c2733a084c26282d67f8199bbc2c2fe39e183e40a1ce",
+      "query_sha256": "dbd805e1fd7e05f33ad6b745742b399386fb373061c715a7e189c9836762621d",
+      "query_tableID": "CPI324601",
+      "published_table_reference": "CPI019AA",
+      "series": "CPIQ.SAP0240",
+      "records": 82,
+      "first_period": "2006Q2",
+      "last_period": "2026Q3",
+      "published_unit_footnote": "CPIQ.SAP0240: Magnitude = Units, Unit = $, Description = Cigarettes (supermarket &amp; convenience store), pk of 25",
+      "published_method_footnote": "Calculated by applying index movements to weighted average prices for the June 2006 quarter. These are not statistically accurate measures of average transaction price levels, but do provide a reliable indicator of percentage changes in prices.",
+      "native_query_status_option": "ShowNonFinalFlags",
+      "status_columns_exported": false,
+      "status_note": "No non-final flag cells appear in this selected time-series export; do not invent a status field or uncertainty series",
+      "candidate_file": "price-candidates.csv",
+      "candidate_sha256": "f95de5b77c3d4f29936161f9ef59ad820dbe518c3a1f7ce58faf5361d66e972e",
+      "current_quarter_csv_sha256": "e0e3cfca83f9f86c00f4fc4c43a33a16c6a0b6498bfd9fa5855895668fd0987f",
+      "current_quarter_numeric_match": true,
+      "workbook_price_percent_change_readback_matches": true,
+      "native_last_updated": "22/10/2026 10:45:00 a.m.",
+      "admitted": false,
+      "fitted": false,
+      "dependence_disposition": "Index-derived price proxy; not an independent transaction-price observation or causal price response",
+      "unresolved": [
+        "Exact tax/currency metadata and pack-definition revision history beyond current source description",
+        "Survey-period and eligible-population matching",
+        "Paid-price/product/stock/lawful-flow accounting",
+        "External archive source admission and policy/holdout gates"
+      ]
+    },
+    "receipt_sha256": "5ec825b9154f7375cb0a13ba2fd9ce2fe716b59153144ef7e0a699784ad1436c",
+    "extractor_sha256": "9af0cbdffcaf7c7482e7c700f28f10d60995db2cc78f5ca30a0953a1374b5766",
+    "execution_log": "outputs/nz-au-phase2-price-20261107/reconciliation.log",
+    "guarded_status": 0,
+    "sampled_group_rss_mib": 0.5,
+    "runtime": "repo-local .venv/bin/python actual 3.15.2",
+    "verification_scope": "82 exact source record/value matches, contiguous quarters, native query/time/series/options, source unit/method footnotes, current-quarter CSV numeric equality and workbook rounded change; not source admission or fitting",
+    "new_findings": "Historical price levels are calculated using index movements from June 2006 prices; preserve dependence and do not use as independent paid-price observations.",
+    "maintained_source_changed": false
+  }
 }
