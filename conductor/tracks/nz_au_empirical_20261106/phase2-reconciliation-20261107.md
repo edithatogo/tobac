@@ -3504,3 +3504,23 @@ of pooled tobacco revenue. It also reports import duty charged,
 which needs a timing and scope bridge to recognised revenue.
 
 [Treasury OIA 20250377, Item 3](https://www.treasury.govt.nz/sites/default/files/2025-07/oia-20250377.pdf).
+
+## P2.166 Annual heated tobacco import duty
+
+Customs OIA 25-395 includes the 22 January 2025 Customs
+table reporting NZ$5,970,938 excise-equivalent duty paid and
+4,057.80 kg tobacco content for heated tobacco in calendar
+2023. The implied aggregate ratio is NZ$1,471.47 per kg.
+The annual paid figure cannot be subtracted from the six-month
+recognised revenue without a period and recognition bridge.
+
+A separate Customs response, OIA 24-675, identifies an
+enclosure with monthly import duty for tariff headings 24.02,
+24.03 and 24.04 from January 2023 through 22 October 2024.
+The response establishes the enclosure's scope. Its data
+cells still require original readback. The October 2024
+endpoint is partial. This is a direct lead for product
+and month allocation, with no observed quantities inferred.
+
+[Customs OIA 25-395](https://www.customs.govt.nz/media/up4pimtv/oia-25-395-_.pdf)
+and [Customs OIA 24-675 response copy](https://www.kiwiblog.co.nz/wp-content/uploads/2025/01/24-675-Jordan-Williams-Response_Redacted.pdf).
