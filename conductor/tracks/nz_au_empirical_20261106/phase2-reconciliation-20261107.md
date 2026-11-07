@@ -1154,3 +1154,27 @@ on the factor and rounded inputs. It does not estimate illicit use,
 transport the Queensland factor, or supply an uncertainty interval.
 Any empirical comparison needs a common calibration basis and
 separate verification of lawful-flow coverage.
+
+## P2.35 Australian lawful comparator provenance
+
+Wang reference 28 resolves to the June 2025 FTI report for 2024.
+The original is retained externally at
+/Volumes/PortableSSD/tobac-p2-fti.nKsvfF/report.pdf with SHA256
+b23475ed9abee1d46f31d76b6ff19c02d840b56ddcb649f0c342ddea81fd9087.
+Sections 3.3 and 4 distinguish domestic sales from lawful traveller
+imports. Domestic manufactured and RYO sales combine scanned retail
+transactions and industry-supplied sales. The traveller component
+uses arrivals, smoking participation assumptions and the allowance.
+The report calls their sum consumption, but the measured basis of the
+domestic component is sales and the traveller component is modelled.
+The study was commissioned by tobacco companies and the disclaimer
+states that inputs were unaudited and reproduction is restricted.
+
+The implied Wang lawful endpoints from P2.34 match the displayed FTI
+Figure 4-1 domestic sales at chart precision. That coincidence cannot
+establish whether Wang used domestic sales alone or the total with the
+small traveller component. The exact annual input series, stock
+adjustment and product-to-mass treatment remain open. Keep the lawful
+series and Wang residual linked in the dependence map. Source
+verification supports comparator appraisal and leaves empirical
+admission and rights to reproduce the underlying material open.
