@@ -3889,3 +3889,18 @@ counts and category rules before testing catchment coverage.
 The located 2022 description supplies no such 2023 records.
 
 [KPMG report, section 3.1](https://assets.nationbuilder.com/taxpayers/pages/2370/attachments/original/1689202217/New_Zealand_Illicit_Trade_Tobacco_FINAL_31052023.pdf?1689202217=).
+
+## P2.186 ITC fieldwork coverage
+
+The ITC Project's NZ cohort schedule places wave 4 between
+7 October and 16 December 2022 (1,459 respondents) and
+wave 5 between 10 June and 16 September 2024 (1,448).
+Neither fieldwork window intersects May–October 2023.
+Their combined sample sizes cannot stand in for 2023
+campaign outcomes. A retrospective item could cover some
+campaign dates only if the questionnaire, recall period and
+respondent-level timing support that assignment. Fieldwork
+dates alone provide no such link. The cohort starts at
+age 18, another scope difference from NZHS adults aged 15+.
+
+[ITC New Zealand cohort schedule](https://itcproject.org/countries/new-zealand/).
