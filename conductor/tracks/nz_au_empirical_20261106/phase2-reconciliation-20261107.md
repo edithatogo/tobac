@@ -4441,3 +4441,22 @@ Keep all three out of the complete-year count pending a
 matched time basis and verified independent outcome.
 
 [Original study, Equations 5–6 and Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
+
+## P2.214 Published anabasine bins around the policy dates
+
+Figure 2A plots June and August 2021 together, then October
+and December 2021 together, in each of the three remoteness
+strata. There is no September point. The first bin displays
+n = 20, 15 and 19 for major cities, inner regional and
+outer regional to remote. The second displays n = 18, 16
+and 19. These are printed plot counts and cannot identify
+a repeated Queensland roster or the dates of individual pools.
+
+The plotted groups straddle both policy changes together.
+Even exact readback of the two aggregate points would not
+supply a September-only observation. Figure 2A's final bin
+is February and April 2023, consistent with the main
+methods and leaving the June batch heading in P2.210
+unresolved as a source discrepancy.
+
+[Original Figure 2](https://pmc-oa-opendata.s3.amazonaws.com/PMC12887742.1/jamanetwopen-e2557319-g002.jpg).
