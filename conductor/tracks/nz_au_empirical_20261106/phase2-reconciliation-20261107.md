@@ -2563,3 +2563,17 @@ The combined all-dispensing people bound is 73,841–78,133
 under the shared-universe assumption of P2.113. Use this
 selector for reach including repeat-only recipients. Neither
 selector identifies medication adherence or unique courses.
+
+## P2.116 District dispensing context for the Wellington candidates
+
+The P2.114 chemical export reports 4,251 nicotine recipients
+and 179 varenicline recipients for Capital & Coast in calendar
+2025, with repeats included. Hutt Valley reports 2,176 and 120.
+Corresponding dispensing counts are 19,616 and 372 for Capital
+& Coast, and 10,687 and 261 for Hutt Valley. These are district
+rows, separate from the national totals. They supply regional
+service context but no within-district locations or catchment
+assignment. A numerical join to Moa Point or Western requires
+compatible district attribution, observation period, and
+contributing-population geography. These 2025 counts postdate
+the 2023 wastewater campaign.
