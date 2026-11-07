@@ -2794,3 +2794,21 @@ The candidate release and trade series have no verified conversion
 to the required catchment consumption interval. This result defines
 what the missing matched lawful-flow evidence must establish.
 It supplies no empirical endpoints from administrative flows.
+
+## P2.131 Scale of the NZ traveller concession
+
+Stats NZ reports about 2.96 million overseas visitor arrivals
+and 2.68 million resident traveller arrivals in calendar 2023.
+Applying the 50-cigarette traveller concession to every one of
+those recorded arrivals gives an illustrative maximum of about
+282 million cigarettes for that covered group, assuming full
+eligibility and take-up. Applying the alternative 50 g allowance
+to every arrival gives about 282 tonnes of other tobacco. These
+are alternative scenarios, not additive flows. Arrivals count
+crossings and include ineligible people. They measure neither
+take-up nor the fraction consumed in the country or sampled
+catchments. Duty-paid excess and other lawful flows are outside
+this concession calculation.
+
+[Stats NZ 2023 travel release](https://www.stats.govt.nz/information-releases/international-travel-december-2023/)
+and [NZ concession change](https://www.beehive.govt.nz/release/duty-free-tobacco-limit-lowered-today).
