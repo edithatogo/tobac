@@ -3559,3 +3559,25 @@ a single positive proportional adjustment across these
 months at reported precision. A timing and scope bridge
 must allow month-specific differences. The residuals
 cannot be assigned to domestic duty or particular products.
+
+## P2.169 Quantity-to-duty bridge check
+
+Customs OIA 24-675 directs quantity requests to Stats NZ's
+Harmonised Trade imports rather than supplying a companion
+volume enclosure. In the retained P2.43 final extract, six
+campaign months sum to 398,902 thousand light cigarettes
+(2402209000, MIL) and 136,403 kg tobacco content for cigarette
+smoking (2403199015, KTC). Applying P2.67 rates gives nominal
+duty of NZ$469,806,830.50 and NZ$228,923,790.87. Each single
+subcode's nominal duty exceeds its wider heading's paid
+figure in P2.167, by NZ$5,250,871.74 and NZ$5,593,677.04.
+
+The calculation assumes every quantity is dutiable at the
+standard rate in the same month. The discrepancies rule out
+using that simple bridge with a nonnegative contribution
+from other subcodes and no offsets. Timing, exemptions,
+adjustments and edition scope remain to be reconciled.
+Keep the physical border quantities and fiscal measures
+separate. They do not establish campaign consumption.
+
+[Customs response, quantity and duty scope](https://www.kiwiblog.co.nz/wp-content/uploads/2025/01/24-675-Jordan-Williams-Response_Redacted.pdf).
