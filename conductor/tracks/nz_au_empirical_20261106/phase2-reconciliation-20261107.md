@@ -1752,3 +1752,20 @@ censoring. The ANTA measurements share the study's sampling and
 normalization and do not resolve ANBA's direction of change.
 Neither a sampling-error interval nor a policy effect follows
 from this descriptive comparison.
+
+## P2.63 Paired analyte composition on the balanced panel
+
+An exact join of ANTA, COT and COT-OH by plant and actual collection
+date gives three quantified values for each of the 40 P2.62 occasions.
+The unweighted mean of the occasion-level ANTA / (COT + COT-OH)
+mass-load ratios falls from 0.003350 in September to 0.002862 in
+October. Fourteen of 20 plant-and-nominal-slot pairs decline. Mean
+combined COT and COT-OH load rises from 2,548.75 to 2,602.50
+mg/day/1,000 people.
+
+The ratio cancels the flow-to-population multiplier if the three
+analytes share that multiplier within each occasion. This is a
+composition diagnostic. Differential recovery, source mixtures
+and sewer behavior remain possible explanations. The ratio shares
+evidence with all three component measurements and should not enter
+a likelihood as an independent observation.
