@@ -1022,3 +1022,33 @@ The bounded check passed and retained 142 comparisons externally at
 (SHA256 462131de4a9ad9bde4a6f3d483199859449e4dce1ce2284a7a11373addf58f91).
 The script check-nicotine-spread.py has SHA256
 d016a55e9ad4159eb795fc30eb305aa3de422eb99153105bdeba975e788fe2b7.
+
+## P2.30 Australian anabasine calibration lineage
+
+The Adelaide repository accepted manuscript of Zheng et al., DOI
+10.1021/acs.est.3c01510, is retained externally at
+/Volumes/PortableSSD/tobac-p2-zheng.4lTlnK/manuscript.pdf with SHA256
+0447aec602905446b3f743df534f1615d44c327f34a0e1a73ec607247800d232.
+Sections 2.4–2.6 and the discussion separate excretion calibration,
+sewer correction and sales comparison.
+
+The reported 0.91 µg/cigarette follows from the assumed 900 µg absorbed
+nicotine per cigarette, 72% combined metabolite excretion on the
+paper's basis and a 0.0014 anabasine-to-metabolite ratio from
+deconjugated pooled urine. The printed inputs reproduce 0.9072.
+This is a linked calibration estimate. Its uncertainty includes
+nicotine intake per cigarette, the literature excretion factor and
+the pooled urine ratio. The urine samples were surplus pathology
+specimens from south-east Queensland with no exact wastewater
+catchment match. The separate 1.07 sewer multiplier is conditional
+on local retention time and earlier stability work, DOI
+10.1016/j.scitotenv.2020.140551.
+
+The manuscript explicitly reuses earlier wastewater measurements
+for the February 2016–December 2017 sales comparison. Its longitudinal
+WWTPB source series covers 2012–2017. The resulting sales comparison
+and original wastewater observations belong in the same dependence
+group. Exact sample overlap with the later 2013–2021 study and the
+national Wang study remains unresolved. Keep the factor as an
+Australian calibration candidate, with distinct assay, sewer and
+product applicability checks before any NZ transport or fit.
