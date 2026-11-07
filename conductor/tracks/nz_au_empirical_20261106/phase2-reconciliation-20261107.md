@@ -587,3 +587,22 @@ The original PDF, page renders, script and result are under
 `/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`. The guarded
 comparison passed. Result SHA256
 `0ef4fafde0b23aad6c7a1d4c838e8563106d09aade8393fc9b1ec7393d072a58`.
+
+## P2.16 RYO source-vintage cross-check
+
+Customs OIA 25-187 Appendix 1 (PDF page 7) labels its mass series as
+manufactured tobacco used in RYO. The inspected Stats NZ records distinguish
+2403199015 cigarette-smoking tobacco from 2403199010 pipe tobacco within
+the same HS6 group. Comparing the cigarette-smoking line in KTC units gives
+Customs-minus-Stats differences of −45, 0, +1, 0, +1, −4, −2 and 0 kg
+from July 2024 through February 2025. The aggregate difference is −49 kg.
+This supports retaining full HS10 identity in the source mapping and treating
+the two extracts as dependent vintages. Pipe tobacco remains a separate row
+where it appears. The comparison still requires the declared source units
+and measurement dates before empirical use.
+
+The guarded audit passed against the pinned Stats NZ file and the previously
+rendered Customs page. Script and result are retained under
+`/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`.
+Result SHA256
+`6571fc19c72120371be4ddbff1c699553577a80c56176c1988e4a54bd837017c`.
