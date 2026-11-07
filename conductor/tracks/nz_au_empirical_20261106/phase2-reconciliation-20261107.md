@@ -2682,3 +2682,16 @@ collection. The packet records the supply break, population scope and
 limits on interpreting uptake and courses. It is ready for source review
 with zero admitted observations. Archive approval and canonical
 readback remain separate from this external review packet.
+
+## P2.124 District-to-national dispensing reconciliation
+
+Polars reads of the P2.114 chemical export retained count columns
+as strings to preserve suppression. For both chemicals in 2025,
+the 20 nonnational rows sum exactly to the published national
+dispensing and people counts. In 2023 the nicotine dispensing
+sum also reconciles, while one nonnational people cell is
+suppressed. For varenicline nine of ten published nonnational
+rows have suppressed dispensing and people cells. Keep the
+separately published national totals and preserve every
+suppressed cell. These arithmetic checks do not establish
+catchment membership or independent district observations.
