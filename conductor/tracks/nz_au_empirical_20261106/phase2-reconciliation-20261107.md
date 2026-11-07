@@ -1505,3 +1505,21 @@ The external intake /Volumes/PortableSSD/tobac-p2-erp-vintage.zR7Cpn retains:
 [March release](https://www.stats.govt.nz/information-releases/national-population-estimates-at-31-march-2023/),
 [June release](https://www.stats.govt.nz/information-releases/national-population-estimates-at-30-june-2023/),
 and [2023 census rebasing](https://datainfoplus.stats.govt.nz/item/nz.govt.stats/57468853-e913-43df-8cca-51b40bf558f0).
+
+## P2.49 Original June 2023 national population aged 15 and older
+
+In the workbook pinned in P2.48, the June 2023 provisional national
+estimate for ages 15 and older is 4,254,800 at the precision of Table 2
+(sum E19:G19). Table 3's five-year bands sum to 4,254,780 (M12:M28).
+Subtracting the independently tabulated under-15 bands from the all-ages
+total gives 4,254,820 (M29 less M9:M11). Both checks round to the
+same hundred. The later census-rebased June estimate is 4,230,100,
+a difference of 24,700 from the original broad-age sum.
+
+The August workbook is strictly prior to 52 collection dates in P2.48.
+This supports a dated national 15+ context value for those occasions.
+Earlier dates require their own original age-specific release evidence.
+The 15+ estimate does not establish the population served by any plant
+or the eligible survey population after survey-specific exclusions.
+
+[Stats NZ original June release and workbook](https://www.stats.govt.nz/information-releases/national-population-estimates-at-30-june-2023/).
