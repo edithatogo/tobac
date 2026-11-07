@@ -4728,3 +4728,28 @@ complete, matched consumption split.
 
 [Commissioner of Taxation annual report, Table 4.5](https://www.ato.gov.au/api/public/content/8a9681ac28ed48ab8f9f003202f4e333?v=5d48f157).
 [ATO tobacco tax-gap methodology, step 3](https://www.ato.gov.au/api/public/content/0-882626e8-a57b-4b7a-ab16-0894492a4ff2).
+
+## P2.225 ATO mass, duty and seizure denominators
+
+The October 2024 ATO edition provides tonnes directly for
+fiscal 2022–23. Legal clearances of 7,736 plus a net illicit
+supply estimate of 1,656 give 9,392 tonnes and a net illicit
+mass share of 17.63%. The published 14.3% is the share of
+theoretical duty. The gross illicit estimate is 3,834 tonnes,
+implying 2,178 tonnes deducted between gross and net.
+Its mass share is 33.14% using 7,736 plus 3,834 as the gross
+denominator. This reproduces the report's rounded 33.1%.
+
+The October 2023 edition gives 1,466 tonnes net for fiscal
+2021–22. That is a different period and edition from the
+1,656-tonne point. The values do not verify a same-period
+revision. For any later longitudinal supply comparison,
+recover the comparable mass series from one edition first.
+The fiscal 2022–23 gross share happens to round close to
+the 33.0% calendar-2023 wastewater residual share in P2.219.
+The gross numerator includes seized tobacco that did not
+reach market, and the denominators and periods differ.
+Numerical proximity cannot qualify that pair for scoring.
+
+[ATO October 2024 tobacco tax gap, estimates and methodology](https://www.ato.gov.au/api/public/content/0-882626e8-a57b-4b7a-ab16-0894492a4ff2).
+[ATO October 2023 tobacco tax gap](https://www.ato.gov.au/api/public/content/0-ee16a084-49b5-4bb4-8704-f0df5b644cb3).
