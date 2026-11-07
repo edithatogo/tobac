@@ -1687,3 +1687,23 @@ on the load scale. These lower bounds alone cannot order the true
 sampled monthly means. The calculation neither imputes censored
 loads nor propagates error in the published quantified point values.
 It does not estimate a population-weighted mean or a policy effect.
+
+## P2.59 Conditional upper envelopes from reported site maxima
+
+Table S20 describes concentration ranges for all samples at each
+plant and reports numerical ANBA maxima for 11 labels. If those
+maxima enclose the concentration statistic for each censored
+occasion, a conditional upper load envelope is the plant maximum
+plus 0.05 ng/L for rounding, multiplied by the P2.26 upper Q/P
+endpoint and divided by 1,000. The 105 resulting censored-cell
+envelopes range from 4.238 to 35.474 mg/day/1,000 people. All
+25 quantified point values are compatible within printed rounding.
+Auckland North has no numerical maximum, leaving 12 censored
+cells without this envelope.
+
+This is a sensitivity bound using an observed site summary. It
+depends on shared concentration and normalization semantics.
+The site maxima incorporate observations across the campaign, so
+they cannot supply training-only limits for held-out observations.
+Effective assay thresholds and unconditional monthly upper
+bounds remain unresolved.
