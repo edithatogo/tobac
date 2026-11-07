@@ -4617,3 +4617,31 @@ programme coverage or error in the legal and illicit inputs.
 
 [Wang et al., Equations 2 and 5 and Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
 [FTI report, Figures 4-1 and 5-1](https://www.pmi.com/content/dam/pmicom/markets/australia/docs/fti-consulting-illicit-tobacco-in-australia-2024-full-report.pdf).
+
+## P2.221 Year-specific anabasine yield and trend identification
+
+Fix 2017 at the published 1.13 micrograms per cigarette
+and fix tobacco mass at 0.7 g in both years. Hold the
+published annualisation, observed biomarker loads and
+implied lawful tonnages fixed. Re-estimate only the 2023
+annualised total as 10,300 times 1.13 divided by the
+assumed 2023 yield.
+
+| Trend set to zero | Required 2023 total (tonnes) | Required 2023 yield (micrograms per cigarette) |
+|---|---:|---:|
+| Change in estimated total | 14,650 | 0.794 |
+| Change in estimated illicit residual | 8,250 | 1.411 |
+
+The second total equals 6,900 tonnes of implied lawful use
+plus the 2017 residual of 1,350 tonnes. A lower 2023 yield
+than the first threshold reverses the estimated decline in
+total. A higher yield than the second threshold reverses the
+estimated rise in the residual. These thresholds vary one
+year's yield while holding all other inputs fixed. The
+regional crosswalk and the small calibration study in
+P2.32–33 supply no time-matched national yield interval
+with which to test either threshold. A temporal holdout
+would need an independent outcome or qualified information
+on calibration drift before attributing the trend to use.
+
+[Wang et al., Equations 2 and 5–6 and Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
