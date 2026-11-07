@@ -506,3 +506,24 @@ The first execution treated month bounds as column names. Explicit string
 literals corrected the filter and the second execution exited zero. The
 report SHA256 is
 `112bbcdb46d1b7d1bf2cf3b99bc5a7c48073b2626d50dafbc10f0b622fc68964`.
+
+## P2.12 reported cigarette trade mass ceiling
+
+The preceding product audit identified HS10 2402209000 as the count-based
+cigarette series. The [Stats NZ quantity dictionary](https://www.stats.govt.nz/large-datasets/csv-files-for-download/overseas-merchandise-trade-datasets/)
+defines MIL as thousands and KTC as kilograms of tobacco content. The
+description on each count-based series specifies at most 0.8 kg tobacco
+per thousand cigarettes. The checked July 2024–July 2025 records contain
+927,834 thousand imported sticks and 43,280 thousand total exported sticks.
+The latter comprises 450 thousand exports and 42,830 thousand re-exports,
+with the identity checked in each of 13 months. Multiplying the reported
+counts by the classification ceiling gives 742,267.2 kg for imports and
+34,624.0 kg for total exports. These ceilings apply separately to reported
+flows and include the entire first and last months. A difference of the
+ceilings cannot bound net tobacco mass. Actual weights, withheld flows,
+stock changes and the heavier cigarette series remain separate inputs.
+
+The guarded Decimal audit reads both pinned CSVs and verifies unique
+monthly records and final status. Its source and result are retained in
+`/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`. Result SHA256
+`25c84d74f1c6d06c84537e35c1e164a094e3dcef78ead6e1cc6a7a74b0ede260`.
