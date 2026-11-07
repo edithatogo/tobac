@@ -2480,3 +2480,19 @@ formulation rows enumerate the same covered population and
 the chemical total is their union, their overlap is 2,715.
 The display does not establish course completion, service
 participation or incremental uptake under a policy change.
+
+## P2.110 Varenicline dispensing supply break
+
+Pharmac reports that Pfizer paused supply in 2021 and that Champix
+was available and funded again for eligible people from 1 April
+2025. The low 2022–2024 counts and the 2025 recovery in P2.109
+therefore span a documented supply interruption. Calendar 2025
+mixes months before and after the funded restart. The five annual
+counts should not be treated as observations under stable access
+or annualized as if the post-restart rate were constant.
+Pharmacor's subsequent listing on 1 January 2026, stock release
+in April and Champix delisting on 1 September 2026 are separate
+events outside the displayed dispensing years.
+
+[Pharmac funding restart](https://www.pharmac.govt.nz/medicine-funding-and-supply/medicine-notices/varenicline)
+and [Pharmac brand transition](https://www.pharmac.govt.nz/medicine-funding-and-supply/medicine-notices/varenicline-champix-your-brand-is-changing).
