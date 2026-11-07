@@ -4673,3 +4673,30 @@ Australian sensitivity entries are reconciliation metadata.
 See [the matching task card](phase2-matching-task-card.md)
 for the qualified commands and failure/recovery history.
 The source review sequence in P2.126 still applies.
+
+## P2.223 ATO tax-gap outcome screen
+
+The ATO's October 2024 method estimates illicit supply from
+import channels, domestic cultivation and historical warehouse
+leakage. It models undetected domestic production using an
+uplift and adjusts channel estimates after the warehouse duty
+change. The net gap deducts ATO and ABF seizures. Its 7,736
+tonnes of legal clearances refer to fiscal 2022–23 and a
+duty boundary. The FTI 6,900 tonnes refer to calendar 2023
+and include modelled lawful traveller supply. Their numerical
+difference does not measure consumption, stock change or
+under-reporting.
+
+The ATO method supplies a separate enforcement-based
+estimate of market supply. It uses seizures that also appear
+in the national wastewater paper's contextual comparison.
+To score illicit consumption against the ATO estimate would
+require matched periods and product scope, a bridge from
+post-seizure supply to consumption including stock change,
+and uncertainty for modelled undetected supply. The cited
+method establishes none of those for the national wastewater
+catchments. Keep the net gap as contextual supply evidence
+outside the independent consumption holdout.
+
+[ATO tobacco tax-gap methodology, steps 1–5](https://www.ato.gov.au/api/public/content/0-882626e8-a57b-4b7a-ab16-0894492a4ff2).
+[Wang et al., Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
