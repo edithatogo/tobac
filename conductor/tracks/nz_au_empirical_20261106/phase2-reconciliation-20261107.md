@@ -1737,3 +1737,18 @@ from P2.27 would instead give a September upper contribution
 of 128.634 on the summed load scale. This is a sufficient-condition
 sensitivity calculation. Sample-specific caps or tighter Q/P
 bounds could change it. No effective assay threshold was inferred.
+
+## P2.62 Fully quantified ANTA comparison on the same panel
+
+The same ten labels in P2.60 have two quantified ANTA loads per
+month in September and October. Their unweighted sampled means
+are 8.185 and 7.250 mg/day/1,000 people respectively, a difference
+of −0.935. Pairing by plant label and nominal sampling slot gives
+13 decreases and seven increases across 20 pairs. Nominal slots
+can contain documented weekday replacements.
+
+This comparison holds panel composition fixed and avoids ANBA
+censoring. The ANTA measurements share the study's sampling and
+normalization and do not resolve ANBA's direction of change.
+Neither a sampling-error interval nor a policy effect follows
+from this descriptive comparison.
