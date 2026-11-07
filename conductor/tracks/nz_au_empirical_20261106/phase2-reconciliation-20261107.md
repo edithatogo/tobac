@@ -3617,3 +3617,20 @@ from earlier stock and the trade rows do not identify duty
 drawbacks or link shipments to the Customs paid table.
 The aggregate sign reversal cannot validate a monthly duty
 or consumption bridge.
+
+## P2.172 Re-export-only duty sensitivity
+
+The 22.168 million light cigarette exports in P2.171 split
+into 21.752 million in Export_Qty and 0.416 million in
+Re_export_Qty. All 5,684 kg of the selected smoking tobacco
+are in Re_export_Qty. Netting only re-exports at the standard
+rates leaves light-cigarette nominal duty NZ$4,760,927.74
+above paid heading duty, while the smoking-tobacco difference
+remains -NZ$3,945,723.32. The light-cigarette sign reversal
+in P2.171 therefore depends on netting the ordinary export
+column as well.
+
+Neither column links an export to a particular import, duty
+adjustment or inventory boundary. P2.14's stock construction
+still applies even if these net flows were accepted as
+releases. Consumption requires an additional stock constraint.
