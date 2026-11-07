@@ -144,3 +144,57 @@ P1 branch remains frozen at 403600b. The existing integrator is idle at the scop
 readback and retains native/archive ownership. The three new NZHS originals and their
 87 candidate records still require exact destination/source admission before fitting.
 No cross-chat message, external upload or publication has been performed.
+
+## P2.3 matching-source candidates — 7 November 2026
+
+Continued independently from b1cb8f4 with unchanged maintained code. Hash-bound
+originals, raw candidate fields and native query descriptor are outside tobac in
+`/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-context`.
+`phase2-context-receipts-20261107.json` records original hashes, routes, exact
+coordinates, extraction checks and retained failures. No source is admitted and
+none enters the likelihood or existing scientific inputs.
+
+- Population: native internal-browser Statistics NZ table DPE054AA, 142 quarters
+  1991Q1–2026Q2; As at and Mean year ended, Male/Female/Total, Under 15/15 and over/
+  All ages. The first export omitted flags and is retained. A second export with
+  ShowNonFinalFlags and its native TQX descriptor preserve 2,556 selected cells,
+  27 `..` unavailable values and 108 literal ` P` provisional flags. Every raw
+  value/flag is checked against its source CSV record/column. The published
+  rounding footnote accompanies age-sum residuals of −100, 0 or 100; no tolerance,
+  adjustment or independent status is invented. The export records 2023 ERP and
+  post-2018 revisions, last updated 18 August 2026. ERP is not automatically the
+  NZHS eligible private-household population or a wastewater catchment denominator.
+- Price: September 2026 official CPI CSVs and original XLSX downloaded through
+  publisher links. Windows-1252 decoding of the Infoshare CSV roundtrips exactly;
+  no replacement characters or edited originals. The broad 42 current-quarter
+  and 621 historical tobacco-labelled rows are candidate matches, including
+  aggregate alcohol and tobacco and distinct series. Exact CPIQ.SE9022 subgroup
+  has 207 quarterly Index records, 1975.03–2026.09, published FINAL. Workbook
+  sheet 2.01 A4 gives June 2017 = 1000; A16/B16 identify cigarettes and tobacco /
+  SE9022, K16 gives 1889. Sheet 4 A11/B11/C11 identifies cigarette retail prices /
+  SAP0240 / pack of 25; D4/F4 are Jun-26/Sep-26, D5 is `$`, D11/F11 are 61.28/61.5.
+  Indexes, dollar prices and percent changes remain distinct. Currency/tax,
+  historical selected-item prices and transaction/survey-period bridges remain open.
+- Trade: actual September 2026 HS10 import and export CSVs downloaded from the
+  official overseas-merchandise-trade dataset page. All-string Polars selection
+  with literal empty strings, then independent stdlib CSV equality by ordinal,
+  verifies 15 HS24 import candidates out of 8,660 rows and four export candidates
+  out of 5,930. All are provisional. HS codes stay ten-character strings; exports,
+  re-exports and total exports remain separate. HS24 contains tobacco substitutes,
+  nicotine and mixed NMB/LTR/KTC/KGM/MIL/unspecified units: no quantity pooling or
+  inference that these flows are duty-paid consumption. One month qualifies a
+  source route; a historical product-matched trade bridge is still required.
+
+The native exports, original source pages and observed CC BY 4.0 publisher footer
+are retained externally. That footer alone does not establish downstream archive
+admission, exact rights scope or substantive appraisal. No external message,
+archive/native write, shared-main publication or private-binding transfer occurred.
+The existing owner handoff question remains unanswered; it does not prevent these
+independent source reads and does not authorise a cross-chat message.
+
+Initial flag/empty-string/API mismatches are preserved and diagnosed in the receipt;
+corrected guarded extraction checks pass. No maintained code, lock, model or tests
+changed: reuse P2.2's full test/typing/reproduction evidence at its stated scope.
+P1 source/rights/policy gates and P2 period/product/dependence/calibration/holdout
+identification remain open. This source reconciliation is not an empirical fit,
+held-out result, policy contrast, VOI result or a completed P2 task.

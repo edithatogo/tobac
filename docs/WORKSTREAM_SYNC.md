@@ -101,3 +101,13 @@ owner was read as idle; no message, private binding transfer or native write occ
 Next: exact external destination/source admission, compatible measurement/period and
 policy-baseline reconciliation, then the prespecified empirical fit and validation.
 P2 is not complete; this is a terminal enabling-source packet for the existing integrator.
+
+P2.3 continuation retains the same chat/worktree/branch and sole writing scope.
+Added external, hash-bound official population/price/trade candidates and only
+track metadata/publication classifications. DPE054AA flags/query, pack-of-25 CPI
+unit and one-month HS24 import/export distinctions are verified at extraction scope.
+See phase2-context-receipts-20261107.json and the appended reconciliation for exact
+hashes, retained failures and gaps. No native/archive, M3, shared-main, runtime or
+scientific-input mutation. Next: source/rights/policy admission and historical
+product/period/population matching before identified fitting and held-out testing.
+P2 remains active; prior owner's archive lane and unanswered messaging approval stand.

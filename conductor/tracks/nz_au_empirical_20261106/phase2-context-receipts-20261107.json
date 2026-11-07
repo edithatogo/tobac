@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "phase": "P2.3 candidate-source reconciliation",
+  "source_base_commit": "b1cb8f4e1cc231eba0147bc75780b92da68015f0",
+  "owner_chat": "01a1b3ac-76ef-7b12-a919-91fcb05de339",
+  "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-context",
+  "runtime": {
+    "interpreter": "/Users/doughnut/.codex/worktrees/tobac-p1-evidence/tobac/.venv/bin/python",
+    "verified_version": "3.15.2"
+  },
+  "receipt_pointers": [
+    {
+      "file": "page-receipts.json",
+      "sha256": "4f85a41689329c2dbc566dc1db848b98e515fbf31ce25f05b84c86eb5b692288"
+    },
+    {
+      "file": "csv-landing-receipt.json",
+      "sha256": "bb7cfb1cb90496eb0193a1a1349d500ec50a25543c12d57b53011e2aff5382f8"
+    },
+    {
+      "file": "asset-receipts.json",
+      "sha256": "a4b945d62fba26b0c5e6fe7e3576b1da2cd2e471bbf8768e45b27a68e07c6e00"
+    },
+    {
+      "file": "cpi-inspection.json",
+      "sha256": "ca429223eba65ca11c96d07440a664208f0e4124b3a1e85c12ebda09f39107a6"
+    },
+    {
+      "file": "cpi-workbook-receipt.json",
+      "sha256": "82e5ce4e7da32dd2404badb9417a423e1a80d5afb89f7e70d586a6c0be79d7c7"
+    },
+    {
+      "file": "population-download-receipt.json",
+      "sha256": "0fc8d816437a09a62da7da350dcec4413185730a603ae5a8a6e989c69d3603ae"
+    },
+    {
+      "file": "population-extra-download-receipts.json",
+      "sha256": "19638531a61f2f197fac21092713356620b355ed8884f02608a6ac425ddcc956"
+    },
+    {
+      "file": "population-reconciliation.json",
+      "sha256": "10073d93f71dbaa9e96aca4bc7b84371791e0a895037ebcd698e048ad6992354"
+    },
+    {
+      "file": "price-reconciliation.json",
+      "sha256": "efce8a68cc088c1ba40b23cf61c656e3d86aee4f2db75051d8503eef2f027948"
+    },
+    {
+      "file": "trade-page-receipt.json",
+      "sha256": "beac0c86a8a33515c4f7d6028fc0bf5fbfae405ad5229485daa2367651a60109"
+    },
+    {
+      "file": "trade-asset-receipts.json",
+      "sha256": "cd23730591be2a23c98ea811c2d617cd1e4046db41b311f41513670c349aae55"
+    },
+    {
+      "file": "trade-reconciliation.json",
+      "sha256": "2625b1de983d7129fc824b1a7930074d69993fa852c4508cbf53c42859226827"
+    }
+  ],
+  "originals": [
+    {
+      "source_id": "STATS_POP2025",
+      "url": "https://www.stats.govt.nz/information-releases/national-population-estimates-at-30-june-2025/",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "file": "STATS_POP2025-48f5df7510646e0ceb0402c52b06a2ae88f13f3ea015e8d78374088b73b6c970.html",
+      "sha256": "48f5df7510646e0ceb0402c52b06a2ae88f13f3ea015e8d78374088b73b6c970",
+      "bytes": 61419
+    },
+    {
+      "source_id": "STATS_CPI2026Q3",
+      "url": "https://www.stats.govt.nz/information-releases/consumers-price-index-september-2026-quarter/",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "file": "STATS_CPI2026Q3-9a89f095c4b4a2501f69687a7c125cf98db19c34698ec5cc56c833426409c82f.html",
+      "sha256": "9a89f095c4b4a2501f69687a7c125cf98db19c34698ec5cc56c833426409c82f",
+      "bytes": 87901
+    },
+    {
+      "source_id": "consumers-price-index-september-2026-quarter-infoshare-data.csv",
+      "url": "https://www.stats.govt.nz/assets/Uploads/Consumers-price-index/Consumers-price-index-September-2026-quarter/Download-data/consumers-price-index-september-2026-quarter-infoshare-data.csv",
+      "http_status": 200,
+      "content_type": "application/octet-stream",
+      "file": "consumers-price-index-september-2026-quarter-infoshare-data-e0e3cfca83f9f86c00f4fc4c43a33a16c6a0b6498bfd9fa5855895668fd0987f.csv",
+      "sha256": "e0e3cfca83f9f86c00f4fc4c43a33a16c6a0b6498bfd9fa5855895668fd0987f",
+      "bytes": 184987
+    },
+    {
+      "source_id": "consumers-price-index-september-2026-quarter-index-numbers.csv",
+      "url": "https://www.stats.govt.nz/assets/Uploads/Consumers-price-index/Consumers-price-index-September-2026-quarter/Download-data/consumers-price-index-september-2026-quarter-index-numbers.csv",
+      "http_status": 200,
+      "content_type": "application/octet-stream",
+      "file": "consumers-price-index-september-2026-quarter-index-numbers-89d272e1139e66f0626e6016806aaa76b10359330a36d2ac409b9954a7c1c5cf.csv",
+      "sha256": "89d272e1139e66f0626e6016806aaa76b10359330a36d2ac409b9954a7c1c5cf",
+      "bytes": 2936812
+    },
+    {
+      "source_id": "CPI_2026Q3_WORKBOOK",
+      "url": "https://www.stats.govt.nz/assets/Uploads/Consumers-price-index/Consumers-price-index-September-2026-quarter/Download-data/consumers-price-index-september-2026-quarter.xlsx",
+      "http_status": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "file": "CPI_2026Q3-806f4832f5344e356a866f458753013ee226fa2d419cc6ce5ffb3a1a77757b5d.xlsx",
+      "sha256": "806f4832f5344e356a866f458753013ee226fa2d419cc6ce5ffb3a1a77757b5d",
+      "bytes": 197626
+    },
+    {
+      "source_id": "population_flags",
+      "file": "population_flags-ead0b26b9528878a8f529bd357fe8b42e7137bf94b4fad343183b2f1760717d2.csv",
+      "sha256": "ead0b26b9528878a8f529bd357fe8b42e7137bf94b4fad343183b2f1760717d2",
+      "bytes": 30683,
+      "source_table_ref": "DPE054AA",
+      "status_flags_selected": true,
+      "method": "internal browser native export"
+    },
+    {
+      "source_id": "population_query",
+      "file": "population_query-e8c9fd44b190c02ae32783c49fb4b1d6a77d55c9498432597550bdc2ea9f24eb.tqx",
+      "sha256": "e8c9fd44b190c02ae32783c49fb4b1d6a77d55c9498432597550bdc2ea9f24eb",
+      "bytes": 6916,
+      "source_table_ref": "DPE054AA",
+      "status_flags_selected": true,
+      "method": "internal browser native export"
+    },
+    {
+      "url": "https://www.stats.govt.nz/assets/Large-datasets/OMT-datasets/OMT-datasets-September-2026/Imports/Sep_2026_Imports_HS10.csv",
+      "file": "Sep_2026_Imports_HS10-60f2ca85ec066b882f22f696542a77b7e7a027dbd7311cf15ac1992a0a0a1c8b.csv",
+      "sha256": "60f2ca85ec066b882f22f696542a77b7e7a027dbd7311cf15ac1992a0a0a1c8b",
+      "bytes": 1583617,
+      "http_status": 200,
+      "content_type": "application/octet-stream"
+    },
+    {
+      "url": "https://www.stats.govt.nz/assets/Large-datasets/OMT-datasets/OMT-datasets-September-2026/Exports/Sep_2026_Exports_HS10.csv",
+      "file": "Sep_2026_Exports_HS10-6ed343007998899a10992567c2ccc765bd1aba5162c7181ebbb3d4dca1f97705.csv",
+      "sha256": "6ed343007998899a10992567c2ccc765bd1aba5162c7181ebbb3d4dca1f97705",
+      "bytes": 1103488,
+      "http_status": 200,
+      "content_type": "application/octet-stream"
+    }
+  ],
+  "reconciliations": {
+    "population": {
+      "source_sha256": "ead0b26b9528878a8f529bd357fe8b42e7137bf94b4fad343183b2f1760717d2",
+      "query_sha256": "e8c9fd44b190c02ae32783c49fb4b1d6a77d55c9498432597550bdc2ea9f24eb",
+      "table_ref": "DPE054AA",
+      "quarters": 142,
+      "first": "1991Q1",
+      "last": "2026Q2",
+      "candidate_cells": 2556,
+      "missing": 27,
+      "flags": {
+        "": 2448,
+        " P": 108
+      },
+      "candidate_sha256": "87240f43e3532dcf84b27401183c5da361a53fdd215ca4c66b42ab5b579c2330",
+      "age_sum_minus_total_counts": {
+        "0": 641,
+        "-100": 103,
+        "100": 99
+      },
+      "admitted": false,
+      "limitation": "ERP is not automatically a survey or catchment denominator; overlapping aggregates and estimate types are not independent observations."
+    },
+    "price": {
+      "workbook_sha256": "806f4832f5344e356a866f458753013ee226fa2d419cc6ce5ffb3a1a77757b5d",
+      "selected_cells": {
+        "2.01": {
+          "A1": "Table 2.01",
+          "A2": "Consumers price index",
+          "A3": "Groups and subgroups \u2013 index numbers",
+          "A4": "Base: June 2017 quarter (=1000)",
+          "A11": "    Grocery food",
+          "B11": "SE9013",
+          "C11": "1370",
+          "A16": "    Cigarettes and tobacco",
+          "B16": "SE9022",
+          "K16": "1889"
+        },
+        "4": {
+          "A1": "Table 4",
+          "A2": "Weighted average retail prices of selected items(1)",
+          "A4": "Item",
+          "B4": "Series ref: CPIQ",
+          "C4": "Unit",
+          "D4": "Jun-26",
+          "F4": "Sep-26",
+          "H4": "Percentage change(2)",
+          "D5": "$",
+          "A11": "    Cigarettes (supermarket & convenience store)",
+          "B11": "SAP0240",
+          "C11": "pk of 25",
+          "D11": "61.28",
+          "F11": "61.5"
+        }
+      },
+      "index_series": "CPIQ.SE9022",
+      "index_records": 207,
+      "first_period": "1975.03",
+      "last_period": "2026.09",
+      "candidate_sha256": "4e0ca13f06013b349c62594ce98a0be3e237b10b0f1d571261049d62727fbb86",
+      "index_statuses": [
+        "FINAL"
+      ],
+      "index_units": [
+        "Index"
+      ],
+      "admitted": false,
+      "limitations": [
+        "Price observations differ from index values and percent changes",
+        "Weighted selected-item price does not imply national transaction-weighted paid price or causal elasticity",
+        "Historical price series, currency/tax and survey-period bridge still require qualification"
+      ]
+    },
+    "trade": [
+      {
+        "source_sha256": "60f2ca85ec066b882f22f696542a77b7e7a027dbd7311cf15ac1992a0a0a1c8b",
+        "original_records": 8660,
+        "candidate_records": 15,
+        "columns": [
+          "Month",
+          "Harmonised System Code",
+          "Harmonised System Description",
+          "Unit Qty",
+          "Imports ($NZD vfd)",
+          "Imports ($NZD cif)",
+          "Imports Qty",
+          "Status"
+        ],
+        "candidate_file": "trade-imports-hs24-candidates-v2.csv",
+        "candidate_sha256": "add8ec7692877d5ea5854193ceeb19ec31e4dbe3496f61f086fb72f6f0209cd8",
+        "units": [
+          "NMB",
+          "LTR",
+          "",
+          "KTC",
+          "KGM",
+          "MIL"
+        ],
+        "statuses": [
+          "Provisional"
+        ],
+        "admitted": false,
+        "limitations": [
+          "One month only; not a longitudinal bridge",
+          "HS24 includes substitutes and mixed quantities; no pooled quantity",
+          "Exports and re-exports distinct; no consumption or duty-paid inference"
+        ]
+      },
+      {
+        "source_sha256": "6ed343007998899a10992567c2ccc765bd1aba5162c7181ebbb3d4dca1f97705",
+        "original_records": 5930,
+        "candidate_records": 4,
+        "columns": [
+          "Month",
+          "Harmonised System Code",
+          "Harmonised System Description",
+          "Unit Qty",
+          "Exports ($NZD fob)",
+          "Exports Qty",
+          "Re-exports ($NZD fob)",
+          "Re-exports Qty",
+          "Total Exports ($NZD fob)",
+          "Total Exports Qty",
+          "Status"
+        ],
+        "candidate_file": "trade-exports-hs24-candidates-v2.csv",
+        "candidate_sha256": "cf1548e86804700de4a1cd89e05b65e0dcdd966e0dd44921f1db450294b98eaa",
+        "units": [
+          "MIL",
+          "KGM",
+          "LTR",
+          ""
+        ],
+        "statuses": [
+          "Provisional"
+        ],
+        "admitted": false,
+        "limitations": [
+          "One month only; not a longitudinal bridge",
+          "HS24 includes substitutes and mixed quantities; no pooled quantity",
+          "Exports and re-exports distinct; no consumption or duty-paid inference"
+        ]
+      }
+    ]
+  },
+  "admitted": false,
+  "fit_executed": false,
+  "unmet_gates": [
+    "P1 screening, legal baseline, archive destination/rights/readback",
+    "NZHS eligible population and exact dates versus ERP/catchments",
+    "Historical matching paid prices/trade and stock/product/period accounting",
+    "AU measurement design/calibration and dependence",
+    "Prespecified holdout, identified baseline and policy contrast, incremental WBE assessment"
+  ],
+  "verification_reused": {
+    "source_commit": "a818f28860196e61661fdb2b685320699c892ad2",
+    "receipt": "conductor/tracks/nz_au_empirical_20261106/phase2-receipts-20261107.json",
+    "reason": "No maintained scientific/audit/test/runtime code changed in P2.3; full tests, typing and numerical replay remain scoped to that unchanged source"
+  },
+  "failures_retained": [
+    "Initial population checker rejected literal leading-space provisional flags; validation strips whitespace only to check allowed flags while output preserves raw flag",
+    "Initial trade exact-field comparison found Polars null versus original empty string; incomplete v1 candidate retained outside repository",
+    "First correction used obsolete Polars keyword missing_utf8_is_empty_string; actual installed read_csv signature checked, supported empty_string_is_null=False then exact-field reconciliation passed",
+    "Initial CPI UTF-8 decode failed; explicit Windows-1252 decode/re-encode roundtrip qualified, original unchanged",
+    "CLI Stats infoshare landing 403 does not invalidate working internal-browser exact-table export"
+  ],
+  "guarded_extractions": [
+    {
+      "script": "reconcile-population.py",
+      "status": 0,
+      "sampled_group_rss_mib": 0.4
+    },
+    {
+      "script": "reconcile-price.py",
+      "status": 0,
+      "sampled_group_rss_mib": 0.7
+    },
+    {
+      "script": "reconcile-trade.py",
+      "status": 0,
+      "sampled_group_rss_mib": 1.8
+    }
+  ],
+  "resource_limit_note": "4096 MiB sampled process-group RSS / 2400 seconds; fast-script samples do not establish allocation peaks or leak freedom."
+}

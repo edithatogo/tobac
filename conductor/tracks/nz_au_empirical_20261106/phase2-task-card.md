@@ -105,3 +105,18 @@ helper, and candidate CSV bytes match v1 exactly. Do not attribute a sampled res
 peak to the first run or overwrite it. The default Nox native route stops on the absent
 owner-held TOBAC_LINEAGE_PYTHON binding. The supported attested route is separate and
 uses only this worktree's qualified .venv; no private bindings are copied.
+
+## P2.3 public matching-source continuation — 7 November 2026
+
+Same owner/worktree and branch, clean base b1cb8f4. The prior P2.2 packet stays frozen;
+its proposed cross-chat handoff is unanswered and no message is authorised. Continue
+independent source work for P2's missing population, price and trade requirements.
+Own only this track's task/evidence notes, exact metadata classifications and ignored
+outputs/nz-au-phase2-context-20261107. No scientific code/input, lock, M3, native/archive
+or shared-main mutation. Retain originals in a new external intake edition; use actual
+publisher links/qualified CLI reads and hash/status/content-type receipts. Preserve
+estimate-versus-projection, point population-versus-survey denominator, price index-
+versus-price, and re-export/transit-versus-consumption distinctions. Do not infer a
+calendar-period bridge or a causal price response from these acquisitions. Reuse the
+unchanged P2.2 full test/typing/reproduction receipts; qualify any new extraction at its
+actual scope before source admission or fitting.
