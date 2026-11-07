@@ -4832,3 +4832,30 @@ with the public graph. Its retrospective fit cannot
 supply the planned held-out score.
 
 [ABS experimental household consumption article, Method and Appendix 1](https://www.abs.gov.au/articles/household-consumption-illicit-tobacco-and-nicotine-products).
+
+## P2.229 NDSHS independent survey outcome scope
+
+The AIHW 2025 insights chart reports, among current
+smokers, 16.7% with either recent branded illicit purchase
+or current unbranded use in 2022–23, and 34.0% in 2025.
+The components are 10.2% and 9.0% in the earlier wave
+and 22.6% and 16.4% in the later wave. On the chart's
+common denominator, inclusion-exclusion gives implied
+overlaps of 2.5 and 5.0 percentage points from rounded
+values. Summing component prevalence would double-count
+respondents. The branded item concerns purchases within
+three months. The unbranded item concerns current use,
+including occasional use.
+
+This survey provides a separate respondent-based outcome
+for prevalence. Neither the composite nor the implied
+overlap provides tobacco mass or the proportion of
+participants' total smoking accounted for by those products.
+The four listed waves, 2016, 2019, 2022–23 and 2025, are
+not four consecutive complete country years. An empirical
+comparison on survey prevalence would need its own matched
+estimand, survey windows, independent forecast inputs and
+geographic support. It cannot substitute for the prespecified
+consumption holdout.
+
+[AIHW NDSHS 2025 insights, illicit tobacco measures and source tables](https://www.aihw.gov.au/reports/illicit-use-of-drugs/national-drug-strategy-household-survey/contents/insights).
