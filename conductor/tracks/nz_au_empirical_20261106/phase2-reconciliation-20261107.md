@@ -2136,3 +2136,17 @@ reproduces P2.86 and verifies 1,990.172 m of shared catchment
 boundary. Reported overlap percentages use full operator
 polygon area as denominator. They are not separately measured
 land-only, population, or outlet shares.
+
+## P2.89 Exact schedule-layer area check
+
+The public attribute table for Stats NZ layer 111198 confirms
+Wellington code 1402, major urban classification, 112.71221247 km²
+land area and 112.84839723 km² total area. The P2.86 clipped
+mirror geometry measures 112.71117433 km². The near match to
+the official land-area attribute supports the mirror's clipped
+description. The 0.137223 km² difference from the schedule-layer
+total is a net area difference. It cannot bound the change in
+either catchment intersection without verifying polygon nesting
+or obtaining the exact geometry. No exact-layer overlap is claimed.
+
+[Stats NZ layer and attribute table](https://datafinder.stats.govt.nz/layer/111198-urban-rural-2023-generalised/).
