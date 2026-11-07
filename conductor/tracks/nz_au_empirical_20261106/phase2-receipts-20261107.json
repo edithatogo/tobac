@@ -1,0 +1,660 @@
+{
+  "schema_version": 1,
+  "edition": "P2.2-20261107",
+  "recorded_at": "2026-11-07T02:22:15.093100+00:00",
+  "base_commit": "403600b775ccef5a0121dde1c5619e50d2728815",
+  "phase2_complete": false,
+  "external_intake_edition": "tobac-evidence-intake-20261107-p2",
+  "original_payloads_in_repository": false,
+  "source_acquisitions": [
+    {
+      "source_id": "MOH_TONNES_WORKBOOK",
+      "url": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+      "requested_at": "2026-11-07T02:06:16.167037+00:00",
+      "new_input_admitted": false,
+      "http_status": 403,
+      "status": "retrieval_failed_not_source",
+      "error": "HTTP Error 403: Forbidden",
+      "response_sha256": "2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c",
+      "file": "MOH_TONNES_WORKBOOK-http403-2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c.bin"
+    },
+    {
+      "source_id": "MOH_RETURNS_PAGE",
+      "url": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+      "requested_at": "2026-11-07T02:06:16.590150+00:00",
+      "new_input_admitted": false,
+      "http_status": 403,
+      "status": "retrieval_failed_not_source",
+      "error": "HTTP Error 403: Forbidden",
+      "response_sha256": "ad20bb5a9090d4be245ab8c58632869393d50d285d30fb4aa383ab6e0388ebe4",
+      "file": "MOH_RETURNS_PAGE-http403-ad20bb5a9090d4be245ab8c58632869393d50d285d30fb4aa383ab6e0388ebe4.bin"
+    },
+    {
+      "source_id": "NZHS_ANNUAL_PAGE",
+      "url": "https://www.health.govt.nz/publications/annual-update-of-key-results-202425-new-zealand-health-survey",
+      "requested_at": "2026-11-07T02:06:16.791326+00:00",
+      "new_input_admitted": false,
+      "http_status": 403,
+      "status": "retrieval_failed_not_source",
+      "error": "HTTP Error 403: Forbidden",
+      "response_sha256": "0ef3aa9e96060214092beaece096ea105ff3da699be8a834f89e38552d1bffc5",
+      "file": "NZHS_ANNUAL_PAGE-http403-0ef3aa9e96060214092beaece096ea105ff3da699be8a834f89e38552d1bffc5.bin"
+    },
+    {
+      "source_id": "NZHS_METHODS",
+      "url": "https://www.health.govt.nz/system/files/2025-11/methodology-report-2024-25.pdf",
+      "requested_at": "2026-11-07T02:06:17.068878+00:00",
+      "new_input_admitted": false,
+      "http_status": 403,
+      "status": "retrieval_failed_not_source",
+      "error": "HTTP Error 403: Forbidden",
+      "response_sha256": "2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c",
+      "file": "NZHS_METHODS-http403-2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c.bin"
+    }
+  ],
+  "nzhs_browser_downloads": [
+    {
+      "source_id": "NZHS_202425_prevalences",
+      "canonical_entrypoint": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/",
+      "observed_relative_asset": "data/nz-health-survey-2024-25-prevalences.csv",
+      "download_method": "internal_browser_documented_Data_CSV_link_downloadMedia",
+      "observed_download_completed_by": "2026-11-07T02:07:24.800878+00:00",
+      "original_download_mtime_utc": "2026-11-07T02:07:01.908197+00:00",
+      "file": "NZHS_prevalences-6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915.csv",
+      "sha256": "6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915",
+      "bytes": 6088525,
+      "license_observed": "CC BY 4.0 on native explorer download page",
+      "status": "candidate_not_admitted"
+    },
+    {
+      "source_id": "NZHS_202425_rate-ratios",
+      "canonical_entrypoint": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/",
+      "observed_relative_asset": "data/nz-health-survey-2024-25-rate-ratios.csv",
+      "download_method": "internal_browser_documented_Data_CSV_link_downloadMedia",
+      "observed_download_completed_by": "2026-11-07T02:07:24.802166+00:00",
+      "original_download_mtime_utc": "2026-11-07T02:07:14.898072+00:00",
+      "file": "NZHS_rate-ratios-7ef9946ae0b8f6530af55460d93e2e4e37230ad70e51d4111e6038730566acdc.csv",
+      "sha256": "7ef9946ae0b8f6530af55460d93e2e4e37230ad70e51d4111e6038730566acdc",
+      "bytes": 336507,
+      "license_observed": "CC BY 4.0 on native explorer download page",
+      "status": "candidate_not_admitted"
+    },
+    {
+      "source_id": "NZHS_202425_time-series",
+      "canonical_entrypoint": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/",
+      "observed_relative_asset": "data/nz-health-survey-2024-25-time-series.csv",
+      "download_method": "internal_browser_documented_Data_CSV_link_downloadMedia",
+      "observed_download_completed_by": "2026-11-07T02:07:24.804845+00:00",
+      "original_download_mtime_utc": "2026-11-07T02:07:15.316227+00:00",
+      "file": "NZHS_time-series-82c0313a67397be42d75590de34b9a1374f73b38ca5a5a6ba8a23f4b5241148e.csv",
+      "sha256": "82c0313a67397be42d75590de34b9a1374f73b38ca5a5a6ba8a23f4b5241148e",
+      "bytes": 1929818,
+      "license_observed": "CC BY 4.0 on native explorer download page",
+      "status": "candidate_not_admitted"
+    }
+  ],
+  "nzhs_qualified_cli_route": {
+    "url": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/data/nz-health-survey-2024-25-prevalences.csv",
+    "requested_at": "2026-11-07T02:08:19.763443+00:00",
+    "route": "Canonical application path plus observed data asset",
+    "http_status": 200,
+    "content_type": "text/csv",
+    "final_url": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/data/nz-health-survey-2024-25-prevalences.csv",
+    "sha256": "6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915",
+    "bytes": 6088525,
+    "matches_browser_original": true,
+    "file": "NZHS_CLI-6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915.bin"
+  },
+  "candidate_extraction": {
+    "file": "nzhs-adult-total-candidates-v3.csv",
+    "sha256": "07013c889fe3e44f421853373d3e0248df77432f6456c7dcb45211c45fc87e51",
+    "bytes": 9925,
+    "audit": {
+      "source_file": "NZHS_prevalences-6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915.csv",
+      "source_sha256": "6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915",
+      "source_family": "NZHS",
+      "source_alias": "nz-key-results-2024-25",
+      "native_admission_checked": false,
+      "new_observations_admitted": false,
+      "candidate_records": 87,
+      "source_export_records": 47708,
+      "period_kind": "survey_start_year_label_not_calendar_year",
+      "iso_observation_dates_verified": false,
+      "joint_covariance_available": false,
+      "holdout_manifest_frozen": false,
+      "series": [
+        {
+          "indicator": "Current smokers",
+          "unit": "percent_adults_15plus",
+          "survey_start_labels": [
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "unflagged_complete_triplets": [
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "flagged_for_review": [],
+          "missing_triplets": [],
+          "absent_year_labels": []
+        },
+        {
+          "indicator": "Daily smokers",
+          "unit": "percent_adults_15plus",
+          "survey_start_labels": [
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "unflagged_complete_triplets": [
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "flagged_for_review": [],
+          "missing_triplets": [],
+          "absent_year_labels": []
+        },
+        {
+          "indicator": "Mean number of cigarettes",
+          "unit": "cigarettes/day/daily_smoker_excluding_mainly_pipes_cigars",
+          "survey_start_labels": [
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "unflagged_complete_triplets": [
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "flagged_for_review": [],
+          "missing_triplets": [],
+          "absent_year_labels": []
+        },
+        {
+          "indicator": "Daily vaping",
+          "unit": "percent_adults_15plus",
+          "survey_start_labels": [
+            2015,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "unflagged_complete_triplets": [
+            2015,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "flagged_for_review": [],
+          "missing_triplets": [],
+          "absent_year_labels": [
+            2016
+          ]
+        },
+        {
+          "indicator": "Daily smoker and daily vaper",
+          "unit": "percent_adults_15plus",
+          "survey_start_labels": [
+            2015,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "unflagged_complete_triplets": [
+            2015,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "flagged_for_review": [],
+          "missing_triplets": [],
+          "absent_year_labels": [
+            2016
+          ]
+        },
+        {
+          "indicator": "Daily smoker only",
+          "unit": "percent_adults_15plus",
+          "survey_start_labels": [
+            2015,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "unflagged_complete_triplets": [
+            2015,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "flagged_for_review": [],
+          "missing_triplets": [],
+          "absent_year_labels": [
+            2016
+          ]
+        },
+        {
+          "indicator": "Daily vaper only",
+          "unit": "percent_adults_15plus",
+          "survey_start_labels": [
+            2015,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "unflagged_complete_triplets": [
+            2015,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "flagged_for_review": [],
+          "missing_triplets": [],
+          "absent_year_labels": [
+            2016
+          ]
+        },
+        {
+          "indicator": "Daily smoker and/or daily vaper",
+          "unit": "percent_adults_15plus",
+          "survey_start_labels": [
+            2015,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "unflagged_complete_triplets": [
+            2015,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "flagged_for_review": [],
+          "missing_triplets": [],
+          "absent_year_labels": [
+            2016
+          ]
+        }
+      ],
+      "limits": [
+        "All original columns and publication flags retained; flagged values are not usable triplets",
+        "Estimated numbers, prevalence and time-series exports share NZHS respondents",
+        "Cigarette intensity uses range midpoints and a top-coded upper category",
+        "Daily-smoking prevalence and intensity do not have identical pipe/cigar coverage",
+        "Survey periods cannot be equated to calendar-year releases without a supported bridge",
+        "No population reconstructed from rounded estimated counts divided by prevalence",
+        "No consumption product, independence assumption, likelihood, fit or predictive score created"
+      ]
+    },
+    "helper_sha256": "ef0d8f85f93d36314be32f856424121c48ae16968fb02c0303b520b342c0b182",
+    "bounded_exit_code": 0,
+    "bounded_log": "outputs/nz-au-phase2-20261107/slice-reconciliation-v3.log",
+    "earlier_candidate_bytes_equal": true,
+    "prior_v1": "First execution lacked resource wrapper; retained and not assigned a bounded peak",
+    "prior_v2": "Bounded earlier code edition; retained unchanged",
+    "independent_original_readback": {
+      "status": "passed",
+      "checked_at": "2026-11-07T02:25:57.546360+00:00",
+      "independent_reader": "Python csv.DictReader with original UTF-8 BOM handling; no Polars/helper call",
+      "original_csv_hashes_verified": 3,
+      "candidate_records": 87,
+      "all_original_fields_equal_by_record_ordinal": true,
+      "candidate_sha256": "07013c889fe3e44f421853373d3e0248df77432f6456c7dcb45211c45fc87e51",
+      "scope": "Local field/fixity verification only; no external archival admission or fit"
+    },
+    "final_guarded_run_log": "outputs/nz-au-phase2-20261107/slice-reconciliation-v3.log"
+  },
+  "unchanged_historical_coverage": [
+    {
+      "path": "data/empirical_intake_20261024/nz_historical_legal_supply.csv",
+      "sha256": "2332ca526e157910f6b0fd051ad2c22773ef6d624198285a8ae1023bc694e738",
+      "rows": 12,
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "units": [
+        "cigarette_equivalents/year"
+      ],
+      "source_ids": [
+        "parallel-S08"
+      ],
+      "limitations": [
+        "Reported upper-bound smoker scenario, not posterior mean. Sales/releases and consumption differ. National years not local catchments. Preserve negative signed discrepancies; do not clamp to zero or fit as true illicit counts."
+      ],
+      "role": "consumer_extraction_or_assumption_not_original_source",
+      "native_admission_checked": false,
+      "new_observations_admitted": false
+    },
+    {
+      "path": "data/longitudinal_20261024/nz_tobacco_release_tonnes_2010_2025.csv",
+      "sha256": "ef85faa4e338f499bf15a5bed85ffdf139c839a54ea1d7c682d79f350256232e",
+      "rows": 16,
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "units": [
+        "tonnes/year"
+      ],
+      "source_ids": [
+        "long-nz-tobacco-tonnes-2025"
+      ],
+      "limitations": [
+        "Rounded whole-tonne chart values. Excludes cigars/cigarillos and heated tobacco. Releases are not catchment consumption. Mass conversion and duty-free basis need workbook/issuer confirmation."
+      ],
+      "role": "consumer_extraction_or_assumption_not_original_source",
+      "native_admission_checked": false,
+      "new_observations_admitted": false
+    }
+  ],
+  "software_verification": {
+    "actual_python": "3.15.2",
+    "focused": {
+      "passed": 77,
+      "seconds": 2.33,
+      "sampled_peak_mib": 172.0,
+      "log": "outputs/nz-au-phase2-20261107/focused-tests.log"
+    },
+    "nox_tests_initial": {
+      "passed": 1289,
+      "skipped": 22,
+      "seconds": 72.68,
+      "coverage_percent": 92,
+      "coverage_scope": "src only",
+      "sampled_peak_mib": 763.4,
+      "route": "attested, local qualified interpreter; no native mutation bindings copied",
+      "log": "outputs/nz-au-phase2-20261107/nox-tests-attested.log"
+    },
+    "nox_default_route": {
+      "exit_code": 1,
+      "preflight_exit_code": 2,
+      "reason": "TOBAC_LINEAGE_PYTHON absent; private native route not selected in this worktree",
+      "log": "outputs/nz-au-phase2-20261107/nox-tests.log"
+    },
+    "strict_typing_final": {
+      "errors": 0,
+      "warnings": 0,
+      "sampled_peak_mib": 867.2,
+      "log": "outputs/nz-au-phase2-20261107/strict-typing-final.log",
+      "runtime": "Own .venv-quality Python 3.15.2, installed audit lock; no root environment replacement"
+    },
+    "corrections": [
+      "Initial typing against runtime-only environment exposed missing analysis stubs and two optional-path errors; qualified audit environment resolved stub availability",
+      "Explicit optional-argument narrowing fixes the two local typing errors; final whole-source typing passes",
+      "Earlier root quality runtime reports Python 3.15.1; not used for final Python analysis",
+      "Both Ruff 0.17.3 initial and own locked 0.17.4 final affected-file checks pass; final formatter passes"
+    ],
+    "final_tests_and_replay": {
+      "nox_tests": {
+        "passed": 1289,
+        "skipped": 22,
+        "seconds": 46.09,
+        "coverage_percent": 92,
+        "coverage_scope": "src only; not an audit-helper coverage claim",
+        "log": "outputs/nz-au-phase2-20261107/nox-final-tests-reproduce.log",
+        "capability_skips": [
+          {
+            "test": "::tests.engineering.test_clustering_qualification",
+            "reason": "collection skipped"
+          },
+          {
+            "test": "tests.engineering.test_evidence_interchange::test_real_installed_producer",
+            "reason": "Native producer is required in the ecosystem session"
+          },
+          {
+            "test": "tests.engineering.test_lineage_gate::test_rejection_precedes_runner_claim[missing-object_missing]",
+            "reason": "requires the installed native wheel and private accepted attempts"
+          },
+          {
+            "test": "tests.engineering.test_lineage_gate::test_rejection_precedes_runner_claim[tampered-object_corrupt]",
+            "reason": "requires the installed native wheel and private accepted attempts"
+          },
+          {
+            "test": "tests.engineering.test_lineage_gate::test_rejection_precedes_runner_claim[incomplete-Output inventory differs]",
+            "reason": "requires the installed native wheel and private accepted attempts"
+          },
+          {
+            "test": "tests.engineering.test_lineage_gate::test_candidate_cannot_use_its_own_receipt_as_acceptance",
+            "reason": "requires the installed native wheel and private accepted attempts"
+          },
+          {
+            "test": "tests.engineering.test_m1_stage::test_scheduler_preserves_atomic_destination_and_completed_outputs",
+            "reason": "Real Snakemake requires the separately qualified analytics profile"
+          },
+          {
+            "test": "tests.engineering.test_m1_stage::test_workflow_rejects_outside_destination_before_input_reads",
+            "reason": "Real Snakemake requires the separately qualified analytics profile"
+          },
+          {
+            "test": "tests.engineering.test_mutation_gate::test_mapping_matches_mutmut_own_table",
+            "reason": "could not import 'mutmut.stats': No module named 'mutmut'"
+          },
+          {
+            "test": "tests.engineering.test_mutation_gate::test_every_killed_status_is_one_mutmut_calls_killed",
+            "reason": "could not import 'mutmut.stats': No module named 'mutmut'"
+          },
+          {
+            "test": "tests.engineering.test_normalized_bundle::test_normalized_bundle_round_trip[.arrow]",
+            "reason": "could not import 'voiage.contracts.normalized_input': No module named 'voiage'"
+          },
+          {
+            "test": "tests.engineering.test_normalized_bundle::test_normalized_bundle_round_trip[.parquet]",
+            "reason": "could not import 'voiage.contracts.normalized_input': No module named 'voiage'"
+          },
+          {
+            "test": "tests.engineering.test_ruff_policy::test_preview_and_stable_rules_reject_counterexamples[PLW1514-open(\"fixture.txt\")\\n]",
+            "reason": "Ruff is required and executed in the strict_all tool environment"
+          },
+          {
+            "test": "tests.engineering.test_ruff_policy::test_preview_and_stable_rules_reject_counterexamples[RUF039-import re\\nre.compile(\"pattern\")\\n]",
+            "reason": "Ruff is required and executed in the strict_all tool environment"
+          },
+          {
+            "test": "tests.engineering.test_ruff_policy::test_preview_and_stable_rules_reject_counterexamples[RUF031-values = {}\\nvalues[(1, 2)]\\n]",
+            "reason": "Ruff is required and executed in the strict_all tool environment"
+          },
+          {
+            "test": "tests.engineering.test_ruff_policy::test_preview_and_stable_rules_reject_counterexamples[PLC1901-text = \"value\"\\nif text == \"\":\\n    pass\\n]",
+            "reason": "Ruff is required and executed in the strict_all tool environment"
+          },
+          {
+            "test": "tests.engineering.test_ruff_policy::test_preview_and_stable_rules_reject_counterexamples[FURB113-values = []\\nvalues.append(1)\\nvalues.append(2)\\n]",
+            "reason": "Ruff is required and executed in the strict_all tool environment"
+          },
+          {
+            "test": "tests.engineering.test_ruff_policy::test_preview_and_stable_rules_reject_counterexamples[F821-undefined_name\\n]",
+            "reason": "Ruff is required and executed in the strict_all tool environment"
+          },
+          {
+            "test": "tests.engineering.test_ruff_policy::test_formatter_gate_rejects_unformatted_source",
+            "reason": "Ruff is required and executed in the strict_all tool environment"
+          },
+          {
+            "test": "tests.engineering.test_ruff_policy::test_editor_and_nox_discover_the_same_python",
+            "reason": "Ruff is required and executed in the strict_all tool environment"
+          },
+          {
+            "test": "tests.engineering.test_voiage_installed::test_installed_release_weighted_and_partition_parity",
+            "reason": "requires the isolated Nox voiage candidate environment"
+          },
+          {
+            "test": "tests.engineering.test_voiage_installed::test_actual_arrow_ipc_and_parquet_roundtrip",
+            "reason": "requires the isolated Nox voiage candidate environment"
+          }
+        ]
+      },
+      "reproduce": {
+        "status": "pre_publication_steps_completed_clean_source_replay_refused_dirty_checkout",
+        "exit_code": 1,
+        "failure": "Commit tracked changes before a clean-source publication replay",
+        "pending_action": "Freeze this source commit, then rerun Nox reproduce from clean checkout",
+        "log": "outputs/nz-au-phase2-20261107/nox-final-tests-reproduce.log"
+      },
+      "sampled_peak_mib_for_combined_attempt": 774.8
+    }
+  },
+  "limitations": [
+    "Source rights/destination/native readback and durable archive recovery are not supplied by staging",
+    "Exact survey ISO periods, common product/denominator basis and joint covariance remain unverified",
+    "Vaping-related survey start label 2016 absent; not filled",
+    "Rounded survey count/prevalence product is not an independent denominator or total consumption observation",
+    "NZ/AU policy contrast and matched baseline/holdout manifest remain prerequisites to fitting",
+    "No causal effect posterior predictive score empirical monetary VOI or programme-cost ceiling computed"
+  ],
+  "definition_readback": {
+    "file": "measurement-definitions-readback.json",
+    "sha256": "00961beb75dae0c668cda6de3e1698a8e58919b88cb42e3c7365e915d157e54a",
+    "bytes": 1756,
+    "evidence_kind": "Native UI readback transcription; not original document bytes"
+  },
+  "publication": {
+    "status": "not_published",
+    "remote_main_readback": "8b48e223896d191485cfef3324944924e4f03834",
+    "route": "git ls-remote origin refs/heads/main; no shared ref changed"
+  }
+}

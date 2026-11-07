@@ -100,3 +100,26 @@ the required accepted joint model is absent. No hypothetical number is labelled 
 
 No full-suite/numerical replay is repeated for unchanged model code. Focused test outcomes
 are recorded in phase1-progress.md; they establish software evidence, not source acceptance.
+
+## Superseding source checkpoint — 7 November 2026
+
+The Phase 0 local renewal is now qualified; the earlier missing-renewal statements above
+are historical. The workbook's 16 release values already match its retained original
+exactly in integration/archive/workbook-reconciliation.json. That closes value parity
+at its original scope, not product/duty-free compatibility or current consumption.
+
+P2.2 now acquires actual published NZHS 2024/25 CSVs outside tobac and reconciles 87
+adult-total candidate records with their source hash and record ordinals. Three smoking/
+intensity series have 14 survey-start labels; five vaping-related series have nine, with
+2016 absent. No missing value is interpolated. New original-source definitions expose
+range/top-code intensity measurement and a pipe/cigar denominator mismatch. A direct
+Shiny-hosted CLI GET matches the browser original exactly; four separate Ministry-site
+403s do not invalidate that route or the retained workbook qualification.
+
+See phase2-reconciliation-20261107.md, phase2-task-card.md and
+phase2-receipts-20261107.json for code, actual verification and the remaining gates.
+The original identification argument still applies to aggregate nicotine alone;
+Wang's additional anabasine/sales method has separately documented assumptions and
+cannot be dismissed as an aggregate-metabolite-only method. Neither supplies an
+accepted current NZ panel or a supported causal retail/cessation contrast here.
+The complete P2 fit, held-out information comparison and empirical acceptance remain open.

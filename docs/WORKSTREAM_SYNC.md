@@ -69,3 +69,24 @@ scope. The metadata receipt and remaining work are in phase1-progress.md and
 phase1-search-receipts-20261107.json. No source data or abstract corpus is tracked;
 no shared-main/native promotion or empirical acceptance is implied. Integrator consumes
 this lane's scoped commit; existing external archive and main owners retain their work.
+
+## P2 empirical-slice continuation — 7 November 2026
+
+The same chat 01a1b3ac-76ef-7b12-a919-91fcb05de339 now owns P2 in the existing managed
+worktree /Users/doughnut/.codex/worktrees/tobac-p1-evidence/tobac, renamed branch
+codex/p2-empirical-slice-20261107 at clean P1 checkpoint 403600b. P1's scope/terminal
+record above is preserved. Scope: Phase 2 evidence reconciliation, external candidate
+extractions and exact audit/test changes where required; no M3, shared runtime/main,
+native signing, external uploads or original-owner mutations. Phase 0 is qualified
+locally; P1 source admission and legal/holdout gates still govern fitting. Next:
+verify public NZ measurement originals and their dimensional/period compatibility
+before building the empirical slice. Prior feasibility alone is not P2 completion.
+
+P2.2 source work adds only the optional NZHS candidate branch to the existing coverage
+audit and its tests, with phase metadata and focused context. Raw CSVs and all candidate
+rows remain in external intake edition tobac-evidence-intake-20261107-p2. The direct
+Shiny-hosted CLI route is qualified against browser bytes; native source registration,
+archive destinations and main promotion remain with their prior owners. Existing
+scientific inputs, runtime locks, signatures and M3 interfaces are unchanged. Final
+commands use the public attested route and the lane's own Python 3.15.2 environments;
+no native private binding is transferred. Full P2 requirements remain open.

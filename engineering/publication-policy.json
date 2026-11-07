@@ -1307,7 +1307,9 @@
     "conductor/tracks/nz_au_empirical_20261106/searchright-s5-europepmc.json",
     "conductor/tracks/nz_au_empirical_20261106/searchright-s3-europepmc-v3.json",
     "conductor/tracks/nz_au_empirical_20261106/phase1-nz-model-appraisal.md",
-    "conductor/tracks/nz_au_empirical_20261106/phase1-search-receipts-20261107.json"
+    "conductor/tracks/nz_au_empirical_20261106/phase1-search-receipts-20261107.json",
+    "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md",
+    "conductor/tracks/nz_au_empirical_20261106/phase2-receipts-20261107.json"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",
