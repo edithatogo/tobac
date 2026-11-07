@@ -158,3 +158,27 @@ same owned engineering/context/nz-au-evidence.json by removing the two unchanged
 P1 model-appraisal documents from this survey-methods task's selected context;
 retain them on disk and retain P1 progress/gates, P2 contracts and audit/tests.
 No budget increase or archive deletion. Rebuild into a new context edition.
+
+## P2.6 lawful-sales measurement bridge — 7 November 2026
+
+R03/R04/R18; same owner/worktree/branch, clean base 6e32a6a. Own this card,
+existing P2 reconciliation/receipt metadata and WORKSTREAM_SYNC continuation; all
+source originals and candidate extracts remain in a new external intake edition,
+with ignored execution logs under outputs/nz-au-phase2-returns-20261107. Reuse
+integration/archive/workbook-reconciliation.json (16 verified values) without
+re-running its unchanged numerical comparison. The concrete missing capability is
+Ministry source-page access after qualified CLI 403s; use the internal browser to
+read actual returns scope and observe publisher download links. Retain exact bytes,
+source labels/units, period/product/duty-free caveats and dependences before claiming
+compatibility with the NZHS. Do not equate sales to consumption, change existing
+scientific inputs or source admission, infer a product mass conversion or perform
+native/archive/other-owner writes. Actual Python 3.15.2, 4096 MiB / 2400 s guard and
+streamed logs for extraction; zero blind retries. Stop dependent conversions on
+ambiguous scope. Qualify originals/coordinates and preserve discrepancies. Reuse
+unchanged P2.2 tests/typing/replay; small writes only with low shared-volume headroom.
+
+P2.6 final context exceeded the unchanged 100,000-byte ceiling as source notes grew.
+Narrow the owned engineering/context/nz-au-evidence.json to this active P2 task:
+remove superseded P2.1 feasibility and frozen P1 progress from selection only. Preserve
+both files/history and current admission/identification gates in decision-definition
+and current P2 reconciliation. No budget increase. Rebuild a new context edition.

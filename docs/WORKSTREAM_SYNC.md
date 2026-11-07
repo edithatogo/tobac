@@ -129,3 +129,12 @@ ceiling remains unchanged; originals/extractions stay external. Low volume headr
 caused one pre-execution shell temporary-file failure; preserve native/archive owners
 and avoid broad runs or cleanup. Next: historical methods, source admission and
 policy/product/period matching before supported fit and held-out information analysis.
+
+P2.6 same-owner continuation at 6e32a6a verifies calendar-year reported-market-flow
+scope and current heated-tobacco exclusion through actual Ministry pages, reusing the
+byte-identical 16-value workbook receipt. External BAT form checks separate domestic/
+duty-free quantities and recommended prices; 2025-listed RYO file visibly says 2024,
+quarantined as Q:BAT2025:RYO:year. Product-share denominator remains unqualified.
+Only task/reconciliation/receipt metadata and this handoff change. All raw candidates
+and originals stay external; no archive/native/model/runtime promotion. Next remains
+source admission plus product/year/stock/period and policy/holdout qualification.

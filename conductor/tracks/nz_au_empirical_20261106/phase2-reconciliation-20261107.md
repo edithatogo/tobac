@@ -305,3 +305,58 @@ admission, lawful-product/stock flows, causal policy effects and the frozen vali
 manifest still constrain the first empirical fit. P2 remains active and incomplete;
 no maintained model/audit/runtime source changed, so prior P2.2 tests/typing/replay
 are reused at their original scope.
+
+## P2.6 reported-market-flow scope and year quarantine — 7 November 2026
+
+The Ministry returns pages open in the internal browser despite the retained CLI
+403s. The general page specifies January–December annual returns; the 2025 page
+(last updated 21 August 2026) describes manufacturer/importer releases to the NZ
+retail market and expressly excludes heated tobacco from that smoked-tobacco summary.
+The 16-year workbook is byte-identical to the already-qualified original SHA256
+3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883;
+reuse integration/archive/workbook-reconciliation.json's exact 16-value comparison.
+This is a reported-market flow, not independently verified Customs tax clearance or
+same-period resident consumption. Original label excludes cigars/cigarillos; product
+conversion, stock, visitors, lawful unrecorded flows and duty-free treatment still matter.
+
+Original workbooks and a bounded manufacturer-form check are external in
+`/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-returns`.
+The BAT cigarette PDF (5274d4108faf2cbf2527aeb300634591f3f7684aa953f18219751dec214bce98)
+was visually checked on complete pages 1–2: domestic and duty-free quantities are
+separate, pack size is in sticks, and quantity is cigarettes released for sale.
+Its domestic price column is a recommended 2025 exit retail price, NZ dollars incl.
+GST, not realised transaction receipts or a representative annual paid price. The
+44 domestic line quantities sum exactly to the printed total; 11 duty-free lines
+also match their printed total. No cigarette-to-mass conversion is inferred.
+
+**Q:BAT2025:RYO:year**: the publisher's 2025 listing and file BAT-Sales-RYO-2025.pdf
+conflict with the original PDF's visible `2024` heading (page 1). SHA256
+5c683fe95b250f357d622c5aeb84a31dbbf1d3abf7ac82b983ba10ce41b63430.
+Retain both assertions and quarantine the year assignment; do not decide which is a
+typo. The page separately reports domestic and duty-free loose-tobacco quantities
+in tonnes. Seventeen domestic and four duty-free rows reproduce the respective
+one-decimal printed totals after explicit decimal rounding; no rounding tolerance
+is used to resolve the year. A bounded adjacent-2024 PDF check returned cigarette
+tables, not a comparable RYO return, and does not resolve this conflict. No additional
+source request was sent and no value is admitted as either year.
+
+The market-type workbook (11d1e5f4aff99b59689017529c713613df84518107407855fbbfca0bc1d01074)
+uses Excel percent formats 9/10: stored fractions are not already percentage points.
+Displayed shares sum to 99.85%; preserve source lexemes and display rounding rather
+than normalising them. The inspected chart/workbook does not establish whether the
+shares represent value, mass or item counts. It cannot divide the aggregate tonnage
+into product-specific resident consumption. Company shares, receipts and product
+shares are not independent quantities merely because the page draws different charts.
+
+Guarded Python 3.15.2 Polars/Decimal extraction preserves 76 raw line candidates,
+source PDF pages, extracted-line locations, unit/pack/price lexemes and both year
+assertions outside tobac. Exact candidate-string roundtrip, original hashes, domestic/
+duty-free sums and workbook cell/format inspection pass. This is one manufacturer's
+scope check, not complete national return reconciliation. Third-party company PDFs
+need their own rights assessment; public links do not confer blanket Ministry licensing.
+
+The existing P2 receipt binds all originals/extractors and the year quarantine. No
+scientific source/runtime/native object changed, no original was uploaded or admitted,
+and no model, policy effect or held-out result was fitted. This removes ambiguity about
+some administrative fields while retaining the unresolved source/rights/product/period
+and validation gates. P2 remains active and incomplete.

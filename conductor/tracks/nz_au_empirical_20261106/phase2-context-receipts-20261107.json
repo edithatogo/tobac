@@ -514,5 +514,134 @@
       "Later ERP cannot silently replace vintage-bound published benchmark; no double conditioning on population-informed survey counts",
       "No covariance, observation admission, fit, causal contrast or predictive validation created"
     ]
+  },
+  "lawful_sales_continuation": {
+    "base_commit": "6e32a6a21f730a70cd797f3dc86af73b5ee22a33",
+    "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-returns",
+    "originals": [
+      {
+        "source_url": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+        "file": "Total-tobacco-sold-tonnes-2010-2025-3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883.xlsx",
+        "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+        "bytes": 9155,
+        "method": "Internal-browser download of observed publisher link",
+        "observed_download_completed_by": "2026-11-07T03:01:27.798153+00:00",
+        "admitted": false
+      },
+      {
+        "source_url": "https://www.health.govt.nz/system/files/2026-08/Size-of-market-for-each-tobacco-type-v6.xlsx",
+        "file": "Size-of-market-for-each-tobacco-type-v6-11d1e5f4aff99b59689017529c713613df84518107407855fbbfca0bc1d01074.xlsx",
+        "sha256": "11d1e5f4aff99b59689017529c713613df84518107407855fbbfca0bc1d01074",
+        "bytes": 10109,
+        "method": "Internal-browser download of observed publisher link",
+        "observed_download_completed_by": "2026-11-07T03:01:27.798731+00:00",
+        "admitted": false
+      },
+      {
+        "source_url": "https://www.health.govt.nz/system/files/2026-08/BAT-Sales-Cigarettes-2025.pdf",
+        "file": "BAT-Sales-Cigarettes-2025-5274d4108faf2cbf2527aeb300634591f3f7684aa953f18219751dec214bce98.pdf",
+        "sha256": "5274d4108faf2cbf2527aeb300634591f3f7684aa953f18219751dec214bce98",
+        "bytes": 166939,
+        "method": "Internal-browser download of observed publisher link",
+        "observed_download_completed_by": "2026-11-07T03:01:27.799215+00:00",
+        "admitted": false
+      },
+      {
+        "source_url": "https://www.health.govt.nz/system/files/2026-08/BAT-Sales-RYO-2025.pdf",
+        "file": "BAT-Sales-RYO-2025-5c683fe95b250f357d622c5aeb84a31dbbf1d3abf7ac82b983ba10ce41b63430.pdf",
+        "sha256": "5c683fe95b250f357d622c5aeb84a31dbbf1d3abf7ac82b983ba10ce41b63430",
+        "bytes": 169796,
+        "method": "Internal-browser download of observed publisher link",
+        "observed_download_completed_by": "2026-11-07T03:01:27.799649+00:00",
+        "admitted": false
+      }
+    ],
+    "adjacent_original": {
+      "source_url": "https://www.health.govt.nz/system/files/2025-06/BATNZ-2024TobaccoReturnAnnualReturn_0.pdf",
+      "file": "BATNZ-2024TobaccoReturnAnnualReturn_0-5a4cbcf09003b064822d2e62ea8dd4165140e10f0c31a9ccd458d0d656f2d8b8.pdf",
+      "sha256": "5a4cbcf09003b064822d2e62ea8dd4165140e10f0c31a9ccd458d0d656f2d8b8",
+      "bytes": 157718,
+      "method": "Observed 2024 adjacent-edition publisher PDF link; internal-browser native download",
+      "observed_download_completed_by": "2026-11-07T03:03:42.063256+00:00",
+      "admitted": false
+    },
+    "reconciliation": {
+      "source_base_commit": "6e32a6a21f730a70cd797f3dc86af73b5ee22a33",
+      "aggregate_workbook_reuses_frozen_16_value_match": true,
+      "aggregate_workbook_sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+      "candidate_sha256": "cb5899ac7a48aa233a7e3fff800ff1c8be76e9e1fa044b64966a2b8f943c25fd",
+      "candidate_records": 76,
+      "quantity_checks": {
+        "cigarettes_domestic": {
+          "rows": 44,
+          "sum_raw_quantities": "323408565.00",
+          "unit": "sticks"
+        },
+        "cigarettes_duty_free": {
+          "rows": 11,
+          "sum_raw_quantities": "2100000",
+          "unit": "sticks"
+        },
+        "ryo_domestic": {
+          "rows": 17,
+          "sum_raw_quantities": "103.93514",
+          "unit": "tonnes"
+        },
+        "ryo_duty_free": {
+          "rows": 4,
+          "sum_raw_quantities": "1.486",
+          "unit": "tonnes"
+        }
+      },
+      "market_share_workbook_sha256": "11d1e5f4aff99b59689017529c713613df84518107407855fbbfca0bc1d01074",
+      "market_share_numeric_format_ids": [
+        "9",
+        "10"
+      ],
+      "market_share_raw_sum": "0.9984999999999999802",
+      "market_share_sum_percent": "99.8499999999999980200",
+      "market_share_disposition": "Excel percent styles; rounded displayed shares are not an exact exhaustive composition. Value/weight/count basis unqualified; no renormalisation or tonnage allocation.",
+      "quarantine": {
+        "id": "Q:BAT2025:RYO:year",
+        "publisher_listing_and_filename_year": "2025",
+        "visually_verified_document_year": "2024",
+        "source_sha256": "5c683fe95b250f357d622c5aeb84a31dbbf1d3abf7ac82b983ba10ce41b63430",
+        "location": "PDF page 1, heading above Roll Your Own Tobacco (Domestic)",
+        "disposition": "Do not silently correct title or admit as either year without authoritative resolution"
+      },
+      "measurement_disposition": [
+        "Reported manufacturer/importer calendar-year released-for-sale flows, not same-period resident consumption or independently verified Customs tax clearance",
+        "Cigarette form separates domestic and duty-free sticks; loose-tobacco form separates tonnes; aggregate tonnage conversion and duty-free inclusion remain unqualified",
+        "Cigarette recommended exit retail price (NZ dollars incl GST) differs from transaction paid prices; do not impute RYO tax/currency details from another header",
+        "Current 2025 Ministry summary excludes heated tobacco, reported separately; preserve product and year scope",
+        "One manufacturer return pair is a scope check, not complete national reconciliation; price and quantity from same return are dependent",
+        "Third-party return PDFs do not inherit a blanket Ministry licensing/admission assertion"
+      ],
+      "admitted": false,
+      "fit_executed": false
+    },
+    "external_receipts": {
+      "reconciliation.json": "0798cd14dcec4cca3de33328463aa0fd096129fe093144861847bb3010b635cb",
+      "source-page-readbacks.json": "1a065fac6e39d8b83a4c8720be6e8dc9c1e88b4f6754e3c566adb4817a4d86f5"
+    },
+    "external_extractors": {
+      "inspect-originals.py": "23df84b486abaec7554df64293d62a8a4865ffc2c75caa9f641d116fed1ebc9c",
+      "reconcile.py": "ece717647e707f9639cd8a6398cd9c028f0ee84ee64d129ac2e54f9a48b440eb"
+    },
+    "logs": "outputs/nz-au-phase2-returns-20261107",
+    "actual_runtime": "repo-local Python 3.15.2",
+    "extraction_and_reconciliation_status": 0,
+    "sampled_reconciliation_group_rss_mib": 1.9,
+    "visual_verification": [
+      "2025 cigarette PDF pages 1 and 2: domestic/duty-free, sticks, recommended price headers and totals",
+      "2025-listed RYO PDF page 1: internal 2024 label, domestic/duty-free tonnes, totals"
+    ],
+    "adjacent_year_comparison_disposition": "Downloaded adjacent 2024 Tobacco Return Annual Return PDF contains cigarette domestic/duty-free tables, not a comparable RYO return. Bytes differ from 2025-listed RYO PDF; comparison does not resolve its internal-year conflict. No blind relabelling or extrapolation.",
+    "existing_aggregate_value_receipt_reused": "integration/archive/workbook-reconciliation.json",
+    "maintained_code_changed": false,
+    "admitted": false,
+    "fit_executed": false,
+    "next_gate": "Source admission and year/product/duty-free/conversion/stock reconciliation before matching sales to resident consumption",
+    "context_failure_and_resolution": "Final context exceeded unchanged 100000-byte ceiling; explicitly removed superseded P2.1 feasibility and frozen P1 progress from active profile selection only, retained files/history and current gates. Eight-file profile rebuild passed."
   }
 }
