@@ -1350,3 +1350,30 @@ no independent tobacco-origin measurement.
 - [Chappell study](https://pubmed.ncbi.nlm.nih.gov/35760179/)
 - [Trowsdale study](https://pubmed.ncbi.nlm.nih.gov/33715226/)
 - [Kim study](https://doi.org/10.1016/j.scitotenv.2025.181223)
+
+## P2.43 Trade coverage during NZ wastewater collection
+
+Stats NZ's final 2023 HS10 import and export files cover all six
+calendar months intersecting the 142 wastewater occasions. Polars
+identified 78 import and 45 export rows in chapter 24 for those
+months. Both flows have six monthly rows for 2402209000 in MIL
+and 2403199015 in KTC. The heavy cigarette line 2402201000 appears
+once among imports and has no displayed export row in this window.
+Preserve distinct product codes, units and export/re-export fields.
+These are national monthly border flows. Any catchment or occasion
+allocation and stock-to-consumption linkage remain unverified.
+
+The first audit stopped when sorting mixed null and string units.
+The corrected run counts nulls explicitly and retains 14 import
+and three export rows without units. The first partial extract is
+preserved. Guarded Python 3.15.2 audit v2 passed and verified
+unique month/HS10 keys within each flow.
+
+Originals and outputs remain under
+/Volumes/PortableSSD/tobac-p2-trade2023.3PoIyO. SHA256 pins are:
+
+- Imports ZIP: 2a50a505f89cc07b2e533725e8915b1305ada9d4a5f6530ca8e239177f945727
+- Exports ZIP: c3e3376d0bd0418454db0f9e202c6df13c5204e801ad0ea8fecd48eb97d8408a
+- coverage.json: da78b7fb07618e1ea1a5d83244a1ef10bc69a1285951221b3caa641e1303741a
+
+[Stats NZ trade datasets](https://www.stats.govt.nz/large-datasets/csv-files-for-download/overseas-merchandise-trade-datasets/)
