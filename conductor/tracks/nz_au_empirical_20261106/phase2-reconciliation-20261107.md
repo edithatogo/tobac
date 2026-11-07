@@ -4700,3 +4700,31 @@ outside the independent consumption holdout.
 
 [ATO tobacco tax-gap methodology, steps 1–5](https://www.ato.gov.au/api/public/content/0-882626e8-a57b-4b7a-ab16-0894492a4ff2).
 [Wang et al., Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
+
+## P2.224 Fiscal-year coverage and comparability of the ATO series
+
+The Commissioner's annual report Table 4.5 has five
+consecutive tobacco duty net-gap estimates from fiscal
+2018–19 to 2022–23, with medium reliability. In that
+edition the last two estimates are AUD 2,343 million
+and AUD 2,711 million, or 13.1% and 14.3% of theoretical
+duty. Those are revenue metrics. Converting them to
+consumption tonnes would require the product-specific duty
+basis and a supply-to-consumption bridge.
+
+The date labels alone allow three earlier fiscal years
+before a 2022–23 holdout. That would cross the 1 July
+2019 warehouse duty boundary, where the ATO method
+changes how it allocates estimated supply across channels.
+The ATO edition also cautions that historical estimates
+can be revised. Freeze one edition for any future supply
+comparison. The fiscal holdout ends in June, while the
+national wastewater article's main sampling description
+ends in April 2023 and its published total is annualised
+for calendar 2023. The alternative June batch heading
+does not establish complete dated pool coverage (P2.210).
+Thus the ATO's run of years does not qualify the required
+complete, matched consumption split.
+
+[Commissioner of Taxation annual report, Table 4.5](https://www.ato.gov.au/api/public/content/8a9681ac28ed48ab8f9f003202f4e333?v=5d48f157).
+[ATO tobacco tax-gap methodology, step 3](https://www.ato.gov.au/api/public/content/0-882626e8-a57b-4b7a-ab16-0894492a4ff2).
