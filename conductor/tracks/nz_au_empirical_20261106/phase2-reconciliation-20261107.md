@@ -4233,3 +4233,23 @@ cigarettes, legal status or causal response. Even perfect
 digitisation and a known pooled direction would leave the
 combustible direction unidentified without independent
 source information.
+
+## P2.204 Australian household survey fieldwork and product mix
+
+AIHW collection metadata places NDSHS fieldwork on
+8 April–22 September 2019 and 20 July 2022–31 May 2023.
+These waves bracket but do not sample the August and
+December 2021 ACIC rounds. Their published scope is
+national and state, with private-dwelling respondents
+aged 14 and older. Catchment contributions from people
+outside that frame are not measured.
+
+The waves can contextualise smoking and vaping prevalence.
+Interpolating between them would impose a time path, and
+prevalence alone does not supply nicotine mass or the
+change in non-combustible contribution required to narrow
+P2.203. No 2021 site-specific product adjustment follows
+from these survey waves.
+
+[AIHW 2019 metadata](https://www.aihw.gov.au/about-our-data/our-data-collections/national-drug-strategy-household-survey/2019-ndshs)
+and [AIHW 2022–23 metadata](https://www.aihw.gov.au/about-our-data/our-data-collections/national-drug-strategy-household-survey/2022-ndshs).
