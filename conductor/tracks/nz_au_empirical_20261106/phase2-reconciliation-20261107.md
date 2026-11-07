@@ -4952,3 +4952,25 @@ mass or wastewater catchment allocation.
 
 [AIHW survey insights](https://www.aihw.gov.au/reports/illicit-use-of-drugs/national-drug-strategy-household-survey/contents/insights).
 [AIHW tobacco summary](https://www.aihw.gov.au/reports/alcohol/alcohol-tobacco-other-drugs-australia/contents/drug-types/tobacco).
+
+## P2.234 Original AIHW purchase-band readback
+
+The rendered AIHW Data page exposes the tobacco workbook.
+The original XLSX is retained externally with SHA256
+c1cb4154174cce1e90fd0a6e3189de488e0198929bdd75fee8422cebc7a5ae51.
+Table 1.33 cells E7:F13 use current smokers aged 14 and over
+for both waves. The 2022–23 band percentages are 3.3, 1.7,
+1.2, less than 0.1, and 4.0. The 2025 values are 4.8, 3.5,
+2.3, 1.8, and 10.2. AIHW flags the 2022–23 10–14 band
+and the 2025 3–5 and 10–14 bands for relative error.
+
+Applying band minima of 1, 3, 6, 10 and 15 gives floors
+of approximately 75.6 and 200.1 packets per 100 current
+smokers, assigning zero to the less-than-0.1 cell. These
+rounded point calculations supersede the coarser floors
+in P2.232–233. Table 1.34 conditions on seeing the products
+and therefore has a different denominator. The open band,
+survey error and purchase-to-consumption gap still preclude
+using these floors as a consumption holdout.
+
+[AIHW tobacco workbook, Table 1.33](https://www.aihw.gov.au/getmedia/5fc9ac6e-2f49-415e-a4fa-001a72fcad52/aihw-phe-371-Tobacco.xlsx).
