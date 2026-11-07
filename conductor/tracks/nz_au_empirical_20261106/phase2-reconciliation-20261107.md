@@ -3545,3 +3545,17 @@ the P2.159 intake directory has SHA256
 1d818e8d68b3d80d9e4d1b06c740c7b72ddff0ce3e68ecb0549447cb0e043687.
 
 [Customs OIA 24-675 enclosure, public mirror](https://www.kiwiblog.co.nz/wp-content/uploads/2025/01/OIA-24-675-tobacco-import-duty-1-January-2023-22-October-2024.pdf).
+
+## P2.168 Monthly import-duty and revenue differences
+
+Subtracting Treasury recognised revenue from Customs import
+duty across the three P2.167 headings gives May–October
+differences of NZ$1.678m, NZ$1.563m, NZ$7.928m, NZ$0.574m,
+NZ$8.450m and -NZ$2.140m, respectively, rounded to three
+decimals after subtraction. Five months have import duty
+above recognised revenue. October reverses the sign.
+The differences rule out a constant additive adjustment or
+a single positive proportional adjustment across these
+months at reported precision. A timing and scope bridge
+must allow month-specific differences. The residuals
+cannot be assigned to domestic duty or particular products.
