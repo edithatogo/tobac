@@ -1653,3 +1653,20 @@ nonblank actual dates, retaining seven documented weekday
 replacements and excluding two missing slots. Its 142 unique
 plant-date keys contain 25 quantified and 117 censored loads.
 The coverage audit does not qualify a fold or fit a model.
+
+## P2.57 Published ANBA quantification indicator
+
+All 117 censored ANBA cells on actual collection dates carry the
+same printed label, less than LoQ. These support an indicator of
+whether a load was quantified under the study protocol. They do
+not distinguish detection below quantification from nondetection.
+September and October account for 20 of the 25 quantified loads
+across 46 of the 142 occasions. July contributes 24 occasions
+with zero quantifications. The 25 quantified loads span 16
+collection dates.
+
+A future binary evaluation can use the reported quantification
+indicator without assigning a numerical load to censored cells.
+Its target depends on assay and reporting conditions. It cannot
+substitute for the censored-load likelihood or establish the
+incremental value of wastewater for predicting the policy outcome.
