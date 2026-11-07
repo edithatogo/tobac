@@ -3018,3 +3018,27 @@ measures formal seizure in this transport category. Clearance,
 detection probability and campaign consumption remain open.
 
 [Customs OIA 25-083, printed pages 5–6](https://www.customs.govt.nz/media/u0hhdp2f/oia-25-083-proactive-release.pdf).
+
+## P2.142 Seizure sensitivity and identification
+
+Let S be the annual accompanied-baggage quantity formally
+seized and U the quantity in the same attempted-import stream
+that reached the market. Under the simplifying assumption that
+all attempts end in either formal seizure or market entry, a
+known realised seizure fraction p implies U = S(1-p)/p. The
+observed S does not provide p. For any nonnegative U there is
+a compatible realised p, so S alone permits zero market entry
+and imposes no finite upper bound. If p is instead a stochastic
+detection probability, the identity cannot be applied directly
+to the realised S. A confidence bound would require a
+sampling model, including the dependence of quantities within
+shipments and how seizures were selected.
+
+The OIA cover letter also distinguishes border and post-border
+seizures across its wider table. An all-transport total would
+need an event-stage split before serving as the numerator of a
+border detection model. The annual baggage subtotal cannot
+supply a May–October numerator, and a matching numerator would
+still need detection, disposition and consumption evidence.
+
+[Customs OIA 25-083, cover letter and annex](https://www.customs.govt.nz/media/u0hhdp2f/oia-25-083-proactive-release.pdf).
