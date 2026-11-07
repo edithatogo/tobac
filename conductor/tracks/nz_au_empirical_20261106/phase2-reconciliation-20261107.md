@@ -2591,3 +2591,16 @@ and an observed zero. Calendar 2023 overlaps the wastewater
 campaign but includes months outside May–October. The July
 2026 extract does not establish information available on the
 sampling dates or within-catchment exposure.
+
+## P2.118 Formulation-specific nicotine quantities
+
+The national 2023 all-dispensing export contains nine nicotine
+formulations across gum, lozenges and patches. Their dispensing
+counts sum to 317,342, matching P2.117. Multiplying units by
+labelled strength gives 95.839 kg for gum and 41.125 kg for
+lozenges on a nominal labelled nicotine basis. Patch quantities
+remain separate: 276,222 at 7 mg, 604,881 at 14 mg and 1,214,829
+at 21 mg. The patch label denotes a delivery strength, so
+summing patch and oral strengths would mix quantities with
+different meanings. None supplies the dose actually used,
+systemic exposure or mass entering wastewater.
