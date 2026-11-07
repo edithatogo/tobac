@@ -4290,3 +4290,23 @@ does not resolve the 2021 source decomposition.
 
 [ITC Australia fieldwork schedule](https://itcproject.org/countries/australia/)
 and [ITC Australian technical reports](https://itcproject.org/methods/technical-reports/?country=australia).
+
+## P2.207 Concurrent nicotine vaping import rule
+
+The TGA's contemporaneous notice dates the prescription
+requirement for personal imports of nicotine vaping products
+to 1 October 2021. Domestic prescription requirements
+already existed under state and territory law. The August
+ACIC round precedes both September excise indexation and
+the October import change. December follows both. A single
+August-to-December indicator therefore assigns the same
+exposure pattern to the two changes on the matched regional
+roster. Separate coefficients cannot be estimated from that
+contrast alone. October's capital-only round does not add
+a regional observation between the policy dates.
+
+This is a concurrent exposure, with actual vaping uptake,
+compliance and direction of response unresolved. The pooled
+ACIC outcome does not separate vaping and smoking responses.
+
+[TGA 2021 import fact sheet](https://www.tga.gov.au/sites/default/files/consumer-fact-sheet-regulatory-changes-to-importing-nicotine-vaping-products.pdf).
