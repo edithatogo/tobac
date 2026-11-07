@@ -4460,3 +4460,18 @@ methods and leaving the June batch heading in P2.210
 unresolved as a source discrepancy.
 
 [Original Figure 2](https://pmc-oa-opendata.s3.amazonaws.com/PMC12887742.1/jamanetwopen-e2557319-g002.jpg).
+
+## P2.215 Validation disposition after Australian source readback
+
+| Prespecified requirement | Current evidence | Disposition |
+|---|---|---|
+| Temporal holdout with three earlier complete years | NZ survey and calendar releases have mismatched windows (P2.156–158). Australian 2023 wastewater estimates are annualised from partial-year observations (P2.213). | No qualified country-year split. |
+| At least four comparable WBE catchments | ACIC provides eight repeated Queensland site codes with pooled chart means (P2.191–199). The national anabasine roster lacks a verified crosswalk and dated pools (P2.210–212). | Repeated programme sites verified. A matched product-specific fold remains unqualified. |
+| Independent outcome and consistent occasion grouping | The national study draws from NWDMP and combines annual WBE with modelled legal supply (P2.209, P2.213). | Do not score its residual as an independent outcome or split shared occasions across folds. |
+| Supported contrast and incremental information | The Queensland regional rounds straddle both excise and vaping-import changes (P2.207–208, P2.214). | No separate policy coefficient, held-out score or empirical decision ceiling follows. |
+
+This is the local validation disposition for the cited
+candidates. The public evidence supports a bounded
+non-identification finding for the proposed comparisons.
+Source admission, baseline and contrast fit, held-out
+evaluation and guarded publication remain open under plan.md.
