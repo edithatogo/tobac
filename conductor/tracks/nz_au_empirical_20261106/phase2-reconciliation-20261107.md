@@ -3870,3 +3870,22 @@ adding non-domestic illicit whites again, since Table A.6
 includes those in contraband.
 
 [FTI report hosted by BAT, Tables A.3–A.6](https://www.batnz.com/content/dam/endmarkets/nz/en/download/media/15-August-2025-New_Zealands_growing_illicit_tobacco_trade_calls_for_decisive_action_with_more_than_one_in_four_cigarettes_smoked_in_New_Zealand_being_illegal.pdf).
+
+## P2.185 Pack survey vintage and sampling frame
+
+KPMG's May 2023 report documents WSPM pack collection in
+Q3 and Q4 **2022**. It describes about 2,100 packs per
+survey across six cities, with tourist and student locations
+excluded. WSPM coded origin and participating manufacturers
+assessed authenticity. The publication year does not
+establish any collection during the 2023 wastewater campaign.
+
+The historical design identifies two selection and measurement
+issues for a future match. Routes omit some transient
+populations that can contribute to wastewater, and origin
+and authenticity use distinct classification procedures.
+A validation input would need campaign-period route dates,
+counts and category rules before testing catchment coverage.
+The located 2022 description supplies no such 2023 records.
+
+[KPMG report, section 3.1](https://assets.nationbuilder.com/taxpayers/pages/2370/attachments/original/1689202217/New_Zealand_Illicit_Trade_Tobacco_FINAL_31052023.pdf?1689202217=).
