@@ -436,3 +436,30 @@ accumulated source-reconciliation narrative in context selection only. Files and
 history remain intact, the 100,000-byte ceiling is unchanged, and current P2
 constraints remain in the decision definition/task card. Archive/source admission,
 policy transport and calibrated/validated empirical inputs still gate fitting.
+
+## P2.9 executed source compatibility audit — 7 November 2026
+
+`scripts/reconcile_empirical_candidates.py` reopens the pinned originals through the
+existing source guards and uses the declared, methods-byte-bound NZ adult survey
+Scope. It is a reproducible audit, with no new observation/admission authority. It
+keeps the source periods and product/quantity semantics distinct, rather than joining
+survey-start labels to calendar years or allocating stock and sales to fieldwork.
+
+Actual 2024/25 scope: eight selected NZHS candidates out of 87; 82 original SAP0240
+quarters with five overlapping actual fieldwork (including 2025Q3 mop-up); four
+nominal quarter-end ERP benchmark occasions with two provisional flags; the same
+4,338,100 cross-vintage diagnostic without replacing the survey benchmark. Two
+calendar-year release records overlap. The original September 2026 HS10 import/
+export sources contribute 15/four HS24 candidates, zero overlapping months. No
+missing trade is read as zero flow; no weighted price, quantity conversion, covariance,
+joined observation or likelihood is constructed. Different source units remain explicit.
+
+Two final real-source reports are byte-identical. Focused tests pass 87, corrected
+full Nox tests pass 1,299 / 22 capability skips with 92% src-only coverage, and strict
+whole-source typing has no errors or warnings. Preserve the first failed test run
+and the isolated-scratch recovery evidence; the code was not weakened to pass it.
+See phase2-matching-task-card.md and the P2 receipt for exact invocation, hashes,
+resource evidence and limitations. The unchanged finite reference remains separately
+qualified. This advances executable source reconciliation, not P2 acceptance: historical
+trade and earlier scope coverage, source admission, calibration, a supported policy
+contrast and frozen holdouts remain open. No empirical fit or information comparison.

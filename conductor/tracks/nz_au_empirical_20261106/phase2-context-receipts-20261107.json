@@ -869,5 +869,86 @@
     "maintained_code_changed": false,
     "admitted": false,
     "empirical_fit": false
+  },
+  "candidate_matching_continuation": {
+    "base_commit": "d72af89c17372a5dd9c204c60f0233258e648c42",
+    "reconciler": "scripts/reconcile_empirical_candidates.py",
+    "reconciler_sha256": "8d89bc9ee7ed54ccff7d2e75bf1b52caf3cd15f3e3e29aa1a0f1ffc329dbbe1c",
+    "actual_inputs": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-matching/inputs.json",
+    "input_config_sha256": "a1a2f46408733a66c6ea29db5ee4ca495f1250f24fc1270c609ae069ca8ed9ff",
+    "original_source_sha256": {
+      "nzhs": "6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915",
+      "methods": "b938a5bd2959468a5da5be1d7d56539f215d1c2a0589753bd8410c7a22cd210b",
+      "price": "62071f35b5e4c70fdf84c2733a084c26282d67f8199bbc2c2fe39e183e40a1ce",
+      "population": "ead0b26b9528878a8f529bd357fe8b42e7137bf94b4fad343183b2f1760717d2",
+      "trade_imports": "60f2ca85ec066b882f22f696542a77b7e7a027dbd7311cf15ac1992a0a0a1c8b",
+      "trade_exports": "6ed343007998899a10992567c2ccc765bd1aba5162c7181ebbb3d4dca1f97705"
+    },
+    "actual_report": "outputs/nz-au-phase2-matching-20261107/actual-v3.json",
+    "actual_report_sha256": "0a1f9945daa1ace08271c71918e821a8303170a5800224c7ece69322048ebacc",
+    "actual_repeated_output_byte_identical": true,
+    "actual_scope": {
+      "geography": "NZ_national",
+      "population": "NZHS_adults_15plus",
+      "start": "2024-07-09",
+      "end": "2025-07-20",
+      "unit": "percent_adults_15plus"
+    },
+    "candidate_summary": {
+      "survey_label_rows": 8,
+      "price_overlap_quarters": [
+        "2024Q3",
+        "2024Q4",
+        "2025Q1",
+        "2025Q2",
+        "2025Q3"
+      ],
+      "nominal_erp_quarters": [
+        "2024Q3",
+        "2024Q4",
+        "2025Q1",
+        "2025Q2"
+      ],
+      "erp_mean_diagnostic": "4338100",
+      "erp_replaces_survey_benchmark": false,
+      "trade_overlap_months": {
+        "imports": [],
+        "exports": []
+      },
+      "calendar_release_overlap": [
+        2024,
+        2025
+      ],
+      "joined_observations": 0
+    },
+    "actual_runtime": "repo-local Python3.15.2, Polars2.1.0",
+    "verification": {
+      "focused_tests": 87,
+      "final_full_nox_passed": 1299,
+      "capability_skips": 22,
+      "coverage_percent_src_only": 92,
+      "full_test_log": "outputs/nz-au-phase2-matching-20261107/full-nox-final.log",
+      "full_test_junit": "outputs/nz-au-phase2-matching-20261107/final-full-junit.xml",
+      "full_test_sampled_group_rss_mib": 755.7,
+      "strict_whole_source_typing_errors": 0,
+      "strict_whole_source_typing_warnings": 0,
+      "typing_sampled_group_rss_mib": 834.4,
+      "ruff_check_format": "passed",
+      "reused_unchanged_numerical_reference": "P2.2 a818f28, unchanged src/data/config/lock/workflow comparison; no new numerical model replay claimed"
+    },
+    "retained_failed_full_run": {
+      "log": "outputs/nz-au-phase2-matching-20261107/full-nox-tests.log",
+      "junit": "outputs/nz-au-phase2-matching-20261107/first-full-junit.xml",
+      "passed": 1264,
+      "failed": 9,
+      "errors": 26,
+      "skipped": 22,
+      "diagnosis": "Shared-volume ENOSPC and an in-repo basetemp that invalidated external path cases; no source alteration to silence tests",
+      "corrected_failure_only_passed": 35,
+      "corrected_scratch": "Verified isolated external PortableSSD directory, removed only its own disposable fixture copies after terminal completion"
+    },
+    "admitted": false,
+    "fit_executed": false,
+    "next_evidence": "Acquire HS10 periods overlapping fieldwork and verify earlier complete scope windows, source admission and calibration/policy/holdout gates before an empirical join/fit"
   }
 }

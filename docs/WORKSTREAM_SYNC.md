@@ -155,3 +155,12 @@ is recorded, without inferring original-code error. Only metadata/appraisal and 
 context selection change; source originals and numeric diagnostics remain external.
 The contrast is still transported/contextual, and source admission plus compatible
 calibration, policy effects and frozen held-out validation still gate the empirical fit.
+
+P2.9 same-owner source packet at base d72af89 adds a guarded executable candidate
+reconciler using existing source guards/Scope; no parallel admission contract or model
+change. Actual repeatable report separates five overlapping price quarters, four
+nominal ERP quarters, two calendar releases and no matched HS24 trade months. Full
+Nox 1,299/22 and typing pass after external scratch correction; first failure retained.
+Only owned test fixtures were cleaned. Source originals and CLI pins stay external.
+Next: matching historical trade/earlier fieldwork, existing-owner admission and valid
+calibration/policy/holdout gates. Do not promote this audit as a fitted empirical panel.
