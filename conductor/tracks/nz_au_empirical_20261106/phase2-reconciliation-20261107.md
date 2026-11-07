@@ -2150,3 +2150,18 @@ either catchment intersection without verifying polygon nesting
 or obtaining the exact geometry. No exact-layer overlap is claimed.
 
 [Stats NZ layer and attribute table](https://datafinder.stats.govt.nz/layer/111198-urban-rural-2023-generalised/).
+
+## P2.90 Exact schedule-layer service readback
+
+The public Stats NZ layer API identifies 111198 version 350683,
+EPSG:2193 multipolygon data, 745 feature records and four empty
+geometries. The sample endpoint supplies attributes without
+geometry. The service catalogue marks WFS and vector queries as
+API-key routes. An anonymous, noninteractive Git read on the
+advertised Kart HTTPS remote requested credentials. The exact
+geometry remains unverified through these CLI routes.
+
+External P2.39 intake retains layer-111198.json, SHA256
+c78dcec40debb484ac1bdfe5232b5e6f50ae2246196063c05f68f03507a5ae61.
+
+[Stats NZ layer API](https://datafinder.stats.govt.nz/services/api/v1/layers/111198/).
