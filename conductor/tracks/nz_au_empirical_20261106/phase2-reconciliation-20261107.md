@@ -1859,3 +1859,19 @@ does not establish a new August tobacco rate.
 
 [ABF August tariff pages](https://www.abf.gov.au/help-and-support-subsite/CustomsNotices/2021-30.pdf)
 and [ATO tobacco excise guidelines](https://www.ato.gov.au/law/view/pdf?DocId=SAV%2FTOBACCO%2F00005&PiT=99991231235958&filename=law%2Fview%2Fpdf%2Fsos%2Ftobacco20211217.pdf).
+
+## P2.70 Australian 2021 tariff timing and regional sampling
+
+Wang et al. describe one week of daily samples every two months
+from February 2013 through December 2021. Applied as a nominal
+calendar, this puts February, April, June and August 2021 before
+the 1 September tariff change and October and December after it.
+The retained supplement gives quality-control and paired-method
+information but does not provide an exact 2021 daily collection
+roster. The nominal calendar therefore supports a pre/post
+design check only. It does not confirm individual observations
+or establish four versus two complete campaign weeks. Tariff
+matching must use actual dates, and this single regional series
+would still lack an independent untreated comparison.
+
+[Wang et al., regional study](https://pubmed.ncbi.nlm.nih.gov/38154341/).
