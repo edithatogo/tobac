@@ -2114,3 +2114,13 @@ The calculation combined rings by parity and checked ring and
 output validity. These are geometric diagnostics for the clipped
 mirror and operator vintages. They leave the Kim plant identity
 and exact retail schedule geometry unresolved.
+
+## P2.87 Topology of the Wellington candidate catchments
+
+The two valid EPSG:2193 operator polygons retained in P2.39
+touch and have zero intersection area, using the same Shapely
+ring reconstruction as P2.86. They are distinct spatial units
+in that operator export. Geographic adjacency still permits
+shared exposures, sewer operations or correlated measurement
+errors. The topology alone does not verify the Kim plant key,
+2023 contributing populations or independent validation folds.
