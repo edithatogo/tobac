@@ -844,3 +844,23 @@ Exact contributing population and occasion flow inputs still require
 verification before reconstructing the normalization or joining to survey
 denominators. The supplement supports a candidate occasion-level extraction.
 Admission, reuse rights, calibration and eligible holdout remain open.
+
+## P2.23 NZ wastewater occasion manifest
+
+The bounded extraction of Kim et al. Table S3 produced 144 explicit
+site/month/day slots and 142 unique site/date keys. It retains the printed
+cell, the nominal weekday, and a separate status for each slot. The two
+Whangārei October gaps retain their missing status and all seven weekday
+disagreements retain their printed dates. Every dated cell falls within
+its source month. No date was imputed.
+
+The external intake at /Volumes/PortableSSD/tobac-p2-kim.lBTiOt retains
+candidate-occasions.csv (SHA256
+382c00bdd8f53977578924ce576007617517fea0f6b5912c5c494236a435acc6)
+and extract-occasions.py (SHA256
+8a12388f1bfdd020e6353606f929f5426858757753b146072f219ddd1feac283).
+The script reads the layout-preserving pdftotext output retained beside the
+pinned PDF. Python 3.15.2 and the resource guard passed. The explicit
+site/month/nominal-day fields provide the bridge to the load tables, whose
+site order differs from Table S3. Load cells, normalization inputs and
+eligibility still require verification before a fit or holdout.
