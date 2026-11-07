@@ -1973,3 +1973,17 @@ change in P2.76, the resulting percentage intervals on
 Two increases and one decrease survive this rounding assumption.
 The other two signs are unresolved. These intervals describe
 display precision only and exclude assay error and dependence.
+
+## P2.78 Limit of a constant assay correction
+
+Under the P2.77 rounding assumptions, the 14 February paired
+ratio requires a direct-injection multiplier of at least 1.1671,
+whereas 16 February permits at most 0.9622 at displayed precision.
+The intervals have no common multiplier. Even allowing both
+true ratios to take their closest compatible endpoints, a
+constant multiplier leaves a worst-case multiplicative residual
+factor of at least sqrt(1.1671 / 0.9622), about 1.101.
+This is a lower bound on residual discrepancy within the
+rounded pairs. It does not estimate a population error term.
+A harmonization model needs residual variation beyond a single
+fixed shift to accommodate both pairs.
