@@ -1636,3 +1636,20 @@ design removes exact date overlap but retains shared national
 vintages, and changes spatial coverage in five folds. It does
 not replace the prespecified catchment qualification or constitute
 a temporal holdout. No outcomes were used to construct these counts.
+
+## P2.56 ANBA evaluation support by candidate fold
+
+The P2.55 date-disjoint training sets each retain 12–20 quantified
+ANBA loads. Held-out labels have zero to four quantified loads each.
+Auckland North has 12 censored occasions and zero quantified loads.
+A quantified-only ANBA score would omit that plant entirely and
+condition evaluation on detection at the other plants. An
+all-occasion censored likelihood score requires qualified
+sample-specific censoring limits, still unresolved in P2.27.
+
+The first extraction filtered to the nominal dated status and
+failed the 142-row count. The corrected extraction used all
+nonblank actual dates, retaining seven documented weekday
+replacements and excluding two missing slots. Its 142 unique
+plant-date keys contain 25 quantified and 117 censored loads.
+The coverage audit does not qualify a fold or fit a model.
