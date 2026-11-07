@@ -2830,3 +2830,25 @@ retains travel.xlsx, SHA256
 87741e86da61c18b9ab1dd7b371995522bd49fdf633baff0620e4cfe34277bf4.
 
 [Stats NZ December 2023 travel release](https://www.stats.govt.nz/information-releases/international-travel-december-2023/).
+
+## P2.133 Eligibility and mixed-product allowance
+
+Item 82(a) of the August 2023 tariff concessions applies to
+accompanying personal goods of passengers and crew aged at least
+17. Goods carried on behalf of others or for sale or exchange are
+excluded. The options are 50 cigarettes, 50 g of tobacco or
+cigars, or up to 50 g total for a mixture. The 2023 arrival
+declaration also includes mixed products in the weight threshold.
+
+For an age table with a band spanning age 17, the sum of fully
+eligible bands is a lower bound on age-eligible crossings. Adding
+the straddling band and unknown ages gives an upper bound, subject
+to matching the months and crossing categories in P2.132. Apply
+the allowance to the upper count for a conservative ceiling.
+A mixed basket is capped by combined weight. Converting the pure
+cigarette scenario to mass requires a separate stick-weight basis.
+The age-eligible count alone gives a zero lower bound on actual
+duty-free tobacco brought in.
+
+[NZ Customs August 2023 tariff concessions, item 82](https://www.customs.govt.nz/media/qn4ilim2/concessions-24-august-2023.pdf)
+and [2023 arriving passenger and crew declaration amendment](https://www.customs.govt.nz/media/wiai1fde/customs-arriving-passenger-and-crew-declarations-amendment-rules-2023.pdf).
