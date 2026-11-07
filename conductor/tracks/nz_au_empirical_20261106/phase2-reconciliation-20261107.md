@@ -2004,3 +2004,17 @@ and compliance remain separate baseline inputs.
 
 [Retail display guidance](https://www.health.govt.nz/regulation-legislation/vaping-herbal-smoking-and-smokeless-tobacco/retailers-of-vaping-and-tobacco-products/retail-visibility-and-display-of-regulated-products)
 and [distributor notification guidance](https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-distributors).
+
+## P2.80 NZ retail outlet count provenance
+
+The 2014 Pearson et al. modelling team's briefing maps roughly
+6,000 tobacco retailers as historical scenario context. The
+Ministry's 2022 consultation describes a proposed national maximum
+of 600 approved premises for the subsequently repealed scheme.
+Neither number establishes the observed 2026 outlet count. The
+first is a historical model input and the second a proposed legal
+ceiling. Preserve both roles and leave the current count and
+catchment-level retail access unfilled pending dated outlet evidence.
+
+[Modelling team's briefing](https://www.phcc.org.nz/briefing/would-reducing-number-tobacco-retail-outlets-achieve-smokefree-2025-goal)
+and [Ministry consultation](https://consult.health.govt.nz/tobacco-control/proposals-for-the-smoked-tobacco-regulato/supporting_documents/Proposals%20for%20regulation%20%20Smokefree%20Environments%20and%20Regulated%20Products%20Act%201990%20%2022%20Dec%20final.pdf).
