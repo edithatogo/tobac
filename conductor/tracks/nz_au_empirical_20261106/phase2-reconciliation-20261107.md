@@ -4207,7 +4207,7 @@ Removing each site in turn gives seven-site means between
 -57.1 and +228.6. Excluding site 077 gives the negative
 endpoint. Using the unrounded P2.199 calibration envelope,
 the seven-site mean excluding 077 remains negative across
-the tested tick separations (approximately -102 to -37).
+the tested tick separations (approximately -102 to -52).
 
 This is a descriptive check of site influence. It fits no
 model and scores no held-out prediction. Equal site weights
