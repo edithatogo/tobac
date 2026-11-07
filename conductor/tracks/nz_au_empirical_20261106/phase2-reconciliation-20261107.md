@@ -1319,3 +1319,34 @@ to plant maintenance. These checks resolve scheduling semantics
 without changing the original dates or imputing load values.
 
 [Publisher article](https://doi.org/10.1016/j.scitotenv.2025.181223)
+
+## P2.42 Earlier NZ wastewater comparator and source scope
+
+Kim cites Chappell et al. (PMID 35760179) for the settlement
+classification. The cited study measures other drugs and its
+bibliographic record supplies no Kim plant alias crosswalk.
+It belongs in the methods lineage rather than the nicotine
+observation series.
+
+Trowsdale et al. (PMID 33715226) collected samples from seven
+plants in three regions for seven consecutive days around the
+March 2018 census. The original abstract reports the nicotine
+result as 1,528 cigarette equivalents per day per 1,000 people.
+Kim cites the earlier result as 1,910 mg/day/1,000 people and
+compares it with a population-weighted 2023 estimate of 2,467.
+The two 2018 summaries imply a conversion of 1.25 mg per
+cigarette equivalent. This is an arithmetic cross-check on the
+printed summaries. The available publisher abstract does not
+verify the original conversion or its weighting.
+
+The 2018 survey-aligned design offers a candidate external
+comparison for total nicotine. Its single week and the later
+six-month campaign leave the complete-year validation requirement
+unmet. Comparable plant keys, denominator vintages, analyte
+calibration and averaging weights are needed before interpreting
+the difference as a change over time. The 2018 aggregate adds
+no independent tobacco-origin measurement.
+
+- [Chappell study](https://pubmed.ncbi.nlm.nih.gov/35760179/)
+- [Trowsdale study](https://pubmed.ncbi.nlm.nih.gov/33715226/)
+- [Kim study](https://doi.org/10.1016/j.scitotenv.2025.181223)
