@@ -1960,3 +1960,16 @@ method sensitivity even for a ratio that cancels common
 flow/population normalization. The range is descriptive for
 five samples from one week. It supplies neither a transferable
 correction nor a calibration uncertainty interval.
+
+## P2.77 Rounding sensitivity of the Australian assay bridge
+
+If Table S4 rounds ANBA to the nearest 1 ng/L and each cotinine
+metabolite to the nearest 100 ng/L, propagate ±0.5 through each
+ANBA concentration and ±100 through each two-metabolite sum.
+For the direct-injection versus large-volume-injection ratio
+change in P2.76, the resulting percentage intervals on
+12–16 February are [2.37, 27.59], [−8.94, 9.29],
+[16.71, 40.56], [−13.11, 5.65], and [−21.35, −3.78].
+Two increases and one decrease survive this rounding assumption.
+The other two signs are unresolved. These intervals describe
+display precision only and exclude assay error and dependence.
