@@ -2361,3 +2361,16 @@ a patient charge, full delivery cost, actual treatment mix,
 or equivalence with the historical trial's voucher offer.
 
 [Pharmac November 2026 Schedule, p. 152](https://schedule.pharmac.govt.nz/2026/11/01/Schedule.pdf#page=152).
+
+## P2.103 NZ varenicline medicine subsidy scenario
+
+The November 2026 Schedule lists NZD 15.99 for the starter pack
+and NZD 10.99 per 56 maintenance tablets. A full 12-week scenario
+with one starter pack and two maintenance packs therefore totals
+NZD 37.97 at the listed manufacturer's-price subsidy. The scenario
+assumes the standard twice-daily maintenance dose and all three
+packs dispensed. SA1845 limits funded supply and defines eligibility.
+The amount excludes counselling, dispensing and other delivery
+costs, and does not measure spending per person offered support.
+
+[Pharmac Schedule, p. 152](https://schedule.pharmac.govt.nz/2026/11/01/Schedule.pdf#page=152).
