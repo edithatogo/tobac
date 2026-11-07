@@ -4501,3 +4501,34 @@ hold lawful tonnage fixed even if its own conversion could change
 with mass. They do not qualify the residual as a holdout outcome.
 
 [Original study, Equations 5–6 and Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
+
+## P2.217 Australian lawful product components and figure discrepancy
+
+FTI Table 4-1 reports 2023 lawful volumes of 5,400 tonnes
+of domestic cigarettes, 1,500 tonnes of domestic RYO and
+about 10 tonnes of non-domestic tobacco, with a rounded
+total of 6,900 tonnes. Section 3.3 attributes domestic sales
+to retail scans and industry sales data. Its traveller
+method applies a 25 g allowance to estimated smoker arrivals.
+The cited sections do not establish a common mass conversion
+between the legal manufactured series and wastewater.
+
+As a second conditional calculation, scale wastewater and
+the domestic manufactured component by the same `m / 0.7`
+while keeping RYO and the traveller component fixed. The
+rounded 2023 residual becomes `4900 * m / 0.7 - 1510`
+tonnes and crosses zero near 0.216 g, compared with
+0.469 g when all legal tonnes are fixed. The 10 tonne
+component and rounded total do not add exactly. Neither
+calculation estimates the correct calibration.
+
+For 2017 the implied lawful volume in the wastewater paper
+is about 13,300 tonnes, matching FTI Figure 4-1's rounded
+domestic sales. FTI Figure 5-1 instead labels total legal
+volume at 13,500 tonnes. Table 4-1 begins in 2018. Preserve
+the 200 tonne difference as a figure-basis discrepancy
+pending the exact lawful series used by the wastewater paper.
+A comparison of illicit estimates that reuse lawful inputs
+cannot establish independent predictive performance.
+
+[FTI report, sections 3.3 and 4.1 and Figures 4-1 and 5-1](https://www.pmi.com/content/dam/pmicom/markets/australia/docs/fti-consulting-illicit-tobacco-in-australia-2024-full-report.pdf).
