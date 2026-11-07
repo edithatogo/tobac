@@ -4098,3 +4098,25 @@ determine the sign from the site means. This does not dispute
 the programme's reported regional decline using its own
 weights. Exact denominators and aggregation rules are still
 needed to reproduce that figure.
+
+## P2.197 Weighted change bounds from population bands
+
+Using P2.195's rounded means, the infimum and supremum of
+the fixed-weight December-minus-August regional change over
+the published population bands are -600 and +105 mg nicotine
+per 1,000 people per day. To reproduce the bounds, close
+each finite band and evaluate its endpoints. For any fixed
+values of the other weights the weighted mean is monotone
+or constant in the remaining weight. For site 012, which
+has no published upper population bound, compare the lower
+endpoint with the limit as its weight tends to infinity.
+That limit is the site's own change of -600. Open band
+endpoints are limits, without a claim of attainment.
+
+If rounding to the nearest 100 were the only uncertainty,
+each paired change could differ by up to 100, widening this
+outer range to -700 through +205. Axis digitisation and
+programme weighting uncertainty are separate. These bounds
+are conditional on common weights, the eight-site roster and
+the chart-derived means. They leave the sign unidentified
+from the public population bands alone.
