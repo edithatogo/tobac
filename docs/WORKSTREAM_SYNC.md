@@ -138,3 +138,11 @@ quarantined as Q:BAT2025:RYO:year. Product-share denominator remains unqualified
 Only task/reconciliation/receipt metadata and this handoff change. All raw candidates
 and originals stay external; no archive/native/model/runtime promotion. Next remains
 source admission plus product/year/stock/period and policy/holdout qualification.
+
+P2.7 same-owner continuation at 3494436 qualifies the official legal CLI read and
+selected current NZ retail/nicotine/age/reporting provisions. decision-definition
+now binds those partial statutory facts to the dated consolidation; no complete
+numerical baseline, implementation, causal effect or source admission is claimed.
+Raw legal originals and verified provision text stay external; metadata/hashes only
+in tobac. Existing original-cohort, regulations, costs, AU and validation gates remain.
+No maintained code/runtime/native scope changed; existing integrator retains admission.

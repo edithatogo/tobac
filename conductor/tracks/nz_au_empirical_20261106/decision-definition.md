@@ -79,13 +79,33 @@ The [NZ Ministry smoked-tobacco page](https://www.health.govt.nz/regulation-legi
 reports repeal of the approved retailer scheme. The
 [official repeal material](https://www.health.govt.nz/information-releases/cabinet-and-briefing-material-smokefree-2025-progressing-coalition-agreement-commitments-and)
 identifies removal of denicotinisation, retailer reduction and generation restrictions.
-Those measures must be coded as counterfactuals rather than current settings. Confirm
-operative consolidated Act sections and commencement before a baseline is admitted.
+Those measures must be coded as counterfactuals rather than current settings. The
+7 November source check below verifies selected statutory fields, not the complete
+operative policy baseline or causal effects.
 
 The [AU Department reforms page](https://www.health.gov.au/give-up-for-good/reforms)
 describes tobacco product changes applying from July 2025 and pharmacy-only vape supply,
 with state/territory variation. Retain jurisdiction-specific implementation and enforcement.
 It is a publisher summary last updated July 2025, not proof that no later amendment exists.
+
+NZ statutory source check, 7 November 2026: the official principal Act's latest route
+returns the consolidation as at 10 July 2026. The 2024 Amendment Act (2024 No 6)
+received assent on 5 March; section 2 commences it the next day, 6 March 2024. The
+current consolidation marks the approved smoked-tobacco retailer scheme (Part 1B,
+subpart 1, including section 20M) and nicotine-limit section 57I as repealed on that
+date. Section 40 retains the under-18 sales/delivery restriction. Removed retailer
+maxima and that nicotine-limit provision therefore cannot be active status-quo
+settings. This does not mean zero retail regulation or an observed outlet count.
+
+Current section 20FA separately prohibits disposable vaping devices, with its insertion
+dated 17 June 2025; it is not a blanket ban on all vaping. Annual-reporting requirements
+are in section 100, not the legacy section 35 named by the Ministry returns page.
+Exact source hashes/section IDs and qualified CLI readbacks are in
+phase2-context-receipts-20261107.json and phase2-reconciliation-20261107.md.
+The original 2022 generation-provision mapping, regulations, implementation and
+compliance remain unqualified. The latest legal route was retrieved after the fixed
+6 November cut-off; no live alert state or absence of later/prospective changes is
+claimed. These selected statutory facts do not admit a complete numerical baseline.
 
 Both baselines still require exact current excise schedules, indexation, retail rules,
 product standards, vaping/NRT access, cessation coverage and enforcement practice, including

@@ -360,3 +360,51 @@ scientific source/runtime/native object changed, no original was uploaded or adm
 and no model, policy effect or held-out result was fitted. This removes ambiguity about
 some administrative fields while retaining the unresolved source/rights/product/period
 and validation gates. P2 remains active and incomplete.
+
+## P2.7 selected statutory baseline fields — 7 November 2026
+
+The official NZ legislation CLI route is qualified: installed curl 8.7.1 fetched
+substantive HTML for the 2024 repeal Act and current principal Act with HTTP 200,
+using exact official targets, bounded time/size, redirects and zero retries. Original
+HTML, response headers, extracted provisions and scripts are external in
+`/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-policy`. The initial
+urllib attempt produced no expected receipt/output; no success is attributed to it,
+and that failure does not invalidate the separately verified curl route.
+
+Principal HTML SHA256 529a47630e1627c4b8e10dcad676d8832afb729b27a0336b13a6e056dacb3795
+identifies the official consolidation as at 10 July 2026, observed on its latest route.
+Repeal Act HTML SHA256 53e4810bd3361da89780432395081906897899529c9bd78390c8fcf207d450ab
+identifies 2024 No 6, as enacted 5 March 2024. Section 2 starts it the day after Royal
+assent; the 6 March 2024 result agrees with the current Act's repeal history notes.
+Original source bodies remain unmodified; whitespace normalisation is for assertions.
+
+- Current section 20M (LMS809014), within repealed Part 1B subpart 1, is explicitly
+  repealed; the removed approved-smoked-tobacco-retailer maximum scheme is not an
+  active baseline outlet reduction. Do not infer absence of all other retail rules.
+- Section 57I (LMS809297), smoked-tobacco nicotine limits, is expressly repealed on
+  the same date. Historical denicotinisation assumptions remain counterfactuals.
+- Section 40 (LMS428470) retains the under-18 sale/delivery prohibition. The current
+  age rule is verified; the full original-2022 cohort-provision mapping is not.
+  The extractor's initial `generation` entry duplicates current section 40 context,
+  so review excludes it as independent proof of the historical cohort repeal.
+- Section 20FA (LMS1448824) prohibits disposable vaping devices, with insertion on
+  17 June 2025. This is distinct from banning all vaping or measuring actual compliance.
+- Section 100 (LMS428822) contains annual reporting requirements. The Ministry's
+  legacy section-35 label does not identify that current provision. The Act delegates
+  sales-related fields to regulations; section 100 alone does not resolve the
+  national summary's product conversion, duty-free or stock-consumption bridge.
+
+The guarded stdlib HTML extraction verifies actual provision containers and IDs,
+repealed markers, date notes, statutory text and original hashes; it does not use
+keyword occurrence in the contents as proof that a repealed heading remains active.
+`decision-definition.md` now records only these qualified statutory fields. No
+numeric policy-effect parameter, price elasticity or implementation rate is adopted.
+
+This latest route was read after the fixed 6 November 2026 evidence/policy cut-off;
+it is not a frozen capture made on that date. Its HTML has a dynamic alert-loading
+placeholder, so no live alert state or absence of later/prospective amendments is
+asserted. Actual regulations, excise schedules, service/cessation coverage, costs,
+enforcement, retailer counts, AU baseline and original-cohort mapping remain open.
+Official legal access is also separate from exact archive rights/destination admission.
+No external message, source upload, native write, empirical fit or held-out result
+occurred. P2 remains active; maintained-code tests and numerical replay are unchanged.

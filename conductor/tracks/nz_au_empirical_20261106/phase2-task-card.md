@@ -182,3 +182,21 @@ Narrow the owned engineering/context/nz-au-evidence.json to this active P2 task:
 remove superseded P2.1 feasibility and frozen P1 progress from selection only. Preserve
 both files/history and current admission/identification gates in decision-definition
 and current P2 reconciliation. No budget increase. Rebuild a new context edition.
+
+## P2.7 operative retail baseline — 7 November 2026
+
+R03/R06/R18; same owner/worktree/branch, clean base 3494436. Own this card,
+existing P2 reconciliation/receipt metadata, decision-definition's narrowly verified
+NZ retail/repeal baseline and WORKSTREAM_SYNC continuation. Raw official legal
+originals remain outside tobac in a new intake edition; ignored logs under
+outputs/nz-au-phase2-policy-20261107. Check supported CLI exact official targets
+first; use only internal-browser access if needed. One observable result: source-bound
+commencement/repeal and current consolidated retail provisions, distinguishing
+6 November 2026 policy cut-off from retrieval and prospective/uncommenced changes.
+Do not equate statutes with implementation or causal policy effects. Preserve unknown
+excise, cessation/service, enforcement, product/substitution and AU settings. No legal
+eligibility assignment, empirical fit, archive/native write or scientific-input change.
+Actual repo-local Python 3.15.2, existing 4096 MiB / 2400 s guard for extraction,
+streamed logs and zero blind retries. Stop on source-date ambiguity or inaccessible
+operative text. Reuse maintained code tests/replays; check source hashes/locations,
+context and publication boundary before metadata commit. Small writes only.

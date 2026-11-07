@@ -643,5 +643,96 @@
     "fit_executed": false,
     "next_gate": "Source admission and year/product/duty-free/conversion/stock reconciliation before matching sales to resident consumption",
     "context_failure_and_resolution": "Final context exceeded unchanged 100000-byte ceiling; explicitly removed superseded P2.1 feasibility and frozen P1 progress from active profile selection only, retained files/history and current gates. Eight-file profile rebuild passed."
+  },
+  "retail_statutory_continuation": {
+    "base_commit": "3494436339d6ff923aa499b48bd70bf26a99b213",
+    "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-policy",
+    "originals": [
+      {
+        "source": "repeal",
+        "file": "repeal-curl.body",
+        "sha256": "53e4810bd3361da89780432395081906897899529c9bd78390c8fcf207d450ab",
+        "bytes": 210404,
+        "method": "curl 8.7.1 exact official target, redirects, max 30s/10MB, no retry",
+        "header_file": "repeal-curl.headers",
+        "header_sha256": "5e7b08a2bb685365f9dd418eb6cdbf2054effbfed49177e2add0a3e2d2a72fca",
+        "admitted": false,
+        "requested_url": "https://www.legislation.govt.nz/act/public/2024/0006/latest/whole.html",
+        "readback_completed_by": "2026-11-07T03:09:51.608333+00:00",
+        "content_identity_verified": "Official title, version, operative provisions and history; not HTTP status alone"
+      },
+      {
+        "source": "principal",
+        "file": "principal-curl.body",
+        "sha256": "529a47630e1627c4b8e10dcad676d8832afb729b27a0336b13a6e056dacb3795",
+        "bytes": 1224116,
+        "method": "curl 8.7.1 exact official target, redirects, max 30s/10MB, no retry",
+        "header_file": "principal-curl.headers",
+        "header_sha256": "59851a340e5eebcc081a40f2fe1455b9d0fce9ce67428cf99f0b6bc0b60fe3de",
+        "admitted": false,
+        "requested_url": "https://www.legislation.govt.nz/act/public/1990/0108/latest/DLM223191.html",
+        "readback_completed_by": "2026-11-07T03:09:51.699260+00:00",
+        "content_identity_verified": "Official title, version, operative provisions and history; not HTTP status alone"
+      }
+    ],
+    "reviewed_reconciliation": {
+      "source_base_commit": "3494436339d6ff923aa499b48bd70bf26a99b213",
+      "evidence_policy_cutoff": "2026-11-06",
+      "principal_consolidation_as_at": "2026-07-10",
+      "official_latest_observed": true,
+      "repeal_assent": "2024-03-05",
+      "repeal_commencement": "2024-03-06",
+      "principal_source_sha256": "529a47630e1627c4b8e10dcad676d8832afb729b27a0336b13a6e056dacb3795",
+      "repeal_source_sha256": "53e4810bd3361da89780432395081906897899529c9bd78390c8fcf207d450ab",
+      "verified_source_ids": {
+        "retail_maximum": "LMS809014",
+        "age_restriction": "LMS428470",
+        "nicotine_limit": "LMS809297",
+        "annual_returns": "LMS428822",
+        "disposable_vaping": "LMS1448824"
+      },
+      "verified_provisions_sha256": "5183e454e45afd8d48ca296af2492529f4bf0264eb8e531b42819d4757cdf1cb",
+      "retail_scheme_disposition": "Repealed approved smoked-tobacco retailer maximum scheme; treat historical endgame retailer reductions as counterfactual, not active status quo",
+      "nicotine_limit_disposition": "Section 57I repealed; do not encode that removed provision as active smoked-tobacco nicotine reduction",
+      "age_rule_disposition": "Current section40 prohibits sales and delivery to under18s; full original2022 cohort mapping not reconstructed here",
+      "annual_return_reference_disposition": "Current Act section100; source Ministry legacy section35 label does not identify current reporting provision",
+      "disposable_vaping_context": "Section20FA prohibition inserted17June2025; do not generalise to a blanket ban on all vaping",
+      "limitations": [
+        "Official consolidation states law at its own date; latest route observed after policy cutoff, not a frozen 6November HTML capture",
+        "HTML includes dynamic Checking for alerts placeholder; no live alert state verified and no absence-of-future-amendments claim",
+        "Regulations, numerical excise, cessation eligibility/costs, enforcement and actual retailer counts remain unqualified",
+        "Statutory removal does not identify implementation, compliance, behavioural effects or a supported causal contrast",
+        "No source archive admission, numerical input adoption, empirical fit or holdout result",
+        "The extractor generation entry duplicates current section40 age context; do not use it as independent historical-cohort repeal proof. 2024Act sections28\u201329 remove named 2022Act amendments, but the complete original2022 cohort mapping remains unverified here."
+      ],
+      "admitted": false,
+      "fit_executed": false
+    },
+    "interpretation_review": {
+      "disposition": "Partial statutory-source verification only",
+      "cohort_mapping_scope": "The extractor generation entry duplicates current section40 age context; do not use it as independent historical-cohort repeal proof. 2024Act sections28\u201329 remove named 2022Act amendments, but the complete original2022 cohort mapping remains unverified here.",
+      "source_access_failure": "Initial urllib script exited without expected output or receipts; no successful acquisition credited. curl exact-target routes returned verified substantive originals. No general Python/network unavailability claim.",
+      "legal_version_limit": "Consolidation as at10July2026 on latest route observed7November2026; not a frozen6November capture and dynamic live-alert state not verified.",
+      "rights": "Exact source/archive rights and native destination admission remain separately qualified; official source access alone is not archive admission."
+    },
+    "external_receipts": {
+      "reconciliation.json": "436fd72f477f5eb96c429ae63884687a8a4db3357b72af986facec7f7f568526",
+      "verified-provisions.json": "5183e454e45afd8d48ca296af2492529f4bf0264eb8e531b42819d4757cdf1cb",
+      "interpretation-review.json": "06bf3225d07b5e145657a5e3a1c940d3ecac1adc965c05fa9833eaad6feb0276"
+    },
+    "external_extractors": {
+      "acquire.py": "2b7f780c6df551921bfe591654910423b388bb98a2ffe8adb3435974f02d151f",
+      "inspect.py": "80325c519efcba9a2500949bf400fde1b94d0b9f16fc552e2f3cb28ba408691f",
+      "reconcile.py": "6d990469cf3f27016379cec83063812e866474a2985d48f9d14c2ce59aaf9a73"
+    },
+    "actual_runtime": "repo-local Python3.15.2, curl8.7.1",
+    "guarded_inspection_status": 0,
+    "guarded_reconciliation_status": 0,
+    "sampled_inspection_group_rss_mib": 1.6,
+    "sampled_reconciliation_group_rss_mib": 0.4,
+    "logs": "outputs/nz-au-phase2-policy-20261107",
+    "maintained_source_changed": false,
+    "admitted": false,
+    "fit_executed": false
   }
 }
