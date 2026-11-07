@@ -2374,3 +2374,18 @@ The amount excludes counselling, dispensing and other delivery
 costs, and does not measure spending per person offered support.
 
 [Pharmac Schedule, p. 152](https://schedule.pharmac.govt.nz/2026/11/01/Schedule.pdf#page=152).
+
+## P2.104 NZ randomized comparison against varenicline
+
+The Māori and whānau randomized trial reports verified six-month
+continuous abstinence of 41/337 with cytisine and 27/342 with
+varenicline. The published risk difference is 4.29 percentage
+points (95% CI −0.22 to 8.79). The study met its noninferiority
+criterion and the interval includes zero for superiority.
+Use this as a candidate comparison for the recruited population
+and trial regimens. P2.99 uses NRT and self-reported abstinence,
+so its estimate cannot substitute for the varenicline comparison.
+The current SA1845 eligibility population and treatment uptake
+still require a separate transport assessment.
+
+[Walker et al., Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC8519028/).
