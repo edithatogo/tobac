@@ -2098,3 +2098,19 @@ The exact schedule-layer geometry and plant identity remain required.
 
 [Stats NZ schedule layer](https://datafinder.stats.govt.nz/layer/111198-urban-rural-2023-generalised/)
 and [clipped ArcGIS mirror](https://services2.arcgis.com/vKb0s8tBIA3bdocZ/ArcGIS/rest/services/UR2023/FeatureServer/0).
+
+## P2.86 Wellington candidate polygon intersections
+
+Intersecting the P2.85 clipped urban polygon with the two P2.39
+operator polygons in EPSG:2193 gives 65.392 km² for Moa Point
+and 4.650 km² for Western. These areas are 77.44% and 51.68%
+of the respective candidate catchment polygons. Both candidates
+cross the urban boundary. The fractions measure area and do
+not estimate the share of residents or retail outlets served.
+
+Shapely 2.2.0 / GEOS 3.14.1 ran on repo-local Python 3.15.2
+using dependencies installed into a separate external target.
+The calculation combined rings by parity and checked ring and
+output validity. These are geometric diagnostics for the clipped
+mirror and operator vintages. They leave the Kim plant identity
+and exact retail schedule geometry unresolved.
