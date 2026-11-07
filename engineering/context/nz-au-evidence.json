@@ -8,9 +8,9 @@
     "conductor/tracks/nz_au_empirical_20261106/index.md",
     "conductor/tracks/nz_au_empirical_20261106/decision-definition.md",
     "conductor/tracks/nz_au_empirical_20261106/phase2-task-card.md",
-    "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md",
-    "scripts/audit_empirical_coverage.py",
-    "tests/engineering/test_empirical_coverage.py"
+    "conductor/tracks/nz_au_empirical_20261106/phase1-nz-model-appraisal.md",
+    "src/tobac/retail_case.py",
+    "tests/m2/test_retail.py"
   ],
   "base_commit": null,
   "required_paths": [

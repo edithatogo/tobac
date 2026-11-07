@@ -408,3 +408,31 @@ enforcement, retailer counts, AU baseline and original-cohort mapping remain ope
 Official legal access is also separate from exact archive rights/destination admission.
 No external message, source upload, native write, empirical fit or held-out result
 occurred. P2 remains active; maintained-code tests and numerical replay are unchanged.
+
+## P2.8 retail/cessation parameter and formula bridge — 7 November 2026
+
+The source-linked SHINE supplement is saved externally and verified by its ZIP/PDF
+hashes; complete Appendix D pages 34 and 36 were rendered and inspected. Independent
+Decimal beta moments agree with installed SciPy 1.18.1, and the six source Table S22
+elicitation columns reproduce their printed averages and approximate range-based SD.
+The retail beta is internally coherent, while the prior denicotinisation mean conflict
+remains uncorrected. A new source-expression quarantine records a printed survivorship
+complement mismatch on page 36; no executable-code fault is inferred from that text.
+See the appended phase1-nz-model-appraisal.md and the existing P2 receipt for locations,
+hashes, checked values, distinctions and the retained exclusions.
+
+This qualifies what the existing retail contrast actually represents: a transported,
+null-inclusive aggregate consumption scenario inspired by a one-off source transition
+assumption, not a full SHINE transition implementation or a fitted causal NZ effect.
+The current src/tobac/retail_case.py blob is identical to a818f28, so its previous full
+suite/finite numerical replay is reused. New diagnostics are guarded at 4 GiB/40 min;
+Python 3.15.2 / SciPy 1.18.1, status 0, sampled peak 127.0 MiB. They establish arithmetic
+and source interpretation only. No observation admission, parameter replacement,
+fit, empirical policy contrast, held-out prediction or monetary VOI occurred.
+
+For this formula task, the same bounded context profile now selects the NZ model
+appraisal and retail source/test, replacing the unrelated coverage audit/test and
+accumulated source-reconciliation narrative in context selection only. Files and
+history remain intact, the 100,000-byte ceiling is unchanged, and current P2
+constraints remain in the decision definition/task card. Archive/source admission,
+policy transport and calibrated/validated empirical inputs still gate fitting.

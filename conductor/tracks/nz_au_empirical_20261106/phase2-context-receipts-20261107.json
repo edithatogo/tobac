@@ -734,5 +734,140 @@
     "maintained_source_changed": false,
     "admitted": false,
     "fit_executed": false
+  },
+  "retail_formula_continuation": {
+    "base_commit": "e57bc02d2a4fceadde9b54ac1778c39fca3015a6",
+    "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-contrast",
+    "original": {
+      "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11672025/supplementaryFiles",
+      "observed_download_completed_by": "2026-11-07T03:14:36.098266+00:00",
+      "http_status": 200,
+      "content_type": "application/zip",
+      "zip_file": "supplement.response",
+      "zip_sha256": "9d245cd688c497c875cc67773a3295832c9e40be51f83bcb63f99b4dca82c28b",
+      "zip_bytes": 1515715,
+      "linked_member": "tc-33-e2-s001.pdf",
+      "pdf_file": "SHINE-supplement-de9b73c15df4a697f462257894dcefe4c80b05d5458e4c6b420c9d17bfce97ea.pdf",
+      "pdf_sha256": "de9b73c15df4a697f462257894dcefe4c80b05d5458e4c6b420c9d17bfce97ea",
+      "pdf_bytes": 1753777,
+      "rights_status": "Article CC BY-NC4.0; supplemental assets retain their own notices, no redistribution/admission asserted",
+      "admitted": false
+    },
+    "pinned_main_article_sha256": "b99ad040e7c84e0745d02082b5fdd21a8d288dd28b9c5ae994cf78fd337160f0",
+    "numerical_reconciliation": {
+      "python": "3.15.2",
+      "scipy": "1.18.1",
+      "beta_checks": [
+        {
+          "parameter": "retail",
+          "shape_a": "23.4",
+          "shape_b": "97.2",
+          "independent_decimal_mean": "0.1940298507462686567164179104477611940299",
+          "independent_decimal_sd": "0.03586137736103661037140063883332536800818",
+          "scipy_median": 0.19233494134056145,
+          "scipy_interval_95": [
+            0.12878861400362362,
+            0.2688729457578276
+          ]
+        },
+        {
+          "parameter": "main_denicotinisation",
+          "shape_a": "17.78",
+          "shape_b": "3.19",
+          "independent_decimal_mean": "0.8478779208392942298521697663328564616118",
+          "independent_decimal_sd": "0.07662099032287297542232829736001852014286",
+          "scipy_median": 0.8589990290520666,
+          "scipy_interval_95": [
+            0.6704206231990298,
+            0.9634359112793281
+          ]
+        },
+        {
+          "parameter": "supplement_denicotinisation",
+          "shape_a": "17.8",
+          "shape_b": "3.2",
+          "independent_decimal_mean": "0.8476190476190476190476190476190476190476",
+          "independent_decimal_sd": "0.07662215373103926143374513633852835645744",
+          "scipy_median": 0.8587164060955118,
+          "scipy_interval_95": [
+            0.6702140054956047,
+            0.9632543638811488
+          ]
+        }
+      ],
+      "supplement_formula_check": {
+        "source_pdf_page": 36,
+        "source_printed_rate": "0.313",
+        "annual_rate_from_source_0_848": "0.3139295444366331431661401217065878542588",
+        "five_cycle_remaining_at_printed_rate": "0.153032504292207",
+        "printed_one_minus_power_expression": "0.846967495707793",
+        "reported_survivorship": "0.153",
+        "disposition": "The complement expression gives reduction, not survivorship; retain source and quarantine printed equality. No silent equation correction/adoption."
+      },
+      "retail_semantic_check": {
+        "source_table": "Main Table2 retail row",
+        "source_example_bau_component_probability": "0.05",
+        "source_example_half_split_component_probability_at_beta_mean": "0.1421641791044776119402985074626865671642",
+        "aggregate_proxy_remaining_fraction_at_beta_mean": "0.8059701492537313432835820895522388059701",
+        "disposition": "Different quantities; existing finite-state equal-intensity stock multiplier is a declared adaptation, not replication of all SHINE transitions or empirical calibration."
+      },
+      "mean_conflict_disposition": "Both printed beta parameterizations imply a mean rounding to84.8%, not main Table2 stated84.4%. Supplement TableS22 also prints84.8%; retain original conflict without selecting a corrected value.",
+      "sd_disposition": "Elicitation-range approximate SD and fitted beta-shape SD are distinct summaries; do not impose both as exact constraints.",
+      "source_pdf_sha256": "de9b73c15df4a697f462257894dcefe4c80b05d5458e4c6b420c9d17bfce97ea",
+      "preserved_code_sha256": "248ec4ed391440ce8277f4e31dc30ace0586cc30ab1ac8ced524b1dae8558ff5",
+      "admitted": false,
+      "empirical_fit": false
+    },
+    "elicitation_reconciliation": {
+      "source_pdf_page": 34,
+      "source_table": "S22",
+      "expert_count": 6,
+      "independent_decimal_column_means_percent": [
+        "65.83333333333333333333333333",
+        "84.75",
+        "96.58333333333333333333333333"
+      ],
+      "rounded_means_match_printed": true,
+      "range_based_approx_sd_percent": "7.844387755102040816326530612",
+      "rounded_range_sd_matches_7_84": true,
+      "interpretation": "This is the approximate SD from averaged elicited95% endpoints, not the beta shape SD or a sampling SE from six independent behavioural observations.",
+      "admitted": false
+    },
+    "source_locations": [
+      "Main original XML Table2 retail and denicotinisation rows",
+      "Supplement PDF page34 AppendixD/TableS22",
+      "Supplement PDF page36 operationalisation paragraph"
+    ],
+    "source_pages_visually_verified": [
+      34,
+      36
+    ],
+    "external_receipts": {
+      "numerical-reconciliation.json": "b452bf81bc882f8851a7ff7ecd4927cec966410e007d82cf1d34f3157b608c71",
+      "elicitation-reconciliation.json": "ccef7e44b7b1f81c995fa39463ac633a301b9496c17d6ebe616807456454644a"
+    },
+    "external_extractors": {
+      "numerical-check.py": "f8a06881741fee557bf076c6aa25b6f9d4f77a8bc7d1d99998954fc687d996dc",
+      "elicitation-check.py": "ab8721b2fb5e3623ea7db70d7e422dd719bbf56230d15b1a42ac7dbabe8dda53"
+    },
+    "runtime": "actual repo-local Python3.15.2 / SciPy1.18.1",
+    "guarded_diagnostic_status": 0,
+    "sampled_group_rss_mib": 127.0,
+    "guarded_elicitation_status": 0,
+    "logs": "outputs/nz-au-phase2-contrast-20261107",
+    "new_quarantine": {
+      "id": "Q:SHINE2023:survivorship-complement",
+      "location": "Supplement PDF page36",
+      "disposition": "Printed equality confuses remaining fraction with one minus remaining fraction. No silent repair or claim about original executable code."
+    },
+    "existing_mean_quarantine": "Q:SHINE2023:denicotinisation-effect retained; supplement and beta shapes support84.8%, but main Table2 prints84.4% and no authoritative correction/code reconciliation was obtained",
+    "finite_reference_preserved": {
+      "source_code_sha256": "248ec4ed391440ce8277f4e31dc30ace0586cc30ab1ac8ced524b1dae8558ff5",
+      "identical_to_tested_source_commit": "a818f28860196e61661fdb2b685320699c892ad2",
+      "tests_reused": "P2.2 fullNox suite and unchanged29-table numerical replay; no new empirical validation implied"
+    },
+    "maintained_code_changed": false,
+    "admitted": false,
+    "empirical_fit": false
   }
 }

@@ -200,3 +200,29 @@ Actual repo-local Python 3.15.2, existing 4096 MiB / 2400 s guard for extraction
 streamed logs and zero blind retries. Stop on source-date ambiguity or inaccessible
 operative text. Reuse maintained code tests/replays; check source hashes/locations,
 context and publication boundary before metadata commit. Small writes only.
+
+## P2.8 retail/cessation source-to-formula bridge — 7 November 2026
+
+R03/R05/R16/R18; same owner/worktree/branch, clean base e57bc02. Own this card,
+P2 reconciliation/receipt metadata, append-only P1 NZ model appraisal and scoped
+WORKSTREAM_SYNC continuation. Read src/tobac/retail_case.py and tests/m2/test_retail.py
+without changing their scientific/reference behavior. Raw supplement/parameter/formula
+extracts and numerical diagnostics remain outside tobac in a new external edition;
+ignored logs under outputs/nz-au-phase2-contrast-20261107. Reuse the pinned original
+PMC11672025 XML and its CC BY-NC rights. Acquire its actual supplement via the
+previously qualified official Europe PMC endpoint, check identity/ZIP contents before
+extracting only the linked PDF. Observable deliverable: verify retail beta moments,
+source transition versus aggregate consumption semantics and unresolved cessation
+parameter discrepancy with a small independent Decimal oracle and installed SciPy.
+No empirical input adoption, curve fitting, altered distributions/reference results,
+causal-effect claim, source/archive/native write or private-binding transfer. Use actual
+repo-local Python 3.15.2 and 4096 MiB / 2400 s guard, streamed logs, zero blind retries.
+Stop adoption on ambiguous units/estimands or source inconsistency; retain alternatives
+and source locations. Reuse unchanged code tests/replay and qualify new diagnostics
+at their actual scope. Small writes only with low shared-volume headroom.
+
+P2.8 owns the existing focused context profile adjustment: select the current NZ
+model appraisal and retail source/test for this source-to-formula task, replacing
+coverage audit/test and the accumulated reconciliation narrative in selection only.
+No file/history deletion or context-budget increase. All empirical acceptance gates
+remain; the independent arithmetic check is not a replacement fit or validation.

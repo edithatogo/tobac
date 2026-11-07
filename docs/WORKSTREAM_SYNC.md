@@ -146,3 +146,12 @@ numerical baseline, implementation, causal effect or source admission is claimed
 Raw legal originals and verified provision text stay external; metadata/hashes only
 in tobac. Existing original-cohort, regulations, costs, AU and validation gates remain.
 No maintained code/runtime/native scope changed; existing integrator retains admission.
+
+P2.8 same-owner continuation at e57bc02 recovers the original SHINE supplement and
+checks retail beta/transition semantics with an independent Decimal oracle. Existing
+retail-case source is identical to tested a818f28; no reference/input change. The
+mean discrepancy stays quarantined and a printed survivorship-complement discrepancy
+is recorded, without inferring original-code error. Only metadata/appraisal and task
+context selection change; source originals and numeric diagnostics remain external.
+The contrast is still transported/contextual, and source admission plus compatible
+calibration, policy effects and frozen held-out validation still gate the empirical fit.

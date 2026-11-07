@@ -66,3 +66,46 @@ inequity and HALYs, which were absent from that query's terms. The explicit v3 s
 adds these and related health/cost synonyms before fitting; v2 and its results remain
 preserved. Recovering the seed is one sensitivity check, not proof of exhaustive recall.
 No fitted empirical outcomes have been used to choose the amended query.
+
+## P2.8 source-to-formula continuation — 7 November 2026
+
+The actual linked supplement, tc-33-e2-s001.pdf, is recovered from the official
+Europe PMC supplementaryFiles ZIP. ZIP SHA256
+9d245cd688c497c875cc67773a3295832c9e40be51f83bcb63f99b4dca82c28b;
+linked PDF SHA256 de9b73c15df4a697f462257894dcefe4c80b05d5458e4c6b420c9d17bfce97ea.
+Originals, page renders, parameter cells and numerical diagnostics remain outside tobac
+in tobac-evidence-intake-20261107-p2-contrast; source rights/admission remain separate.
+
+Complete PDF pages 34 and 36 were visually checked. Appendix D/Table S22's six
+elicited columns average to the displayed 65.8%, 84.8% and 96.6%. The unrounded
+endpoint range divided by 3.92 reproduces the approximate SD of 7.84%; this is an
+elicitation-range approximation, not a sampling SE from six behavioural observations.
+Both the main-table beta shapes (17.78, 3.19) and supplement shapes (17.8, 3.2) imply
+means rounding to 84.8%. Their exact beta SDs are about 7.662%, not the separate
+range-based 7.84% summary. Do not require these approximate summaries to be jointly
+exact, or treat expert judgements as observed cessation outcomes. The prior 84.4%
+versus 84.8% main-table/narrative quarantine remains: this evidence supports an
+internal interpretation but is not an authoritative correction or source-code replay.
+
+**Q:SHINE2023:survivorship-complement**: PDF page 36 prints the survivorship equality
+using `1 - (1 - 31.3%)^5 = 15.3%`. Independent Decimal arithmetic gives about 84.697%
+for that expression; `(1 - 31.3%)^5` gives about 15.303%. The annual rate calculated
+from the stated 84.8% target is about 31.393%, distinct from its printed 31.3% example.
+Retain the printed expression and quarantine it for adoption. Do not silently repair
+it or infer that the original executable model necessarily used the erroneous text.
+
+The separate Table 2 retail beta (23.4, 97.2) is numerically coherent: mean about
+19.403%, SD 3.586%, median 19.233%, central interval 12.879%–26.887%. The source
+uses a one-off transition increase, split between quitting and switching, for a
+roughly 300-outlet/95%-reduction scenario, then reverts to BAU transitions. This mixes
+previous modelling with stated intentions; it is not measured current NZ efficacy.
+The current finite-state retail_case instead uses an explicitly transported/null,
+equal-intensity aggregate consumption multiplier for its prospective case. That is a
+labelled adaptation, not a replication of all SHINE life-history transitions. Its code
+blob is byte-identical to the P2.2 tested/replayed source. No shape, null/transport
+weight, reference result or causal-status label was changed.
+
+The source-to-formula distinction and independent numerical checks advance appraisal,
+not empirical fitting or current-policy transportability. The remaining calibration
+period discrepancy, full source/code/parameter mapping, archive admission, compatible
+NZ observations, policy effects and prespecified held-out validation remain open.
