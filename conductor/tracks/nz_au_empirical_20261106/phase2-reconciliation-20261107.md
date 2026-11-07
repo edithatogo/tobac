@@ -2346,3 +2346,18 @@ retains Schedule.pdf, SHA256
 493e12c67ba65438d18b9a8ab0cd4b2bdda1df0da604bc326abe015ab87354c6.
 
 [Pharmac November 2026 Schedule](https://schedule.pharmac.govt.nz/2026/11/01/Schedule.pdf).
+
+## P2.102 Funded NZ nicotine replacement comparator
+
+The retained November 2026 Schedule (p. 152) lists fully
+subsidised Habitrol patches (7, 14 and 21 mg), lozenges (1 and
+2 mg), and gum (2 and 4 mg). The listing specifies a minimum
+funded treatment quantity of four weeks, allows direct provision
+by a pharmacist under Section A, Part I, and identifies separate
+direct-distribution packs. Standard 28-patch pack subsidies
+are NZD 19.62, 21.57 and 24.72 in strength order. These are
+listed manufacturer's-price subsidies. They do not establish
+a patient charge, full delivery cost, actual treatment mix,
+or equivalence with the historical trial's voucher offer.
+
+[Pharmac November 2026 Schedule, p. 152](https://schedule.pharmac.govt.nz/2026/11/01/Schedule.pdf#page=152).
