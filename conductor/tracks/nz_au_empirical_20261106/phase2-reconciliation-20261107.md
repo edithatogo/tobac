@@ -3237,3 +3237,21 @@ smoking intensity, recall alignment or catchment outcomes.
 
 [NZHS 2022/23 annual update](https://www.health.govt.nz/publications/annual-update-of-key-results-202223-new-zealand-health-survey)
 and [adult showcards](https://www.health.govt.nz/system/files/2023-12/2022-23-nzhs-adult-showcards.pdf).
+
+## P2.152 Reproduce the smoking-intensity input
+
+The paper uses the NZHS mean cigarettes per day among daily
+smokers aged 15 and older. Dividing either printed 2023
+consumption endpoint by its corresponding daily-smoker count,
+365 days and the 1.23 uplift gives 9.3 cigarettes per day
+exactly. Holding 314,000 daily smokers and the uplift fixed,
+the P2.149 legal-release sensitivity would require 9.70127
+cigarettes per day to reach zero residual. The difference
+is about 0.40 cigarettes per day under those assumptions.
+
+The calculation is an arithmetic readback of the paper's
+inputs and a one-variable sensitivity. It carries no joint
+uncertainty for intensity and prevalence from the shared
+survey and supplies no independent 2023 campaign observation.
+
+[Original analysis, smoking intensity and Tables 1–2](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/).
