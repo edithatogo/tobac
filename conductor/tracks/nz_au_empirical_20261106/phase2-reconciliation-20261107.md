@@ -3690,3 +3690,25 @@ unspecified residuals. It does not assign November imports,
 identify the residuals or infer actual deferral fractions.
 P2.174 rules out a common fraction, while the paid aggregates
 alone leave variable deferral compatible with the data.
+
+## P2.176 Extend the deferral check through December
+
+The pinned final Stats NZ import ZIP gives November and
+December light-cigarette quantities of 187,486 and 203,502
+thousand sticks and smoking-tobacco quantities of 30,678
+and 52,560 kg tobacco content. Extending the P2.175 allocation
+at 2023 rates leaves November carry-outs of NZ$4,557,329.37
+and NZ$8,547,475.22, and December carry-outs of NZ$6,004,950.40
+and NZ$11,348,332.34, respectively. January 2024 paid heading
+totals are NZ$12,824,473.32 and NZ$9,359,588.07.
+
+The smoking-tobacco carry-out exceeds January capacity by
+NZ$1,988,744.27 before any January liabilities. The greedy
+allocation minimises carry-out each month by using all
+available capacity for eligible liabilities. Therefore
+variable one-month deferral alone cannot reconcile the
+extended May–December smoking-tobacco cohorts under standard
+rates, zero May carry-in and no downward adjustments.
+The light-cigarette carry-out fits but January imports
+are outside this check. The earlier six-cohort witness
+remains valid within its stated window.
