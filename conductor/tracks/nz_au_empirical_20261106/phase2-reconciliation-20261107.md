@@ -2551,3 +2551,15 @@ This verifies the displayed counts against original export
 bytes. Archive admission and policy applicability remain open.
 
 [Health NZ Pharmaceutical Data web tool](https://tewhatuora.shinyapps.io/pharmaceutical-data-web-tool/).
+
+## P2.115 All-dispensing sensitivity for national reach
+
+The original chemical-level export gives 360,345 nicotine
+dispensings to 73,841 people and 9,580 varenicline dispensings
+to 4,292 people in 2025 when repeats are included. Relative
+to the initial-only selector, this adds 115,868 and 2,011
+dispensing events but only 1,249 and seven people respectively.
+The combined all-dispensing people bound is 73,841–78,133
+under the shared-universe assumption of P2.113. Use this
+selector for reach including repeat-only recipients. Neither
+selector identifies medication adherence or unique courses.
