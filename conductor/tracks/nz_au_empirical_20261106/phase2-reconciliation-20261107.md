@@ -4804,3 +4804,31 @@ Treat the series as a candidate methodology comparison
 outside the independent incremental-information score.
 
 [ABS experimental household consumption article, Method and Graph 1](https://www.abs.gov.au/articles/household-consumption-illicit-tobacco-and-nicotine-products).
+
+## P2.228 ABS filter identification and forecast timing
+
+ABS Appendix 1 describes weighting the inputs by their
+relative measurement errors and smoothing earlier points
+when the estimated trend is revised. The method section
+describes a pooled metabolite observation balanced across
+four products. Even with fixed legal nicotine and known
+positive conversion coefficients, a single exact aggregate
+observation gives one equation for illicit cigarettes,
+e-cigarettes and other nicotine. With positive interior
+quantities, there are two directions of reallocation that
+preserve the same aggregate. Identification therefore
+depends on product-specific auxiliary data and model
+restrictions beyond the wastewater measurement.
+
+The published smoothed quarterly outputs do not establish
+what estimates were available at a historical forecast
+origin. For a forecast comparison, freeze dated input
+vintages and split source occasions before fitting. Use
+one-sided predictions, and keep any validation outcome
+separate from the inputs that estimated the allocation.
+The appendix does not supply the dated source inventory,
+model matrices or forecast-origin estimates to do this
+with the public graph. Its retrospective fit cannot
+supply the planned held-out score.
+
+[ABS experimental household consumption article, Method and Appendix 1](https://www.abs.gov.au/articles/household-consumption-illicit-tobacco-and-nicotine-products).
