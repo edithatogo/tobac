@@ -4137,3 +4137,23 @@ Several estimates sit near rounding boundaries, including
 August site 029 at 2649.92 and December site 053 at 4353.62.
 The replay proves repeatability at the chosen coordinates.
 It leaves axis uncertainty and exact source values open.
+
+## P2.199 Axis calibration sensitivity for matched site changes
+
+Using P2.198's unrounded mean-line coordinates, vary the
+August tick separation over 233–235 pixels and December over
+237–239 pixels at 105 dpi, holding the vector zero lines
+fixed. Each round shares one calibration across all sites.
+For positive plotted means, the lowest December-minus-August
+changes occur at 239 and 233 pixels, respectively, with
+the upper changes at the opposite endpoints.
+
+Three site decreases and four increases retain their signs
+in this sensitivity. Site 024 spans approximately -7.8 to
++40.7 mg nicotine per 1,000 people per day. Combining the
+calibration extremes with the population bands from P2.197
+gives a regional change envelope of approximately -596.3
+to +123.3 in the same units. This uses unrounded estimates
+and a one-pixel perturbation, with no statistical coverage
+claim. It leaves the weighted direction unresolved and
+does not calibrate product-specific nicotine.
