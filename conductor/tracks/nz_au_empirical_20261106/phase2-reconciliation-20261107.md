@@ -3634,3 +3634,24 @@ Neither column links an export to a particular import, duty
 adjustment or inventory boundary. P2.14's stock construction
 still applies even if these net flows were accepted as
 releases. Consumption requires an additional stock constraint.
+
+## P2.173 Import clearance and payment clocks
+
+Stats NZ dates imports by Customs entry clearance and exports
+by departure. Customs documented deferred accounts during 2023.
+For eligible charges the account can settle a month's
+transactions on the 20th of the following month. This creates
+a possible lag from entry clearance to payment, with no basis
+to assume all entries use it. The OIA enclosure does not
+specify whether its month is transaction or cash-settlement month.
+
+Even assuming a cash month and shifting every October quantity
+forward one month, nominal October smoking-tobacco duty of
+NZ$87,094,859.55 exceeds November paid heading 24.03 duty of
+NZ$50,492,199.35 by NZ$36,602,660.20. A uniform one-month
+lag therefore cannot reconcile that pair under standard rates
+and nonnegative contributions from other subcodes. Mixed
+payment timing and reporting scope remain unresolved.
+
+[Stats NZ trade methodology](https://datainfoplus.stats.govt.nz/Item/nz.govt.stats/6ed114da-3571-40d4-a89f-932068a4c753)
+and [Customs 2023 deferred-account notice](https://www.customs.govt.nz/about-us/news/important-notices-archive/important-notices-archive-2023/cancelling-unused-deferred-payment-accounts-over-2-years).
