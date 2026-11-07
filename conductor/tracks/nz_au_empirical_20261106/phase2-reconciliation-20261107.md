@@ -1947,3 +1947,16 @@ Differences within those pairs can inform method comparability.
 They provide no within-pair evidence on response to duty changes.
 
 [Australian Customs Notice 2016/27](https://www.abf.gov.au/help-and-support-subsite/CustomsNotices/2016-27.pdf).
+
+## P2.76 Paired-method sensitivity for the Australian composition signal
+
+Recomputing from the rounded concentrations in Wang regional
+Table S4, direct injection changes the combined COT and COT-OH
+concentration by −12.50% to +14.95% relative to large-volume
+injection across five paired days. ANBA / (COT + COT-OH) changes
+by −13.01% to +28.05%, with three increases and two decreases.
+The same day and sample enter both sides. This demonstrates
+method sensitivity even for a ratio that cancels common
+flow/population normalization. The range is descriptive for
+five samples from one week. It supplies neither a transferable
+correction nor a calibration uncertainty interval.
