@@ -2422,3 +2422,21 @@ their effects also require an overlap rule before combination.
 Keep the finite reference's transported retail prior separate
 from empirical medication effects and leave both population
 fractions uncalibrated by these trial records.
+
+## P2.107 Why the trial contrast cannot identify the demand fraction
+
+Even under equal baseline intensity, complete abstinence throughout
+the model horizon for incremental quitters, and no change among
+others, the demand reduction is the newly reached population share
+multiplied by the transported absolute quit-rate gain. Holding
+P2.99's trial counts and a positive transported gain fixed, zero
+incremental reach gives zero reduction. Positive reach gives a
+positive reduction. Both cases agree with the same randomized
+trial because its denominator comprises randomized participants
+and contains no population uptake comparison.
+
+This construction establishes non-identification even in that
+simplified bridge. Dropping equal intensity requires a
+consumption-weighted reach measure, and dropping the full-horizon
+assumption requires post-quit trajectories. The six-month trial
+estimate is not a cumulative one-year demand reduction.
