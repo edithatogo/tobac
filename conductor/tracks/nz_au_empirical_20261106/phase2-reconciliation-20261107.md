@@ -544,3 +544,27 @@ The bounded Decimal audit checks the pinned CSV hashes, unique heavy-line
 months, KTC units and the export identity. The script and report are under
 `/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`. Report SHA256
 `386cb0c3440609d29ba40da6f66a5bd204e27dbfdd571b697d5e7e8718f333ed`.
+
+## P2.14 stock-boundary identification check
+
+The prior net-trade interval constrains visible border flows. The existing
+ledger uses releases plus opening stock minus closing stock and separate
+lawful adjustments. Even with the adjustments fixed at zero, any
+nonnegative consumption vector fits a given release vector when opening
+stock is free. Start from cumulative offsets (d_0=0),
+(d_t=d_{t-1}+R_t-C_t). Set every stock boundary to
+(d_t-\min_j d_j). These boundaries are nonnegative and reproduce (C_t)
+exactly. Holding the reported trade records fixed does not constrain this
+construction without a separately supported relationship between border
+flows, releases and inventory.
+
+The guarded integer audit verifies the workbook consumer hash and uses
+the rounded annual release totals of 968 and 755 tonnes. Three illustrative
+stock paths give consumption pairs of (0, 0), (968, 755) and (2,000, 2,000)
+tonnes under the same releases. They are feasibility witnesses in source
+mass units. Empirical ledger admission still requires matched product,
+duty-free and time coverage and credible stock constraints.
+
+The script and result are under
+`/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`. Result SHA256
+`18d3518cdbf697e785d942d8ca37f15b5bdc591aa12124fdc0f668a2649abf3d`.
