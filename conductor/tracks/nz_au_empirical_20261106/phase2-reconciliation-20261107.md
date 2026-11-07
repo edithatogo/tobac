@@ -4419,3 +4419,25 @@ External supp2.pdf under the P2.210 intake directory has SHA256
 1cd8b2cbe63a319a75696e238d939c1720bf89577a1b5a7c86b89364e70d7df8.
 
 [National study data-sharing statement](https://pmc-oa-opendata.s3.amazonaws.com/PMC12887742.1/jamanetwopen-e2557319-s002.pdf).
+
+## P2.213 Australian 2023 annualisation and legal-source dependence
+
+The original Equation 5 graphic multiplies weighted tobacco
+use by population, 365 days and tobacco content per cigarette.
+Thus the reported 2023 total of about 10,300 tonnes is an
+annualised estimate. The main methods report sampling
+through April 2023 and the first batch label in eTable 2
+extends only to June. Neither establishes full-year 2023
+observation coverage.
+
+Equation 6 subtracts FTI's legal estimate, which includes
+modelled traveller imports alongside legal sales. The rounded
+2023 total and illicit estimates imply about 6,900 tonnes of
+lawful use on that accounting basis. This is an implied
+component, with no independent lawful-consumption observation.
+For a holdout, treating the annualised total, FTI legal input
+and derived illicit residual as independent would reuse data.
+Keep all three out of the complete-year count pending a
+matched time basis and verified independent outcome.
+
+[Original study, Equations 5–6 and Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
