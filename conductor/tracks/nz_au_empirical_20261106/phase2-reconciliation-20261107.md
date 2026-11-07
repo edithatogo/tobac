@@ -4157,3 +4157,23 @@ to +123.3 in the same units. This uses unrounded estimates
 and a one-pixel perturbation, with no statistical coverage
 claim. It leaves the weighted direction unresolved and
 does not calibrate product-specific nicotine.
+
+## P2.200 Within-round dispersion bounds
+
+The site minimum, mean and maximum do constrain sample
+variance without identifying it. Conditional on seven
+observations and exact summary values, the least variance
+sets the five interior values equal to their residual
+mean. The greatest variance places as many values as
+possible at the endpoints, with at most one interior value
+to satisfy the sum. Convexity of squared deviations gives
+both extrema.
+
+As an illustration, August site 012's P2.193–198 geometry
+gives approximate min, mean and max of 1251, 2659 and 3049
+mg nicotine per 1,000 people per day. Using the unrounded
+chart values gives conditional sample standard deviation
+bounds of approximately 625 to 712. This refines P2.194's
+variance limitation. The summaries leave exact variance,
+day ordering, serial dependence and uncertainty of the
+site mean unresolved. Digitisation uncertainty is separate.
