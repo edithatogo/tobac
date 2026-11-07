@@ -889,3 +889,25 @@ b92422026b870b83b28d2d92453de9f01da39ee7d2cc1fd1fc8ff10aa4c64574).
 The 568 dated analyte cells share 142 collection occasions. Preserve this
 grouping for any future holdout. Normalization provenance, admission,
 calibration and eligible holdout selection remain open.
+
+## P2.25 NZ wastewater load reconciliation and validation eligibility
+
+A second extraction from the retained layout text matched all 576 cells
+in the coordinate-based load export after whitespace normalization. It
+reconstructs site rows and wrapped cell tokens from character columns
+instead of PDF word coordinates. This is a second algorithm on the same
+source with zero disagreements. Counts are 451 quantified, 117 censored,
+and eight missing analyte slots. The guarded check passed. The external
+intake retains check-loads-layout.py with SHA256
+3043948b75b34412e1eb3ecb84f5678c3c8e157c21e4de46bbf3c04c85c49532
+and mmc1.txt with SHA256
+4675a51a4938a717434aa855ce90157a76722c6f2f31be0692793c3df60f7b7a.
+
+All dated occasions fall within May–October 2023. This source alone
+fails the prespecified temporal validation requirement of a complete
+year and three earlier complete years. Quantified anabasine is present
+at eleven plants, with one to four quantified occasions per plant.
+Auckland North has only censored anabasine. Catchment fold eligibility
+still depends on matched population and flow provenance, comparable
+coverage and a supported censoring likelihood. Dropping censored cells
+would select on the response. No eligible fold has been frozen.
