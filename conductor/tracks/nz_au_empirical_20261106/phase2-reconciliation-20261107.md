@@ -3337,3 +3337,21 @@ in P2.38. They do not meet even the exact additive-total
 assumption. An equal-per-month split would impose a temporal
 model. It would add no observed campaign consumption and would
 reuse each annual input across any rows derived from it.
+
+## P2.157 Historical survey pairs and temporal holdout eligibility
+
+The retained NZHS export in P2.154 contains national adult
+daily-count and mean-intensity rows for survey starts 2019,
+2020 and 2021. Their point pairs are 480,000 and 9.4,
+388,000 and 9.9, and 356,000 and 9.9. Multiplying each pair
+by 365 gives unadjusted annualised indices of 1,646,880,000,
+1,402,038,000 and 1,286,406,000 cigarettes under a common
+denominator and constant-rate assumption.
+
+These three historical pairs establish survey indicator
+availability. They do not establish three complete earlier
+country years for the joint estimand in decision-definition.md.
+The pairs lack a matched lawful-consumption quantity and
+independent outcome on the same time, population and product
+basis. Annualisation also leaves the COVID-affected fieldwork
+windows unresolved. Do not freeze a holdout from these rows.
