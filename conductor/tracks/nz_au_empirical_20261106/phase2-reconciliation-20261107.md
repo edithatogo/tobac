@@ -3413,3 +3413,20 @@ series as tobacco receipts would change product scope and
 could falsely attribute that difference to accounting timing.
 
 [Treasury January 2024 tax outturn](https://www.treasury.govt.nz/publications/tax-outturn-data/tax-outturn-data-january-2024).
+
+## P2.161 October interim fiscal statement cross-check
+
+Treasury's October 2023 interim financial statements, Note 2,
+report NZ$470 million of tobacco excise and duty for July–
+October, against a NZ$558 million forecast. The four matching
+P2.159 revenue cells total NZ$470.491 million and round to the
+same reported amount. The comparison checks the cumulative
+magnitude across the two publications. The interim statement
+does not independently verify the October-only allocation.
+
+Treasury discusses possible price-related demand weakness in
+its year-to-date variance commentary. This does not explain
+the monthly revenue spike or distinguish clearance timing
+from demand. The publications share fiscal reporting lineage.
+
+[Treasury October 2023 interim statements, Note 2](https://www.treasury.govt.nz/sites/default/files/2023-12/fsgnz-4mths-oct23.pdf).
