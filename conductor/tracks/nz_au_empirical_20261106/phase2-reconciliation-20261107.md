@@ -4214,3 +4214,22 @@ model and scores no held-out prediction. Equal site weights
 define a different estimand from the population-weighted
 programme result. The check reinforces that the pooled
 nicotine change should retain site heterogeneity.
+
+## P2.203 Partial identification of the combustible contribution
+
+Even granting exact pooled nicotine means and an additive
+nonnegative decomposition in reported nicotine units, the
+combustible contribution C in each round can lie anywhere
+between zero and the pooled mean T. The change is then
+bounded by -T_August and +T_December. These endpoints are
+feasible under the decomposition by allocating all nicotine
+to combustible use in one round and none in the other.
+
+For the equal-site means in P2.202, this yields -3187.5 to
++3300 mg nicotine per 1,000 people per day. The bound concerns
+the combustible contribution to the pooled measurement under
+the assumed additive model. It supplies no conversion to
+cigarettes, legal status or causal response. Even perfect
+digitisation and a known pooled direction would leave the
+combustible direction unidentified without independent
+source information.
