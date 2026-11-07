@@ -2910,3 +2910,23 @@ The original tables and article total are dependent evidence.
 
 [Imperial Tobacco 2023 return](https://www.health.govt.nz/system/files/2024-05/imperial_tobacco_nz_-_2023_tobacco_return.pdf)
 and [Philip Morris 2023 return](https://www.health.govt.nz/system/files/2024-05/philip_morris_new_zealand_limited_-_2023_tobacco_return.pdf).
+
+## P2.137 BAT returns close the published aggregate residual
+
+The Ministry's 2023 BAT cigarette return has 14 duty-free
+rows summing to 1,618,200 sticks. The companion RYO return has
+four duty-free rows summing to 0.9 tonnes at printed precision.
+Adding these to P2.136 reproduces the published 4,600,000 sticks
+and 1,817.7 kg. This reconciles the published aggregate to the
+checked tables. Coverage of other filers and net inbound or
+campaign consumption still require separate evidence.
+
+Originals retained externally under
+/Volumes/PortableSSD/tobac-p2-bat23.jsiQBZ. SHA256 for
+cigarettes.pdf is
+ca3610d0d96dbae255d6f0b092ab6a8e3efcc6ef662c0d24d2ae94b5fdfd13a5.
+SHA256 for cigarettes_tobacco.pdf is
+df0f4254ea7a16c4801a10de54714d2e9f6fc1b23f8ac0aa0e793fa839fc8020.
+
+[BAT cigarette return](https://www.health.govt.nz/system/files/2024-05/bat_nz_-_cigarettes_volumes_2023.pdf)
+and [BAT RYO return](https://www.health.govt.nz/system/files/2024-05/bat_nz_-_cigarettes_tobacco_volumes_2023.pdf).
