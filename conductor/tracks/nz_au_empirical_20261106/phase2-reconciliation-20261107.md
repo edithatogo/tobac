@@ -4564,3 +4564,31 @@ agreement between the two published series as held-out
 validation of illicit consumption.
 
 [FTI report, sections 3.1–3.3 and Appendix B](https://www.pmi.com/content/dam/pmicom/markets/australia/docs/fti-consulting-illicit-tobacco-in-australia-2024-full-report.pdf).
+
+## P2.219 Australian 2023 difference on a common lawful basis
+
+The rounded 2023 values are 3,400 tonnes of wastewater-derived
+illicit tobacco and 2,800 tonnes of FTI-modelled illicit tobacco.
+On a common lawful basis of 6,900 tonnes, the two implied
+totals are 10,300 and 9,700 tonnes. The 600-tonne residual
+difference is exactly the difference between those totals.
+The corresponding shares are approximately 33.0% and 28.9%
+from rounded quantities. FTI Figure 5-2 reports 28.6% directly.
+Keep the published share and rounded reconstruction separate.
+
+The common lawful term cancels in that accounting identity.
+It still matters to the constructed FTI total. Under the
+Appendix B non-domestic formula, a common perturbation to
+lawful traveller volume cancels from the difference between
+the wastewater residual and FTI non-domestic component.
+A common perturbation to lawful manufactured sales changes
+that difference by -1 / (1 - p) tonnes per tonne, holding
+other components fixed. At the rounded 2024 discarded-pack
+share, this is about -1.202 tonnes per tonne. This local
+sensitivity uses the published 2024 formula to explain the
+dependency and does not quantify the 2023 input error.
+The observed difference gives no independent estimate of
+bias, policy effects or incremental held-out performance.
+
+[Wang et al., Figure 4](https://doi.org/10.1001/jamanetworkopen.2025.57319).
+[FTI report, Figures 5-1 and 5-2 and Appendix B](https://www.pmi.com/content/dam/pmicom/markets/australia/docs/fti-consulting-illicit-tobacco-in-australia-2024-full-report.pdf).
