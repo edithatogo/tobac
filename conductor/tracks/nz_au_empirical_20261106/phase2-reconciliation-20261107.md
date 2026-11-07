@@ -4929,3 +4929,26 @@ status, survey timing and purchase-to-use reconciliation
 open for the prespecified consumption outcome.
 
 [AIHW tobacco summary, illicit tobacco section](https://www.aihw.gov.au/reports/alcohol/alcohol-tobacco-other-drugs-australia/contents/drug-types/tobacco).
+
+## P2.233 Purchase floor using nested survey thresholds
+
+AIHW's insights chart gives any recent purchase prevalence
+of 10.2% and 22.6% among current smokers in the two waves
+(P2.229). If the top-band summary uses the same valid-response
+denominator and purchase classification, the floors in
+P2.232 can be tightened. Count one packet per purchaser
+and 14 additional packets per top-band purchaser. This
+gives approximately 66.2 and 162.6 packets per 100 current
+smokers, respectively, from the rounded published shares.
+
+This is a conditional calculation from separate published
+summaries. Exact response denominator and missingness
+still require readback of the underlying table before
+using the combined result. The contrast between floors
+does not bound a change in actual purchases because the
+earlier wave has no finite upper bound from these items.
+The calculation adds no information about consumption
+mass or wastewater catchment allocation.
+
+[AIHW survey insights](https://www.aihw.gov.au/reports/illicit-use-of-drugs/national-drug-strategy-household-survey/contents/insights).
+[AIHW tobacco summary](https://www.aihw.gov.au/reports/alcohol/alcohol-tobacco-other-drugs-australia/contents/drug-types/tobacco).
