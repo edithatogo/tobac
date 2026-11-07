@@ -4198,3 +4198,19 @@ pinned reports has SHA256
 186c03a40dc7ded222a746ea0af07bb92b9302bb895720e47badbb13dac72c92.
 The bounds condition on fixed chart calibration and do not
 estimate sampling errors of the site-round means.
+
+## P2.202 Sensitivity to leaving out one site
+
+The eight rounded site changes in P2.195 average +112.5 mg
+nicotine per 1,000 people per day with equal site weights.
+Removing each site in turn gives seven-site means between
+-57.1 and +228.6. Excluding site 077 gives the negative
+endpoint. Using the unrounded P2.199 calibration envelope,
+the seven-site mean excluding 077 remains negative across
+the tested tick separations (approximately -102 to -37).
+
+This is a descriptive check of site influence. It fits no
+model and scores no held-out prediction. Equal site weights
+define a different estimand from the population-weighted
+programme result. The check reinforces that the pooled
+nicotine change should retain site heterogeneity.
