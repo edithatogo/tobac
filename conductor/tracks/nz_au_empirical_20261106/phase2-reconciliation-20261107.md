@@ -3042,3 +3042,25 @@ supply a May–October numerator, and a matching numerator would
 still need detection, disposition and consumption evidence.
 
 [Customs OIA 25-083, cover letter and annex](https://www.customs.govt.nz/media/u0hhdp2f/oia-25-083-proactive-release.pdf).
+
+## P2.143 Historical seizure ratios and denominator dependence
+
+Table 6 of the 2022 illicit trade baseline divides Customs
+seizures by a modelled consumption gap. For January–June 2022
+it divides 4,709,094 stick equivalents by 71,619,172, using
+half the annual estimated gap. This gives 6.58%. The numerator
+pools cigarettes, cigars and loose tobacco converted at 0.7 g
+per stick. It is not an inspection sample or an observed
+fraction of attempted imports.
+
+Even if the consumption gap equalled market entry U in the
+same stream and period, Table 6 would estimate S/U, whereas
+P2.142 uses S/(S+U). Under that hypothetical alignment the
+2022 ratio would convert to 6.17% of attempts. The actual
+denominators differ in flow definition and the 2022 half-year
+allocation is assumed. Reusing this ratio to calibrate a
+seizure likelihood and then treating the underlying consumption
+gap as independent evidence would reuse the same information.
+No transferable campaign baggage detection fraction follows.
+
+[Illicit trade baseline, Tables 4–6](https://www.health.govt.nz/system/files/2023-10/report-on-illicit-tobacco-trade-baseline-report-oct23.v3.pdf).
