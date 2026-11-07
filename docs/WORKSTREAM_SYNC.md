@@ -164,3 +164,10 @@ Nox 1,299/22 and typing pass after external scratch correction; first failure re
 Only owned test fixtures were cleaned. Source originals and CLI pins stay external.
 Next: matching historical trade/earlier fieldwork, existing-owner admission and valid
 calibration/policy/holdout gates. Do not promote this audit as a fitted empirical panel.
+
+P2.10 same-owner trade coverage at base 12c0716. Four official annual HS10
+archives and executable header mapping are retained externally. The existing
+candidate CLI verifies both flows in all 13 fieldwork-intersecting months.
+See phase2-reconciliation-20261107.md for the report and source receipt hashes.
+The next empirical gates are product and measurement compatibility, earlier
+fieldwork coverage, and existing-owner source admission.

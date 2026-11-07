@@ -463,3 +463,25 @@ resource evidence and limitations. The unchanged finite reference remains separa
 qualified. This advances executable source reconciliation, not P2 acceptance: historical
 trade and earlier scope coverage, source admission, calibration, a supported policy
 contrast and frozen holdouts remain open. No empirical fit or information comparison.
+
+## P2.10 historical trade coverage
+
+The 2024 and 2025 Stats NZ annual HS10 import and export archives cover every
+month from July 2024 through July 2025 in both flows. The existing reconciler
+reports 363 import and 162 export HS24 candidates across the two calendar
+years. These counts cover the full archives. The intersecting fieldwork
+window includes partial first and last months. Source quantity units include
+KGM, KTC, LTR, MIL, NMB and blank entries. The report preserves separate
+domestic export, re-export and total export fields.
+
+The four publisher archives, ZIP/member hashes, header mapping script,
+derived CSVs, configuration and executed report are retained in
+`/Volumes/PortableSSD/tobac-p2-historical-trade.e1sT5C`. The annual headers
+were mapped to the existing CLI names and the annual records concatenated
+by flow with Polars. Both guarded commands exited zero. The original-source
+receipt hash is
+`1dfefacecd8ef5b0b170ef6e822efce2bfcb792a98cfffe5c8ec0c247ae4c20b`.
+The executed report hash is
+`8ac4db8401ad4799666d55adbd98ba0c6efae578d94413f9a440c64e50c39caf`.
+Source admission, product conversion, calibration and held-out fitting
+remain open.
