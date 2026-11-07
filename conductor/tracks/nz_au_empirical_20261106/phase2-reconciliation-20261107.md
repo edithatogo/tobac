@@ -2895,3 +2895,18 @@ Keep sticks and RYO mass separate.
 
 [Original analysis, PubMed record](https://pubmed.ncbi.nlm.nih.gov/41587826/)
 and [Ministry of Health company returns for 2023](https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2023).
+
+## P2.136 Original 2023 company return subtotal
+
+Imperial's 12 NZ duty-free cigarette rows sum to 2,454.600
+thousand sticks and its six duty-free roll-your-own rows sum
+to 917.700 kg. Philip Morris's four PMNZ duty-free cigarette
+rows on printed page 47 sum to 527,200 sticks. The verified
+subtotal is 2,981,800 sticks across these two company tables
+and 917.700 kg from Imperial's RYO table. Compared with P2.135,
+the residuals are 1,618,200 sticks and 900.0 kg. These residuals
+are reconciliation targets with company attribution still open.
+The original tables and article total are dependent evidence.
+
+[Imperial Tobacco 2023 return](https://www.health.govt.nz/system/files/2024-05/imperial_tobacco_nz_-_2023_tobacco_return.pdf)
+and [Philip Morris 2023 return](https://www.health.govt.nz/system/files/2024-05/philip_morris_new_zealand_limited_-_2023_tobacco_return.pdf).
