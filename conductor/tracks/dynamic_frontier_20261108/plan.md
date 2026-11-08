@@ -21,7 +21,8 @@ No old receipt or signature is rewritten to represent this candidate as verified
   public numerical outputs and a clear publication-boundary reference.
 - [x] Add bounded retries and a connection timeout for transient scanner download
   failures; preserve fixed versions, archive checksums and fail-closed extraction.
-- [ ] Complete actual source-security, publication and hosted checks on this candidate.
+- [x] Complete local source-security and publication checks on the candidate.
+- [ ] Complete native scientific admission and hosted qualification.
 
 ## F01 — public data candidate
 
@@ -137,5 +138,30 @@ An earlier Python 3.12 portability run passed 57 candidate tests, but the existi
 integration module could not parse Python 3.15 syntax. Installing the repository's
 pinned uv 0.13.7 resolved interpreter acquisition; the 88-test Python 3.15.2 result
 above supersedes that runtime limitation. It does not resolve native admission.
-Publication readback and the exact candidate commit will be appended after the
-branch and PR are created.
+## Published candidate and receiving readback
+
+[Draft PR #147](https://github.com/edithatogo/tobac/pull/147) publishes implementation
+commit `6d6ee4ce84bf1a4366280d481711df40f72f262d`, based on main `d735896`.
+The received complete Git tree, `d4ecf645852127171c5352bd57880e973bde42ce`, matches
+all inspected local index/worktree files. The outgoing-commit publication-boundary
+check also passed after fetching the branch. This record is a subsequent
+Conductor-only update; it changes no scientific source, data or accepted outputs.
+
+Observed hosted results at that implementation commit include passing Linux audit,
+advisory typing and Scorecard workflows. Cross-platform tests, package portability
+and M3 jobs reject the candidate with **"Scientific inventory differs from native
+acceptance"** before their scientific workloads. Example logs:
+[cross-platform](https://github.com/edithatogo/tobac/actions/runs/42476484878/job/128718868001),
+[package](https://github.com/edithatogo/tobac/actions/runs/42476484965/job/128718867924),
+and [M3](https://github.com/edithatogo/tobac/actions/runs/42476484904/job/128718867823).
+Secondary export failures occur because the rejected workloads produced no source
+output directory. No rejected gate was disabled, relabelled as passed or replaced
+with an unsigned receipt. Other hosted jobs are not claimed successful here.
+
+Changed interfaces are the new opt-in `tobac_supply.dynamic.project_cohorts`
+reference and `Projection` result, the public comparison-pack schema, and its
+standalone exact-snapshot ABS extractor. Existing evidence-conditioning and lawful
+supply interfaces are unchanged. Remaining work is F01 original capture/admission,
+F02 native/full-suite qualification and F03–F05 systematic review, empirical
+calibration and decision research. No merge or current NZ policy recommendation
+has been made.

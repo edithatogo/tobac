@@ -554,3 +554,26 @@ receiving tree and has not itself been published.
 No dependency-publication checks remain for 413f7b2. The originating empirical
 lane's latest real-scheduler handoff and wider Phase 0/research work retain their
 own scope; no unrelated worktree or native binding was changed.
+
+
+## Dynamic model and evidence candidate — 8 November 2026
+
+[Draft PR #147](https://github.com/edithatogo/tobac/pull/147) introduces a small
+closed-cohort dynamic reference, 282 public comparison records across ten CSVs,
+engineering/status fixes and a staged Searchright systematic-review roadmap.
+[Companion track](tracks/dynamic_frontier_20261108/index.md) records design,
+broader decisions, frontier hypotheses, evidence gaps and exact verification.
+The accepted main scientific closure is not replaced by this draft.
+
+Implementation commit `6d6ee4ce84bf1a4366280d481711df40f72f262d` and its full tree
+`d4ecf645852127171c5352bd57880e973bde42ce` were fetched and matched to the inspected
+local candidate. Outgoing publication validation passed. Python 3.15.2 reference
+checks passed 88 focused/integration tests; Nox strict_all and publication passed,
+including source-bound hash-locked environments, nine policy tests and 21 boundary
+tests. New interfaces are opt-in and no data are admitted to the live conditioner.
+
+Hosted scientific jobs at that commit explicitly reject the changed inventory
+before execution; native verification and a renewed signed capsule remain open.
+Linux audit, advisory typing and Scorecard passed for that commit. The PR remains
+draft, with original NZ source capture, survey covariance/state crosswalks,
+catchment flow/population/calibration and causal policy parameters unresolved.
