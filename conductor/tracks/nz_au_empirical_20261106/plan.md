@@ -37,6 +37,46 @@ Current illicit consumption and empirical monetary VOI are not identified/admitt
 and held-out comparison remain gated by Phase 0 and Phase 1. No row below is closed by a
 scope audit or algebraic argument alone.
 
+### Source-admission review — 8 November 2026
+
+Reviewed the clean owning branch `codex/p2-empirical-slice-20261107` at
+`3d1f5e7608cd5a6db4b2a66a640557106a630685` against `c239b18`, including
+its reconciliation sections P2.126, P2.222 and P2.237. These dispositions
+apply to the reviewed candidates. The admitted observation count is zero.
+
+| Candidate | Disposition and basis |
+|---|---|
+| NZ historical survey, lawful releases, prices, trade and population | Candidate matching only. Retain the P2.9 Polars audit as a scope and overlap diagnostic. Survey interview windows, annual releases and monthly trade have different time support. Stock and unrecorded lawful flows remain unresolved. |
+| Kim NZ wastewater supplement, DOI 10.1016/j.scitotenv.2025.181223 | Measurement-method evidence only. The manifest and six bound files matched their hashes, with 142 unique site/date occasions, 451 quantified cells and 117 censored cells. Hold likelihood admission pending catchment and contributing population identity, dated flow, effective ANBA censoring, processing, paired-assay dependence and calibration. |
+| Health NZ July 2026 dispensing extract and technical notes | Historical service context. The v2 manifest, prior manifest, original ZIP and notes matched their hashes, and 20 logical CSV records matched field for field. Initial counts are nested in all dispensings and people can overlap across chemicals and years. Claims counts cannot establish incremental reach, quit response or consumption. The app's CC BY 4.0 statement is recorded in the manifest. Exact downloadable-object rights and destination readback remain open. |
+| ACIC regional reports and Wang national and Queensland analyses | Programme and measurement-method context. Eight repeated Queensland site codes and pooled chart means support design review. Daily or pool-level dates, flow and product calibration, a national site crosswalk and comparable catchment support remain unresolved. Retain the denominator discrepancy in quarantine. The national estimate reuses NWDMP data and modelled lawful supply. |
+| ATO tax gap, ITEC and ABS experimental series | ATO is contextual modelled post-seizure supply on a fiscal-year boundary. ITEC inherits the ATO baseline and uses wastewater. ABS is an alternative model using ACIC and administrative/survey inputs. Keep shared dependencies together and exclude all three from the independent consumption score. |
+| AIHW NDSHS tobacco workbook, Table 1.33 | Independent purchase diagnostic. The original workbook and replay script matched their pins and Python 3.15.2 reproduced floors of 75.6 and 200.1 packets per 100 current smokers and conditional thresholds of 43.2 and 21.8 packets. The survey outcome has different units, timing and geographic support from the consumption estimand. The [AIHW licence](https://www.aihw.gov.au/copyright) provides CC BY 4.0 subject to attribution and exceptions. Exact workbook rights and archive-object readback remain open. |
+
+The checks above are local intake readbacks. GitHub CLI confirmed the identity and
+public visibility of the existing NZ government archive, whose stated scope is NZ
+government records. This is repository metadata. The reviewed packet supplies
+zero qualified canonical archive-object readbacks or source-admission receipts.
+For each candidate proposed for admission, bind its exact edition and hash to
+verified object-specific rights, an in-scope destination and an independent
+byte-matching readback before creating the source receipt.
+
+Before a fit, freeze an admitted, hash-bound observation manifest with matched
+policy dates, populations, products, units and dependence groups. Resolve the
+stock and lawful-flow bridge and product-specific wastewater calibration. The
+contrast requires independent support for a retail or cessation policy response
+on that same scope, including the bridge from medication offers and service use
+to population demand for a cessation contrast.
+
+Before scoring, freeze an independent outcome with matching consumption units,
+dates and geographic support. Apply the prespecified latest complete year with
+at least three earlier complete years, and leave-one-catchment-out folds only
+where at least four comparable catchments have adequate coverage. Group shared
+measurement occasions and derivative series. Neither split qualifies on this
+packet. Paired predictions, incremental information and a decision ceiling
+remain open. The finite-state numerical reference stays separate. The
+non-identification finding is recorded locally. Publication remains open.
+
 - [ ] Integrate qualified NZ survey, lawful releases, prices, trade and denominators using Polars; add actual Australian wastewater programme design and measurement evidence.
 - [ ] Reconcile dates, products, catchments, lawful unrecorded flows, stock, shared sources and calibration. Assess identifiability before fitting; retain partial-identification bounds where needed.
 - [ ] Fit the supported baseline and one existing retail/cessation contrast; preserve original finite-state reference results separately.
