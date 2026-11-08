@@ -14,7 +14,7 @@ or paraphrase. GitHub push protection addresses credentials, not manuscripts.
 
 ## Local setup
 
-Use a repository-local Python 3.15.1 interpreter and verify its actual version.
+Use a repository-local Python 3.15.2 interpreter and verify its actual version.
 On Apple Silicon macOS, run `sh scripts/install_security_tools.sh` to install the
 checksum-pinned gitleaks and actionlint binaries in ignored `.security-tools/`.
 Then set this checkout's `core.hooksPath` to its absolute `.githooks` directory;
@@ -78,10 +78,10 @@ availability claims.
 ## Acceptance
 
 Use Nox `publication`, `tests`, `strict_all`, `security`, numerical replay and clean
-package gates on macOS Python 3.15.1. Run expensive work serially through the 4 GiB,
+package gates on macOS Python 3.15.2. Run expensive work serially through the 4 GiB,
 40-minute guard. Validate actual downloaded artifacts and installed hook behavior,
 not merely workflow syntax. CodeQL Python/Actions and native secret scanning are
-separate hosted evidence. Windows/Linux qualification remains deferred.
+separate hosted evidence. Linux/Windows hosted qualification is recorded in `READINESS.md`; it does not replace direct native source admission.
 
 CodeQL uses the official SHA-pinned setup action's linked bundle and supported CLI
 commands under the same resource guard. Extraction and the security-and-quality

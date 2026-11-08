@@ -1,0 +1,405 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-11-08",
+  "status": "candidate_public_comparators_not_admitted_observations",
+  "geographies_kept_separate": true,
+  "native_lineage_qualification": "pending",
+  "files": [
+    {
+      "path": "abs_expenditure_aud_million_quarterly.csv",
+      "sha256": "932454a9278ffa20f9eb46904e07e80d1dc92441d2bb20b58fd6c43b15681956",
+      "rows": 37,
+      "columns": [
+        "period_as_published",
+        "Total ($m)",
+        "Legal tobacco ($m)",
+        "Illicit cigarettes ($m)",
+        "E-cigarettes ($m)",
+        "Other nicotine ($m)"
+      ],
+      "source_id": "abs_experimental_nicotine_20260603",
+      "empirical_admission": false,
+      "role": "external_comparator"
+    },
+    {
+      "path": "abs_expenditure_scenarios_quarterly.csv",
+      "sha256": "051a9c981fcaef3d62381228330317773eb7ab581561824715e8d0d4910875ed",
+      "rows": 37,
+      "columns": [
+        "period_as_published",
+        "Lower experimental scenario ($m)",
+        "Central experimental scenario ($m)",
+        "Upper experimental scenario ($m)",
+        "Published HFCE Cigarettes and tobacco ($m)"
+      ],
+      "source_id": "abs_experimental_nicotine_20260603",
+      "empirical_admission": false,
+      "role": "external_comparator"
+    },
+    {
+      "path": "abs_nicotine_kg_quarterly.csv",
+      "sha256": "87e7a1bfbb13b5411cd8c1b176ee08d8e12390af19bc5e3968199c66075ac70f",
+      "rows": 37,
+      "columns": [
+        "period_as_published",
+        "Total (Kilograms of nicotine)",
+        "Legal tobacco (Kilograms of nicotine)",
+        "Illicit cigarettes (Kilograms of nicotine)",
+        "E-cigarettes (Kilograms of nicotine)",
+        "Other nicotine (Kilograms of nicotine)"
+      ],
+      "source_id": "abs_experimental_nicotine_20260603",
+      "empirical_admission": false,
+      "role": "external_comparator"
+    },
+    {
+      "path": "abs_price_indices_quarterly.csv",
+      "sha256": "8f2f22e1e437a15c5dde17e207a013c4071b5843d3535b601044547d6d5c6d16",
+      "rows": 37,
+      "columns": [
+        "period_as_published",
+        "Illicit cigarettes (Tobacco IPI) (Index)",
+        "E-cigarettes and Other nicotine products (SITC 59 IPI) (Index)",
+        "Legal tobacco (Tobacco CPI) (Index)"
+      ],
+      "source_id": "abs_experimental_nicotine_20260603",
+      "empirical_admission": false,
+      "role": "external_comparator"
+    },
+    {
+      "path": "abs_total_hfce_growth_annual.csv",
+      "sha256": "66666effd9eb4daebd12a427aaa15078a321a492e541edf8955b203551e1240f",
+      "rows": 8,
+      "columns": [
+        "period_as_published",
+        "Experimental HFCE total (%)",
+        "Published (MQ26) (%)"
+      ],
+      "source_id": "abs_experimental_nicotine_20260603",
+      "empirical_admission": false,
+      "role": "external_comparator"
+    },
+    {
+      "path": "abs_volume_indices_quarterly.csv",
+      "sha256": "210b5d37588c07375d92925225ba9ade86dcde35898cdb25c05d5bb6a33bd004",
+      "rows": 37,
+      "columns": [
+        "period_as_published",
+        "Cigarettes and tobacco (experimental) (Index)",
+        "Cigarettes and tobacco (published) (Index)"
+      ],
+      "source_id": "abs_experimental_nicotine_20260603",
+      "empirical_admission": false,
+      "role": "external_comparator"
+    },
+    {
+      "path": "nzhs_counts_2024_25.csv",
+      "sha256": "43fad8e76a714f61b81861aa1da88a8d5292fc84e8205e3645c7e2ed4e594a74",
+      "rows": 2,
+      "columns": [
+        "source_id",
+        "survey_period",
+        "geography",
+        "age_scope",
+        "indicator",
+        "value",
+        "unit",
+        "uncertainty",
+        "source_section"
+      ],
+      "source_id": "nzhs_2024_25_smoking_vaping_moh_20251119",
+      "empirical_admission": false,
+      "role": "descriptive_context"
+    },
+    {
+      "path": "nzhs_prevalence_2024_25.csv",
+      "sha256": "6409fa980b7e1277952e5328daa1757cfb12bbd4db500abf8353a1837b91f1c0",
+      "rows": 18,
+      "columns": [
+        "source_id",
+        "survey_period",
+        "geography",
+        "age_scope",
+        "stratum_type",
+        "stratum",
+        "indicator",
+        "value",
+        "unit",
+        "uncertainty",
+        "source_section"
+      ],
+      "source_id": "nzhs_2024_25_smoking_vaping_moh_20251119",
+      "empirical_admission": false,
+      "role": "descriptive_context"
+    },
+    {
+      "path": "nzhs_vaping_union_ci_2024_25.csv",
+      "sha256": "a0383cdf1fe00a5f228e123845ae3edc3145951701803888c42415ab1558cef8",
+      "rows": 54,
+      "columns": [
+        "source_id",
+        "survey_period",
+        "geography",
+        "age_scope",
+        "stratum_type",
+        "stratum",
+        "indicator",
+        "value",
+        "ci95_lower",
+        "ci95_upper",
+        "unit",
+        "caution_rse_over_30_percent",
+        "source_section"
+      ],
+      "source_id": "nzhs_2024_25_phcc_vaping_edwards_20251203",
+      "empirical_admission": false,
+      "role": "descriptive_context"
+    },
+    {
+      "path": "nzhs_smoking_ci_2024_25.csv",
+      "sha256": "45da6acd8d5c0f696900a62b40f64200b0306cb959c9d4b9eed2c93e3a7afec2",
+      "rows": 15,
+      "columns": [
+        "source_id",
+        "survey_period",
+        "geography",
+        "age_scope",
+        "stratum_type",
+        "stratum",
+        "indicator",
+        "value",
+        "ci95_lower",
+        "ci95_upper",
+        "unit",
+        "caution_rse_over_30_percent",
+        "source_section"
+      ],
+      "source_id": "nzhs_2024_25_phcc_smoking_nip_20251126",
+      "empirical_admission": false,
+      "role": "descriptive_context"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "abs_experimental_nicotine_20260603",
+      "publisher": "Australian Bureau of Statistics",
+      "title": "Household consumption of illicit tobacco and nicotine products",
+      "url": "https://www.abs.gov.au/articles/household-consumption-illicit-tobacco-and-nicotine-products",
+      "released_on": "2026-06-03",
+      "retrieved_on": "2026-11-08",
+      "capture_completed_at_from_local_file_mtime": "2026-11-08T10:59:10.225691+00:00",
+      "capture_time_basis": "local completed-file modification time, not an HTTP server timestamp",
+      "original_representation": "HTTP response body, HTML",
+      "original_bytes": 364743,
+      "original_sha256": "5c44569d62d15e840c8f8014d78d00bc296d32cf1f804141a8778767756a8379",
+      "raw_archive_status": "downloaded to ignored scratch; canonical external archive transfer not completed",
+      "licence": "CC BY 4.0, subject to ABS exclusions",
+      "licence_url": "https://www.abs.gov.au/website-privacy-copyright-and-disclaimer",
+      "licence_scope": "Published ABS numeric tables only; no logo, microdata or third-party source redistribution",
+      "extractor": "scripts/extract_public_comparators.py",
+      "extraction": "All six HTML tables, published numbers; remove thousands separators, preserve decimal precision; add period column label",
+      "observation_periods": {
+        "quarterly": "2016Q4 through 2025Q4, 37 quarters",
+        "annual_total_hfce_growth": "2018 through 2025, 8 calendar years"
+      },
+      "geography": "Australia national",
+      "data_kind": "experimental model-derived aggregates plus published comparison series",
+      "dependence_group": "AU_ACIC_survey_administration_ABS_shared_inputs",
+      "independence": "Tables, products, sensitivity scenarios and published comparators are not independent measurements; some upstream sources overlap ACIC, ATO and ITEC publications.",
+      "uncertainty": "Lower/upper experimental scenarios are assumption sensitivity cases, not confidence or credible intervals.",
+      "units": {
+        "abs_nicotine_kg_quarterly.csv": "kilograms of nicotine in each quarter, not cigarettes or per-capita mass",
+        "abs_expenditure_aud_million_quarterly.csv": "current-price AUD millions per quarter",
+        "abs_expenditure_scenarios_quarterly.csv": "current-price AUD millions per quarter",
+        "abs_price_indices_quarterly.csv": "price indices, December 2016 = 100",
+        "abs_volume_indices_quarterly.csv": "chain-volume comparison indices, December 2016 = 100; not physical nicotine quantities",
+        "abs_total_hfce_growth_annual.csv": "annual percentage change in total household final consumption expenditure, not tobacco-only spending"
+      },
+      "rounding": "Totals may differ from the sum of four products by published rounding; preserve differences, never repair.",
+      "empirical_admission": false,
+      "allowed_use": [
+        "external model comparison",
+        "scenario context",
+        "reproduction of source tables"
+      ],
+      "not_suitable_for": [
+        "independent likelihood alongside its upstream sources",
+        "raw wastewater calibration",
+        "direct transport of AU illicit fractions to NZ",
+        "causal effects of taxation or enforcement"
+      ]
+    },
+    {
+      "source_id": "nzhs_2024_25_smoking_vaping_moh_20251119",
+      "publisher": "New Zealand Ministry of Health - Manatu Hauora",
+      "title": "Trends in smoking and vaping",
+      "url": "https://www.health.govt.nz/monitoring-statistics/surveys/new-zealand-health-survey/publications/202425-survey-publications/trends-in-smoking-and-vaping",
+      "last_updated_on": "2025-11-19",
+      "retrieved_on": "2026-11-08",
+      "source_access": "Official page readable through web retrieval; direct HTTP download from this execution environment returned 403",
+      "original_representation": null,
+      "original_sha256": null,
+      "raw_archive_status": "not obtained; tabular fact extraction is not an original-byte snapshot",
+      "extraction": "Manual transcription of 18 current prevalence percentages and 2 estimated counts from identified official summary sections; no chart digitisation",
+      "licence": "CC BY 4.0, subject to Ministry exclusions",
+      "licence_url": "https://www.health.govt.nz/about-this-site/copyright",
+      "licence_scope": "Ministry-published numerical summary only; no third-party graphics or reports",
+      "geography": "New Zealand national",
+      "population": "adults aged 15 years and over, subject to NZHS survey scope",
+      "survey_period": "2024/25",
+      "collection_window_as_reported": "July 2024 to July 2025",
+      "data_kind": "survey-weighted published marginal prevalence and estimated counts",
+      "dependence_group": "NZHS_2024_25_shared_survey",
+      "independence": "Strata overlap the national total; smoking and vaping can overlap; ethnicity must not be assumed a mutually exclusive partition; estimated counts reuse the survey.",
+      "uncertainty": "Summary does not provide numerical confidence intervals, sample sizes or covariance for these cells; they remain missing, not zero.",
+      "empirical_admission": false,
+      "allowed_use": [
+        "descriptive context",
+        "future prevalence calibration target only after survey uncertainty and scope review"
+      ],
+      "not_suitable_for": [
+        "estimating initiation cessation or switching transition probabilities from one cross-section",
+        "summing smoking and vaping into a population partition",
+        "independent use of counts and percentages from the same survey",
+        "catchment-specific likelihood without a population crosswalk"
+      ]
+    },
+    {
+      "source_id": "nzhs_2024_25_phcc_vaping_edwards_20251203",
+      "publisher": "Public Health Communication Centre, University of Otago",
+      "title": "Vaping prevalence and trends: Findings from the 2024-25 NZ Health Survey",
+      "authors": [
+        "Richard Edwards",
+        "Janine Nip",
+        "Janet Hoek",
+        "Andrew Waa",
+        "Jude Ball"
+      ],
+      "url": "https://www.phcc.org.nz/briefing/vaping-prevalence-and-trends-findings-2024-25-nz-health-survey",
+      "released_on": "2025-12-03",
+      "retrieved_on": "2026-11-08",
+      "source_access": "Publisher page readable through web retrieval; direct HTTP acquisition returned 403",
+      "original_representation": null,
+      "original_sha256": null,
+      "raw_archive_status": "not obtained; fact extraction is not an original-byte snapshot",
+      "extraction": "Manual transcription of all 18 population strata and three indicator columns with 95% intervals from Appendix 3 Table A1; retain two RSE caution markers; no graph digitisation",
+      "licence": null,
+      "rights_basis": "Attributed numerical facts only; PHCC retains copyright in the article. No article prose, graphics, PDF or original HTML is redistributed. A blanket licence for the publisher article has not been established.",
+      "underlying_survey_source_id": "nzhs_2024_25_smoking_vaping_moh_20251119",
+      "geography": "New Zealand national",
+      "population": "adults aged 15 years and over; age rows are subgroups",
+      "survey_period": "2024/25",
+      "collection_window_as_reported": "9 July 2024 to 20 July 2025",
+      "survey_sample_size_reported": 9253,
+      "data_kind": "published academic reporting/analysis of NZHS survey aggregates, not a separate survey",
+      "dependence_group": "NZHS_2024_25_shared_survey",
+      "independence": "Same survey as the Ministry summary; repeated estimates are verification/uncertainty annotations, not independent evidence. Strata overlap. Marginal intervals do not specify cross-indicator covariance.",
+      "uncertainty": "Published 95% confidence intervals; asymmetric rounded bounds retained; joint covariance and design weights not supplied.",
+      "definitions": {
+        "daily_smoking": "daily smoking and more than 100 cigarettes smoked in lifetime, as reported by source",
+        "current_vaping_at_least_monthly": "vaping at least monthly",
+        "daily_smoking_or_vaping_or_both": "union of the two daily-use indicators, not dual use alone"
+      },
+      "empirical_admission": false,
+      "allowed_use": [
+        "descriptive context",
+        "cross-checking published point estimates",
+        "uncertainty annotations pending original-source verification"
+      ],
+      "not_suitable_for": [
+        "independent likelihood alongside Ministry NZHS values",
+        "calculating uncertainty of dual-use prevalence from marginal CIs without covariance",
+        "estimating individual transitions from cross-sectional estimates",
+        "direct use as never/former/dual state counts without a reviewed definition crosswalk"
+      ]
+    },
+    {
+      "source_id": "nzhs_2024_25_phcc_smoking_nip_20251126",
+      "publisher": "Public Health Communication Centre, University of Otago",
+      "title": "Smoking prevalence and trends: Important findings from the 2024-25 New Zealand Health Survey",
+      "authors": [
+        "Janine Nip",
+        "Richard Edwards",
+        "Janet Hoek",
+        "Andrew Waa",
+        "L. Teddy"
+      ],
+      "url": "https://www.phcc.org.nz/briefing/smoking-prevalence-and-trends-important-findings-2024-25-new-zealand-health-survey",
+      "released_on": "2025-11-26",
+      "retrieved_on": "2026-11-08",
+      "source_access": "Publisher page readable through web retrieval; direct HTTP acquisition returned 403",
+      "original_representation": null,
+      "original_sha256": null,
+      "raw_archive_status": "not obtained; fact extraction is not an original-byte snapshot",
+      "extraction": "Manual transcription of 15 daily-smoking percentages and published 95% intervals from named text sections; suppressed 15-17 smoking data are not reconstructed",
+      "licence": null,
+      "rights_basis": "Attributed numerical facts only; PHCC retains copyright in the article. No article prose, graphics, PDF or original HTML is redistributed. A blanket licence for the publisher article has not been established.",
+      "underlying_survey_source_id": "nzhs_2024_25_smoking_vaping_moh_20251119",
+      "geography": "New Zealand national",
+      "population": "adults aged 15 years and over; age rows are subgroups",
+      "survey_period": "2024/25",
+      "collection_window_as_reported": "9 July 2024 to 20 July 2025",
+      "survey_sample_size_reported": 9253,
+      "data_kind": "published academic reporting/analysis of NZHS survey aggregates, not a separate survey",
+      "dependence_group": "NZHS_2024_25_shared_survey",
+      "independence": "Same survey as the Ministry summary; repeated estimates are verification/uncertainty annotations, not independent evidence. Strata overlap. Marginal intervals do not specify cross-indicator covariance.",
+      "uncertainty": "Published 95% confidence intervals; asymmetric rounded bounds retained; joint covariance and design weights not supplied.",
+      "definitions": {
+        "daily_smoking": "daily smoking and more than 100 cigarettes smoked in lifetime, as reported by source",
+        "current_vaping_at_least_monthly": "vaping at least monthly",
+        "daily_smoking_or_vaping_or_both": "union of the two daily-use indicators, not dual use alone"
+      },
+      "empirical_admission": false,
+      "allowed_use": [
+        "descriptive context",
+        "cross-checking published point estimates",
+        "uncertainty annotations pending original-source verification"
+      ],
+      "not_suitable_for": [
+        "independent likelihood alongside Ministry NZHS values",
+        "calculating uncertainty of dual-use prevalence from marginal CIs without covariance",
+        "estimating individual transitions from cross-sectional estimates",
+        "direct use as never/former/dual state counts without a reviewed definition crosswalk"
+      ]
+    }
+  ],
+  "missing_data": [
+    {
+      "item": "Matched NZ catchment/date wastewater and denominator panel",
+      "needed_fields": [
+        "dated catchment population",
+        "dated wastewater flow",
+        "effective detection/censoring thresholds",
+        "metabolite processing and recovery",
+        "measurement covariance",
+        "product-specific excretion calibration",
+        "time alignment to survey and lawful-supply data"
+      ],
+      "status": "not obtained; available public supplementary summaries do not close these fields"
+    },
+    {
+      "item": "Policy-specific transition effects",
+      "needed_fields": [
+        "causal initiation cessation relapse and switching effects",
+        "implementation timing and uptake",
+        "transport uncertainty",
+        "cross-product substitution"
+      ],
+      "status": "not obtained; current prototype requires explicit supplied assumptions"
+    },
+    {
+      "item": "NZHS uncertainty and joint states",
+      "needed_fields": [
+        "original Ministry source capture and independent extraction validation",
+        "design-based joint covariance",
+        "never/former/current use crosswalk and mutually exclusive cohort denominators"
+      ],
+      "status": "Partially sourced: published marginal 95% intervals and smoking-or-vaping union values supplied through linked PHCC extracts; original-source capture, joint covariance and a full compatible state partition remain missing."
+    },
+    {
+      "item": "NZ 2025 tobacco returns original downloadable spreadsheet",
+      "url": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+      "status": "located; direct downloads returned 403; no original bytes or inferred sales-to-consumption conversion admitted"
+    }
+  ]
+}

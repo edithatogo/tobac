@@ -1,0 +1,19 @@
+source_id,survey_period,geography,age_scope,stratum_type,stratum,indicator,value,unit,uncertainty,source_section
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,all_adults,all,daily_smoking,6.8,percent,not_provided_in_summary_text,Total population
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,all_adults,all,daily_vaping,11.7,percent,not_provided_in_summary_text,Total population
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,gender,men,daily_smoking,8.3,percent,not_provided_in_summary_text,Trends by gender
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,gender,men,daily_vaping,13.0,percent,not_provided_in_summary_text,Trends by gender
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,gender,women,daily_smoking,5.3,percent,not_provided_in_summary_text,Trends by gender
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,gender,women,daily_vaping,10.5,percent,not_provided_in_summary_text,Trends by gender
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,deprivation,NZDep_quintile_5,daily_smoking,12.9,percent,not_provided_in_summary_text,Trends by neighbourhood deprivation
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,deprivation,NZDep_quintile_5,daily_vaping,21.1,percent,not_provided_in_summary_text,Trends by neighbourhood deprivation
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,deprivation,NZDep_quintile_1,daily_smoking,2.4,percent,not_provided_in_summary_text,Trends by neighbourhood deprivation
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,deprivation,NZDep_quintile_1,daily_vaping,7.2,percent,not_provided_in_summary_text,Trends by neighbourhood deprivation
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,ethnic_group,Maori,daily_smoking,15.0,percent,not_provided_in_summary_text,Trends by ethnic group
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,ethnic_group,Maori,daily_vaping,27.5,percent,not_provided_in_summary_text,Trends by ethnic group
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,ethnic_group,Pacific,daily_smoking,10.3,percent,not_provided_in_summary_text,Trends by ethnic group
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,ethnic_group,Pacific,daily_vaping,20.0,percent,not_provided_in_summary_text,Trends by ethnic group
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,ethnic_group,European_Other,daily_smoking,5.7,percent,not_provided_in_summary_text,Trends by ethnic group
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,ethnic_group,European_Other,daily_vaping,11.5,percent,not_provided_in_summary_text,Trends by ethnic group
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,ethnic_group,Asian,daily_smoking,4.5,percent,not_provided_in_summary_text,Trends by ethnic group
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,ethnic_group,Asian,daily_vaping,5.6,percent,not_provided_in_summary_text,Trends by ethnic group

@@ -59,3 +59,5 @@
 - [M2 two-article development](./archive/m2_two_articles_20261028/plan.md):
   completed original-remit assessment, distinct MDM article and NZMJ Viewpoint;
   author/formal facts and empirical identification remain open.
+
+- [Dynamic decisions and evidence strengthening](./tracks/dynamic_frontier_20261108/index.md): candidate cohort model, versioned public comparators, staged Searchright review and broader policy roadmap; native scientific qualification remains open.

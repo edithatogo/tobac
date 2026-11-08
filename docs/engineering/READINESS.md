@@ -1,8 +1,12 @@
 # Engineering execution, dependency locks and qualification
 
-Python 3.15.2 patch qualification is in progress in the isolated runtime lane.
-Historical receipts below remain bound to their recorded runtimes; they do not
-qualify the new patch. Promotion requires fresh native and hosted evidence.
+Python 3.15.2 is the accepted reference runtime at main `d735896` (8 November 2026).
+The [native dependency-admission receipt](../../integration/archive/dependency-admission_20261106.json)
+and [hosted engineering run](https://github.com/edithatogo/tobac/actions/runs/42424926119)
+record the relevant native and hosted evidence. Earlier receipts below remain
+bound to their original runtimes. A changed scientific inventory still requires
+fresh native qualification; the dynamic/data candidate is not covered by the
+accepted baseline's results.
 
 ## Current development platform
 
@@ -293,7 +297,7 @@ independently and produce an overall failure if either fails. Workflow and depen
 checks also both run, with no ignored advisories. Failed setup cannot be called an executed scan.
 
 CI preserves Nox JSON reports, JUnit, environment, coverage and available audit outputs on
-failure. Python 3.15.2 is the candidate runtime across development, build, tests and CI. The
+failure. Python 3.15.2 is the reference runtime across development, build, tests and CI. The
 macOS test job uses the portable profile. Linux/Windows runtime tests, package
 and numerical qualification, and the manual Linux release are qualified in the
 separate receipts above. The latest/pre-release canary remains
