@@ -216,3 +216,46 @@ produce the corresponding native acceptance and regenerate the signed hosted
 capsule. The new scientific inventory and changed workflow pins both need that
 renewal. Existing receipts, signing authority, runtime profiles and gate code
 are retained; changing a digest or suppressing the check is not acceptance.
+
+### Committed repair verification
+
+Repair/merge commit `4f105c9d542a1e85205706f0d6d9590c1bc0f48a` has parents
+`0af81f14a8c9fe9f8aacef272f7a2bf272ae3c20` and
+`d0e832b02b8b9e6791903f987245e8f6332e943a`. Its received full tree
+`a00d2bd935b04d3b88e4271ba89ff83970b9d569` matched the inspected index/worktree
+exactly. Staged/full-history secret scanning, Actionlint and outgoing-history
+publication validation passed. The branch update used the expected old head and
+no force. No accepted native checkpoint, signature, verifier, original data or
+scientific implementation from either branch was changed during this repair.
+
+- Focused rerun: **148 passed**, covering dynamic/data, workstream integration,
+  execution contracts and publication boundaries.
+- Direct full diagnostic collection on that committed tree and the source-bound,
+  hash-locked audit environment: **1379 passed, 20 skipped, 19 failed**, with no
+  collection errors. Actual Python 3.15.2; 49.37 seconds; sampled process-group
+  peak 666.7 MiB under the 4096 MiB / 2400 second guard. This was a diagnostic
+  pytest execution, not a successful native-qualified Nox test session.
+- The dependency snapshot and release-contract assertions now pass. All remaining
+  failed cases are in `tests/engineering/test_hosted_lineage.py`; authentication
+  stops because this host's OpenSSH binary is outside the pinned qualified
+  profiles. They are retained failures, not capability skips:
+  `test_actual_signed_native_acceptance_and_all_inputs`;
+  `test_rejection_precedes_hosted_workload` (missing, signature, payload, source,
+  inventory, runtime, authority, stage, stage_context, dag);
+  `test_valid_object_substitution_is_not_accepted` (artifacts, originals,
+  executed_input_objects, manifest); `test_wrong_runner_manifest_selection`;
+  `test_failed_native_readback_cannot_qualify`;
+  `test_alternate_executable_cannot_report_its_own_success`; and
+  `test_runtime_profile_substitution_is_rejected`.
+- Actual hosted readback confirms the original secondary failure is repaired in
+  both [Linux](https://github.com/edithatogo/tobac/actions/runs/42528424605/job/128877046343)
+  and [Windows](https://github.com/edithatogo/tobac/actions/runs/42528424605/job/128877046196)
+  package jobs: preflight fails, then both scanner/export steps are **skipped**,
+  with no absent-source exception. The remaining primary error is
+  `Stale native acceptance pin: .github/workflows/advisory-types.yml`, because
+  the unchanged signed capsule also binds the workflow edits. Inventory renewal
+  remains required as well; bypassing the first stale pin would not close it.
+
+The PR remains draft. Native qualification, full qualified coverage/reproduction
+and overall hosted success are not claimed. This receiving record updates only
+Conductor documentation; its publication does not itself renew native acceptance.

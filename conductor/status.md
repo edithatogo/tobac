@@ -629,3 +629,13 @@ model/data and changed orchestration. The companion
 [verification record](tracks/dynamic_frontier_20261108/plan.md#ci-repair-follow-up)
 separates passing static/publication checks, diagnostic tests and unavailable
 native acceptance. No scientific gate, source receipt or test is weakened.
+
+Repair `4f105c9d542a1e85205706f0d6d9590c1bc0f48a` was published with an
+expected-head update, fetched and matched to the inspected full tree. The focused
+rerun passed 148 tests. The committed full diagnostic collection reported
+1379 passed / 20 skipped / 19 failed; all retained failures are hosted-lineage
+OpenSSH authentication on the unqualified local verifier host. Actual Linux and
+Windows package jobs confirm that the absent-output export failures are gone;
+those steps skip after the primary signed-pin rejection. Native acceptance still
+requires the owner-held originals, producer/attempt estate and signing setup.
+PR #147 remains draft; no full qualified or empirical acceptance is claimed.
