@@ -222,7 +222,7 @@ def lineage_interpreter() -> Path:
     profile = (ROOT / "integration/archive/runner-material.json").read_bytes()
     if (
         hashlib.sha256(profile).hexdigest()
-        != "602f96bb602d3cc92b0f88206d30e93a42c4b7ac3080f0f612bfab3fad344f3b"
+        != "3137a95416c95a0c0baba00a30cbedc7527dd71a1dd91c6ec4739a86dae0a109"
     ):
         msg = "Verifier runtime profile differs from acceptance"
         raise ValueError(msg)

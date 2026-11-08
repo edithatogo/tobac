@@ -9,9 +9,12 @@ chosen normative weight combines health and criminal consequences in a score.
 from __future__ import annotations
 
 import json
+from dataclasses import replace
 from itertools import product
+from math import isfinite
 from pathlib import Path
 from typing import TYPE_CHECKING
+lazy from datetime import date
 
 import numpy as np
 lazy from numpy.typing import ArrayLike
@@ -196,3 +199,114 @@ def studies(ch: StateArrays) -> StateArrays:
         name: joint_likelihood(*(ch[k] for k in keys)) if keys else np.ones((1, n))
         for name, keys in designs.items()
     }
+
+
+def cohort_restriction_applies(
+    *,
+    birth_date: date,
+    observation_date: date,
+    first_covered_birth_date: date,
+    commencement_date: date,
+) -> bool:
+    """Check an inclusive birth cutoff and commencement for a policy scenario."""
+    if birth_date > observation_date:
+        msg = "The person must be born by the observation date"
+        raise ValueError(msg)
+    return observation_date >= commencement_date and birth_date >= first_covered_birth_date
+
+
+def cohort_initiation_response(
+    *,
+    baseline_initiation: float,
+    baseline_stay_never: float,
+    prevented_fraction: float,
+    restriction_applies: bool,
+) -> tuple[float, float]:
+    """Return initiation and never-use retention probabilities for one origin.
+
+    The prevented fraction is conditional on baseline initiation. The
+    scenario assigns prevented initiators to the never-use state.
+    Other destinations retain their baseline probabilities.
+    """
+    probabilities = (baseline_initiation, baseline_stay_never, prevented_fraction)
+    if any(not isfinite(value) or not 0 <= value <= 1 for value in probabilities):
+        msg = "Initiation, retention and prevented fraction must be probabilities"
+        raise ValueError(msg)
+    if baseline_initiation + baseline_stay_never > 1:
+        msg = "Baseline initiation and retention cannot sum to more than one"
+        raise ValueError(msg)
+    prevented = baseline_initiation * prevented_fraction if restriction_applies else 0.0
+    return baseline_initiation - prevented, baseline_stay_never + prevented
+
+
+def nicotine_standard_exposure(
+    exposure: Exposure,
+    *,
+    compliant_consumption_share: float,
+    compliant_dose_mg: float,
+) -> Exposure:
+    """Apply a compliant-cigarette dose to its share of scenario consumption.
+
+    Dose is nicotine delivered per smoked cigarette. Product nicotine
+    content requires a separate dose conversion. The input exposure
+    supplies any assumed change in consumption or channel shares.
+    """
+    share = compliant_consumption_share
+    if not isfinite(share) or not 0 <= share <= 1:
+        msg = "Compliant consumption share must be a probability"
+        raise ValueError(msg)
+    if not isfinite(compliant_dose_mg) or compliant_dose_mg <= 0:
+        msg = "Compliant delivered dose must be finite and positive"
+        raise ValueError(msg)
+    dose = (1 - share) * exposure.nicotine_dose_mg_per_cigarette + share * compliant_dose_mg
+    return replace(exposure, nicotine_dose_mg_per_cigarette=dose)
+
+
+def expected_enforcement_seizures(
+    attempted_units: float,
+    monitored_share: float,
+    detection_given_monitoring: float,
+) -> float:
+    """Estimate seized units for a specified attempted flow.
+
+    Monitoring coverage is a share of units, and detection is conditional
+    on monitoring. The caller supplies any deterrence or displacement in
+    attempted flow. The result is an enforcement observation model.
+    """
+    if not isfinite(attempted_units) or attempted_units < 0:
+        msg = "Attempted units must be finite and nonnegative"
+        raise ValueError(msg)
+    if any(
+        not isfinite(value) or not 0 <= value <= 1 for value in (monitored_share, detection_given_monitoring)
+    ):
+        msg = "Monitoring and conditional detection must be probabilities"
+        raise ValueError(msg)
+    return attempted_units * monitored_share * detection_given_monitoring
+
+
+def expected_flagged_pack_share(
+    *,
+    illicit_pack_share: float,
+    illicit_sampling_probability: float,
+    legal_sampling_probability: float,
+    sensitivity: float,
+    specificity: float,
+) -> float:
+    """Return the expected classified-illicit share among sampled packs."""
+    probabilities = (
+        illicit_pack_share,
+        illicit_sampling_probability,
+        legal_sampling_probability,
+        sensitivity,
+        specificity,
+    )
+    if any(not isfinite(value) or not 0 <= value <= 1 for value in probabilities):
+        msg = "Pack shares and observation inputs must be probabilities"
+        raise ValueError(msg)
+    illicit = illicit_pack_share * illicit_sampling_probability
+    legal = (1 - illicit_pack_share) * legal_sampling_probability
+    sampled = illicit + legal
+    if sampled == 0:
+        msg = "Flagged pack share requires a positive sampling probability"
+        raise ValueError(msg)
+    return (illicit * sensitivity + legal * (1 - specificity)) / sampled

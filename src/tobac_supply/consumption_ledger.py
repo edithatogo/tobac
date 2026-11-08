@@ -287,3 +287,65 @@ def annualised_supply(ledger: LawfulLedger, start: str, end: str) -> dict[str, A
     result["geography"] = ledger.basis.geography
     result["products"] = ledger.basis.products
     return result
+
+
+def excise_receipts(taxable_releases: float, duty_per_unit: float) -> float:
+    """Compute gross duty for one product, jurisdiction and period.
+
+    Supply releases already screened for duty liability and a rate in
+    currency per matching release unit. Refunds and collection costs
+    belong in separate accounts.
+    """
+    receipts = _scalar(taxable_releases, "Taxable releases") * _scalar(duty_per_unit, "Duty per release unit")
+    return _scalar(receipts, "Gross excise receipts")
+
+
+def excise_price_response(  # noqa: PLR0913 -- Preserve explicit price, duty and elasticity keywords.
+    *,
+    baseline_price: float,
+    baseline_consumption: float,
+    duty_change_per_unit: float,
+    pass_through: float,
+    own_price_elasticity: float,
+    cross_price_changes: tuple[tuple[float, float, float], ...] = (),
+    realised_share: float = 1.0,
+) -> tuple[float, float]:
+    """Return scenario retail price and consumption for a single product.
+
+    Prices and duty changes use the same currency and product unit.
+    Each cross-price entry is the other product's baseline price,
+    scenario price and elasticity of this product's demand. The
+    consumption output carries the baseline consumption unit.
+    The realised share is the cumulative fraction of eventual
+    pass-through reached by the scenario date.
+    """
+    price = _scalar(baseline_price, "Baseline retail price")
+    quantity = _scalar(baseline_consumption, "Baseline consumption")
+    duty = _scalar(duty_change_per_unit, "Duty change", -math.inf)
+    fraction = _scalar(pass_through, "Pass-through")
+    elasticity = _scalar(own_price_elasticity, "Own-price elasticity", -math.inf)
+    share = _scalar(realised_share, "Realised pass-through share")
+    if share > 1:
+        msg = "Realised pass-through share must be at most one"
+        raise ValueError(msg)
+    scenario_price = price + duty * (fraction * share)
+    if price <= 0 or scenario_price <= 0 or not math.isfinite(scenario_price):
+        msg = "Baseline and scenario retail prices must be finite and positive"
+        raise ValueError(msg)
+    log_changes = [elasticity * (math.log(scenario_price) - math.log(price))]
+    for raw_baseline, raw_scenario, raw_elasticity in cross_price_changes:
+        baseline = _scalar(raw_baseline, "Other product baseline price")
+        scenario = _scalar(raw_scenario, "Other product scenario price")
+        cross_elasticity = _scalar(raw_elasticity, "Cross-price elasticity", -math.inf)
+        if baseline <= 0 or scenario <= 0:
+            msg = "Other product retail prices must be positive"
+            raise ValueError(msg)
+        log_changes.append(cross_elasticity * (math.log(scenario) - math.log(baseline)))
+    if quantity == 0:
+        return scenario_price, 0.0
+    try:
+        consumption = quantity * math.exp(math.fsum(log_changes))
+    except OverflowError as exc:
+        msg = "Scenario consumption exceeds the finite numeric range"
+        raise ValueError(msg) from exc
+    return scenario_price, _scalar(consumption, "Scenario consumption")

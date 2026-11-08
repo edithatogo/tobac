@@ -1,12 +1,21 @@
 # Analytical foundation
 
-Run from the repository root using the Phase 0 qualified candidate environment:
+NZ/AU context profiles contain repository instructions, current coordination and the track
+index. Before editing, follow the index to the selected phase task card, specification and
+plan; these remain separate reads so the mandatory coordination history fits the bounded
+context budget. Rebuild the bundle after source or ownership changes.
+
+Run from the repository root using repo-local Python 3.15.2. Build a new context bundle
+for the current HEAD/source state before invoking the retained analytics environment:
 
 ```sh
+.venv/bin/python scripts/context_bundle.py \
+  --profile engineering/context/nz-au-integration.json \
+  --out outputs/analysis-context
 .venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- \
   .venv-analytics3152/bin/snakemake -s workflow/Snakefile --cores 1 --scheduler greedy \
-  --config profile=outputs/nz-au-phase0/profile.json \
-  bundle=outputs/nz-au-phase0/context out=outputs/nz-au-phase0/dag python=.venv/bin/python
+  --config profile=engineering/context/nz-au-integration.json \
+  bundle=outputs/analysis-context out=outputs/context-dag python=.venv/bin/python
 ```
 
 The explicit user request selects Snakemake for analytical orchestration; Nox remains the
@@ -50,3 +59,56 @@ fixture writer and the actual maintained M1 rule. It proves scheduling, cache an
 preservation behavior, not native or scientific acceptance. Supply the actual qualified
 Snakemake executable through TOBAC_SNAKEMAKE; an environment without the optional analytics
 tool reports that capability as skipped rather than substituting a fake scheduler.
+
+## Synthetic sensitivity/clustering qualification
+
+This target generates synthetic fixtures only. It accepts no empirical dataset argument,
+does not grant native/empirical admission and cannot create NZ/AU population policy groups.
+The original M1 attestation gates remain in place. Core/runtime promotion remains separate.
+
+The opt-in source-bound engineering/clustering.lock includes the reviewed Nox frontend,
+scientific reference/test/build stack and scikit-learn. For a fresh, unused environment:
+
+```sh
+uv venv --python .venv/bin/python .venv-clustering-bootstrap3152
+.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- \
+  uv pip sync --python .venv-clustering-bootstrap3152/bin/python \
+  --require-hashes engineering/clustering.lock
+.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- \
+  .venv-clustering-bootstrap3152/bin/python -m nox -s clustering \
+  --force-python .venv/bin/python
+```
+
+Do not replace an environment in use. Verify actual Python 3.15.2 and pip consistency;
+Nox also verifies the lock receipt and selected interpreter. Its output/log identifies the
+actual session interpreter and unique completed packet under outputs/engineering.
+After wheel/interpreter caches are populated, UV_OFFLINE=1 with a new Nox --envdir tests
+fresh offline reconstruction; a cache miss is a failed check, not permission to fetch.
+
+For Snakemake select analysis=synthetic_clustering and the actual qualified Nox-session
+Python path from the preceding log. Keep the analytics controller on its separate lock:
+
+```sh
+.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- \
+  .venv-analytics3152/bin/snakemake -s workflow/Snakefile --cores 1 --scheduler greedy \
+  --config profile=engineering/context/nz-au-integration.json \
+  bundle=outputs/analysis-context out=outputs/synthetic-dag \
+  python=.nox/clustering-venv-bin-python/bin/python analysis=synthetic_clustering
+```
+
+With --force-python .venv/bin/python, the tested Nox session directory is
+.nox/clustering-venv-bin-python; inspect the actual log if interpreter selection differs.
+Use a new bundle/output root after source or HEAD changes. The protected directory output
+is published by rename only after its complete packet verifies. Cache selection reopens
+source, input, lock and output hashes even if mtimes are preserved. Missing/extra/corrupt
+members, symlinks, unknown schema and stale inputs reject before cached success. Failed
+temporary publication is removed while caller logs remain; reruns cannot overwrite a
+completed directory. Retractions/source revisions require a new edition and selective
+descendant invalidation; no automatic source-refresh watcher is installed.
+
+The v2 packet manifest binds the unchanged v1 synthetic formula, code/orchestration/type
+inputs, source-bound lock, installed package inventory and output hashes. Verify an existing
+packet with scripts/verify_sensitivity_clustering.py --out PATH --lock engineering/clustering.lock.
+The earlier Phase 5 raw candidate locks/receipts remain historical evidence, not the active
+setup route. Do not upgrade frozen results in place or describe this packet as scientific
+or policy acceptance.

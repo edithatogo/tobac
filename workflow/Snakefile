@@ -9,11 +9,12 @@ BUNDLE = config["bundle"]
 OUT = config["out"]
 PYTHON = str(Path(config["python"]).absolute())
 ANALYSIS = config.get("analysis", "context")
-if ANALYSIS not in {"context", "m1"}:
-    raise ValueError("Supported analysis targets: context, m1")
+if ANALYSIS not in {"context", "m1", "synthetic_clustering"}:
+    raise ValueError("Supported analysis targets: context, m1, synthetic_clustering")
 OUTPUT_ROOT = Path("outputs").resolve()
 OUT_PATH = Path(OUT).resolve()
-RESULT = (OUT_PATH / "m1").resolve()
+RESULT = (OUT_PATH / ("synthetic_clustering" if ANALYSIS == "synthetic_clustering" else "m1")).resolve()
+CLUSTER_LOCK = "engineering/clustering.lock"
 if (
     not OUT_PATH.is_relative_to(OUTPUT_ROOT)
     or OUT_PATH == OUTPUT_ROOT
@@ -46,9 +47,20 @@ if ANALYSIS == "m1":
             timeout=30,
         )
 
+if ANALYSIS == "synthetic_clustering":
+    subprocess.run(
+        [PYTHON, "scripts/lock_receipt.py", "verify", "--profile", "clustering", "--path", CLUSTER_LOCK],
+        check=True, timeout=30, stdout=subprocess.DEVNULL,
+    )
+    if RESULT.exists():
+        subprocess.run(
+            [PYTHON, "scripts/verify_sensitivity_clustering.py", "--out", str(RESULT), "--lock", CLUSTER_LOCK],
+            check=True, timeout=30,
+        )
+
 rule all:
     input:
-        OUT + "/m1" if ANALYSIS == "m1" else OUT + "/verified.json"
+        OUT + "/m1" if ANALYSIS == "m1" else (OUT + "/synthetic_clustering" if ANALYSIS == "synthetic_clustering" else OUT + "/verified.json")
 
 rule verify_context:
     input:
@@ -85,3 +97,25 @@ rule m1:
         mem_mb=4096
     shell:
         "{PYTHON:q} scripts/run_m1_stage.py --out {OUT:q}/m1 > {log:q} 2>&1"
+
+
+rule synthetic_clustering:
+    input:
+        context=OUT + "/verified.json",
+        qualifier="scripts/qualify_sensitivity_clustering.py",
+        verifier="scripts/verify_sensitivity_clustering.py",
+        lock=CLUSTER_LOCK,
+        receipt=CLUSTER_LOCK + ".json",
+        profile="engineering/clustering.in",
+        guards=["scripts/source_handoff.py", "scripts/lock_receipt.py"],
+        stubs=sorted(str(p) for p in Path("engineering/typings").rglob("*.pyi"))
+    output:
+        protected(directory(OUT + "/synthetic_clustering"))
+    log:
+        OUT + "/synthetic-clustering.log"
+    threads: 1
+    resources:
+        mem_mb=4096
+    shell:
+        "{PYTHON:q} scripts/qualify_sensitivity_clustering.py --out {output:q} "
+        "--lock {CLUSTER_LOCK:q} > {log:q} 2>&1"

@@ -1,1386 +1,239 @@
-# Scientific interface and integration checks
-
-This document records the integration contract between regulatory and longitudinal components
-in this single-developer repository. It is not a scientific endorsement or an automated
-background synchronisation service.
-
-## One source of truth
-
-Use the current repository sources, not separate conversation archives.
-`src/tobac/` owns the regulatory decision model, finite-state evidence conditioning and VOI.
-`src/tobac_supply/` owns the reported-release and historical observation-scale components.
-Shared handoff: `tobac.evidence.Scope`, `EvidencePacket`, `state_identifiers` and `condition`.
-There is no second independent VOI engine or automatic import of a fitted supply posterior.
-
-Before changes, read `AGENTS.md`, this contract and `conductor/tracks.md`. Before publishing,
-re-read current `main`, preserve existing changes, rerun affected tests and use an expected-head
-comparison without force. Verify the receiving ref and files. Historical issue #1 notes are
-provenance; no coordination comment or independent review is required.
-
-## Accounting translation tested across namespaces
-
-The longitudinal ledger uses:
-
-    C = R + opening_stock - closing_stock + U + V + D
-
-The regulatory observation bridge uses:
-
-    reported_R = (T*(1-I) - unrecorded + stock_change + outbound + wastage) * bias
-
-For the overlapping, no-wastage accounting case:
-
-- `C = T*(1-I)` is a supplied lawful-consumption hypothesis, not inference of I.
-- `stock_change = closing_stock - opening_stock`; positive means accumulation.
-- `unrecorded = U + max(V,0) + D`; `outbound = max(-V,0)`.
-- `D` may be nonzero only when the source excludes duty-free. This is one missing channel,
-  not a second addition of duty-free already in R, U or V.
-- Bias belongs to the observation model, not another physical consumption adjustment.
-- Wastage is not a separate longitudinal-ledger field. Do not silently conflate it with
-  visitors; a nonzero-wastage extension needs its own reviewed accounting contract.
-
-Tests check both signs of inventory change and visitor flow and a supplied zero/nonzero
-illicit share. They show agreement under the declared mapping, not identification of illegal
-origin. All numerical cross-workstream examples are synthetic regression fixtures.
-
-## Evidence handoff and unclosed scientific gates
-
-Underlying data IDs survive citation changes, namespace changes and publications. Preserve
-both source scope and target scope, physical product basis, population, date convention,
-unit, reporting/calibration assumptions and shared covariance. Use half-open periods where
-required by the longitudinal routines and explicitly align end-date conventions before
-creating a packet. `Scope` validates geography/population/dates/unit; it does not independently
-validate product equivalence, actual data provenance or the truth of a transport model.
-
-Use `state_identifiers` on the same named physical/latent arrays in the same row order.
-A shared integer row index is not adequate. Use the original observed-data likelihood and
-condition D0 once. A historical ratio reconstructed from survey bounds is a summary-likelihood
-approximation and must retain that status. A posterior, forecast or fitted trajectory is not
-a new independent observation. Different papers or output tables based on MOH/NZHS records
-must not be multiplied as independent evidence. Schema checks cannot detect dishonest relabelling.
-
-The cross tests also require that supply evidence alone leaves an independently uncertain
-policy-response parameter unchanged, and distinguish joint prospective EVSI from realised
-D0-conditioned value. This mathematical check does not qualify a real causal pathway.
-
-Scientific attachment of historical observations to the current regulatory state remains
-open pending matched scope, product/measurement definitions, transport and dependence review.
-No current NZ posterior, new causal effect or funding recommendation is produced by this pass.
-
-## Joint checks
-
-    PYTHONPATH=src OPENBLAS_NUM_THREADS=1 python -m pytest -q tests/supply_bridge tests/test_workstream_integration.py
-
-The existing full-suite CI commands automatically collect the new file. Full regression
-qualification on a complete network-enabled checkout should still run `python -m pytest -q`,
-M1/M2a reproduction and both longitudinal runners when their inputs or interfaces change.
-A local component receipt does not prove hosted CI, optional-library execution or whole-project
-scientific validity. Preserve and investigate failures rather than weakening gates.
-
-Execution receipt: `integration/workstream_sync_verification.json`.
-Record the publication commit and verification scope in the relevant Conductor track.
-
-## Scientific ecosystem blocker recheck — 29 October 2026
-
-Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` owns the bounded managed-parser
-recheck and its Conductor/review receipts in
-`/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`, branch
-`codex/ecosystem-parser-20261029`, base `428bced`. This is the writing lane for
-these status and engineering context-selection updates; existing scientific-consumer,
-source-binding, lineage and producer assignments remain separate. No scientific source, runtime, lock,
-authentication or native graph-writing operation is assigned to this recheck.
-Checkpoint: native recheck, local review and fixes complete; full tests pass
-(1,063 passed/13 capability skips, 92% coverage), then 55 focused tests pass.
-Next operation: guarded source publication and exact-head/receiving-ref readback.
-The external managed root-parser gate remains open; no native graph write is assigned.
-
-## Native lineage consumer continuation — 29 October 2026
-
-Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` now owns the consumer extraction
-continuation in `/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`,
-branch `codex/native-lineage-consumer-20261029`, base `346421b`. Owned paths are
-the MOH extraction helper/tests, its optional Nox entrypoint, consumer interface
-pins and the existing lineage Conductor/review records. Producer code is frozen
-at `790044096f6946ff9a21662108f4d924cbad0ba2`; its active writer, checkout,
-environment, captures and canonical CAS remain unchanged. Only identified frozen
-originals are read and copied into consumer-owned private staging. No acquisition,
-request, external submission or scientific-input replacement is assigned.
-Next operation: qualify the installed producer artifact, implement exact workbook
-extraction/native per-record receipts and review actual execution. Producer
-manifest/closure and historical capture-time gaps remain gates; per-record success
-cannot qualify the whole lineage. Scientific ecosystem remains open and blocked.
-
-Native consumer terminal checkpoint: implementation `6fa2306`; 16 exact MOH rows,
-nine native objects, two strict records and five rejected negative controls.
-Full tests/strict/package/security/clean-package and clean-source numerical replay
-pass. No producer estate or source changed. Next: publish bounded consumer packet
-with hosted checks and receiving-ref readback; retain P2/P3/full track gates.
-
-## Native lineage recovery continuation — 29 October 2026
-
-Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` owns the consumer-only recovery
-continuation in `/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`,
-branch `codex/native-lineage-recovery-20261029`, base `5ff282d`. Scope: consumer
-recovery checks, native artifact readback, and the existing Conductor/review and
-handoff records. The active archive producer retains its checkout, source files,
-environments, canonical CAS and operations. Only frozen producer revisions and
-previously identified source bytes are read; any new native attempts are isolated
-in this worktree's private outputs. Scientific ecosystem remains open.
-
-The prior worktree's ignored execution directory and runtime environment are not
-present at continuation. Their committed summary survives but its referenced
-private receipt files have not been found. Rebuild the pinned wheel, make a new
-execution with new identity, and assess recoverability honestly; do not portray a
-new attempt as restoration of unavailable historical records. Next: verify native
-source/record contracts and perform bounded consumer-owned recovery controls.
-
-Native recovery terminal checkpoint: a new exploratory attempt reproduced all 16
-MOH values; original WARC payload and capture metadata were verified with capture
-time unknown. A private same-device copy outside the managed worktree retained
-nine verified objects, original WARC/capture bytes, and strict records. Native
-restore/replay passed; missing/corrupt controls failed. Native harness empty/root/
-duplicate false-success gaps are recorded, and the consumer MOH inventory preflight
-rejects those cases. The earlier private receipts remain absent; no independent
-backup, source registration or full native closure is claimed. Next: review and
-publish this bounded consumer checkpoint; producer ownership and Scientific
-managed-parser blocker remain unchanged.
-
-## Native lineage portable producer replay — 29 October 2026
-
-Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` owns this consumer-only evidence
-follow-up in `/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`,
-branch `codex/native-lineage-portable-replay-20261029`, base `74e52a2`. Scope is
-the existing native-lineage track, consumer documentation/review and technical
-summary. No archive producer source, estate or authentication is assigned.
-A new isolated repo-local Python environment installed the retained producer from
-a relative-wheel hash lock with `uv --offline` and the existing cache. Native
-records/objects and all 16 workbook values were verified from a working directory
-outside the checkout. In that producer-only replay the consumer was not installed;
-the environment is inside the worktree and independent preservation remains open. Next: review and
-publish this bounded evidence after PR #72 receiving checks; Scientific ecosystem
-remains open pending native managed-parser acceptance.
-
-## Native lineage consumer-wheel replay and source candidate — 29 October 2026
-
-Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` owns this consumer-only follow-up
-in `/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`, branch
-`codex/native-lineage-consumer-wheel-replay-20261029`, base `3b41349`. Owned
-paths are the existing native-lineage Conductor records, MOH documentation/review
-and its existing technical summary. Native scope is read-only source assessment
-and private consumer/producer artifact replay; the archive producer's source,
-estate, active checkout and authentication remain with its existing owner.
-Next: record installed-library replay and the bounded SHINE candidate without
-promoting either to full lineage or scientific acceptance. Scientific ecosystem
-remains open pending native managed-parser acceptance.
-
-Consumer-wheel checkpoint: a second isolated local-cache replay installed both
-libraries, verified 36 consumer wheel files against committed source, and matched
-all 16 MOH values and output bytes. Script snapshots were run outside the checkout,
-but are not installed commands; the environment remains inside the worktree.
-A retained SHINE article was assessed read-only as a second-source candidate;
-its hash differs from the earlier referenced source copy. No new native
-transformation, source registration or scientific acceptance is asserted.
-
-## SHINE extraction continuation — 29 October 2026
-
-Chat `01a184ba-0d0a-7111-969b-ef556b3bf966` owns a bounded second-source
-consumer extraction in `/Users/doughnut/.codex/worktrees/tobac-ecosystem-parser/tobac`,
-branch `codex/native-lineage-shine-extraction-20261029`, base `b5e2214`. Scope:
-SHINE Table 2 parser/parity tests and exploratory consumer evidence; the archive
-producer's source, estate and active native operations remain with its owner.
-Only the already-retained source bytes and committed consumer metadata are read.
-Source capture and the earlier referenced edition remain distinct; no model input
-or scientific conclusion is changed. Next: test a strict locator and compare the
-published model-input parameters with the existing configuration. Scientific
-ecosystem remains open pending native managed-parser acceptance.
-
-The focused SHINE and workstream checks passed (48 tests), and a comparison of
-retained source bytes to committed consumer metadata was saved privately at
-`/Users/doughnut/Documents/tobac-native-lineage-private/20261029-shine-consumer-comparison/`.
-The source copy and earlier reference have distinct hashes and unknown capture
-equivalence. No native source registration, transformation receipt or scientific
-qualification has been claimed. The next consumer operation is a separately
-reviewed native transformation and strict record readback after the implementation
-is committed; producer registration and closure remain with the producer owner.
-
-## Native lineage Phase 8 acceptance and publication — 2 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns this bounded integration
-in `/Users/doughnut/Documents/tobac` on local `main`, published for review
-as `codex/native-lineage-phase8`. Producer source ownership for this packet
-is `/Users/doughnut/Documents/archive-lineage-port-20261101` on
-`codex/transform-closure-20261102`. Scope includes producer material checks,
-consumer qualification/recovery, the existing native-lineage Conductor records
-and receiving-ref verification. No native capture or authentication mutation
-is in flight. Three untracked decision drafts remain outside this packet.
-Next operation is terminal qualification readback and guarded receiving-ref
-publication. Earlier assignments above remain historical.
-
-## Native lineage hosted acceptance closeout — 2 November 2026
-
-Chat 01a19a6e-2e47-7b10-8a35-4e7d7fedb965 owns the consumer integration and
-Conductor closeout in /Users/doughnut/Documents/tobac. The integration and
-fixture correction reached main through guarded fast-forwards at abcbcb4 and
-14303e4. Producer /Users/doughnut/Documents/archive-lineage-port-20261101 remains
-at the verified c76d78df receiving tree. The hosted route consumes signed local
-native byte verification and rechecks current inputs. Original objects and the
-local signing authority stay with their native owner. No capture/authentication
-operation is active. The three pre-existing decision drafts remain untracked.
-The final metadata-only publication is owned by branch
-codex/native-lineage-acceptance-closeout. Earlier assignments remain historical.
-
-## Repository and decision-draft reconciliation — 2 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns this documentation-only
-reconciliation in `/Users/doughnut/Documents/tobac`, from main `e88d563`.
-Scope includes Conductor status/registry/archive metadata, the three existing
-November 1 decision drafts and exact reviewed publication paths. No scientific,
-native object, authentication, runtime or dependency mutation is in scope.
-The three drafts are now retained as superseded historical proposals with actual
-acceptance links and unverified approval placeholders identified. Producer
-`c76d78df` remains unchanged. Next operation is focused validation, ordinary commit
-and guarded receiving-main publication. Earlier ownership entries remain history.
-
-## DXP1 Linux audit-lock qualification — 3 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DXP1 in
-`/Users/doughnut/Documents/tobac`, branch `codex/dxp1-linux-audit-lock`,
-from receiving main `803e800`. Scope is the Linux audit job in the existing
-cross-platform workflow, its workflow security contract, focused qualification
-and Conductor/evidence readback. No native capture/authentication operation is
-active. The existing audit lock and scientific inputs remain unchanged unless
-an actual hosted failure establishes a necessary bounded fix. Next operation is
-hash-checked Linux installation and the existing strict/security Nox commands
-through GitHub Actions. DXP2–DXP4 remain deferred.
-
-First hosted attempt `41534027128` installed the unchanged lock and passed strict,
-security and 95 focused tests. Its export failed because the scanner installer was
-macOS-only. The existing scientific workflow edit also correctly failed its signed
-acceptance pin. Corrective scope moves the audit into a dedicated `linux-audit.yml`
-and adds exact checksum-pinned Linux scanner support; the pinned cross-platform
-scientific workflow is restored byte-for-byte. No lineage waiver or new signature
-is required for this separate engineering audit command.
-
-DXP1 acceptance at `a17d90b`: GitHub run `41534684953` / job `125583466187`
-succeeded, including source-bound hash installation, strict_all, security, 96
-focused tests and scanner-checked artifact export. Downloaded environment matches
-all 96 locked packages plus the editable project; no unexpected packages or known
-vulnerabilities. Receipt: `integration/linux_audit_lock_20261103.json`. No audit
-lock or scientific input changed. The original scientific workflow bytes remain
-identical to receiving main. Next operation is exact-head checks, guarded
-publication and receiving-ref readback; DXP2–DXP4 remain deferred.
-
-## DXP2 package portability — 3 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DXP2 in
-`/Users/doughnut/Documents/tobac`, branch `codex/dxp2-package-portability`,
-from receiving main `c024f4c`. Scope is the existing clean-package checker,
-package metadata/path oracles and focused tests, a separate hosted portability
-workflow, and Conductor/evidence reconciliation. Native capture, authentication,
-scientific inputs, Nox entrypoints, dependency pins and accepted scientific
-workflow bytes remain unchanged. No local expensive operation is active.
-Next: build and install both direct and sdist-reconstructed wheels in external
-Unicode/space paths, verify metadata/markers/contents and run installed API/CLI
-smokes on Linux and Windows. DXP3 numerical reproduction and DXP4 release/lock
-workflows remain separately deferred.
-
-DXP2 acceptance at `d2551a0`: GitHub run `41542664379` succeeded on Linux
-(job `125610440252`) and Windows (job `125610440607`). Downloaded wheel/sdist,
-Nox, environment and clean-package evidence was verified against retained hashes.
-Both installed routes pass outside the checkout with Unicode/space paths and
-Unicode transport identities. Ten dependency-marker cases agree. Platform wheel
-members differ only in METADATA LF/CRLF and its RECORD hash; within each platform,
-direct and sdist-rebuilt contents match exactly. Receipt:
-`integration/package_portability_20261103.json`. The existing scientific workflows,
-Nox entrypoints, runtime/audit locks and native objects remain unchanged. Next:
-exact-head checks, guarded publication and receiving-ref verification. DXP3/DXP4
-remain deferred; no numerical or public-package-release acceptance is inferred.
-
-## DXP3 scientific reproduction — 3 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DXP3 in
-`/Users/doughnut/Documents/tobac`, branch `codex/dxp3-scientific-reproduction`,
-from receiving main `1e9e69e`. Scope is a separate Linux/Windows reproduction
-workflow, a fail-closed comparison of all eight accepted runner variants and
-82 scientific CSV tables, focused tests and Conductor evidence. Original native
-objects, authentication, model/configuration code, Nox commands and existing
-scientific workflows retain their owners and bytes. No native mutation is active.
-The reference ZIP contains only project-generated CSV results reopened through
-the actual pinned installed producer's public CAS verification API. Every byte
-matches its existing accepted checkpoint object ID; no archival originals or
-manuscript content is exported. Next: execute full Nox reproduce plus the no-grid
-M2 variant on both hosts and verify all numerical/identity comparisons.
-Prior receiving run 41545029388 failed because pip-audit's PyPI read timed out;
-that failed scan is retained, with fresh security qualification required here.
-
-First Windows DXP3 run `41553783852` reached synthesis after producing and
-verifying the initial runners, then rejected Windows separators in the fresh
-M2 manifest input path. The synthesis reader now canonicalizes only those runtime
-references before the unchanged strict source/hash guard, explicitly rejecting
-drive-qualified paths. Static source manifests, model code, numerical tolerances,
-Nox commands and accepted scientific workflows are unchanged. Focused controls
-cover correct Windows paths, changed hashes, traversal, UNC and drive escapes.
-
-The first Linux run completed every existing Nox reproduction validator, then the
-new all-table check found M1 gross_value_nzd 1302.2446720089888 versus
-1302.2446720092391 (about 2.5e-10 NZD). The new checker had incorrectly selected
-publication's absolute-only policy for non-publication reference families. It now
-uses the existing longitudinal/reference rtol=1e-9, atol=1e-12 policy for M1,
-M2-retail, M3 and longitudinal/calibration outputs; publication/no-grid/robustness
-retain their original absolute 1e-10 limit. Exact identities and all established
-Nox validators remain unchanged. The first failure and both numerical values are
-retained for final evidence review; no model, input or existing oracle was edited.
-
-The direct synthesis-reader fix was rejected by the existing native input gate,
-as expected, and was restored before publication. Its patch remains private in
-the DXP3 evidence directory. The accepted scientific reader/model inputs retain
-their exact original bytes. Nox now prepares a separate validation view: every
-original input and output hash is verified, only manifest input-key separators
-are canonicalized, duplicate/escaping references fail, and the raw manifest and
-outputs stay unchanged. A new signed orchestration capsule will be issued only
-after full direct-native readback of all eight original accepted attempts. The
-previous capsule/issuer generation is preserved for historical P8 readback.
-
-DXP3 acceptance at 349f09f: GitHub run 41557415490 succeeded on Linux
-(job 125659567578) and Windows (job 125659567143). Each ran full Nox reproduction
-and no-grid M2, compared eight variants / 82 CSV tables with frozen native results,
-and passed the 29-table isolated committed-source publication replay. Downloaded
-raw/view and report hashes were checked. The largest normalized errors used
-0.085887 of the declared tolerance on Linux and 0.068751 on Windows. Receipt:
-integration/scientific_reproduction_20261103.json. Both first failures and the
-prior PyPI timeout remain explicit. All 25 candidate checks passed with two
-expected trusted-write skips. Seven deferred tasks remain; DXP4 is separate.
-Next: final metadata publication checks, guarded receiving-main fast-forward
-and exact receiving file readback. Original scientific/native inputs stay unchanged.
-
-## DXP4 manual release and lock workflows — 3 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DXP4 in
-`/Users/doughnut/Documents/tobac`, branch `codex/dxp4-manual-workflows`,
-from receiving main `68d9049`. Scope: two manual workflow definitions,
-their contract tests, digest-only orchestration renewal, inspected execution evidence
-and Conductor reconciliation. No local workload/native mutation is active.
-Scientific inputs, native objects, dependency locks and private authority retain
-their existing bytes and owners. Next: focused checks and native readback, source
-publication, actual manual release/four-profile runs, then exact artifact readback.
-Candidates are generated and hash-installed in isolated Linux environments; none is
-automatically adopted. Release artifacts remain internal, with no PyPI publication.
-
-DXP4 source packet is consolidated on `codex/dxp4-manual-qualified` from
-unchanged main `68d9049`. Earlier branch/PR #112 remains preserved and superseded:
-its first audit exposed two deferred-path test references, and its next source
-security run rejected a prematurely inventoried future receipt. Both were fixed.
-The exact final tree passes the complete local publication/security command.
-The shared default pre-push hook was absent; the repository's normal installer
-restored it without replacing a custom hook. Subsequent publication must pass it.
-No force update or history deletion is used. Scientific workflow/capsule bytes
-match the verified source packet; the single source commit keeps every outgoing
-commit's inventory exact.
-
-The restored guard's first owned publication was interrupted during repeated
-historical blob reads, before any push. It is not a pass or budget breach.
-Invocation-local reuse now keys successful byte/archive inspection by immutable
-Git blob ID and the complete private path/hash policy. Every historical tree,
-inventory, mode and protected-policy check still executes; limits and scanners
-are unchanged. Controls retain rejection of intermediate copies, unknown paths
-and newly protected raw/nested bytes despite an earlier cached inspection.
-The current signed lineage preflight still passes after this guard-only change.
-
-Full-history publication inspection found 34 already-published intermediate
-commits with 22 omitted inventory paths, all currently reviewed public project
-source/tests/lineage receipts. The original legacy baseline remains unchanged.
-The current policy records each historical omission by exact commit, path and
-Git blob ID; only currently public regular files qualify. Every historical byte
-still undergoes document/archive inspection and full-history secret scanning.
-Wrong commit/blob, newly private content and paths outside the current public
-inventory remain failures. Strict whole-source typing passes with zero warnings.
-
-## DXP4 corrected release route — 3 November 2026
-
-The same chat owns `codex/dxp4-release-runner` in the existing consumer worktree,
-from receiving main `3914060`. PR #113 passed 26 checks with two expected
-trusted-write skips. The exact source passed full branch pre-push; a redundant
-local main push was interrupted in native Actionlint. GitHub's non-force
-fast-forward API then advanced main from the explicitly checked `68d9049`.
-Both receiving refs and all 736 tracked path/object/mode entries were read back;
-the default pre-push hook remains installed.
-
-Stale-source dispatches 41567619304 and 41567622611 rejected release and all four
-lock jobs before their workloads. Positive lock run 41567710835 passed four
-profiles. Downloaded tar member hashes, current source receipts and every
-Linux-marker-selected installed package match: runtime 37, audit 95, Voiage 50,
-ecosystem 58. No candidate is adopted.
-
-Release run 41567707353 rejected Ubuntu 24.04 OpenSSH before Nox, as required.
-Ubuntu 26.04 is the actual already-qualified image in source reproduction run
-41565105342. The correction selects that image without broadening any verifier
-profile. Preflight JSON records and the original exit status are retained on both
-success and rejection. All eight native attempts were reopened before renewing
-only the release workflow pin; the previous signed generation is preserved.
-142 focused tests and pedantic workflow audit pass. Next: publish the corrected
-source, execute the real main release path, inspect artifacts and close DXP4.
-
-## DXP4 final acceptance — 3 November 2026
-
-The same chat owns metadata closeout on `codex/dxp4-closeout` from receiving
-main `fdd6be0`. Source PR #114 passed every required gate before a non-force
-fast-forward from the explicitly checked `3914060`. Both receiving refs and
-all 738 file/object/mode entries were verified. Stale-source run 41570629439
-rejected before Nox. Main remained `fdd6be0` throughout successful release
-run 41570769167, including its final source-head guard and package export.
-
-All seven Nox sessions pass. JUnit records 1,210 passed / 19 capability skips,
-zero errors/failures. Coverage over all src is 92.03% combined (92.74% statements,
-89.64% branches). All eight variants / 82 downloaded scientific tables pass
-independent stored-byte comparison under the original policies. All 24 exported
-clean-package files match receipt hashes; ten dependency-marker cases, source
-module/license bytes and both installed CLI routes pass. Internal-package and
-evidence exports match. The release wheel also matches the clean build byte for
-byte. Repeated sdist archives differ in timestamps/pax metadata; member bytes,
-types, modes and sizes match. An extra local byte-identity assumption was rejected
-and retained; no existing package or numerical gate changed.
-
-Lock candidates retain their separate `3914060` source and exact inventories.
-No active lock, model, scientific input, frozen verifier profile or original
-native object changed. DXP4 is complete for manual release/candidate workflows.
-Six numbered advisory/hardening tasks remain. Next: publish this metadata-only
-reconciliation with the existing guards and verify receiving refs/files. All
-earlier source lanes remain preserved; no force update or history deletion.
-
-## DCI1 selection ownership — 3 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DCI1 selection in
-`/Users/doughnut/Documents/tobac`, branch `codex/dci1-selection`, from verified
-main `6830891`. The checkout was clean, with one worktree and no active local
-Nox/test/native signing operation. Scope is the existing advisory track's
-selection/specification/metadata, Conductor status and the public-path inventory.
-No runtime, scientific source, workflow, lock, pre-commit hook or native authority
-change is assigned. Next: select nonduplicative additions, verify upstream refs
-and delivery metadata, record DCI2–DCI4 handoff, then publish the selection packet.
-Earlier source assignments remain history.
-
-## DCI1 selection result — 3 November 2026
-
-The same chat/worktree owns the completed selection packet on
-`codex/dci1-selection`. Select ty 0.0.95 and Pyrefly 1.4.0 as one bounded
-differential type-diagnostics experiment, with macOS/Linux x64 comparators and a
-Linux ARM64 static-diagnostic leg. Ty 0.0.96 is below the existing three-day
-release-age threshold. Six expected wheel hashes, 14 upstream refs and ten active
-action refs were re-read; GitHub tag objects were resolved to actual commits.
-Pyrefly's canonical upstream is meta/pyrefly. Publisher ARM scanner checksum
-manifests exist; archives were not downloaded/executed.
-
-Omit duplicate Ruff/Zizmor/pip-audit/Gitleaks/attestation/hook wrappers and prek
-migration; preserve existing hardening policy. Current source-bound locks,
-runtime/scientific inputs, required gates, hooks and native authority are untouched.
-The original red-strict/pre-runner/private-entitlement proposal notes are preserved
-as historical metadata; issue #4 is closed. DCI2 must implement the isolated
-source-bound profile and ARM scanner delivery, DCI3 must execute actual pinned
-compatibility/report/import/exit/budget/export checks, and DCI4 must publish the
-qualified lane. This packet publishes only selection; those three tasks and DH1/
-DH2 remain deferred. Next: focused metadata/integration checks, guarded publication
-of this decision, and receiving-ref/file readback.
-
-DCI1 verification: 70 focused metadata/workflow/publication/workstream tests pass
-under repo-local Python 3.15.1 and 4 GiB/40-minute bounds. All 20 track records,
-Conductor JSON, new/changed local links, selected release age and expected digests
-verify. Baseline file hashes match immutable main `6830891`; scientific/runtime/
-workflow/lock/hook/config bytes remain unchanged. Current signed-input preflight
-passes without renewal. No selected checker or ARM job was executed. Publication
-of this decision remains separate from DCI4 publication of an implemented lane.
-
-## DH1 mutant triage ownership — 3 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DH1 in
-`/Users/doughnut/Documents/tobac` on branch `codex/dh1-mutant-triage`.
-Scope: `tests/engineering/test_scipy_supply.py`, mutation evidence and Conductor
-status; native scope: none. The DCI checkpoint remains on its own remote branch.
-Next: test concrete missing assertions and classify all twelve hosted survivors.
-
-DH1 result: twelve hosted survivor IDs reconciled; targeted cases detect ten
-in a fresh local 129/131 campaign. The remaining two are equivalent for the
-qualified SciPy zero-mean path. See `docs/reviews/2026-11-03-supply-mutant-triage.md`.
-
-## DH2 Ruff exception review ownership — 3 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DH2 in
-`/Users/doughnut/Documents/tobac` on `codex/dh2-ruff-exceptions`.
-Scope: retained source/API Ruff exceptions, focused fixes/tests, policy and
-Conductor reconciliation; native scope: none. Parent includes local DH1 commit.
-Next: inventory live suppressions and verify behavior-preserving candidates.
-
-DH2 review classified 91 source diagnostic instances. A tested vintage helper
-removed one complexity diagnostic but invalidated accepted native lineage, so it
-was reverted; all 91 retained diagnostics and their reasons are documented.
-No scientific source or interface is changed by the final review packet.
-
-## DH1/DH2 publication and reconciliation — 3 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns publication in
-`/Users/doughnut/Documents/tobac` on `codex/dh2-ruff-exceptions`. Scope is the
-DH1/DH2 commits and Conductor reconciliation; native scope: none. The separate
-DCI checkpoint `e007807` stays unmerged with its evidence and unfinished work.
-Next: exact-source guarded publication and receiving-ref readback.
-
-## DCI2 implementation ownership — 3 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns DCI2 in
-`/Users/doughnut/Documents/tobac`: isolated advisory lock, runner, workflow,
-scanner support, focused tests and Conductor reconciliation. Native scope: none;
-next operation: implement and qualify locally, preserving earlier assignments.
-
-Checkpoint: source-bound advisory lock and prototype reports exist locally;
-missing Voiage interfaces stop the full-source run. Remaining ownership includes
-Nox/CI wiring, report comparison, fixtures, capsule renewal and ARM execution.
-The checkout remains dirty for this lane; no native object is owned or active.
-
-DCI3 checkpoint: the pinned Voiage wheel was built and its existing qualification
-passed; it resolved both checkers' missing imports locally. Direct fixture and
-full-source diagnostic evidence is recorded in the DCI3 qualification note.
-There is no hosted advisory workflow to dispatch; DCI2, DCI3 and DCI4 remain open.
-No native operation remains active.
-
-DCI4 checkpoint publication ownership: the same chat owns the isolated DCI
-checkpoint branch and its remote ref; receiving `main` is guarded. This branch
-is a draft implementation and local evidence handoff, not qualified DCI4
-completion. Next operation: validate publication boundary and push the exact
-checkpoint branch with ordinary hooks, then read back the receiving ref.
-
-
-## DCI2 resumed implementation ownership — 3 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the DCI2 integration in
-`/Users/doughnut/Documents/tobac`, branch `codex/dci2-implementation`. Scope:
-advisory lock/runner/Nox/workflow/scanner, tests, lineage capsule and Conductor.
-Native scope: read-only reopening of the eight accepted attempts for signing.
-Next: implement fail-closed diagnostics and repeatable wheel delivery.
-
-DCI2 terminal implementation checkpoint: the isolated Nox session, fail-closed
-reporter, three-host workflow, ARM scanner pins and renewed eight-runner signed
-capsule are locally verified. Full tests and strict checks pass. DCI3 hosted
-qualification and DCI4 publication remain; no hosted result is claimed.
-
-## DCI3/DCI4 hosted qualification and publication — 3 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the existing
-`/Users/doughnut/Documents/tobac` checkout and `codex/dci2-implementation`
-branch. Scope: run the advisory fixture matrix, read-only hosted checks and
-receipts, then guarded DCI4 publication. Native scope: no changes; the signed
-lineage capsule is verified. Next: submit the exact candidate to hosted checks.
-
-DCI3 result: all three advisory jobs passed on source `4b6dbf18`; downloaded
-artifacts verified their source/report hashes, fixture exits and native scanner
-execution. Receipt: `integration/advisory_typing_qualification_20261103.json`.
-Next: test this metadata-only reconciliation head and guarded DCI4 publication.
-
-
-## DCI4 guarded publication and reconciliation — 3 November 2026
-
-The same chat owns the metadata closeout in `/Users/doughnut/Documents/tobac`,
-branch `codex/dci4-closeout-20261103`; native scope is read-only. The exact
-source candidate `672894f70bebd4ba17ba38fe8116c938ad13fe4f` passed 28 hosted
-checks, with two conditional skips. All three advisory hosts passed again in
-run 41623880425. PR #118 was published using a non-force fast-forward after
-verifying expected main `afec3a48ce7bae14f9602c48d6c30a8b3f8dab29`. GitHub
-readback confirmed source commit `672894f70bebd4ba17ba38fe8116c938ad13fe4f`
-and tree `b80bc11653d601ce8892a9d617132147f8059163`, identical to the local
-qualified tree. This closeout records the completed source publication; its own
-metadata commit still requires guarded publication. ARM evidence covers static
-diagnostics and scanner execution, not ARM scientific reproduction.
-
-
-## Receiving-main hosted verification — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the Conductor-only
-reconciliation in `/Users/doughnut/Documents/tobac`, branch
-`codex/receiving-checks-20261105`; scope is `conductor/status.md` and this
-handoff. Native scope is read-only; no native operation is active. Receiving
-main `927bfdaacc49421456da0f94dc661fd4ec245579` has nine successful push
-workflows, including Linux and Windows reproduction and every engineering job.
-Next operation: validate and commit this evidence update. Earlier assignments
-above remain historical.
-
-
-## Hosted macOS runtime renewal — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/receiving-checks-20261105`.
-Scope: hosted verifier runtime profiles, signed digest-only capsule, preserved
-prior generation, focused tests, publication inventory and Conductor handoff.
-Native scope: read-only reopening of the eight accepted attempts before signing;
-the signing key and original bytes remain in their existing private estate.
-Next: issue a fresh generation, verify it and rerun the hosted qualification.
-Two actual macOS Python 3.15.1/OpenSSH combinations passed signature and tamper
-controls in PR #122; the old profile rejected the new OpenSSH binary before work.
-
-Runtime renewal checkpoint: local full tests, strict checks and committed-source
-reproduction passed. Hosted source `3695fd64441c884553ef158a4023df2f82fb0f08`
-passed 28 executable checks, with two conditional skips. Quality job 127027899235
-verified the signed inputs using the newly observed OpenSSH hash; both original
-profile-probe combinations passed positive and tamper controls. The setup-python
-combination's complete signed-input check on the new image was not separately
-observed. Next: qualify this metadata closeout, then guarded publication and
-receiving-ref readback.
-
-
-## Receiving-main evidence reconciliation — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/post-publication-evidence-20261105`.
-Scope: hosted run readback and `conductor/status.md` plus this handoff. Native
-scope: read-only; no native operation is active. Next: record exact outcomes for
-receiving commit `c30cae8d1f37b7335ed8f18dd0383324d625899f` as jobs complete.
-
-Receiving-main terminal evidence: all nine push workflows at `c30cae8` passed,
-including Linux and Windows reproduction and every engineering job. Voiage
-parity job 127035471814 passed signed-input verification using the new OpenSSH
-binary. The other setup-python/Python-build combination with that binary has
-probe evidence only; its full check on that particular image was not observed.
-The Conductor-only evidence update is local pending any future publication.
-
-
-## Receiving-main hosted evidence — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/hosted-main-evidence-20261105`.
-Scope: read-only hosted status and `conductor/status.md` plus this handoff.
-Native scope: none. Next: record actual outcomes for receiving commit
-`669eb8851b89eef91b3b014787639fb2765768ef`; preserve prior assignments.
-
-Terminal readback: all nine workflows at `669eb8851b89eef91b3b014787639fb2765768ef`
-passed. Both reproduction jobs and all engineering jobs report success. The
-Conductor-only evidence update is local pending any future publication.
-
-
-## Receiving-main verification — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/post-publish-097c7a1`. Scope:
-read-only hosted checks, `conductor/status.md` and this handoff. Native scope:
-none. Next: record outcomes for receiving commit
-`097c7a1130f2c2eb2a53b0ef1559ace9811e9c58` as jobs complete.
-
-Terminal readback: all nine workflows at `097c7a1130f2c2eb2a53b0ef1559ace9811e9c58`
-passed, including scientific reproduction and engineering qualification. The
-Conductor-only evidence update is local pending any future publication.
-
-
-## Receiving-main checks at `50a348a` — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/verify-50a348a`. Scope:
-read-only hosted checks, `conductor/status.md` and this handoff. Native scope:
-none. Next: record outcomes for receiving commit
-`50a348a2d96e541c7c87dedc5f181aff8a22696f` as jobs complete.
-
-Terminal readback: all nine workflows at `50a348a2d96e541c7c87dedc5f181aff8a22696f`
-passed, including scientific reproduction and engineering qualification. The
-Conductor-only evidence update is local pending any future publication.
-
-
-## Receiving-main checks at `1759fe7` — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/verify-1759fe7`. Scope:
-read-only hosted checks, `conductor/status.md` and this handoff. Native scope:
-none. Next: record outcomes for receiving commit
-`1759fe7176a26a78dc4a878f236da48a3d5da5af` as jobs complete.
-
-Terminal readback: all nine workflows at `1759fe7176a26a78dc4a878f236da48a3d5da5af`
-passed, including scientific reproduction and engineering qualification. The
-Conductor-only evidence update is local pending any future publication.
-
-## Receiving-main checks at `135487e` — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/verify-135487e`. Scope:
-read-only hosted checks, `conductor/status.md` and this handoff. Native scope:
-none. Next: record outcomes for receiving commit
-`135487ea288298e43d5592eda08a7ecbf3e90f0b` as jobs complete.
-
-Terminal readback: all nine workflows at `135487ea288298e43d5592eda08a7ecbf3e90f0b`
-passed, including scientific reproduction and engineering qualification. The
-Conductor-only evidence update is local pending any future publication.
-
-## Dependency failure reconciliation at `218baf0` — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/dependency-reconcile-218baf0`.
-Scope: current dependency PR readback and Conductor status; native scope: none.
-PR #128 was published by non-force fast-forward from `135487e` to `218baf0`;
-GitHub ref and tree readbacks matched. The local #94 candidate lives in its own
-worktree and remains unpromoted. All nine receiving-main push workflows at
-`218baf09763b211e0849cab5ed15d4553b350942` passed; run IDs and qualification
-scope are recorded in Conductor. This evidence update remains local.
-
-## Receiving-main checks at `bf77c6b` — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/verify-bf77c6b`. Scope:
-read-only hosted checks, `conductor/status.md` and this handoff. Native scope:
-none. Next: record outcomes for receiving commit
-`bf77c6b9ac8d36396bbd12713cfc299c8f6735f7` as jobs complete.
-
-Terminal readback: all nine workflows at `bf77c6b9ac8d36396bbd12713cfc299c8f6735f7`
-passed, including scientific reproduction and every engineering job. The
-Conductor evidence update is local pending any future publication.
-
-## PR #130 publication check handoff — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/pr130-check-handoff`. Scope:
-record publication-check readback; native scope: none. PR #130 was published
-by guarded non-force fast-forward to `7d24f608803e73cfc910bc766d7e8fcf444d741e`;
-GitHub ref and tree readbacks matched. All five protected-branch checks passed.
-The non-required Voiage parity job's scientific comparisons passed, but its
-artifact export failed after the pinned Actionlint download returned HTTP 504;
-the one bounded retry reproduced this failure. The original and retry are
-https://github.com/edithatogo/tobac/actions/runs/41997837879/job/127145307902
-and https://github.com/edithatogo/tobac/actions/runs/41997837879/job/127149778602.
-The numerical and required macOS retries passed. Push-event workflows for the
-new receiving commit were still queued or running at handoff. This handoff is local.
-
-## Hosted recovery and scientific adequacy review — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/pr130-check-handoff`. Scope:
-hosted check recovery, bounded scientific review and Conductor status; native
-scope: no mutations. The Actionlint 1.7.12 Linux archive's exact qualified hash
-was independently verified after the upstream 504; Linux audit and both package
-portability jobs passed on their first retry. PR #130's Voiage parity job passed
-on attempt 3 after the route recovered; prior failed attempts remain visible.
-A local bounded review is retained under `outputs/research-audit-20261105/`;
-it does not establish empirical adequacy or independent peer review. Next:
-record terminal receiving-main workflow outcomes.
-
-Terminal readback: all nine receiving-main workflows for
-`7d24f608803e73cfc910bc766d7e8fcf444d741e` passed. Engineering qualification
-passed on its targeted second attempt after its original Actionlint 504.
-Conductor contains the hosted and bounded-scientific review status; this
-update remains local pending any future publication.
-
-## Repository discovery and Scorecard — 5 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/repository-scorecard`.
-Scope: public repository discovery metadata, README, citation, Scorecard workflow,
-publication inventory and status; native scope: exact GitHub repository metadata.
-Next: prepare a narrowly scoped, independently qualified candidate on top of the
-Conductor publication branch. Scientific models and private data remain unchanged.
-
-## PR #94 current qualification — 6 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/pr94-current`. Scope: exact
-previously generated ecosystem lock and receipt on PR #94 head `f73c031`.
-Source receipt verification passes. The same candidate hash-installed in the
-isolated Python 3.15.1 worktree and passed 1,225 tests with 20 skips; reuse that
-unchanged result. The candidate also updates dateutil and typing-inspection.
-Next: qualify current PR hosted checks before guarded publication. Native scope:
-no mutations. PR #132 receiving ref/tree is `b57b4e1`; all ten push workflows
-passed and Scorecard API reports that exact commit, score 7/10.
-
-## NZ/AU empirical milestone — 6 November 2026
-
-Chat 01a1af53-2093-7f70-b761-e5f6cb7b769c owns the isolated managed worktree
-/Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac on codex/nz-au-empirical.
-Scope: conductor/tracks/nz_au_empirical_20261106 and candidate registry/product/stack
-updates. Native scope: read-only discovery. Next: external source and library qualification.
-Preserve existing Polars and Conductor integrator assignments; merge shared files only
-at integration checkpoint. No source data or private bindings moved from their owner.
-
-The same isolated lane additionally owns conductor/tracks/nz_au_hardening_20261106 and
-execution/standards documentation in the empirical track. Native scope remains read-only;
-GitHub cleanup is planned, not executed. Shared registry edits remain integration candidates.
-
-Phase 0 candidate scope additionally includes isolated analytics lock/profile support in
-scripts/lock_receipt.py, its tests, engineering/analytics.*, and Renovate analytics discovery.
-The four existing reference profiles and other owners' environments are preserved. Shared
-file edits require integrator reconciliation; no main or remote runtime promotion occurred.
-
-The empirical lane now owns optional workflow M1 stage and scripts/run_m1_stage.py with tests.
-The existing attested source capsule passed before adding this wrapper, and now correctly
-rejects its changed scientific inventory. Inventory/capsule renewal remains with the native
-lineage owner; do not bypass the guard, move bindings or promote the new stage as accepted.
-
-## Polars verifier preparation — 6 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns
-`/Users/doughnut/Documents/tobac`, branch `codex/polars-longitudinal`.
-Scope: `scripts/verify_empirical_longitudinal.py` conversion from pandas to Polars;
-#94 remains frozen at `adb3f81` while hosted qualification runs. Native scope:
-no mutations. Ruff passes; the existing focused verifier tests are running.
-Full runner migration and scientific-lineage renewal remain required before
-publishing this source change.
-
-## Phase 0 integration readback — 6 November 2026
-
-The NZ/AU empirical handoff at `1c07e4c` was read without modifying its worktree.
-No terminal qualified Polars conversion commit exists. This checkout retains its
-dirty verifier and coordination file. The focused Polars verifier tests pass:
-8 passed in 29.92 seconds on repository-local Python 3.15.1 under the resource
-guard, sampled peak 326.9 MiB. Log: `outputs/polars-verifier-20261106/focused.log`.
-The source is not yet admitted by renewed native lineage. Remaining pandas
-runners and legacy dependencies still require conversion and output parity.
-
-The wrapper's inventory mismatch is expected. Renew acceptance only for a frozen
-integrated snapshot through the existing owner native route with signatures and
-negative controls; the other lane's moving dirty tree is not a signing target.
-Existing owner environment/signing paths are retained; no private bytes were
-copied, displayed or changed. No empirical-lane files or native objects were mutated.
-
-## Frozen Polars source packet — 6 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
-`codex/polars-longitudinal`: both longitudinal runners, their verifier and two
-runner test modules. The source packet replaces dataframe operations only;
-NumPy/SciPy models, inputs, seeds and scientific assumptions are unchanged.
-Full-size baseline/Polars runs (8,192 draws each) agree across all 21 CSV tables
-at rtol/atol 1e-12; all 16 PNG/SVG figures are byte-identical. Release exports
-retain 12-significant-digit formatting, empty missing cells, sorted grouping
-and stable selection ties. Empirical boolean CSV spelling changes case only.
-Missing source conventions/identities are rejected explicitly because Polars
-reductions otherwise ignore nulls. Evidence: `outputs/polars-migration-20261106/`.
-Ruff passes; selected BasedPyright reports zero errors (334 existing/interface
-warnings). Focused baseline: 81 pass/one migrated-test API failure; failure-only
-rerun: one pass; three new null controls pass. No full-suite/native acceptance
-claim is made for this source packet. Inventory/capsule renewal must use the
-integrated frozen snapshot, including the empirical lane's optional wrapper.
-
-PR #94 was received as merge `e1d9b8848ab261f0ed992a74b3a2750e980512aa`;
-GitHub tree `0c209ae2756257a78d47836da024b489db5a919b` exactly matches
-qualified head `adb3f81`. All 29 executed checks passed, with two conditional
-skips and the separate neutral Scorecard bot result. Current main contains the
-merge. This lane did not repeat an already-completed publication.
-
-Storage recovery preserved the inactive `.nox/strict_all` environment at
-`/Volumes/PortableSSD/tobac-strict-all-preserved-20261106`; no source, evidence,
-private binding or another lane's environment was removed or replaced.
-
-Terminal source qualification: the final focused selection passes 85 tests in
-21.85 seconds. Full replay's maximum parsed numerical difference is zero; five
-cells differ only in float spelling, besides boolean letter case. All 16 figure
-files remain byte-identical. No scientific calculation module was modified.
-
-## Conductor status reconciliation — 6 November 2026
-
-Chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` owns the isolated standard Git
-worktree `/Users/doughnut/Documents/tobac-conductor-status-20261106`, branch
-`codex/conductor-status-refresh`, based on receiving main `b57b4e1`.
-Scope: native-lineage plan opening status, `conductor/status.md` dependency
-readback and this handoff. Native scope: read-only GitHub PR/check/log queries;
-no mutations. Managed-worktree attempts rejected the supplied local ref; this
-worktree is CLI-created, not app-managed. The shared checkout and active PR #94
-qualification remain with their existing owner. Next: verify the bounded
-documentation diff and hand off; no dependency/runtime promotion is included.
-
-Terminal handoff: the plan opening now matches the completed eight-phase,
-32-task acceptance. GitHub snapshot and sampled #80/#91 failure logs are recorded
-in Conductor; #94 remains in-flight at its exact head. The 20/20 Conductor
-track-name check passes on worktree-local Python 3.15.1 under the 4 GiB/40-minute
-guard (log: `outputs/conductor-status-refresh/track-names.log`);
-`git diff --check` passes. No scientific/runtime source changed and no scientific
-suite was rerun for this documentation-only reconciliation. Changes remain local
-in this isolated lane for the repository integrator; no publication was performed.
-
-## Sequential PR integration ownership — 6 November 2026
-
-Chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` is the repository integrator for
-this owner-authorised merge-and-prune request, using the isolated standard Git
-worktree `/Users/doughnut/Documents/tobac-conductor-status-20261106` on
-`codex/conductor-status-refresh`. Scope: remaining dependency PR qualification,
-Conductor reconciliation, guarded main integration and verified branch/worktree
-cleanup. Sequence: #94, #80, #91, then local history reconciliation and pruning.
-The prior chat is stopped; its dirty Polars source and private native bindings
-remain in the original checkout, with no takeover or environment replacement.
-Existing dependency/native qualification gates remain required. Next: consume
-#94 terminal hosted evidence, then guarded publication at its exact head.
-
-Integration preflight checkpoint: origin/main remains `b57b4e1`; the retained
-branch inventory is `outputs/conductor-status-refresh/branch-inventory.json`.
-The unchanged documentation packet passes 27 focused archive/workstream tests
-on this worktree's hash-installed Python 3.15.1 runtime (151.9 MiB sampled peak),
-and 20/20 track-name checks. The default engineering context exceeded its byte
-budget; a narrowed local engineering profile retaining AGENTS, ownership and
-dependency-maintenance instructions succeeded without increasing the budget.
-
-## PR #94 merged; PR #80 qualification — 6 November 2026
-
-The same integrator chat now owns `codex/qualify-pr80` in the isolated standard
-worktree `/Users/doughnut/Documents/tobac-conductor-status-20261106`. #94 merged
-through GitHub's exact-head merge guard at `e1d9b88`; its receiving ref and full
-tree match the verified candidate. Receiving-main push jobs are still running.
-Scope: #80's workflow pins/uv version, its signed workflow-binding renewal,
-Conductor status and the previously committed stale-plan correction. The latest
-Renovate head `8a5b155` is merged into this lane, retaining its uv 0.13.7 update.
-All setup-python jobs retain the accepted Python patch until #91 is qualified.
-Native scope: read-only verification of the existing eight attempts; local capsule
-issuance with the retained signing identity. No preserved attempts, originals or
-shared environments were changed. The isolated verifier installation includes the
-project metadata and matches the accepted executable/distribution fingerprint.
-Native readback succeeded before issuance (8 runners, 96.0 MiB sampled peak).
-The new NZ/AU empirical chat retains its managed worktree and unfinished source;
-its shared metadata will be integrated only at its own terminal checkpoint.
-Thirty-six ancestor local branches and seven ancestor remote branches are pruned;
-divergent history remains preserved in the verified private bundle. New PR #133
-joins the sequential queue after #91. Next: focused contract checks, publication
-hook, exact-head #80 push, then hosted candidate and receiving-main qualification.
-
-Local #80 checkpoint: the focused workflow/execution/hosted-lineage/archive and
-cross-workstream selection passed 79 tests with one capability skip (no selected
-verifier variable in that invocation). The exact skipped verifier test was then
-executed with the isolated retained-runtime interpreter and passed; no broad rerun.
-Actionlint passed. Pedantic Zizmor's default offline audit reported no findings;
-its unavailable online audits are not represented as executed. The source-bound
-signed-input check and 20/20 track-name validation pass. Full scientific source,
-numerical runtime and reference outputs are unchanged; existing #94 software
-qualification is reused, with full hosted #80 gates still required.
-
-## PR #80 merged; PR #133 qualification — 6 November 2026
-
-The integrator now owns `codex/qualify-pr133` in the same isolated standard
-worktree. #80 merged through GitHub's exact-head guard at `b1ccfd5`; its full
-receiving tree matches `ff12683`, which passed all candidate checks. All ten
-#94 receiving-main workflows at `e1d9b88` passed. The #80 receiving-main jobs
-remain pending. Queue order is now #133, then the broader #91 patch migration.
-Scope: prek's ecosystem input and generated lock/receipt, focused read-only tool
-qualification, Conductor status and this handoff. Generate and inspect all four
-profiles; retain unchanged qualified profiles rather than adopting unrelated
-candidates. Native attempts, signing identity, hooks and scientific source are
-unchanged. The separate Python 3.15.2 environment hash-installed the current
-runtime lock and passed 26 synthetic cross-workstream cases as preliminary
-compatibility evidence only. Next: inspect generated profile differences, install
-and qualify the affected ecosystem candidate, then publish and await hosted gates.
-
-PR #133 local qualification: generated all four source-bound profiles; inspected
-unrelated transitive changes in the other three and retained their existing,
-still-valid qualified locks. The adopted ecosystem candidate changes only prek
-and threadpoolctl package versions. Hash installation succeeded on Python 3.15.1.
-The first full run passed 1,224 tests / 20 skips, with one source-binding failure
-because the lock was not committed. After `6d7e680`, the existing cache selected
-exactly that failed dependency-snapshot test: one pass / 15 deselected; all other
-unchanged results are reused. Prek 0.5.9 validates the existing config without
-installing hooks. A supported OpenMP control/restore probe passes with the new
-threadpoolctl; native BLAS control is unavailable on this host. The earlier BLAS
-probe failure and empty stdin-based attempt are not counted as successful proof.
-The optional legacy ecosystem Nox gate stopped on an unavailable exact Voiage
-wheel, before installing or running its probes. Alternate hashes were rejected;
-no acceptance pin was weakened. Current published Voiage qualification is retained.
-All ten #80 receiving-main workflows now passed at `b1ccfd5`. Next: publication
-boundary and exact-head #133 push, followed by hosted qualification and guarded merge.
-
-## PR #134 resumed qualification — 6 November 2026
-
-Integrator chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` owns
-`codex/qualify-pr134` in `/Users/doughnut/Documents/tobac-conductor-status-20261106`.
-Scope: Pydantic's Voiage input and affected source-bound lock receipts, focused
-qualification and Conductor reconciliation. #133 merged at `15fb177`; its
-receiving tree matched the qualified candidate. Next: generate and inspect the
-four main profiles plus the affected advisory profile, qualify changed packages,
-publish at the expected PR head and verify hosted/receiving results. Unfinished
-Polars and NZ/AU work and existing private native resources retain their owners.
-
-PR #134 checkpoint: full isolated ecosystem suite passes 1,225 / 20 skipped at
-`5277a01` on actual Python 3.15.1, 644.2 MiB sampled peak. The three affected
-profiles have fresh verified receipts; runtime/audit retained their unchanged
-qualified locks. #133 receiving-main workflows all passed at `15fb177`. Source
-science and native attempts are unchanged. Next: exact-head publication and hosted
-qualification, then #91 and #135; unfinished source lanes remain preserved.
-
-## Exact CSV and plotting follow-up — 6 November 2026
-
-The source packet's empirical writer now preserves Python float and boolean
-spelling. All eight empirical CSV files are byte-identical to the original
-8,192-draw baseline; no comparator waiver is required. The 13 release tables
-and all figures retain the previously verified values. Three multiline
-Matplotlib calls retain narrowly documented third-party kwargs typing ignores
-at the callable line, addressing the empirical lane's strict-audit findings;
-global typing policy is unchanged. This supersedes the earlier case-only CSV
-qualification rather than weakening the table comparator.
-
-## Polars profile candidate — 6 November 2026
-
-The same lane owns the bounded runtime/profile retirement packet on
-`codex/polars-profiles`, based on the reconciled `58a4b2f` main. Current source
-and prior integrator history were both preserved at the append conflict.
-All five hash locks/receipts were regenerated using uv 0.13.7 and exact Python
-3.15.1; the helper's former minor-only 3.15 resolver target correctly rejected
-published Voiage's patch-level requirement and is now 3.15.1. Runtime/audit
-resolution also changes dateutil, Pydantic/core, typing-inspection and audit-only
-transitives; these are explicit candidates, not silently unchanged reference pins.
-
-Active longitudinal, canary, Voiage and advisory routes no longer install pandas,
-xarray or pandas-stubs. The patched 2.2 producer builder is retired. Published
-Voiage 3.1.0 is the new candidate default, preserving the numerical adapters and
-independent oracles. The historical Polars-candidate Nox name delegates to the
-released-producer checks; historical source patches/receipts remain retained.
-The isolated ecosystem hash installation contains 57 compatible packages and
-neither retired library. Its initial focused run passed 380 tests and found the
-legacy default-version guard; that guard was updated rather than suppressed.
-The installed weighted/partition failure-only rerun passed with 3.0.0 before the
-newest 3.1.0 qualification; final 3.1.0 checks remain separately recorded.
-
-The exact published 3.1.0 wheel was independently downloaded and verified as
-SHA256 `ca1a625ea2e0f6c63ffd306f19cb62c1c69242643164553d5ca633e94146eb5b`.
-Its independent hash-installed published profile passed 90 numerical comparisons
-(max error 2.842170943040401e-14), six buffer-ownership cases and installed/native
-byte verification. The public receipt is `integration/voiage_published_20261106.json`;
-the 3.0.0 receipt remains historical. Whole-source strict BasedPyright passed
-with zero errors/warnings using the empirical lane's existing audit interpreter
-read-only; no environment or source in that lane was modified. Whole-source
-Ruff and all 169 maintained files' formatting pass. Native acceptance still
-requires the final integrated source snapshot; no old capsule is relabelled.
-
-## Nox route cleanup complete — 6 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` retains the root checkout on
-`codex/polars-profiles`. This terminal packet owns `noxfile.py`, the exact
-published-version guard in `src/tobac/backend.py`, its rejection tests,
-`docs/engineering/VOIAGE_PYTHON315.md` and this Conductor handoff. Native scope:
-no mutations. The empirical and publication integrators retain their worktrees,
-reference promotions, private bindings and final combined-lineage renewal.
-
-The ecosystem command now admits the qualified published Voiage 3.1.0 wheel
-against `integration/voiage_published_20261106.json`, installs it with hash
-checking and the ecosystem lock, and retains normal dependency validation.
-The optional JAX adapter's former 2.2 compatibility-version guard is now exactly
-3.1.0; its numerical transform, float64 requirement and no-fallback policy are
-unchanged. Unknown, retired 2.2 and 3.0 versions remain rejected. The
-`voiage_polars_candidate` alias writes its run receipts under the expected
-`outputs/engineering/voiage-polars-candidate/` directory. Current guidance now
-precedes explicitly labelled historical compatibility evidence.
-
-Qualified Python 3.15.1 commands ran serially under the 4 GiB / 40-minute guard:
-
-- Nox ecosystem: passed installed JAX/Arrow/Polars/strict-codec probes and 97
-  component/M3/workstream tests; 25 seconds, 544.2 MiB sampled peak.
-- Nox Polars alias: passed 99 tests and numerical/interchange probes; 32 seconds,
-  501.9 MiB sampled peak. Its build and weighted receipts exist in the expected
-  directory.
-- Retired-wheel negative control: rejected the original 3.0.0 wheel before any
-  dependency installation or probe execution.
-- Focused backend/workflow contracts: 27 passed in 1.08 seconds, 77.9 MiB peak.
-- Affected Ruff/format checks pass. The preceding final whole-source strict type
-  run completed with zero errors/warnings (739.3 MiB sampled peak).
-
-Logs and the bounded six-file context receipt are retained under
-`outputs/polars-migration-20261106/`. The earlier ecosystem ENOSPC run and the
-subsequent legacy-version rejection remain recorded; neither is counted as a
-successful check. The resumed command passed after those concrete conditions
-were resolved. No broad full-suite rerun was needed for this bounded cleanup.
-The preceding `5c23107` suite was 1,225 passed / 7 skipped / 16 failures, all
-blocked by `Stale native acceptance pin: engineering/requirements.lock`.
-Those signed-input failures remain open for the integrated frozen snapshot;
-this cleanup neither renews nor bypasses native or hosted acceptance.
-
-## Integrated lineage renewal ownership — 6 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
-`codex/lineage-integrated-renewal` and the retained native readback/signing route.
-The frozen scientific source matches empirical handoff `b118592`; newer qualified
-main workflow pins are retained from the root integration rather than rolled back.
-The issuer additionally binds the optional M1 stage, its context verifier and DAG
-source. Latest dependency candidates remain held outside this renewal.
-
-Renewal is in progress: fresh hash-installed Python 3.15.1 native runtime,
-original/registration readback, new candidate attempts, independent output/source
-readback, then a new checkpoint and signed capsule with negative controls.
-Earlier attempts, original registrations, signing identity and binding files are
-preserved. The empirical worktree is read-only; no signing occurs against its
-moving checkout. No native or hosted success is claimed by this ownership entry.
-
-## Integrated native renewal candidate — 6 November 2026
-
-Fresh native attempts completed for all eight profiles under the exact locked
-Python 3.15.1 producer runtime (725.9 MiB sampled peak). Independent readback
-reopened all originals, input/output CAS objects and transformations: 140 outputs,
-82 scientific CSV files byte-identical to the prior accepted attempts. Forward
-source-impact queries and reverse CLI traces passed for all eight; an isolated
-corrupt output was rejected. Existing observations/configurations are unchanged.
-
-The new checkpoint is `scientific-lineage-checkpoint_20261106.json`; its historical
-20261102 counterpart remains intact. Native runtime bindings and scientific
-inventory were renewed through the owning route. The signed capsule additionally
-binds native preflight and the optional M1 stage/context/DAG source. Both normal
-native and attested command paths pass, and the actual M1 stage admits, executes,
-verifies and atomically publishes its output. Prior bindings/attempts and earlier
-signed generations remain retained outside the public packet.
-
-The original `scientific_reference_20261103.zip` is unchanged. The comparator now
-checks its immutable original checkpoint separately from active lineage and
-requires the complete CSV object map to be identical across both checkpoints.
-New negative tests retain rejection of original-checkpoint tampering and a valid
-object substituted into the active CSV map; existing cell tolerances are unchanged.
-The normal comparator passes all eight runners / 82 tables with maximum absolute
-difference zero. The source/runtime import-path and stale normal-command profile
-failures encountered during renewal remain visible in local logs, not waived.
-
-Current evidence is in `outputs/lineage-renewal-20261106/`; the full suite with
-renewed native bindings is the next milestone. No hosted run or receiving-ref
-publication is claimed by this local acceptance candidate.
-
-## Integrated native renewal verified — 6 November 2026
-
-Acceptance implementation: `b3f3130`; frozen model source: `619aa99`, integrating
-scientific handoff `b118592` and newer qualified main workflow pins. New checkpoint
-SHA256: `42d7340ffd226a9ee0394a695229991a357f8a7e4d6b08906aeeba932d483517`.
-The original reference archive remains SHA256
-`083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9`.
-
-The complete suite with explicit renewed native bindings passes: **1,258 passed,
-7 skipped**, 61.13 seconds, sampled peak 915.3 MiB. This includes real native
-missing/corrupt/incomplete-object controls, candidate self-acceptance rejection,
-signed payload/authority/runtime/substitution controls, wrong-manifest selection,
-and the added stage/context/DAG source pin rejection controls. All source Ruff
-checks pass; whole-source strict BasedPyright reports zero errors and warnings
-(879.5 MiB sampled peak). The normal scientific comparator passes eight runners /
-82 tables with maximum numerical difference zero. Native/attested command paths
-and the actual M1 atomic stage pass. Post-test native verification reopens all
-originals and CAS objects; all 140 accepted outputs remain intact.
-
-Final readback: `outputs/lineage-renewal-20261106/renewal-verification.json`.
-The original owner binding is unchanged; the fresh qualified binding is retained
-locally at `outputs/lineage-renewal-20261106/env-bindings`, without copying it or
-any private signing/original bytes to other lanes or public source. Earlier
-failed/superseded generations are retained and not represented as final proof.
-
-Terminal source packet: the branch includes the final empirical source plus
-current-main workflows. Integrators must preserve that complete signed pin set;
-cherry-picking the capsule alone onto older workflows correctly rejects stale
-pins. Latest dependency candidates remain held, outside this fixed acceptance.
-Hosted checks and guarded publication/receiving-ref verification of this new
-snapshot remain separate next work. Do not prune its native environment, attempts,
-readback logs or binding as rebuildable cache while this closure is retained.
-
-## Python 3.15.2 candidate ownership — 6 November 2026
-
-Integrator chat `01a1af4b-4de2-7c30-8627-c2e5f77ae377` owns the app-managed
-worktree `/Users/doughnut/.codex/worktrees/tobac-python3152/tobac`, branch
-`codex/qualify-pr91-python3152`. Base: the tested #134 candidate `72e88d7`; #134
-merged at `58a4b2f` with all ten receiving workflows passing. Scope: consistent #91 runtime selectors,
-locks, native/runtime qualification and current setup documentation. #135 will
-be reconciled separately after #91 receiving acceptance. The existing 3.15.1
-checkout remains the guarded publication controller until promotion. Existing
-private attempt stores, keys and other source lanes are read-only and unchanged.
-No new runtime acceptance is claimed by these selector changes. Next: regenerate
-locks, build a separate native 3.15.2 environment, re-execute and compare the eight
-scientific runners, qualify signatures on actual hosted runtimes, then publish.
-
-
-## Python 3.15.2 native-byte checkpoint — 6 November 2026
-
-At source selector checkpoint `fa2434a`, all eight fresh native attempts succeeded.
-Independent readback verified 140 outputs and all 82 numerical CSVs equal the
-accepted 3.15.1 baseline byte for byte. A deliberately corrupted private copy was
-rejected with `object_corrupt`. The new versioned checkpoint preserves the
-2 November baseline and does not replace scientific acceptance. All five active
-lock/receipt pairs were regenerated under actual repo-local Python 3.15.2.
-
-An interrupted retail attempt was retained separately without outputs or terminal
-and excluded; its fresh replacement succeeded. Full source tests, independent
-runtime-delta recovery and actual hosted signature profiles remain in progress.
-Original source/private stores, keys and the independently advancing Polars and
-NZ/AU lanes are preserved. Current native generation remains owner-held; only
-digests and signatures are publishable. Hosted runtime admission remains closed
-until each actual build passes signature-positive and tamper-negative controls.
-
-
-The complete 3.15.2 suite ran 1,227 unique cases: 1,224 passed initially, then all
-three failed nodes passed after two version-message expectation fixes and keeping
-the unchanged numerical archive explicitly pinned to its historical baseline.
-18 cases skipped for existing capability conditions. The 710-file runtime-delta
-generation was sealed, independently copied to the external filesystem, restored
-and verified against all eight current native attempts; private recovery manifest
-`3c3222c6362bafcee066477d5fc8a25d3d6a5ddb98f104d6b7cd6828635c385c`.
-This is runtime-delta preservation/readback, not a new full-estate offline replay.
-Hosted 3.15.2 profiles remain pending; this candidate deliberately rejects unknown
-hosted builds before workload execution. No scientific source or numeric tolerance changed.
-
-
-## Python 3.15.2 hosted-profile qualification — 6 November 2026
-
-Probe head `6bb88c3` exercised all four actual hosted runtime selections in run
-42192920916: valid signatures passed and tampered signatures were rejected. Their
-exact build/OpenSSH fingerprints are now admitted alongside the local issuer.
-The prior admission failures remain recorded. The compact clean-package runtime
-assertion was corrected to 3.15.2; it is absent from every scientific runner's
-executed input inventory. Current contract/checkpoint pins were refreshed without
-rewriting native attempts or the historical numerical reference.
-
-Corrected clean-package build, reconstructed sdist, installed imports, evidence
-transport and real M1 CLI passed outside the source checkout. Whole-source strict
-typing: zero errors/warnings; Ruff lint and format pass. Affected tests: 86 passed,
-five existing capability skips. All eight native attempts were reverified before
-renewing the signed capsule. The final 711-file runtime generation was independently
-copied/restored/read back; manifest
-`8d35d130c95974f710b86a346c10e6bea1a145f388644982c06d598cd8fb4276`.
-Earlier failed package/recovery-invocation logs remain private evidence. Full hosted
-acceptance and #91/#135 merges are pending; no empirical acceptance is implied.
-
-
-The next hosted pass admitted Linux/Windows and exercised another current macOS
-image. Its actual uv/Homebrew and setup-python profiles both passed valid-signature
-and tamper-negative controls before stale fingerprint admission correctly failed.
-Those two observed profiles are now recorded, with the original failures retained.
-No runtime gate, numerical oracle or signature policy was relaxed.
-
-
-Hosted scientific replay exposed the retained report-level `python=3.15.1`
-metadata, while actual replay reports correctly declare 3.15.2. The comparator
-now validates only this explicit baseline/current transition against actual
-runtime before comparing every scientific field at the unchanged tolerance.
-Unknown/missing/wrong runtime identities, nested identity changes and numeric
-changes remain rejected; four new negative/transition cases pass after failing
-before implementation. Original report bytes remain unchanged. The comparator
-is absent from all eight executed scientific inventories; refreshed contract and
-checkpoint pins retain the same native attempts. Their current readback and the
-712-file independent runtime-delta restore pass (manifest
-`7c122a6fb1832d2a10465a5ec7b818a4f1dc44eec1d81d4b637351c8f7791dab`).
-Clean committed publication replay and the next exact-head Actions remain pending.
-
-## Integrated hosted qualification ownership — 6 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
-`codex/integrated-hosted-checks`. Current main advanced to `eca4e8a` through
-qualified PR #91 and Python 3.15.2. The hosted candidate therefore integrates
-that runtime and its admitted verifier profiles, retaining Voiage 3.1 producer
-qualification, pandas/xarray removal, analytics ownership and all prior histories.
-It does not restore a superseded 3.15.1 default or adopt held latest-pin candidates.
-
-Six source-bound locks were regenerated for 3.15.2. A fresh hash-installed native
-runtime executed all eight profiles; all 140 outputs reopen and all 82 scientific
-CSVs equal the original accepted bytes. Current local Python/OpenSSH fingerprints
-already belong to main's qualified profile set. The earlier 3.15.1 environments,
-attempts, keys and private binding remain preserved. The inactive root controller
-was preserved separately before selecting its hash-installed 3.15.2 replacement;
-ordinary publication hooks are retained.
-
-Final signing waits for the empirical owner's committed scheduler-boundary fix
-for the optional M1 DAG. That source correction is outside numerical execution
-and requires signature renewal without repeating the scientific runs. Hosted
-publication and checks are the active task; broader latest-pin promotion remains
-with its existing owner. No hosted success is claimed before actual run receipts.
-
-## PR #139 hosted terminal handoff — 6 November 2026
-
-All twelve hosted workflows pass at exact head `f7b130b` (29 success, two
-conditional skips, one neutral Scorecard bot result). Runs: engineering
-42203854793; scientific reproduction 42203855052; regulatory 42203854932;
-longitudinal 42203854905; M3 42203855101; verifier 42203854916; cross-platform
-42203854969; package 42203855000; Linux audit 42203854920; advisory 42203854999;
-security 42203854847; Scorecard 42203855069. The normal publication hook passed
-and remote branch SHA was read back after the fixes. No running jobs remain.
-
-This local documentation-only handoff preserves PR #139's tested head. The
-remaining operation is guarded main publication, then receiving ref and its own
-push workflow readback. No merge or post-publication success is inferred here.
-
-
-## PR #140 publication verified — 6 November 2026
-
-PR #140 head `3021e559aac83e2cab2f47c3a2ea937da78d6552` completed its
-hosted checks without failures and merged using the exact-head guard at
-`93b019e771bc81d899907c90aae355be5a34a3a5`. Fetched receiving main has tree
-`4908e7534fab0a9261ee0daae06b1518209f9875`, exactly equal to the tested PR tree.
-All ten push workflows at that receiving commit completed successfully:
-engineering, scientific reproduction, package portability, Linux audit,
-cross-platform tests, publication/source security, empirical longitudinal,
-regulatory uncertainty, M3 and OpenSSF Scorecard. All ten receiving workflows for
-PR #139's `e3a1cf9` merge also completed successfully. Queue delays required no
-code changes or weakened gates.
-
-Receipts: `outputs/hosted-integrated-20261106/pr140-final.json`,
-`pr140-receiving-final.json` and `pr139-receiving-final.json`. The run identifiers
-are retained below so the hosted results remain independently retrievable:
-
-Publication and source security: 42211622341; OpenSSF Scorecard: 42211622238; Linux audit lock qualification: 42211622127; M3 research methods: 42211622214; Package portability qualification: 42211622202; Cross-platform Python qualification: 42211622256; Empirical longitudinal component: 42211622095; Regulatory uncertainty milestone: 42211622279; Scientific reproduction qualification: 42211622113; Engineering qualification: 42211622316.
-
-PR #140 and its post-publication verification have no remaining checks. This
-terminal Conductor readback is a local documentation-only reconciliation after
-receiving-main verification; it is not part of the tested receiving commit and
-has not been published. Latest dependency promotion from the empirical lane
-remains separate: frozen `4015cc3` requires integration and fresh native admission
-before promotion; none of its evidence is substituted for the accepted closure.
-
-
-## Dependency admission ownership — 6 November 2026
-
-Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the root checkout on
-`codex/dependency-4015cc3-native-admission`. Conductor commit `2e6534d` was
-published by guarded normal fast-forward from expected main `93b019e`; fetched
-receiving SHA and tree match. All twelve PR workflows and ten receiving workflows
-passed. One interrupted push did not publish; a resource-monitor ps timeout was
-retained, diagnosed and followed by one successful unchanged-hook retry.
-
-Frozen `b027688` and `4015cc3` were consumed as `eb8c8a5` and `6b1822a`.
-Only Conductor records needed conflict reconciliation. All six complete lock
-receipts verify. The old native attempt correctly rejects changed execution
-material before renewal. New execution uses an isolated, hash-installed local
-Python 3.15.2 environment under `outputs/dependency-admission-20261106`, with
-fresh attempts and retained originals/signing ownership. Other worktrees and
-private bindings remain with their owners. Next: native byte/source readback,
-fresh signed admission, command/rejection controls and one coherent suite.
-
-
-## Conductor publication and latest dependency admission — 6 November 2026
-
-The requested Conductor publication is complete: expected main 93b019e advanced
-by normal fast-forward to 2e6534d; exact receiving tree readback matched. All twelve
-PR workflows and ten receiving workflows succeeded. The failed local ps monitor
-sample remains in its log; one diagnosed retry passed with unchanged hook/limits.
-
-Frozen b027688/4015cc3 are now integrated locally as eb8c8a5/6b1822a, with
-six valid lock receipts and a fresh hash-installed native Python 3.15.2 environment.
-Eight new native executions, independent byte/source readback and a fresh signed
-capsule qualify 140 outputs; all 82 scientific CSVs equal the original accepted
-bytes. Old admission correctly rejected the changed material. Native and attested
-commands, atomic M1 stage, input/output/signature/runtime rejection controls and
-post-negative native reopening pass. The integrated suite passes 1262 tests / 9
-skips, sampled peak 988.5 MiB; focused changed-source lint passes. Existing latest
-library, audit, typing and clean-package receipts were reused rather than rerun.
-
-Receipt: integration/archive/dependency-admission_20261106.json. The accepted
-original checkpoint/archive and prior attempts are preserved. This establishes
-software/native lineage acceptance, not empirical calibration or outside scientific
-endorsement. The dependency integration is local; its hosted checks/publication
-and originating-lane real-scheduler handoff remain separate from the verified
-Conductor receiving commit. No new empirical inputs or scientific scope were added.
-
-Final staged security (full-history/staged secret scan and Actionlint) passed at
-228.0 MiB sampled peak. The exact two new digest-only receipt paths were reviewed
-into the existing publication inventory; 21 boundary tests pass. Existing private
-document hashes and all other publication restrictions are retained.
-
-
-## Dependency publication verified — 6 November 2026
-
-PR #142 published exact tested head `413f7b2ab3b5187262fc572d379dc3b48dae1826`
-by a guarded normal fast-forward from expected main `2e6534d`. Both publication
-hooks passed with unchanged limits; the main push sampled 222.0 MiB peak RSS.
-Fetched receiving main is exactly the tested commit, with identical tree
-`bed95f1672356da7ea1cb93f7b74db64dabd89cf`.
-
-All twelve PR workflows and all ten receiving-main workflows completed
-successfully. No hosted failure required a source change or a retry. Fresh
-hosted scientific reproduction passes on Linux and Windows; engineering,
-package/portability, audit, CodeQL/public-boundary security, regulatory,
-longitudinal, M3, verifier, advisory and Scorecard scopes retain their distinct
-run receipts. Conditional jobs remain conditional; no empirical scientific
-endorsement is inferred from software qualification.
-
-Receiving-main run IDs:
-
-OpenSSF Scorecard: 42225798062; Scientific reproduction qualification: 42225798013; Engineering qualification: 42225797945; Cross-platform Python qualification: 42225797999; Regulatory uncertainty milestone: 42225797988; Empirical longitudinal component: 42225797921; M3 research methods: 42225798000; Linux audit lock qualification: 42225797910; Publication and source security: 42225797885; Package portability qualification: 42225797880.
-
-Exact local receipts: `outputs/dependency-admission-20261106/publication-pr-final.json`,
-`publication-pr-rollup.json`, `receiving-ref.json` and `publication-receiving-final.json`.
-The acceptance report `integration/archive/dependency-admission_20261106.json`
-remains the immutable pre-publication record. Its open-publication wording is
-superseded by this terminal readback. All eight native executions, 140 output
-links and 82 byte-identical scientific CSVs remain accepted without rerunning
-unchanged local tests. This terminal Conductor reconciliation is a local
-documentation commit after receiving verification; it is not part of the tested
-receiving tree and has not itself been published.
-
-No dependency-publication checks remain for 413f7b2. The originating empirical
-lane's latest real-scheduler handoff and wider Phase 0/research work retain their
-own scope; no unrelated worktree or native binding was changed.
+# Current workstream coordination
+
+## Manuscript guidance checkpoint — 8 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` updated manuscript guidance in
+`/Users/doughnut/Documents/tobac` on local `main`. Scope is `AGENTS.md`,
+`.agents/skills/research-change/SKILL.md` and `conductor/workflow.md`.
+At the next owned paper revision, apply the checkpoint in that paper's existing
+records. This guidance checkpoint carries no native operation or publication.
+The same checkout owns the DOCX delivery gate in those three guidance files.
+At the next paper delivery, validate every final variant and retain its receipt
+with the owning paper records.
+
+## Active integration — 7 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` is the sole shared-main/runtime
+and native-admission integrator. Actual checkout: `/Users/doughnut/Documents/tobac`,
+branch `codex/empirical-phase0-20261107`. Receiving main was verified at `8b48e22`.
+The clean empirical source `0c4fbc81ead0f17e6c2a1657f722d11c5097900f` is frozen as
+`codex/empirical-frozen-20261107` and fully integrated at `9cccc96`, retaining both
+histories, complete generated locks and all publication/private-document bindings.
+
+Local native admission and the combined Phase 0 checkpoint are complete:
+actual local Python 3.15.2, seven source-bound profiles, eight native executions,
+independent source/output readback, new signed admission, latest M1/context DAG,
+negative/recovery controls, coherent suite, package and security checks. Evidence is
+retained under `outputs/empirical-phase0-20261107`; track scope is in
+`conductor/tracks/nz_au_empirical_20261106/integration-handoff.md` and `plan.md`.
+No older signature or passing subset substitutes for this changed source epoch.
+
+## Retained owners and boundaries
+
+The empirical lane, chat `01a1af53-2093-7f70-b761-e5f6cb7b769c`, completed its clean
+packet in `/Users/doughnut/.codex/worktrees/tobac-nz-au-empirical/tobac` on
+`codex/nz-au-empirical`. The root integrator completed public-source fast-forward and attested readback
+in that idle, clean checkout at c464a32. Its environments, ignored evidence and
+native bindings retain their existing owner; no dirty tree or private binding
+was copied. The source owner retains the checkout after this metadata-only closeout. The separate
+`/Users/doughnut/Documents/tobac-conductor-status-20261106` checkout is unchanged.
+M3 retains ownership of `src/tobac/research` and `tests/m3`; its interfaces and
+scientific meaning are preserved. Earlier assignments remain in the history below.
+
+Native originals, accepted attempts, signing material and mutation bindings stay
+with the existing root native owner. One writer per exact native object and one
+heavy bounded command at a time remain required. No contact, visibility change,
+branch/issue deletion or empirical data admission is implied. Source-only synthetic
+qualification does not close the empirical Phase 1–6 or H2 scientific prerequisites.
+
+## Preserved history
+
+All prior coordination and terminal handoffs are preserved byte-for-byte in
+[the closed history](coordination/WORKSTREAM_SYNC_through_20261107.md).
+The archive is an immutable dated edition; retain earlier assignments and receipts.
+Append only current coordination here so bounded phase contexts remain usable.
+
+## Phase 0 terminal state
+
+Local Phase 0 gates pass; see integration/archive/empirical-phase0-checkpoint_20261107.json and the empirical track audit. The idle empirical checkout consumed c464a32 by fast-forward and passed eight attested closures plus actual M1/cache and eight exact CSVs. The final documentation-only closeout uses the same accepted code and inputs. The source owner retains that checkout; native/shared-main promotion remains with the root integrator. Private native verification remains in root. Empirical, hosted/publication and H2 gates retain their separate scopes.
+
+## P1 evidence continuation — 7 November 2026
+
+Chat `01a1b3ac-76ef-7b12-a919-91fcb05de339` owns the managed worktree
+`/Users/doughnut/.codex/worktrees/tobac-p1-evidence/tobac`, branch
+`codex/p1-evidence-20261107`, based on clean `c239b18`. Scope: Phase 1 protocol,
+query/qualification metadata and appraisal evidence under the empirical track;
+exact publication-policy classifications if required; ignored local receipts.
+External public API originals remain in a separate evidence-intake edition.
+No shared runtime/main promotion, M3 source, native signing, tenant objects,
+external upload or fitting is owned here. Next: qualify current Searchright and
+source-native retrieval/import, retain seed and pagination failures, then report
+remaining source-rights/admission and screening gates. Existing assignments above
+remain unchanged; this ownership addition is for integrator consumption only.
+
+P1.2 terminal packet: actual Searchright build/strategy/import/negative qualification,
+Europe PMC S2–S5 and S3 recall repair, full PubMed S2, preserved duplicate candidates,
+partial original seed/calibration appraisals and source quarantines. S1 received 25,236
+of 25,237 provider hits and remains incomplete after a bounded lite diagnostic. Scoped
+checks pass 99 tests; local original-copy recovery passes at its explicitly limited
+scope. The metadata receipt and remaining work are in phase1-progress.md and
+phase1-search-receipts-20261107.json. No source data or abstract corpus is tracked;
+no shared-main/native promotion or empirical acceptance is implied. Integrator consumes
+this lane's scoped commit; existing external archive and main owners retain their work.
+
+## P2 empirical-slice continuation — 7 November 2026
+
+The same chat 01a1b3ac-76ef-7b12-a919-91fcb05de339 now owns P2 in the existing managed
+worktree /Users/doughnut/.codex/worktrees/tobac-p1-evidence/tobac, renamed branch
+codex/p2-empirical-slice-20261107 at clean P1 checkpoint 403600b. P1's scope/terminal
+record above is preserved. Scope: Phase 2 evidence reconciliation, external candidate
+extractions and exact audit/test changes where required; no M3, shared runtime/main,
+native signing, external uploads or original-owner mutations. Phase 0 is qualified
+locally; P1 source admission and legal/holdout gates still govern fitting. Next:
+verify public NZ measurement originals and their dimensional/period compatibility
+before building the empirical slice. Prior feasibility alone is not P2 completion.
+
+P2.2 source work adds only the optional NZHS candidate branch to the existing coverage
+audit and its tests, with phase metadata and focused context. Raw CSVs and all candidate
+rows remain in external intake edition tobac-evidence-intake-20261107-p2. The direct
+Shiny-hosted CLI route is qualified against browser bytes; native source registration,
+archive destinations and main promotion remain with their prior owners. Existing
+scientific inputs, runtime locks, signatures and M3 interfaces are unchanged. Final
+commands use the public attested route and the lane's own Python 3.15.2 environments;
+no native private binding is transferred. Full P2 requirements remain open.
+
+P2.2 source is frozen at a818f28860196e61661fdb2b685320699c892ad2. Final full Nox
+tests pass 1,289 / 22 capability skips with 92% src coverage; whole-source typing
+passes with zero errors/warnings; clean-source Nox reproduction and independent
+29-table publication replay pass with zero numerical/report difference. Earlier
+failures and scope limits remain in phase2-receipts-20261107.json. P1 remains frozen
+as codex/p1-evidence-20261107 at 403600b. Existing root native/source-admission
+owner was read as idle; no message, private binding transfer or native write occurred.
+Next: exact external destination/source admission, compatible measurement/period and
+policy-baseline reconciliation, then the prespecified empirical fit and validation.
+P2 is not complete; this is a terminal enabling-source packet for the existing integrator.
+
+P2.3 continuation retains the same chat/worktree/branch and sole writing scope.
+Added external, hash-bound official population/price/trade candidates and only
+track metadata/publication classifications. DPE054AA flags/query, pack-of-25 CPI
+unit and one-month HS24 import/export distinctions are verified at extraction scope.
+See phase2-context-receipts-20261107.json and the appended reconciliation for exact
+hashes, retained failures and gaps. No native/archive, M3, shared-main, runtime or
+scientific-input mutation. Next: source/rights/policy admission and historical
+product/period/population matching before identified fitting and held-out testing.
+P2 remains active; prior owner's archive lane and unanswered messaging approval stand.
+
+P2.4 same-owner continuation at base 31be90b acquires the historical SAP0240 price
+proxy by internal-browser native export (82 quarters) and preserves its query and
+exact-field checks externally. Its source footnote changes the price disposition:
+index-derived from June 2006 weighted levels, not independent transaction-price
+observations. Only the P2 task/reconciliation/receipt metadata and this handoff change;
+no source/model/runtime/native promotion. Next: qualified rights/source admission,
+period/product/denominator matching and current policy baseline before fit/holdout.
+
+P2.5 same-owner continuation at 1e227d6 downloads the source NZHS methodology by
+internal browser after CLI-specific 403s. Verified actual 2024/25 fieldwork windows,
+non-private accommodation coverage, ERP benchmark rule and jackknife dependence;
+later-vintage ERP average differs from the published survey benchmark and is not
+substituted. Only P2 metadata plus its focused context selection change. Context
+ceiling remains unchanged; originals/extractions stay external. Low volume headroom
+caused one pre-execution shell temporary-file failure; preserve native/archive owners
+and avoid broad runs or cleanup. Next: historical methods, source admission and
+policy/product/period matching before supported fit and held-out information analysis.
+
+P2.6 same-owner continuation at 6e32a6a verifies calendar-year reported-market-flow
+scope and current heated-tobacco exclusion through actual Ministry pages, reusing the
+byte-identical 16-value workbook receipt. External BAT form checks separate domestic/
+duty-free quantities and recommended prices; 2025-listed RYO file visibly says 2024,
+quarantined as Q:BAT2025:RYO:year. Product-share denominator remains unqualified.
+Only task/reconciliation/receipt metadata and this handoff change. All raw candidates
+and originals stay external; no archive/native/model/runtime promotion. Next remains
+source admission plus product/year/stock/period and policy/holdout qualification.
+
+P2.7 same-owner continuation at 3494436 qualifies the official legal CLI read and
+selected current NZ retail/nicotine/age/reporting provisions. decision-definition
+now binds those partial statutory facts to the dated consolidation; no complete
+numerical baseline, implementation, causal effect or source admission is claimed.
+Raw legal originals and verified provision text stay external; metadata/hashes only
+in tobac. Existing original-cohort, regulations, costs, AU and validation gates remain.
+No maintained code/runtime/native scope changed; existing integrator retains admission.
+
+P2.8 same-owner continuation at e57bc02 recovers the original SHINE supplement and
+checks retail beta/transition semantics with an independent Decimal oracle. Existing
+retail-case source is identical to tested a818f28; no reference/input change. The
+mean discrepancy stays quarantined and a printed survivorship-complement discrepancy
+is recorded, without inferring original-code error. Only metadata/appraisal and task
+context selection change; source originals and numeric diagnostics remain external.
+The contrast is still transported/contextual, and source admission plus compatible
+calibration, policy effects and frozen held-out validation still gate the empirical fit.
+
+P2.9 same-owner source packet at base d72af89 adds a guarded executable candidate
+reconciler using existing source guards/Scope; no parallel admission contract or model
+change. Actual repeatable report separates five overlapping price quarters, four
+nominal ERP quarters, two calendar releases and no matched HS24 trade months. Full
+Nox 1,299/22 and typing pass after external scratch correction; first failure retained.
+Only owned test fixtures were cleaned. Source originals and CLI pins stay external.
+Next: matching historical trade/earlier fieldwork, existing-owner admission and valid
+calibration/policy/holdout gates. Do not promote this audit as a fitted empirical panel.
+
+P2.10 same-owner trade coverage at base 12c0716. Four official annual HS10
+archives and executable header mapping are retained externally. The existing
+candidate CLI verifies both flows in all 13 fieldwork-intersecting months.
+See phase2-reconciliation-20261107.md for the report and source receipt hashes.
+The next empirical gates are product and measurement compatibility, earlier
+fieldwork coverage, and existing-owner source admission.
+
+P2 source packet through 2f16206 is frozen for an admission handoff. P2.11–16
+retain product-level trade units, mass bounds, stock feasibility and dependent
+Customs-vintage comparisons in phase2-reconciliation-20261107.md. No new
+scientific input or empirical fit is admitted. The integration checkout is
+clean at c239b18139b91dc170758f88a343b987fb7d880f; its existing chat retains
+native/admission ownership. This chat remains the sole writer of the P2
+worktree. Next operation is one authorized handoff to that retained owner;
+messaging authorization is still unanswered. The full P1/P2 acceptance rows
+remain open, including policy, matching, rights and frozen holdout gates.
+
+P2.17 resumed independent source work from 47dc6f9. The dated August 2026
+Health NZ cessation guideline and November SA1845 funding form now qualify
+selected status-quo context, with original publication/rights pages and funding
+conditions visually checked. Full originals and receipts remain external;
+decision-definition and reconciliation retain the distinction between guidance,
+funding, actual uptake, effects and costs. No source admission or fit is implied.
+This lane retains its existing worktree scope; the integrator retains native
+ownership and the proposed cross-chat handoff remains unsent pending permission.
+
+P2.18 from 1a96485 executes the prespecified PubMed S4 prerequisite. All 101
+native IDs are recovered and imported through the existing Searchright CSV
+contract. A connector-omitted book record required exact native EFetch; the
+connector missing-ID result and XML import warning remain preserved. Exact
+cut-off and title/abstract round-trip checks pass. Original records stay external;
+retrieval is not screening or empirical admission. Same lane/file ownership and
+all fit/holdout gates remain. Integrator readback is idle at c239b18; handoff unsent.
+
+P2.19 from 68ca7f2 reconciles all 475 PubMed S5 IDs, including a connector-omitted
+chapter and 395-author field continuation. Semantic checks expose the CSV
+importer's journal-article default; supported CSL imports preserve the recovered
+S4 book and S5 chapter kinds in new external editions without losing their source
+metadata. Eight selected abstracts are assessed: six full-text queue, two pending
+transferability, 467 unscreened. None is an included study or admitted input.
+Originals and failed/superseded representations remain external and preserved.
+Same owner/scope; no source admission, native write, empirical fit or chat message.
+
+P2.20 from 66807d1 verifies 25,067 S1 and 3,048 S3-v3 PubMed candidate IDs,
+original XML and kind-preserving imports, with prespecified seed checks.
+The first upstream 503/partial response is retained; one exact-batch recovery
+and hash-verified reuse complete retrieval without repeating prior batches.
+Five PubMed families index 27,507 exact PMIDs. Cross-dialect human-review flags,
+Europe PMC S1 discrepancy and all remaining systematic screening/source/fit
+gates are retained. Original payloads and import/ID artifacts remain external.
+Same ownership; no native/other-owner mutation, source admission or message.
+
+## P3 native integration — 8 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the combined source and
+native acceptance in the standard Git worktree
+`/Volumes/PortableSSD/tobac-p3-integration.UHWFlw/checkout` on
+`codex/p3-native-integration-20261108`. Source packet b03b70d applies to
+local main 34b629e. The next gate is the full locked suite on the signed
+candidate before a guarded local fast-forward. The P3 source checkout and
+its native originals retain their owners.

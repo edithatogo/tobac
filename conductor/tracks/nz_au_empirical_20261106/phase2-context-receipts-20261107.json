@@ -1,0 +1,1099 @@
+{
+  "schema_version": 1,
+  "phase": "P2.3 candidate-source reconciliation",
+  "source_base_commit": "b1cb8f4e1cc231eba0147bc75780b92da68015f0",
+  "owner_chat": "01a1b3ac-76ef-7b12-a919-91fcb05de339",
+  "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-context",
+  "runtime": {
+    "interpreter": "/Users/doughnut/.codex/worktrees/tobac-p1-evidence/tobac/.venv/bin/python",
+    "verified_version": "3.15.2"
+  },
+  "receipt_pointers": [
+    {
+      "file": "page-receipts.json",
+      "sha256": "4f85a41689329c2dbc566dc1db848b98e515fbf31ce25f05b84c86eb5b692288"
+    },
+    {
+      "file": "csv-landing-receipt.json",
+      "sha256": "bb7cfb1cb90496eb0193a1a1349d500ec50a25543c12d57b53011e2aff5382f8"
+    },
+    {
+      "file": "asset-receipts.json",
+      "sha256": "a4b945d62fba26b0c5e6fe7e3576b1da2cd2e471bbf8768e45b27a68e07c6e00"
+    },
+    {
+      "file": "cpi-inspection.json",
+      "sha256": "ca429223eba65ca11c96d07440a664208f0e4124b3a1e85c12ebda09f39107a6"
+    },
+    {
+      "file": "cpi-workbook-receipt.json",
+      "sha256": "82e5ce4e7da32dd2404badb9417a423e1a80d5afb89f7e70d586a6c0be79d7c7"
+    },
+    {
+      "file": "population-download-receipt.json",
+      "sha256": "0fc8d816437a09a62da7da350dcec4413185730a603ae5a8a6e989c69d3603ae"
+    },
+    {
+      "file": "population-extra-download-receipts.json",
+      "sha256": "19638531a61f2f197fac21092713356620b355ed8884f02608a6ac425ddcc956"
+    },
+    {
+      "file": "population-reconciliation.json",
+      "sha256": "10073d93f71dbaa9e96aca4bc7b84371791e0a895037ebcd698e048ad6992354"
+    },
+    {
+      "file": "price-reconciliation.json",
+      "sha256": "efce8a68cc088c1ba40b23cf61c656e3d86aee4f2db75051d8503eef2f027948"
+    },
+    {
+      "file": "trade-page-receipt.json",
+      "sha256": "beac0c86a8a33515c4f7d6028fc0bf5fbfae405ad5229485daa2367651a60109"
+    },
+    {
+      "file": "trade-asset-receipts.json",
+      "sha256": "cd23730591be2a23c98ea811c2d617cd1e4046db41b311f41513670c349aae55"
+    },
+    {
+      "file": "trade-reconciliation.json",
+      "sha256": "2625b1de983d7129fc824b1a7930074d69993fa852c4508cbf53c42859226827"
+    }
+  ],
+  "originals": [
+    {
+      "source_id": "STATS_POP2025",
+      "url": "https://www.stats.govt.nz/information-releases/national-population-estimates-at-30-june-2025/",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "file": "STATS_POP2025-48f5df7510646e0ceb0402c52b06a2ae88f13f3ea015e8d78374088b73b6c970.html",
+      "sha256": "48f5df7510646e0ceb0402c52b06a2ae88f13f3ea015e8d78374088b73b6c970",
+      "bytes": 61419
+    },
+    {
+      "source_id": "STATS_CPI2026Q3",
+      "url": "https://www.stats.govt.nz/information-releases/consumers-price-index-september-2026-quarter/",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "file": "STATS_CPI2026Q3-9a89f095c4b4a2501f69687a7c125cf98db19c34698ec5cc56c833426409c82f.html",
+      "sha256": "9a89f095c4b4a2501f69687a7c125cf98db19c34698ec5cc56c833426409c82f",
+      "bytes": 87901
+    },
+    {
+      "source_id": "consumers-price-index-september-2026-quarter-infoshare-data.csv",
+      "url": "https://www.stats.govt.nz/assets/Uploads/Consumers-price-index/Consumers-price-index-September-2026-quarter/Download-data/consumers-price-index-september-2026-quarter-infoshare-data.csv",
+      "http_status": 200,
+      "content_type": "application/octet-stream",
+      "file": "consumers-price-index-september-2026-quarter-infoshare-data-e0e3cfca83f9f86c00f4fc4c43a33a16c6a0b6498bfd9fa5855895668fd0987f.csv",
+      "sha256": "e0e3cfca83f9f86c00f4fc4c43a33a16c6a0b6498bfd9fa5855895668fd0987f",
+      "bytes": 184987
+    },
+    {
+      "source_id": "consumers-price-index-september-2026-quarter-index-numbers.csv",
+      "url": "https://www.stats.govt.nz/assets/Uploads/Consumers-price-index/Consumers-price-index-September-2026-quarter/Download-data/consumers-price-index-september-2026-quarter-index-numbers.csv",
+      "http_status": 200,
+      "content_type": "application/octet-stream",
+      "file": "consumers-price-index-september-2026-quarter-index-numbers-89d272e1139e66f0626e6016806aaa76b10359330a36d2ac409b9954a7c1c5cf.csv",
+      "sha256": "89d272e1139e66f0626e6016806aaa76b10359330a36d2ac409b9954a7c1c5cf",
+      "bytes": 2936812
+    },
+    {
+      "source_id": "CPI_2026Q3_WORKBOOK",
+      "url": "https://www.stats.govt.nz/assets/Uploads/Consumers-price-index/Consumers-price-index-September-2026-quarter/Download-data/consumers-price-index-september-2026-quarter.xlsx",
+      "http_status": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "file": "CPI_2026Q3-806f4832f5344e356a866f458753013ee226fa2d419cc6ce5ffb3a1a77757b5d.xlsx",
+      "sha256": "806f4832f5344e356a866f458753013ee226fa2d419cc6ce5ffb3a1a77757b5d",
+      "bytes": 197626
+    },
+    {
+      "source_id": "population_flags",
+      "file": "population_flags-ead0b26b9528878a8f529bd357fe8b42e7137bf94b4fad343183b2f1760717d2.csv",
+      "sha256": "ead0b26b9528878a8f529bd357fe8b42e7137bf94b4fad343183b2f1760717d2",
+      "bytes": 30683,
+      "source_table_ref": "DPE054AA",
+      "status_flags_selected": true,
+      "method": "internal browser native export"
+    },
+    {
+      "source_id": "population_query",
+      "file": "population_query-e8c9fd44b190c02ae32783c49fb4b1d6a77d55c9498432597550bdc2ea9f24eb.tqx",
+      "sha256": "e8c9fd44b190c02ae32783c49fb4b1d6a77d55c9498432597550bdc2ea9f24eb",
+      "bytes": 6916,
+      "source_table_ref": "DPE054AA",
+      "status_flags_selected": true,
+      "method": "internal browser native export"
+    },
+    {
+      "url": "https://www.stats.govt.nz/assets/Large-datasets/OMT-datasets/OMT-datasets-September-2026/Imports/Sep_2026_Imports_HS10.csv",
+      "file": "Sep_2026_Imports_HS10-60f2ca85ec066b882f22f696542a77b7e7a027dbd7311cf15ac1992a0a0a1c8b.csv",
+      "sha256": "60f2ca85ec066b882f22f696542a77b7e7a027dbd7311cf15ac1992a0a0a1c8b",
+      "bytes": 1583617,
+      "http_status": 200,
+      "content_type": "application/octet-stream"
+    },
+    {
+      "url": "https://www.stats.govt.nz/assets/Large-datasets/OMT-datasets/OMT-datasets-September-2026/Exports/Sep_2026_Exports_HS10.csv",
+      "file": "Sep_2026_Exports_HS10-6ed343007998899a10992567c2ccc765bd1aba5162c7181ebbb3d4dca1f97705.csv",
+      "sha256": "6ed343007998899a10992567c2ccc765bd1aba5162c7181ebbb3d4dca1f97705",
+      "bytes": 1103488,
+      "http_status": 200,
+      "content_type": "application/octet-stream"
+    }
+  ],
+  "reconciliations": {
+    "population": {
+      "source_sha256": "ead0b26b9528878a8f529bd357fe8b42e7137bf94b4fad343183b2f1760717d2",
+      "query_sha256": "e8c9fd44b190c02ae32783c49fb4b1d6a77d55c9498432597550bdc2ea9f24eb",
+      "table_ref": "DPE054AA",
+      "quarters": 142,
+      "first": "1991Q1",
+      "last": "2026Q2",
+      "candidate_cells": 2556,
+      "missing": 27,
+      "flags": {
+        "": 2448,
+        " P": 108
+      },
+      "candidate_sha256": "87240f43e3532dcf84b27401183c5da361a53fdd215ca4c66b42ab5b579c2330",
+      "age_sum_minus_total_counts": {
+        "0": 641,
+        "-100": 103,
+        "100": 99
+      },
+      "admitted": false,
+      "limitation": "ERP is not automatically a survey or catchment denominator; overlapping aggregates and estimate types are not independent observations."
+    },
+    "price": {
+      "workbook_sha256": "806f4832f5344e356a866f458753013ee226fa2d419cc6ce5ffb3a1a77757b5d",
+      "selected_cells": {
+        "2.01": {
+          "A1": "Table 2.01",
+          "A2": "Consumers price index",
+          "A3": "Groups and subgroups \u2013 index numbers",
+          "A4": "Base: June 2017 quarter (=1000)",
+          "A11": "    Grocery food",
+          "B11": "SE9013",
+          "C11": "1370",
+          "A16": "    Cigarettes and tobacco",
+          "B16": "SE9022",
+          "K16": "1889"
+        },
+        "4": {
+          "A1": "Table 4",
+          "A2": "Weighted average retail prices of selected items(1)",
+          "A4": "Item",
+          "B4": "Series ref: CPIQ",
+          "C4": "Unit",
+          "D4": "Jun-26",
+          "F4": "Sep-26",
+          "H4": "Percentage change(2)",
+          "D5": "$",
+          "A11": "    Cigarettes (supermarket & convenience store)",
+          "B11": "SAP0240",
+          "C11": "pk of 25",
+          "D11": "61.28",
+          "F11": "61.5"
+        }
+      },
+      "index_series": "CPIQ.SE9022",
+      "index_records": 207,
+      "first_period": "1975.03",
+      "last_period": "2026.09",
+      "candidate_sha256": "4e0ca13f06013b349c62594ce98a0be3e237b10b0f1d571261049d62727fbb86",
+      "index_statuses": [
+        "FINAL"
+      ],
+      "index_units": [
+        "Index"
+      ],
+      "admitted": false,
+      "limitations": [
+        "Price observations differ from index values and percent changes",
+        "Weighted selected-item price does not imply national transaction-weighted paid price or causal elasticity",
+        "Historical price series, currency/tax and survey-period bridge still require qualification"
+      ]
+    },
+    "trade": [
+      {
+        "source_sha256": "60f2ca85ec066b882f22f696542a77b7e7a027dbd7311cf15ac1992a0a0a1c8b",
+        "original_records": 8660,
+        "candidate_records": 15,
+        "columns": [
+          "Month",
+          "Harmonised System Code",
+          "Harmonised System Description",
+          "Unit Qty",
+          "Imports ($NZD vfd)",
+          "Imports ($NZD cif)",
+          "Imports Qty",
+          "Status"
+        ],
+        "candidate_file": "trade-imports-hs24-candidates-v2.csv",
+        "candidate_sha256": "add8ec7692877d5ea5854193ceeb19ec31e4dbe3496f61f086fb72f6f0209cd8",
+        "units": [
+          "NMB",
+          "LTR",
+          "",
+          "KTC",
+          "KGM",
+          "MIL"
+        ],
+        "statuses": [
+          "Provisional"
+        ],
+        "admitted": false,
+        "limitations": [
+          "One month only; not a longitudinal bridge",
+          "HS24 includes substitutes and mixed quantities; no pooled quantity",
+          "Exports and re-exports distinct; no consumption or duty-paid inference"
+        ]
+      },
+      {
+        "source_sha256": "6ed343007998899a10992567c2ccc765bd1aba5162c7181ebbb3d4dca1f97705",
+        "original_records": 5930,
+        "candidate_records": 4,
+        "columns": [
+          "Month",
+          "Harmonised System Code",
+          "Harmonised System Description",
+          "Unit Qty",
+          "Exports ($NZD fob)",
+          "Exports Qty",
+          "Re-exports ($NZD fob)",
+          "Re-exports Qty",
+          "Total Exports ($NZD fob)",
+          "Total Exports Qty",
+          "Status"
+        ],
+        "candidate_file": "trade-exports-hs24-candidates-v2.csv",
+        "candidate_sha256": "cf1548e86804700de4a1cd89e05b65e0dcdd966e0dd44921f1db450294b98eaa",
+        "units": [
+          "MIL",
+          "KGM",
+          "LTR",
+          ""
+        ],
+        "statuses": [
+          "Provisional"
+        ],
+        "admitted": false,
+        "limitations": [
+          "One month only; not a longitudinal bridge",
+          "HS24 includes substitutes and mixed quantities; no pooled quantity",
+          "Exports and re-exports distinct; no consumption or duty-paid inference"
+        ]
+      }
+    ]
+  },
+  "admitted": false,
+  "fit_executed": false,
+  "unmet_gates": [
+    "P1 screening, legal baseline, archive destination/rights/readback",
+    "NZHS eligible population and exact dates versus ERP/catchments",
+    "Historical matching paid prices/trade and stock/product/period accounting",
+    "AU measurement design/calibration and dependence",
+    "Prespecified holdout, identified baseline and policy contrast, incremental WBE assessment"
+  ],
+  "verification_reused": {
+    "source_commit": "a818f28860196e61661fdb2b685320699c892ad2",
+    "receipt": "conductor/tracks/nz_au_empirical_20261106/phase2-receipts-20261107.json",
+    "reason": "No maintained scientific/audit/test/runtime code changed in P2.3; full tests, typing and numerical replay remain scoped to that unchanged source"
+  },
+  "failures_retained": [
+    "Initial population checker rejected literal leading-space provisional flags; validation strips whitespace only to check allowed flags while output preserves raw flag",
+    "Initial trade exact-field comparison found Polars null versus original empty string; incomplete v1 candidate retained outside repository",
+    "First correction used obsolete Polars keyword missing_utf8_is_empty_string; actual installed read_csv signature checked, supported empty_string_is_null=False then exact-field reconciliation passed",
+    "Initial CPI UTF-8 decode failed; explicit Windows-1252 decode/re-encode roundtrip qualified, original unchanged",
+    "CLI Stats infoshare landing 403 does not invalidate working internal-browser exact-table export"
+  ],
+  "guarded_extractions": [
+    {
+      "script": "reconcile-population.py",
+      "status": 0,
+      "sampled_group_rss_mib": 0.4
+    },
+    {
+      "script": "reconcile-price.py",
+      "status": 0,
+      "sampled_group_rss_mib": 0.7
+    },
+    {
+      "script": "reconcile-trade.py",
+      "status": 0,
+      "sampled_group_rss_mib": 1.8
+    }
+  ],
+  "resource_limit_note": "4096 MiB sampled process-group RSS / 2400 seconds; fast-script samples do not establish allocation peaks or leak freedom.",
+  "historical_price_continuation": {
+    "base_commit": "31be90b36664665e81b3fc272daa79b5ed1e7472",
+    "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-price",
+    "native_downloads": [
+      {
+        "source_id": "prices",
+        "file": "prices-62071f35b5e4c70fdf84c2733a084c26282d67f8199bbc2c2fe39e183e40a1ce.csv",
+        "sha256": "62071f35b5e4c70fdf84c2733a084c26282d67f8199bbc2c2fe39e183e40a1ce",
+        "bytes": 2223,
+        "observed_download_completed_by": "2026-11-07T02:52:11.156609+00:00",
+        "method": "Internal browser native Infoshare export; series-identifier search CPIQ.SAP0240",
+        "selected_periods": 82,
+        "decimal_places": 2,
+        "status_flags": true,
+        "source_origin": "https://infoshare.stats.govt.nz/",
+        "admitted": false
+      },
+      {
+        "source_id": "query",
+        "file": "query-dbd805e1fd7e05f33ad6b745742b399386fb373061c715a7e189c9836762621d.tqx",
+        "sha256": "dbd805e1fd7e05f33ad6b745742b399386fb373061c715a7e189c9836762621d",
+        "bytes": 4169,
+        "observed_download_completed_by": "2026-11-07T02:52:11.157310+00:00",
+        "method": "Internal browser native Infoshare export; series-identifier search CPIQ.SAP0240",
+        "selected_periods": 82,
+        "decimal_places": 2,
+        "status_flags": true,
+        "source_origin": "https://infoshare.stats.govt.nz/",
+        "admitted": false
+      }
+    ],
+    "reconciliation": {
+      "source_sha256": "62071f35b5e4c70fdf84c2733a084c26282d67f8199bbc2c2fe39e183e40a1ce",
+      "query_sha256": "dbd805e1fd7e05f33ad6b745742b399386fb373061c715a7e189c9836762621d",
+      "query_tableID": "CPI324601",
+      "published_table_reference": "CPI019AA",
+      "series": "CPIQ.SAP0240",
+      "records": 82,
+      "first_period": "2006Q2",
+      "last_period": "2026Q3",
+      "published_unit_footnote": "CPIQ.SAP0240: Magnitude = Units, Unit = $, Description = Cigarettes (supermarket &amp; convenience store), pk of 25",
+      "published_method_footnote": "Calculated by applying index movements to weighted average prices for the June 2006 quarter. These are not statistically accurate measures of average transaction price levels, but do provide a reliable indicator of percentage changes in prices.",
+      "native_query_status_option": "ShowNonFinalFlags",
+      "status_columns_exported": false,
+      "status_note": "No non-final flag cells appear in this selected time-series export; do not invent a status field or uncertainty series",
+      "candidate_file": "price-candidates.csv",
+      "candidate_sha256": "f95de5b77c3d4f29936161f9ef59ad820dbe518c3a1f7ce58faf5361d66e972e",
+      "current_quarter_csv_sha256": "e0e3cfca83f9f86c00f4fc4c43a33a16c6a0b6498bfd9fa5855895668fd0987f",
+      "current_quarter_numeric_match": true,
+      "workbook_price_percent_change_readback_matches": true,
+      "native_last_updated": "22/10/2026 10:45:00 a.m.",
+      "admitted": false,
+      "fitted": false,
+      "dependence_disposition": "Index-derived price proxy; not an independent transaction-price observation or causal price response",
+      "unresolved": [
+        "Exact tax/currency metadata and pack-definition revision history beyond current source description",
+        "Survey-period and eligible-population matching",
+        "Paid-price/product/stock/lawful-flow accounting",
+        "External archive source admission and policy/holdout gates"
+      ]
+    },
+    "receipt_sha256": "5ec825b9154f7375cb0a13ba2fd9ce2fe716b59153144ef7e0a699784ad1436c",
+    "extractor_sha256": "9af0cbdffcaf7c7482e7c700f28f10d60995db2cc78f5ca30a0953a1374b5766",
+    "execution_log": "outputs/nz-au-phase2-price-20261107/reconciliation.log",
+    "guarded_status": 0,
+    "sampled_group_rss_mib": 0.5,
+    "runtime": "repo-local .venv/bin/python actual 3.15.2",
+    "verification_scope": "82 exact source record/value matches, contiguous quarters, native query/time/series/options, source unit/method footnotes, current-quarter CSV numeric equality and workbook rounded change; not source admission or fitting",
+    "new_findings": "Historical price levels are calculated using index movements from June 2006 prices; preserve dependence and do not use as independent paid-price observations.",
+    "maintained_source_changed": false
+  },
+  "survey_methods_continuation": {
+    "base_commit": "1e227d6df9f4b1b6836707d21f4a6e76f6274d64",
+    "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-methods",
+    "original": {
+      "source_url": "https://www.health.govt.nz/system/files/2025-11/methodology-report-2024-25.pdf",
+      "publication_page": "https://www.health.govt.nz/publications/methodology-report-202425-new-zealand-health-survey",
+      "method": "Internal-browser download of observed publisher PDF link; successful downloadMedia after exact accessible-name selector failed",
+      "file": "NZHS-methodology-2024-25-b938a5bd2959468a5da5be1d7d56539f215d1c2a0589753bd8410c7a22cd210b.pdf",
+      "sha256": "b938a5bd2959468a5da5be1d7d56539f215d1c2a0589753bd8410c7a22cd210b",
+      "bytes": 865131,
+      "observed_download_completed_by": "2026-11-07T02:56:05.683404+00:00",
+      "publication_date_observed": "2025-11-19",
+      "copyright_status_observed": "Owned by Ministry of Health; licensed CC BY 4.0 on methodology publication page",
+      "admitted": false
+    },
+    "reconciliation": {
+      "source_sha256": "b938a5bd2959468a5da5be1d7d56539f215d1c2a0589753bd8410c7a22cd210b",
+      "survey_year": "2024/25",
+      "actual_collection_interval": [
+        "2024-07-09",
+        "2025-07-20"
+      ],
+      "nominal_sample_quarters": [
+        "2024Q3",
+        "2024Q4",
+        "2025Q1",
+        "2025Q2"
+      ],
+      "candidate_file": "survey-quarter-candidates.csv",
+      "candidate_sha256": "eb9adc8c73261cc60ab5430ef788b342d11bccc434b96e8ec35c6072585921d7",
+      "pdf_pages_visually_checked": [
+        11,
+        12,
+        32,
+        33,
+        35,
+        43,
+        44,
+        49,
+        52,
+        53
+      ],
+      "source_locations": {
+        "population": "PDF 11\u201312 / printed 5\u20136, Target and survey population",
+        "benchmark_rule": "PDF 32\u201333 / printed 26\u201327, Calibration and Benchmarks for the total population",
+        "dependence": "PDF 35 / printed 29, Jackknife replicate weights",
+        "periods_and_counts": "PDF 43\u201344 / printed 37\u201338, Tables 5\u20137",
+        "denominator": "PDF 49 / printed 43, Table 9",
+        "revisions": "PDF 52\u201353 / printed 46\u201347"
+      },
+      "table9_adult_population_count": "4339820",
+      "table9_adult_interviews": 9253,
+      "table9_adult_gender_population_sum_minus_printed_total": -1,
+      "table9_child_gender_population_sum_minus_printed_total": 1,
+      "latest_erp_quarterly_average_diagnostic": {
+        "rule": "Equal average of nominal survey-year quarter-end total ERP age15plus; source method, not interview-date weights",
+        "source_candidate_sha256": "87240f43e3532dcf84b27401183c5da361a53fdd215ca4c66b42ab5b579c2330",
+        "source_version": "DPE054AA last updated 18 August 2026",
+        "average": "4338100",
+        "minus_published_methodology_table9": "-1720",
+        "matches_exactly": false,
+        "disposition": "Do not substitute a later-vintage ERP average for the source-published survey benchmark or infer error/eligible exclusions from their difference",
+        "selected_source_coordinates": [
+          {
+            "source_csv_record": "139",
+            "source_value_column": "16",
+            "quarter": "2024Q3"
+          },
+          {
+            "source_csv_record": "140",
+            "source_value_column": "16",
+            "quarter": "2024Q4"
+          },
+          {
+            "source_csv_record": "141",
+            "source_value_column": "16",
+            "quarter": "2025Q1"
+          },
+          {
+            "source_csv_record": "142",
+            "source_value_column": "16",
+            "quarter": "2025Q2"
+          }
+        ]
+      },
+      "interpretation": [
+        "Survey includes some non-private accommodation; previous private-household-only shorthand is too narrow",
+        "Actual collection intervals overlap and extend beyond nominal quarters; no interview-time price weighting from counts",
+        "ERP already informs survey calibration; estimated counts and prevalence are not independent population measurements",
+        "100 jackknife replicates account for reused PSUs across adjacent years; marginal CSV intervals do not establish joint covariance",
+        "Specific interviewer-data correction topics omit tobacco/vaping, but population rebase revises historical weights; do not claim tobacco unchanged across release vintages",
+        "Only 2024/25 exact dates are verified here; historical methods/pandemic interruptions still need source-level matching"
+      ],
+      "admitted": false,
+      "fit_executed": false
+    },
+    "reconciliation_sha256": "139502ddf21f569a6f03bffdac83290ef587dd7020099822cdacfe62c735b7b2",
+    "external_extractors": {
+      "render-pages.py": "da5af47399ae1907861bfadb32c95cb2b3189455d8e22c43bb1b52641d2a67fe",
+      "reconcile.py": "ad66fbf94cb4f6fb953e675337e9333e4c8adfbe8bac9d49032d863f89066008"
+    },
+    "logs": "outputs/nz-au-phase2-methods-20261107",
+    "guarded_extraction_status": 0,
+    "guarded_render_status": 0,
+    "guarded_reconciliation_status": 0,
+    "render_sampled_group_rss_mib": 51.1,
+    "reconciliation_sampled_group_rss_mib": 0.7,
+    "runtime": "actual repo-local Python 3.15.2",
+    "maintained_source_changed": false,
+    "failures_retained": [
+      "Bounded context builder exceeded unchanged 100000-byte ceiling; removed two unrelated frozen P1 model appraisals from current task profile, retained files and rebuilt successfully",
+      "Exact accessible-name PDF locator matched none; observed href locator downloaded valid original PDF",
+      "First denominator diagnostic shell heredoc failed before execution with no space left; df and statvfs observed available space, exclusive 1 KiB write/fsync/readback probe passed; subsequent bounded small writes succeeded. No unrelated files or caches removed; low shared-volume headroom remains a limitation"
+    ],
+    "conclusions": [
+      "Corrects private-household-only shorthand: current survey includes specified non-private accommodation",
+      "Verifies 2024/25 exact fieldwork and published population-benchmark rule; historical years still need their own methods",
+      "Later ERP cannot silently replace vintage-bound published benchmark; no double conditioning on population-informed survey counts",
+      "No covariance, observation admission, fit, causal contrast or predictive validation created"
+    ]
+  },
+  "lawful_sales_continuation": {
+    "base_commit": "6e32a6a21f730a70cd797f3dc86af73b5ee22a33",
+    "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-returns",
+    "originals": [
+      {
+        "source_url": "https://www.health.govt.nz/system/files/2026-08/Total-tobacco-sold-tonnes-2010-2025.xlsx",
+        "file": "Total-tobacco-sold-tonnes-2010-2025-3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883.xlsx",
+        "sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+        "bytes": 9155,
+        "method": "Internal-browser download of observed publisher link",
+        "observed_download_completed_by": "2026-11-07T03:01:27.798153+00:00",
+        "admitted": false
+      },
+      {
+        "source_url": "https://www.health.govt.nz/system/files/2026-08/Size-of-market-for-each-tobacco-type-v6.xlsx",
+        "file": "Size-of-market-for-each-tobacco-type-v6-11d1e5f4aff99b59689017529c713613df84518107407855fbbfca0bc1d01074.xlsx",
+        "sha256": "11d1e5f4aff99b59689017529c713613df84518107407855fbbfca0bc1d01074",
+        "bytes": 10109,
+        "method": "Internal-browser download of observed publisher link",
+        "observed_download_completed_by": "2026-11-07T03:01:27.798731+00:00",
+        "admitted": false
+      },
+      {
+        "source_url": "https://www.health.govt.nz/system/files/2026-08/BAT-Sales-Cigarettes-2025.pdf",
+        "file": "BAT-Sales-Cigarettes-2025-5274d4108faf2cbf2527aeb300634591f3f7684aa953f18219751dec214bce98.pdf",
+        "sha256": "5274d4108faf2cbf2527aeb300634591f3f7684aa953f18219751dec214bce98",
+        "bytes": 166939,
+        "method": "Internal-browser download of observed publisher link",
+        "observed_download_completed_by": "2026-11-07T03:01:27.799215+00:00",
+        "admitted": false
+      },
+      {
+        "source_url": "https://www.health.govt.nz/system/files/2026-08/BAT-Sales-RYO-2025.pdf",
+        "file": "BAT-Sales-RYO-2025-5c683fe95b250f357d622c5aeb84a31dbbf1d3abf7ac82b983ba10ce41b63430.pdf",
+        "sha256": "5c683fe95b250f357d622c5aeb84a31dbbf1d3abf7ac82b983ba10ce41b63430",
+        "bytes": 169796,
+        "method": "Internal-browser download of observed publisher link",
+        "observed_download_completed_by": "2026-11-07T03:01:27.799649+00:00",
+        "admitted": false
+      }
+    ],
+    "adjacent_original": {
+      "source_url": "https://www.health.govt.nz/system/files/2025-06/BATNZ-2024TobaccoReturnAnnualReturn_0.pdf",
+      "file": "BATNZ-2024TobaccoReturnAnnualReturn_0-5a4cbcf09003b064822d2e62ea8dd4165140e10f0c31a9ccd458d0d656f2d8b8.pdf",
+      "sha256": "5a4cbcf09003b064822d2e62ea8dd4165140e10f0c31a9ccd458d0d656f2d8b8",
+      "bytes": 157718,
+      "method": "Observed 2024 adjacent-edition publisher PDF link; internal-browser native download",
+      "observed_download_completed_by": "2026-11-07T03:03:42.063256+00:00",
+      "admitted": false
+    },
+    "reconciliation": {
+      "source_base_commit": "6e32a6a21f730a70cd797f3dc86af73b5ee22a33",
+      "aggregate_workbook_reuses_frozen_16_value_match": true,
+      "aggregate_workbook_sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883",
+      "candidate_sha256": "cb5899ac7a48aa233a7e3fff800ff1c8be76e9e1fa044b64966a2b8f943c25fd",
+      "candidate_records": 76,
+      "quantity_checks": {
+        "cigarettes_domestic": {
+          "rows": 44,
+          "sum_raw_quantities": "323408565.00",
+          "unit": "sticks"
+        },
+        "cigarettes_duty_free": {
+          "rows": 11,
+          "sum_raw_quantities": "2100000",
+          "unit": "sticks"
+        },
+        "ryo_domestic": {
+          "rows": 17,
+          "sum_raw_quantities": "103.93514",
+          "unit": "tonnes"
+        },
+        "ryo_duty_free": {
+          "rows": 4,
+          "sum_raw_quantities": "1.486",
+          "unit": "tonnes"
+        }
+      },
+      "market_share_workbook_sha256": "11d1e5f4aff99b59689017529c713613df84518107407855fbbfca0bc1d01074",
+      "market_share_numeric_format_ids": [
+        "9",
+        "10"
+      ],
+      "market_share_raw_sum": "0.9984999999999999802",
+      "market_share_sum_percent": "99.8499999999999980200",
+      "market_share_disposition": "Excel percent styles; rounded displayed shares are not an exact exhaustive composition. Value/weight/count basis unqualified; no renormalisation or tonnage allocation.",
+      "quarantine": {
+        "id": "Q:BAT2025:RYO:year",
+        "publisher_listing_and_filename_year": "2025",
+        "visually_verified_document_year": "2024",
+        "source_sha256": "5c683fe95b250f357d622c5aeb84a31dbbf1d3abf7ac82b983ba10ce41b63430",
+        "location": "PDF page 1, heading above Roll Your Own Tobacco (Domestic)",
+        "disposition": "Do not silently correct title or admit as either year without authoritative resolution"
+      },
+      "measurement_disposition": [
+        "Reported manufacturer/importer calendar-year released-for-sale flows, not same-period resident consumption or independently verified Customs tax clearance",
+        "Cigarette form separates domestic and duty-free sticks; loose-tobacco form separates tonnes; aggregate tonnage conversion and duty-free inclusion remain unqualified",
+        "Cigarette recommended exit retail price (NZ dollars incl GST) differs from transaction paid prices; do not impute RYO tax/currency details from another header",
+        "Current 2025 Ministry summary excludes heated tobacco, reported separately; preserve product and year scope",
+        "One manufacturer return pair is a scope check, not complete national reconciliation; price and quantity from same return are dependent",
+        "Third-party return PDFs do not inherit a blanket Ministry licensing/admission assertion"
+      ],
+      "admitted": false,
+      "fit_executed": false
+    },
+    "external_receipts": {
+      "reconciliation.json": "0798cd14dcec4cca3de33328463aa0fd096129fe093144861847bb3010b635cb",
+      "source-page-readbacks.json": "1a065fac6e39d8b83a4c8720be6e8dc9c1e88b4f6754e3c566adb4817a4d86f5"
+    },
+    "external_extractors": {
+      "inspect-originals.py": "23df84b486abaec7554df64293d62a8a4865ffc2c75caa9f641d116fed1ebc9c",
+      "reconcile.py": "ece717647e707f9639cd8a6398cd9c028f0ee84ee64d129ac2e54f9a48b440eb"
+    },
+    "logs": "outputs/nz-au-phase2-returns-20261107",
+    "actual_runtime": "repo-local Python 3.15.2",
+    "extraction_and_reconciliation_status": 0,
+    "sampled_reconciliation_group_rss_mib": 1.9,
+    "visual_verification": [
+      "2025 cigarette PDF pages 1 and 2: domestic/duty-free, sticks, recommended price headers and totals",
+      "2025-listed RYO PDF page 1: internal 2024 label, domestic/duty-free tonnes, totals"
+    ],
+    "adjacent_year_comparison_disposition": "Downloaded adjacent 2024 Tobacco Return Annual Return PDF contains cigarette domestic/duty-free tables, not a comparable RYO return. Bytes differ from 2025-listed RYO PDF; comparison does not resolve its internal-year conflict. No blind relabelling or extrapolation.",
+    "existing_aggregate_value_receipt_reused": "integration/archive/workbook-reconciliation.json",
+    "maintained_code_changed": false,
+    "admitted": false,
+    "fit_executed": false,
+    "next_gate": "Source admission and year/product/duty-free/conversion/stock reconciliation before matching sales to resident consumption",
+    "context_failure_and_resolution": "Final context exceeded unchanged 100000-byte ceiling; explicitly removed superseded P2.1 feasibility and frozen P1 progress from active profile selection only, retained files/history and current gates. Eight-file profile rebuild passed."
+  },
+  "retail_statutory_continuation": {
+    "base_commit": "3494436339d6ff923aa499b48bd70bf26a99b213",
+    "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-policy",
+    "originals": [
+      {
+        "source": "repeal",
+        "file": "repeal-curl.body",
+        "sha256": "53e4810bd3361da89780432395081906897899529c9bd78390c8fcf207d450ab",
+        "bytes": 210404,
+        "method": "curl 8.7.1 exact official target, redirects, max 30s/10MB, no retry",
+        "header_file": "repeal-curl.headers",
+        "header_sha256": "5e7b08a2bb685365f9dd418eb6cdbf2054effbfed49177e2add0a3e2d2a72fca",
+        "admitted": false,
+        "requested_url": "https://www.legislation.govt.nz/act/public/2024/0006/latest/whole.html",
+        "readback_completed_by": "2026-11-07T03:09:51.608333+00:00",
+        "content_identity_verified": "Official title, version, operative provisions and history; not HTTP status alone"
+      },
+      {
+        "source": "principal",
+        "file": "principal-curl.body",
+        "sha256": "529a47630e1627c4b8e10dcad676d8832afb729b27a0336b13a6e056dacb3795",
+        "bytes": 1224116,
+        "method": "curl 8.7.1 exact official target, redirects, max 30s/10MB, no retry",
+        "header_file": "principal-curl.headers",
+        "header_sha256": "59851a340e5eebcc081a40f2fe1455b9d0fce9ce67428cf99f0b6bc0b60fe3de",
+        "admitted": false,
+        "requested_url": "https://www.legislation.govt.nz/act/public/1990/0108/latest/DLM223191.html",
+        "readback_completed_by": "2026-11-07T03:09:51.699260+00:00",
+        "content_identity_verified": "Official title, version, operative provisions and history; not HTTP status alone"
+      }
+    ],
+    "reviewed_reconciliation": {
+      "source_base_commit": "3494436339d6ff923aa499b48bd70bf26a99b213",
+      "evidence_policy_cutoff": "2026-11-06",
+      "principal_consolidation_as_at": "2026-07-10",
+      "official_latest_observed": true,
+      "repeal_assent": "2024-03-05",
+      "repeal_commencement": "2024-03-06",
+      "principal_source_sha256": "529a47630e1627c4b8e10dcad676d8832afb729b27a0336b13a6e056dacb3795",
+      "repeal_source_sha256": "53e4810bd3361da89780432395081906897899529c9bd78390c8fcf207d450ab",
+      "verified_source_ids": {
+        "retail_maximum": "LMS809014",
+        "age_restriction": "LMS428470",
+        "nicotine_limit": "LMS809297",
+        "annual_returns": "LMS428822",
+        "disposable_vaping": "LMS1448824"
+      },
+      "verified_provisions_sha256": "5183e454e45afd8d48ca296af2492529f4bf0264eb8e531b42819d4757cdf1cb",
+      "retail_scheme_disposition": "Repealed approved smoked-tobacco retailer maximum scheme; treat historical endgame retailer reductions as counterfactual, not active status quo",
+      "nicotine_limit_disposition": "Section 57I repealed; do not encode that removed provision as active smoked-tobacco nicotine reduction",
+      "age_rule_disposition": "Current section40 prohibits sales and delivery to under18s; full original2022 cohort mapping not reconstructed here",
+      "annual_return_reference_disposition": "Current Act section100; source Ministry legacy section35 label does not identify current reporting provision",
+      "disposable_vaping_context": "Section20FA prohibition inserted17June2025; do not generalise to a blanket ban on all vaping",
+      "limitations": [
+        "Official consolidation states law at its own date; latest route observed after policy cutoff, not a frozen 6November HTML capture",
+        "HTML includes dynamic Checking for alerts placeholder; no live alert state verified and no absence-of-future-amendments claim",
+        "Regulations, numerical excise, cessation eligibility/costs, enforcement and actual retailer counts remain unqualified",
+        "Statutory removal does not identify implementation, compliance, behavioural effects or a supported causal contrast",
+        "No source archive admission, numerical input adoption, empirical fit or holdout result",
+        "The extractor generation entry duplicates current section40 age context; do not use it as independent historical-cohort repeal proof. 2024Act sections28\u201329 remove named 2022Act amendments, but the complete original2022 cohort mapping remains unverified here."
+      ],
+      "admitted": false,
+      "fit_executed": false
+    },
+    "interpretation_review": {
+      "disposition": "Partial statutory-source verification only",
+      "cohort_mapping_scope": "The extractor generation entry duplicates current section40 age context; do not use it as independent historical-cohort repeal proof. 2024Act sections28\u201329 remove named 2022Act amendments, but the complete original2022 cohort mapping remains unverified here.",
+      "source_access_failure": "Initial urllib script exited without expected output or receipts; no successful acquisition credited. curl exact-target routes returned verified substantive originals. No general Python/network unavailability claim.",
+      "legal_version_limit": "Consolidation as at10July2026 on latest route observed7November2026; not a frozen6November capture and dynamic live-alert state not verified.",
+      "rights": "Exact source/archive rights and native destination admission remain separately qualified; official source access alone is not archive admission."
+    },
+    "external_receipts": {
+      "reconciliation.json": "436fd72f477f5eb96c429ae63884687a8a4db3357b72af986facec7f7f568526",
+      "verified-provisions.json": "5183e454e45afd8d48ca296af2492529f4bf0264eb8e531b42819d4757cdf1cb",
+      "interpretation-review.json": "06bf3225d07b5e145657a5e3a1c940d3ecac1adc965c05fa9833eaad6feb0276"
+    },
+    "external_extractors": {
+      "acquire.py": "2b7f780c6df551921bfe591654910423b388bb98a2ffe8adb3435974f02d151f",
+      "inspect.py": "80325c519efcba9a2500949bf400fde1b94d0b9f16fc552e2f3cb28ba408691f",
+      "reconcile.py": "6d990469cf3f27016379cec83063812e866474a2985d48f9d14c2ce59aaf9a73"
+    },
+    "actual_runtime": "repo-local Python3.15.2, curl8.7.1",
+    "guarded_inspection_status": 0,
+    "guarded_reconciliation_status": 0,
+    "sampled_inspection_group_rss_mib": 1.6,
+    "sampled_reconciliation_group_rss_mib": 0.4,
+    "logs": "outputs/nz-au-phase2-policy-20261107",
+    "maintained_source_changed": false,
+    "admitted": false,
+    "fit_executed": false
+  },
+  "retail_formula_continuation": {
+    "base_commit": "e57bc02d2a4fceadde9b54ac1778c39fca3015a6",
+    "external_intake": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-contrast",
+    "original": {
+      "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11672025/supplementaryFiles",
+      "observed_download_completed_by": "2026-11-07T03:14:36.098266+00:00",
+      "http_status": 200,
+      "content_type": "application/zip",
+      "zip_file": "supplement.response",
+      "zip_sha256": "9d245cd688c497c875cc67773a3295832c9e40be51f83bcb63f99b4dca82c28b",
+      "zip_bytes": 1515715,
+      "linked_member": "tc-33-e2-s001.pdf",
+      "pdf_file": "SHINE-supplement-de9b73c15df4a697f462257894dcefe4c80b05d5458e4c6b420c9d17bfce97ea.pdf",
+      "pdf_sha256": "de9b73c15df4a697f462257894dcefe4c80b05d5458e4c6b420c9d17bfce97ea",
+      "pdf_bytes": 1753777,
+      "rights_status": "Article CC BY-NC4.0; supplemental assets retain their own notices, no redistribution/admission asserted",
+      "admitted": false
+    },
+    "pinned_main_article_sha256": "b99ad040e7c84e0745d02082b5fdd21a8d288dd28b9c5ae994cf78fd337160f0",
+    "numerical_reconciliation": {
+      "python": "3.15.2",
+      "scipy": "1.18.1",
+      "beta_checks": [
+        {
+          "parameter": "retail",
+          "shape_a": "23.4",
+          "shape_b": "97.2",
+          "independent_decimal_mean": "0.1940298507462686567164179104477611940299",
+          "independent_decimal_sd": "0.03586137736103661037140063883332536800818",
+          "scipy_median": 0.19233494134056145,
+          "scipy_interval_95": [
+            0.12878861400362362,
+            0.2688729457578276
+          ]
+        },
+        {
+          "parameter": "main_denicotinisation",
+          "shape_a": "17.78",
+          "shape_b": "3.19",
+          "independent_decimal_mean": "0.8478779208392942298521697663328564616118",
+          "independent_decimal_sd": "0.07662099032287297542232829736001852014286",
+          "scipy_median": 0.8589990290520666,
+          "scipy_interval_95": [
+            0.6704206231990298,
+            0.9634359112793281
+          ]
+        },
+        {
+          "parameter": "supplement_denicotinisation",
+          "shape_a": "17.8",
+          "shape_b": "3.2",
+          "independent_decimal_mean": "0.8476190476190476190476190476190476190476",
+          "independent_decimal_sd": "0.07662215373103926143374513633852835645744",
+          "scipy_median": 0.8587164060955118,
+          "scipy_interval_95": [
+            0.6702140054956047,
+            0.9632543638811488
+          ]
+        }
+      ],
+      "supplement_formula_check": {
+        "source_pdf_page": 36,
+        "source_printed_rate": "0.313",
+        "annual_rate_from_source_0_848": "0.3139295444366331431661401217065878542588",
+        "five_cycle_remaining_at_printed_rate": "0.153032504292207",
+        "printed_one_minus_power_expression": "0.846967495707793",
+        "reported_survivorship": "0.153",
+        "disposition": "The complement expression gives reduction, not survivorship; retain source and quarantine printed equality. No silent equation correction/adoption."
+      },
+      "retail_semantic_check": {
+        "source_table": "Main Table2 retail row",
+        "source_example_bau_component_probability": "0.05",
+        "source_example_half_split_component_probability_at_beta_mean": "0.1421641791044776119402985074626865671642",
+        "aggregate_proxy_remaining_fraction_at_beta_mean": "0.8059701492537313432835820895522388059701",
+        "disposition": "Different quantities; existing finite-state equal-intensity stock multiplier is a declared adaptation, not replication of all SHINE transitions or empirical calibration."
+      },
+      "mean_conflict_disposition": "Both printed beta parameterizations imply a mean rounding to84.8%, not main Table2 stated84.4%. Supplement TableS22 also prints84.8%; retain original conflict without selecting a corrected value.",
+      "sd_disposition": "Elicitation-range approximate SD and fitted beta-shape SD are distinct summaries; do not impose both as exact constraints.",
+      "source_pdf_sha256": "de9b73c15df4a697f462257894dcefe4c80b05d5458e4c6b420c9d17bfce97ea",
+      "preserved_code_sha256": "248ec4ed391440ce8277f4e31dc30ace0586cc30ab1ac8ced524b1dae8558ff5",
+      "admitted": false,
+      "empirical_fit": false
+    },
+    "elicitation_reconciliation": {
+      "source_pdf_page": 34,
+      "source_table": "S22",
+      "expert_count": 6,
+      "independent_decimal_column_means_percent": [
+        "65.83333333333333333333333333",
+        "84.75",
+        "96.58333333333333333333333333"
+      ],
+      "rounded_means_match_printed": true,
+      "range_based_approx_sd_percent": "7.844387755102040816326530612",
+      "rounded_range_sd_matches_7_84": true,
+      "interpretation": "This is the approximate SD from averaged elicited95% endpoints, not the beta shape SD or a sampling SE from six independent behavioural observations.",
+      "admitted": false
+    },
+    "source_locations": [
+      "Main original XML Table2 retail and denicotinisation rows",
+      "Supplement PDF page34 AppendixD/TableS22",
+      "Supplement PDF page36 operationalisation paragraph"
+    ],
+    "source_pages_visually_verified": [
+      34,
+      36
+    ],
+    "external_receipts": {
+      "numerical-reconciliation.json": "b452bf81bc882f8851a7ff7ecd4927cec966410e007d82cf1d34f3157b608c71",
+      "elicitation-reconciliation.json": "ccef7e44b7b1f81c995fa39463ac633a301b9496c17d6ebe616807456454644a"
+    },
+    "external_extractors": {
+      "numerical-check.py": "f8a06881741fee557bf076c6aa25b6f9d4f77a8bc7d1d99998954fc687d996dc",
+      "elicitation-check.py": "ab8721b2fb5e3623ea7db70d7e422dd719bbf56230d15b1a42ac7dbabe8dda53"
+    },
+    "runtime": "actual repo-local Python3.15.2 / SciPy1.18.1",
+    "guarded_diagnostic_status": 0,
+    "sampled_group_rss_mib": 127.0,
+    "guarded_elicitation_status": 0,
+    "logs": "outputs/nz-au-phase2-contrast-20261107",
+    "new_quarantine": {
+      "id": "Q:SHINE2023:survivorship-complement",
+      "location": "Supplement PDF page36",
+      "disposition": "Printed equality confuses remaining fraction with one minus remaining fraction. No silent repair or claim about original executable code."
+    },
+    "existing_mean_quarantine": "Q:SHINE2023:denicotinisation-effect retained; supplement and beta shapes support84.8%, but main Table2 prints84.4% and no authoritative correction/code reconciliation was obtained",
+    "finite_reference_preserved": {
+      "source_code_sha256": "248ec4ed391440ce8277f4e31dc30ace0586cc30ab1ac8ced524b1dae8558ff5",
+      "identical_to_tested_source_commit": "a818f28860196e61661fdb2b685320699c892ad2",
+      "tests_reused": "P2.2 fullNox suite and unchanged29-table numerical replay; no new empirical validation implied"
+    },
+    "maintained_code_changed": false,
+    "admitted": false,
+    "empirical_fit": false
+  },
+  "candidate_matching_continuation": {
+    "base_commit": "d72af89c17372a5dd9c204c60f0233258e648c42",
+    "reconciler": "scripts/reconcile_empirical_candidates.py",
+    "reconciler_sha256": "8d89bc9ee7ed54ccff7d2e75bf1b52caf3cd15f3e3e29aa1a0f1ffc329dbbe1c",
+    "actual_inputs": "/Users/doughnut/Documents/tobac-evidence-intake-20261107-p2-matching/inputs.json",
+    "input_config_sha256": "a1a2f46408733a66c6ea29db5ee4ca495f1250f24fc1270c609ae069ca8ed9ff",
+    "original_source_sha256": {
+      "nzhs": "6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915",
+      "methods": "b938a5bd2959468a5da5be1d7d56539f215d1c2a0589753bd8410c7a22cd210b",
+      "price": "62071f35b5e4c70fdf84c2733a084c26282d67f8199bbc2c2fe39e183e40a1ce",
+      "population": "ead0b26b9528878a8f529bd357fe8b42e7137bf94b4fad343183b2f1760717d2",
+      "trade_imports": "60f2ca85ec066b882f22f696542a77b7e7a027dbd7311cf15ac1992a0a0a1c8b",
+      "trade_exports": "6ed343007998899a10992567c2ccc765bd1aba5162c7181ebbb3d4dca1f97705"
+    },
+    "actual_report": "outputs/nz-au-phase2-matching-20261107/actual-v3.json",
+    "actual_report_sha256": "0a1f9945daa1ace08271c71918e821a8303170a5800224c7ece69322048ebacc",
+    "actual_repeated_output_byte_identical": true,
+    "actual_scope": {
+      "geography": "NZ_national",
+      "population": "NZHS_adults_15plus",
+      "start": "2024-07-09",
+      "end": "2025-07-20",
+      "unit": "percent_adults_15plus"
+    },
+    "candidate_summary": {
+      "survey_label_rows": 8,
+      "price_overlap_quarters": [
+        "2024Q3",
+        "2024Q4",
+        "2025Q1",
+        "2025Q2",
+        "2025Q3"
+      ],
+      "nominal_erp_quarters": [
+        "2024Q3",
+        "2024Q4",
+        "2025Q1",
+        "2025Q2"
+      ],
+      "erp_mean_diagnostic": "4338100",
+      "erp_replaces_survey_benchmark": false,
+      "trade_overlap_months": {
+        "imports": [],
+        "exports": []
+      },
+      "calendar_release_overlap": [
+        2024,
+        2025
+      ],
+      "joined_observations": 0
+    },
+    "actual_runtime": "repo-local Python3.15.2, Polars2.1.0",
+    "verification": {
+      "focused_tests": 87,
+      "final_full_nox_passed": 1299,
+      "capability_skips": 22,
+      "coverage_percent_src_only": 92,
+      "full_test_log": "outputs/nz-au-phase2-matching-20261107/full-nox-final.log",
+      "full_test_junit": "outputs/nz-au-phase2-matching-20261107/final-full-junit.xml",
+      "full_test_sampled_group_rss_mib": 755.7,
+      "strict_whole_source_typing_errors": 0,
+      "strict_whole_source_typing_warnings": 0,
+      "typing_sampled_group_rss_mib": 834.4,
+      "ruff_check_format": "passed",
+      "reused_unchanged_numerical_reference": "P2.2 a818f28, unchanged src/data/config/lock/workflow comparison; no new numerical model replay claimed"
+    },
+    "retained_failed_full_run": {
+      "log": "outputs/nz-au-phase2-matching-20261107/full-nox-tests.log",
+      "junit": "outputs/nz-au-phase2-matching-20261107/first-full-junit.xml",
+      "passed": 1264,
+      "failed": 9,
+      "errors": 26,
+      "skipped": 22,
+      "diagnosis": "Shared-volume ENOSPC and an in-repo basetemp that invalidated external path cases; no source alteration to silence tests",
+      "corrected_failure_only_passed": 35,
+      "corrected_scratch": "Verified isolated external PortableSSD directory, removed only its own disposable fixture copies after terminal completion"
+    },
+    "admitted": false,
+    "fit_executed": false,
+    "next_evidence": "Acquire HS10 periods overlapping fieldwork and verify earlier complete scope windows, source admission and calibration/policy/holdout gates before an empirical join/fit"
+  },
+  "cessation_context_p2_17": {
+    "base_commit": "47dc6f96f1f713b93c422e25605a2865974f1cc6",
+    "external_intake": "/Volumes/PortableSSD/tobac-p2-cessation.GtD3YW",
+    "html_receipts_sha256": "186c234800ead8f0081d21a20aa67538e8a33c8553a92483018d299113d4a8e3",
+    "pdf_receipts_sha256": "6783516bd296133f4aea6dd551c41d3af85f7b79ab038af4e94ae972b21ad079",
+    "announcement": {
+      "url": "https://www.healthnz.govt.nz/news-and-updates/updated-stop-smoking-guidelines-and-learning-resources-now-available",
+      "file": "announcement.html",
+      "sha256": "186c7164d9ce305bc244805b589f1e4511248b83141ffba2721e64cdef4b82c0",
+      "displayed_publication_date": "2026-08-20"
+    },
+    "guidance_page": {
+      "url": "https://www.healthnz.govt.nz/health-professionals/guidance-standards/topic/new-zealand-guidelines-for-helping-people-to-stop-smoking",
+      "file": "guidance.html",
+      "sha256": "b9e1443a0123542f7d3782f6985ebcf76b5b495cd20948a4e94c34d59def8f95",
+      "disposition": "Publisher states 2026 edition replaces 2021"
+    },
+    "guideline": {
+      "url": "https://static.info.content.health.nz/docs/smoking/Helping%20People%20to%20Stop%20Smoking%20Guidelines.pdf",
+      "file": "guidelines.pdf",
+      "sha256": "a859dc297b3f8f31087a5292e1baa39eb89e180c5d848da658d907151f125c73",
+      "visually_verified_pdf_pages": [2, 82],
+      "publication_month": "2026-08",
+      "rights": "CC BY 4.0 as printed on page 2; attribution and change identification retained; no upload performed",
+      "disposition": "Selected policy context only; no effect or uptake adoption"
+    },
+    "summary": {
+      "url": "https://static.info.content.health.nz/docs/health-pros/topics/summary-new-zealand-guidelines-helping-people-stop-smoking.pdf",
+      "file": "summary.pdf",
+      "sha256": "12c3e1f756b6bbbb6cf60cedb728c2847bf6ade3c9364512a13cf7e205f26b2c",
+      "disposition": "Acquired and text inspected; no separate effect extraction or visual-content acceptance"
+    },
+    "varenicline_schedule": {
+      "url": "https://schedule.pharmac.govt.nz/ScheduleOnline.php?osq=Varenicline",
+      "file": "schedule.html",
+      "sha256": "cec34f3a2dab07217192819de34a29cb25c9cfca6ada3861b167641a50b65e65",
+      "displayed_edition": "November 2026",
+      "disposition": "Listed subsidies are not adopted as total programme or resource costs"
+    },
+    "funding_form": {
+      "url": "https://schedule.pharmac.govt.nz/latest/SA1845.pdf",
+      "final_url": "https://schedule.pharmac.govt.nz/2026/11/01/SA1845.pdf",
+      "file": "SA1845.pdf",
+      "sha256": "ba42291d5aa9c92be57b0f862c9adc7a1256e0be9f90d8051991c7bc4c5d9075",
+      "visually_verified_pdf_pages": [1],
+      "disposition": "Retain full initial AND/OR and renewal conditions; funding access does not establish actual uptake"
+    },
+    "nrt_provider_route": {
+      "url": "https://www.pharmac.govt.nz/medicine-funding-and-supply/medicine-supply-management/smoking-cessation-ordering-nicotine-replacement-therapy-nrt-products",
+      "file": "ordering.html",
+      "sha256": "e145a57f3efd8881edbb5b23b9ce659c6f83562fb70c23226e20721492ae86fd",
+      "disposition": "Authorised-provider ordering/payment context, not measured service coverage or cost"
+    },
+    "evidence_cutoff": "2026-11-06",
+    "retrieval_date_utc": "2026-11-07",
+    "all_cli_statuses": 200,
+    "separate_web_reader_healthnz_status": 403,
+    "logs": "outputs/nz-au-phase2-cessation-20261107",
+    "admitted": false,
+    "fit_executed": false
+  },
+  "pubmed_s4_p2_18": {
+    "base_commit": "1a96485519d94bed8e431e93edad24cf3ebb4c92",
+    "external_intake": "/Volumes/PortableSSD/tobac-p2-search-s4.x181rk",
+    "query": "(\"value of information\"[Title/Abstract] OR \"expected value of sample information\"[Title/Abstract]) AND (monitoring[Title/Abstract] OR \"public health\"[Title/Abstract])",
+    "publication_date_to": "2026/11/06",
+    "retrieval_date_utc": "2026-11-07",
+    "connector_page_offsets": [0, 25, 50, 75, 100],
+    "native_advertised_count": 101,
+    "connector_unique_articles": 100,
+    "connector_missing_pmid": "42659019",
+    "native_recovered_book_records": 1,
+    "native_missing_xml_sha256": "ff183c7b07dee85589ebe8808f2e9302ff1960b4e1e034f3b8963dabc00ed2e8",
+    "native_xml_import_warning": "PubMed input contained no PubmedArticle elements; zero records retained as failed route",
+    "supported_csv_import_records": 101,
+    "quarantined_records": 0,
+    "all_native_ids_reconciled": true,
+    "titles_and_abstracts_roundtrip": true,
+    "explicit_cutoff_same_id_set": true,
+    "terminal_receipt_sha256": "5b4bbf93281cf6e4d84656af3b752fee605d1ec6aebb565d3f150b2b320c19d3",
+    "cutoff_receipt_sha256": "5757a396519e1dfef5ae3a21edd0497bde2c997cda0dee75703a99f72b46ba35",
+    "transport_sha256": "bdd6c122b2b0fa822cc130aca9d18c1ecc46c3efb0e539304e2e906878d92f7d",
+    "import_sha256": "136c44c53286c8f32d6c5f13965722b09e92b1c3ae907f465bb0b775ae3a7016",
+    "logs": "outputs/nz-au-phase2-search-s4-20261107",
+    "screened_records": 0,
+    "study_inclusion_decisions": 0,
+    "admitted_observations": 0,
+    "fit_executed": false
+  },
+  "pubmed_s5_p2_19": {
+    "base_commit": "68ca7f28d4714ef4761df510ca47fc1e4f680a91",
+    "external_intake": "/Volumes/PortableSSD/tobac-p2-search-s5.jLmFdk",
+    "query": "tobacco[Title/Abstract] AND policy[Title/Abstract] AND (diffusion[Title/Abstract] OR competition[Title/Abstract] OR spillover[Title/Abstract] OR adoption[Title/Abstract])",
+    "publication_date_to": "2026/11/06",
+    "retrieval_date_utc": "2026-11-07",
+    "native_count": 475,
+    "connector_unique_articles": 474,
+    "connector_missing_pmid": "30212113",
+    "native_recovered_chapters": 1,
+    "native_missing_xml_sha256": "4ff94474f8cf9d255cafdb7193fba24bc5b471aec88f8f76ba3b9023ba9f5797",
+    "author_continuation_pmid": "27490260",
+    "authors_recovered": 395,
+    "terminal_receipt_sha256": "d31a90be52d93c66c0df5d4b5c90aac1c2c3f5d3f20badf80937069221a3569b",
+    "page_audit_sha256": "ddb29961176ace6c10dff8fcb9ebfaf743eb72ae11a70be33f056f70fea396d4",
+    "kind_correction_receipt_sha256": "463206745d5e8b4d757baec420cda30ad42096491a929c93569616f190fdd922",
+    "corrected_s4_set_sha256": "071aa91a49c3c0963fc6217795f89f7b9bd564b8082ba997dc762be879482482",
+    "corrected_s5_set_sha256": "f305118bbe5a866fe72de7aa59714094ccd5c772cee7b9cac72c73f7eda714b5",
+    "semantic_correction": "CSV defaults recovered book/chapter to journal_article; supported CSL imports preserve Other(book)/Other(chapter). Original imports retained, superseded for these kinds only.",
+    "screening_receipt_sha256": "f9e1e8dff15fce153d1c9107e42891a6ad3888187e82b61fc0ed90ecd2ace581",
+    "screening_operator": "Codex, single-owner AI-assisted title/abstract assessment",
+    "screened_records": 8,
+    "unscreened_records": 467,
+    "fulltext_retrieval_queue": 6,
+    "transferability_pending_fulltext": 2,
+    "fulltext_screened_records": 0,
+    "included_studies": 0,
+    "admitted_observations": 0,
+    "fit_executed": false,
+    "logs": "outputs/nz-au-phase2-search-s5-20261107"
+  },
+  "pubmed_s1_s3_p2_20": {
+    "base_commit": "66807d11e165ea8b453725fee74d6ee76a051342",
+    "external_intake": "/Volumes/PortableSSD/tobac-p2-search-s1s3.mV6Dai",
+    "publication_cutoff": "2026-11-06",
+    "retrieval_date_utc": "2026-11-07",
+    "s1_compilation_sha256": "b21063c015cdac15942be279c3f25225d92062c8eb42e599024b589ae7e83a3f",
+    "s3_compilation_sha256": "57b33abd719c700d20fde7b4a31d81ce46742d3b97f3ef70f72dad2c210aed50",
+    "cross_dialect_human_review_required": true,
+    "initial_census_sha256": "153161751570a374a341c60b56385528f8fde72ee96b655be22881211ddf1b2c",
+    "retrieval_receipt_sha256": "cb01e062e8f4534839a1056013857ba5d7851f167b21170242a37caef6eb9efe",
+    "import_receipt_sha256": "502af2993dc05435e35ed87dff8624bae47e7fdeb9e50e4bde626eda4c43e12d",
+    "membership_receipt_sha256": "1203e736e2d0c07bf9513c855fe914fa27562081f76c3a6e802af6e6c95f1b10",
+    "s1": {"unique_ids": 25067, "complete_date_leaves": 9, "repeated_leaf_occurrences": 695, "xml_batches": 126, "book_or_chapter_records": 41, "recovered_seed_pmids": ["36627213", "41661592"]},
+    "s3_v3": {"unique_ids": 3048, "complete_date_leaves": 1, "xml_batches": 16, "book_or_chapter_records": 35, "recovered_seed_pmids": ["36627213"]},
+    "first_failure": {"verified_records_before_failure": 9800, "http_status": 200, "embedded_upstream_status": 503, "terminal_exit": 1, "xml_sha256": "2735badd3243ff65bfee5d226a0a976ad8ee04ebc253be37261e7a1dd7ef5466"},
+    "exact_recovery": {"attempts": 1, "requested_ids": 200, "xml_sha256": "67becbc04b6c774d3511532e2c9bffacee63c1f3e137d4a90c77c460477aa0f3", "prior_complete_batches_reused": true},
+    "pubmed_query_occurrences": 28913,
+    "pubmed_unique_pmids": 27507,
+    "pubmed_pmids_in_multiple_families": 1388,
+    "screening_complete": false,
+    "new_screening_decisions": 0,
+    "admitted_observations": 0,
+    "fit_executed": false,
+    "logs": "outputs/nz-au-phase2-search-s1s3-20261107"
+  }
+}

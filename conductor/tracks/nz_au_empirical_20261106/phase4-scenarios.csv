@@ -1,0 +1,11 @@
+scenario_id,comparison,required_assumptions_or_inputs,reference_or_acceptance,execution_scope
+no_additional_study,Existing evidence and unchanged actions,No new likelihood; no study cost,Existing no-study/negative ENBS tests,software_reference_only
+no_adoption,All intended actions realise the declared reference,Uptake 0 fixture; same original payoff,Existing uptake kernel; information under that regime can vanish,synthetic_boundary_only
+full_adoption,Intention equals realised action,Uptake 1 fixture; identity kernel,Identity payoff equality; fixed-regime finite VOI bound,synthetic_boundary_only
+partial_state_dependent,State-dependent implementation and interaction,Empirical uptake not supplied; independent scenario labels,Stochastic kernels; signed interaction; four-cell identity,existing_synthetic_tests_only
+delay_and_horizon,Pilot and follow-up matched timing,Accepted delay and valuation horizon required,Static two_stage remaining fractions; no repeated population scaling,existing_synthetic_tests_only
+duplicate_correlated_reports,Same information released twice,Declared joint likelihood with matched marginals,No independent replication; no resale of conditioned data,existing_synthetic_tests_only
+shared_cost_portfolio,Sampling setup shared across reports,Direct/setup cost IDs and consistent value unit,Charge shared asset once; retain negative ENBS/no-study,existing_synthetic_tests_only
+adaptive_pilot,Stop or continue following pilot,Expected branch costs and matched fixed alternatives,Exact branch enumeration; adaptive versus best matched fixed,existing_synthetic_tests_only
+competition_and_spillover,Jurisdiction policies and product responses interact,Qualified Innovate; measured adoption network; causal identification,No-competition/zero-spillover oracle then held-out recovery,not_run_library_and_evidence_blocked
+nz_au_transport,Country-specific adoption and measurement models,Scope calibration policy dates denominators and covariance,Separate country likelihoods; no AU observations relabelled NZ,not_run_evidence_blocked

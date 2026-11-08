@@ -1,0 +1,108 @@
+{
+  "schema": "tobac.empirical-phase0-checkpoint.v1",
+  "scope": "Local software foundation; empirical Phase 1\u20136 and hosted/release acceptance remain distinct",
+  "frozen_source": "0c4fbc81ead0f17e6c2a1657f722d11c5097900f",
+  "integration_commit": "9cccc963214d77d68da932f17ecadbe53cb58581",
+  "tested_code_commit": "e88befcd0df14cd7136a78825e0869e69d265df0",
+  "native_admission_commit": "41b6e11ad70db763485a8226957228f49c1a17a6",
+  "checkpoint": "integration/archive/scientific-lineage-checkpoint_empirical_phase0_20261107.json",
+  "checkpoint_sha256": "da51894437913790092327e738a91ca2114c947e773b51a3e8956d810aeec8a4",
+  "capsule_sha256": "514fb85f6dec8e839ba9b886e00b5baa3345bab4c7b4be6fba9473fb5122f2a8",
+  "original_numerical_archive_sha256": "083fa07f838499b73f05f76205c7bf35b9f1263874da06cb565335ca2eaee5f9",
+  "fresh_native_profiles": 8,
+  "verified_outputs": 140,
+  "byte_identical_scientific_csvs": 82,
+  "scientific_input_digests_equal_accepted_baseline": true,
+  "native_and_attested_commands_pass": true,
+  "post_negative_objects_reopened": true,
+  "complete_nox_tests": {
+    "passed": 1286,
+    "skipped": 8,
+    "failed": 0,
+    "seconds": 70.33,
+    "coverage_percent": 92.02692208128397,
+    "sampled_peak_mib": 1089.0
+  },
+  "clustering_session": {
+    "passed": 49,
+    "synthetic_only": true
+  },
+  "clean_package": {
+    "passed": true,
+    "artifact_root": "outputs/engineering/clean-package/f719507fa9844c128031088707447032",
+    "scope": "wheel/sdist rebuild, isolated install/API and M1 CLI on the same production source; later fixture/document edits do not alter package code"
+  },
+  "dags": {
+    "m1": {
+      "actual_scheduler": true,
+      "fresh_execution": true,
+      "cached_noop": true,
+      "corrupt_copy_rejected_before_scheduling": true,
+      "original_outputs_unchanged": true,
+      "csvs": {
+        "consequence_ledgers.csv": "86f745b0367413a45cab55069a944e7d09f690ee26f34c060f3c1d383b7eabe5",
+        "scientific_learning.csv": "b8f3e5e85c60b0147e2d11d86624004c58822971a6f2fa7247b4ec79b9fed1e1",
+        "grouped_evppi.csv": "6a4458eea94f86eb2cf400a6ee052d1b363f02787b53bf9e943d5eeff435809f",
+        "study_value.csv": "84367c9c13f1c2fea820e18471121904770b74bea5762716944098fc62aeb2fa",
+        "same_data_robustness.csv": "cf0cbe859de6bb5c912aec7b79b238b023e887d84ec2c354abedd54b7782c0ec",
+        "conditional_price_frontier.csv": "8467c4beae0911f9d7e334a5140fa2561a8c1a853f1fade74f76d4ec7479e59f",
+        "decision_summary.csv": "b5cfb4c156a3f0d15a94597141538bdabe43191ce20e32a9564e8d29ffd90472",
+        "incremental_information.csv": "55f285027d4006d587206255063d295fbd62f0cd0b1400aabe4ae3cea68c8b52"
+      }
+    },
+    "synthetic_clustering": {
+      "actual_scheduler": true,
+      "fresh_execution": true,
+      "cached_noop": true,
+      "corrupt_copy_rejected_before_scheduling": true,
+      "original_outputs_unchanged": true,
+      "csvs": {
+        "stability.csv": "d2e45cb5c16e2761182495c4241fdc811917f32b48f79a2d265f9eaaf874ba31"
+      },
+      "nox_scheduler_scientific_outputs_identical": true
+    }
+  },
+  "lock_profiles_verified": 7,
+  "coordination_history": {
+    "archive": "docs/coordination/WORKSTREAM_SYNC_through_20261107.md",
+    "bytes": 94019,
+    "sha256": "78ee67f6d3d147aafb7c8e5d084fb17dece2849c00376bfb0dcf7ea8b23a7a2d",
+    "byte_identical": true,
+    "original_source_revision": "9cccc963214d77d68da932f17ecadbe53cb58581"
+  },
+  "retained_failures": [
+    "Initial source-document preparation rejection",
+    "Failed native generation before restoring frozen capture editions",
+    "Initial complete suite failed one fixture rule-isolation test; corrected exact-node rerun and final complete Nox tests passed"
+  ],
+  "reused_evidence": {
+    "source": "0c4fbc8",
+    "strict_whole_source": "nine policy tests; Ruff and 179-file formatting; BasedPyright zero errors/warnings",
+    "installed_audit": "96 registry dependencies with no known vulnerability; unpublished editable project explicitly unavailable to PyPI audit",
+    "offline_synthetic_reconstruction": "49 tests, actual Snakemake and byte-identical numerical files; implementation/source locks unchanged"
+  },
+  "security": {
+    "current_tree_and_outgoing_history": "passed",
+    "full_history_and_staged_secret_scans": "passed",
+    "actionlint": "passed",
+    "sampled_peak_mib": 245.2,
+    "first_complete_scan_peak_mib": 237.6
+  },
+  "publication": "not executed for this packet",
+  "scientific_qualification": false,
+  "evidence_root": "outputs/empirical-phase0-20261107",
+  "phase0_checkpoint": "complete locally",
+  "remaining": "Empirical Phase 1\u20136; current-packet hosted/guarded publication and receiving proof; H2 release/recovery after empirical prerequisites",
+  "owning_source_worktree_readback": {
+    "source_receiving_head": "c464a32af1b4c110054623bb66e7a6544021cee8",
+    "source_attested_runners": 8,
+    "actual_python": "3.15.2",
+    "private_native_bindings_copied": false,
+    "source_original_byte_readback": "performed in owning root native lane; source consumes signed digest-only proof",
+    "actual_m1_scheduler_execution": true,
+    "cached_noop": true,
+    "m1_csvs_equal_native": 8,
+    "source_clean": true,
+    "evidence_root": "outputs/integrator-phase0-c464a32"
+  }
+}

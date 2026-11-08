@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "scope": "dependency_and_api_discovery_not_installed_execution",
+  "sources": [
+    {
+      "source_id": "innovate:pyproject.toml",
+      "url": "https://api.github.com/repos/edithatogo/innovate/contents/pyproject.toml?ref=b9998addf32717438df92b23a306903e4db51620",
+      "revision": "b9998addf32717438df92b23a306903e4db51620",
+      "sha256": "4104e211423dad991c26f5b6b2c74fe83e465a9c2b7b31f29873ec38b6ab965b",
+      "bytes": 11951,
+      "filename": "INNOVATE-4104e211423dad991c26f5b6b2c74fe83e465a9c2b7b31f29873ec38b6ab965b.toml",
+      "retrieved_at": "2026-11-06T12:32:46.822387+00:00",
+      "status": "external_staging_readback_passed",
+      "archive_admitted": false,
+      "rights": "upstream_Apache_2_source_not_vendored"
+    },
+    {
+      "source_id": "innovate:src/innovate/diffuse/bass.py",
+      "url": "https://api.github.com/repos/edithatogo/innovate/contents/src/innovate/diffuse/bass.py?ref=b9998addf32717438df92b23a306903e4db51620",
+      "revision": "b9998addf32717438df92b23a306903e4db51620",
+      "sha256": "9842c21c4d4d85d7b65d1d5636f0688be52111eea2ba28a8ebaf45022265b93a",
+      "bytes": 14787,
+      "filename": "INNOVATE-9842c21c4d4d85d7b65d1d5636f0688be52111eea2ba28a8ebaf45022265b93a.py",
+      "retrieved_at": "2026-11-06T12:32:47.344055+00:00",
+      "status": "external_staging_readback_passed",
+      "archive_admitted": false,
+      "rights": "upstream_Apache_2_source_not_vendored"
+    },
+    {
+      "source_id": "innovate:src/innovate/dynamics/competition/lotka_volterra.py",
+      "url": "https://api.github.com/repos/edithatogo/innovate/contents/src/innovate/dynamics/competition/lotka_volterra.py?ref=b9998addf32717438df92b23a306903e4db51620",
+      "revision": "b9998addf32717438df92b23a306903e4db51620",
+      "sha256": "4953ea9210b17d69722bd8a2f0c62d9c72906c50a11e66664ffa01fafcd4604b",
+      "bytes": 4978,
+      "filename": "INNOVATE-4953ea9210b17d69722bd8a2f0c62d9c72906c50a11e66664ffa01fafcd4604b.py",
+      "retrieved_at": "2026-11-06T12:32:47.841414+00:00",
+      "status": "external_staging_readback_passed",
+      "archive_admitted": false,
+      "rights": "upstream_Apache_2_source_not_vendored"
+    },
+    {
+      "source_id": "innovate:pypi",
+      "url": "https://pypi.org/pypi/innovate/json",
+      "version": "0.6.0",
+      "sha256": "0c7883bd4a3891a936835e311871c2023b9e53864c719f15110dd6eb7164d8aa",
+      "bytes": 13855,
+      "filename": "INNOVATE_PYPI-0c7883bd4a3891a936835e311871c2023b9e53864c719f15110dd6eb7164d8aa.json",
+      "retrieved_at": "2026-11-06T12:32:47.968851+00:00",
+      "status": "external_staging_readback_passed",
+      "archive_admitted": false
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "profile": "nz-au-clustering",
+  "max_bytes": 100000,
+  "paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md",
+    "conductor/tracks/nz_au_empirical_20261106/index.md"
+  ],
+  "base_commit": null,
+  "required_paths": [
+    "AGENTS.md",
+    "docs/WORKSTREAM_SYNC.md"
+  ]
+}

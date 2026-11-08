@@ -1,0 +1,9 @@
+from types import TracebackType
+from typing import Self
+
+class threadpool_limits:  # noqa: N801 -- Exact upstream context-manager class name.
+    def __init__(self, *, limits: int) -> None: ...
+    def __enter__(self) -> Self: ...
+    def __exit__(
+        self, exc_type: type[BaseException] | None, exc: BaseException | None, traceback: TracebackType | None
+    ) -> None: ...
