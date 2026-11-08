@@ -77,6 +77,19 @@ packet. Paired predictions, incremental information and a decision ceiling
 remain open. The finite-state numerical reference stays separate. The
 non-identification finding is recorded locally. Publication remains open.
 
+### Publication readback — 8 November 2026
+
+[PR #146](https://github.com/edithatogo/tobac/pull/146) contains only this
+plan's source-admission review at `4802b45f48f66d9726143d5875e0a970f0bda0b8`.
+Local outgoing-history, secret scanning and Actionlint passed. GitHub main
+still reads `d735896360805e88155069e4f7bd32e4e7b689a2`. Its protection
+requires five hosted checks. The pinned security-tool download returned
+HTTP 504 again on the third attempt, and CodeQL's prior CLI download also
+returned HTTP 504. The required macOS test and quality jobs reached the
+security-tool download during artifact export and failed there. The PR remains
+blocked. Local merge `db954d5` retains the complete Phase 0 plan and both
+histories. The hosted gate does not change any scientific disposition below.
+
 - [ ] Integrate qualified NZ survey, lawful releases, prices, trade and denominators using Polars; add actual Australian wastewater programme design and measurement evidence.
 - [ ] Reconcile dates, products, catchments, lawful unrecorded flows, stock, shared sources and calibration. Assess identifiability before fitting; retain partial-identification bounds where needed.
 - [ ] Fit the supported baseline and one existing retail/cessation contrast; preserve original finite-state reference results separately.
