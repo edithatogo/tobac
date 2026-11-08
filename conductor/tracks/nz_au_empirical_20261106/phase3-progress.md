@@ -1776,3 +1776,11 @@ signed acceptance authenticates the combined inventory and its source pins.
 See integration/archive/scientific-lineage-checkpoint_empirical_p3_20261108.json.
 The native scope covers runner inputs, execution and output bytes. Empirical
 policy, health and equity acceptance retain the existing prerequisites.
+
+## Strict qualification repair — 8 November 2026
+
+PR #148's macOS qualification identified Ruff and basedpyright failures in
+the four changed P3 Python files. The repair preserves the scientific
+calculations and call signatures. Local strict_all passes. Native replay
+and signed readback reopen all eight runners and match all 82 scientific
+CSV outputs against the prior P3 checkpoint. Empirical admission remains open.
