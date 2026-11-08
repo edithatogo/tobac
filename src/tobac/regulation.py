@@ -10,11 +10,11 @@ from __future__ import annotations
 
 import json
 from dataclasses import replace
-from datetime import date
 from itertools import product
 from math import isfinite
 from pathlib import Path
 from typing import TYPE_CHECKING
+lazy from datetime import date
 
 import numpy as np
 lazy from numpy.typing import ArrayLike
@@ -212,10 +212,7 @@ def cohort_restriction_applies(
     if birth_date > observation_date:
         msg = "The person must be born by the observation date"
         raise ValueError(msg)
-    return (
-        observation_date >= commencement_date
-        and birth_date >= first_covered_birth_date
-    )
+    return observation_date >= commencement_date and birth_date >= first_covered_birth_date
 
 
 def cohort_initiation_response(
@@ -280,8 +277,7 @@ def expected_enforcement_seizures(
         msg = "Attempted units must be finite and nonnegative"
         raise ValueError(msg)
     if any(
-        not isfinite(value) or not 0 <= value <= 1
-        for value in (monitored_share, detection_given_monitoring)
+        not isfinite(value) or not 0 <= value <= 1 for value in (monitored_share, detection_given_monitoring)
     ):
         msg = "Monitoring and conditional detection must be probabilities"
         raise ValueError(msg)

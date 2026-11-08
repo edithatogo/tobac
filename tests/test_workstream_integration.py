@@ -24,20 +24,20 @@ from tobac.evidence import (
     state_identifiers,
 )
 from tobac.health import (
-    IllnessDeathHazards,
     ExposureInterval,
+    IllnessDeathHazards,
     advance_exposure_states,
     aggregate_qaly_gains,
     discounted_exposure_qalys,
+    discounted_illness_death_qalys,
     discounted_resource_cost,
     discounted_tax_transfer,
     equity_weighted_qaly_score,
     exposure_health_step,
     exposure_health_trajectory,
-    incremental_exposure_qalys,
-    discounted_illness_death_qalys,
     illness_death_interval,
     illness_death_trajectory,
+    incremental_exposure_qalys,
     incremental_qalys,
     mortality_trajectory,
     summarize_paired_draws,
@@ -280,9 +280,7 @@ def test_tax_transfer_cancels_without_erasing_resource_cost() -> None:
     years = (0.0, 1.0)
     discount = 0.10
     resource_cost = discounted_resource_cost((100.0, -55.0), years, discount)
-    government_receipts, payer_flow = discounted_tax_transfer(
-        (66.0, 22.0), years, discount
-    )
+    government_receipts, payer_flow = discounted_tax_transfer((66.0, 22.0), years, discount)
 
     assert resource_cost == pytest.approx(50.0)
     assert government_receipts == pytest.approx(86.0)
@@ -299,10 +297,13 @@ def test_excise_change_uses_scenario_taxable_releases() -> None:
         excise_receipts(-1.0, 2.5)
 
 
-@pytest.mark.parametrize(("pass_through", "expected_price", "expected_quantity"), [
-    (0.0, 10.0, 100.0),
-    (1.5, 20.0, 50.0),
-])
+@pytest.mark.parametrize(
+    ("pass_through", "expected_price", "expected_quantity"),
+    [
+        (0.0, 10.0, 100.0),
+        (1.5, 20.0, 50.0),
+    ],
+)
 def test_excise_price_response_supports_null_and_overshifting(
     pass_through: float, expected_price: float, expected_quantity: float
 ) -> None:
@@ -336,9 +337,7 @@ def test_exposure_transition_keeps_dual_users_and_relapse_in_the_partition() -> 
     result = advance_exposure_states(population, transitions)
     assert result == {"smoking": 65.0, "dual": 20.0, "former": 15.0}
     with pytest.raises(ValueError, match="sum to one"):
-        advance_exposure_states(
-            population, transitions | {"former": transitions["former"] | {"former": 0.0}}
-        )
+        advance_exposure_states(population, transitions | {"former": transitions["former"] | {"former": 0.0}})
 
 
 def test_exposure_health_step_switches_survivors_only() -> None:
@@ -353,9 +352,7 @@ def test_exposure_health_step_switches_survivors_only() -> None:
     )
     assert result.population == {"smoking": 0.0, "former": 60.0}
     assert result.deaths == (50.0,)
-    assert result.living_person_years == pytest.approx(
-        {"smoking": 50.0 / log(2), "former": 10.0}
-    )
+    assert result.living_person_years == pytest.approx({"smoking": 50.0 / log(2), "former": 10.0})
 
 
 def test_exposure_health_step_rejects_invalid_counts_before_mortality() -> None:
@@ -436,9 +433,7 @@ def test_paired_exposure_policy_reconciles_subgroup_and_population_qalys() -> No
     subgroup_sizes = {"a": 20, "b": 80}
     population = {"a": {"smoking": 1.0, "former": 0.0}, "b": {"smoking": 0.25, "former": 0.75}}
     per_entrant = {
-        group: incremental_exposure_qalys(
-            entrants, action, reference, utilities, (0.0, 1.0), 0.0
-        )
+        group: incremental_exposure_qalys(entrants, action, reference, utilities, (0.0, 1.0), 0.0)
         for group, entrants in population.items()
     }
     gains = aggregate_qaly_gains(per_entrant, subgroup_sizes, 100)
@@ -456,9 +451,7 @@ def test_cohort_restriction_checks_birth_and_commencement_boundaries() -> None:
         "first_covered_birth_date": date(2010, 1, 1),
         "commencement_date": date(2030, 1, 1),
     }
-    assert cohort_restriction_applies(
-        birth_date=date(2010, 1, 1), observation_date=date(2030, 1, 1), **rule
-    )
+    assert cohort_restriction_applies(birth_date=date(2010, 1, 1), observation_date=date(2030, 1, 1), **rule)
     assert not cohort_restriction_applies(
         birth_date=date(2009, 12, 31), observation_date=date(2030, 1, 1), **rule
     )
@@ -493,16 +486,12 @@ def test_cohort_initiation_response_retains_prevented_initiators() -> None:
 
 def test_nicotine_standard_changes_nicotine_signal_at_fixed_consumption() -> None:
     exposure = Exposure(100.0, 0.2, 0.0, 0.0, nicotine_dose_mg_per_cigarette=1.0)
-    scenario = nicotine_standard_exposure(
-        exposure, compliant_consumption_share=0.5, compliant_dose_mg=0.2
-    )
+    scenario = nicotine_standard_exposure(exposure, compliant_consumption_share=0.5, compliant_dose_mg=0.2)
     catchment = Catchment(1_000.0, 100_000.0)
     parameters = BiomarkerParameters()
     baseline = predict_signals(exposure, catchment, parameters)
     outcome = predict_signals(scenario, catchment, parameters)
-    assert outcome["nicotine_equivalent_ng_l"] == pytest.approx(
-        0.6 * baseline["nicotine_equivalent_ng_l"]
-    )
+    assert outcome["nicotine_equivalent_ng_l"] == pytest.approx(0.6 * baseline["nicotine_equivalent_ng_l"])
     assert {k: v for k, v in outcome.items() if k != "nicotine_equivalent_ng_l"} == {
         k: v for k, v in baseline.items() if k != "nicotine_equivalent_ng_l"
     }
@@ -519,9 +508,7 @@ def test_seizures_can_rise_when_attempted_supply_falls() -> None:
 
 
 def test_paired_draw_summary_removes_shared_variation_before_estimating_error() -> None:
-    summary = summarize_paired_draws(
-        {"a": 1.0, "b": 103.0}, {"b": 100.0, "a": 0.0}
-    )
+    summary = summarize_paired_draws({"a": 1.0, "b": 103.0}, {"b": 100.0, "a": 0.0})
     assert summary == pytest.approx((2, 2.0, 1.0))
     with pytest.raises(ValueError, match="matched"):
         summarize_paired_draws({"a": 1.0, "b": 2.0}, {"a": 1.0, "c": 2.0})
@@ -584,8 +571,7 @@ def test_illness_death_matches_integrated_incidence_with_unequal_hazards():
 
     def surviving_incident_cases(time):
         return quad(
-            lambda diagnosis_time: 18 * exp(-0.19 * diagnosis_time)
-            * exp(-0.29 * (time - diagnosis_time)),
+            lambda diagnosis_time: 18 * exp(-0.19 * diagnosis_time) * exp(-0.29 * (time - diagnosis_time)),
             0,
             time,
         )[0]
@@ -598,27 +584,26 @@ def test_illness_death_matches_integrated_incidence_with_unequal_hazards():
     assert result.surviving_first_diagnoses == pytest.approx(surviving_incident_cases(3))
     assert result.diagnosed_person_years == pytest.approx(expected_diagnosed_years)
     assert (
-        result.disease_free + result.diagnosed
-        + result.deaths_before_diagnosis + result.deaths_after_diagnosis
+        result.disease_free
+        + result.diagnosed
+        + result.deaths_before_diagnosis
+        + result.deaths_after_diagnosis
     ) == pytest.approx(150)
 
 
 def test_excise_price_response_applies_cumulative_share_of_eventual_pass_through():
-    parameters = dict(
-        baseline_price=10,
-        baseline_consumption=100,
-        duty_change_per_unit=2,
-        pass_through=1.5,
-        own_price_elasticity=-1,
-    )
+    parameters = {
+        "baseline_price": 10,
+        "baseline_consumption": 100,
+        "duty_change_per_unit": 2,
+        "pass_through": 1.5,
+        "own_price_elasticity": -1,
+    }
     assert excise_price_response(**parameters, realised_share=0) == (10, 100)
-    assert excise_price_response(**parameters, realised_share=0.5) == pytest.approx(
-        (11.5, 1000 / 11.5)
-    )
+    assert excise_price_response(**parameters, realised_share=0.5) == pytest.approx((11.5, 1000 / 11.5))
     assert excise_price_response(**parameters) == pytest.approx((13, 1000 / 13))
     with pytest.raises(ValueError, match="Realised pass-through share"):
         excise_price_response(**parameters, realised_share=1.01)
-
 
 
 def test_illness_death_qalys_value_each_living_state_at_the_supplied_year():
@@ -630,10 +615,9 @@ def test_illness_death_qalys_value_each_living_state_at_the_supplied_year():
         diagnosed_death_hazard=0,
         years=2,
     )
-    assert discounted_illness_death_qalys(
-        (result,), ((0.8, -0.1),), (1,), 0.05
-    ) == pytest.approx((240 * 0.8 - 60 * 0.1) / 1.05)
-
+    assert discounted_illness_death_qalys((result,), ((0.8, -0.1),), (1,), 0.05) == pytest.approx(
+        (240 * 0.8 - 60 * 0.1) / 1.05
+    )
 
 
 def test_illness_death_trajectory_carries_diagnoses_into_later_mortality():

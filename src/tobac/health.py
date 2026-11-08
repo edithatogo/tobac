@@ -1,10 +1,9 @@
 """Health accounting primitives for conditional policy scenarios."""
 
-from collections.abc import Mapping
 from math import exp, expm1, fsum, isclose, isfinite, log1p
 from statistics import stdev
 from typing import NamedTuple
-
+lazy from collections.abc import Mapping
 
 from scipy.linalg import expm
 
@@ -22,7 +21,7 @@ class IllnessDeathInterval(NamedTuple):
     surviving_first_diagnoses: float
 
 
-def illness_death_interval(
+def illness_death_interval(  # noqa: PLR0913 -- Keep each initial count, hazard and interval explicit.
     *,
     disease_free: float,
     diagnosed: float,
@@ -33,11 +32,16 @@ def illness_death_interval(
 ) -> IllnessDeathInterval:
     """Advance living cohorts under constant annual hazards and no recovery."""
     inputs = (
-        disease_free, diagnosed, incidence_hazard, disease_free_death_hazard,
-        diagnosed_death_hazard, years,
+        disease_free,
+        diagnosed,
+        incidence_hazard,
+        disease_free_death_hazard,
+        diagnosed_death_hazard,
+        years,
     )
     if any(not isfinite(value) or value < 0 for value in inputs):
-        raise ValueError("Counts, hazards and years must be finite and nonnegative")
+        msg = "Counts, hazards and years must be finite and nonnegative"
+        raise ValueError(msg)
 
     # The last two rows integrate occupancy alongside the living states.
     generator = [
@@ -77,7 +81,7 @@ def illness_death_trajectory(
     intervals: tuple[IllnessDeathHazards, ...],
 ) -> tuple[IllnessDeathInterval, ...]:
     """Carry the surviving cohort through successive hazard intervals."""
-    trajectory = []
+    trajectory: list[IllnessDeathInterval] = []
     for hazards in intervals:
         step = illness_death_interval(
             disease_free=disease_free,
@@ -100,9 +104,7 @@ class MortalityInterval(NamedTuple):
     death_probabilities: tuple[float, ...]
 
 
-def competing_mortality(
-    annual_hazards: tuple[float, ...], years: float
-) -> MortalityInterval:
+def competing_mortality(annual_hazards: tuple[float, ...], years: float) -> MortalityInterval:
     """Integrate constant, mutually exclusive cause hazards over an interval.
 
     Hazards are per living person-year. The caller supplies the cause
@@ -143,7 +145,7 @@ def mortality_trajectory(
 
     cause_count = len(intervals[0][0])
     entering = 1.0
-    trajectory = []
+    trajectory: list[MortalityInterval] = []
     for hazards, years in intervals:
         if len(hazards) != cause_count:
             msg = "Cause count must be consistent across intervals"
@@ -176,10 +178,8 @@ def discounted_qalys(
         msg = "Discount rate must be finite and nonnegative"
         raise ValueError(msg)
 
-    terms = []
-    for interval, utility, year in zip(
-        trajectory, utilities, valuation_years, strict=True
-    ):
+    terms: list[float] = []
+    for interval, utility, year in zip(trajectory, utilities, valuation_years, strict=True):
         if not isfinite(utility):
             msg = "Utility must be finite"
             raise ValueError(msg)
@@ -201,10 +201,8 @@ def discounted_illness_death_qalys(
     annual_discount_rate: float,
 ) -> float:
     """Value cohort person-time with disease-free and diagnosed utility pairs."""
-    flows = []
-    for interval, (free_utility, diagnosed_utility) in zip(
-        trajectory, utilities, strict=True
-    ):
+    flows: list[float] = []
+    for interval, (free_utility, diagnosed_utility) in zip(trajectory, utilities, strict=True):
         person_years = (interval.disease_free_person_years, interval.diagnosed_person_years)
         if any(not isfinite(years) or years < 0 for years in person_years):
             msg = "Living person-years must be finite and nonnegative"
@@ -213,7 +211,7 @@ def discounted_illness_death_qalys(
     return _discounted_flows(tuple(flows), valuation_years, annual_discount_rate)
 
 
-def incremental_qalys(
+def incremental_qalys(  # noqa: PLR0913, PLR0917 -- Preserve the paired scenario call signature.
     action_hazards: tuple[tuple[float, ...], ...],
     reference_hazards: tuple[tuple[float, ...], ...],
     interval_years: tuple[float, ...],
@@ -224,14 +222,10 @@ def incremental_qalys(
 ) -> float:
     """Compare QALYs per entrant on a shared interval and valuation grid."""
     action = mortality_trajectory(tuple(zip(action_hazards, interval_years, strict=True)))
-    reference = mortality_trajectory(
-        tuple(zip(reference_hazards, interval_years, strict=True))
-    )
+    reference = mortality_trajectory(tuple(zip(reference_hazards, interval_years, strict=True)))
     return discounted_qalys(
         action, action_utilities, valuation_years, annual_discount_rate
-    ) - discounted_qalys(
-        reference, reference_utilities, valuation_years, annual_discount_rate
-    )
+    ) - discounted_qalys(reference, reference_utilities, valuation_years, annual_discount_rate)
 
 
 class PopulationQalyGain(NamedTuple):
@@ -250,9 +244,7 @@ def aggregate_qaly_gains(
     if per_entrant.keys() != subgroup_sizes.keys():
         msg = "Every population subgroup must have a QALY gain"
         raise ValueError(msg)
-    if any(size < 0 for size in subgroup_sizes.values()) or (
-        sum(subgroup_sizes.values()) != population_size
-    ):
+    if any(size < 0 for size in subgroup_sizes.values()) or (sum(subgroup_sizes.values()) != population_size):
         msg = "Subgroup sizes must reconcile to the entrant population"
         raise ValueError(msg)
     if any(not isfinite(gain) for gain in per_entrant.values()):
@@ -300,7 +292,7 @@ def _discounted_flows(
         raise ValueError(msg)
 
     log_discount = log1p(annual_discount_rate)
-    terms = []
+    terms: list[float] = []
     for value, year in zip(flows, valuation_years, strict=True):
         if not isfinite(value):
             msg = "Discounted flow inputs must be finite"
@@ -323,9 +315,7 @@ def discounted_tax_transfer(
     one currency and price year. This identity leaves incidence and
     any collection costs to the caller.
     """
-    receipts = discounted_resource_cost(
-        incremental_revenue, valuation_years, annual_discount_rate
-    )
+    receipts = discounted_resource_cost(incremental_revenue, valuation_years, annual_discount_rate)
     return receipts, -receipts
 
 
@@ -361,9 +351,7 @@ def advance_exposure_states(
             msg = "Each origin's transition probabilities must sum to one"
             raise ValueError(msg)
     return {
-        destination: fsum(
-            count * transitions[origin][destination] for origin, count in population.items()
-        )
+        destination: fsum(count * transitions[origin][destination] for origin, count in population.items())
         for destination in states
     }
 
@@ -392,21 +380,12 @@ def exposure_health_step(
         msg = "Cause count must be consistent across exposure states"
         raise ValueError(msg)
 
-    outcomes = {
-        state: competing_mortality(hazards, years)
-        for state, hazards in annual_hazards.items()
-    }
+    outcomes = {state: competing_mortality(hazards, years) for state, hazards in annual_hazards.items()}
     survivors = {state: count * outcomes[state].survival for state, count in population.items()}
     ending = advance_exposure_states(survivors, survivor_transitions)
-    person_time = {
-        state: count * outcomes[state].living_person_years
-        for state, count in population.items()
-    }
+    person_time = {state: count * outcomes[state].living_person_years for state, count in population.items()}
     deaths = tuple(
-        fsum(
-            count * outcomes[state].death_probabilities[cause]
-            for state, count in population.items()
-        )
+        fsum(count * outcomes[state].death_probabilities[cause] for state, count in population.items())
         for cause in range(cause_count)
     )
     return ExposureHealthStep(ending, person_time, deaths)
@@ -427,7 +406,7 @@ def exposure_health_trajectory(
     """Propagate only survivors across a closed cohort's exposure schedule."""
     _validate_state_population(initial_population)
     population = initial_population
-    results = []
+    results: list[ExposureHealthStep] = []
     for interval in intervals:
         result = exposure_health_step(
             population, interval.annual_hazards, interval.survivor_transitions, interval.years
@@ -447,7 +426,7 @@ def discounted_exposure_qalys(
     annual_discount_rate: float,
 ) -> float:
     """Value total living person-time using the utility of each origin state."""
-    interval_values = []
+    interval_values: list[float] = []
     for step, state_utilities in zip(trajectory, utilities, strict=True):
         if step.living_person_years.keys() != state_utilities.keys():
             msg = "Utility inputs must match the origin states in each interval"
@@ -462,7 +441,7 @@ def discounted_exposure_qalys(
     return _discounted_flows(tuple(interval_values), valuation_years, annual_discount_rate)
 
 
-def incremental_exposure_qalys(
+def incremental_exposure_qalys(  # noqa: PLR0913, PLR0917 -- Preserve the paired scenario call signature.
     initial_population: Mapping[str, float],
     action: tuple[ExposureInterval, ...],
     reference: tuple[ExposureInterval, ...],
@@ -502,7 +481,8 @@ def summarize_paired_draws(
     reference: Mapping[str, float],
 ) -> PairedDrawSummary:
     """Summarize equally weighted independent draws matched by shared draw ID."""
-    if action.keys() != reference.keys() or len(action) < 2:
+    minimum_draws = 2
+    if action.keys() != reference.keys() or len(action) < minimum_draws:
         msg = "At least two matched action and reference draw IDs are required"
         raise ValueError(msg)
     differences = tuple(action[key] - reference[key] for key in sorted(action))

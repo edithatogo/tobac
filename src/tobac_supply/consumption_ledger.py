@@ -296,13 +296,11 @@ def excise_receipts(taxable_releases: float, duty_per_unit: float) -> float:
     currency per matching release unit. Refunds and collection costs
     belong in separate accounts.
     """
-    receipts = _scalar(taxable_releases, "Taxable releases") * _scalar(
-        duty_per_unit, "Duty per release unit"
-    )
+    receipts = _scalar(taxable_releases, "Taxable releases") * _scalar(duty_per_unit, "Duty per release unit")
     return _scalar(receipts, "Gross excise receipts")
 
 
-def excise_price_response(
+def excise_price_response(  # noqa: PLR0913 -- Preserve explicit price, duty and elasticity keywords.
     *,
     baseline_price: float,
     baseline_consumption: float,
@@ -315,8 +313,8 @@ def excise_price_response(
     """Return scenario retail price and consumption for a single product.
 
     Prices and duty changes use the same currency and product unit.
-    Each cross-price entry is the other product’s baseline price,
-    scenario price and elasticity of this product’s demand. The
+    Each cross-price entry is the other product's baseline price,
+    scenario price and elasticity of this product's demand. The
     consumption output carries the baseline consumption unit.
     The realised share is the cumulative fraction of eventual
     pass-through reached by the scenario date.
@@ -335,10 +333,10 @@ def excise_price_response(
         msg = "Baseline and scenario retail prices must be finite and positive"
         raise ValueError(msg)
     log_changes = [elasticity * (math.log(scenario_price) - math.log(price))]
-    for baseline, scenario, cross_elasticity in cross_price_changes:
-        baseline = _scalar(baseline, "Other product baseline price")
-        scenario = _scalar(scenario, "Other product scenario price")
-        cross_elasticity = _scalar(cross_elasticity, "Cross-price elasticity", -math.inf)
+    for raw_baseline, raw_scenario, raw_elasticity in cross_price_changes:
+        baseline = _scalar(raw_baseline, "Other product baseline price")
+        scenario = _scalar(raw_scenario, "Other product scenario price")
+        cross_elasticity = _scalar(raw_elasticity, "Cross-price elasticity", -math.inf)
         if baseline <= 0 or scenario <= 0:
             msg = "Other product retail prices must be positive"
             raise ValueError(msg)
