@@ -1,5 +1,13 @@
 # Current workstream coordination
 
+## Manuscript guidance checkpoint — 8 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` updated manuscript guidance in
+`/Users/doughnut/Documents/tobac` on local `main`. Scope is `AGENTS.md`,
+`.agents/skills/research-change/SKILL.md` and `conductor/workflow.md`.
+At the next owned paper revision, apply the checkpoint in that paper's existing
+records. This guidance checkpoint carries no native operation or publication.
+
 ## Active integration — 7 November 2026
 
 Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` is the sole shared-main/runtime

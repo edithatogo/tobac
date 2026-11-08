@@ -24,6 +24,11 @@ current visibility unchanged unless the owner explicitly requests a visibility c
 
 ## Engineering and context
 
+For research papers, follow the [manuscript checkpoint](conductor/workflow.md#manuscript-checkpoint).
+Keep a versioned contract and claim register for each paper in its existing manuscript
+records. Apply the checkpoint before revising claims or preparing a submission package.
+Preserve the existing scientific protocol, publication boundary and paper ownership.
+
 Prefer existing maintained libraries after checking equivalent semantics; keep a small
 independent numerical reference oracle. Follow `docs/engineering/LIBRARY_REUSE_REVIEW.md` and
 `READINESS.md` in that folder. Use Nox sessions rather than another task runner; the reference
