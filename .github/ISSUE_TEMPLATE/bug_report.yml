@@ -1,0 +1,28 @@
+name: Reproducible software defect
+description: Report a software defect with a minimal, non-sensitive example.
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Keep credentials, private documents, native bindings and real personal data out of
+        issues. Use SECURITY.md for vulnerabilities. Empirical uncertainty is not by itself
+        a software defect; distinguish observations, assumptions and expected behavior.
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Revision, environment and reproduction
+      description: Include commit, actual Python/platform, exact command and a synthetic example.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+      description: Include the redacted error and whether the problem repeats.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Verification scope
+      description: State checks actually executed, failures and unavailable dependencies or data.

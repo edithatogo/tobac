@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "scope": "methods_and_reuse_discovery_not_empirical_inputs",
+  "sources": [
+    {
+      "source_id": "PHARMAC_DISCOUNT",
+      "url": "https://www.pharmac.govt.nz/medicine-funding-and-supply/the-funding-process/policies-manuals-and-processes/economic-analysis/prescription-for-pharmacoeconomic-analysis-methods-for-cost-utility-analysis/8-discounting",
+      "retrieved_at": "2026-11-06T12:26:16.571767+00:00",
+      "rights": "not_assessed",
+      "archive_admitted": false,
+      "resolved_url": "https://www.pharmac.govt.nz/medicine-funding-and-supply/the-funding-process/policies-manuals-and-processes/economic-analysis/prescription-for-pharmacoeconomic-analysis-methods-for-cost-utility-analysis/8-discounting",
+      "status": "external_staging_readback_passed",
+      "sha256": "247407855be0deb30f937b1274728bc8d528f209cc1ca8ee484dc01fd60603ba",
+      "bytes": 554719,
+      "filename": "PHARMAC_DISCOUNT-247407855be0deb30f937b1274728bc8d528f209cc1ca8ee484dc01fd60603ba.html"
+    },
+    {
+      "source_id": "VOP_PYPROJECT",
+      "url": "https://api.github.com/repos/edithatogo/vop_poc_nz/contents/pyproject.toml?ref=ad84d3090a2d97f2805a86e94a7b9614a3d1ab14",
+      "revision": "ad84d3090a2d97f2805a86e94a7b9614a3d1ab14",
+      "sha256": "6a060b85616b84cdea614000e92a83edbcc5074bba81cc50384382b62716bff7",
+      "bytes": 5247,
+      "filename": "VOP_PYPROJECT-6a060b85616b84cdea614000e92a83edbcc5074bba81cc50384382b62716bff7.toml",
+      "retrieved_at": "2026-11-06T12:26:21.742351+00:00",
+      "archive_admitted": false,
+      "status": "external_staging_readback_passed",
+      "rights": "upstream_Apache_2_metadata_only_not_vendored"
+    },
+    {
+      "source_id": "PHARMAC_HEALTH",
+      "url": "https://www.pharmac.govt.nz/medicine-funding-and-supply/the-funding-process/policies-manuals-and-processes/economic-analysis/prescription-for-pharmacoeconomic-analysis-methods-for-cost-utility-analysis/6-estimating-health-benefits",
+      "retrieved_at": "2026-11-06T12:28:23.807537+00:00",
+      "rights": "not_assessed",
+      "archive_admitted": false,
+      "resolved_url": "https://www.pharmac.govt.nz/medicine-funding-and-supply/the-funding-process/policies-manuals-and-processes/economic-analysis/prescription-for-pharmacoeconomic-analysis-methods-for-cost-utility-analysis/6-estimating-health-benefits",
+      "status": "external_staging_readback_passed",
+      "sha256": "3bbdb58a260905b13969c1bef9391a936b021f83866e1b8bcd8cfa4a5c011056",
+      "bytes": 569509,
+      "filename": "PHARMAC_HEALTH-3bbdb58a260905b13969c1bef9391a936b021f83866e1b8bcd8cfa4a5c011056.html"
+    },
+    {
+      "source_id": "ISPOR_DCEA_DATA",
+      "url": "https://www.ispor.org/publications/journals/value-in-health/abstract/Volume-26--Issue-1/Distributional-Cost-Effectiveness-Analysis-of-Health-Technologies--Data-Requirements-and-Challenges",
+      "retrieved_at": "2026-11-06T12:28:26.027941+00:00",
+      "rights": "not_assessed",
+      "archive_admitted": false,
+      "resolved_url": "https://www.ispor.org/publications/journals/value-in-health/abstract/Volume-26--Issue-1/Distributional-Cost-Effectiveness-Analysis-of-Health-Technologies--Data-Requirements-and-Challenges",
+      "status": "external_staging_readback_passed",
+      "sha256": "138fe6cd87f05705f0b67532d0a550bf1548be3aed0b4e8ee1423f04a4ef0767",
+      "bytes": 79208,
+      "filename": "ISPOR_DCEA_DATA-138fe6cd87f05705f0b67532d0a550bf1548be3aed0b4e8ee1423f04a4ef0767.html"
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 # Engineering execution, dependency locks and qualification
 
-Python 3.15.2 is the accepted reference runtime at main `d735896` (8 November 2026).
-The [native dependency-admission receipt](../../integration/archive/dependency-admission_20261106.json)
-and [hosted engineering run](https://github.com/edithatogo/tobac/actions/runs/42424926119)
-record the relevant native and hosted evidence. Earlier receipts below remain
-bound to their original runtimes. A changed scientific inventory still requires
-fresh native qualification; the dynamic/data candidate is not covered by the
-accepted baseline's results.
+Current source requires Python 3.15.2. The latest accepted main checkpoint is
+`d0e832b`, with its native acceptance recorded in
+[integration/archive/scientific-lineage-checkpoint_empirical_p3_strict_20261108.json](../../integration/archive/scientific-lineage-checkpoint_empirical_p3_strict_20261108.json).
+That receipt does not cover the dynamic/data candidate in PR #147. Its added
+scientific inventory requires fresh native qualification and a renewed signed
+capsule before the gated scientific workloads can run. Historical receipts below
+retain their original source/runtime scope.
 
 ## Current development platform
 
@@ -159,8 +159,9 @@ against all eight accepted attempts and their original/input/output bytes.
 Hosted verification authenticates that proof and rehashes every selected
 scientific input in the checkout against the accepted native objects.
 
-The verifier uses isolated Python 3.15.1 with site initialization disabled and the
-maintained OpenSSH signature implementation. Actual interpreter, base interpreter
+The November 2 verifier used isolated Python 3.15.1 with site initialization disabled and the
+maintained OpenSSH signature implementation. Current source selects 3.15.2; the current
+renewal and candidate gap are identified at the top of this document. Actual interpreter, base interpreter
 and OpenSSH binary hashes are qualified on macOS, Ubuntu and Windows. The signed
 proof binds the accepted checkpoint, input contract, native references, source
 inventory, dependency locks, Nox entry points, workflow configuration and verifier
@@ -273,8 +274,8 @@ when installing; the helper does not replace those checks. Newly introduced incl
 be added to the explicit reviewed input profile rather than silently escaping the receipt.
 
 ```sh
-python scripts/lock_receipt.py verify --profile runtime --path engineering/requirements.lock
-python scripts/lock_receipt.py verify --profile audit --path engineering/audit.lock
+.venv/bin/python scripts/lock_receipt.py verify --profile runtime --path engineering/requirements.lock
+.venv/bin/python scripts/lock_receipt.py verify --profile audit --path engineering/audit.lock
 ```
 
 Source changes, altered/missing receipts, changed lock bytes, undeclared includes and symlinked
@@ -285,10 +286,17 @@ sessions explicitly report bootstrap mode. A partial/stale lock never permits fa
 ## 3. Execution and reports
 
 ```sh
-uvx --python 3.15.2 --from nox==2026.10.20 nox -s tests quality
-uvx --python 3.15.2 --from nox==2026.10.20 nox -s reproduce
-uvx --python 3.15.2 --from nox==2026.10.20 nox -s strict_all security
+.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- \
+  .venv-clustering-bootstrap3152/bin/python -m nox -s tests quality --force-python .venv/bin/python
+.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- \
+  .venv-clustering-bootstrap3152/bin/python -m nox -s reproduce --force-python .venv/bin/python
+.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- \
+  .venv-clustering-bootstrap3152/bin/python -m nox -s strict_all security --force-python .venv/bin/python
 ```
+
+Create that hash-locked frontend using the [workflow bootstrap](../../workflow/README.md).
+Scientific sessions require the native prerequisites above. These commands are current
+execution instructions, not evidence that every current-head gate has passed.
 
 Tests require a genuine Hypothesis import before collection; absent property-test tooling
 cannot silently produce a passing engineering qualification. Every scientific runner retains

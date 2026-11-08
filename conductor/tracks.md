@@ -171,7 +171,7 @@ platform-specific release or research jobs.
 
 ## NZ/AU repository and analytical hardening — 6 November 2026
 
-- [ ] [Companion hardening track](tracks/nz_au_hardening_20261106/index.md).
+- [~] [Companion hardening track](tracks/nz_au_hardening_20261106/index.md).
   Baseline/incremental work accompanies empirical implementation; release acceptance follows it.
 
 ## Dynamic decisions and evidence strengthening — 8 November 2026

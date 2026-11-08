@@ -12,9 +12,9 @@ It creates no new target observation, likelihood or preference estimate.
 - citation_edges.csv:three selected native reference edges; not a complete citation graph.
 - reporting_crosswalk.csv:all 34 topic IDs displayed in CHEERS-VOI Table 2, plus base 28 correspondence and truthful status/reasons.
 
-[Manuscript](../../../docs/research/M2_MANUSCRIPT.md),
-[supplement](../../../docs/research/M2_MANUSCRIPT_SUPPLEMENT.md),
-[readiness matrix](../../../docs/research/M2_SUBMISSION_READINESS.md).
+Manuscript (local-only authoring document: `docs/research/M2_MANUSCRIPT.md`),
+supplement (local-only authoring document: `docs/research/M2_MANUSCRIPT_SUPPLEMENT.md`),
+readiness matrix (local-only authoring document: `docs/research/M2_SUBMISSION_READINESS.md`).
 Raw originals/search bodies remain in ignored local outputs. Hashes/catalogues do
 not prove possession of those bytes in a fresh checkout. No missing capture date
 is invented; failed/stub routes remain ineligible for original-text claims.

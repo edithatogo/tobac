@@ -463,7 +463,6 @@ Receiving-main workflows require their own terminal readback; none is inferred
 from the PR checks. The remaining operation is this Conductor publication's
 protected merge and final receiving workflow verification.
 
-
 ## PR #140 publication verified — 6 November 2026
 
 PR #140 head `3021e559aac83e2cab2f47c3a2ea937da78d6552` completed its
@@ -556,6 +555,48 @@ lane's latest real-scheduler handoff and wider Phase 0/research work retain thei
 own scope; no unrelated worktree or native binding was changed.
 
 
+## Integrated Phase 0 checkpoint — 7 November 2026
+
+Phase 0 is complete locally for the frozen 0c4fbc8 packet integrated at 9cccc96.
+Fresh native acceptance is committed at 41b6e11; qualified production source is
+e88befc. Receipt: integration/archive/empirical-phase0-checkpoint_20261107.json.
+All seven source-bound lock receipts verify on actual repo-local Python 3.15.2.
+Eight fresh profiles reopen 140 outputs and original-source links; all 82 scientific
+CSVs are byte-identical to accepted originals. Normal native and attested commands
+pass after negative testing; prior attempts, source objects and the numerical oracle
+are preserved. Real M1 and synthetic Snakemake execution, cache/no-op and corrupt-copy
+rejection pass, preserving completed outputs. M1's eight CSVs also equal native bytes.
+
+The final Nox tests session passes 1286 tests / 8 capability skips, with 92% full-source
+coverage and 1089.0 MiB sampled peak. Clean wheel/sdist rebuild, isolated installs/API
+and Unicode-path M1 CLI pass; clustering's 49 tests and packet verification pass.
+Unchanged source-owner strict typing/static, offline reconstruction, Voiage/advisory
+and installed-audit receipts are reused at their actual scope. The audit covers 96
+registry dependencies; the unpublished editable project is explicitly unavailable to
+PyPI auditing. This is not a first-party security or empirical validity certificate.
+Final tree/outgoing-history publication checks, full-history/staged secret scanning
+and Actionlint pass (245.2 MiB sampled peak); focused changed-file lint/format pass.
+
+Two integration corrections retain their failed evidence. H1 navigation edits touched
+capture-pinned README/index bytes; frozen editions are now restored exactly, with
+current navigation maintained separately in docs/engineering/SOURCE_MAP_NAVIGATION.md.
+The first complete suite exposed a fixture that accidentally extracted the optional
+clustering rule along with M1. The fixture now isolates the maintained M1 rule;
+all protection assertions remain. Its exact failed-node rerun and final complete Nox
+tests pass. No signature, source receipt, oracle or tolerance was bypassed.
+
+Closed coordination history is preserved byte-for-byte (94019 bytes, SHA256
+78ee67f6d3d147aafb7c8e5d084fb17dece2849c00376bfb0dcf7ea8b23a7a2d) under
+docs/coordination/WORKSTREAM_SYNC_through_20261107.md. Current context stays compact.
+The root integrator will fast-forward the idle clean empirical checkout to the final
+public checkpoint and read back attested admission, retaining its private environment
+and bindings. Native original-byte verification remains with the root owner.
+
+Phase 1–6 empirical acceptance, the changed packet's hosted/guarded publication and
+receiving checks, and H2's empirical/release/recovery prerequisites remain open.
+The accepted main 8b48e22 closure is retained. No new empirical data, current national
+posterior, field efficacy or funding recommendation is established by this checkpoint.
+
 ## Dynamic model and evidence candidate — 8 November 2026
 
 [Draft PR #147](https://github.com/edithatogo/tobac/pull/147) introduces a small
@@ -577,3 +618,14 @@ before execution; native verification and a renewed signed capsule remain open.
 Linux audit, advisory typing and Scorecard passed for that commit. The PR remains
 draft, with original NZ source capture, survey covariance/state crosswalks,
 catchment flow/population/calibration and causal policy parameters unresolved.
+
+## PR #147 test-failure follow-up
+
+The dynamic candidate integrates main `d0e832b` / PR #148 and corrects absent-output
+export handling in nine workflows, preserving the internal release's unconditional
+evidence contract. Original scientific CI failures are native inventory rejection
+before workload execution; qualified native renewal remains required for the added
+model/data and changed orchestration. The companion
+[verification record](tracks/dynamic_frontier_20261108/plan.md#ci-repair-follow-up)
+separates passing static/publication checks, diagnostic tests and unavailable
+native acceptance. No scientific gate, source receipt or test is weakened.

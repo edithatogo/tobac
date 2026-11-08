@@ -45,10 +45,10 @@ jobs:
           NOX_PYTHON: ${{ matrix.python }}
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python "$NOX_PYTHON" --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s tests
       - name: Install checksum-pinned export scanner
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh
       - name: Stage inspected public artifact files
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-1
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: success()
@@ -79,10 +79,10 @@ jobs:
       - run: mkdir -p outputs/engineering
       - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/nox-report.json -s quality
       - name: Install checksum-pinned export scanner
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh
       - name: Stage inspected public artifact files
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-2
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: success()
@@ -115,10 +115,10 @@ jobs:
       - name: Run qualification enforcement tests
         run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/qualification-nox.json -s qualification
       - name: Install checksum-pinned export scanner
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh
       - name: Stage inspected public artifact files
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-qualification
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: success()
@@ -151,10 +151,10 @@ jobs:
       - name: Qualify the macOS engineering and numerical checks
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/macos-nox-report.json -s quality strict_all reproduce package security mutation clean_package recovery
       - name: Install checksum-pinned export scanner
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh
       - name: Stage inspected public artifact files
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-3
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: success()
@@ -211,10 +211,10 @@ jobs:
         with:
           subject-path: outputs/release-candidate/*
       - name: Install checksum-pinned export scanner
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh
       - name: Stage inspected public artifact files
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-4
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
@@ -255,10 +255,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh api --method POST "repos/$GITHUB_REPOSITORY/dependency-graph/snapshots" --input outputs/dependency-graph/snapshot.json > outputs/dependency-graph/response.json
       - name: Install checksum-pinned export scanner
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh
       - name: Stage inspected public artifact files
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-5
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: success()
@@ -290,10 +290,10 @@ jobs:
       - name: Qualify exact unpatched candidate without producer promotion
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 1500 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/voiage-candidate-nox.json -s voiage_polars_candidate voiage_published
       - name: Install checksum-pinned export scanner
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh
       - name: Stage inspected public artifact files
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/engineering-6
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: success()

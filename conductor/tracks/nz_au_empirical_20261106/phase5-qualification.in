@@ -1,0 +1,3 @@
+# Opt-in qualification candidate only; compile alongside engineering/requirements.lock.
+scikit-learn==1.9.1
+scipy-stubs==1.18.1.1

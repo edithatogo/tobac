@@ -165,3 +165,54 @@ supply interfaces are unchanged. Remaining work is F01 original capture/admissio
 F02 native/full-suite qualification and F03–F05 systematic review, empirical
 calibration and decision research. No merge or current NZ policy recommendation
 has been made.
+
+## CI repair follow-up
+
+The review of PR head `0af81f14a8c9fe9f8aacef272f7a2bf272ae3c20`
+confirmed that all eight failed workflow families stop at signed scientific
+inventory validation before their scientific workloads. The additional export
+errors arise because `always()` invokes the exporter even when preflight failed
+before any output directory was created. This is distinct from a numerical test
+failure. Representative original logs are the
+[engineering job](https://github.com/edithatogo/tobac/actions/runs/42476815311/job/128719903935)
+and [verifier job](https://github.com/edithatogo/tobac/actions/runs/42476815294/job/128719903992).
+
+The repair integrates current main `d0e832b02b8b9e6791903f987245e8f6332e943a`,
+including PR #148's Phase 3 acceptance and expanded health/equity interfaces.
+Documentation and publication inventories preserve both sets of additions.
+The upstream native checkpoint remains unchanged; it does not attest this PR's
+new `dynamic.py` or comparison pack.
+
+Nineteen scanner/export pairs across nine workflows now use
+`!cancelled() && (success() || hashFiles('SOURCE/**') != '')`, with the actual
+source directory substituted per workflow. After a successful workload, exports
+still run and fail if their required directory is missing. After a failed
+workload, an absent/empty source skips export; existing diagnostics still pass
+through the unchanged publication inspector and secret scanner. Upload conditions
+and fail-closed scanners remain unchanged. The internal release workflow retains
+its separate unconditional evidence-export contract.
+
+Local validation uses actual Python 3.15.2. Nox `strict_all` passed after the
+integration using the verified audit lock: nine policy tests, lint/format of 186
+Python files, and strict typing with zero errors/warnings. Nox `publication`
+passed with the verified runtime lock and 21 publication tests. Actionlint accepts
+the changed conditions. These are software/publication checks, not native renewal.
+
+The first direct full test collection reported 1376 passed, 20 skipped and 22
+failed. Nineteen failures were hosted-lineage authentication: this execution
+host's OpenSSH binary is not one of the pinned qualified verifier binaries.
+One dependency-snapshot failure correctly detected that integrated locks were not
+yet committed at HEAD. Two workflow-contract failures identified the special
+internal-release export requirement; that workflow change was removed, preserving
+the original contract. The committed-tree rerun and hosted repair readback are
+recorded below when available. No failing test is removed, skipped or relaxed.
+
+The normal Nox `tests` entry point still fails before suite execution with
+`Missing TOBAC_LINEAGE_PYTHON`. This environment has no configured native producer
+wheel or accepted-attempt estate. It also lacks the owner-held signing setup.
+To close the remaining gate, the existing native environment must re-execute and
+verify the final candidate's eight runners and original/input/output closure,
+produce the corresponding native acceptance and regenerate the signed hosted
+capsule. The new scientific inventory and changed workflow pins both need that
+renewal. Existing receipts, signing authority, runtime profiles and gate code
+are retained; changing a digest or suppressing the check is not acceptance.

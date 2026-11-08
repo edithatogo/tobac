@@ -50,10 +50,10 @@ jobs:
       - run: OPENBLAS_NUM_THREADS=1 .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m tobac.m2 --out outputs/ci_m2 --grid-check
       - run: python scripts/verify.py outputs/ci_m2
       - name: Install checksum-pinned export scanner
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh
       - name: Stage inspected public artifact files
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/ci-1
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: success()
@@ -86,10 +86,10 @@ jobs:
           chmod +x /tmp/sourceright
       - run: PATH="/tmp:$PATH" .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python scripts/qualify_integrations.py --mode sourceright --all-csl --out outputs/sourceright.json
       - name: Install checksum-pinned export scanner
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh
       - name: Stage inspected public artifact files
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/ci-2
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: success()
@@ -118,10 +118,10 @@ jobs:
       - name: Build and qualify pinned Voiage Python 3.15.2 compatibility candidate
         run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox -s voiage
       - name: Install checksum-pinned export scanner
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh
       - name: Stage inspected public artifact files
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/ci-3
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: success()

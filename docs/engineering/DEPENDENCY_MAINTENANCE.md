@@ -7,18 +7,19 @@ configuration exists; Dependabot security-update PRs were already disabled when
 this policy was inspected. This change does not introduce a second updater.
 
 `renovate.json` explicitly enables Renovate and its dashboard. Default manager
-patterns remain intact; additional pip-requirements patterns cover the four
-`engineering/{requirements,audit,voiage,ecosystem}.in` profiles. Compatibility-
+patterns remain intact; additional pip-requirements patterns cover the four reference
+`engineering/{requirements,audit,voiage,ecosystem}.in` profiles plus the optional
+analytics, advisory and clustering profiles and declared tool requirement sources. Compatibility-
 sensitive evidence-transport dependencies share a qualification group. Generated
 hash locks are resolver artifacts, not manifests to edit by string replacement.
 
-After dependency-input changes, generate and inspect all four locks with
+After dependency-input changes, generate and inspect all affected locks with
 `scripts/lock_receipt.py`, retaining the paired receipts. The manual
 `Reviewable dependency-lock candidates` workflow now creates runtime, audit,
-Voiage and ecosystem candidates and asserts its actual Python 3.15.1 interpreter.
+Voiage and ecosystem candidates and asserts its actual Python 3.15.2 interpreter.
 It verifies source receipts, hash-installs each profile in a fresh Linux environment,
 runs dependency checks and exports inspected review bundles. Downloaded lock/receipt
-hashes and installed inventories pass in [DXP4](../../integration/manual_workflows_20261103.json).
+historical Python 3.15.1 hashes and installed inventories pass in [DXP4](../../integration/manual_workflows_20261103.json).
 It has read-only repository permissions and does not push, adopt or merge candidates.
 Linux execution does not qualify fresh candidates on macOS/Windows.
 
@@ -26,7 +27,9 @@ Automatic merging remains off. Scientific updates, native producer compatibility
 release-age controls, full-SHA Action pins, all existing tests, strict typing,
 reproduction, security audits and artifact provenance remain review/verification
 requirements. Runtime candidates advertised in the dashboard are not qualified
-runtime upgrades. The current qualified Python remains 3.15.1.
+runtime upgrades. The source now requires Python 3.15.2; older qualification receipts remain historical.
+The current local lock/helper changes require renewed native admission; see the
+[Phase 6 evidence](../../conductor/tracks/nz_au_empirical_20261106/phase6-progress.md).
 
 ## GitHub graph parsing is separate from update PRs
 
@@ -72,7 +75,7 @@ Latest observed root-inclusive managed run 40446023419 failed on historical head
 root job is claimed. Upstream PR #16525 is open and out of draft; pinned upstream
 main lists through 3.14.9, while the unmerged candidate lists 3.15.2. A source
 change or candidate version is not proof of deployed service support or project
-qualification on a different patch. The project stays on qualified Python 3.15.1.
+qualification on a different patch. That observation concerns the historical 3.15.1 closure, not the current source runtime.
 
 [Recheck evidence](../../integration/ecosystem/managed-parser-recheck_20261028.json)
 records exact revisions, hashes and closure conditions. The track remains externally
@@ -100,9 +103,14 @@ review must record which uses the inventory meets and any unmet graph requiremen
 
 `engineering/analytics.in` has an opt-in `analytics` profile in lock_receipt.py. Its
 source-bound lock is separate from the four reference profiles and binds only its closed
-input file; no reference profile hashes or environments are replaced. Generate with
-`python scripts/lock_receipt.py generate --profile analytics --path outputs/my-candidate`.
-Verify with `python scripts/lock_receipt.py verify --profile analytics --path engineering/analytics.lock`.
-Use the explicitly selected repo-local Python 3.15.1 and bounded runner as usual.
+input file; no reference profile hashes or environments are replaced. Use the explicitly
+selected repo-local Python 3.15.2 and a new candidate directory:
+
+```sh
+.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- \
+  .venv/bin/python scripts/lock_receipt.py generate --profile analytics --path outputs/my-candidate
+.venv/bin/python scripts/lock_receipt.py verify --profile analytics --path engineering/analytics.lock
+```
+
 Renovate's requirements matcher includes analytics.in. Universal resolution is not
 cross-platform execution proof; the current installation/DAG checks apply to Apple Silicon.

@@ -1,6 +1,13 @@
-# Status — 6 November 2026
+# Status — 7 November 2026
 
-Phase 0 remains in progress. The empirical branch has integrated receiving main's qualified
+P6.1 current software candidate supersedes the earlier P5 typing limitation below:
+the expanded audit profile passes full source strict typing without suppressions.
+Locked offline Nox reconstruction and actual Snakemake synthetic execution/cache and
+corrupt-copy rejection pass. Hypothesis, Ty and Typer have qualified newer candidates.
+See phase6-progress.md for exact scope and remaining native/release/empirical gates;
+the historical profile counts and admission receipts below retain their original epochs.
+
+Historical candidate status: Phase 0 was in progress. The empirical branch has integrated receiving main's qualified
 Python 3.15.2 baseline and the owner's integrated native renewal. The atomic M1 directory
 correction is included in the signed DAG identity. Original numerical references and prior
 execution receipts remain intact; the progress history is preserved.
@@ -37,6 +44,36 @@ scope; live acquisition is open. Innovate's pandas dependency conflict is explic
 archives, data rights, extraction verification, actual calibration and later scientific
 validation remain subsequent-phase requirements.
 
+Decision/evidence preparation and the first empirical feasibility analysis are now recorded
+in phase1-progress.md and phase2-feasibility.md. The Searchright S1 syntax/translation passes;
+live search remains unqualified. Three original AU publisher files are externally staged
+with hashes; rights/archive admission remain open. The Polars audit verifies the existing
+12-row historical bridge and 16-row tonne series against their consumer inventory. AU
+programme design is documented, including a quarantined narrative/table denominator conflict.
+No current NZ illicit estimate, policy fit, empirical EVSI/ENBS or Phase 2 completion is claimed.
+
+Phase 3 readiness preparation is recorded in phase3-progress.md: 11 module contracts,
+health/cost/equity formula requirements and library reuse disposition. The actual shared
+evidence handoff remains blocked for 28 rows; no health/equity engine or empirical PSA
+was added. vop_poc_nz's current Python/pandas/Polars/Arrow requirements conflict with this
+baseline. Phase 3's original acceptance tasks remain open.
+
+Phase 4 preparation is in phase4-progress.md: ten scenario contracts, explicit reuse of
+M3 implementation/portfolio/staged methods and actual Voiage 3.1.0 finite qualification.
+Innovate source/API discovery confirms the pandas/pandasdmx incompatibility remains.
+No empirical uptake, competition, spillover, monetary EVSI/ENBS or whole-phase completion
+is claimed; existing source, inputs and native owners are preserved.
+
+Phase 5 now has an executable synthetic sensitivity/clustering qualification candidate;
+see phase5-progress.md. It uses a new isolated hash-installed scikit-learn 1.9.1 environment,
+training-only discovery/scaling/bootstrap, supervised frozen-label prediction and explicit
+no-use/overlap/holdout guards. Core profiles and empirical inputs are unchanged. This does
+not establish empirical clusters, country transport or whole-phase completion.
+
+P5.1 final local candidate checks: 107 tests, Ruff/format, isolated strict typing and all
+44-package advisory coverage pass. The existing audit profile still fails seven warnings
+for absent optional runtime modules; reference integration/release is not accepted.
+
 
 ## Integrated dependency admission
 
@@ -48,3 +85,8 @@ output directory. Candidate hosted qualification/publication is complete through
 413f7b2: twelve PR workflows and ten receiving-main workflows passed. The separate
 Conductor publication at 2e6534d is not substituted for these new results.
 The latest real-scheduler context/DAG terminal handoff remains with the originating lane.
+
+
+## Current checkpoint
+
+Phase 0 is now complete locally. The final acceptance receipt and corrected integration history are in phase0-progress.md and integration/archive/empirical-phase0-checkpoint_20261107.json. Current source-native and clean-package gates pass; earlier stale-pin failures are retained history. Empirical Phase 1–6 and current-packet hosted/publication/H2 acceptance remain open.
