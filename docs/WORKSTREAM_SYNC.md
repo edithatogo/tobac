@@ -227,3 +227,13 @@ Five PubMed families index 27,507 exact PMIDs. Cross-dialect human-review flags,
 Europe PMC S1 discrepancy and all remaining systematic screening/source/fit
 gates are retained. Original payloads and import/ID artifacts remain external.
 Same ownership; no native/other-owner mutation, source admission or message.
+
+## P3 native integration — 8 November 2026
+
+Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` owns the combined source and
+native acceptance in the standard Git worktree
+`/Volumes/PortableSSD/tobac-p3-integration.UHWFlw/checkout` on
+`codex/p3-native-integration-20261108`. Source packet b03b70d applies to
+local main 34b629e. The next gate is the full locked suite on the signed
+candidate before a guarded local fast-forward. The P3 source checkout and
+its native originals retain their owners.

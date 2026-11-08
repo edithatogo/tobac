@@ -1767,3 +1767,12 @@ This covers the selected evidence, retail, sensitivity, regulation,
 source handoff, publication boundary and workstream integration
 tests. The earlier complete-suite lineage rejection remains a
 separate gate.
+
+## Combined native admission — 8 November 2026
+
+The combined P3 source at cebc786 reopened all eight runner attempts and
+matched all 82 scientific CSVs across 140 outputs against Phase 0. The new
+signed acceptance authenticates the combined inventory and its source pins.
+See integration/archive/scientific-lineage-checkpoint_empirical_p3_20261108.json.
+The native scope covers runner inputs, execution and output bytes. Empirical
+policy, health and equity acceptance retain the existing prerequisites.

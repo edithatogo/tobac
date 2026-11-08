@@ -17,10 +17,10 @@ import scientific_lineage as scientific  # noqa: E402 -- Select checkout sources
 from source_handoff import checked, read  # noqa: E402 -- Select checkout sources inside the isolated verifier.
 lazy from extract_moh_lineage import NativeStore  # noqa: E402 -- Producer protocol from this checkout.
 
-CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_empirical_phase0_20261107.json"
-CHECKPOINT_SHA = "da51894437913790092327e738a91ca2114c947e773b51a3e8956d810aeec8a4"
+CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_empirical_p3_20261108.json"
+CHECKPOINT_SHA = "78de5c10aead91e928ca4b5072f2c31ef185ea1a1c78e7af68347ba8219ab6d8"
 INTERFACE_SHA = "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373"
-INVENTORY_SHA = "0a5e9a8bddbca94f0b19fdea4d90211469c0485efbb44c9a1d0d051661b0c891"
+INVENTORY_SHA = "7b0ed712d245c89450e12351fa176a94bbed4b8c5ce6dfbaabeeec1651af4c74"
 
 
 def inventory_identity(root: Path) -> str:
