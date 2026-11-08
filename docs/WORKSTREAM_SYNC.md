@@ -7,6 +7,9 @@ Chat `01a19a6e-2e47-7b10-8a35-4e7d7fedb965` updated manuscript guidance in
 `.agents/skills/research-change/SKILL.md` and `conductor/workflow.md`.
 At the next owned paper revision, apply the checkpoint in that paper's existing
 records. This guidance checkpoint carries no native operation or publication.
+The same checkout owns the DOCX delivery gate in those three guidance files.
+At the next paper delivery, validate every final variant and retain its receipt
+with the owning paper records.
 
 ## Active integration — 7 November 2026
 

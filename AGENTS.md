@@ -28,6 +28,8 @@ For research papers, follow the [manuscript checkpoint](conductor/workflow.md#ma
 Keep a versioned contract and claim register for each paper in its existing manuscript
 records. Apply the checkpoint before revising claims or preparing a submission package.
 Preserve the existing scientific protocol, publication boundary and paper ownership.
+Apply the manuscript checkpoint's DOCX validation gate before delivering any paper or
+supplement DOCX.
 
 Prefer existing maintained libraries after checking equivalent semantics; keep a small
 independent numerical reference oracle. Follow `docs/engineering/LIBRARY_REUSE_REVIEW.md` and

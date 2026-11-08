@@ -47,6 +47,27 @@ accepted, conditional or no-go outcome. Keep pending roles explicit and attribut
 only to actual reviewers. A successful run or checklist is software or reporting evidence.
 Author approval and authority to submit or publish are separate decisions.
 
+### DOCX delivery validation
+
+List every final paper and supplement DOCX in the delivery inventory, including clean,
+tracked, review and journal variants. After the last save, metadata scrub, Word Compare
+or packaging edit, follow the maintained
+[manuscript DOCX delivery skill](/Users/doughnut/.codex/skills/manuscript-docx-delivery/SKILL.md).
+Run its read-only validator with a new receipt path and the explicit final file list,
+or use a qualified repository equivalent.
+
+Require zero errors for ZIP integrity and CRC, XML parsing, internal relationships,
+and Microsoft Open XML SDK schema and semantic validation. Keep the diagnostics, tool
+and runtime versions, and SHA-256 for each file. Match the receipt hashes to the final
+files before delivery. Reuse valid receipts for identical bytes and repeat validation
+after any byte change. Missing tools, missing or stale receipts, exceptions and validation
+errors block delivery. Preserve failed evidence and repair a versioned copy.
+
+Verify content and property fidelity, fields, comments, revisions and repeating table
+headers separately. Review the rendering of every page and retain any required native
+Word save, reopen or Compare evidence. Scientific acceptance, privacy, author approval
+and submission authority retain their own gates.
+
 ## Actions pinning decision — 26 October 2026
 
 Retain full 40-character commit-SHA references for external GitHub Actions and

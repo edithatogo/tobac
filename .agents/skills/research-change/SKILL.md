@@ -12,6 +12,9 @@ For manuscript work, select the manuscript context profile and read the
 Reconcile the current paper contract, claim register and review disposition before
 changing claims. Preserve the original protocol and record question-driven amendments
 before expanding methods.
+Before delivering a manuscript or supplement DOCX, apply the maintained
+[manuscript DOCX delivery skill](/Users/doughnut/.codex/skills/manuscript-docx-delivery/SKILL.md)
+to every final variant listed in the delivery inventory.
 
 Write tests for changed semantics before implementation. Prefer existing NumPy/SciPy/voiage
 interfaces only after checking capabilities and numerical equivalence. Keep the small reference
