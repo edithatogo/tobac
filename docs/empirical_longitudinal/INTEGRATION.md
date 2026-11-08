@@ -15,25 +15,28 @@ paths, sensitivity tables, eight PNG/SVG figure pairs, captions and source/outpu
 Large path matrices and rendered figures are generated artifacts rather than duplicated
 Git history. The complete predecessor archive remains a separate conversation download.
 
-## Reproduce from a clean Python 3.15.1 checkout
+## Reproduce with the current source runtime
+
+Use Python 3.15.2 and the hash-locked, bounded [root setup](../../README.md#reproduce).
+The [analytical workflow guide](../../workflow/README.md) supplies the portable Nox
+frontend. After the native owner establishes current qualified lineage prerequisites,
+run the existing complete reproduction session:
 
 ```sh
-python -m venv .venv
-. .venv/bin/activate
-python -m pip install -r requirements.lock
-python -m pip install --no-deps .
-python -m pytest -q
-OPENBLAS_NUM_THREADS=1 python scripts/run_release_calibration.py --out outputs/my_releases
-python scripts/verify_release_calibration.py outputs/my_releases
-OPENBLAS_NUM_THREADS=1 python scripts/run_empirical_longitudinal.py --out outputs/my_empirical
-python scripts/verify_empirical_longitudinal.py outputs/my_empirical
+.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- \
+  .venv-clustering-bootstrap3152/bin/python -m nox -s reproduce --force-python .venv/bin/python
 ```
 
-Use new output directories; runners reject nonempty directories. A focused check is
-`python -m pytest -q tests/supply_bridge`. The longitudinal Actions workflow runs the same
-full analyses and uploads their complete outputs. A workflow definition is not a successful
-hosted run; see "Hosted execution" below for the run that did complete, and issue #4 for
-current runner availability.
+Use new output directories; runners reject existing results. A focused software check is:
+
+```sh
+.venv/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- \
+  .venv/bin/python -m pytest -q tests/supply_bridge tests/test_workstream_integration.py
+```
+
+A failed native gate is not permission to bypass it. Current changed lock/helper admission
+and clean-package gates are explicit in the [Phase 6 evidence](../../conductor/tracks/nz_au_empirical_20261106/phase6-progress.md).
+Historical import/hosted receipts below retain their original revisions and runtimes.
 
 ## Scientific boundary
 The 16 administrative tonne observations and 12 historical cigarette-equivalent records
@@ -91,9 +94,9 @@ review and is recorded in `integration/m2b_review_20261025.json`; it is not a CI
 the tables can still drift silently in future.
 
 ## Sources and methods
-- [Historical ratio methods](METHODS_AND_ASSUMPTIONS_v2.9.0.md)
-- [Reported-release methods](../calibration/METHODS_AND_ASSUMPTIONS_v2.8.0.md)
-- [Protocol amendment](../../protocols/NZ_Empirical_Longitudinal_Amendment_2026-10-24_v2.9.0.md)
+- Historical ratio methods (local-only authoring document: `docs/empirical_longitudinal/METHODS_AND_ASSUMPTIONS_v2.9.0.md`)
+- Reported-release methods (local-only authoring document: `docs/calibration/METHODS_AND_ASSUMPTIONS_v2.8.0.md`)
+- Protocol amendment (local-only authoring document: `protocols/NZ_Empirical_Longitudinal_Amendment_2026-10-24_v2.9.0.md`)
 - [Compact results](../../results/longitudinal/)
 - [Source references](../../evidence/longitudinal/references.csl.json)
 

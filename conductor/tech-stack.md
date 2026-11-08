@@ -14,7 +14,7 @@ need, maintained alternative review and acceptance evidence. Read docs/engineeri
 
 DCI1–DCI4 qualified and published a bounded ty/Pyrefly diagnostic comparison and a
 Linux ARM64 diagnostic leg beside the existing BasedPyright gate. The latest
-qualified diagnostic tuple is ty 0.0.98/Pyrefly 1.4.1, consumed from frozen 4015cc3;
+qualified diagnostic tuple is ty 0.0.99/Pyrefly 1.4.1, consumed from frozen 0c4fbc8;
 its native dependency admission is recorded separately.
 Duplicate action wrappers and prek migration are omitted. See the
 [selection](roadmap/cicd_hardening_20261025/selection_20261103.md). Existing
@@ -44,3 +44,5 @@ Nox engineering gates; Polars/Arrow with no active pandas/xarray; Python 3.15.2 
 qualified locked dependencies. Searchright governs systematic retrieval; Innovate must be
 qualified for diffusion/competition. Existing versions above describe historical execution,
 not acceptance of this target. Coordinate environment promotion with the active Polars owner.
+
+The opt-in clustering profile is source-bound through engineering/clustering.lock; Nox and real Snakemake qualify synthetic software packets using scikit-learn 1.9.1. It supplies no empirical clustering or national-policy model admission.

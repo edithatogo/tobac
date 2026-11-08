@@ -1,8 +1,9 @@
 {
   "code": {
     "scripts/actions_diagnostics.py": "df733b0bacccf119c9eb915600ee14a3ede9012492f19a29f13ea4a27ab25520",
-    "scripts/advisory_types.py": "288fbc25aec3cfe94fc4e0e9bf7e275b1fd2bb08dae2af6e0ec8c71ca633701c",
+    "scripts/advisory_types.py": "43b061ab0c0d75e6c7e88e4e15c91836caa7b2f10cf8644be0a8a924f19451aa",
     "scripts/assess_publication_history.py": "89a3098f36ee6daeec6a3debb45d92d8e26204f82057de07a07a865530574602",
+    "scripts/audit_empirical_coverage.py": "9e465be053c73b7dd0a63e999139a5bff8ca800593c0d18f217d01a8d6aedee8",
     "scripts/check_conductor_track_names.py": "c6e6f8b634cfd323533560db5dc73432959792d95a7234f0b38a5f50b7941368",
     "scripts/check_longitudinal_results.py": "9d0d5d18043039d985a3cb3b32ef5a20284b15c5f89ad3b8c712e337b80a013d",
     "scripts/check_moh_rehearsal.py": "79ea56687b7da4a0fb6c9ac2db28131bbec70dd75ae8b6f72e69903a9bd5402e",
@@ -16,7 +17,7 @@
     "scripts/extract_moh_lineage.py": "9ea1d3a08e11eca8b0ebd94a9662411c4c849c352ba87ad6f9380d554fe1723d",
     "scripts/extract_shine_lineage.py": "381a554fab151c18e5459c8917ce410c2c189afc38815abd11baf65ab22a565f",
     "scripts/issue_hosted_lineage.py": "ae1db9f11ee1fccc6ff0117488fcbac4cfa91302f06a7fb42e7480200702e149",
-    "scripts/lock_receipt.py": "557a3c76e2c8996d25bc8382165f40614d33d8ddf426a01f5613f7ffef405d6e",
+    "scripts/lock_receipt.py": "9b1507491436d7d31dbcbf7903edd1f5094bc37a4d35a4a845ada1a2479b9d47",
     "scripts/migrate_datasets.py": "57b3dab3fbc4f7a05054a9f94ca4db1236f2cd598cd10bee978b97469b81b995",
     "scripts/package_contract.py": "6adcb5d20d04af4040c00c71a9af66e0ea98423dece2a668c872b2cbf56e83ad",
     "scripts/prepare_synthesis_replay.py": "73a952437e45e434ca9f01b7ba04a5315560c15cbeff4b88566d478ced09be66",
@@ -25,7 +26,7 @@
     "scripts/qualification_check.py": "46f3cab33b37c3aa8bf37b1f73f80c6bd31b9af31106813e5f104fb0a6de4528",
     "scripts/qualify_clean_package.py": "3f9bf4ed645556ae91a1708fca1a8d6f007503e96cd05c0a5f02b3e08675e797",
     "scripts/qualify_ecosystem.py": "1e1603902f4855474c781ae7f8b1d67c5d7923e5b22ce9beaeebf54a73ee4315",
-    "scripts/qualify_integrations.py": "b8e09d0b31de47ad7476681cf238a93069ea6b1b630d37f46f2531690d1b3ed5",
+    "scripts/qualify_integrations.py": "f52c3dedabeff5bc3151e6729327d5fc30bce6c7cc85fc7b5aa55565f06f9258",
     "scripts/qualify_interchange.py": "9b022fcf96c6d1dcb711424a75f5d8deae028c7ce2540c9b36453c3149d7388b",
     "scripts/qualify_lineage_recovery.py": "9eab2582e8e75a73214703a271649f3296107b357d3e3388dd8e485a9654ba69",
     "scripts/qualify_m2_pathway.py": "6624ea737865525d3728b831532434af2706674732042379c9504c81ea8a22b6",
@@ -34,6 +35,7 @@
     "scripts/qualify_publication_replay.py": "779ccbea2aa81d0dafe0976b3440c6153a202ad0e0c52c01456336f0867b063c",
     "scripts/qualify_recovery.py": "d3c77f288a4536c35eff7e74d100045c7bd0aa50612ef45ea1d0b0bb47624040",
     "scripts/qualify_scientific_counterfactual.py": "36b8678ab178ff25547fa4c79f1051af834333f56b596c73eff6f8c9db24a1d6",
+    "scripts/qualify_sensitivity_clustering.py": "0f6a87573af780fdc3ab1b2b55a7d1361dbbb893ab5c5bf85c0a73981807084c",
     "scripts/qualify_shine_table.py": "9e2a75089c539a21749609331905d00d776ee34780540243ee084f950e2130bb",
     "scripts/qualify_voiage_consumer.py": "e2b26c17e1ce093b685beac2901103d96a2357b5042abdbf003f9618db1583a1",
     "scripts/reconcile_products_2025.py": "1ecd1a61744461bbfa1b0bba337e9b1c67287181b90514d3d8ac5b1384175bbd",
@@ -58,6 +60,7 @@
     "scripts/verify_prior_work.py": "f9354a8bb1305a748ccc455c2b99283f84c0720360a29d2ae141862312c440a0",
     "scripts/verify_product_assets.py": "fff51a7fb77a38d6349f82863784ba9eac29f4baf8463dc9f64e341417edd73b",
     "scripts/verify_release_calibration.py": "463af75469ff5dd40279043f5ea8fbb683f2a49dc208ff71b89b3138846bb4a7",
+    "scripts/verify_sensitivity_clustering.py": "cc25df9446c275b9c9e0822ddb80c8b7b90188c60bbc535fea615f30a482fe56",
     "scripts/voiage_consumer_surface.py": "4b0f6e2fe153031db13466a045f6a247e322f5aa74097c85d24a1e5979071241",
     "src/tobac/__init__.py": "438a1124a46dfc7a91b5424c8127a8ead3e01c0f34e45740a1238429aa54f94f",
     "src/tobac/_core.py": "c2dae2df9d91d5143d7ffe5926fcc410f65fbfc6933a8e5bdabf3c8b61c5bcee",
@@ -95,7 +98,7 @@
     "src/tobac_supply/longitudinal.py": "3dae712734a760b077f06a7d2ed3acb5f2cbfe7580331fc3fe0d12d95b16bc34",
     "src/tobac_supply/release_calibration.py": "74e56c210ea8f5cd59969298e3e00521d46885b3ecf7b31acd7d4c2069c8962a"
   },
-  "revision": "6b1822ab0492698cf65fe6ff5bf8844f60d3937a",
+  "revision": "f41132cb48400344bc46e8cbf878de063136c96d",
   "runners": {
     "longitudinal": [
       "configs/empirical_longitudinal_v2.9.0/model.json",

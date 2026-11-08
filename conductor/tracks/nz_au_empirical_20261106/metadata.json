@@ -1,1 +1,11 @@
-{"track_id":"nz_au_empirical_20261106","type":"feature","status":"in_progress","created":"2026-11-06","owner_chat":"01a1af53-2093-7f70-b761-e5f6cb7b769c","base_commit":"adb3f81","empirical_acceptance":false}
+{
+  "track_id": "nz_au_empirical_20261106",
+  "type": "feature",
+  "status": "in_progress",
+  "created": "2026-11-06",
+  "owner_chat": "01a1af53-2093-7f70-b761-e5f6cb7b769c",
+  "base_commit": "adb3f81",
+  "empirical_acceptance": false,
+  "phase0_status": "complete_local",
+  "phase0_receipt": "integration/archive/empirical-phase0-checkpoint_20261107.json"
+}

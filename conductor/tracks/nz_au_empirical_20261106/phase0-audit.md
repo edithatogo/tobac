@@ -1,22 +1,26 @@
-# Foundation acceptance audit — in progress
+# Local Phase 0 foundation acceptance — complete
 
-| Requirement | Verified evidence | Remaining gate |
-|---|---|---|
-| Baseline, ownership and receiving source | Owned branch; qualified receiving 3.15.2 baseline integrated; exact source preflights and immutable context receipts retained | Packet receiving main verified at 413f7b2; later empirical integration requires its own guard |
-| Capability and runtime inventory | Source/CI/environment inventory; no active pandas/xarray; hardening H0 has a separate originating-lane receipt | Later H1/H2 findings retain their scope |
-| Version census and dispositions | Dated 146-package census; all 11 compatible held updates resolved; eight remaining Snakemake-related bounds justified | Final current-version disposition readback |
-| Qualified owner packets | Polars conversion, exact CSV preservation, 3.15.2 runtime and signed scheduler correction consumed | Fresh eight-runner native renewal complete; candidate hosted publication completed at 413f7b2 with all twelve PR and ten receiving workflows passing |
-| Candidate locks | Five profiles generated through existing helper, reviewed version-only changes and verified receipts; analytics separately qualified | Integrated committed locks verified; covered by the 1262-pass suite |
-| Installed compatibility | Latest ecosystem: 1256 passed / 15 skipped; mandatory whole-source typing zero errors/warnings; Ruff/check/format and offline Zizmor pass | Integrated native suite: 1262 passed / 9 skipped; post-negative native readback passed |
-| Actual libraries | JAX/interchange probe; genuine Voiage 3.1 wheel, 90 comparisons and six ownership cases; Ty/Pyrefly fixture/report qualification | Advisory diagnostics are not zero-error certification; Innovate remains incompatible |
-| Security and packaging | Installed 57/93-package advisory scans with no skips or known vulnerabilities; clean wheel/sdist/API/installed-CLI qualification | Final staged/publication guard |
-| Numerical reference | All eight latest-candidate variants / 82 tables passed; existing comparator rechecked saved outputs under resource guard | Original replay guard summary was lost on interruption; no original peak claimed; fresh native readback passed: 140 outputs and 82 byte-identical CSVs |
-| Logged analytical DAG | Real 3.15.2 M1 DAG passed; post-publication verification, protected outputs, no-op cache and corrupt-copy rejection passed | Repeat admission against latest signed locks at final checkpoint |
-| Focused adopted-input tests | 111 passed; one snapshot test correctly rejects uncommitted locks | Frozen source rerun passed in the owning lane; integrated suite passed |
+| Gate | Verified result |
+|---|---|
+| Ownership/source freeze | Clean terminal 0c4fbc8 frozen; full missing source integrated at 9cccc96, both histories retained |
+| Runtime and locks | Actual Python 3.15.2; all seven complete generated receipts verify; no pandas/xarray in installed profiles |
+| Inputs and oracle | All scientific input digests equal the accepted baseline; original capture editions and numerical archive retained |
+| Native renewal | Eight fresh profiles; 140 outputs/source links; all 82 CSVs byte-identical; new signed checkpoint at 41b6e11 |
+| Commands and negative controls | Normal native/attested commands and post-negative reopening pass; no hash-only promotion |
+| Coherent suite/coverage | Nox tests: 1286 passed, 8 skipped, 92% source coverage, 1089.0 MiB sampled peak |
+| Installed package | Clean wheel/sdist rebuild, isolated imports/API and Unicode-path M1 CLI pass |
+| Scheduler/optional analysis | Actual M1 and synthetic DAGs; no-op cache and corrupt-copy rejection; protected original outputs retained; 49 clustering tests pass |
+| Types/library/security evidence | Source 0c4fbc8 strict/static/offline/library/audit receipts reused; changed-file lint/format pass |
+| Publication boundary | Current tree/outgoing history, staged/full-history secret scans and Actionlint pass at 245.2 MiB sampled peak |
 
-The original finite archive, scientific input identities and tolerances are preserved. No
-new empirical calibration, external validation, national funding conclusion or hosted
-success is inferred. The latest lock correctly invalidated the earlier signature. Fresh execution, native
-readback and a newly issued signature close local admission without weakening gates.
-See integration/archive/dependency-admission_20261106.json and conductor/status.md
-for terminal publication readback. Latest real-scheduler handoff retains separate scope.
+Receipt: integration/archive/empirical-phase0-checkpoint_20261107.json. Full retained
+commands/logs: outputs/empirical-phase0-20261107. Source-document and scheduler-fixture
+failures were diagnosed and corrected, with final complete tests passing. Original
+values, identities, distributions and tolerances were not changed. Current public
+navigation is separate from immutable capture editions. Closed coordination history
+is byte-preserved and hashed, with compact current context rebuilt after source changes.
+
+Remaining: empirical Phase 1–6, this changed packet's hosted/guarded publication and
+receiving-ref checks, H2 release/recovery and the substantive scientific requirements.
+Earlier checkpoints and source-owner receipts retain their distinct epochs; local
+software acceptance supplies no empirical calibration or outside scientific endorsement.

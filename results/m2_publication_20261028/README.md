@@ -2,8 +2,8 @@
 
 Primary run: four cessation nodes; grid-2/ and grid-8/ are numerical challenges.
 [Report](report.json), [manifest](manifest.json),
-[methods and findings](../../docs/research/M2_CONDITIONAL_PUBLICATION.md),
-[dated protocol](../../docs/research/M2_PUBLICATION_PROTOCOL.md).
+methods and findings (local-only authoring document: `docs/research/M2_CONDITIONAL_PUBLICATION.md`),
+dated protocol (local-only authoring document: `docs/research/M2_PUBLICATION_PROTOCOL.md`).
 
 - consequences.csv: expected synthetic action consequences. Native daily exposure
   rates, normalised health/crime/resource scores and fiscal volume are distinct units.

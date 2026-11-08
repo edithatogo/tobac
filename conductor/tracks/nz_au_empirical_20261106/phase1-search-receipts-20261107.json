@@ -1,0 +1,994 @@
+{
+  "schema_version": 1,
+  "edition": "20261107-p1",
+  "recorded_at": "2026-11-07T01:59:18.831175+00:00",
+  "base_commit": "c239b18139b91dc170758f88a343b987fb7d880f",
+  "phase1_complete": false,
+  "original_payloads_in_tobac": false,
+  "external_intake_edition": "tobac-evidence-intake-20261107-p1",
+  "runtime": {
+    "actual_version": "3.15.2",
+    "lock_sha256": "e1bca03724f84f85dbabb8c8d4ebf8442363071317307a7ec5d601315375e726",
+    "hash_install_log": "outputs/nz-au-phase1-20261107/environment.log",
+    "dependency_consistency": "36 installed packages compatible"
+  },
+  "searchright": {
+    "source_commit": "4ddfbdbc54c500719889e09942783bdc04ee832b",
+    "binary_version": "0.1.0-alpha.1",
+    "binary_sha256": "ebe162f2d4076f085af0702733d9623f22a2b1783c4d7571b354f3880a93297a",
+    "rustc": "1.99.1",
+    "cargo": "1.99.1",
+    "build": "cargo build --locked -p searchright-cli -j 2",
+    "build_exit_code": 0,
+    "sampled_peak_mib": 741.6,
+    "fixture_providers": 5,
+    "live_provider_qualified": false,
+    "portable_strategies": [
+      {
+        "family": "S1",
+        "strategy_path": "conductor/tracks/nz_au_empirical_20261106/searchright-s1-europepmc.json",
+        "strategy_sha256": "f474d3089a9c0e8db672eec59a0374e80f40d909b299ec539fd03abcd9e3f67f",
+        "query": "(((TITLE:tobacco OR ABSTRACT:tobacco) OR (TITLE:nicotine OR ABSTRACT:nicotine)) AND ((TITLE:policy OR ABSTRACT:policy) OR (TITLE:simulation OR ABSTRACT:simulation) OR (TITLE:model OR ABSTRACT:model) OR (TITLE:wastewater OR ABSTRACT:wastewater)))",
+        "compilation_hash": "c432ef28257db40077f9843f79f231817dde067f3322e19cf4624deca6dd90ee",
+        "fidelity": "exact"
+      },
+      {
+        "family": "S2",
+        "strategy_path": "conductor/tracks/nz_au_empirical_20261106/searchright-s2-europepmc.json",
+        "strategy_sha256": "75cc73d82b2fa7af5c76a8f11fb6506826e75fd6625fe3dfb94d45314a966504",
+        "query": "(((TITLE:nicotine OR ABSTRACT:nicotine) OR (TITLE:cotinine OR ABSTRACT:cotinine) OR (TITLE:hydroxycotinine OR ABSTRACT:hydroxycotinine) OR (TITLE:anabasine OR ABSTRACT:anabasine)) AND ((TITLE:wastewater OR ABSTRACT:wastewater) OR (TITLE:sewage OR ABSTRACT:sewage)))",
+        "compilation_hash": "066bba708c2bd4a9fffb83139b13496fdd94f296ce5d16dea14fe7d9a003c7a6",
+        "fidelity": "exact"
+      },
+      {
+        "family": "S3",
+        "strategy_path": "conductor/tracks/nz_au_empirical_20261106/searchright-s3-europepmc.json",
+        "strategy_sha256": "8a993b37018b462aafe064899cf43aec63f70b17573f7b7a39180c9e3f306207",
+        "query": "((TITLE:tobacco OR ABSTRACT:tobacco) AND ((TITLE:\"cost utility\" OR ABSTRACT:\"cost utility\") OR (TITLE:QALY OR ABSTRACT:QALY) OR (TITLE:EQ-5D OR ABSTRACT:EQ-5D) OR (TITLE:\"quality of life\" OR ABSTRACT:\"quality of life\") OR (TITLE:equity OR ABSTRACT:equity)))",
+        "compilation_hash": "c2dd88df288d63e0281aa4a46ec7f7fe9b80eb2d1315c6084ed299eb05c52a67",
+        "fidelity": "exact"
+      },
+      {
+        "family": "S4",
+        "strategy_path": "conductor/tracks/nz_au_empirical_20261106/searchright-s4-europepmc.json",
+        "strategy_sha256": "180ec947151c91cbd5df1c21cff1cd7c5af4ba6e3fd85228e5c5073630001b50",
+        "query": "(((TITLE:\"value of information\" OR ABSTRACT:\"value of information\") OR (TITLE:\"expected value of sample information\" OR ABSTRACT:\"expected value of sample information\")) AND ((TITLE:monitoring OR ABSTRACT:monitoring) OR (TITLE:\"public health\" OR ABSTRACT:\"public health\")))",
+        "compilation_hash": "86736a836a938ad6db38ad30d22e395a2f4c3d69b7cc2da44b6c68d8411b6072",
+        "fidelity": "exact"
+      },
+      {
+        "family": "S5",
+        "strategy_path": "conductor/tracks/nz_au_empirical_20261106/searchright-s5-europepmc.json",
+        "strategy_sha256": "faf24c623aebc17eb6961c2b905f6604bdb03fabe92dacfb3340d814ccd443fd",
+        "query": "((TITLE:tobacco OR ABSTRACT:tobacco) AND (TITLE:policy OR ABSTRACT:policy) AND ((TITLE:diffusion OR ABSTRACT:diffusion) OR (TITLE:competition OR ABSTRACT:competition) OR (TITLE:spillover OR ABSTRACT:spillover) OR (TITLE:adoption OR ABSTRACT:adoption)))",
+        "compilation_hash": "b603931a497683b460f082f0cc07d3f1e79b2d3845df76ac752c279f2398f6bc",
+        "fidelity": "exact"
+      }
+    ],
+    "s3_v3_compilation": {
+      "schema_version": "org.searchright.compiled-strategy.v1",
+      "strategy_id": "tobac-s3-europepmc-v3",
+      "dialect": "europe_pmc",
+      "query": "((TITLE:tobacco OR ABSTRACT:tobacco) AND ((TITLE:\"cost utility\" OR ABSTRACT:\"cost utility\") OR (TITLE:QALY OR ABSTRACT:QALY) OR (TITLE:EQ-5D OR ABSTRACT:EQ-5D) OR (TITLE:\"quality of life\" OR ABSTRACT:\"quality of life\") OR (TITLE:equity OR ABSTRACT:equity) OR (TITLE:inequity OR ABSTRACT:inequity) OR (TITLE:HALY OR ABSTRACT:HALY) OR (TITLE:HALYs OR ABSTRACT:HALYs) OR (TITLE:QALYs OR ABSTRACT:QALYs) OR (TITLE:\"health-adjusted life years\" OR ABSTRACT:\"health-adjusted life years\") OR (TITLE:\"quality-adjusted life years\" OR ABSTRACT:\"quality-adjusted life years\") OR (TITLE:cost-effectiveness OR ABSTRACT:cost-effectiveness)))",
+      "warnings": [],
+      "fidelity": "exact",
+      "review_required": false,
+      "loss_codes": [],
+      "compilation_hash": "16651c804b3e96d87909cb8337a0f7d78f60c65217e35206807e63dfe6bdc7c9",
+      "compiler_version": "evidence-search-compiler/0.1.0"
+    },
+    "malformed_xml_import": {
+      "accepted_records": 0,
+      "quarantined_records": 1
+    }
+  },
+  "native_query_protocol": {
+    "file": "protocol.json",
+    "sha256": "22c0c65a5e5228643d1f5dc3efdfa7be36dacdc49f22d82dfe66eeabba9a6469",
+    "bytes": 1352
+  },
+  "source_runs": [
+    {
+      "family": "S1",
+      "query": "(TITLE_ABS:tobacco OR TITLE_ABS:nicotine) AND (TITLE_ABS:policy OR TITLE_ABS:simulation OR TITLE_ABS:model OR TITLE_ABS:wastewater) AND FIRST_PDATE:[1800-01-01 TO 2026-11-06]",
+      "status": "failed",
+      "hit_count": 25237,
+      "retrieved_records": 25236,
+      "unique_native_ids": 25236,
+      "pages": [
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=%2A",
+          "retrieved_at": "2026-11-07T01:46:11.524014+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "5907e68dac3cf075c3acd1d7b72974c2807707aee53b760c26dda4c6c1176e0c",
+          "bytes": 6713626,
+          "file": "S1-1-5907e68dac3cf075c3acd1d7b72974c2807707aee53b760c26dda4c6c1176e0c.json",
+          "records": 1000,
+          "cursor": "*",
+          "next_cursor": "AoIIQCSPTig0OTc1NDM5Ng=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIQCSPTig0OTc1NDM5Ng%3D%3D",
+          "retrieved_at": "2026-11-07T01:48:46.654252+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "57338b09c7fd99f81d5a8c9522d9f76b3d2ab3f17ee49d8adcab028c170d3bb0",
+          "bytes": 6979265,
+          "file": "S1-2-57338b09c7fd99f81d5a8c9522d9f76b3d2ab3f17ee49d8adcab028c170d3bb0.json",
+          "records": 1000,
+          "cursor": "AoIIQCSPTig0OTc1NDM5Ng==",
+          "next_cursor": "AoIIP/rLQig1MzQwNTI5OQ=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIP%2FrLQig1MzQwNTI5OQ%3D%3D",
+          "retrieved_at": "2026-11-07T01:49:34.208885+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "be12f1a0e9e12dace61f7395db977d34a3bf1501e9269eab083b858819e8b640",
+          "bytes": 7153326,
+          "file": "S1-3-be12f1a0e9e12dace61f7395db977d34a3bf1501e9269eab083b858819e8b640.json",
+          "records": 1000,
+          "cursor": "AoIIP/rLQig1MzQwNTI5OQ==",
+          "next_cursor": "AoIIP80CQig1MTA5NzY0MA=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIP80CQig1MTA5NzY0MA%3D%3D",
+          "retrieved_at": "2026-11-07T01:49:48.760838+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "994949d59fe330669928b970421d04b0769a932f9921e4e52660c54eaa2ae0c2",
+          "bytes": 7219904,
+          "file": "S1-4-994949d59fe330669928b970421d04b0769a932f9921e4e52660c54eaa2ae0c2.json",
+          "records": 1000,
+          "cursor": "AoIIP80CQig1MTA5NzY0MA==",
+          "next_cursor": "AoIIP60juSg0NzYwMjc2Mg=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIP60juSg0NzYwMjc2Mg%3D%3D",
+          "retrieved_at": "2026-11-07T01:50:12.362767+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "d16a0b4e20bc3be12f4ab2f95e7f126781969f7c29e632be8b3b6a499c728c72",
+          "bytes": 6905219,
+          "file": "S1-5-d16a0b4e20bc3be12f4ab2f95e7f126781969f7c29e632be8b3b6a499c728c72.json",
+          "records": 1000,
+          "cursor": "AoIIP60juSg0NzYwMjc2Mg==",
+          "next_cursor": "AoIIP5eWXyg1MTM4MzkxMw=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIP5eWXyg1MTM4MzkxMw%3D%3D",
+          "retrieved_at": "2026-11-07T01:50:35.751250+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "779d80b910283c99b59a7c33bf54f6488d8cf5acb4631f76fc1faa9e6d5df80f",
+          "bytes": 7211840,
+          "file": "S1-6-779d80b910283c99b59a7c33bf54f6488d8cf5acb4631f76fc1faa9e6d5df80f.json",
+          "records": 1000,
+          "cursor": "AoIIP5eWXyg1MTM4MzkxMw==",
+          "next_cursor": "AoIIP4WTUCg1MTAxMjcyNg=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIP4WTUCg1MTAxMjcyNg%3D%3D",
+          "retrieved_at": "2026-11-07T01:50:57.235489+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "324cf05bb8e5477fbcc659be14fe2c3eb7d9e1343dc5d5a0ea731b83bb88cdcb",
+          "bytes": 7211674,
+          "file": "S1-7-324cf05bb8e5477fbcc659be14fe2c3eb7d9e1343dc5d5a0ea731b83bb88cdcb.json",
+          "records": 1000,
+          "cursor": "AoIIP4WTUCg1MTAxMjcyNg==",
+          "next_cursor": "AoIIP22kUCgzMzM2ODYwNw=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIP22kUCgzMzM2ODYwNw%3D%3D",
+          "retrieved_at": "2026-11-07T01:51:23.013274+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "67d033382654594b7335f2b53761997837360c90c422ddf16f333e426af8b645",
+          "bytes": 7195783,
+          "file": "S1-8-67d033382654594b7335f2b53761997837360c90c422ddf16f333e426af8b645.json",
+          "records": 1000,
+          "cursor": "AoIIP22kUCgzMzM2ODYwNw==",
+          "next_cursor": "AoIIP1ThCyg0NDM1MjU1MA=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIP1ThCyg0NDM1MjU1MA%3D%3D",
+          "retrieved_at": "2026-11-07T01:51:53.523805+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "9fa5844f6e170b46a72212d77b7f08a310be48c73dcee36eaed0e6a5a83c4918",
+          "bytes": 7064182,
+          "file": "S1-9-9fa5844f6e170b46a72212d77b7f08a310be48c73dcee36eaed0e6a5a83c4918.json",
+          "records": 1000,
+          "cursor": "AoIIP1ThCyg0NDM1MjU1MA==",
+          "next_cursor": "AoIIPz5voSgzNTk0MTAzOA=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPz5voSgzNTk0MTAzOA%3D%3D",
+          "retrieved_at": "2026-11-07T01:52:43.354720+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "a41fa1f02d1ab4883df1a7de1a6f99f5cee80ec54de220b153c1209b0720a283",
+          "bytes": 6945626,
+          "file": "S1-10-a41fa1f02d1ab4883df1a7de1a6f99f5cee80ec54de220b153c1209b0720a283.json",
+          "records": 999,
+          "cursor": "AoIIPz5voSgzNTk0MTAzOA==",
+          "next_cursor": "AoIIPyq6nygzOTcwNDY0OA=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPyq6nygzOTcwNDY0OA%3D%3D",
+          "retrieved_at": "2026-11-07T01:53:00.207580+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "3727019e601d19fea39433801a9cb977742f21d6022b18dc7f8d567fefd2d3fd",
+          "bytes": 7194048,
+          "file": "S1-11-3727019e601d19fea39433801a9cb977742f21d6022b18dc7f8d567fefd2d3fd.json",
+          "records": 1000,
+          "cursor": "AoIIPyq6nygzOTcwNDY0OA==",
+          "next_cursor": "AoIIPxqR0Sg0MDgzMTM1NQ=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPxqR0Sg0MDgzMTM1NQ%3D%3D",
+          "retrieved_at": "2026-11-07T01:53:12.762581+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "0b256242f41674fd09c000542e5a7856d292a9ee396eb01c92226251eac8950a",
+          "bytes": 7024320,
+          "file": "S1-12-0b256242f41674fd09c000542e5a7856d292a9ee396eb01c92226251eac8950a.json",
+          "records": 1000,
+          "cursor": "AoIIPxqR0Sg0MDgzMTM1NQ==",
+          "next_cursor": "AoIIPwyohCgzMTQ3ODE3Mw=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPwyohCgzMTQ3ODE3Mw%3D%3D",
+          "retrieved_at": "2026-11-07T01:53:39.770067+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "3e4dd5441d7cf68c110bfa74c5ff442b4ec7cac5f7becbcadf69068de9408ec3",
+          "bytes": 7171139,
+          "file": "S1-13-3e4dd5441d7cf68c110bfa74c5ff442b4ec7cac5f7becbcadf69068de9408ec3.json",
+          "records": 1000,
+          "cursor": "AoIIPwyohCgzMTQ3ODE3Mw==",
+          "next_cursor": "AoIIPwFTxCg0MjgxNzMwNA=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPwFTxCg0MjgxNzMwNA%3D%3D",
+          "retrieved_at": "2026-11-07T01:54:00.176681+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "bb1d9460c44a2721adce78e40578e14068eeeada3ec56ac92206218cadfa2476",
+          "bytes": 6892635,
+          "file": "S1-14-bb1d9460c44a2721adce78e40578e14068eeeada3ec56ac92206218cadfa2476.json",
+          "records": 1000,
+          "cursor": "AoIIPwFTxCg0MjgxNzMwNA==",
+          "next_cursor": "AoIIPu0apSgyNzg2Njc5Mw=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPu0apSgyNzg2Njc5Mw%3D%3D",
+          "retrieved_at": "2026-11-07T01:54:18.270057+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "ce1923cc2c158d084e4ddf57405a3f68c58fb2c66d8e6b526b43cd430597b9a9",
+          "bytes": 6812367,
+          "file": "S1-15-ce1923cc2c158d084e4ddf57405a3f68c58fb2c66d8e6b526b43cd430597b9a9.json",
+          "records": 1000,
+          "cursor": "AoIIPu0apSgyNzg2Njc5Mw==",
+          "next_cursor": "AoIIPtn5kSgyNTA2ODg3MQ=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPtn5kSgyNTA2ODg3MQ%3D%3D",
+          "retrieved_at": "2026-11-07T01:54:35.253854+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "6a750bfb00c394e4edfd18a83a989b71ea379972c81e91f3f11fe4fcbe00daef",
+          "bytes": 6617835,
+          "file": "S1-16-6a750bfb00c394e4edfd18a83a989b71ea379972c81e91f3f11fe4fcbe00daef.json",
+          "records": 1000,
+          "cursor": "AoIIPtn5kSgyNTA2ODg3MQ==",
+          "next_cursor": "AoIIPshx0SgzNjQ5NDM1Ng=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPshx0SgzNjQ5NDM1Ng%3D%3D",
+          "retrieved_at": "2026-11-07T01:54:47.991494+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "d1dec7c619e424f7c438c30386b8929644c2d0c45dddf5b7eb46dc4b56256c2b",
+          "bytes": 6429581,
+          "file": "S1-17-d1dec7c619e424f7c438c30386b8929644c2d0c45dddf5b7eb46dc4b56256c2b.json",
+          "records": 1000,
+          "cursor": "AoIIPshx0SgzNjQ5NDM1Ng==",
+          "next_cursor": "AoIIPrhMwigxMzY3NDk2OA=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPrhMwigxMzY3NDk2OA%3D%3D",
+          "retrieved_at": "2026-11-07T01:55:07.119166+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "4fb47034d2fd9b23cecbc488e85e7245da16c1ec450e8a91c4789b8dffea63de",
+          "bytes": 5985760,
+          "file": "S1-18-4fb47034d2fd9b23cecbc488e85e7245da16c1ec450e8a91c4789b8dffea63de.json",
+          "records": 1000,
+          "cursor": "AoIIPrhMwigxMzY3NDk2OA==",
+          "next_cursor": "AoIIPqpbwygzMDcwMzAwOQ=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPqpbwygzMDcwMzAwOQ%3D%3D",
+          "retrieved_at": "2026-11-07T01:55:20.450533+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "bb599eca70539da97079b2629fa1725d1312b1d42439630f1a066c2e119d2eed",
+          "bytes": 5668682,
+          "file": "S1-19-bb599eca70539da97079b2629fa1725d1312b1d42439630f1a066c2e119d2eed.json",
+          "records": 1000,
+          "cursor": "AoIIPqpbwygzMDcwMzAwOQ==",
+          "next_cursor": "AoIIPp1GqygyNjQ3OTMyNw=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPp1GqygyNjQ3OTMyNw%3D%3D",
+          "retrieved_at": "2026-11-07T01:55:32.661246+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "9e6068fdde2cd77900f7956d3ee0bba8261df9975534c01e33d108b034f87a6e",
+          "bytes": 5782754,
+          "file": "S1-20-9e6068fdde2cd77900f7956d3ee0bba8261df9975534c01e33d108b034f87a6e.json",
+          "records": 1000,
+          "cursor": "AoIIPp1GqygyNjQ3OTMyNw==",
+          "next_cursor": "AoIIPpExCCgzMjQwMzk1Mg=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPpExCCgzMjQwMzk1Mg%3D%3D",
+          "retrieved_at": "2026-11-07T01:55:52.585911+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "9701df9bc59c812697f09373452856b72c7874ee7f036458d745a4ae3219f7d9",
+          "bytes": 5439826,
+          "file": "S1-21-9701df9bc59c812697f09373452856b72c7874ee7f036458d745a4ae3219f7d9.json",
+          "records": 1000,
+          "cursor": "AoIIPpExCCgzMjQwMzk1Mg==",
+          "next_cursor": "AoIIPoR0cygyMzY3MTc0NA=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPoR0cygyMzY3MTc0NA%3D%3D",
+          "retrieved_at": "2026-11-07T01:56:04.156670+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "e8ed20606bda6a9107ae544b0dcd884ac5db6e613599b555558596e23a175f78",
+          "bytes": 5557180,
+          "file": "S1-22-e8ed20606bda6a9107ae544b0dcd884ac5db6e613599b555558596e23a175f78.json",
+          "records": 1000,
+          "cursor": "AoIIPoR0cygyMzY3MTc0NA==",
+          "next_cursor": "AoIIPm2hGCgyNzgzMjE4OQ=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPm2hGCgyNzgzMjE4OQ%3D%3D",
+          "retrieved_at": "2026-11-07T01:56:17.227314+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "e0fdd8c12f360856551b8ababe7dbae9ecf0390c36d7b304bb03ba4fd0fb1a6c",
+          "bytes": 5535637,
+          "file": "S1-23-e0fdd8c12f360856551b8ababe7dbae9ecf0390c36d7b304bb03ba4fd0fb1a6c.json",
+          "records": 1000,
+          "cursor": "AoIIPm2hGCgyNzgzMjE4OQ==",
+          "next_cursor": "AoIIPk+vIigxNDI2ODM2MA=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPk%2BvIigxNDI2ODM2MA%3D%3D",
+          "retrieved_at": "2026-11-07T01:56:37.876457+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "c5352886afd0dcb0bb5b2a5882e579b85944ae4d9991eeaf6f0730ff01163c90",
+          "bytes": 5707876,
+          "file": "S1-24-c5352886afd0dcb0bb5b2a5882e579b85944ae4d9991eeaf6f0730ff01163c90.json",
+          "records": 1000,
+          "cursor": "AoIIPk+vIigxNDI2ODM2MA==",
+          "next_cursor": "AoIIPi5d8ygxNTkyOTE3Mw=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPi5d8ygxNTkyOTE3Mw%3D%3D",
+          "retrieved_at": "2026-11-07T01:56:59.519213+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "6d3fbadc61f74f2775a46e799290b9e4d9a309f91176f5ade3f86e49a02b34c6",
+          "bytes": 5427099,
+          "file": "S1-25-6d3fbadc61f74f2775a46e799290b9e4d9a309f91176f5ade3f86e49a02b34c6.json",
+          "records": 1000,
+          "cursor": "AoIIPi5d8ygxNTkyOTE3Mw==",
+          "next_cursor": "AoIIPfNjpSc5NjYyNDE4"
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPfNjpSc5NjYyNDE4",
+          "retrieved_at": "2026-11-07T01:57:15.443308+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "a99c1632dd51b637557c41e9aac009c40715dc8ad1e8188d8cafe5e6be29c9bc",
+          "bytes": 1239945,
+          "file": "S1-26-a99c1632dd51b637557c41e9aac009c40715dc8ad1e8188d8cafe5e6be29c9bc.json",
+          "records": 237,
+          "cursor": "AoIIPfNjpSc5NjYyNDE4",
+          "next_cursor": "AoIIPZA+9iczNjc0MzU4"
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPZA%2B9iczNjc0MzU4",
+          "retrieved_at": "2026-11-07T01:57:22.601161+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "2b1fd50ecb2c7723fa2c0d93c3a7b82092ddc5367eec4edb5f2302c8cba4bfda",
+          "bytes": 362,
+          "file": "S1-27-2b1fd50ecb2c7723fa2c0d93c3a7b82092ddc5367eec4edb5f2302c8cba4bfda.json",
+          "records": 0,
+          "cursor": "AoIIPZA+9iczNjc0MzU4",
+          "next_cursor": null
+        }
+      ],
+      "error": "ValueError: Premature cursor exhaustion",
+      "seed_NZ_recovered": true,
+      "seed_AU_recovered": true
+    },
+    {
+      "family": "S2",
+      "query": "(TITLE_ABS:nicotine OR TITLE_ABS:cotinine OR TITLE_ABS:hydroxycotinine OR TITLE_ABS:anabasine) AND (TITLE_ABS:wastewater OR TITLE_ABS:sewage) AND FIRST_PDATE:[1800-01-01 TO 2026-11-06]",
+      "status": "retrieved_complete",
+      "hit_count": 231,
+      "retrieved_records": 231,
+      "unique_native_ids": 231,
+      "pages": [
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Anicotine+OR+TITLE_ABS%3Acotinine+OR+TITLE_ABS%3Ahydroxycotinine+OR+TITLE_ABS%3Aanabasine%29+AND+%28TITLE_ABS%3Awastewater+OR+TITLE_ABS%3Asewage%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=%2A",
+          "retrieved_at": "2026-11-07T01:46:50.066150+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "43594cb36916f7387e217e76812399d64e4ff1d37b3aac5b04ee684603c80bcf",
+          "bytes": 1619932,
+          "file": "S2-1-43594cb36916f7387e217e76812399d64e4ff1d37b3aac5b04ee684603c80bcf.json",
+          "records": 231,
+          "cursor": "*",
+          "next_cursor": null
+        }
+      ],
+      "seed_NZ_recovered": false,
+      "seed_AU_recovered": true
+    },
+    {
+      "family": "S3",
+      "query": "TITLE_ABS:tobacco AND (TITLE_ABS:\"cost utility\" OR TITLE_ABS:QALY OR TITLE_ABS:\"EQ-5D\" OR TITLE_ABS:\"quality of life\" OR TITLE_ABS:equity) AND FIRST_PDATE:[1800-01-01 TO 2026-11-06]",
+      "status": "retrieved_complete",
+      "hit_count": 2451,
+      "retrieved_records": 2451,
+      "unique_native_ids": 2451,
+      "pages": [
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE_ABS%3Atobacco+AND+%28TITLE_ABS%3A%22cost+utility%22+OR+TITLE_ABS%3AQALY+OR+TITLE_ABS%3A%22EQ-5D%22+OR+TITLE_ABS%3A%22quality+of+life%22+OR+TITLE_ABS%3Aequity%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=%2A",
+          "retrieved_at": "2026-11-07T01:47:00.475964+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "7282e5fbc50971995d3dc4854c396beb59c523b944a69b5aaf3df685a72a8a65",
+          "bytes": 7494783,
+          "file": "S3-1-7282e5fbc50971995d3dc4854c396beb59c523b944a69b5aaf3df685a72a8a65.json",
+          "records": 1000,
+          "cursor": "*",
+          "next_cursor": "AoIIP4Jweyg1MDY3MzgzMA=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE_ABS%3Atobacco+AND+%28TITLE_ABS%3A%22cost+utility%22+OR+TITLE_ABS%3AQALY+OR+TITLE_ABS%3A%22EQ-5D%22+OR+TITLE_ABS%3A%22quality+of+life%22+OR+TITLE_ABS%3Aequity%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIP4Jweyg1MDY3MzgzMA%3D%3D",
+          "retrieved_at": "2026-11-07T01:47:31.504029+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "e4679b543a9c0379485f28f7fe22295feb4d6f9b9d24882a5e7cedd9106812f7",
+          "bytes": 7268270,
+          "file": "S3-2-e4679b543a9c0379485f28f7fe22295feb4d6f9b9d24882a5e7cedd9106812f7.json",
+          "records": 1000,
+          "cursor": "AoIIP4Jweyg1MDY3MzgzMA==",
+          "next_cursor": "AoIIPsirMygzMDcxNzkxMw=="
+        },
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE_ABS%3Atobacco+AND+%28TITLE_ABS%3A%22cost+utility%22+OR+TITLE_ABS%3AQALY+OR+TITLE_ABS%3A%22EQ-5D%22+OR+TITLE_ABS%3A%22quality+of+life%22+OR+TITLE_ABS%3Aequity%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPsirMygzMDcxNzkxMw%3D%3D",
+          "retrieved_at": "2026-11-07T01:47:48.195810+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "ae6e208b72e7d45789fd92a9fa883e4ead59007e14ff8ccc239ea1453bb4e652",
+          "bytes": 2722353,
+          "file": "S3-3-ae6e208b72e7d45789fd92a9fa883e4ead59007e14ff8ccc239ea1453bb4e652.json",
+          "records": 451,
+          "cursor": "AoIIPsirMygzMDcxNzkxMw==",
+          "next_cursor": "AoIIPekMaCc2NTkxNDY0"
+        }
+      ],
+      "seed_NZ_recovered": false,
+      "seed_AU_recovered": false
+    },
+    {
+      "family": "S4",
+      "query": "(TITLE_ABS:\"value of information\" OR TITLE_ABS:\"expected value of sample information\") AND (TITLE_ABS:monitoring OR TITLE_ABS:\"public health\") AND FIRST_PDATE:[1800-01-01 TO 2026-11-06]",
+      "status": "retrieved_complete",
+      "hit_count": 132,
+      "retrieved_records": 132,
+      "unique_native_ids": 132,
+      "pages": [
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3A%22value+of+information%22+OR+TITLE_ABS%3A%22expected+value+of+sample+information%22%29+AND+%28TITLE_ABS%3Amonitoring+OR+TITLE_ABS%3A%22public+health%22%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=%2A",
+          "retrieved_at": "2026-11-07T01:47:59.003216+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "a0156eada2248abc363fd65881683fd690b700208157518599168bc589048541",
+          "bytes": 829520,
+          "file": "S4-1-a0156eada2248abc363fd65881683fd690b700208157518599168bc589048541.json",
+          "records": 132,
+          "cursor": "*",
+          "next_cursor": null
+        }
+      ],
+      "seed_NZ_recovered": false,
+      "seed_AU_recovered": false
+    },
+    {
+      "family": "S5",
+      "query": "(TITLE_ABS:tobacco AND TITLE_ABS:policy) AND (TITLE_ABS:diffusion OR TITLE_ABS:competition OR TITLE_ABS:spillover OR TITLE_ABS:adoption) AND FIRST_PDATE:[1800-01-01 TO 2026-11-06]",
+      "status": "retrieved_complete",
+      "hit_count": 420,
+      "retrieved_records": 420,
+      "unique_native_ids": 420,
+      "pages": [
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+AND+TITLE_ABS%3Apolicy%29+AND+%28TITLE_ABS%3Adiffusion+OR+TITLE_ABS%3Acompetition+OR+TITLE_ABS%3Aspillover+OR+TITLE_ABS%3Aadoption%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=%2A",
+          "retrieved_at": "2026-11-07T01:48:03.328522+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "982896b4c3353ce056c0035ae8200d0326b11280778382f37270deef01a5cac5",
+          "bytes": 2602442,
+          "file": "S5-1-982896b4c3353ce056c0035ae8200d0326b11280778382f37270deef01a5cac5.json",
+          "records": 420,
+          "cursor": "*",
+          "next_cursor": null
+        }
+      ],
+      "seed_NZ_recovered": false,
+      "seed_AU_recovered": false
+    },
+    {
+      "family": "SEED_NZ",
+      "query": "DOI:10.1136/tc-2022-057655",
+      "status": "retrieved_complete",
+      "hit_count": 1,
+      "retrieved_records": 1,
+      "unique_native_ids": 1,
+      "pages": [
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1136%2Ftc-2022-057655&format=json&resultType=core&pageSize=10&cursorMark=%2A",
+          "retrieved_at": "2026-11-07T01:48:10.724858+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "350bb45a498a0c1eaf68e7134643cd99aab33ac0ea842a85135e92b95392dd77",
+          "bytes": 10453,
+          "file": "SEED_NZ-1-350bb45a498a0c1eaf68e7134643cd99aab33ac0ea842a85135e92b95392dd77.json",
+          "records": 1,
+          "cursor": "*",
+          "next_cursor": null
+        }
+      ],
+      "seed_NZ_recovered": true,
+      "seed_AU_recovered": false
+    },
+    {
+      "family": "SEED_AU",
+      "query": "EXT_ID:41661592 AND SRC:MED",
+      "status": "retrieved_complete",
+      "hit_count": 1,
+      "retrieved_records": 1,
+      "unique_native_ids": 1,
+      "pages": [
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A41661592+AND+SRC%3AMED&format=json&resultType=core&pageSize=10&cursorMark=%2A",
+          "retrieved_at": "2026-11-07T01:48:12.232679+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "fdfc5c48ce6858f14133ea221b9491aed5d3b819be4cf6204c057774c26b2a0c",
+          "bytes": 10537,
+          "file": "SEED_AU-1-fdfc5c48ce6858f14133ea221b9491aed5d3b819be4cf6204c057774c26b2a0c.json",
+          "records": 1,
+          "cursor": "*",
+          "next_cursor": null
+        }
+      ],
+      "seed_NZ_recovered": false,
+      "seed_AU_recovered": true
+    },
+    {
+      "family": "NEGATIVE",
+      "query": "EXT_ID:999999999999999 AND SRC:MED",
+      "status": "retrieved_complete",
+      "hit_count": 0,
+      "retrieved_records": 0,
+      "unique_native_ids": 0,
+      "pages": [
+        {
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A999999999999999+AND+SRC%3AMED&format=json&resultType=core&pageSize=1000&cursorMark=%2A",
+          "retrieved_at": "2026-11-07T01:48:13.800962+00:00",
+          "http_status": 200,
+          "content_type": "application/json;charset=UTF-8",
+          "sha256": "31c97a8588ac90ced8f21e938af74f93d6a9b3c619619f8734b57a60e0f3ea3f",
+          "bytes": 252,
+          "file": "NEGATIVE-1-31c97a8588ac90ced8f21e938af74f93d6a9b3c619619f8734b57a60e0f3ea3f.json",
+          "records": 0,
+          "cursor": "*",
+          "next_cursor": null
+        }
+      ],
+      "seed_NZ_recovered": false,
+      "seed_AU_recovered": false
+    }
+  ],
+  "s1_diagnostic": {
+    "status": "diagnostic_only_core_run_remains_failed",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3Atobacco+OR+TITLE_ABS%3Anicotine%29+AND+%28TITLE_ABS%3Apolicy+OR+TITLE_ABS%3Asimulation+OR+TITLE_ABS%3Amodel+OR+TITLE_ABS%3Awastewater%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=lite&pageSize=1000&cursorMark=AoIIPz5voSgzNTk0MTAzOA%3D%3D",
+    "retrieved_at": "2026-11-07T01:57:43.994405+00:00",
+    "http_status": 200,
+    "content_type": "application/json;charset=UTF-8",
+    "sha256": "0e9821e989a6d425c0dbdaebf0360fe5b827b8760ae3780d2e6337599c1aac1c",
+    "bytes": 831065,
+    "file": "S1-page10-lite-0e9821e989a6d425c0dbdaebf0360fe5b827b8760ae3780d2e6337599c1aac1c.json",
+    "hit_count": 25237,
+    "lite_records": 999,
+    "core_records": 999,
+    "lite_only_ids": [],
+    "core_only_ids": [],
+    "next_cursor_equal": true
+  },
+  "s3_v3": {
+    "edition": "S3-v3",
+    "strategy_sha256": "68fd26b24104780867bfae47dba3c7b8ca2e033c4d18099151b28fc7080c5f1b",
+    "query": "((TITLE:tobacco OR ABSTRACT:tobacco) AND ((TITLE:\"cost utility\" OR ABSTRACT:\"cost utility\") OR (TITLE:QALY OR ABSTRACT:QALY) OR (TITLE:EQ-5D OR ABSTRACT:EQ-5D) OR (TITLE:\"quality of life\" OR ABSTRACT:\"quality of life\") OR (TITLE:equity OR ABSTRACT:equity) OR (TITLE:inequity OR ABSTRACT:inequity) OR (TITLE:HALY OR ABSTRACT:HALY) OR (TITLE:HALYs OR ABSTRACT:HALYs) OR (TITLE:QALYs OR ABSTRACT:QALYs) OR (TITLE:\"health-adjusted life years\" OR ABSTRACT:\"health-adjusted life years\") OR (TITLE:\"quality-adjusted life years\" OR ABSTRACT:\"quality-adjusted life years\") OR (TITLE:cost-effectiveness OR ABSTRACT:cost-effectiveness))) AND FIRST_PDATE:[1800-01-01 TO 2026-11-06]",
+    "pages": [
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%28TITLE%3Atobacco+OR+ABSTRACT%3Atobacco%29+AND+%28%28TITLE%3A%22cost+utility%22+OR+ABSTRACT%3A%22cost+utility%22%29+OR+%28TITLE%3AQALY+OR+ABSTRACT%3AQALY%29+OR+%28TITLE%3AEQ-5D+OR+ABSTRACT%3AEQ-5D%29+OR+%28TITLE%3A%22quality+of+life%22+OR+ABSTRACT%3A%22quality+of+life%22%29+OR+%28TITLE%3Aequity+OR+ABSTRACT%3Aequity%29+OR+%28TITLE%3Ainequity+OR+ABSTRACT%3Ainequity%29+OR+%28TITLE%3AHALY+OR+ABSTRACT%3AHALY%29+OR+%28TITLE%3AHALYs+OR+ABSTRACT%3AHALYs%29+OR+%28TITLE%3AQALYs+OR+ABSTRACT%3AQALYs%29+OR+%28TITLE%3A%22health-adjusted+life+years%22+OR+ABSTRACT%3A%22health-adjusted+life+years%22%29+OR+%28TITLE%3A%22quality-adjusted+life+years%22+OR+ABSTRACT%3A%22quality-adjusted+life+years%22%29+OR+%28TITLE%3Acost-effectiveness+OR+ABSTRACT%3Acost-effectiveness%29%29%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=%2A",
+        "retrieved_at": "2026-11-07T01:54:58.062286+00:00",
+        "http_status": 200,
+        "content_type": "application/json;charset=UTF-8",
+        "sha256": "bc1f15947fff8e20ae38a72c5586f948636f445fa08863e4a58107e9c2462605",
+        "bytes": 7586428,
+        "file": "S3-v3-1-bc1f15947fff8e20ae38a72c5586f948636f445fa08863e4a58107e9c2462605.json",
+        "records": 1000,
+        "cursor": "*",
+        "next_cursor": "AoIIP8uZeyg0NDI3MzQ0MQ=="
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%28TITLE%3Atobacco+OR+ABSTRACT%3Atobacco%29+AND+%28%28TITLE%3A%22cost+utility%22+OR+ABSTRACT%3A%22cost+utility%22%29+OR+%28TITLE%3AQALY+OR+ABSTRACT%3AQALY%29+OR+%28TITLE%3AEQ-5D+OR+ABSTRACT%3AEQ-5D%29+OR+%28TITLE%3A%22quality+of+life%22+OR+ABSTRACT%3A%22quality+of+life%22%29+OR+%28TITLE%3Aequity+OR+ABSTRACT%3Aequity%29+OR+%28TITLE%3Ainequity+OR+ABSTRACT%3Ainequity%29+OR+%28TITLE%3AHALY+OR+ABSTRACT%3AHALY%29+OR+%28TITLE%3AHALYs+OR+ABSTRACT%3AHALYs%29+OR+%28TITLE%3AQALYs+OR+ABSTRACT%3AQALYs%29+OR+%28TITLE%3A%22health-adjusted+life+years%22+OR+ABSTRACT%3A%22health-adjusted+life+years%22%29+OR+%28TITLE%3A%22quality-adjusted+life+years%22+OR+ABSTRACT%3A%22quality-adjusted+life+years%22%29+OR+%28TITLE%3Acost-effectiveness+OR+ABSTRACT%3Acost-effectiveness%29%29%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIP8uZeyg0NDI3MzQ0MQ%3D%3D",
+        "retrieved_at": "2026-11-07T01:55:12.716869+00:00",
+        "http_status": 200,
+        "content_type": "application/json;charset=UTF-8",
+        "sha256": "8fae5bcda944efbd5c77db1d75743667ecee9ee5764df244c07f348e97e761e5",
+        "bytes": 7418305,
+        "file": "S3-v3-2-8fae5bcda944efbd5c77db1d75743667ecee9ee5764df244c07f348e97e761e5.json",
+        "records": 1000,
+        "cursor": "AoIIP8uZeyg0NDI3MzQ0MQ==",
+        "next_cursor": "AoIIPzvb/CgzNTU4MjY2MA=="
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%28TITLE%3Atobacco+OR+ABSTRACT%3Atobacco%29+AND+%28%28TITLE%3A%22cost+utility%22+OR+ABSTRACT%3A%22cost+utility%22%29+OR+%28TITLE%3AQALY+OR+ABSTRACT%3AQALY%29+OR+%28TITLE%3AEQ-5D+OR+ABSTRACT%3AEQ-5D%29+OR+%28TITLE%3A%22quality+of+life%22+OR+ABSTRACT%3A%22quality+of+life%22%29+OR+%28TITLE%3Aequity+OR+ABSTRACT%3Aequity%29+OR+%28TITLE%3Ainequity+OR+ABSTRACT%3Ainequity%29+OR+%28TITLE%3AHALY+OR+ABSTRACT%3AHALY%29+OR+%28TITLE%3AHALYs+OR+ABSTRACT%3AHALYs%29+OR+%28TITLE%3AQALYs+OR+ABSTRACT%3AQALYs%29+OR+%28TITLE%3A%22health-adjusted+life+years%22+OR+ABSTRACT%3A%22health-adjusted+life+years%22%29+OR+%28TITLE%3A%22quality-adjusted+life+years%22+OR+ABSTRACT%3A%22quality-adjusted+life+years%22%29+OR+%28TITLE%3Acost-effectiveness+OR+ABSTRACT%3Acost-effectiveness%29%29%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPzvb%2FCgzNTU4MjY2MA%3D%3D",
+        "retrieved_at": "2026-11-07T01:55:25.230362+00:00",
+        "http_status": 200,
+        "content_type": "application/json;charset=UTF-8",
+        "sha256": "e10c7305a1d0ff7d8bc2320b825f193c4c7794cba496afa5417d5a8d87c46eb9",
+        "bytes": 6575288,
+        "file": "S3-v3-3-e10c7305a1d0ff7d8bc2320b825f193c4c7794cba496afa5417d5a8d87c46eb9.json",
+        "records": 1000,
+        "cursor": "AoIIPzvb/CgzNTU4MjY2MA==",
+        "next_cursor": "AoIIPpKh1SgyMTEzMjg4NA=="
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%28TITLE%3Atobacco+OR+ABSTRACT%3Atobacco%29+AND+%28%28TITLE%3A%22cost+utility%22+OR+ABSTRACT%3A%22cost+utility%22%29+OR+%28TITLE%3AQALY+OR+ABSTRACT%3AQALY%29+OR+%28TITLE%3AEQ-5D+OR+ABSTRACT%3AEQ-5D%29+OR+%28TITLE%3A%22quality+of+life%22+OR+ABSTRACT%3A%22quality+of+life%22%29+OR+%28TITLE%3Aequity+OR+ABSTRACT%3Aequity%29+OR+%28TITLE%3Ainequity+OR+ABSTRACT%3Ainequity%29+OR+%28TITLE%3AHALY+OR+ABSTRACT%3AHALY%29+OR+%28TITLE%3AHALYs+OR+ABSTRACT%3AHALYs%29+OR+%28TITLE%3AQALYs+OR+ABSTRACT%3AQALYs%29+OR+%28TITLE%3A%22health-adjusted+life+years%22+OR+ABSTRACT%3A%22health-adjusted+life+years%22%29+OR+%28TITLE%3A%22quality-adjusted+life+years%22+OR+ABSTRACT%3A%22quality-adjusted+life+years%22%29+OR+%28TITLE%3Acost-effectiveness+OR+ABSTRACT%3Acost-effectiveness%29%29%29+AND+FIRST_PDATE%3A%5B1800-01-01+TO+2026-11-06%5D&format=json&resultType=core&pageSize=1000&cursorMark=AoIIPpKh1SgyMTEzMjg4NA%3D%3D",
+        "retrieved_at": "2026-11-07T01:55:37.458193+00:00",
+        "http_status": 200,
+        "content_type": "application/json;charset=UTF-8",
+        "sha256": "0f9b153af88c31eacaec3b1b7ce667f38174670b80523b606417386bb74644ac",
+        "bytes": 1021332,
+        "file": "S3-v3-4-0f9b153af88c31eacaec3b1b7ce667f38174670b80523b606417386bb74644ac.json",
+        "records": 175,
+        "cursor": "AoIIPpKh1SgyMTEzMjg4NA==",
+        "next_cursor": "AoIIPfvinCc2NTkxNDY0"
+      }
+    ],
+    "status": "retrieved_complete",
+    "amendment": "Prespecified seed missed by S3 v2; no fitted outcome inspected",
+    "hit_count": 3175,
+    "retrieved_records": 3175,
+    "seed_NZ_recovered": true
+  },
+  "s3_amendment_delta": {
+    "added_native_ids": 724,
+    "removed_native_ids": 0,
+    "parent_preserved": true,
+    "reason": "Prespecified NZ seed failed v2 vocabulary; v3 recovers it"
+  },
+  "pubmed_s2": {
+    "pubmed_pages": [
+      {
+        "file": "pubmed-s2-page-0.json",
+        "sha256": "ed037ac1f6f1f033818088aa2170e32cd1a5ec01032d3517431763b65c06c416",
+        "bytes": 343292,
+        "offset": 0,
+        "records": 50,
+        "next_offset": 50,
+        "total_count": 222,
+        "field_pages": [],
+        "warnings": [],
+        "query_translation": "(\"nicotine\"[Title/Abstract] OR \"cotinine\"[Title/Abstract] OR \"hydroxycotinine\"[Title/Abstract] OR \"anabasine\"[Title/Abstract]) AND (\"wastewater\"[Title/Abstract] OR \"sewage\"[Title/Abstract])"
+      },
+      {
+        "file": "pubmed-s2-page-100.json",
+        "sha256": "1dec2d9b33f4c219c7bf6728289f274f675df7acb9fbbcbb8bde2b72b0315c42",
+        "bytes": 334916,
+        "offset": 100,
+        "records": 50,
+        "next_offset": 150,
+        "total_count": 222,
+        "field_pages": [],
+        "warnings": [],
+        "query_translation": "(\"nicotine\"[Title/Abstract] OR \"cotinine\"[Title/Abstract] OR \"hydroxycotinine\"[Title/Abstract] OR \"anabasine\"[Title/Abstract]) AND (\"wastewater\"[Title/Abstract] OR \"sewage\"[Title/Abstract])"
+      },
+      {
+        "file": "pubmed-s2-page-150.json",
+        "sha256": "7bc2f3507efca041b947ecdf31227c0a56e4ad4cd5690dbefd1eec0fccbd5c7c",
+        "bytes": 314222,
+        "offset": 150,
+        "records": 50,
+        "next_offset": 200,
+        "total_count": 222,
+        "field_pages": [],
+        "warnings": [],
+        "query_translation": "(\"nicotine\"[Title/Abstract] OR \"cotinine\"[Title/Abstract] OR \"hydroxycotinine\"[Title/Abstract] OR \"anabasine\"[Title/Abstract]) AND (\"wastewater\"[Title/Abstract] OR \"sewage\"[Title/Abstract])"
+      },
+      {
+        "file": "pubmed-s2-page-200.json",
+        "sha256": "82cc2abc1f7aa59740b98da6301a871f12f33b6a8971daf93795022030236d10",
+        "bytes": 141424,
+        "offset": 200,
+        "records": 22,
+        "next_offset": null,
+        "total_count": 222,
+        "field_pages": [],
+        "warnings": [],
+        "query_translation": "(\"nicotine\"[Title/Abstract] OR \"cotinine\"[Title/Abstract] OR \"hydroxycotinine\"[Title/Abstract] OR \"anabasine\"[Title/Abstract]) AND (\"wastewater\"[Title/Abstract] OR \"sewage\"[Title/Abstract])"
+      },
+      {
+        "file": "pubmed-s2-page-50.json",
+        "sha256": "b40ab13fe7ec7fab3c22a9d170a4e3014e3afdcbf4176b6f2d2c7480086cca66",
+        "bytes": 345661,
+        "offset": 50,
+        "records": 50,
+        "next_offset": 100,
+        "total_count": 222,
+        "field_pages": [],
+        "warnings": [],
+        "query_translation": "(\"nicotine\"[Title/Abstract] OR \"cotinine\"[Title/Abstract] OR \"hydroxycotinine\"[Title/Abstract] OR \"anabasine\"[Title/Abstract]) AND (\"wastewater\"[Title/Abstract] OR \"sewage\"[Title/Abstract])"
+      }
+    ],
+    "pubmed_unique_pmids": 222,
+    "europepmc_native_records": 231,
+    "europepmc_sources": {
+      "MED": 213,
+      "PPR": 10,
+      "AGR": 3,
+      "PMC": 2,
+      "ETH": 1,
+      "PAT": 2
+    },
+    "europepmc_pmids": 213,
+    "shared_pmids": 213,
+    "pubmed_only": [
+      "14762646",
+      "25505099",
+      "27543946",
+      "31487008",
+      "33535451",
+      "33813300",
+      "34346379",
+      "35523346",
+      "40014245"
+    ],
+    "europepmc_only_pmids": [],
+    "seed_AU_in_both": true,
+    "screening_status": "pending_except_individually_recorded_appraisals"
+  },
+  "imports": {
+    "europepmc_s2": {
+      "status": "passed",
+      "records": 231,
+      "quarantined": 0,
+      "transport_sha256": "f2fd1bb5855470c026a3339e987b450e1b2526dfc8469a08c36e9a89acaa5138",
+      "output_sha256": "60456ca2b7ea3802fb794373ed82bb6cb8932330b7458d9d4b58ee8fd63a5ba0",
+      "source_receipt_id": "europepmc-s2-877ce4fccb19da203c3d8b2d1d408bb62df73c27a669e06e21e105afd66400ac",
+      "binary_sha256": "ebe162f2d4076f085af0702733d9623f22a2b1783c4d7571b354f3880a93297a",
+      "warnings": [],
+      "limits": [
+        "Transport CSV preserves selected fields only; native JSON remains authoritative",
+        "AuthorString is not an independently parsed author list",
+        "Import is not screening, extraction verification, empirical admission or archive preservation"
+      ]
+    },
+    "combined_candidate_dedup": {
+      "pubmed_import_records": 222,
+      "pubmed_quarantined": 0,
+      "combined_source_records": 453,
+      "pubmed_transport_sha256": "1c590af4625721fd3316ff83ce54ae9a1e1882c31b63503dbdc651e4d4ab37ad",
+      "pubmed_import_sha256": "fb0f0779f7d012ccd5d657828b2d1c119adaccfebd506507afd958f65047f177",
+      "combined_canonical_sha256": "84e4f1aa04a034ed831af8ca7af00c836e85e158314089d4cc9e7c719484e7b3",
+      "dedup_sha256": "cab9a687b0c0addf4e6c566c441b8e0abf422673c923ce9168ab3565aeba7511",
+      "dedup_summary": {
+        "clusters": 213,
+        "retained_record_ids": 235,
+        "comparisons": 97408,
+        "proposed_duplicate_count": 218
+      },
+      "status": "candidate_groups_only_no_records_deleted_no_study_identity_confirmed"
+    }
+  },
+  "originals": [
+    {
+      "source_id": "AU_WANG_XML",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12887742/fullTextXML",
+      "retrieval_started": "2026-11-07T01:49:01.129416+00:00",
+      "http_status": 200,
+      "content_type": "application/xml",
+      "sha256": "6cc389a161ce27d498d20beb959441cbd6161bffed48230f1db751ea4b3d7c23",
+      "bytes": 89956,
+      "file": "AU_WANG_XML-6cc389a161ce27d498d20beb959441cbd6161bffed48230f1db751ea4b3d7c23.bin",
+      "status": "captured_not_admitted"
+    },
+    {
+      "source_id": "AU_WANG_SUPPLEMENTS",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12887742/supplementaryFiles",
+      "retrieval_started": "2026-11-07T01:49:04.180327+00:00",
+      "http_status": 200,
+      "content_type": "application/zip",
+      "sha256": "07f54c4274f4f79b19da9bc4713f32e7311338c9edb46581c3f4bbd9078ab1a3",
+      "bytes": 4100596,
+      "file": "AU_WANG_SUPPLEMENTS-07f54c4274f4f79b19da9bc4713f32e7311338c9edb46581c3f4bbd9078ab1a3.bin",
+      "status": "captured_not_admitted"
+    },
+    {
+      "source_id": "PMC11672025",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11672025/fullTextXML",
+      "retrieval_started": "2026-11-07T01:53:45.860162+00:00",
+      "http_status": 200,
+      "content_type": "application/xml",
+      "sha256": "b99ad040e7c84e0745d02082b5fdd21a8d288dd28b9c5ae994cf78fd337160f0",
+      "bytes": 136900,
+      "file": "PMC11672025-b99ad040e7c84e0745d02082b5fdd21a8d288dd28b9c5ae994cf78fd337160f0.xml",
+      "status": "captured_not_admitted"
+    },
+    {
+      "source_id": "PMC13389531",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13389531/fullTextXML",
+      "retrieval_started": "2026-11-07T01:53:48.684318+00:00",
+      "http_status": 200,
+      "content_type": "application/xml",
+      "sha256": "b848cbc72f5e0785b4a899cd255ef354d1893a8c16863a7139bb957af140fdf0",
+      "bytes": 95290,
+      "file": "PMC13389531-b848cbc72f5e0785b4a899cd255ef354d1893a8c16863a7139bb957af140fdf0.xml",
+      "status": "captured_not_admitted"
+    }
+  ],
+  "original_subassets": [
+    {
+      "file": "jamanetwopen-e2557319-s001.pdf",
+      "sha256": "b9ba104635b3b5c6efeef4860dbd184417c6abacc5f376f7654d960048b70d08",
+      "bytes": 805290,
+      "container_zip_sha256": "07f54c4274f4f79b19da9bc4713f32e7311338c9edb46581c3f4bbd9078ab1a3"
+    },
+    {
+      "file": "jamanetwopen-e2557319-s002.pdf",
+      "sha256": "1cd8b2cbe63a319a75696e238d939c1720bf89577a1b5a7c86b89364e70d7df8",
+      "bytes": 16034,
+      "container_zip_sha256": "07f54c4274f4f79b19da9bc4713f32e7311338c9edb46581c3f4bbd9078ab1a3"
+    }
+  ],
+  "local_readback_recovery": {
+    "status": "passed",
+    "checked_at": "2026-11-07T01:58:31.077600+00:00",
+    "page_occurrences_verified": 41,
+    "original_objects_verified": 4,
+    "selected_original_offline_copy_reopened": true,
+    "corrupt_copy_rejected": true,
+    "missing_copy_rejected": true,
+    "selected_copy_recovered_from_preserved_original": true,
+    "scope": "Local receipt hash/count/identity verification and selected original copy recovery only; no independent external archive preservation or empirical validity claim"
+  },
+  "verification": {
+    "focused_tests": 99,
+    "test_exit_code": 0,
+    "test_seconds": 28.53,
+    "test_sampled_peak_mib": 161.0,
+    "log": "outputs/nz-au-phase1-20261107/focused-tests.log",
+    "selection": [
+      "tests/engineering/test_context_bundle.py",
+      "tests/engineering/test_source_handoff.py",
+      "tests/engineering/test_publication_boundary.py",
+      "tests/test_workstream_integration.py"
+    ],
+    "full_scientific_suite_and_replay": "Not rerun: no numerical source, scientific input, environment lock or native profile changed; prior Phase 0 checkpoint retained at its exact scope",
+    "final_boundary_context_tests": {
+      "passed": 43,
+      "seconds": 9.84,
+      "sampled_peak_mib": 60.6,
+      "exit_code": 0,
+      "log": "outputs/nz-au-phase1-20261107/final-boundary-context-tests.log"
+    },
+    "staged_publication_boundary": {
+      "status": "passed",
+      "sampled_peak_mib": 53.1,
+      "exit_code": 0,
+      "log": "outputs/nz-au-phase1-20261107/staged-boundary.log",
+      "scope": "Previous staged snapshot; final index validation retained separately after metadata-only closeout"
+    }
+  },
+  "remaining_gates": [
+    "S1 provider hitCount 25237 versus 25236 unique returned records; exhausted cursor and lite diagnostic retained; no complete S1 claim",
+    "PubMed S1/S3/S4/S5, G1/G2 official sources and citation chasing",
+    "Review candidate duplicates and complete eligibility/exclusion and full-text screening",
+    "Complete exact current policy baseline and pre-fit observation/holdout manifest",
+    "Resolve original-source quarantines and full parameter/formula extraction with covariance",
+    "Existing external archive owner must qualify exact rights/destination, native byte readback and durable recovery",
+    "No current NZ empirical model or funding/policy recommendation admitted"
+  ],
+  "retained_execution_helpers": {
+    "location": "External intake edition execution-scripts; one-off qualification scripts, not a maintained scientific engine or raw-source authority",
+    "files": [
+      {
+        "file": "amend-s3.py",
+        "sha256": "00de7497df5818d62da2f61e34b7f8e07da7d58134e38e23d7e7526008af5c4a",
+        "bytes": 3615
+      },
+      {
+        "file": "capture-nz-seed.py",
+        "sha256": "851307635237a74150213760b0721b582acb4b7250f67f6670e9162d5de9b846",
+        "bytes": 1044
+      },
+      {
+        "file": "capture-originals.py",
+        "sha256": "9019e45c5c6f14684c191331ee1059962862af7f5f9f60f7b9ff6587724a6410",
+        "bytes": 1147
+      },
+      {
+        "file": "continue-s1.py",
+        "sha256": "5b8aaf32dee46feffca661f264fd8412bf4b3afa1b444daed5b8cace7bd52ab8",
+        "bytes": 2705
+      },
+      {
+        "file": "diagnose-s1.py",
+        "sha256": "311a7d95b3c647c99d5a2fe22d8e237dfd9ffa2e84e702c291e973bc08883faf",
+        "bytes": 1683
+      },
+      {
+        "file": "freeze-receipt.py",
+        "sha256": "bcfd3de117d78c879a2be971597670b999125d0fc8d5048477dc47907a172a40",
+        "bytes": 5173
+      },
+      {
+        "file": "import-pubmed-s2.py",
+        "sha256": "6804c805da9dcfc33b56024ac53fdd8b85ec93d8e9af361dbcbc6b6d9e5eb490",
+        "bytes": 2541
+      },
+      {
+        "file": "import-s2.py",
+        "sha256": "4f19ba1177a3642941b32e98d677ea1128296ad7376c3ab415b06177aca98448",
+        "bytes": 2595
+      },
+      {
+        "file": "qualify-strategies.py",
+        "sha256": "ca115fd98cd6b42567fcd47320536cda967d5d9393279bfd172624762971da1d",
+        "bytes": 2861
+      },
+      {
+        "file": "retrieve.py",
+        "sha256": "d745956553272a2f874e54aa8f5a9e96fda937fd94ce800baef51754e5ebead6",
+        "bytes": 4392
+      },
+      {
+        "file": "verify-evidence.py",
+        "sha256": "4e51b67bd4aefe90d3a4f67152e7382c03958f10c93fb04caf30aed9abce69cf",
+        "bytes": 2336
+      }
+    ]
+  }
+}
