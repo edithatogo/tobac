@@ -90,6 +90,13 @@ security-tool download during artifact export and failed there. The PR remains
 blocked. Local merge `db954d5` retains the complete Phase 0 plan and both
 histories. The hosted gate does not change any scientific disposition below.
 
+Follow-up on the same PR head confirmed CodeQL passed. The macOS qualification
+also reached artifact export before the scanner download failed. Four required
+checks remain failed. Both Darwin ARM64 release archives were fetched locally
+through the GitHub release-assets API and matched the installer SHA-256 pins.
+The hosted jobs use browser download URLs that continue to return HTTP 504.
+The API route has local byte verification and awaits hosted qualification.
+
 - [ ] Integrate qualified NZ survey, lawful releases, prices, trade and denominators using Polars; add actual Australian wastewater programme design and measurement evidence.
 - [ ] Reconcile dates, products, catchments, lawful unrecorded flows, stock, shared sources and calibration. Assess identifiability before fitting; retain partial-identification bounds where needed.
 - [ ] Fit the supported baseline and one existing retail/cessation contrast; preserve original finite-state reference results separately.
