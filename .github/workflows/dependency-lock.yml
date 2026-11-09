@@ -14,7 +14,7 @@ concurrency:
 jobs:
   resolve:
     name: Resolve and install ${{ matrix.profile }} candidate
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 40
     strategy:
       fail-fast: false
