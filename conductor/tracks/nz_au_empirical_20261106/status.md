@@ -11,11 +11,16 @@ makes the actual supplement extraction and source-native checks reproducible.
 It preserves every censored/absent slot and the original numerical discrepancies.
 Source-native reproduction does not supply the missing matched independent outcome,
 causal policy bridge or native source acceptance. Those gates remain open.
-The published #150 repair is now incorporated locally into #147. Its actual
+The complete published #150 repair is incorporated into #147 at `dc65be1b` and
+#150 is closed as superseded. The received tree matches the reviewed candidate. Its actual
 hosted audit/security/harness/Actionlint checks pass, while 21 failed hosted jobs
 retain the same stale native workflow pin. Combined local diagnostics report
 1,448 passed / 21 skipped / 19 OpenSSH qualification failures. Strict, security,
 publication and original-PDF byte-for-byte measurement reproduction pass.
+At `dc65be1b`, four hosted workflow families pass and eight fail solely at the
+native gate; all 21 failed jobs cite the stale `advisory-types.yml` pin. The
+Scorecard artifact/upload/30-day retention controls have executed successfully.
+Current source implementation and its admission limits are recorded in issue #3.
 
 ### Earlier first-comparison checkpoint
 

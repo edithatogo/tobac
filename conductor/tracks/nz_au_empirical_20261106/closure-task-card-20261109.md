@@ -58,7 +58,7 @@ replaced by a synthetic observation or a self-declared acceptance receipt.
 - [x] Run affected/workstream tests, strict/security checks and full diagnostic
   execution on the coherent candidate; retain actual qualified/reproduction
   failures. New software tests cannot establish native or empirical admission.
-- [ ] Reconcile Conductor and issue/PR status; publish reviewed changes with a
+- [x] Reconcile Conductor and issue/PR status; publish reviewed changes with a
   current-main comparison and expected-head checks; verify full receiving trees.
 - [x] Prune only branches/worktrees whose work is retained and verified. Keep
   genuinely unmerged candidates and identify inaccessible remote cleanup.
@@ -160,8 +160,9 @@ steps then report absent output; #147 already repairs that secondary defect.
 
 Merge `3a22189cb263f1378a30f5109058902c44132c80` incorporates the complete
 published #150 candidate into #147, preserving its history, so the native issuer
-can review one combined workflow/source candidate. #150 remains open pending
-accepted main integration; this local merge is not its protected-main acceptance.
+can review one combined workflow/source candidate. After receiving publication
+of that full history in #147, #150 is closed as superseded. Its Ubuntu update
+still requires protected-main acceptance through the consolidated candidate.
 
 The committed integrated diagnostic suite reports **1,448 passed, 21 skipped,
 19 failed** in 54.84 seconds, sampled peak 682.1 MiB. All 19 failures are in
@@ -197,8 +198,8 @@ not merged. Its five files contain superseded dated prose, while current main
 retains the substantive Python 3.15.2 setup changes. Its exact `05446c023` head
 remains preserved by `refs/pull/135/head`. Deleting that obsolete branch ref needs
 an authenticated branch-delete capability absent from this session; do not claim
-it was merged or deleted. The current #147/#150 candidates remain preserved until
-their native gates and protected-main integration succeed.
+it was merged or deleted. The current #147 candidate and its incorporated #150
+history remain preserved while native gates and protected-main integration are open.
 
 ## PR #149 merged and current-main integration verified
 
@@ -224,6 +225,49 @@ Removed the clean isolated #149 and #150 worktrees and their redundant local
 repair branches only after fetched tree equality, integration and diagnostic
 preservation. `git worktree prune` and `git remote prune origin` completed.
 The active checkout and local main are retained; local main is fast-forwarded
-to `0c3c7cf8`. The real unmerged remote #147/#150 candidates and the inaccessible
-obsolete #135 ref remain explicit. No remote branch deletion capability is
-invented, and no unqualified change is promoted to protected main.
+to `0c3c7cf8`. The real unmerged remote #147 candidate and the retained refs for
+closed #135/#150 remain explicit. Those obsolete refs require an authenticated
+branch-delete capability unavailable in this session.
+
+## Receiving implementation and GitHub checks
+
+The complete consolidated implementation is published in draft #147 at
+`dc65be1b31a08d92cee6648822a1d92bfd6d4079`. Its full receiving tree
+`b33edfd296b4b36a186554ef8e34bed4330ceafb` matches the reviewed local tree
+exactly. Its parents retain prior #147 `aa2c4ce5`, qualified main `0c3c7cf8`
+and complete #150 head `306ad900`. PR #150 is closed as superseded after that
+verified integration, with its remaining native qualification tracked in #147.
+Issue #3 is updated with the completed measurement deliverable and its still-open
+seven applied empirical criteria. Issue #7 remains the active Renovate dashboard.
+All three reviewed PRs had zero outstanding review threads or review submissions.
+
+All twelve workflows at `dc65be1b` are terminal: **four success / eight failure**.
+The 32 checks contain eight successes (including the separate CodeQL check),
+21 failures, two expected skips and one neutral advisory. All 21 failed job logs
+report the same primary stale `advisory-types.yml` native pin. None reports the
+previous secondary missing-output export error. The four successful families are
+Linux audit, publication/source security, advisory typing and Scorecard. Actual
+hosted strict/security checks and 145 contract tests pass; publication passes 21
+boundary tests, full Actionlint and CodeQL analysis/SARIF processing.
+
+The [Scorecard run](https://github.com/edithatogo/tobac/actions/runs/42598551442)
+actually uses `publish_results: false` for this PR, uploads `results.sarif` to
+code scanning and retains that exact file in artifact `13664337875` for 30 days
+(9 November–9 December 2026). Artifact digest:
+`19d4d693b533c1a9dff6f5e908453010dd5628c0d12c4d306d23093e70fdf880`.
+The new controls are exercised on the candidate; their default-branch deployment
+awaits #147's native qualification and merge.
+
+The neutral Scorecard bot warning is explained by the
+[pinned upstream event handling](https://github.com/ossf/scorecard-action/blob/fa7117db83c52d787ae5a89f350999701505d78e/options/options.go):
+experimental PR runs analyse local source, while default-branch runs analyse the
+online repository. The PR SARIF therefore lacks main's `online-scm` and
+`branch-protection` categories. Retain that truthful comparison limitation and
+the useful local checks; no empty reports, fabricated categories or expanded
+token privileges are introduced. This neutral warning is separate from the
+failed native acceptance checks and from inaccessible private alert queues.
+
+At the receiving-main readback checkpoint, `0c3c7cf8` has nine successful runs
+and two still executing, with no observed failure. Its package provenance and
+dependency submission jobs have passed. That observation is distinct from the
+already completed twelve successful PR #149 workflows and identical full tree.

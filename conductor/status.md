@@ -9,8 +9,9 @@ passed; its receiving tree matches the qualified repair exactly. The [closure ta
 records PR #149's lock-receipt repair, PR #150's runner compatibility repair,
 Scorecard/security corrections and remaining qualification/cleanup dependencies.
 Draft PR #147 remains the active dynamic, evidence and security candidate.
-The published #150 runner repair is integrated locally into #147 so all final
-workflow/source changes can receive one native renewal. Its hosted strict,
+The complete #150 runner repair is published as a parent of consolidated #147
+`dc65be1b31a08d92cee6648822a1d92bfd6d4079`; #150 is closed as superseded so all
+final workflow/source changes can receive one native renewal. Its hosted strict,
 security, CodeQL, Actionlint and harness checks pass; native-gated jobs still fail
 on the stale workflow pin. The combined local diagnostic suite reports 1,448
 passed, 21 skipped and 19 failures at the unqualified OpenSSH verifier. Ordinary
@@ -18,6 +19,13 @@ Nox tests/reproduction stop before workloads for missing native configuration.
 Current main is integrated into the candidate; 165 affected integration tests
 pass after its five lock/input changes. Both isolated repair worktrees and four
 redundant local branches are pruned after content preservation.
+The received #147 tree exactly matches the reviewed candidate. Its twelve hosted
+workflows are terminal: four succeed and eight fail at native acceptance; all
+21 failed jobs report the stale `advisory-types.yml` pin. Scorecard's 30-day SARIF
+artifact and public-only publication controls have been exercised successfully.
+Issue #3 records the completed bounded measurement deliverable; its seven applied
+empirical criteria remain open. Private alert queues and obsolete remote ref
+deletion require account capabilities unavailable in the current connection.
 
 The new [Kim measurement pack](../evidence/kim_measurements_20261109/README.md)
 reproduces 142 dated occasions and 576 analyte slots from the pinned supplement.
