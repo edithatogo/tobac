@@ -7,27 +7,24 @@
 
 [How to cite](CITATION.cff) · [Apache-2.0 licence](LICENSE) · [Security reporting](SECURITY.md) · [Actions](https://github.com/edithatogo/tobac/actions)
 
-NZ tobacco-regulation uncertainty and wastewater value-of-information research.
+**Tobac** is an open research toolkit for tobacco and nicotine policy uncertainty, physical supply accounting, longitudinal evidence, and value-of-information analysis. It distinguishes reproducible decision methods from the empirical evidence needed to recommend a real intervention or surveillance programme.
 
-**Primary sequence:** regulatory EVPI -> grouped EVPPI -> targeted scientific learning -> study EVSI -> conditional ENBS. Testing, alternative research and no additional study are all permissible conclusions.
+**Decision sequence:** regulatory EVPI → grouped EVPPI → targeted learning → study EVSI → conditional ENBS. No further study, a pilot, and a wider programme are legitimate alternatives. Health, fiscal and societal perspectives are not silently combined, and information gain is not monetary value.
 
-## Current status — 8 November 2026
+## Current status (9 November 2026)
 
-Accepted main at `d735896` uses **Python 3.15.2**. The
-[engineering run](https://github.com/edithatogo/tobac/actions/runs/42424926119)
-passed 1,250 tests with 21 explicit skips and 92% measured coverage. Its 98.5%
-mutation score covers `src/tobac/supply.py`, not the entire scientific model.
-Historical receipts below retain their original runtime and scope.
+| Area | Accepted on `main` | Still open |
+| --- | --- | --- |
+| Regulatory and M3 methods | Finite exact/conditional screening, weighted VOI, portfolios, structural robustness, staged implementation and numerical reproduction | Application-specific effects, costs and values are not established by software verification |
+| Longitudinal analysis | Historical reported-release and survey/supply components in [`tobac_supply`](src/tobac_supply/), with bounded reproduction | Historical forecasts are not observed current illicit-market consumption or independent policy effects |
+| Source and parameter evidence | Public source reviews, [NZ/AU evidence programme](conductor/tracks/nz_au_empirical_20261106/index.md) and the [parameter-promotion contract](conductor/research-gates.md) | Matched consumption/flow, assay calibration, causality, survey dependence and eligible independent validation for [issue #3](https://github.com/edithatogo/tobac/issues/3) |
+| Dynamic models and supply-chain hardening | Conditional foundational interfaces and green accepted-main qualification | [Draft PR #147](https://github.com/edithatogo/tobac/pull/147) contains additional six-state/mortality integration, candidate datasets, source reconciliation, portable Kim measurement pack, hardened workflows and Scorecard updates; **not yet merged or native-qualified** |
 
-The [dynamic/evidence roadmap](conductor/tracks/dynamic_frontier_20261108/index.md)
-adds a **candidate** closed-cohort projection and a versioned
-[public comparison-data pack](evidence/public_data_20261108/README.md).
-These additions need fresh native scientific qualification. They do not establish
-a current NZ posterior, fitted policy effects or an adaptive policy recommendation.
-The companion track specifies systematic-review integration with Searchright,
-causal/measurement evidence requirements, broader policy decisions and benchmarks.
+**Evidence distinction.** The draft parameter work contains a 61-entry embedded catalogue and a separate 65-entry candidate registry, plus a [20-item alias and unit crosswalk](https://github.com/edithatogo/tobac/blob/codex/tobac-dynamic-evidence-20261108/evidence/parameter_candidates_20261109/alias_crosswalk.csv). Entries overlap, are not independent observations, and have **not been adopted as model likelihoods, priors or calibrated policy effects**. The [Conductor frontier track](conductor/roadmap.md) prioritises a full parameter-to-code crosswalk, decision-sufficiency/partial-identification oracles, calibration-versus-sampling comparisons and carefully validated adaptive decisions. Passing simulations alone cannot establish field predictive validity.
 
-## Implemented decision methods: M3
+The repository's qualified main remains separate from PR-head checks. Scientific and package changes require the existing signed native acceptance and exact source/inventory readback; do not disable those checks or infer empirical admission from green lint/security jobs. See [qualification readiness](docs/engineering/READINESS.md), [research gates](conductor/research-gates.md), [Conductor status](conductor/status.md), and [reproduction instructions](#reproduce).
+
+## Implemented M3 research methods (conditional)
 
 The six approved additions are implemented under [`src/tobac/research`](src/tobac/research/): exact weighted Voiage adaptation and structure-only information; complementary information portfolios and shared costs; unweighted prior/structure robustness; implementation-adjusted decisions; and pilot/continue/stop with matched timing. Uptake and delay materiality is tested before requiring Innovate or Kairos.
 
