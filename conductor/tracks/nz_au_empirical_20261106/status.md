@@ -1,5 +1,23 @@
 # Status — 9 November 2026
 
+## Post-merge issue #3 readiness — 9 November 2026
+
+[PR #147](https://github.com/edithatogo/tobac/pull/147) **merged** at main commit `924578b3d3a07d1cf3d795eef7dfc1c8ff71d508` after all twelve candidate workflow families passed. The source-use review, exact NZHS reconciliation, Kim source-derived measurement comparison, optional dynamic health/person-time model, candidate parameter catalogues, Scorecard controls and signed input-acceptance evidence are now on main. Their acceptance is **engineering/source-verification scope**, not an admitted NZ empirical fit.
+
+The [unchanged machine-readable eligibility result](first-comparison-audit-20261109.json) reports:
+
+| Required evidence role | Admitted compatible rows | Scientific disposition |
+| --- | ---: | --- |
+| Country/product/time-matched consumption and lawful-supply baseline | 0 | Survey estimates and annual releases cannot identify catchment consumption without denominator, intensity/stock and period bridges |
+| Eligible wastewater measurement likelihood | 0 | The 142 dated Kim occasions lack the full matched catchment flow, contributing population, censoring and human-yield/processing calibration |
+| Independent outcome for baseline-versus-WBE scoring | 0 | National derivatives reuse WBE/supply inputs; the source-only survey holdout is not a matched consumption holdout |
+
+All **28 handoff rows** remain blocked; metadata-compatible observations are **0**. A temporal NZHS smoking/vaping survey series with several earlier source years can support a limited historical-descriptive challenge, but the audit specifically marks `matched_consumption_holdout_qualified: false`. The existing policy-response and implementation assumptions remain uncalibrated for the proposed retailer restriction. Thus no paired held-out score, empirically identified retailer effect, national posterior, monetary ENBS or funded-study recommendation follows.
+
+**Minimum viable next empirical action:** continue source/study identity reconciliation and the eligible-public-raw-data inventory; admit only exact-matched records through the existing contract; establish a defensible policy/measurement transport bridge; freeze target-specific independent outcomes and folds **before** fitting. If the current public-only evidence cannot satisfy these requirements, publish the reproducible non-identification finding and its sensitivity/decision-sufficiency bounds as a separately scoped scientific result. The wider systematic review and empirical issue remain open; do not substitute the completed 21-record first-use appraisal for the full Searchright review.
+
+**Infrastructure:** the current Snakemake analytical controller already verifies context, M1 and synthetic clustering. The bounded first-comparison eligibility DAG is specified in [workflow/README.md](../../../workflow/README.md), not yet implemented. The engineering workflow enforces at least 90% branch coverage for its scoped source; Codecov is not configured, and a numerical badge should not be published until a verified Codecov report exists.
+
 ## Local native renewal and full qualification of PR #147
 
 On the local macOS native-admission estate, PR #147 (`be937950`) completed eight-runner
