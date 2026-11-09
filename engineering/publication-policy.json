@@ -455,6 +455,7 @@
     ".agents/skills/research-change/SKILL.md",
     ".gitattributes",
     ".githooks/pre-push",
+    ".github/actionlint.yaml",
     ".github/pull_request_template.md",
     ".github/workflows/advisory-types.yml",
     ".github/workflows/ci.yml",

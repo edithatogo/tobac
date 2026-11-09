@@ -237,7 +237,7 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             assert set(data["on"]) == {"workflow_dispatch"}
             assert data["on"]["workflow_dispatch"]["inputs"]["expected_sha"]["required"] == "true"
             for job in data["jobs"].values():
-                expected = "ubuntu-latest" if path.name == "release-candidate.yml" else "ubuntu-24.04"
+                expected = "ubuntu-latest" if path.name == "release-candidate.yml" else "ubuntu-26.04"
                 assert job["runs-on"] == expected
                 commands = [s.get("run", "") for s in job["steps"]]
                 assert any('test "$GITHUB_SHA" = "$EXPECTED_SHA"' in c for c in commands)
@@ -254,13 +254,21 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
 def test_linux_audit_requires_source_bound_lock_and_actual_audits() -> None:
     data = yaml.load((ROOT / ".github/workflows/linux-audit.yml").read_text(), Loader=yaml.BaseLoader)
     job = data["jobs"]["audit-lock"]
-    assert job["runs-on"] == "ubuntu-24.04"
+    assert job["runs-on"] == "ubuntu-26.04"
     assert job["env"]["TOBAC_REQUIRE_LOCK"] == "1"
     assert job["timeout-minutes"] == "40"
     commands = [step.get("run", "") for step in job["steps"]]
     assert any("verify --profile audit" in command for command in commands)
     assert any("platform.machine() == 'x86_64'" in command for command in commands)
     assert any("-s strict_all security" in command for command in commands)
+
+
+def test_actionlint_extension_is_one_exact_hosted_label() -> None:
+    """Keep the dated runner-table correction narrower than a lint suppression."""
+    data = yaml.load((ROOT / ".github/actionlint.yaml").read_text(), Loader=yaml.BaseLoader)
+    assert data == {"self-hosted-runner": {"labels": ["ubuntu-26.04"]}}
+    policy = json.loads((ROOT / "engineering/publication-policy.json").read_text())
+    assert ".github/actionlint.yaml" in policy["public_paths"]
 
 
 def assert_reference_job_guards(data, path) -> None:
@@ -270,7 +278,7 @@ def assert_reference_job_guards(data, path) -> None:
         if runner == "${{ matrix.os }}":
             assert {entry["os"] for entry in job["strategy"]["matrix"]["include"]} == {"macos-latest"}
         else:
-            allowed = {"linux-audit.yml": {"ubuntu-24.04"}}.get(path.name, {"macos-latest", "macos-15-intel"})
+            allowed = {"linux-audit.yml": {"ubuntu-26.04"}}.get(path.name, {"macos-latest", "macos-15-intel"})
             assert runner in allowed, (path, runner)
         commands = [step.get("run", "") for step in job["steps"]]
         assert any(
