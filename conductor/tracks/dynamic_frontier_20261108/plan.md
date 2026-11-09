@@ -10,8 +10,8 @@
   person-time consumption and boundary-survivor transition interface.
 - [x] Update the Searchright companion to reuse main's executed compile/import
   corpus and preserve its still-open broader screening/provider gates.
-- [ ] Verify and publish the coherent candidate; retain native renewal as a
-  separate requirement for the changed source/workflow inventory.
+- [x] Publish the locally reviewed candidate and verify its receiving full tree;
+  retain native renewal as a separate requirement for the changed inventory.
 
 Current verification: 224 affected tests pass; Nox strict and publication checks
 pass. The complete diagnostic suite reports 1,428 passed, 21 skipped and 19 failed,
@@ -20,6 +20,11 @@ Normal Nox tests and reproduction both stop at missing native-lineage setup.
 The [task receipt](../nz_au_empirical_20261106/first-comparison-task-card-20261109.md#verification-execution--9-november-2026)
 contains commands, exact failed cases, log hashes and source identity. This does
 not establish native acceptance or empirical admission.
+
+Published implementation/verification commit `c8ecd8c6b9f6f1c98dd07203e63f65bdf5c4b2bf`
+has receiving tree `a3c46d88d681fae83aec8513f83e7904e599162f`, identical to the
+reviewed publication tree. Main remains `d0e832b`; PR #147 remains draft. The
+parent task receipt records the expected-head update, readback and open native gates.
 
 ## Scope and acceptance
 

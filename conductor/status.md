@@ -16,6 +16,11 @@ survivor transitions at interval boundaries. Affected tests and strict checks
 pass; the changed scientific inventory still requires native acceptance. The
 task card records current complete-suite, reproduction and publication outcomes.
 
+Implementation and verification are published in draft PR #147 at `c8ecd8c`.
+The received tree `a3c46d88d681fae83aec8513f83e7904e599162f` exactly matches
+the reviewed local tree. This status update records that publication separately
+from still-required native renewal and hosted qualification.
+
 Issue #3 retains the applied empirical milestone, #7 the dependency dashboard.
 Issue #68 is completed for its installed Voiage scope and PR #135 is superseded.
 No current NZ causal policy result, admitted wastewater likelihood or national

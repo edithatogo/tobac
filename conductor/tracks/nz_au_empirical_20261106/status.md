@@ -12,6 +12,13 @@ official-source NZHS reconciliation and conditional health/person-time integrati
 All 89 estimates, 69 interval pairs and 54 explicit caution flags reconcile to the
 pinned official CSV. These checks add no independent observations.
 
+Implementation and verification are published in draft PR #147 at `c8ecd8c`.
+The fetched complete tree matches the reviewed local candidate. Affected tests
+pass (224); strict and publication checks pass. The full diagnostic suite reports
+1,428 passed / 21 skipped / 19 existing hosted-lineage failures on this unqualified
+OpenSSH binary. Normal Nox tests and reproduction fail before workloads for missing
+native-lineage configuration. See the task receipt for exact source and log hashes.
+
 The detailed source record supersedes the older preparation summaries below:
 official NZHS CSV and tobacco-workbook captures exist, Searchright compilation/
 imports and source-native searches were executed, and conditional policy, price,

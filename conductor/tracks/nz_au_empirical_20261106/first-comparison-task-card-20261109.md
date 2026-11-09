@@ -57,7 +57,7 @@ are published. The accepted native checkpoints and numerical references are pres
 - [x] Implement and test explicit mortality/person-time/boundary-transition timing.
 - [x] Run affected tests and workstream integration; strict checks, complete suite
   diagnostic/qualified attempts and applicable numerical replay at coherent checkpoint.
-- [ ] Record source/admission decisions and actual verification, reconcile current
+- [x] Record source/admission decisions and actual verification, reconcile current
   main, publish with expected-head protection and verify the receiving tree.
 
 Use repository Python 3.15.2 at `.venv-review315/bin/python`. Run expensive commands
@@ -158,3 +158,47 @@ the native-qualified suite, coverage, numerical reproduction and hosted checks
 requires the existing native source/attempt estate and reviewed signed renewal
 for the changed inventory and workflows. No accepted capsule, runtime profile,
 test, numerical tolerance or gate was changed.
+
+## Published candidate and receiving verification
+
+[Draft PR #147](https://github.com/edithatogo/tobac/pull/147) now contains
+implementation and verification commit
+[`c8ecd8c6b9f6f1c98dd07203e63f65bdf5c4b2bf`](https://github.com/edithatogo/tobac/commit/c8ecd8c6b9f6f1c98dd07203e63f65bdf5c4b2bf).
+Current main was reread as `d0e832b02b8b9e6791903f987245e8f6332e943a` before
+publication and is an ancestor of the received candidate. The expected PR head
+`c353d6fb11dbe0bb593f514e5883fbc68d05944e` was checked before the guarded
+fast-forward; no force was used.
+
+All 24 changed file blobs matched their local Git hashes. The fetched full tree,
+`a3c46d88d681fae83aec8513f83e7904e599162f`, exactly matches the reviewed local
+publication tree, including documentation-only verification updates after the
+diagnostic suite. Outgoing publication-boundary, full-history/staged secret scans
+and Actionlint passed (157.3 MiB sampled peak). The ordinary Git push dry run
+lacked HTTPS credentials; the existing GitHub connector published the same
+verified tree with an expected-head check. No signing authority was inferred from
+that Git publication.
+
+Changed interfaces are `HealthProjection` / `project_health_cohorts`, the explicit
+review CSV and audit CLI, and the exact-snapshot NZHS reconciliation CLI with
+separate verification annotations. The original ten fact tables, evidence
+conditioning interfaces, accepted lineage and numerical references are unchanged.
+All new observations remain unadmitted. The first hosted readback started 12
+workflows; no aggregate hosted success is claimed while jobs remain in progress.
+This receiving record is a subsequent documentation-only update.
+
+At the 09:10 UTC implementation-commit readback, the eight completed failed jobs
+across cross-platform, package, reproduction and M3 families all stopped before
+workloads with `Stale native acceptance pin: .github/workflows/advisory-types.yml`.
+The source-inventory check lies beyond that earlier failure; it was not reached
+in those runs. Their valid-signature and tamper-rejection probes passed, and the
+package/reproduction/M3 export steps skipped after preflight abort without the
+old absent-output exception. Examples: [Linux package](https://github.com/edithatogo/tobac/actions/runs/42591197697/job/129072944963),
+[Windows reproduction](https://github.com/edithatogo/tobac/actions/runs/42591197798/job/129072946195)
+and [M3 numerical](https://github.com/edithatogo/tobac/actions/runs/42591197693/job/129072944441).
+Other jobs were still running or queued; these are observed failures, not an
+inference that an unexecuted workload passes.
+
+The subsequent implementation-commit readback found all 12 workflows completed:
+four success and eight failure. Publication/source security, Linux audit,
+advisory typing and Scorecard passed. These results belong to `c8ecd8c6`; any
+later documentation head has its own separately triggered checks.
