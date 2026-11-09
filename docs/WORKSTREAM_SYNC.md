@@ -237,3 +237,16 @@ native acceptance in the standard Git worktree
 local main 34b629e. The next gate is the full locked suite on the signed
 candidate before a guarded local fast-forward. The P3 source checkout and
 its native originals retain their owners.
+
+## PR #147 native renewal and closure — 9 November 2026
+
+Root integrator `/Users/doughnut/Documents/tobac` renewed native lineage acceptance for
+consolidated PR #147 (`be937950a03152006df6a6f18fb2de7ed477cd83`) at
+`ab342bb353b229827de6bafee66c51e23cfa4224`, issuing checkpoint
+`integration/archive/scientific-lineage-checkpoint_dynamic_evidence_20261109.json`
+(`72698ce972712e672271ab054b7547d13aaec8f559408af8461f9254c36d8fa6`) and signed capsule
+`ee943f35a0a9c4579c9fd4a7185ea76e917c7e403dd2347f21bbd31a16878dd7` after eight fresh
+native executions and 140-output / 82-CSV byte-identical readback under
+`outputs/dynamic-evidence-renewal-20261109/`. Full Nox `tests` (1,480 passed, 8 skipped),
+`strict_all`, `reproduce` and `publication` pass under `scripts/run_bounded.py`.
+M3 interfaces (`src/tobac/research`, `tests/m3`) and scientific boundaries are preserved.

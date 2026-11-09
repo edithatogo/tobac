@@ -1,5 +1,20 @@
 # Status — 9 November 2026
 
+## Local native renewal and full qualification of PR #147
+
+On the local macOS native-admission estate, PR #147 (`be937950`) completed eight-runner
+native execution, 140-output and 82-CSV byte-for-byte readback, and fresh Ed25519 capsule
+issuance at `ab342bb353b229827de6bafee66c51e23cfa4224` (`scientific-lineage-checkpoint_dynamic_evidence_20261109.json`
+`72698ce972712e672271ab054b7547d13aaec8f559408af8461f9254c36d8fa6`, inventory
+`cb080543bcdd52241a9dc854830066c7cfd0afda68a8ace56c01eb369187bcbc`, capsule
+`ee943f35a0a9c4579c9fd4a7185ea76e917c7e403dd2347f21bbd31a16878dd7`, signature
+`32470d0bfce2a9a9c37a49e6062d94466f95d89ec444cdc009052dff0ca10d2e`). Complete Nox
+`tests` (**1,480 passed, 8 skipped, 0 failed**, 91% coverage), `strict_all` (192 files
+formatted, zero `basedpyright` diagnostics), `reproduce` (all 8 runner replays + 29-table
+isolated publication replay with `0.0` max diff) and `publication` (21 boundary tests +
+security checks) pass under `scripts/run_bounded.py`. Issue #3's empirical comparison
+criteria remain open.
+
 ## Current continuation
 
 The [closure task](closure-task-card-20261109.md) now records merged PR #143 at

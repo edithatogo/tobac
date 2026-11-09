@@ -1,6 +1,6 @@
 # Dynamic decisions and stronger empirical evidence
 
-Status: implementation and parameter-evidence candidate; native scientific qualification pending.
+Status: implementation, parameter-evidence catalogue and local native lineage qualification complete; empirical comparison gates open.
 Owner: repository owner. Started 8 November 2026 from accepted main `d735896`.
 
 - [Implementation plan and completion evidence](plan.md)
@@ -41,7 +41,8 @@ admission remain separate. Current development is consolidated in draft PR #147.
   incremental resource-cost and subgroup evidence. Located sources are not extracted tables.
 - [ ] Implement BF1 using the existing finite oracle and partial-identification
   machinery; then execute the bounded two-product BF2 adaptive-calibration benchmark.
-- [ ] Complete PR #147's separate native qualification and issue #3's matched
+- [x] Complete PR #147's separate native qualification (`ab342bb`, checkpoint `72698ce9...`, full Nox `tests` 1,480 passed / 8 skipped, `strict_all`, `reproduce` and `publication`).
+- [ ] Complete issue #3's matched
   measurement, causal-response and independent-validation requirements.
 
 This edition is an auxiliary evidence catalogue inside the existing public design

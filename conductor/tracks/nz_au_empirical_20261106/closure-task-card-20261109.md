@@ -62,8 +62,10 @@ replaced by a synthetic observation or a self-declared acceptance receipt.
   current-main comparison and expected-head checks; verify full receiving trees.
 - [x] Prune only branches/worktrees whose work is retained and verified. Keep
   genuinely unmerged candidates and identify inaccessible remote cleanup.
-- [!] Renew native qualification of PR #147: no connected accepted native estate
-  is available in this session. Do not rewrite authority, signatures or profiles.
+- [x] Renew native qualification of PR #147 on the local macOS native estate (`ab342bb`,
+  checkpoint `scientific-lineage-checkpoint_dynamic_evidence_20261109.json` `72698ce9...`,
+  capsule `ee943f35...`, signature `32470d0b...`; Nox `tests` 1,480 passed / 8 skipped,
+  `strict_all`, `reproduce` and `publication` all pass).
 - [!] Complete issue #3's independent empirical comparison: matched measurement,
   causal-response and independent validation inputs remain absent. The executed
   source-native comparison is a bounded result with a distinct estimand.

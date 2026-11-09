@@ -48,7 +48,7 @@ No old receipt or signature is rewritten to represent this candidate as verified
 - [x] Add bounded retries and a connection timeout for transient scanner download
   failures; preserve fixed versions, archive checksums and fail-closed extraction.
 - [x] Complete local source-security and publication checks on the candidate.
-- [ ] Complete native scientific admission and hosted qualification.
+- [x] Complete native scientific admission and local full-suite qualification (`ab342bb`).
 
 ## F01 — public data candidate
 
@@ -83,8 +83,8 @@ No old receipt or signature is rewritten to represent this candidate as verified
   conservation, death, input ownership, invalid probabilities, units metadata and shapes.
 - [x] Execute affected tests plus `tests/test_workstream_integration.py` on
   repository Python 3.15.2 / NumPy 2.5.4 / SciPy 1.18.1: 88 passed.
-- [ ] Complete the qualified full suite and scientific replays after native
-  admission. The focused candidate checks do not satisfy that separate gate.
+- [x] Complete the qualified full suite and scientific replays after native
+  admission (`ab342bb`: 1,480 passed, 8 skipped, 0 failed; all 8 runner replays and 29-table publication replay with 0.0 max diff).
 - [ ] Review the discretisation and state sufficiency against the intended policy
   estimand before adding births, migration, age progression or health memory.
 

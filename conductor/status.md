@@ -1,5 +1,28 @@
 # Reconciled repository status
 
+## Native renewal and PR #147 local qualification — 9 November 2026
+
+On the local macOS native-admission estate, PR #147 candidate `be937950a03152006df6a6f18fb2de7ed477cd83`
+completed full eight-runner native lineage execution (`m1`, `m2_retail`, `m2`, `m2_publication`,
+`m2_robustness`, `m3`, `longitudinal`, `release_calibration`), independent 140-output
+and original-source readback with all 82 scientific CSVs byte-identical to accepted
+originals, and fresh Ed25519 capsule signing at `ab342bb353b229827de6bafee66c51e23cfa4224`.
+New checkpoint `integration/archive/scientific-lineage-checkpoint_dynamic_evidence_20261109.json`
+(`72698ce972712e672271ab054b7547d13aaec8f559408af8461f9254c36d8fa6`), inventory
+`cb080543bcdd52241a9dc854830066c7cfd0afda68a8ace56c01eb369187bcbc`, capsule
+`ee943f35a0a9c4579c9fd4a7185ea76e917c7e403dd2347f21bbd31a16878dd7` and signature
+`32470d0bfce2a9a9c37a49e6062d94466f95d89ec444cdc009052dff0ca10d2e` resolve the stale
+workflow and changed-inventory preflight blockers across all 21 previously failing jobs.
+
+Under `scripts/run_bounded.py` (4096 MiB / 2400 s ceiling) on repo-local Python 3.15.2:
+- Focused affected, lineage and workstream integration suites pass **272 tests** (`134 + 138`, zero failures).
+- Complete native-qualified Nox `tests` session passes **1,480 passed, 8 skipped, 0 failed** in 96.74 s with 91% total `src` coverage (975.6 MiB peak RSS; log `cf54040a2558ead60bf1b9252d9156c5e23e5ecdc526f35bba6f77a21e82e25a`).
+- Complete Nox `reproduce` and `publication` sessions pass (770.7 MiB peak RSS; log `318b460ec169a4ba011d9bd71b0e7e72ff582e6310a896697c16ba2898ad5750`), including all eight runner replays, 29-table isolated publication replay with `0.0` maximum difference, 21 boundary tests and staged/full-history security checks.
+- Native Nox `strict_all` passes in 16 s (9 Ruff policy tests, 192 formatted files, zero `basedpyright` errors/warnings/notes; 948.6 MiB peak RSS; log `edaf986835a436496a65f8e1d751791d834559a28a8e957a2c0d721ffa019633`).
+
+Software and native lineage gates for PR #147 are closed locally; issue #3's seven applied
+empirical comparison criteria remain open per scientific boundaries.
+
 ## Active repository closure — 9 November 2026
 
 PR #143 is merged at `2f76950920598978b96e178f9393886d5889104d` and all eleven
