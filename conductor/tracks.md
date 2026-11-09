@@ -166,10 +166,14 @@ platform-specific release or research jobs.
 
 ## NZ/AU comprehensive policy and empirical wastewater VOI — 6 November 2026
 
+Track: `conductor/tracks/nz_au_empirical_20261106/`.
+
 - [~] [Requirements, design and implementation plan](tracks/nz_au_empirical_20261106/index.md).
   Isolated candidate; empirical admission and runtime qualification remain open.
 
 ## NZ/AU repository and analytical hardening — 6 November 2026
+
+Track: `conductor/tracks/nz_au_hardening_20261106/`.
 
 - [~] [Companion hardening track](tracks/nz_au_hardening_20261106/index.md).
   Baseline/incremental work accompanies empirical implementation; release acceptance follows it.

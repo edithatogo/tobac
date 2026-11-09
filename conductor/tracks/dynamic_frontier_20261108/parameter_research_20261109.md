@@ -99,3 +99,23 @@ excise classification; these are not 20 new observations or evidence admissions.
 Pending: review unmatched entries, reconcile any remaining study identity aliases
 through Searchright, and require the original existing handoff/native acceptance
 before model fitting. No live parameters changed.
+
+## Maintained-dependency co-design for beyond-frontier execution
+
+Executing F1–F5 at reference quality warrants targeted upstream improvements in the maintainer's provider repositories under the TP01–TP05 promotion protocol (retaining small exact reference oracles in `tobac`):
+
+1. **`edithatogo/voiage` (supports F1, F2, F4)**:
+   - **Credal/LP dominance & Minimal Identifying Restrictions (MIR)**: solve $\underline{\Delta}(a,b) = \min_{\theta \in \Theta} [U(a,\theta) - U(b,\theta)]$ over linear/convex constraint sets $\Theta$, returning primal attaining witnesses $(\theta_{\min}, \theta_{\max})$, dual Farkas certificates of binding constraints, and the Minimal Identifying Restriction required to establish dominance.
+   - **Endogenous & Tobit-censored channel EVSI**: extend staged EVSI to action-indexed observation operators $y_t \sim H(x_t, a_t, \eta_t)$ (where policy $a_t$ shifts biomarker stoichiometry or censoring probabilities) and left-censored Tobit likelihoods without censored-value imputation.
+   - **Metamorphic decision laws**: export Hypothesis strategies verifying Blackwell garbling monotonicity, constraint-tightening bound monotonicity, and Pareto frontier invariance.
+2. **`edithatogo/kairos` (supports F3)**:
+   - **Three-clock non-anticipative scheduling**: decouple the physical cohort clock, delayed laboratory/survey reporting clock, and policy decision clock with structural non-anticipativity checks preventing future-data leakage.
+3. **`edithatogo/innovate` & `edithatogo/dapane` (supports F3, F4)**:
+   - **Polars/Arrow migration & semi-Markov tunnel states (`innovate`)**: replace legacy `pandas`/`pandasdmx` dependencies with the Polars/Arrow interchange contract and provide reusable multi-state initiation/switching and cessation tunnel-state hazard-decay primitives.
+   - **Perspective-explicit microcosting (`dapane`)**: provide a qualified consumer interface separating medicine acquisition, service delivery capacity, enforcement costs, and fiscal excise transfers across health-system and societal perspectives.
+4. **`edithatogo/archive-govt-nz`, `searchright`, `sourceright` & `citeweft` (supports F5)**:
+   - **Two-tier Merkle DAG & invalidation cones (`archive-govt-nz`)**: separate the **Runner Closure Merkle Root** from the **Candidate Evidence Registry Merkle Root**, and compute fine-grained invalidation cones (`source -> extraction -> parameter -> bound -> decision`) on source revision or retraction.
+   - **Kind-preserving bibliography & retraction diffs (`searchright`/`sourceright`/`citeweft`)**: preserve CSL item types (`book`, `chapter`, `report`) across CSV/CSL imports and emit signed retraction/erratum diff manifests.
+5. **`edithatogo/repository-standards` & `edithatogo/paignia` (supports F4, Hardening)**:
+   - **Process-group-scoped RSS monitoring (`repository-standards`)**: sample `ps -g <pgid> -o pgid=,rss=` rather than system-wide `ps -axo` on macOS to prevent uninterruptible third-party processes from stalling bounded guards.
+   - **Equilibrium-set perturbation certificates (`paignia`)**: emit multi-equilibrium bounds and payoff-perturbation sensitivity certificates when strategic supply responses are tested in F4/BF6.

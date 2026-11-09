@@ -1,4 +1,4 @@
-# Hardening specification
+# NZ/AU repository and analytical hardening
 
 Mature and tidy the existing repository without rewriting history, removing other work,
 publishing private artefacts or introducing duplicate quality infrastructure. Reuse existing
