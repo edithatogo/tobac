@@ -20,7 +20,7 @@ lazy from extract_moh_lineage import NativeStore  # noqa: E402 -- Producer proto
 CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_dynamic_evidence_20261109.json"
 CHECKPOINT_SHA = "72698ce972712e672271ab054b7547d13aaec8f559408af8461f9254c36d8fa6"
 INTERFACE_SHA = "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373"
-INVENTORY_SHA = "cb080543bcdd52241a9dc854830066c7cfd0afda68a8ace56c01eb369187bcbc"
+INVENTORY_SHA = "38304702a35a556b0c422cebc6dfeb0dbd3ff8d95792b70818e9099170e5d9a1"
 
 
 def inventory_identity(root: Path) -> str:

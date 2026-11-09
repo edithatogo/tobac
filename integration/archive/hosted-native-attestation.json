@@ -1,6 +1,6 @@
 {
-  "inventory_sha256": "cb080543bcdd52241a9dc854830066c7cfd0afda68a8ace56c01eb369187bcbc",
-  "issued_at": "2026-11-09T11:22:23.465423+00:00",
+  "inventory_sha256": "38304702a35a556b0c422cebc6dfeb0dbd3ff8d95792b70818e9099170e5d9a1",
+  "issued_at": "2026-11-09T12:45:14.971983+00:00",
   "issuer": "tobac-native",
   "native_readback": {
     "checkpoint_sha256": "72698ce972712e672271ab054b7547d13aaec8f559408af8461f9254c36d8fa6",
@@ -90,7 +90,7 @@
     "noxfile.py": "abcb6161a80783f7c38f8b146e38d88c36dfc0f95ee51d4ddbc834a575192c96",
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
     "scripts/check_scientific_reproduction.py": "dbf0f7ad90b9f4f0b8bf6907caf75d747816f28014a5558e3e09d7e8695bcb26",
-    "scripts/lineage_preflight.py": "e27bceeb5dccc7aedb9ef2bc63c559031e05f89c680885ae0b0780e6d893be05",
+    "scripts/lineage_preflight.py": "0074ea3b0af1b08db8d51f43c1d0c1276e7cb36a5f5b70f2e4d414516e6ed92f",
     "scripts/prepare_synthesis_replay.py": "73a952437e45e434ca9f01b7ba04a5315560c15cbeff4b88566d478ced09be66",
     "scripts/qualify_integrations.py": "f52c3dedabeff5bc3151e6729327d5fc30bce6c7cc85fc7b5aa55565f06f9258",
     "scripts/run_m1_stage.py": "0e580dfe9ef5e649c9a819b880a89817b4020b9da9155a0add76ffbc372a046e",
