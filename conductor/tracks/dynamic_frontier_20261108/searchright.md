@@ -4,6 +4,30 @@ This makes the parent empirical programme's R01 executable in stages. It is a
 technical integration/review-workflow plan; no completed systematic review,
 comprehensive retrieval, final screening or pooled effect is claimed.
 
+## Current integration checkpoint — 9 November 2026
+
+The parent programme already executed Searchright compilation/imports and
+source-native searches. Reuse [its protocol and retrieval history](../nz_au_empirical_20261106/systematic-search.md)
+and [search receipts](../nz_au_empirical_20261106/phase1-search-receipts-20261107.json).
+The real executable at Searchright `4ddfbdbc54c500719889e09942783bdc04ee832b`
+has its own recorded build/import scope. The separate source inspection below
+does not replace that executed evidence or qualify a new provider route.
+
+Across five PubMed families, 28,913 occurrences correspond to 27,507 unique PMIDs.
+Those are source records, not included studies. Query-translation review, the
+recorded Europe PMC count discrepancy, grey/citation coverage, full screening,
+study linkage and downstream admission remain open. The eight recorded S5
+assessments retain their original scope. Do not restart this corpus as a new pilot
+or mark a native live-provider route qualified merely because compilation and
+source-native acquisition/import succeeded.
+
+The current increment is a [bounded first-comparison task](../nz_au_empirical_20261106/first-comparison-task-card-20261109.md):
+resolve source roles, dependence, measurement applicability and original-value
+checks for the evidence already relevant to the initial comparison. Its completed
+dispositions do not claim completion of the broader systematic review. Searchright
+continues to own review/search lifecycle; tobac's existing handoff decides whether
+the evidence is suitable for the requested observation and model role.
+
 ## Inspected integration surface
 
 Repository: [edithatogo/searchright](https://github.com/edithatogo/searchright).

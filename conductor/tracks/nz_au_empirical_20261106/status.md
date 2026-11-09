@@ -1,4 +1,33 @@
-# Status — 7 November 2026
+# Status — 9 November 2026
+
+## Current continuation
+
+Main `d0e832b` includes merged #146/#148 and the accepted integrated checkpoint.
+PR #147 is the active candidate, including dynamic/data work and export-error
+repairs. Its changed scientific inventory and workflow bytes still require fresh
+native acceptance; ordinary diagnostic tests cannot establish that acceptance.
+The [9 November task](first-comparison-task-card-20261109.md) completes a bounded
+21-record first-comparison source/use review, executable admission decision audit,
+official-source NZHS reconciliation and conditional health/person-time integration.
+All 89 estimates, 69 interval pairs and 54 explicit caution flags reconcile to the
+pinned official CSV. These checks add no independent observations.
+
+The detailed source record supersedes the older preparation summaries below:
+official NZHS CSV and tobacco-workbook captures exist, Searchright compilation/
+imports and source-native searches were executed, and conditional policy, price,
+health and equity components are implemented. The five PubMed families contain
+28,913 record occurrences / 27,507 unique PMIDs; broad screening is incomplete.
+Source acquisition, conditional implementation and empirical admission remain
+distinct. The current first-comparison likelihood, causal response and independent
+outcome requirements remain unresolved: the new audit reports all three roles
+blocked, all 28 maintained handoff rows blocked and scientific qualification false.
+
+Issue #68 is closed for the completed installed Voiage consumer scope and abandoned
+PR #135 is closed as superseded. Issue #3 is the current applied milestone; #7 is
+the active dependency dashboard. #143's distinct published-wheel Arrow lock,
+#149's Maturin update and #150's runner-image update remain unmerged candidates.
+
+## Historical 7 November checkpoint and execution history
 
 P6.1 current software candidate supersedes the earlier P5 typing limitation below:
 the expanded audit profile passes full source strict typing without suppressions.

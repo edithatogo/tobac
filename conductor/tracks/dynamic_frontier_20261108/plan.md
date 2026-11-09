@@ -1,5 +1,26 @@
 # Implementation plan — 8 November 2026
 
+## Active continuation — 9 November 2026
+
+- [x] Reconcile the official NZHS original with this pack's summary/PHCC-derived
+  numbers and uncertainties; preserve common survey identity and non-admission.
+- [x] Complete the bounded first-comparison source review and executable admission
+  audit under the [parent task card](../nz_au_empirical_20261106/first-comparison-task-card-20261109.md).
+- [x] Reuse the existing health kernel for an explicit competing-mortality,
+  person-time consumption and boundary-survivor transition interface.
+- [x] Update the Searchright companion to reuse main's executed compile/import
+  corpus and preserve its still-open broader screening/provider gates.
+- [ ] Verify and publish the coherent candidate; retain native renewal as a
+  separate requirement for the changed source/workflow inventory.
+
+Current verification: 224 affected tests pass; Nox strict and publication checks
+pass. The complete diagnostic suite reports 1,428 passed, 21 skipped and 19 failed,
+all in the existing hosted-lineage tests on the unqualified local OpenSSH binary.
+Normal Nox tests and reproduction both stop at missing native-lineage setup.
+The [task receipt](../nz_au_empirical_20261106/first-comparison-task-card-20261109.md#verification-execution--9-november-2026)
+contains commands, exact failed cases, log hashes and source identity. This does
+not establish native acceptance or empirical admission.
+
 ## Scope and acceptance
 
 Make actionable engineering fixes, supply available public comparison data, add a
@@ -37,7 +58,10 @@ No old receipt or signature is rewritten to represent this candidate as verified
   hashes where available, uncertainty gaps and `empirical_admission: false`.
 - [x] Supply a reproducible ABS extractor and focused data checks.
 - [ ] Transfer the ABS original to the canonical external archive and verify
-  destination bytes. Obtain and independently check the NZHS original snapshot.
+  destination bytes.
+- [x] Obtain the pinned official NZHS export and independently reconcile all four
+  NZHS/PHCC-derived extract tables: 89 estimates, 69 interval pairs, 54 caution flags.
+  Native archive admission and the original HTML capture gaps remain separate.
 - [ ] Complete survey covariance/state-partition evidence and matched catchment/date flow,
   population, censoring, processing and calibration. Record explicit failures and
   unresolved fields rather than imputing undocumented observations.
@@ -63,12 +87,13 @@ No old receipt or signature is rewritten to represent this candidate as verified
 
 - [x] Inspect Searchright's actual source contracts at
   `f6aa483e6ff729dd337d0c0149c660afcddc41cd`; retain its technical-alpha evidence ceiling.
-- [ ] SR1: create a narrow pilot review plan and database-native strategies;
-  validate against the pinned Searchright schemas and CLI, with exact receipts.
-- [ ] SR2: execute documented searches and imports, record provider coverage,
-  retrieval failures, deduplication, screening and report-to-study links.
-- [ ] SR3: extract eligible study results, assess result-specific bias and transport,
-  reconcile shared datasets and create an auditable parameter-evidence table.
+- [~] SR1: reuse the parent track's executed Searchright compile/import and
+  source-native strategies; complete the remaining provider qualification gates.
+- [~] SR2: preserve the recorded 28,913 occurrences / 27,507 unique PMIDs, retrieval
+  failures and existing screening; finish the scoped review and report-to-study links.
+- [~] SR3: reuse the 21-record first-comparison source/use dispositions and
+  source-level dependence review; continue result-specific bias/transport extraction
+  for eligible studies without treating sensitivity evidence as admitted data.
 - [ ] SR4: qualify one immutable Searchright export-to-tobac evidence handoff on
   fixtures; then admit eligible real evidence through the existing contract.
 - [ ] SR5: run an incremental update and show which evidence, parameters, uncertainty
@@ -79,8 +104,9 @@ Existing web discovery and this public-data pack are not a completed systematic 
 
 ## F04 — empirical dynamic model
 
-- [ ] Specify one NZ policy contrast, horizon, population and decision perspective.
-  Freeze source identities and a training/validation split before model fitting.
+- [~] Complete the existing declared retail/cessation contrast's empirical
+  population, horizon and perspective specification. Freeze source identities and
+  a supported training/validation split before model fitting.
 - [ ] Build a joint observation model for wastewater, survey and lawful supply,
   including uncertain calibration, censoring, shared sources and stock boundaries.
   Reuse `consumption_ledger.py` and existing evidence contracts rather than copy them.
@@ -109,7 +135,7 @@ Existing web discovery and this public-data pack are not a completed systematic 
   coverage and robustness; retain ablations and publish limitations. Do not infer
   scientific novelty or usefulness from additional machinery alone.
 
-## Verification record
+## Historical 8 November verification record
 
 Executed local checks:
 

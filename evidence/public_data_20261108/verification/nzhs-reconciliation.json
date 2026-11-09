@@ -1,0 +1,141 @@
+{
+  "automatically_conditions_live_model": false,
+  "dependence_group": "NZHS_2024_25_shared_survey",
+  "empirical_admission": false,
+  "implementation_sha256": {
+    "scripts/audit_empirical_coverage.py": "ef0d8f85f93d36314be32f856424121c48ae16968fb02c0303b520b342c0b182",
+    "scripts/reconcile_public_nzhs.py": "8cc897d5d3d1f5e829e14be8d0a4b05ad8b67a79294a7a5e650bf2437baa647b",
+    "scripts/source_handoff.py": "f60e5125327ca3106019d3892cafea15e37c21292c1fe1384a8928e09310dca1"
+  },
+  "independent_observations_added": 0,
+  "limits": [
+    "Source-value verification is separate from archive acceptance and observation admission.",
+    "Repeated source cells and counts share the same survey; subgroup estimates also overlap.",
+    "Marginal intervals do not identify joint covariance or an exclusive dynamic-state partition.",
+    "Source uncertainty annotates summary-only rows without rewriting the original extracts.",
+    "This does not establish catchment consumption, transitions, policy effects or illicit origin."
+  ],
+  "native_lineage_qualification": false,
+  "original": {
+    "bytes": 6088525,
+    "columns": [
+      "population",
+      "short.description",
+      "year",
+      "group",
+      "total",
+      "flag_for_publishing",
+      "total.low.CI",
+      "total.high.CI",
+      "male",
+      "male_flag_for_publishing",
+      "male.low.CI",
+      "male.high.CI",
+      "female",
+      "female_flag_for_publishing",
+      "female.low.CI",
+      "female.high.CI",
+      "estimated.number",
+      "estimated.number.low.CI",
+      "estimated.number.high.CI"
+    ],
+    "encoding": "utf-8-sig",
+    "record_ordinal_convention": "one-based data record excluding header",
+    "sha256": "6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915",
+    "url": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/data/nz-health-survey-2024-25-prevalences.csv"
+  },
+  "output": {
+    "path": "nzhs-reconciliation.csv",
+    "rows": 89,
+    "sha256": "6079f9f5177be3ecfd5a75dd7e53d0e6d068f6fb665ae14716706cdd4a03a801"
+  },
+  "pack_manifest": "evidence/public_data_20261108/manifest.json",
+  "schema_version": "tobac.public-nzhs-reconciliation.v1",
+  "status": "all_extract_rows_match_official_source",
+  "verification": {
+    "confidence_interval_pairs": 69,
+    "explicit_caution_flags": 54,
+    "point_estimates": 89,
+    "source_records": 47708,
+    "summary_rows_without_caution_field": 20,
+    "unique_source_cells": 73,
+    "unique_source_records": 67,
+    "unreported_caution_flags": 15
+  },
+  "verified_extracts": [
+    {
+      "columns": [
+        "source_id",
+        "survey_period",
+        "geography",
+        "age_scope",
+        "indicator",
+        "value",
+        "unit",
+        "uncertainty",
+        "source_section"
+      ],
+      "path": "evidence/public_data_20261108/nzhs_counts_2024_25.csv",
+      "rows": 2,
+      "sha256": "43fad8e76a714f61b81861aa1da88a8d5292fc84e8205e3645c7e2ed4e594a74"
+    },
+    {
+      "columns": [
+        "source_id",
+        "survey_period",
+        "geography",
+        "age_scope",
+        "stratum_type",
+        "stratum",
+        "indicator",
+        "value",
+        "unit",
+        "uncertainty",
+        "source_section"
+      ],
+      "path": "evidence/public_data_20261108/nzhs_prevalence_2024_25.csv",
+      "rows": 18,
+      "sha256": "6409fa980b7e1277952e5328daa1757cfb12bbd4db500abf8353a1837b91f1c0"
+    },
+    {
+      "columns": [
+        "source_id",
+        "survey_period",
+        "geography",
+        "age_scope",
+        "stratum_type",
+        "stratum",
+        "indicator",
+        "value",
+        "ci95_lower",
+        "ci95_upper",
+        "unit",
+        "caution_rse_over_30_percent",
+        "source_section"
+      ],
+      "path": "evidence/public_data_20261108/nzhs_vaping_union_ci_2024_25.csv",
+      "rows": 54,
+      "sha256": "a0383cdf1fe00a5f228e123845ae3edc3145951701803888c42415ab1558cef8"
+    },
+    {
+      "columns": [
+        "source_id",
+        "survey_period",
+        "geography",
+        "age_scope",
+        "stratum_type",
+        "stratum",
+        "indicator",
+        "value",
+        "ci95_lower",
+        "ci95_upper",
+        "unit",
+        "caution_rse_over_30_percent",
+        "source_section"
+      ],
+      "path": "evidence/public_data_20261108/nzhs_smoking_ci_2024_25.csv",
+      "rows": 15,
+      "sha256": "45da6acd8d5c0f696900a62b40f64200b0306cb959c9d4b9eed2c93e3a7afec2"
+    }
+  ]
+}

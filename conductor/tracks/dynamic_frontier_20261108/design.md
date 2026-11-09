@@ -34,6 +34,30 @@ after year one versus year two changes cumulative smoked-product exposure while
 the final state can be identical. The numbers are synthetic fixtures. A snapshot
 model would miss this path-dependent difference.
 
+## Mortality and person-time integration — 9 November 2026
+
+The optional `project_health_cohorts` interface connects this reference to the
+existing `tobac.health.exposure_health_step` kernel. It accepts explicitly supplied
+annual cause-specific hazards for the five living states and a separate survivor
+transition matrix. Each interval first integrates origin-state living person-time
+and deaths, then moves survivors between exposure states at the boundary. Product
+consumption is the origin-state rate multiplied by that living person-time. Rates
+and hazards for a destination state begin in the next interval.
+
+The survivor transition matrix cannot also send living people into death. The
+interface rejects that case, avoiding two applications of mortality. Previously
+dead people remain in the absorbing state. Hazards are constant within each
+declared interval and mutually exclusive causes retain their explicit order.
+The returned `HealthProjection` includes interval/cohort/state person-years and
+interval/cohort/cause deaths alongside populations and product amounts.
+
+An independent analytic fixture starts with 100 people and annual hazard
+`log(2)`. One year produces 50 survivors and `50 / log(2)` living person-years;
+consumption follows that exposure rather than 100 full person-years. Zero hazards
+recover the original discrete reference when its matrices have no deaths.
+This is a tested conditional timing contract. Tobacco hazards, disease memory,
+causal transitions, utilities and prices still require their own evidence.
+
 ## Progression to an empirical state-space model
 
 1. **Reference dynamics:** the supplied transition/rate schedules above. Preserve

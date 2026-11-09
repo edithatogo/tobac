@@ -1336,7 +1336,18 @@
     "tests/supply_bridge/test_dynamic.py",
     "tests/supply_bridge/test_public_comparators.py",
     "evidence/public_data_20261108/nzhs_smoking_ci_2024_25.csv",
-    "evidence/public_data_20261108/nzhs_vaping_union_ci_2024_25.csv"
+    "evidence/public_data_20261108/nzhs_vaping_union_ci_2024_25.csv",
+    "conductor/tracks/nz_au_empirical_20261106/first-comparison-task-card-20261109.md",
+    "conductor/tracks/nz_au_empirical_20261106/first-comparison-review-20261109.md",
+    "conductor/tracks/nz_au_empirical_20261106/first-comparison-dispositions-20261109.csv",
+    "conductor/tracks/nz_au_empirical_20261106/first-comparison-audit-20261109.json",
+    "scripts/audit_first_comparison.py",
+    "scripts/reconcile_public_nzhs.py",
+    "tests/engineering/test_first_comparison.py",
+    "tests/engineering/test_public_nzhs.py",
+    "evidence/public_data_20261108/verification/nzhs-reconciliation.csv",
+    "evidence/public_data_20261108/verification/nzhs-reconciliation.json",
+    "evidence/public_data_20261108/verification/official-source-retrieval-20261109.json"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",

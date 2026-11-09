@@ -56,6 +56,36 @@ but direct HTTP downloads returned 403; their numerical facts were transcribed
 from the specified table/text sections. Original capture and independent extraction
 readback remain open for all three NZHS-related pages.
 
+### Official NZHS reconciliation — 9 November 2026
+
+The separate official Annual Data Explorer CSV was retrieved successfully and
+matches the parent's previously captured edition exactly: 6,088,525 bytes,
+SHA-256 `6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915`.
+The publisher's Data Explorer explicitly licenses its work and downloadable
+aggregate datasets under CC BY 4.0. [Retrieval and rights record](verification/official-source-retrieval-20261109.json).
+
+[Reconciliation](verification/nzhs-reconciliation.json) verifies all **89 point
+estimates, 69 confidence-interval pairs and 54 explicit caution flags** against
+that original CSV. [The separate annotation table](verification/nzhs-reconciliation.csv)
+records exact original row ordinals, field names, estimates, marginal intervals
+and publication flags. It also supplies original-source marginal intervals for
+the 20 summary rows without rewriting their initially reported uncertainty.
+
+The 89 representations resolve to 73 distinct source cells across 67 original
+records. Counts and percentages share survey information, and the strata overlap;
+73 distinct cells do not establish 73 independent observations. No numerical
+tolerance or repair was needed. Original extract bytes and source attribution
+are preserved. The earlier failed summary/PHCC page downloads remain historical
+capture limits for those pages; they no longer block checking these numbers
+against the official CSV. Canonical archive admission, joint covariance and
+the matched consumption/causal requirements remain open.
+
+The maintained `scripts/reconcile_public_nzhs.py` reproduces these annotations
+from the pinned original and this pack. It rejects changed source/extract bytes,
+unknown or suppressed values, incorrect scopes, interval/flag mismatches and
+duplicate identities before writing a new output edition. Its output adds no
+independent observation and never conditions the accepted model.
+
 ## Interpretation constraints
 
 - Australia and NZ have different geography, population, product and time scopes.
@@ -88,8 +118,11 @@ population, effective detection/censoring limits, processing/recovery informatio
 measurement covariance and product-specific calibration. Policy simulation also
 needs transported causal effects and implementation parameters. These remain open.
 
-The official 2025 NZ tobacco-return release and spreadsheet were located, but the
-download failed in this environment. They are recorded as located, not supplied.
+The parent's [workbook reconciliation](../../integration/archive/workbook-reconciliation.json)
+already records the retained official 2010–2025 tobacco-release workbook and
+exact original-value parity for 16 annual records. This supersedes the earlier
+pack-wide impression that the workbook had only been located. Source-specific
+product/channel compatibility and conversion into matched consumption remain open.
 Company sales, dispensing counts and seizures do not directly observe consumption,
 successful quitting or the total illicit market. No restricted data collection or
 contact with data holders was performed.

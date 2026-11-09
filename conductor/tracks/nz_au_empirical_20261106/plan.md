@@ -1,5 +1,17 @@
 # Implementation plan
 
+## Active continuation — 9 November 2026
+
+The owner requests completion of the first-comparison evidence review/admission
+and continued implementation. [Current task card](first-comparison-task-card-20261109.md)
+records the bounded source review, executable admission decisions, official-NZHS
+reconciliation and conditional dynamic/health timing integration. The bounded
+review and implementation are complete; empirical admission remains blocked.
+Earlier PR #146 blocking statements below are historical: #146 and #148 are merged
+in the accepted `d0e832b` main. PR #147 is the active development candidate; its
+changed inventory/workflows still require native acceptance. No empirical criterion
+is closed by this status correction.
+
 Revised 6 November 2026 following sequencing review. Unchecked tasks are not completed.
 Dependencies below are acceptance gates, not merely a suggested ordering. Requirements
 R01–R19 are defined in spec.md. Existing owners retain runtime and integration promotion.
@@ -22,11 +34,11 @@ Preparation delivered in decision-definition.md, systematic-search.md and
 phase1-appraisal.csv; qualification/gaps are in phase1-progress.md. These are partial
 deliverables, not closure of the source-admission or systematic-search gates below.
 
-- [ ] Freeze initial decision, target populations/products, dated NZ/AU policy baselines, perspectives, horizon, estimands and validation split before fitting.
-- [ ] Qualify Searchright CLI/provider routes; run versioned searches with seed checks, source-specific queries, screening, exclusions and update rules.
-- [ ] Verify existing external archive/GitHub/Hugging Face identities, rights, exact destinations and readback; save originals outside tobac.
-- [ ] Verify every extracted figure against its original location, units and rounding; reconcile source totals, versions and covariance; quarantine discrepancies.
-- [ ] Build source/model/parameter/formula matrices with explicit adopted, adapted, alternative, context-only, excluded or unavailable dispositions.
+- [~] Freeze initial decision, target populations/products, dated NZ/AU policy baselines, perspectives, horizon, estimands and validation split before fitting. The declared first-slice contract exists; matched empirical coverage remains open.
+- [~] Qualify Searchright CLI/provider routes; run versioned searches with seed checks, source-specific queries, screening, exclusions and update rules. Compile/import and source-native searches have executed; broader screening and native live-provider qualification remain open.
+- [~] Verify existing external archive/GitHub/Hugging Face identities, rights, exact destinations and readback; save originals outside tobac. Reuse retained captures; current candidate admission still requires exact canonical readback.
+- [~] Verify every extracted figure against its original location, units and rounding; reconcile source totals, versions and covariance; quarantine discrepancies. The 89-estimate public NZHS pack now matches the pinned official export; broader source and covariance gaps remain.
+- [~] Build source/model/parameter/formula matrices with explicit adopted, adapted, alternative, context-only, excluded or unavailable dispositions. The bounded 21-record first-comparison source/use matrix is complete; future admitted parameter matrices remain conditional on evidence.
 - [ ] Checkpoint: evidence lineage and retrieval/recovery pass; identified gaps constrain claims rather than being filled with invented values.
 
 ## Phase 2 — First empirical vertical slice (R03–R10, R16, R18)
@@ -105,10 +117,14 @@ The API route has local byte verification and awaits hosted qualification.
 
 ## Phase 3 — Policy, health and equity expansion (R05–R08, R12, R18)
 
-P3.1 readiness preparation is in phase3-design.md and phase3-module-matrix.csv. The actual
-shared-evidence audit reports 28 blocked rows; see phase3-progress.md. Empirical mechanisms,
-health/equity outputs and PSA remain unimplemented pending Phase 0–2 and module-specific
-evidence. The contracts and library review do not close the tasks below.
+P3.1 readiness preparation is in phase3-design.md and phase3-module-matrix.csv.
+Main's accepted Phase 3 work now supplies conditional policy, price, mortality,
+disease, QALY, equity and resource-allocation primitives. This continuation also
+connects competing mortality and person-time to boundary cohort transitions.
+Those implementations do not establish empirical parameters or national policy
+results: the current shared-evidence audit still reports 28 blocked rows. The
+empirical tasks below require the matched Phase 1–2 evidence and module-specific
+validation; earlier preparation-only receipts remain historical evidence.
 
 - [ ] Add accepted excise, retail, nicotine, cohort, cessation, enforcement and product-substitution modules incrementally with independent reference checks.
 - [ ] Add health histories, disease lags, competing risks, HR-QoL and costs only where justified; preserve separate perspectives and subgroup outputs.

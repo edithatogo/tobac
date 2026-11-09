@@ -262,7 +262,8 @@
         "summing smoking and vaping into a population partition",
         "independent use of counts and percentages from the same survey",
         "catchment-specific likelihood without a population crosswalk"
-      ]
+      ],
+      "underlying_official_export_verification": "verification/nzhs-reconciliation.json"
     },
     {
       "source_id": "nzhs_2024_25_phcc_vaping_edwards_20251203",
@@ -311,7 +312,8 @@
         "calculating uncertainty of dual-use prevalence from marginal CIs without covariance",
         "estimating individual transitions from cross-sectional estimates",
         "direct use as never/former/dual state counts without a reviewed definition crosswalk"
-      ]
+      ],
+      "underlying_official_export_verification": "verification/nzhs-reconciliation.json"
     },
     {
       "source_id": "nzhs_2024_25_phcc_smoking_nip_20251126",
@@ -360,7 +362,8 @@
         "calculating uncertainty of dual-use prevalence from marginal CIs without covariance",
         "estimating individual transitions from cross-sectional estimates",
         "direct use as never/former/dual state counts without a reviewed definition crosswalk"
-      ]
+      ],
+      "underlying_official_export_verification": "verification/nzhs-reconciliation.json"
     }
   ],
   "missing_data": [
@@ -390,16 +393,48 @@
     {
       "item": "NZHS uncertainty and joint states",
       "needed_fields": [
-        "original Ministry source capture and independent extraction validation",
+        "canonical original-object admission and readback",
         "design-based joint covariance",
         "never/former/current use crosswalk and mutually exclusive cohort denominators"
       ],
-      "status": "Partially sourced: published marginal 95% intervals and smoking-or-vaping union values supplied through linked PHCC extracts; original-source capture, joint covariance and a full compatible state partition remain missing."
+      "status": "Official CSV reacquired with original hash; all 89 existing estimates, 69 interval pairs and 54 explicit flags verified. Separate annotations supply the official marginal intervals for 20 summary rows. Canonical admission, joint covariance and a compatible state partition remain open."
     },
     {
       "item": "NZ 2025 tobacco returns original downloadable spreadsheet",
       "url": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
-      "status": "located; direct downloads returned 403; no original bytes or inferred sales-to-consumption conversion admitted"
+      "status": "Existing main receipt integration/archive/workbook-reconciliation.json records the retained 2010–2025 workbook and exact parity for 16 values. Earlier 403 acquisition failures concern this pack route; current consumption conversion and source/target admission remain unresolved.",
+      "existing_original_sha256": "3a55a6469097ebc3fb27a6143db7749e5b885761ada76b197053dfe76f36e883"
     }
-  ]
+  ],
+  "official_nzhs_verification": {
+    "reviewed_on": "2026-11-09",
+    "original_source_sha256": "6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915",
+    "files": [
+      {
+        "path": "verification/nzhs-reconciliation.csv",
+        "sha256": "6079f9f5177be3ecfd5a75dd7e53d0e6d068f6fb665ae14716706cdd4a03a801"
+      },
+      {
+        "path": "verification/nzhs-reconciliation.json",
+        "sha256": "cfd0fecafefc815c808c3e463ceff976fd7adebfd369ab1e6a3a9ccecdcedeb9"
+      },
+      {
+        "path": "verification/official-source-retrieval-20261109.json",
+        "sha256": "c3a042e445f9f60efecfe7b426e61054d8188f6c3e5cc71fe94908f4019d43ae"
+      }
+    ],
+    "verification": {
+      "confidence_interval_pairs": 69,
+      "explicit_caution_flags": 54,
+      "point_estimates": 89,
+      "source_records": 47708,
+      "summary_rows_without_caution_field": 20,
+      "unique_source_cells": 73,
+      "unique_source_records": 67,
+      "unreported_caution_flags": 15
+    },
+    "empirical_admission": false,
+    "independent_observations_added": 0,
+    "scope": "Exact-source checks and marginal uncertainty annotations; the original ten data tables and their source-specific attribution remain unchanged."
+  }
 }

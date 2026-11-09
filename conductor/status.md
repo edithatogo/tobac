@@ -1,4 +1,27 @@
-# Reconciled repository status — 3 November 2026
+# Reconciled repository status
+
+## Active first-comparison continuation — 9 November 2026
+
+Main `d0e832b` contains the merged #146/#148 checkpoint. Draft PR #147 is the
+active dynamic/data candidate. The [first-comparison task](tracks/nz_au_empirical_20261106/first-comparison-task-card-20261109.md)
+records a completed 21-record source/use eligibility review and an executable
+negative admission decision: all 28 maintained handoff rows and all three
+comparison roles remain blocked. The bounded review does not complete broader
+Searchright screening or establish an empirical likelihood.
+
+The official NZHS CSV now verifies all 89 public-pack estimates, 69 interval
+pairs and 54 explicit caution flags. Conditional dynamic projection now reuses
+the existing health kernel for competing mortality, person-time consumption and
+survivor transitions at interval boundaries. Affected tests and strict checks
+pass; the changed scientific inventory still requires native acceptance. The
+task card records current complete-suite, reproduction and publication outcomes.
+
+Issue #3 retains the applied empirical milestone, #7 the dependency dashboard.
+Issue #68 is completed for its installed Voiage scope and PR #135 is superseded.
+No current NZ causal policy result, admitted wastewater likelihood or national
+surveillance funding recommendation is claimed.
+
+## Historical 3 November checkpoint
 
 DXP1–DXP4 are complete through actual hosted qualification. The advisory
 implementation is qualified and published to main at `672894f`. The retained native-lineage track has

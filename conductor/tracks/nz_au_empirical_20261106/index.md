@@ -1,5 +1,10 @@
 # NZ/AU empirical policy milestone
 
+- [Current first-comparison review and implementation task](first-comparison-task-card-20261109.md)
+- [Completed bounded first-comparison evidence review](first-comparison-review-20261109.md)
+- [Source-use dispositions](first-comparison-dispositions-20261109.csv)
+- [Executed source and admission audit](first-comparison-audit-20261109.json)
+
 - [Reproducibility, refresh and integration task card](phase6-task-card.md)
 - [Reproducibility execution evidence and remaining gates](phase6-progress.md)
 - [Requirements](spec.md)

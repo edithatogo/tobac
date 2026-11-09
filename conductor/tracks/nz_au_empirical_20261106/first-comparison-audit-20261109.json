@@ -1,0 +1,1218 @@
+{
+  "schema_version": "tobac.first-comparison-review-audit.v1",
+  "review_sha256": "1e9b1545e0fd5593e93762e843dbe751cf2d2224444e4242cea7072aac9e0fde",
+  "audit_source_sha256": "66b59b60250a75b046883738931c57259ccedcb1240896cb07bcbcfb9765ba18",
+  "records": [
+    {
+      "record_id": "FC01",
+      "source_id": "nz-key-results-2024-25",
+      "source_url": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/data/nz-health-survey-2024-25-prevalences.csv",
+      "source_location": "2024/25 export adult Total rows; P2.2 and P2.155-158",
+      "review_scope": "original_export_reacquired_by_integrator;existing_period_and_denominator_review",
+      "comparison_role": "baseline_observation",
+      "review_disposition": "blocked_likelihood",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "survey_window_not_campaign",
+        "catchment_outcome_missing",
+        "joint_survey_covariance_missing",
+        "intensity_population_bridge_missing"
+      ],
+      "review_archive_blockers": [
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-receipts-20261107.json": "5d0f2280c44ee5b78e293a529f96257e80a2fa9e9a59579dc66f376943952e46",
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "NZHS"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": true,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "no_proposed_observation"
+      ],
+      "overlaps_baseline_or_wastewater": [
+        "FC03"
+      ]
+    },
+    {
+      "record_id": "FC02",
+      "source_id": "long-nz-tobacco-tonnes-2025",
+      "source_url": "https://www.health.govt.nz/regulation-legislation/smoked-tobacco/information-for-manufacturers-and-importers/tobacco-returns/tobacco-returns-2025",
+      "source_location": "2010-2025 workbook; 16 annual tonne values; P2.6 and P2.125",
+      "review_scope": "existing_original_value_reconciliation",
+      "comparison_role": "baseline_observation",
+      "review_disposition": "context_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "releases_not_consumption",
+        "stock_bridge_missing",
+        "lawful_flow_bridge_missing",
+        "unit_conversion_missing",
+        "calendar_support_mismatch"
+      ],
+      "review_archive_blockers": [
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "integration/archive/workbook-reconciliation.json": "a9b7682ac6acba6c5435ecd3ccd8be67feeba2163421b44a1f51e92ac9d80ad9",
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "MOH_RETURNS"
+      ],
+      "handoff_dependency_groups": [
+        "NZ_MOH_tobacco_returns"
+      ],
+      "registered_source": true,
+      "proposed_observation_rows": 16,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified",
+        "unit_conversion_requires_separate_qualification"
+      ],
+      "overlaps_baseline_or_wastewater": [
+        "FC03"
+      ]
+    },
+    {
+      "record_id": "FC03",
+      "source_id": "parallel-S08",
+      "source_url": "https://doi.org/10.1136/bmjph-2025-002853",
+      "source_location": "Tables 1-2 and P2.144-158",
+      "review_scope": "existing_original_formula_and_vintage_reconciliation",
+      "comparison_role": "baseline_observation",
+      "review_disposition": "context_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "derived_from_baseline_inputs",
+        "uplift_assumption",
+        "survey_calendar_mismatch",
+        "shared_prevalence_intensity_uncertainty"
+      ],
+      "review_archive_blockers": [
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "data/empirical_longitudinal_20261024/source_record.json": "48368264e86ca0aeab7f329b4ec4aea419b6232c4711ad31f0770611081450b6",
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "NZHS",
+        "MOH_RETURNS"
+      ],
+      "handoff_dependency_groups": [
+        "NZHS",
+        "NZ_MOH_tobacco_returns"
+      ],
+      "registered_source": true,
+      "proposed_observation_rows": 12,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "capture_bytes_not_verified",
+        "capture_date_unverified",
+        "covariance_model_unqualified",
+        "likelihood_model_unqualified",
+        "product_coverage_or_conversion_unqualified",
+        "role_not_observation",
+        "shared_underlying_data_requires_joint_likelihood",
+        "source_period_convention_unqualified",
+        "source_role_not_observation",
+        "source_scope_unqualified",
+        "source_values_not_reconciled",
+        "target_scope_unqualified",
+        "transport_model_unqualified"
+      ],
+      "overlaps_baseline_or_wastewater": [
+        "FC01",
+        "FC02"
+      ]
+    },
+    {
+      "record_id": "FC04",
+      "source_id": "parallel-S01",
+      "source_url": "https://ars.els-cdn.com/content/image/1-s2.0-S0048969725028657-mmc1.pdf",
+      "source_location": "Tables S3 S13 S15 S17 S19 S20 S23; PDF pages 8 34 37 40 42 43 46; P2.22-29",
+      "review_scope": "original_supplement_reacquired_hash_matched;targeted_table_readback;prior_full_cell_reconciliation_reused",
+      "comparison_role": "wastewater_measurement",
+      "review_disposition": "blocked_likelihood",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "catchment_identity_unverified",
+        "dated_population_missing",
+        "dated_flow_missing",
+        "effective_anba_threshold_missing",
+        "paired_assay_covariance_missing",
+        "full_year_holdout_unavailable"
+      ],
+      "review_archive_blockers": [
+        "object_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf",
+        "conductor/tracks/nz_au_empirical_20261106/first-comparison-review-20261109.md": "81616883c9838d77cc07f5712a73ce4faea4f6f0e809159ded1ebcdce3c90b0f"
+      },
+      "dependency_groups": [
+        "KIM_NZ_2023"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": true,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "no_proposed_observation"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC05",
+      "source_id": "zheng2023",
+      "source_url": "https://doi.org/10.1021/acs.est.3c01510",
+      "source_location": "Methods 2.4-2.6; P2.30",
+      "review_scope": "existing_accepted_manuscript_appraisal",
+      "comparison_role": "measurement_calibration",
+      "review_disposition": "calibration_sensitivity_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "pooled_urine_transport_unqualified",
+        "dose_assumption",
+        "local_sewer_correction",
+        "cross_paper_overlap_unresolved"
+      ],
+      "review_archive_blockers": [
+        "object_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "ZHENG_POOLED_URINE",
+        "QLD_WBE_2012_2017",
+        "ASSUMED_NICOTINE_DOSE",
+        "COT_EXCRETION_LITERATURE"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": true,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "no_proposed_observation"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC06",
+      "source_id": "bade2020",
+      "source_url": "https://doi.org/10.1002/dta.2874",
+      "source_location": "Methods and Table 2; P2.33",
+      "review_scope": "existing_accepted_manuscript_appraisal",
+      "comparison_role": "measurement_calibration",
+      "review_disposition": "calibration_sensitivity_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "small_selected_sample",
+        "self_reported_cigarettes",
+        "urine_volume_assumption",
+        "published_summary_discrepancies",
+        "nz_transport_unqualified"
+      ],
+      "review_archive_blockers": [
+        "object_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "BADE_TEN_SMOKERS",
+        "ASSUMED_URINE_VOLUME"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC07",
+      "source_id": "parallel-S03",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13389531/",
+      "source_location": "Anabasine excretion factor; Figure 3; Limitations; Data availability",
+      "review_scope": "original_xml_reacquired;formula_selection_rights_and_access_review",
+      "comparison_role": "measurement_calibration",
+      "review_disposition": "calibration_sensitivity_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "selected_above_loq_sample",
+        "dose_assumption",
+        "raw_participant_data_request_only",
+        "vaping_source_uncertainty",
+        "nz_transport_unqualified"
+      ],
+      "review_archive_blockers": [
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase1-wang-appraisal.md": "a5cff218ed96b31d60dc51476627de8a24bccc3ac12fd93375a661a88cc9ff89",
+        "conductor/tracks/nz_au_empirical_20261106/first-comparison-review-20261109.md": "81616883c9838d77cc07f5712a73ce4faea4f6f0e809159ded1ebcdce3c90b0f"
+      },
+      "dependency_groups": [
+        "WENG_2022_URINE",
+        "ASSUMED_NICOTINE_DOSE",
+        "COT_EXCRETION_LITERATURE"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": true,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "no_proposed_observation"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC08",
+      "source_id": "parallel-S05",
+      "source_url": "https://doi.org/10.1016/j.scitotenv.2020.140551",
+      "source_location": "Assay and reactor experiments; P2.21 and P2.30",
+      "review_scope": "publisher_abstract_rechecked;existing_method_appraisal",
+      "comparison_role": "measurement_calibration",
+      "review_disposition": "calibration_sensitivity_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "hydraulic_transport_unqualified",
+        "analyte_specific_decay",
+        "assay_method_differs"
+      ],
+      "review_archive_blockers": [
+        "object_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "ZHENG_SEWER_2020",
+        "QLD_WBE_2012_2017"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": true,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "no_proposed_observation"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC09",
+      "source_id": "tscharke2015",
+      "source_url": "https://doi.org/10.1002/dta.1842",
+      "source_location": "Abstract; PMID 26198173; P2.21",
+      "review_scope": "abstract_screen_for_target_scope_only",
+      "comparison_role": "measurement_calibration",
+      "review_disposition": "context_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "foreign_catchment",
+        "no_target_matched_outcome",
+        "full_text_appraisal_incomplete"
+      ],
+      "review_archive_blockers": [
+        "object_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf",
+        "conductor/tracks/nz_au_empirical_20261106/first-comparison-review-20261109.md": "81616883c9838d77cc07f5712a73ce4faea4f6f0e809159ded1ebcdce3c90b0f"
+      },
+      "dependency_groups": [
+        "TSCHARKE_ASSAY_2015"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC10",
+      "source_id": "vanwel2016",
+      "source_url": "https://doi.org/10.1016/j.drugalcdep.2016.03.002",
+      "source_location": "Abstract Methods Results and Conclusion; PMID 26980372",
+      "review_scope": "abstract_screen_for_target_scope_only",
+      "comparison_role": "independent_validation",
+      "review_disposition": "excluded_scope",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "foreign_population_period",
+        "low_survey_response",
+        "no_demonstrated_correlation",
+        "not_nz_target_holdout"
+      ],
+      "review_archive_blockers": [
+        "object_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf",
+        "conductor/tracks/nz_au_empirical_20261106/first-comparison-review-20261109.md": "81616883c9838d77cc07f5712a73ce4faea4f6f0e809159ded1ebcdce3c90b0f"
+      },
+      "dependency_groups": [
+        "LIER_SURVEY_WBE_2016"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC11",
+      "source_id": "wang_dalian2016",
+      "source_url": "https://doi.org/10.1136/bmjopen-2015-010583",
+      "source_location": "Abstract; PMID 26888732; PMC4762092",
+      "review_scope": "abstract_screen_for_target_scope_only;full_text_endpoint_failed",
+      "comparison_role": "independent_validation",
+      "review_disposition": "excluded_scope",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "foreign_population_period",
+        "nicotine_to_tobacco_assumptions",
+        "not_nz_target_holdout"
+      ],
+      "review_archive_blockers": [
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf",
+        "conductor/tracks/nz_au_empirical_20261106/first-comparison-review-20261109.md": "81616883c9838d77cc07f5712a73ce4faea4f6f0e809159ded1ebcdce3c90b0f"
+      },
+      "dependency_groups": [
+        "DALIAN_WBE_2016"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC12",
+      "source_id": "wang_queensland2024",
+      "source_url": "https://doi.org/10.1016/j.watres.2023.121040",
+      "source_location": "Equation 2; supplement Tables S2 and S4; Data availability; P2.31",
+      "review_scope": "publisher_scope_and_access_rechecked;existing_supplement_appraisal",
+      "comparison_role": "contextual_comparator",
+      "review_disposition": "context_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "daily_raw_series_request_only",
+        "assay_transition",
+        "cross_paper_overlap_unresolved",
+        "nz_transport_unqualified"
+      ],
+      "review_archive_blockers": [
+        "object_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "QLD_WBE_2012_2017",
+        "WANG_QLD_2013_2021",
+        "ZHENG_POOLED_URINE",
+        "ASSUMED_NICOTINE_DOSE",
+        "COT_EXCRETION_LITERATURE"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC13",
+      "source_id": "wang2026",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12887742/",
+      "source_location": "Methods equations 1-6; Supplement 1 eTables 1-2; Supplement 2; P2.32-34 and P2.209-221",
+      "review_scope": "original_article_rechecked;existing_supplement_and_dependence_review",
+      "comparison_role": "independent_validation",
+      "review_disposition": "excluded_independent_validation",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "derived_from_wastewater_and_supply",
+        "raw_data_request_only",
+        "cross_paper_overlap_unresolved",
+        "site33_mapping_conflict",
+        "product_conversion_assumptions"
+      ],
+      "review_archive_blockers": [
+        "supplement_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase1-wang-appraisal.md": "a5cff218ed96b31d60dc51476627de8a24bccc3ac12fd93375a661a88cc9ff89",
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "AU_NWDMP",
+        "FTI_LAWFUL_SUPPLY",
+        "BADE_TEN_SMOKERS"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": true,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "no_proposed_observation"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC14",
+      "source_id": "AU_ACIC_REPORT25",
+      "source_url": "https://www.acic.gov.au/sites/default/files/2026-04/Research%20findings.pdf",
+      "source_location": "PDF pages 3-6; printed pages 23-26; Table 7; P2.191-215",
+      "review_scope": "existing_original_programme_and_sampling_review",
+      "comparison_role": "contextual_comparator",
+      "review_disposition": "context_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "nicotine_products_not_separated",
+        "denominator_discrepancy",
+        "site_pool_membership_unresolved",
+        "independent_consumption_outcome_missing"
+      ],
+      "review_archive_blockers": [
+        "object_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase1-source-receipts.json": "c18f8f626eadd004e7349b005b657601ba3223560a82b40cc53aa2217c696113",
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "AU_NWDMP"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC15",
+      "source_id": "AIHW_NDSHS_PURCHASE_2025",
+      "source_url": "https://www.aihw.gov.au/getmedia/5fc9ac6e-2f49-415e-a4fa-001a72fcad52/aihw-phe-371-Tobacco.xlsx",
+      "source_location": "Tobacco workbook Table 1.33; P2.229-237",
+      "review_scope": "existing_original_workbook_and_purchase_bound_replay",
+      "comparison_role": "independent_validation",
+      "review_disposition": "excluded_scope",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "purchase_not_consumption",
+        "open_ended_purchase_band",
+        "period_mismatch",
+        "catchment_support_missing"
+      ],
+      "review_archive_blockers": [
+        "object_specific_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "AIHW_NDSHS"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC16",
+      "source_id": "AU_ABS_NICOTINE",
+      "source_url": "https://www.abs.gov.au/articles/household-consumption-illicit-tobacco-and-nicotine-products",
+      "source_location": "Method and source descriptions; P2.227-228",
+      "review_scope": "existing_publisher_and_derivation_appraisal",
+      "comparison_role": "independent_validation",
+      "review_disposition": "excluded_independent_validation",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "derived_from_wastewater",
+        "modelled_product_allocation",
+        "forecast_periods_not_observations",
+        "not_independent_consumption_outcome"
+      ],
+      "review_archive_blockers": [
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase1-source-receipts.json": "c18f8f626eadd004e7349b005b657601ba3223560a82b40cc53aa2217c696113",
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "AU_NWDMP",
+        "AU_ADMIN_SURVEY_INPUTS"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC17",
+      "source_id": "ATO_TAX_GAP",
+      "source_url": "https://www.ato.gov.au/api/public/content/0-882626e8-a57b-4b7a-ab16-0894492a4ff2",
+      "source_location": "Tax-gap methodology; P2.223-225",
+      "review_scope": "existing_official_method_and_period_review",
+      "comparison_role": "independent_validation",
+      "review_disposition": "excluded_scope",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "supply_not_consumption",
+        "post_seizure_basis",
+        "fiscal_year_mismatch",
+        "modelled_quantity"
+      ],
+      "review_archive_blockers": [
+        "object_specific_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "ATO_TAX_GAP_MODEL"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC18",
+      "source_id": "ITEC_2024_25",
+      "source_url": "https://www.itec.gov.au/sites/default/files/2025-12/ITEC-Commissioner-Report-2024-25.pdf",
+      "source_location": "Commissioner report 2024-25 methodology appendix Step 5; P2.226",
+      "review_scope": "existing_report_lineage_review",
+      "comparison_role": "independent_validation",
+      "review_disposition": "excluded_independent_validation",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "inherits_ato_baseline",
+        "uses_wastewater",
+        "projection_not_observation",
+        "not_independent_consumption_outcome"
+      ],
+      "review_archive_blockers": [
+        "object_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "ATO_TAX_GAP_MODEL",
+        "AU_NWDMP"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC19",
+      "source_id": "SHINE_RETAIL_TABLE2",
+      "source_url": "https://doi.org/10.1136/tc-2022-057655",
+      "source_location": "Table 2 and supplemental model; P2.8",
+      "review_scope": "existing_original_model_and_estimand_review",
+      "comparison_role": "policy_response",
+      "review_disposition": "calibration_sensitivity_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "modelled_stated_intention_response",
+        "retailer_intensity_transport",
+        "nonimplemented_policy",
+        "gross_net_response_difference"
+      ],
+      "review_archive_blockers": [
+        "object_specific_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "evidence/m2/source_review.json": "42941c8fcd2aebfe7d17c429ffb41bcd6ebd4aa8960b1e61f8c6297c625d292f",
+        "conductor/tracks/nz_au_empirical_20261106/phase1-nz-model-appraisal.md": "601c47def41184ef3b691955d385384813297159ef038e23b9c8fecce2519d81",
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "SHINE_BODE3",
+        "NZHS"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": true,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "no_proposed_observation"
+      ],
+      "overlaps_baseline_or_wastewater": [
+        "FC01",
+        "FC03"
+      ]
+    },
+    {
+      "record_id": "FC20",
+      "source_id": "HEALTH_NZ_DISPENSING_202607",
+      "source_url": "https://tewhatuora.shinyapps.io/pharmaceutical-data-web-tool/",
+      "source_location": "July 2026 extract and technical notes; P2.101 and P2.117-128",
+      "review_scope": "existing_original_zip_notes_and_twenty_row_readback",
+      "comparison_role": "policy_response",
+      "review_disposition": "context_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "nested_initial_all_dispensing_counts",
+        "people_overlap",
+        "smoking_indication_missing",
+        "quit_outcome_missing",
+        "district_not_catchment",
+        "population_reach_bridge_missing"
+      ],
+      "review_archive_blockers": [
+        "object_specific_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "NZ_PHARMACEUTICAL_CLAIMS"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    },
+    {
+      "record_id": "FC21",
+      "source_id": "walker2014",
+      "source_url": "https://doi.org/10.1056/NEJMoa1407764",
+      "source_location": "Publisher Table 2; P2.97-107",
+      "review_scope": "existing_original_randomized_endpoint_readback",
+      "comparison_role": "policy_response",
+      "review_disposition": "calibration_sensitivity_only",
+      "reviewed_matched_target_claim": "no",
+      "review_scientific_blockers": [
+        "recruited_trial_not_population_policy",
+        "routine_availability_and_uptake_unqualified",
+        "endpoint_transport",
+        "incremental_delivery_cost_missing"
+      ],
+      "review_archive_blockers": [
+        "object_specific_rights_not_verified",
+        "canonical_object_readback_missing"
+      ],
+      "receipt_sha256": {
+        "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+      },
+      "dependency_groups": [
+        "WALKER_2014_TRIAL"
+      ],
+      "handoff_dependency_groups": [],
+      "registered_source": false,
+      "proposed_observation_rows": 0,
+      "capture_bytes_verified_rows": 0,
+      "metadata_compatible_rows": 0,
+      "handoff_gaps": [
+        "source_not_registered"
+      ],
+      "overlaps_baseline_or_wastewater": []
+    }
+  ],
+  "shared_source_groups": [
+    {
+      "dependency_group": "ASSUMED_NICOTINE_DOSE",
+      "record_ids": [
+        "FC05",
+        "FC07",
+        "FC12"
+      ]
+    },
+    {
+      "dependency_group": "ATO_TAX_GAP_MODEL",
+      "record_ids": [
+        "FC17",
+        "FC18"
+      ]
+    },
+    {
+      "dependency_group": "AU_NWDMP",
+      "record_ids": [
+        "FC13",
+        "FC14",
+        "FC16",
+        "FC18"
+      ]
+    },
+    {
+      "dependency_group": "BADE_TEN_SMOKERS",
+      "record_ids": [
+        "FC06",
+        "FC13"
+      ]
+    },
+    {
+      "dependency_group": "COT_EXCRETION_LITERATURE",
+      "record_ids": [
+        "FC05",
+        "FC07",
+        "FC12"
+      ]
+    },
+    {
+      "dependency_group": "MOH_RETURNS",
+      "record_ids": [
+        "FC02",
+        "FC03"
+      ]
+    },
+    {
+      "dependency_group": "NZHS",
+      "record_ids": [
+        "FC01",
+        "FC03",
+        "FC19"
+      ]
+    },
+    {
+      "dependency_group": "NZ_MOH_tobacco_returns",
+      "record_ids": [
+        "FC02",
+        "FC03"
+      ]
+    },
+    {
+      "dependency_group": "QLD_WBE_2012_2017",
+      "record_ids": [
+        "FC05",
+        "FC08",
+        "FC12"
+      ]
+    },
+    {
+      "dependency_group": "ZHENG_POOLED_URINE",
+      "record_ids": [
+        "FC05",
+        "FC12"
+      ]
+    }
+  ],
+  "handoff": {
+    "status": "blocked",
+    "rows": 28,
+    "metadata_compatible_rows": 0,
+    "proposal_sha256": "705174930f0de60f073aa048bae81c7d223aa02642ca5cae748175d5c3bff6a3",
+    "binding_sha256": "5a384e0bc242740e13b7ce8bcb8b255440076de797b2e50398c986b63a433727",
+    "raw_object_staging_supplied": false
+  },
+  "comparison_readiness": {
+    "status": "blocked",
+    "gaps": [
+      "no_single_metadata_and_review_candidate:baseline_observation",
+      "no_metadata_compatible_observations:baseline_observation",
+      "review_reports_no_qualified_matched_target:baseline_observation",
+      "no_single_metadata_and_review_candidate:wastewater_measurement",
+      "no_metadata_compatible_observations:wastewater_measurement",
+      "review_reports_no_qualified_matched_target:wastewater_measurement",
+      "no_single_metadata_and_review_candidate:independent_validation",
+      "no_metadata_compatible_observations:independent_validation",
+      "review_reports_no_qualified_matched_target:independent_validation"
+    ],
+    "metadata_review_candidates_by_role": {
+      "baseline_observation": [],
+      "wastewater_measurement": [],
+      "independent_validation": []
+    },
+    "scope": "source_and_review_compatibility_not_scientific_admission",
+    "joint_likelihood_evaluated": false
+  },
+  "scientific_qualification": false,
+  "automatically_conditions_live_model": false,
+  "nzhs_source_diagnostics": {
+    "source_alias": "nz-key-results-2024-25",
+    "source_sha256": "6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915",
+    "source_export_records": 47708,
+    "candidate_records": 87,
+    "period_kind": "survey_start_year_label_not_calendar_year",
+    "label_support": [
+      {
+        "indicator": "Current smokers",
+        "unit": "percent_adults_15plus",
+        "unflagged_complete_triplet_labels": [
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "flagged_labels": [],
+        "missing_triplet_labels": [],
+        "absent_source_labels": [],
+        "three_prior_labels_available": true,
+        "candidate_latest_label": 2024,
+        "candidate_prior_labels": [
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ]
+      },
+      {
+        "indicator": "Daily smokers",
+        "unit": "percent_adults_15plus",
+        "unflagged_complete_triplet_labels": [
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "flagged_labels": [],
+        "missing_triplet_labels": [],
+        "absent_source_labels": [],
+        "three_prior_labels_available": true,
+        "candidate_latest_label": 2024,
+        "candidate_prior_labels": [
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ]
+      },
+      {
+        "indicator": "Mean number of cigarettes",
+        "unit": "cigarettes/day/daily_smoker_excluding_mainly_pipes_cigars",
+        "unflagged_complete_triplet_labels": [
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "flagged_labels": [],
+        "missing_triplet_labels": [],
+        "absent_source_labels": [],
+        "three_prior_labels_available": true,
+        "candidate_latest_label": 2024,
+        "candidate_prior_labels": [
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ]
+      },
+      {
+        "indicator": "Daily vaping",
+        "unit": "percent_adults_15plus",
+        "unflagged_complete_triplet_labels": [
+          2015,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "flagged_labels": [],
+        "missing_triplet_labels": [],
+        "absent_source_labels": [
+          2016
+        ],
+        "three_prior_labels_available": true,
+        "candidate_latest_label": 2024,
+        "candidate_prior_labels": [
+          2015,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ]
+      },
+      {
+        "indicator": "Daily smoker and daily vaper",
+        "unit": "percent_adults_15plus",
+        "unflagged_complete_triplet_labels": [
+          2015,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "flagged_labels": [],
+        "missing_triplet_labels": [],
+        "absent_source_labels": [
+          2016
+        ],
+        "three_prior_labels_available": true,
+        "candidate_latest_label": 2024,
+        "candidate_prior_labels": [
+          2015,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ]
+      },
+      {
+        "indicator": "Daily smoker only",
+        "unit": "percent_adults_15plus",
+        "unflagged_complete_triplet_labels": [
+          2015,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "flagged_labels": [],
+        "missing_triplet_labels": [],
+        "absent_source_labels": [
+          2016
+        ],
+        "three_prior_labels_available": true,
+        "candidate_latest_label": 2024,
+        "candidate_prior_labels": [
+          2015,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ]
+      },
+      {
+        "indicator": "Daily vaper only",
+        "unit": "percent_adults_15plus",
+        "unflagged_complete_triplet_labels": [
+          2015,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "flagged_labels": [],
+        "missing_triplet_labels": [],
+        "absent_source_labels": [
+          2016
+        ],
+        "three_prior_labels_available": true,
+        "candidate_latest_label": 2024,
+        "candidate_prior_labels": [
+          2015,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ]
+      },
+      {
+        "indicator": "Daily smoker and/or daily vaper",
+        "unit": "percent_adults_15plus",
+        "unflagged_complete_triplet_labels": [
+          2015,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "flagged_labels": [],
+        "missing_triplet_labels": [],
+        "absent_source_labels": [
+          2016
+        ],
+        "three_prior_labels_available": true,
+        "candidate_latest_label": 2024,
+        "candidate_prior_labels": [
+          2015,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ]
+      }
+    ],
+    "matched_consumption_holdout_qualified": false,
+    "limits": [
+      "All original columns and publication flags retained; flagged values are not usable triplets",
+      "Estimated numbers, prevalence and time-series exports share NZHS respondents",
+      "Cigarette intensity uses range midpoints and a top-coded upper category",
+      "Daily-smoking prevalence and intensity do not have identical pipe/cigar coverage",
+      "Survey periods cannot be equated to calendar-year releases without a supported bridge",
+      "No population reconstructed from rounded estimated counts divided by prevalence",
+      "No consumption product, independence assumption, likelihood, fit or predictive score created"
+    ],
+    "matching_registered_payload_captures": 0,
+    "registration_boundary": "A registered bibliography alias does not register every source edition; only an exact payload-hash match links this CSV to existing capture metadata. Capture metadata alone does not establish archive/WARC or scientific admission."
+  }
+}

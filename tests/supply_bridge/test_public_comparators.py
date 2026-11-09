@@ -124,3 +124,23 @@ def test_union_is_not_mislabelled_as_dual_use_or_transition_evidence():
         assert values["daily_vaping"] <= values["current_vaping_at_least_monthly"]
         assert values["daily_vaping"] <= values["daily_smoking_or_vaping_or_both"]
     assert groups["all_adults", "all"]["daily_smoking_or_vaping_or_both"] == 17.1
+
+
+def test_official_source_annotations_bind_inputs_code_and_published_bytes():
+    verification = MANIFEST["official_nzhs_verification"]
+    for entry in verification["files"]:
+        assert hashlib.sha256((PACK / entry["path"]).read_bytes()).hexdigest() == entry["sha256"]
+    report = json.loads((PACK / "verification/nzhs-reconciliation.json").read_text())
+    for name, digest in report["implementation_sha256"].items():
+        assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest
+    for entry in report["verified_extracts"]:
+        assert hashlib.sha256((ROOT / entry["path"]).read_bytes()).hexdigest() == entry["sha256"]
+    annotations = rows("verification/nzhs-reconciliation.csv")
+    assert len(annotations) == report["verification"]["point_estimates"] == 89
+    assert len({row["underlying_cell_id"] for row in annotations}) == 73
+    assert all(row["point_check"] == "matched" for row in annotations)
+    assert all(row["empirical_admission"] == "false" for row in annotations)
+    assert {row["dependence_group"] for row in annotations} == {"NZHS_2024_25_shared_survey"}
+    assert report["original"]["sha256"] == verification["original_source_sha256"]
+    assert report["independent_observations_added"] == 0
+    assert report["empirical_admission"] is False

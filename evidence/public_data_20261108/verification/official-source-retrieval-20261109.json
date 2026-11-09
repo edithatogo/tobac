@@ -1,0 +1,47 @@
+{
+  "schema_version": "tobac.public-nzhs-source-readback.v1",
+  "reviewed_on": "2026-11-09",
+  "original_csv": {
+    "requested_url": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/data/nz-health-survey-2024-25-prevalences.csv",
+    "requested_at": "2026-11-09T08:44:46.132439+00:00",
+    "status": 200,
+    "resolved_url": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/data/nz-health-survey-2024-25-prevalences.csv",
+    "content_type": "text/csv",
+    "bytes": 6088525,
+    "sha256": "6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915",
+    "completed_at": "2026-11-09T08:44:53.833197+00:00"
+  },
+  "rights_page": {
+    "url": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/",
+    "requested_at": "2026-11-09T08:50:51.378134+00:00",
+    "status": 200,
+    "resolved_url": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/",
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 233207,
+    "sha256": "a576614994200369ecd21973a85ce3148c4f83a797813697e9e33f950519d722",
+    "completed_at": "2026-11-09T08:50:59.087629+00:00",
+    "rights_page_assertions": {
+      "cc_by_4_link_present": true,
+      "copyright_heading_present": true,
+      "download_datasets_present": true
+    }
+  },
+  "rights": {
+    "licence": "CC BY 4.0",
+    "scope": "The Annual Data Explorer work and downloadable published aggregate datasets; no Ministry logo or third-party material is redistributed",
+    "source_location": "Download datasets and About > Copyright status",
+    "url": "https://minhealthnz.shinyapps.io/nz-health-survey-2024-25-annual-data-explorer/",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "copyright_url": "https://www.health.govt.nz/about-this-site/copyright",
+    "attribution": "Ministry of Health. 2025. Annual Data Explorer 2024/25: New Zealand Health Survey [Data File]. Accessed 9 November 2026.",
+    "verification": "Direct publisher HTML retrieved and checked; CSV URL resolves HTTP 200 to bytes identical to the 7 November recorded edition."
+  },
+  "originals_in_repository": false,
+  "canonical_archive_readback": false,
+  "empirical_admission": false,
+  "limits": [
+    "This is original-byte acquisition and published-source rights verification, not canonical native archive admission.",
+    "The CSV is a separate object from the Ministry summary and PHCC pages; no HTML hash is assigned to those pages.",
+    "Existing survey/source dependence, matching and calibration requirements remain."
+  ]
+}
