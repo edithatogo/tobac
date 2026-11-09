@@ -24,3 +24,6 @@ hardening when a future analytical package changes semantics or execution inputs
 - [x] Prepare owner-scoped GitHub metadata fixes and stale-item disposition inventory; no blind deletion/closure. Current metadata require no changes; four PR/branch and three issue dispositions are recorded in progress.md without mutations.
 - [ ] Verify source/data publication boundary, restore/recovery and exact receiving ref/files after guarded integration.
 - [ ] Record terminal evidence handoff with unresolved findings and empirical limitations.
+- [ ] Scope `scripts/run_bounded.py` macOS process-group RSS sampling (`ps -g <pgid> -o pgid=,rss=`) in alignment with `repository-standards` so uninterruptible third-party processes cannot stall system-wide `ps -axo` scans during test or `pre-push` execution.
+- [ ] Separate the Runner Closure Merkle Root from the Candidate Evidence Registry Merkle Root in `hosted_lineage.py` / `lineage_preflight.py` (with `archive-govt-nz`) so staging candidate evidence packs does not invalidate unchanged runner closures.
+- [x] Expand deterministic Hypothesis metamorphic property checks across `dynamic.py`, `health.py`, `partial_identification.py` and `information.py` (time-subdivision convergence, constraint monotonicity and Blackwell garbling monotonicity).

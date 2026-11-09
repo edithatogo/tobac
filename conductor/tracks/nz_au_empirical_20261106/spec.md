@@ -1,4 +1,4 @@
-# NZ and Australia tobacco policy and incremental wastewater information
+# NZ/AU comprehensive policy and empirical wastewater VOI
 
 Requested 6 November 2026. Status: requirements recorded; empirical implementation open.
 Owner: chat 01a1af53-2093-7f70-b761-e5f6cb7b769c, branch codex/nz-au-empirical.

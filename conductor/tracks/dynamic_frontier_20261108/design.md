@@ -171,6 +171,28 @@ a demonstrated strategic interaction. The existing TP01–TP05 promotion plan in
 the roadmap controls migration. No dependency, copied general solver, upstream
 readiness claim or automatic cutover is introduced by this candidate.
 
+### Upstream maintained-dependency capabilities warranted by BF1–BF6
+
+Where a frontier requirement is mathematically general rather than tobacco-specific,
+implement and qualify the reusable mechanism in its authoritative upstream repository
+first (`TP01–TP05`), keeping a small independent reference oracle in `tobac`:
+
+1. **`edithatogo/voiage` (Credal LP dominance, Farkas witnesses, MIR & endogenous/censored VOI):**
+   - Polyhedral/credal-set decision sufficiency: primal attaining witnesses $(\theta_{\min}, \theta_{\max})$, dual Farkas certificates identifying binding constraints, and Minimal Identifying Restriction (MIR) computation.
+   - Set-valued (upper/lower) EVSI over credal sets and left-censored (Tobit/LOD) observation channels without censored-cell imputation.
+   - Action-dependent observation operators $y_t \sim H(x_t, a_t, \eta_t)$ where policy actions alter channel Fisher information or state identifiability, plus exported Hypothesis strategies for Blackwell garbling monotonicity.
+2. **`edithatogo/kairos` (Three-clock non-anticipative orchestration):**
+   - Separate physical-state, delayed-evidence-arrival and policy-decision clocks with structural non-anticipativity checks preventing future-data leakage in sequential/adaptive rules.
+3. **`edithatogo/innovate` & `edithatogo/dapane` (Polars-native cohort memory & perspective microcosting):**
+   - Retire legacy `pandas`/`pandasdmx` requirements in `innovate` in favour of Polars/Arrow interchange, and provide reusable semi-Markov tunnel-state / multi-component hazard-decay cohort primitives.
+   - Qualify `dapane` consumer contracts for perspective-explicit microcosting and discount schedules that keep healthcare resource costs, delivery capacity and fiscal tax transfers distinct.
+4. **`edithatogo/archive-govt-nz`, `searchright`, `sourceright` & `citeweft` (Two-tier Merkle lineage & living invalidation):**
+   - Separate the **Runner Closure Merkle Root** (transitive Python AST/imports + declared runner inputs) from the **Candidate Evidence Registry Merkle Root** in `archive-govt-nz`, enabling fine-grained invalidation cones (`source -> extraction -> parameter -> bound -> decision`) without re-executing unaffected runners when staging candidate evidence.
+   - Preserve CSL item kinds (`book`, `chapter`, `report`) across `searchright` CSV/CSL round-trips and emit signed retraction/erratum diff manifests across `sourceright`/`citeweft`.
+5. **`edithatogo/repository-standards` & `edithatogo/paignia` (Process-group RSS guard & strategic perturbations):**
+   - Scope macOS process-group RSS sampling in `repository-standards` / `run_bounded.py` to `ps -g <pgid> -o pgid=,rss=` so uninterruptible system-wide processes cannot stall pre-push or test monitors.
+   - Export equilibrium-set inclusion and payoff-perturbation sensitivity certificates from `paignia` when BF6 strategic interaction is invoked.
+
 ## Parameter evidence update — 9 November 2026
 
 This is a targeted, source-linked candidate catalogue: **61 numerical entries from

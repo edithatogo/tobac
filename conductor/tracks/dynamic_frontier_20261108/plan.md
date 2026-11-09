@@ -49,6 +49,13 @@ No old receipt or signature is rewritten to represent this candidate as verified
   failures; preserve fixed versions, archive checksums and fail-closed extraction.
 - [x] Complete local source-security and publication checks on the candidate.
 - [x] Complete native scientific admission and local full-suite qualification (`ab342bb`).
+- [ ] Split `hosted_lineage.py` / `lineage_preflight.py` inventory verification into a
+  two-tier Merkle DAG (Runner Closure Merkle Root vs. Candidate Evidence Registry
+  Merkle Root, co-designed with `archive-govt-nz`) so staging unreferenced candidate
+  evidence does not invalidate unchanged runner closures.
+- [ ] Scope `scripts/run_bounded.py` macOS process-group RSS sampling (`ps -g <pgid>`)
+  in alignment with `repository-standards` so unrelated uninterruptible system processes
+  cannot stall bounded test or `pre-push` execution.
 
 ## F01 — public data candidate
 
@@ -87,6 +94,12 @@ No old receipt or signature is rewritten to represent this candidate as verified
   admission (`ab342bb`: 1,480 passed, 8 skipped, 0 failed; all 8 runner replays and 29-table publication replay with 0.0 max diff).
 - [ ] Review the discretisation and state sufficiency against the intended policy
   estimand before adding births, migration, age progression or health memory.
+- [ ] Add optional semi-Markov cessation tunnel states / two-component fast-slow
+  excess-hazard decay in `health.py` and `dynamic.py` (with an exact convolution
+  oracle and `innovate` Polars-interchange promotion path).
+- [x] Add deterministic Hypothesis metamorphic property tests across `dynamic.py`,
+  `health.py`, `partial_identification.py` and `information.py` (time-subdivision
+  convergence, constraint monotonicity and Blackwell garbling monotonicity).
 
 ## F03 — systematic evidence review, incrementally through Searchright
 
@@ -139,6 +152,12 @@ Existing web discovery and this public-data pack are not a completed systematic 
 - [ ] Demonstrate improvement in held-out prediction or decision regret, uncertainty
   coverage and robustness; retain ablations and publish limitations. Do not infer
   scientific novelty or usefulness from additional machinery alone.
+- [ ] Implement LP/credal primal-dual (Farkas) dominance witnesses and Minimal
+  Identifying Restriction (MIR) certificates for BF1 (`partial_identification.py`
+  oracle + `voiage` provider promotion).
+- [ ] Implement action-dependent observation-operator ($y_t \sim H(x_t, a_t, \eta_t)$)
+  and Tobit/LOD left-censored channel EVSI for BF2 (`staged.py` / `dynamic.py` +
+  `voiage` / `kairos` three-clock non-anticipativity guards).
 
 ## Historical 8 November verification record
 
