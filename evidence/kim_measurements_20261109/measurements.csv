@@ -1,0 +1,577 @@
+slot_id,occasion_id,plant_as_published,collection_date,month_as_published,nominal_weekday,analyte,cell_as_published,mean_as_published,duplicate_sd_as_published,status,unit,source_table,pdf_page,dependence_group
+kim2025:auckland_central:2023-05:WED,kim2025:Auckland Central:2023-05-17,Auckland Central,2023-05-17,May,WED,COT,444 ± 3,444,3,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-05-17
+kim2025:auckland_central:2023-05:SUN,kim2025:Auckland Central:2023-05-21,Auckland Central,2023-05-21,May,SUN,COT,405 ± 5,405,5,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-05-21
+kim2025:auckland_central:2023-06:WED,kim2025:Auckland Central:2023-06-21,Auckland Central,2023-06-21,June,WED,COT,627 ± 19,627,19,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-06-21
+kim2025:auckland_central:2023-06:SUN,kim2025:Auckland Central:2023-06-25,Auckland Central,2023-06-25,June,SUN,COT,410 ± 19,410,19,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-06-25
+kim2025:auckland_central:2023-07:WED,kim2025:Auckland Central:2023-07-19,Auckland Central,2023-07-19,July,WED,COT,628 ± 47,628,47,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-07-19
+kim2025:auckland_central:2023-07:SUN,kim2025:Auckland Central:2023-07-23,Auckland Central,2023-07-23,July,SUN,COT,485 ± 5,485,5,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-07-23
+kim2025:auckland_central:2023-08:WED,kim2025:Auckland Central:2023-08-16,Auckland Central,2023-08-16,August,WED,COT,584 ± 6,584,6,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-08-16
+kim2025:auckland_central:2023-08:SUN,kim2025:Auckland Central:2023-08-20,Auckland Central,2023-08-20,August,SUN,COT,324 ± 6,324,6,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-08-20
+kim2025:auckland_central:2023-09:WED,kim2025:Auckland Central:2023-09-20,Auckland Central,2023-09-20,September,WED,COT,505 ± 34,505,34,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-09-20
+kim2025:auckland_central:2023-09:SUN,kim2025:Auckland Central:2023-09-24,Auckland Central,2023-09-24,September,SUN,COT,546 ± 5,546,5,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-09-24
+kim2025:auckland_central:2023-10:WED,kim2025:Auckland Central:2023-10-18,Auckland Central,2023-10-18,October,WED,COT,498 ± 12,498,12,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-10-18
+kim2025:auckland_central:2023-10:SUN,kim2025:Auckland Central:2023-10-22,Auckland Central,2023-10-22,October,SUN,COT,556 ± 1,556,1,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland Central:2023-10-22
+kim2025:auckland_north:2023-05:WED,kim2025:Auckland North:2023-05-17,Auckland North,2023-05-17,May,WED,COT,488 ± 5,488,5,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-05-17
+kim2025:auckland_north:2023-05:SUN,kim2025:Auckland North:2023-05-21,Auckland North,2023-05-21,May,SUN,COT,312 ± 4,312,4,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-05-21
+kim2025:auckland_north:2023-06:WED,kim2025:Auckland North:2023-06-21,Auckland North,2023-06-21,June,WED,COT,735 ± 2,735,2,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-06-21
+kim2025:auckland_north:2023-06:SUN,kim2025:Auckland North:2023-06-25,Auckland North,2023-06-25,June,SUN,COT,424 ± 2,424,2,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-06-25
+kim2025:auckland_north:2023-07:WED,kim2025:Auckland North:2023-07-19,Auckland North,2023-07-19,July,WED,COT,426 ± 9,426,9,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-07-19
+kim2025:auckland_north:2023-07:SUN,kim2025:Auckland North:2023-07-23,Auckland North,2023-07-23,July,SUN,COT,428 ± 18,428,18,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-07-23
+kim2025:auckland_north:2023-08:WED,kim2025:Auckland North:2023-08-16,Auckland North,2023-08-16,August,WED,COT,522 ± 18,522,18,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-08-16
+kim2025:auckland_north:2023-08:SUN,kim2025:Auckland North:2023-08-20,Auckland North,2023-08-20,August,SUN,COT,435 ± 1,435,1,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-08-20
+kim2025:auckland_north:2023-09:WED,kim2025:Auckland North:2023-09-21,Auckland North,2023-09-21,September,WED,COT,389 ± 6,389,6,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-09-21
+kim2025:auckland_north:2023-09:SUN,kim2025:Auckland North:2023-09-24,Auckland North,2023-09-24,September,SUN,COT,382 ± 4,382,4,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-09-24
+kim2025:auckland_north:2023-10:WED,kim2025:Auckland North:2023-10-18,Auckland North,2023-10-18,October,WED,COT,481 ± 3,481,3,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-10-18
+kim2025:auckland_north:2023-10:SUN,kim2025:Auckland North:2023-10-22,Auckland North,2023-10-22,October,SUN,COT,506 ± 1,506,1,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland North:2023-10-22
+kim2025:auckland_south:2023-05:WED,kim2025:Auckland South:2023-05-17,Auckland South,2023-05-17,May,WED,COT,1058 ± 34,1058,34,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-05-17
+kim2025:auckland_south:2023-05:SUN,kim2025:Auckland South:2023-05-21,Auckland South,2023-05-21,May,SUN,COT,964 ± 16,964,16,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-05-21
+kim2025:auckland_south:2023-06:WED,kim2025:Auckland South:2023-06-21,Auckland South,2023-06-21,June,WED,COT,1231 ± 12,1231,12,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-06-21
+kim2025:auckland_south:2023-06:SUN,kim2025:Auckland South:2023-06-25,Auckland South,2023-06-25,June,SUN,COT,1107 ± 15,1107,15,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-06-25
+kim2025:auckland_south:2023-07:WED,kim2025:Auckland South:2023-07-19,Auckland South,2023-07-19,July,WED,COT,1563 ± 3,1563,3,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-07-19
+kim2025:auckland_south:2023-07:SUN,kim2025:Auckland South:2023-07-23,Auckland South,2023-07-23,July,SUN,COT,1383 ± 24,1383,24,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-07-23
+kim2025:auckland_south:2023-08:WED,kim2025:Auckland South:2023-08-16,Auckland South,2023-08-16,August,WED,COT,1794 ± 46,1794,46,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-08-16
+kim2025:auckland_south:2023-08:SUN,kim2025:Auckland South:2023-08-20,Auckland South,2023-08-20,August,SUN,COT,1342 ± 24,1342,24,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-08-20
+kim2025:auckland_south:2023-09:WED,kim2025:Auckland South:2023-09-20,Auckland South,2023-09-20,September,WED,COT,1793 ± 23,1793,23,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-09-20
+kim2025:auckland_south:2023-09:SUN,kim2025:Auckland South:2023-09-24,Auckland South,2023-09-24,September,SUN,COT,1425 ± 40,1425,40,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-09-24
+kim2025:auckland_south:2023-10:WED,kim2025:Auckland South:2023-10-18,Auckland South,2023-10-18,October,WED,COT,1348 ± 59,1348,59,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-10-18
+kim2025:auckland_south:2023-10:SUN,kim2025:Auckland South:2023-10-22,Auckland South,2023-10-22,October,SUN,COT,2112 ± 18,2112,18,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland South:2023-10-22
+kim2025:auckland_west:2023-05:WED,kim2025:Auckland West:2023-05-18,Auckland West,2023-05-18,May,WED,COT,328 ± 16,328,16,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-05-18
+kim2025:auckland_west:2023-05:SUN,kim2025:Auckland West:2023-05-22,Auckland West,2023-05-22,May,SUN,COT,619 ± 3,619,3,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-05-22
+kim2025:auckland_west:2023-06:WED,kim2025:Auckland West:2023-06-21,Auckland West,2023-06-21,June,WED,COT,685 ± 3,685,3,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-06-21
+kim2025:auckland_west:2023-06:SUN,kim2025:Auckland West:2023-06-25,Auckland West,2023-06-25,June,SUN,COT,484 ± 37,484,37,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-06-25
+kim2025:auckland_west:2023-07:WED,kim2025:Auckland West:2023-07-19,Auckland West,2023-07-19,July,WED,COT,486 ± 6,486,6,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-07-19
+kim2025:auckland_west:2023-07:SUN,kim2025:Auckland West:2023-07-23,Auckland West,2023-07-23,July,SUN,COT,590 ± 23,590,23,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-07-23
+kim2025:auckland_west:2023-08:WED,kim2025:Auckland West:2023-08-16,Auckland West,2023-08-16,August,WED,COT,580 ± 4,580,4,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-08-16
+kim2025:auckland_west:2023-08:SUN,kim2025:Auckland West:2023-08-20,Auckland West,2023-08-20,August,SUN,COT,544 ± 12,544,12,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-08-20
+kim2025:auckland_west:2023-09:WED,kim2025:Auckland West:2023-09-20,Auckland West,2023-09-20,September,WED,COT,574 ± 41,574,41,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-09-20
+kim2025:auckland_west:2023-09:SUN,kim2025:Auckland West:2023-09-24,Auckland West,2023-09-24,September,SUN,COT,461 ± 4,461,4,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-09-24
+kim2025:auckland_west:2023-10:WED,kim2025:Auckland West:2023-10-19,Auckland West,2023-10-19,October,WED,COT,584 ± 31,584,31,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-10-19
+kim2025:auckland_west:2023-10:SUN,kim2025:Auckland West:2023-10-22,Auckland West,2023-10-22,October,SUN,COT,605 ± 45,605,45,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Auckland West:2023-10-22
+kim2025:hamilton:2023-05:WED,kim2025:Hamilton:2023-05-17,Hamilton,2023-05-17,May,WED,COT,756 ± 15,756,15,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-05-17
+kim2025:hamilton:2023-05:SUN,kim2025:Hamilton:2023-05-21,Hamilton,2023-05-21,May,SUN,COT,623 ± 18,623,18,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-05-21
+kim2025:hamilton:2023-06:WED,kim2025:Hamilton:2023-06-21,Hamilton,2023-06-21,June,WED,COT,1075 ± 31,1075,31,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-06-21
+kim2025:hamilton:2023-06:SUN,kim2025:Hamilton:2023-06-25,Hamilton,2023-06-25,June,SUN,COT,691 ± 32,691,32,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-06-25
+kim2025:hamilton:2023-07:WED,kim2025:Hamilton:2023-07-19,Hamilton,2023-07-19,July,WED,COT,671 ± 52,671,52,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-07-19
+kim2025:hamilton:2023-07:SUN,kim2025:Hamilton:2023-07-23,Hamilton,2023-07-23,July,SUN,COT,805 ± 53,805,53,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-07-23
+kim2025:hamilton:2023-08:WED,kim2025:Hamilton:2023-08-16,Hamilton,2023-08-16,August,WED,COT,704 ± 31,704,31,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-08-16
+kim2025:hamilton:2023-08:SUN,kim2025:Hamilton:2023-08-20,Hamilton,2023-08-20,August,SUN,COT,495 ± 12,495,12,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-08-20
+kim2025:hamilton:2023-09:WED,kim2025:Hamilton:2023-09-20,Hamilton,2023-09-20,September,WED,COT,815 ± 84,815,84,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-09-20
+kim2025:hamilton:2023-09:SUN,kim2025:Hamilton:2023-09-24,Hamilton,2023-09-24,September,SUN,COT,726 ± 17,726,17,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-09-24
+kim2025:hamilton:2023-10:WED,kim2025:Hamilton:2023-10-18,Hamilton,2023-10-18,October,WED,COT,842 ± 26,842,26,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-10-18
+kim2025:hamilton:2023-10:SUN,kim2025:Hamilton:2023-10-22,Hamilton,2023-10-22,October,SUN,COT,570 ± 5,570,5,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Hamilton:2023-10-22
+kim2025:gisborne:2023-05:WED,kim2025:Gisborne:2023-05-10,Gisborne,2023-05-10,May,WED,COT,1427 ± 3,1427,3,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-05-10
+kim2025:gisborne:2023-05:SUN,kim2025:Gisborne:2023-05-14,Gisborne,2023-05-14,May,SUN,COT,841 ± 396,841,396,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-05-14
+kim2025:gisborne:2023-06:WED,kim2025:Gisborne:2023-06-14,Gisborne,2023-06-14,June,WED,COT,1275 ± 7,1275,7,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-06-14
+kim2025:gisborne:2023-06:SUN,kim2025:Gisborne:2023-06-18,Gisborne,2023-06-18,June,SUN,COT,497 ± 3,497,3,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-06-18
+kim2025:gisborne:2023-07:WED,kim2025:Gisborne:2023-07-12,Gisborne,2023-07-12,July,WED,COT,854 ± 29,854,29,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-07-12
+kim2025:gisborne:2023-07:SUN,kim2025:Gisborne:2023-07-16,Gisborne,2023-07-16,July,SUN,COT,2412 ± 56,2412,56,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-07-16
+kim2025:gisborne:2023-08:WED,kim2025:Gisborne:2023-08-09,Gisborne,2023-08-09,August,WED,COT,523 ± 9,523,9,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-08-09
+kim2025:gisborne:2023-08:SUN,kim2025:Gisborne:2023-08-13,Gisborne,2023-08-13,August,SUN,COT,1017 ± 3,1017,3,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-08-13
+kim2025:gisborne:2023-09:WED,kim2025:Gisborne:2023-09-20,Gisborne,2023-09-20,September,WED,COT,1189 ± 34,1189,34,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-09-20
+kim2025:gisborne:2023-09:SUN,kim2025:Gisborne:2023-09-24,Gisborne,2023-09-24,September,SUN,COT,456 ± 2,456,2,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-09-24
+kim2025:gisborne:2023-10:WED,kim2025:Gisborne:2023-10-11,Gisborne,2023-10-11,October,WED,COT,1177 ± 7,1177,7,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-10-11
+kim2025:gisborne:2023-10:SUN,kim2025:Gisborne:2023-10-15,Gisborne,2023-10-15,October,SUN,COT,1611 ± 34,1611,34,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Gisborne:2023-10-15
+kim2025:wellington:2023-05:WED,kim2025:Wellington:2023-05-10,Wellington,2023-05-10,May,WED,COT,388 ± 0.5,388,0.5,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-05-10
+kim2025:wellington:2023-05:SUN,kim2025:Wellington:2023-05-14,Wellington,2023-05-14,May,SUN,COT,523 ± 12,523,12,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-05-14
+kim2025:wellington:2023-06:WED,kim2025:Wellington:2023-06-14,Wellington,2023-06-14,June,WED,COT,493 ± 32,493,32,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-06-14
+kim2025:wellington:2023-06:SUN,kim2025:Wellington:2023-06-18,Wellington,2023-06-18,June,SUN,COT,551 ± 4,551,4,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-06-18
+kim2025:wellington:2023-07:WED,kim2025:Wellington:2023-07-12,Wellington,2023-07-12,July,WED,COT,288 ± 5,288,5,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-07-12
+kim2025:wellington:2023-07:SUN,kim2025:Wellington:2023-07-16,Wellington,2023-07-16,July,SUN,COT,462 ± 8,462,8,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-07-16
+kim2025:wellington:2023-08:WED,kim2025:Wellington:2023-08-09,Wellington,2023-08-09,August,WED,COT,489 ± 4,489,4,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-08-09
+kim2025:wellington:2023-08:SUN,kim2025:Wellington:2023-08-13,Wellington,2023-08-13,August,SUN,COT,525 ± 7,525,7,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-08-13
+kim2025:wellington:2023-09:WED,kim2025:Wellington:2023-09-13,Wellington,2023-09-13,September,WED,COT,481 ± 17,481,17,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-09-13
+kim2025:wellington:2023-09:SUN,kim2025:Wellington:2023-09-17,Wellington,2023-09-17,September,SUN,COT,508 ± 11,508,11,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-09-17
+kim2025:wellington:2023-10:WED,kim2025:Wellington:2023-10-25,Wellington,2023-10-25,October,WED,COT,485 ± 17,485,17,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-10-25
+kim2025:wellington:2023-10:SUN,kim2025:Wellington:2023-10-29,Wellington,2023-10-29,October,SUN,COT,527 ± 2,527,2,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Wellington:2023-10-29
+kim2025:whangarei:2023-05:WED,kim2025:Whangārei:2023-05-17,Whangārei,2023-05-17,May,WED,COT,882 ± 4,882,4,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Whangārei:2023-05-17
+kim2025:whangarei:2023-05:SUN,kim2025:Whangārei:2023-05-21,Whangārei,2023-05-21,May,SUN,COT,431 ± 3,431,3,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Whangārei:2023-05-21
+kim2025:whangarei:2023-06:WED,kim2025:Whangārei:2023-06-21,Whangārei,2023-06-21,June,WED,COT,1056 ± 1,1056,1,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Whangārei:2023-06-21
+kim2025:whangarei:2023-06:SUN,kim2025:Whangārei:2023-06-25,Whangārei,2023-06-25,June,SUN,COT,558 ± 27,558,27,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Whangārei:2023-06-25
+kim2025:whangarei:2023-07:WED,kim2025:Whangārei:2023-07-19,Whangārei,2023-07-19,July,WED,COT,767 ± 16,767,16,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Whangārei:2023-07-19
+kim2025:whangarei:2023-07:SUN,kim2025:Whangārei:2023-07-23,Whangārei,2023-07-23,July,SUN,COT,696 ± 49,696,49,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Whangārei:2023-07-23
+kim2025:whangarei:2023-08:WED,kim2025:Whangārei:2023-08-16,Whangārei,2023-08-16,August,WED,COT,647 ± 258,647,258,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Whangārei:2023-08-16
+kim2025:whangarei:2023-08:SUN,kim2025:Whangārei:2023-08-20,Whangārei,2023-08-20,August,SUN,COT,945 ± 355,945,355,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Whangārei:2023-08-20
+kim2025:whangarei:2023-09:WED,kim2025:Whangārei:2023-09-20,Whangārei,2023-09-20,September,WED,COT,846 ± 7,846,7,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Whangārei:2023-09-20
+kim2025:whangarei:2023-09:SUN,kim2025:Whangārei:2023-09-24,Whangārei,2023-09-24,September,SUN,COT,630 ± 0.03,630,0.03,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Whangārei:2023-09-24
+kim2025:whangarei:2023-10:WED,,Whangārei,,October,WED,COT,,,,missing_occasion,mg/day/1000_people_as_reported,S13,34,
+kim2025:whangarei:2023-10:SUN,,Whangārei,,October,SUN,COT,,,,missing_occasion,mg/day/1000_people_as_reported,S13,34,
+kim2025:christchurch:2023-05:WED,kim2025:Christchurch:2023-05-10,Christchurch,2023-05-10,May,WED,COT,364 ± 168,364,168,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-05-10
+kim2025:christchurch:2023-05:SUN,kim2025:Christchurch:2023-05-14,Christchurch,2023-05-14,May,SUN,COT,459 ± 9,459,9,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-05-14
+kim2025:christchurch:2023-06:WED,kim2025:Christchurch:2023-06-14,Christchurch,2023-06-14,June,WED,COT,454 ± 26,454,26,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-06-14
+kim2025:christchurch:2023-06:SUN,kim2025:Christchurch:2023-06-18,Christchurch,2023-06-18,June,SUN,COT,427 ± 10,427,10,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-06-18
+kim2025:christchurch:2023-07:WED,kim2025:Christchurch:2023-07-12,Christchurch,2023-07-12,July,WED,COT,383 ± 18,383,18,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-07-12
+kim2025:christchurch:2023-07:SUN,kim2025:Christchurch:2023-07-16,Christchurch,2023-07-16,July,SUN,COT,439 ± 43,439,43,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-07-16
+kim2025:christchurch:2023-08:WED,kim2025:Christchurch:2023-08-09,Christchurch,2023-08-09,August,WED,COT,381 ± 9,381,9,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-08-09
+kim2025:christchurch:2023-08:SUN,kim2025:Christchurch:2023-08-13,Christchurch,2023-08-13,August,SUN,COT,260 ± 2,260,2,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-08-13
+kim2025:christchurch:2023-09:WED,kim2025:Christchurch:2023-09-13,Christchurch,2023-09-13,September,WED,COT,421 ± 17,421,17,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-09-13
+kim2025:christchurch:2023-09:SUN,kim2025:Christchurch:2023-09-17,Christchurch,2023-09-17,September,SUN,COT,464 ± 16,464,16,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-09-17
+kim2025:christchurch:2023-10:WED,kim2025:Christchurch:2023-10-11,Christchurch,2023-10-11,October,WED,COT,533 ± 36,533,36,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-10-11
+kim2025:christchurch:2023-10:SUN,kim2025:Christchurch:2023-10-15,Christchurch,2023-10-15,October,SUN,COT,341 ± 5,341,5,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Christchurch:2023-10-15
+kim2025:dunedin:2023-05:WED,kim2025:Dunedin:2023-05-10,Dunedin,2023-05-10,May,WED,COT,632 ± 16,632,16,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-05-10
+kim2025:dunedin:2023-05:SUN,kim2025:Dunedin:2023-05-14,Dunedin,2023-05-14,May,SUN,COT,432 ± 205,432,205,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-05-14
+kim2025:dunedin:2023-06:WED,kim2025:Dunedin:2023-06-14,Dunedin,2023-06-14,June,WED,COT,542 ± 15,542,15,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-06-14
+kim2025:dunedin:2023-06:SUN,kim2025:Dunedin:2023-06-18,Dunedin,2023-06-18,June,SUN,COT,476 ± 7,476,7,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-06-18
+kim2025:dunedin:2023-07:WED,kim2025:Dunedin:2023-07-12,Dunedin,2023-07-12,July,WED,COT,617 ± 1,617,1,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-07-12
+kim2025:dunedin:2023-07:SUN,kim2025:Dunedin:2023-07-16,Dunedin,2023-07-16,July,SUN,COT,658 ± 10,658,10,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-07-16
+kim2025:dunedin:2023-08:WED,kim2025:Dunedin:2023-08-08,Dunedin,2023-08-08,August,WED,COT,650 ± 5,650,5,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-08-08
+kim2025:dunedin:2023-08:SUN,kim2025:Dunedin:2023-08-13,Dunedin,2023-08-13,August,SUN,COT,566 ± 2,566,2,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-08-13
+kim2025:dunedin:2023-09:WED,kim2025:Dunedin:2023-09-13,Dunedin,2023-09-13,September,WED,COT,486 ± 19,486,19,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-09-13
+kim2025:dunedin:2023-09:SUN,kim2025:Dunedin:2023-09-17,Dunedin,2023-09-17,September,SUN,COT,689 ± 4,689,4,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-09-17
+kim2025:dunedin:2023-10:WED,kim2025:Dunedin:2023-10-11,Dunedin,2023-10-11,October,WED,COT,633 ± 1,633,1,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-10-11
+kim2025:dunedin:2023-10:SUN,kim2025:Dunedin:2023-10-15,Dunedin,2023-10-15,October,SUN,COT,676 ± 20,676,20,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Dunedin:2023-10-15
+kim2025:invercargill:2023-05:WED,kim2025:Invercargill:2023-05-02,Invercargill,2023-05-02,May,WED,COT,1201 ± 16,1201,16,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-05-02
+kim2025:invercargill:2023-05:SUN,kim2025:Invercargill:2023-05-07,Invercargill,2023-05-07,May,SUN,COT,1236 ± 13,1236,13,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-05-07
+kim2025:invercargill:2023-06:WED,kim2025:Invercargill:2023-06-07,Invercargill,2023-06-07,June,WED,COT,729 ± 22,729,22,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-06-07
+kim2025:invercargill:2023-06:SUN,kim2025:Invercargill:2023-06-11,Invercargill,2023-06-11,June,SUN,COT,1272 ± 1,1272,1,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-06-11
+kim2025:invercargill:2023-07:WED,kim2025:Invercargill:2023-07-05,Invercargill,2023-07-05,July,WED,COT,926 ± 29,926,29,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-07-05
+kim2025:invercargill:2023-07:SUN,kim2025:Invercargill:2023-07-09,Invercargill,2023-07-09,July,SUN,COT,994 ± 20,994,20,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-07-09
+kim2025:invercargill:2023-08:WED,kim2025:Invercargill:2023-08-02,Invercargill,2023-08-02,August,WED,COT,859 ± 27,859,27,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-08-02
+kim2025:invercargill:2023-08:SUN,kim2025:Invercargill:2023-08-06,Invercargill,2023-08-06,August,SUN,COT,1051 ± 37,1051,37,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-08-06
+kim2025:invercargill:2023-09:WED,kim2025:Invercargill:2023-09-06,Invercargill,2023-09-06,September,WED,COT,1018 ± 4,1018,4,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-09-06
+kim2025:invercargill:2023-09:SUN,kim2025:Invercargill:2023-09-10,Invercargill,2023-09-10,September,SUN,COT,1172 ± 32,1172,32,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-09-10
+kim2025:invercargill:2023-10:WED,kim2025:Invercargill:2023-10-04,Invercargill,2023-10-04,October,WED,COT,890 ± 10,890,10,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-10-04
+kim2025:invercargill:2023-10:SUN,kim2025:Invercargill:2023-10-08,Invercargill,2023-10-08,October,SUN,COT,1176 ± 49,1176,49,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Invercargill:2023-10-08
+kim2025:westport:2023-05:WED,kim2025:Westport:2023-05-02,Westport,2023-05-02,May,WED,COT,1150 ± 26,1150,26,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-05-02
+kim2025:westport:2023-05:SUN,kim2025:Westport:2023-05-07,Westport,2023-05-07,May,SUN,COT,484 ± 228,484,228,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-05-07
+kim2025:westport:2023-06:WED,kim2025:Westport:2023-06-07,Westport,2023-06-07,June,WED,COT,781 ± 4,781,4,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-06-07
+kim2025:westport:2023-06:SUN,kim2025:Westport:2023-06-11,Westport,2023-06-11,June,SUN,COT,852 ± 1,852,1,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-06-11
+kim2025:westport:2023-07:WED,kim2025:Westport:2023-07-05,Westport,2023-07-05,July,WED,COT,803 ± 14,803,14,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-07-05
+kim2025:westport:2023-07:SUN,kim2025:Westport:2023-07-09,Westport,2023-07-09,July,SUN,COT,1032 ± 4,1032,4,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-07-09
+kim2025:westport:2023-08:WED,kim2025:Westport:2023-08-02,Westport,2023-08-02,August,WED,COT,734 ± 17,734,17,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-08-02
+kim2025:westport:2023-08:SUN,kim2025:Westport:2023-08-06,Westport,2023-08-06,August,SUN,COT,873 ± 5,873,5,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-08-06
+kim2025:westport:2023-09:WED,kim2025:Westport:2023-09-06,Westport,2023-09-06,September,WED,COT,1138 ± 42,1138,42,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-09-06
+kim2025:westport:2023-09:SUN,kim2025:Westport:2023-09-10,Westport,2023-09-10,September,SUN,COT,866 ± 39,866,39,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-09-10
+kim2025:westport:2023-10:WED,kim2025:Westport:2023-10-04,Westport,2023-10-04,October,WED,COT,938 ± 25,938,25,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-10-04
+kim2025:westport:2023-10:SUN,kim2025:Westport:2023-10-08,Westport,2023-10-08,October,SUN,COT,926 ± 17,926,17,quantified,mg/day/1000_people_as_reported,S13,34,kim2025:Westport:2023-10-08
+kim2025:auckland_central:2023-05:WED,kim2025:Auckland Central:2023-05-17,Auckland Central,2023-05-17,May,WED,COT-OH,922 ± 15,922,15,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-05-17
+kim2025:auckland_central:2023-05:SUN,kim2025:Auckland Central:2023-05-21,Auckland Central,2023-05-21,May,SUN,COT-OH,912 ± 35,912,35,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-05-21
+kim2025:auckland_central:2023-06:WED,kim2025:Auckland Central:2023-06-21,Auckland Central,2023-06-21,June,WED,COT-OH,1166 ± 52,1166,52,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-06-21
+kim2025:auckland_central:2023-06:SUN,kim2025:Auckland Central:2023-06-25,Auckland Central,2023-06-25,June,SUN,COT-OH,939 ± 17,939,17,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-06-25
+kim2025:auckland_central:2023-07:WED,kim2025:Auckland Central:2023-07-19,Auckland Central,2023-07-19,July,WED,COT-OH,1206 ± 89,1206,89,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-07-19
+kim2025:auckland_central:2023-07:SUN,kim2025:Auckland Central:2023-07-23,Auckland Central,2023-07-23,July,SUN,COT-OH,1112 ± 15,1112,15,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-07-23
+kim2025:auckland_central:2023-08:WED,kim2025:Auckland Central:2023-08-16,Auckland Central,2023-08-16,August,WED,COT-OH,1079 ± 17,1079,17,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-08-16
+kim2025:auckland_central:2023-08:SUN,kim2025:Auckland Central:2023-08-20,Auckland Central,2023-08-20,August,SUN,COT-OH,758 ± 17,758,17,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-08-20
+kim2025:auckland_central:2023-09:WED,kim2025:Auckland Central:2023-09-20,Auckland Central,2023-09-20,September,WED,COT-OH,985 ± 236,985,236,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-09-20
+kim2025:auckland_central:2023-09:SUN,kim2025:Auckland Central:2023-09-24,Auckland Central,2023-09-24,September,SUN,COT-OH,1299 ± 51,1299,51,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-09-24
+kim2025:auckland_central:2023-10:WED,kim2025:Auckland Central:2023-10-18,Auckland Central,2023-10-18,October,WED,COT-OH,1026 ± 35,1026,35,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-10-18
+kim2025:auckland_central:2023-10:SUN,kim2025:Auckland Central:2023-10-22,Auckland Central,2023-10-22,October,SUN,COT-OH,1048 ± 126,1048,126,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland Central:2023-10-22
+kim2025:auckland_north:2023-05:WED,kim2025:Auckland North:2023-05-17,Auckland North,2023-05-17,May,WED,COT-OH,919 ± 11,919,11,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-05-17
+kim2025:auckland_north:2023-05:SUN,kim2025:Auckland North:2023-05-21,Auckland North,2023-05-21,May,SUN,COT-OH,647 ± 35,647,35,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-05-21
+kim2025:auckland_north:2023-06:WED,kim2025:Auckland North:2023-06-21,Auckland North,2023-06-21,June,WED,COT-OH,1487 ± 114,1487,114,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-06-21
+kim2025:auckland_north:2023-06:SUN,kim2025:Auckland North:2023-06-25,Auckland North,2023-06-25,June,SUN,COT-OH,950 ± 4,950,4,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-06-25
+kim2025:auckland_north:2023-07:WED,kim2025:Auckland North:2023-07-19,Auckland North,2023-07-19,July,WED,COT-OH,836 ± 70,836,70,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-07-19
+kim2025:auckland_north:2023-07:SUN,kim2025:Auckland North:2023-07-23,Auckland North,2023-07-23,July,SUN,COT-OH,990 ± 11,990,11,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-07-23
+kim2025:auckland_north:2023-08:WED,kim2025:Auckland North:2023-08-16,Auckland North,2023-08-16,August,WED,COT-OH,1007 ± 38,1007,38,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-08-16
+kim2025:auckland_north:2023-08:SUN,kim2025:Auckland North:2023-08-20,Auckland North,2023-08-20,August,SUN,COT-OH,927 ± 68,927,68,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-08-20
+kim2025:auckland_north:2023-09:WED,kim2025:Auckland North:2023-09-21,Auckland North,2023-09-21,September,WED,COT-OH,794 ± 30,794,30,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-09-21
+kim2025:auckland_north:2023-09:SUN,kim2025:Auckland North:2023-09-24,Auckland North,2023-09-24,September,SUN,COT-OH,795 ± 8,795,8,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-09-24
+kim2025:auckland_north:2023-10:WED,kim2025:Auckland North:2023-10-18,Auckland North,2023-10-18,October,WED,COT-OH,1077 ± 90,1077,90,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-10-18
+kim2025:auckland_north:2023-10:SUN,kim2025:Auckland North:2023-10-22,Auckland North,2023-10-22,October,SUN,COT-OH,967 ± 75,967,75,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland North:2023-10-22
+kim2025:auckland_south:2023-05:WED,kim2025:Auckland South:2023-05-17,Auckland South,2023-05-17,May,WED,COT-OH,2171 ± 63,2171,63,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-05-17
+kim2025:auckland_south:2023-05:SUN,kim2025:Auckland South:2023-05-21,Auckland South,2023-05-21,May,SUN,COT-OH,1774 ± 88,1774,88,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-05-21
+kim2025:auckland_south:2023-06:WED,kim2025:Auckland South:2023-06-21,Auckland South,2023-06-21,June,WED,COT-OH,2308 ± 291,2308,291,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-06-21
+kim2025:auckland_south:2023-06:SUN,kim2025:Auckland South:2023-06-25,Auckland South,2023-06-25,June,SUN,COT-OH,2142 ± 204,2142,204,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-06-25
+kim2025:auckland_south:2023-07:WED,kim2025:Auckland South:2023-07-19,Auckland South,2023-07-19,July,WED,COT-OH,2800 ± 404,2800,404,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-07-19
+kim2025:auckland_south:2023-07:SUN,kim2025:Auckland South:2023-07-23,Auckland South,2023-07-23,July,SUN,COT-OH,2674 ± 149,2674,149,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-07-23
+kim2025:auckland_south:2023-08:WED,kim2025:Auckland South:2023-08-16,Auckland South,2023-08-16,August,WED,COT-OH,3399 ± 359,3399,359,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-08-16
+kim2025:auckland_south:2023-08:SUN,kim2025:Auckland South:2023-08-20,Auckland South,2023-08-20,August,SUN,COT-OH,2830 ± 40,2830,40,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-08-20
+kim2025:auckland_south:2023-09:WED,kim2025:Auckland South:2023-09-20,Auckland South,2023-09-20,September,WED,COT-OH,3828 ± 535,3828,535,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-09-20
+kim2025:auckland_south:2023-09:SUN,kim2025:Auckland South:2023-09-24,Auckland South,2023-09-24,September,SUN,COT-OH,2841 ± 46,2841,46,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-09-24
+kim2025:auckland_south:2023-10:WED,kim2025:Auckland South:2023-10-18,Auckland South,2023-10-18,October,WED,COT-OH,2610 ± 52,2610,52,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-10-18
+kim2025:auckland_south:2023-10:SUN,kim2025:Auckland South:2023-10-22,Auckland South,2023-10-22,October,SUN,COT-OH,3729 ± 59,3729,59,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland South:2023-10-22
+kim2025:auckland_west:2023-05:WED,kim2025:Auckland West:2023-05-18,Auckland West,2023-05-18,May,WED,COT-OH,648 ± 4,648,4,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-05-18
+kim2025:auckland_west:2023-05:SUN,kim2025:Auckland West:2023-05-22,Auckland West,2023-05-22,May,SUN,COT-OH,1292 ± 14,1292,14,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-05-22
+kim2025:auckland_west:2023-06:WED,kim2025:Auckland West:2023-06-21,Auckland West,2023-06-21,June,WED,COT-OH,1191 ± 81,1191,81,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-06-21
+kim2025:auckland_west:2023-06:SUN,kim2025:Auckland West:2023-06-25,Auckland West,2023-06-25,June,SUN,COT-OH,989 ± 3,989,3,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-06-25
+kim2025:auckland_west:2023-07:WED,kim2025:Auckland West:2023-07-19,Auckland West,2023-07-19,July,WED,COT-OH,914 ± 3,914,3,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-07-19
+kim2025:auckland_west:2023-07:SUN,kim2025:Auckland West:2023-07-23,Auckland West,2023-07-23,July,SUN,COT-OH,1114 ±6,1114,6,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-07-23
+kim2025:auckland_west:2023-08:WED,kim2025:Auckland West:2023-08-16,Auckland West,2023-08-16,August,WED,COT-OH,1111 ± 31,1111,31,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-08-16
+kim2025:auckland_west:2023-08:SUN,kim2025:Auckland West:2023-08-20,Auckland West,2023-08-20,August,SUN,COT-OH,1100 ±5,1100,5,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-08-20
+kim2025:auckland_west:2023-09:WED,kim2025:Auckland West:2023-09-20,Auckland West,2023-09-20,September,WED,COT-OH,982 ± 3,982,3,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-09-20
+kim2025:auckland_west:2023-09:SUN,kim2025:Auckland West:2023-09-24,Auckland West,2023-09-24,September,SUN,COT-OH,1018 ± 85,1018,85,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-09-24
+kim2025:auckland_west:2023-10:WED,kim2025:Auckland West:2023-10-19,Auckland West,2023-10-19,October,WED,COT-OH,1095 ± 58,1095,58,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-10-19
+kim2025:auckland_west:2023-10:SUN,kim2025:Auckland West:2023-10-22,Auckland West,2023-10-22,October,SUN,COT-OH,1102 ± 66,1102,66,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Auckland West:2023-10-22
+kim2025:hamilton:2023-05:WED,kim2025:Hamilton:2023-05-17,Hamilton,2023-05-17,May,WED,COT-OH,1445 ± 81,1445,81,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-05-17
+kim2025:hamilton:2023-05:SUN,kim2025:Hamilton:2023-05-21,Hamilton,2023-05-21,May,SUN,COT-OH,1388 ± 96,1388,96,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-05-21
+kim2025:hamilton:2023-06:WED,kim2025:Hamilton:2023-06-21,Hamilton,2023-06-21,June,WED,COT-OH,1767 ± 137,1767,137,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-06-21
+kim2025:hamilton:2023-06:SUN,kim2025:Hamilton:2023-06-25,Hamilton,2023-06-25,June,SUN,COT-OH,1623 ± 126,1623,126,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-06-25
+kim2025:hamilton:2023-07:WED,kim2025:Hamilton:2023-07-19,Hamilton,2023-07-19,July,WED,COT-OH,1375 ± 17,1375,17,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-07-19
+kim2025:hamilton:2023-07:SUN,kim2025:Hamilton:2023-07-23,Hamilton,2023-07-23,July,SUN,COT-OH,1859 ± 100,1859,100,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-07-23
+kim2025:hamilton:2023-08:WED,kim2025:Hamilton:2023-08-16,Hamilton,2023-08-16,August,WED,COT-OH,1277 ± 26,1277,26,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-08-16
+kim2025:hamilton:2023-08:SUN,kim2025:Hamilton:2023-08-20,Hamilton,2023-08-20,August,SUN,COT-OH,1297 ± 82,1297,82,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-08-20
+kim2025:hamilton:2023-09:WED,kim2025:Hamilton:2023-09-20,Hamilton,2023-09-20,September,WED,COT-OH,1557 ± 56,1557,56,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-09-20
+kim2025:hamilton:2023-09:SUN,kim2025:Hamilton:2023-09-24,Hamilton,2023-09-24,September,SUN,COT-OH,1640 ± 21,1640,21,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-09-24
+kim2025:hamilton:2023-10:WED,kim2025:Hamilton:2023-10-18,Hamilton,2023-10-18,October,WED,COT-OH,1751 ± 51,1751,51,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-10-18
+kim2025:hamilton:2023-10:SUN,kim2025:Hamilton:2023-10-22,Hamilton,2023-10-22,October,SUN,COT-OH,1268 ± 83,1268,83,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Hamilton:2023-10-22
+kim2025:gisborne:2023-05:WED,kim2025:Gisborne:2023-05-10,Gisborne,2023-05-10,May,WED,COT-OH,3604 ± 359,3604,359,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-05-10
+kim2025:gisborne:2023-05:SUN,kim2025:Gisborne:2023-05-14,Gisborne,2023-05-14,May,SUN,COT-OH,1994 ± 692,1994,692,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-05-14
+kim2025:gisborne:2023-06:WED,kim2025:Gisborne:2023-06-14,Gisborne,2023-06-14,June,WED,COT-OH,3425 ± 132,3425,132,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-06-14
+kim2025:gisborne:2023-06:SUN,kim2025:Gisborne:2023-06-18,Gisborne,2023-06-18,June,SUN,COT-OH,1314 ± 10,1314,10,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-06-18
+kim2025:gisborne:2023-07:WED,kim2025:Gisborne:2023-07-12,Gisborne,2023-07-12,July,WED,COT-OH,2070 ± 210,2070,210,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-07-12
+kim2025:gisborne:2023-07:SUN,kim2025:Gisborne:2023-07-16,Gisborne,2023-07-16,July,SUN,COT-OH,6070 ± 44,6070,44,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-07-16
+kim2025:gisborne:2023-08:WED,kim2025:Gisborne:2023-08-09,Gisborne,2023-08-09,August,WED,COT-OH,1186 ± 36,1186,36,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-08-09
+kim2025:gisborne:2023-08:SUN,kim2025:Gisborne:2023-08-13,Gisborne,2023-08-13,August,SUN,COT-OH,2375 ± 36,2375,36,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-08-13
+kim2025:gisborne:2023-09:WED,kim2025:Gisborne:2023-09-20,Gisborne,2023-09-20,September,WED,COT-OH,2451 ± 37,2451,37,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-09-20
+kim2025:gisborne:2023-09:SUN,kim2025:Gisborne:2023-09-24,Gisborne,2023-09-24,September,SUN,COT-OH,1236 ±4,1236,4,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-09-24
+kim2025:gisborne:2023-10:WED,kim2025:Gisborne:2023-10-11,Gisborne,2023-10-11,October,WED,COT-OH,2466 ± 246,2466,246,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-10-11
+kim2025:gisborne:2023-10:SUN,kim2025:Gisborne:2023-10-15,Gisborne,2023-10-15,October,SUN,COT-OH,2967 ± 153,2967,153,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Gisborne:2023-10-15
+kim2025:wellington:2023-05:WED,kim2025:Wellington:2023-05-10,Wellington,2023-05-10,May,WED,COT-OH,987 ± 16,987,16,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-05-10
+kim2025:wellington:2023-05:SUN,kim2025:Wellington:2023-05-14,Wellington,2023-05-14,May,SUN,COT-OH,1221 ± 15,1221,15,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-05-14
+kim2025:wellington:2023-06:WED,kim2025:Wellington:2023-06-14,Wellington,2023-06-14,June,WED,COT-OH,1154 ± 55,1154,55,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-06-14
+kim2025:wellington:2023-06:SUN,kim2025:Wellington:2023-06-18,Wellington,2023-06-18,June,SUN,COT-OH,1442 ±6,1442,6,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-06-18
+kim2025:wellington:2023-07:WED,kim2025:Wellington:2023-07-12,Wellington,2023-07-12,July,WED,COT-OH,717 ± 2,717,2,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-07-12
+kim2025:wellington:2023-07:SUN,kim2025:Wellington:2023-07-16,Wellington,2023-07-16,July,SUN,COT-OH,1221 ± 67,1221,67,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-07-16
+kim2025:wellington:2023-08:WED,kim2025:Wellington:2023-08-09,Wellington,2023-08-09,August,WED,COT-OH,1206 ±8,1206,8,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-08-09
+kim2025:wellington:2023-08:SUN,kim2025:Wellington:2023-08-13,Wellington,2023-08-13,August,SUN,COT-OH,1304 ± 123,1304,123,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-08-13
+kim2025:wellington:2023-09:WED,kim2025:Wellington:2023-09-13,Wellington,2023-09-13,September,WED,COT-OH,1168 ± 83,1168,83,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-09-13
+kim2025:wellington:2023-09:SUN,kim2025:Wellington:2023-09-17,Wellington,2023-09-17,September,SUN,COT-OH,1211 ±4,1211,4,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-09-17
+kim2025:wellington:2023-10:WED,kim2025:Wellington:2023-10-25,Wellington,2023-10-25,October,WED,COT-OH,1205 ± 102,1205,102,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-10-25
+kim2025:wellington:2023-10:SUN,kim2025:Wellington:2023-10-29,Wellington,2023-10-29,October,SUN,COT-OH,1210 ± 9,1210,9,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Wellington:2023-10-29
+kim2025:whangarei:2023-05:WED,kim2025:Whangārei:2023-05-17,Whangārei,2023-05-17,May,WED,COT-OH,1746 ± 50,1746,50,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Whangārei:2023-05-17
+kim2025:whangarei:2023-05:SUN,kim2025:Whangārei:2023-05-21,Whangārei,2023-05-21,May,SUN,COT-OH,982 ± 25,982,25,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Whangārei:2023-05-21
+kim2025:whangarei:2023-06:WED,kim2025:Whangārei:2023-06-21,Whangārei,2023-06-21,June,WED,COT-OH,2202 ±8,2202,8,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Whangārei:2023-06-21
+kim2025:whangarei:2023-06:SUN,kim2025:Whangārei:2023-06-25,Whangārei,2023-06-25,June,SUN,COT-OH,1439 ± 104,1439,104,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Whangārei:2023-06-25
+kim2025:whangarei:2023-07:WED,kim2025:Whangārei:2023-07-19,Whangārei,2023-07-19,July,WED,COT-OH,1641 ± 183,1641,183,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Whangārei:2023-07-19
+kim2025:whangarei:2023-07:SUN,kim2025:Whangārei:2023-07-23,Whangārei,2023-07-23,July,SUN,COT-OH,1584 ± 144,1584,144,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Whangārei:2023-07-23
+kim2025:whangarei:2023-08:WED,kim2025:Whangārei:2023-08-16,Whangārei,2023-08-16,August,WED,COT-OH,1610 ± 95,1610,95,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Whangārei:2023-08-16
+kim2025:whangarei:2023-08:SUN,kim2025:Whangārei:2023-08-20,Whangārei,2023-08-20,August,SUN,COT-OH,1585 ± 24,1585,24,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Whangārei:2023-08-20
+kim2025:whangarei:2023-09:WED,kim2025:Whangārei:2023-09-20,Whangārei,2023-09-20,September,WED,COT-OH,1562 ± 41,1562,41,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Whangārei:2023-09-20
+kim2025:whangarei:2023-09:SUN,kim2025:Whangārei:2023-09-24,Whangārei,2023-09-24,September,SUN,COT-OH,1345 ± 31,1345,31,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Whangārei:2023-09-24
+kim2025:whangarei:2023-10:WED,,Whangārei,,October,WED,COT-OH,,,,missing_occasion,mg/day/1000_people_as_reported,S15,37,
+kim2025:whangarei:2023-10:SUN,,Whangārei,,October,SUN,COT-OH,,,,missing_occasion,mg/day/1000_people_as_reported,S15,37,
+kim2025:christchurch:2023-05:WED,kim2025:Christchurch:2023-05-10,Christchurch,2023-05-10,May,WED,COT-OH,771 ± 377,771,377,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-05-10
+kim2025:christchurch:2023-05:SUN,kim2025:Christchurch:2023-05-14,Christchurch,2023-05-14,May,SUN,COT-OH,1077 ±5,1077,5,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-05-14
+kim2025:christchurch:2023-06:WED,kim2025:Christchurch:2023-06-14,Christchurch,2023-06-14,June,WED,COT-OH,1017 ± 67,1017,67,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-06-14
+kim2025:christchurch:2023-06:SUN,kim2025:Christchurch:2023-06-18,Christchurch,2023-06-18,June,SUN,COT-OH,1020 ± 64,1020,64,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-06-18
+kim2025:christchurch:2023-07:WED,kim2025:Christchurch:2023-07-12,Christchurch,2023-07-12,July,WED,COT-OH,921 ± 11,921,11,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-07-12
+kim2025:christchurch:2023-07:SUN,kim2025:Christchurch:2023-07-16,Christchurch,2023-07-16,July,SUN,COT-OH,1032 ± 34,1032,34,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-07-16
+kim2025:christchurch:2023-08:WED,kim2025:Christchurch:2023-08-09,Christchurch,2023-08-09,August,WED,COT-OH,898 ± 20,898,20,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-08-09
+kim2025:christchurch:2023-08:SUN,kim2025:Christchurch:2023-08-13,Christchurch,2023-08-13,August,SUN,COT-OH,654 ± 25,654,25,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-08-13
+kim2025:christchurch:2023-09:WED,kim2025:Christchurch:2023-09-13,Christchurch,2023-09-13,September,WED,COT-OH,961 ± 28,961,28,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-09-13
+kim2025:christchurch:2023-09:SUN,kim2025:Christchurch:2023-09-17,Christchurch,2023-09-17,September,SUN,COT-OH,1096 ±3,1096,3,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-09-17
+kim2025:christchurch:2023-10:WED,kim2025:Christchurch:2023-10-11,Christchurch,2023-10-11,October,WED,COT-OH,1255 ± 98,1255,98,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-10-11
+kim2025:christchurch:2023-10:SUN,kim2025:Christchurch:2023-10-15,Christchurch,2023-10-15,October,SUN,COT-OH,815 ± 19,815,19,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Christchurch:2023-10-15
+kim2025:dunedin:2023-05:WED,kim2025:Dunedin:2023-05-10,Dunedin,2023-05-10,May,WED,COT-OH,1679 ± 77,1679,77,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-05-10
+kim2025:dunedin:2023-05:SUN,kim2025:Dunedin:2023-05-14,Dunedin,2023-05-14,May,SUN,COT-OH,1512 ± 665,1512,665,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-05-14
+kim2025:dunedin:2023-06:WED,kim2025:Dunedin:2023-06-14,Dunedin,2023-06-14,June,WED,COT-OH,1590 ± 64,1590,64,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-06-14
+kim2025:dunedin:2023-06:SUN,kim2025:Dunedin:2023-06-18,Dunedin,2023-06-18,June,SUN,COT-OH,1394 ±4,1394,4,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-06-18
+kim2025:dunedin:2023-07:WED,kim2025:Dunedin:2023-07-12,Dunedin,2023-07-12,July,WED,COT-OH,1711 ± 58,1711,58,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-07-12
+kim2025:dunedin:2023-07:SUN,kim2025:Dunedin:2023-07-16,Dunedin,2023-07-16,July,SUN,COT-OH,1883 ± 62,1883,62,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-07-16
+kim2025:dunedin:2023-08:WED,kim2025:Dunedin:2023-08-08,Dunedin,2023-08-08,August,WED,COT-OH,1707 ± 125,1707,125,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-08-08
+kim2025:dunedin:2023-08:SUN,kim2025:Dunedin:2023-08-13,Dunedin,2023-08-13,August,SUN,COT-OH,1505 ± 54,1505,54,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-08-13
+kim2025:dunedin:2023-09:WED,kim2025:Dunedin:2023-09-13,Dunedin,2023-09-13,September,WED,COT-OH,1317 ± 26,1317,26,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-09-13
+kim2025:dunedin:2023-09:SUN,kim2025:Dunedin:2023-09-17,Dunedin,2023-09-17,September,SUN,COT-OH,1952 ± 94,1952,94,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-09-17
+kim2025:dunedin:2023-10:WED,kim2025:Dunedin:2023-10-11,Dunedin,2023-10-11,October,WED,COT-OH,1399 ±7,1399,7,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-10-11
+kim2025:dunedin:2023-10:SUN,kim2025:Dunedin:2023-10-15,Dunedin,2023-10-15,October,SUN,COT-OH,1617 ± 77,1617,77,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Dunedin:2023-10-15
+kim2025:invercargill:2023-05:WED,kim2025:Invercargill:2023-05-02,Invercargill,2023-05-02,May,WED,COT-OH,3016 ± 36,3016,36,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-05-02
+kim2025:invercargill:2023-05:SUN,kim2025:Invercargill:2023-05-07,Invercargill,2023-05-07,May,SUN,COT-OH,2834 ±6,2834,6,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-05-07
+kim2025:invercargill:2023-06:WED,kim2025:Invercargill:2023-06-07,Invercargill,2023-06-07,June,WED,COT-OH,1964 ± 48,1964,48,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-06-07
+kim2025:invercargill:2023-06:SUN,kim2025:Invercargill:2023-06-11,Invercargill,2023-06-11,June,SUN,COT-OH,3633 ± 106,3633,106,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-06-11
+kim2025:invercargill:2023-07:WED,kim2025:Invercargill:2023-07-05,Invercargill,2023-07-05,July,WED,COT-OH,2669 ± 22,2669,22,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-07-05
+kim2025:invercargill:2023-07:SUN,kim2025:Invercargill:2023-07-09,Invercargill,2023-07-09,July,SUN,COT-OH,2853 ± 209,2853,209,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-07-09
+kim2025:invercargill:2023-08:WED,kim2025:Invercargill:2023-08-02,Invercargill,2023-08-02,August,WED,COT-OH,2151 ± 18,2151,18,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-08-02
+kim2025:invercargill:2023-08:SUN,kim2025:Invercargill:2023-08-06,Invercargill,2023-08-06,August,SUN,COT-OH,2740 ± 29,2740,29,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-08-06
+kim2025:invercargill:2023-09:WED,kim2025:Invercargill:2023-09-06,Invercargill,2023-09-06,September,WED,COT-OH,2359 ± 75,2359,75,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-09-06
+kim2025:invercargill:2023-09:SUN,kim2025:Invercargill:2023-09-10,Invercargill,2023-09-10,September,SUN,COT-OH,2832 ± 401,2832,401,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-09-10
+kim2025:invercargill:2023-10:WED,kim2025:Invercargill:2023-10-04,Invercargill,2023-10-04,October,WED,COT-OH,1920 ± 55,1920,55,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-10-04
+kim2025:invercargill:2023-10:SUN,kim2025:Invercargill:2023-10-08,Invercargill,2023-10-08,October,SUN,COT-OH,2734 ± 61,2734,61,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Invercargill:2023-10-08
+kim2025:westport:2023-05:WED,kim2025:Westport:2023-05-02,Westport,2023-05-02,May,WED,COT-OH,2541 ± 124,2541,124,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-05-02
+kim2025:westport:2023-05:SUN,kim2025:Westport:2023-05-07,Westport,2023-05-07,May,SUN,COT-OH,1332 ± 615,1332,615,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-05-07
+kim2025:westport:2023-06:WED,kim2025:Westport:2023-06-07,Westport,2023-06-07,June,WED,COT-OH,1859 ± 92,1859,92,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-06-07
+kim2025:westport:2023-06:SUN,kim2025:Westport:2023-06-11,Westport,2023-06-11,June,SUN,COT-OH,2033 ±4,2033,4,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-06-11
+kim2025:westport:2023-07:WED,kim2025:Westport:2023-07-05,Westport,2023-07-05,July,WED,COT-OH,1916 ±5,1916,5,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-07-05
+kim2025:westport:2023-07:SUN,kim2025:Westport:2023-07-09,Westport,2023-07-09,July,SUN,COT-OH,2481 ±4,2481,4,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-07-09
+kim2025:westport:2023-08:WED,kim2025:Westport:2023-08-02,Westport,2023-08-02,August,WED,COT-OH,1784 ± 24,1784,24,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-08-02
+kim2025:westport:2023-08:SUN,kim2025:Westport:2023-08-06,Westport,2023-08-06,August,SUN,COT-OH,1975 ± 38,1975,38,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-08-06
+kim2025:westport:2023-09:WED,kim2025:Westport:2023-09-06,Westport,2023-09-06,September,WED,COT-OH,2568 ± 35,2568,35,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-09-06
+kim2025:westport:2023-09:SUN,kim2025:Westport:2023-09-10,Westport,2023-09-10,September,SUN,COT-OH,1941 ± 109,1941,109,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-09-10
+kim2025:westport:2023-10:WED,kim2025:Westport:2023-10-04,Westport,2023-10-04,October,WED,COT-OH,1892 ±5,1892,5,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-10-04
+kim2025:westport:2023-10:SUN,kim2025:Westport:2023-10-08,Westport,2023-10-08,October,SUN,COT-OH,1913 ± 47,1913,47,quantified,mg/day/1000_people_as_reported,S15,37,kim2025:Westport:2023-10-08
+kim2025:auckland_central:2023-05:WED,kim2025:Auckland Central:2023-05-17,Auckland Central,2023-05-17,May,WED,ANTA,4.6 ± 1,4.6,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-05-17
+kim2025:auckland_central:2023-05:SUN,kim2025:Auckland Central:2023-05-21,Auckland Central,2023-05-21,May,SUN,ANTA,5.5 ± 0.2,5.5,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-05-21
+kim2025:auckland_central:2023-06:WED,kim2025:Auckland Central:2023-06-21,Auckland Central,2023-06-21,June,WED,ANTA,4.5 ± 0.5,4.5,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-06-21
+kim2025:auckland_central:2023-06:SUN,kim2025:Auckland Central:2023-06-25,Auckland Central,2023-06-25,June,SUN,ANTA,4.5 ± 1,4.5,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-06-25
+kim2025:auckland_central:2023-07:WED,kim2025:Auckland Central:2023-07-19,Auckland Central,2023-07-19,July,WED,ANTA,5.0 ± 2,5.0,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-07-19
+kim2025:auckland_central:2023-07:SUN,kim2025:Auckland Central:2023-07-23,Auckland Central,2023-07-23,July,SUN,ANTA,4.6 ± 0.6,4.6,0.6,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-07-23
+kim2025:auckland_central:2023-08:WED,kim2025:Auckland Central:2023-08-16,Auckland Central,2023-08-16,August,WED,ANTA,3.3 ± 2,3.3,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-08-16
+kim2025:auckland_central:2023-08:SUN,kim2025:Auckland Central:2023-08-20,Auckland Central,2023-08-20,August,SUN,ANTA,6.1 ± 3,6.1,3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-08-20
+kim2025:auckland_central:2023-09:WED,kim2025:Auckland Central:2023-09-20,Auckland Central,2023-09-20,September,WED,ANTA,4.1 ± 0.5,4.1,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-09-20
+kim2025:auckland_central:2023-09:SUN,kim2025:Auckland Central:2023-09-24,Auckland Central,2023-09-24,September,SUN,ANTA,5.9 ± 1,5.9,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-09-24
+kim2025:auckland_central:2023-10:WED,kim2025:Auckland Central:2023-10-18,Auckland Central,2023-10-18,October,WED,ANTA,4.6 ± 1,4.6,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-10-18
+kim2025:auckland_central:2023-10:SUN,kim2025:Auckland Central:2023-10-22,Auckland Central,2023-10-22,October,SUN,ANTA,3.3 ± 0.05,3.3,0.05,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland Central:2023-10-22
+kim2025:auckland_north:2023-05:WED,kim2025:Auckland North:2023-05-17,Auckland North,2023-05-17,May,WED,ANTA,3.7 ± 0.4,3.7,0.4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-05-17
+kim2025:auckland_north:2023-05:SUN,kim2025:Auckland North:2023-05-21,Auckland North,2023-05-21,May,SUN,ANTA,3.6 ± 1,3.6,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-05-21
+kim2025:auckland_north:2023-06:WED,kim2025:Auckland North:2023-06-21,Auckland North,2023-06-21,June,WED,ANTA,4.8 ± 0.1,4.8,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-06-21
+kim2025:auckland_north:2023-06:SUN,kim2025:Auckland North:2023-06-25,Auckland North,2023-06-25,June,SUN,ANTA,3.7 ± 0.4,3.7,0.4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-06-25
+kim2025:auckland_north:2023-07:WED,kim2025:Auckland North:2023-07-19,Auckland North,2023-07-19,July,WED,ANTA,2.9 ± 0.04,2.9,0.04,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-07-19
+kim2025:auckland_north:2023-07:SUN,kim2025:Auckland North:2023-07-23,Auckland North,2023-07-23,July,SUN,ANTA,3.2 ± 0.4,3.2,0.4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-07-23
+kim2025:auckland_north:2023-08:WED,kim2025:Auckland North:2023-08-16,Auckland North,2023-08-16,August,WED,ANTA,3.4 ± 1,3.4,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-08-16
+kim2025:auckland_north:2023-08:SUN,kim2025:Auckland North:2023-08-20,Auckland North,2023-08-20,August,SUN,ANTA,4.9 ± 0.4,4.9,0.4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-08-20
+kim2025:auckland_north:2023-09:WED,kim2025:Auckland North:2023-09-21,Auckland North,2023-09-21,September,WED,ANTA,2.7 ± 0.5,2.7,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-09-21
+kim2025:auckland_north:2023-09:SUN,kim2025:Auckland North:2023-09-24,Auckland North,2023-09-24,September,SUN,ANTA,3.7 ± 0.3,3.7,0.3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-09-24
+kim2025:auckland_north:2023-10:WED,kim2025:Auckland North:2023-10-18,Auckland North,2023-10-18,October,WED,ANTA,3.6 ± 0.2,3.6,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-10-18
+kim2025:auckland_north:2023-10:SUN,kim2025:Auckland North:2023-10-22,Auckland North,2023-10-22,October,SUN,ANTA,3.1 ± 0.1,3.1,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland North:2023-10-22
+kim2025:auckland_south:2023-05:WED,kim2025:Auckland South:2023-05-17,Auckland South,2023-05-17,May,WED,ANTA,9.4 ± 0.2,9.4,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-05-17
+kim2025:auckland_south:2023-05:SUN,kim2025:Auckland South:2023-05-21,Auckland South,2023-05-21,May,SUN,ANTA,9.8 ± 1,9.8,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-05-21
+kim2025:auckland_south:2023-06:WED,kim2025:Auckland South:2023-06-21,Auckland South,2023-06-21,June,WED,ANTA,8.8 ± 1,8.8,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-06-21
+kim2025:auckland_south:2023-06:SUN,kim2025:Auckland South:2023-06-25,Auckland South,2023-06-25,June,SUN,ANTA,9.8 ± 0.3,9.8,0.3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-06-25
+kim2025:auckland_south:2023-07:WED,kim2025:Auckland South:2023-07-19,Auckland South,2023-07-19,July,WED,ANTA,9.8 ± 2,9.8,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-07-19
+kim2025:auckland_south:2023-07:SUN,kim2025:Auckland South:2023-07-23,Auckland South,2023-07-23,July,SUN,ANTA,9.1 ± 2,9.1,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-07-23
+kim2025:auckland_south:2023-08:WED,kim2025:Auckland South:2023-08-16,Auckland South,2023-08-16,August,WED,ANTA,17.5 ± 3,17.5,3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-08-16
+kim2025:auckland_south:2023-08:SUN,kim2025:Auckland South:2023-08-20,Auckland South,2023-08-20,August,SUN,ANTA,15 ± 0.3,15,0.3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-08-20
+kim2025:auckland_south:2023-09:WED,kim2025:Auckland South:2023-09-20,Auckland South,2023-09-20,September,WED,ANTA,14.8 ± 0.2,14.8,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-09-20
+kim2025:auckland_south:2023-09:SUN,kim2025:Auckland South:2023-09-24,Auckland South,2023-09-24,September,SUN,ANTA,13.0 ± 0.3,13.0,0.3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-09-24
+kim2025:auckland_south:2023-10:WED,kim2025:Auckland South:2023-10-18,Auckland South,2023-10-18,October,WED,ANTA,10.0 ± 1,10.0,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-10-18
+kim2025:auckland_south:2023-10:SUN,kim2025:Auckland South:2023-10-22,Auckland South,2023-10-22,October,SUN,ANTA,14.0 ± 2,14.0,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland South:2023-10-22
+kim2025:auckland_west:2023-05:WED,kim2025:Auckland West:2023-05-18,Auckland West,2023-05-18,May,WED,ANTA,3.7 ± 0.4,3.7,0.4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-05-18
+kim2025:auckland_west:2023-05:SUN,kim2025:Auckland West:2023-05-22,Auckland West,2023-05-22,May,SUN,ANTA,7.1 ± 0.1,7.1,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-05-22
+kim2025:auckland_west:2023-06:WED,kim2025:Auckland West:2023-06-21,Auckland West,2023-06-21,June,WED,ANTA,4.7 ± 1,4.7,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-06-21
+kim2025:auckland_west:2023-06:SUN,kim2025:Auckland West:2023-06-25,Auckland West,2023-06-25,June,SUN,ANTA,4.0 ± 1,4.0,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-06-25
+kim2025:auckland_west:2023-07:WED,kim2025:Auckland West:2023-07-19,Auckland West,2023-07-19,July,WED,ANTA,3.7 ± 0.2,3.7,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-07-19
+kim2025:auckland_west:2023-07:SUN,kim2025:Auckland West:2023-07-23,Auckland West,2023-07-23,July,SUN,ANTA,4.4 ± 0.1,4.4,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-07-23
+kim2025:auckland_west:2023-08:WED,kim2025:Auckland West:2023-08-16,Auckland West,2023-08-16,August,WED,ANTA,4.7 ± 0.3,4.7,0.3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-08-16
+kim2025:auckland_west:2023-08:SUN,kim2025:Auckland West:2023-08-20,Auckland West,2023-08-20,August,SUN,ANTA,5.3 ± 1,5.3,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-08-20
+kim2025:auckland_west:2023-09:WED,kim2025:Auckland West:2023-09-20,Auckland West,2023-09-20,September,WED,ANTA,5.3 ± 1,5.3,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-09-20
+kim2025:auckland_west:2023-09:SUN,kim2025:Auckland West:2023-09-24,Auckland West,2023-09-24,September,SUN,ANTA,5.1 ± 0.2,5.1,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-09-24
+kim2025:auckland_west:2023-10:WED,kim2025:Auckland West:2023-10-19,Auckland West,2023-10-19,October,WED,ANTA,5.2 ± 1,5.2,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-10-19
+kim2025:auckland_west:2023-10:SUN,kim2025:Auckland West:2023-10-22,Auckland West,2023-10-22,October,SUN,ANTA,4.9 ± 0.1,4.9,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Auckland West:2023-10-22
+kim2025:hamilton:2023-05:WED,kim2025:Hamilton:2023-05-17,Hamilton,2023-05-17,May,WED,ANTA,6.5 ± 0.2,6.5,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-05-17
+kim2025:hamilton:2023-05:SUN,kim2025:Hamilton:2023-05-21,Hamilton,2023-05-21,May,SUN,ANTA,6.7 ± 1,6.7,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-05-21
+kim2025:hamilton:2023-06:WED,kim2025:Hamilton:2023-06-21,Hamilton,2023-06-21,June,WED,ANTA,17 ± 2,17,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-06-21
+kim2025:hamilton:2023-06:SUN,kim2025:Hamilton:2023-06-25,Hamilton,2023-06-25,June,SUN,ANTA,7.5 ± 1,7.5,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-06-25
+kim2025:hamilton:2023-07:WED,kim2025:Hamilton:2023-07-19,Hamilton,2023-07-19,July,WED,ANTA,6.1 ± 1,6.1,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-07-19
+kim2025:hamilton:2023-07:SUN,kim2025:Hamilton:2023-07-23,Hamilton,2023-07-23,July,SUN,ANTA,7.8 ± 0.6,7.8,0.6,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-07-23
+kim2025:hamilton:2023-08:WED,kim2025:Hamilton:2023-08-16,Hamilton,2023-08-16,August,WED,ANTA,5.2 ± 0.1,5.2,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-08-16
+kim2025:hamilton:2023-08:SUN,kim2025:Hamilton:2023-08-20,Hamilton,2023-08-20,August,SUN,ANTA,5.6 ± 0.4,5.6,0.4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-08-20
+kim2025:hamilton:2023-09:WED,kim2025:Hamilton:2023-09-20,Hamilton,2023-09-20,September,WED,ANTA,6.6 ± 0.2,6.6,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-09-20
+kim2025:hamilton:2023-09:SUN,kim2025:Hamilton:2023-09-24,Hamilton,2023-09-24,September,SUN,ANTA,10 ± 1,10,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-09-24
+kim2025:hamilton:2023-10:WED,kim2025:Hamilton:2023-10-18,Hamilton,2023-10-18,October,WED,ANTA,7.5 ± 0.2,7.5,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-10-18
+kim2025:hamilton:2023-10:SUN,kim2025:Hamilton:2023-10-22,Hamilton,2023-10-22,October,SUN,ANTA,4.7 ± 0.2,4.7,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Hamilton:2023-10-22
+kim2025:gisborne:2023-05:WED,kim2025:Gisborne:2023-05-10,Gisborne,2023-05-10,May,WED,ANTA,10.0 ± 0.4,10.0,0.4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-05-10
+kim2025:gisborne:2023-05:SUN,kim2025:Gisborne:2023-05-14,Gisborne,2023-05-14,May,SUN,ANTA,7.0 ± 1,7.0,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-05-14
+kim2025:gisborne:2023-06:WED,kim2025:Gisborne:2023-06-14,Gisborne,2023-06-14,June,WED,ANTA,11.0 ± 0.5,11.0,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-06-14
+kim2025:gisborne:2023-06:SUN,kim2025:Gisborne:2023-06-18,Gisborne,2023-06-18,June,SUN,ANTA,6.6 ± 1,6.6,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-06-18
+kim2025:gisborne:2023-07:WED,kim2025:Gisborne:2023-07-12,Gisborne,2023-07-12,July,WED,ANTA,7.4 ± 1,7.4,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-07-12
+kim2025:gisborne:2023-07:SUN,kim2025:Gisborne:2023-07-16,Gisborne,2023-07-16,July,SUN,ANTA,16.0 ± 3,16.0,3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-07-16
+kim2025:gisborne:2023-08:WED,kim2025:Gisborne:2023-08-09,Gisborne,2023-08-09,August,WED,ANTA,4.6 ± 0.5,4.6,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-08-09
+kim2025:gisborne:2023-08:SUN,kim2025:Gisborne:2023-08-13,Gisborne,2023-08-13,August,SUN,ANTA,8.1 ± 0.5,8.1,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-08-13
+kim2025:gisborne:2023-09:WED,kim2025:Gisborne:2023-09-20,Gisborne,2023-09-20,September,WED,ANTA,12.5 ± 1,12.5,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-09-20
+kim2025:gisborne:2023-09:SUN,kim2025:Gisborne:2023-09-24,Gisborne,2023-09-24,September,SUN,ANTA,5.2 ± 0.5,5.2,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-09-24
+kim2025:gisborne:2023-10:WED,kim2025:Gisborne:2023-10-11,Gisborne,2023-10-11,October,WED,ANTA,7.0 ± 0.3,7.0,0.3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-10-11
+kim2025:gisborne:2023-10:SUN,kim2025:Gisborne:2023-10-15,Gisborne,2023-10-15,October,SUN,ANTA,9.8 ± 1,9.8,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Gisborne:2023-10-15
+kim2025:wellington:2023-05:WED,kim2025:Wellington:2023-05-10,Wellington,2023-05-10,May,WED,ANTA,4.6 ± 2,4.6,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-05-10
+kim2025:wellington:2023-05:SUN,kim2025:Wellington:2023-05-14,Wellington,2023-05-14,May,SUN,ANTA,4.0 ± 1,4.0,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-05-14
+kim2025:wellington:2023-06:WED,kim2025:Wellington:2023-06-14,Wellington,2023-06-14,June,WED,ANTA,3.9 ± 0.2,3.9,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-06-14
+kim2025:wellington:2023-06:SUN,kim2025:Wellington:2023-06-18,Wellington,2023-06-18,June,SUN,ANTA,4.7 ± 1,4.7,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-06-18
+kim2025:wellington:2023-07:WED,kim2025:Wellington:2023-07-12,Wellington,2023-07-12,July,WED,ANTA,2.2 ± 1,2.2,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-07-12
+kim2025:wellington:2023-07:SUN,kim2025:Wellington:2023-07-16,Wellington,2023-07-16,July,SUN,ANTA,3.5 ± 1,3.5,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-07-16
+kim2025:wellington:2023-08:WED,kim2025:Wellington:2023-08-09,Wellington,2023-08-09,August,WED,ANTA,5.6 ± 1,5.6,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-08-09
+kim2025:wellington:2023-08:SUN,kim2025:Wellington:2023-08-13,Wellington,2023-08-13,August,SUN,ANTA,5.6 ± 1,5.6,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-08-13
+kim2025:wellington:2023-09:WED,kim2025:Wellington:2023-09-13,Wellington,2023-09-13,September,WED,ANTA,6.3 ± 0.5,6.3,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-09-13
+kim2025:wellington:2023-09:SUN,kim2025:Wellington:2023-09-17,Wellington,2023-09-17,September,SUN,ANTA,5.8 ± 1,5.8,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-09-17
+kim2025:wellington:2023-10:WED,kim2025:Wellington:2023-10-25,Wellington,2023-10-25,October,WED,ANTA,4.2 ± 0.3,4.2,0.3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-10-25
+kim2025:wellington:2023-10:SUN,kim2025:Wellington:2023-10-29,Wellington,2023-10-29,October,SUN,ANTA,5.4 ± 0.5,5.4,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Wellington:2023-10-29
+kim2025:whangarei:2023-05:WED,kim2025:Whangārei:2023-05-17,Whangārei,2023-05-17,May,WED,ANTA,8.1 ± 1,8.1,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Whangārei:2023-05-17
+kim2025:whangarei:2023-05:SUN,kim2025:Whangārei:2023-05-21,Whangārei,2023-05-21,May,SUN,ANTA,5.0 ± 0.1,5.0,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Whangārei:2023-05-21
+kim2025:whangarei:2023-06:WED,kim2025:Whangārei:2023-06-21,Whangārei,2023-06-21,June,WED,ANTA,11.0 ± 1,11.0,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Whangārei:2023-06-21
+kim2025:whangarei:2023-06:SUN,kim2025:Whangārei:2023-06-25,Whangārei,2023-06-25,June,SUN,ANTA,7.4 ± 2,7.4,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Whangārei:2023-06-25
+kim2025:whangarei:2023-07:WED,kim2025:Whangārei:2023-07-19,Whangārei,2023-07-19,July,WED,ANTA,6.0 ± 1,6.0,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Whangārei:2023-07-19
+kim2025:whangarei:2023-07:SUN,kim2025:Whangārei:2023-07-23,Whangārei,2023-07-23,July,SUN,ANTA,2.8 ± 4,2.8,4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Whangārei:2023-07-23
+kim2025:whangarei:2023-08:WED,kim2025:Whangārei:2023-08-16,Whangārei,2023-08-16,August,WED,ANTA,6.1 ± 0.4,6.1,0.4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Whangārei:2023-08-16
+kim2025:whangarei:2023-08:SUN,kim2025:Whangārei:2023-08-20,Whangārei,2023-08-20,August,SUN,ANTA,5.4 ± 0.3,5.4,0.3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Whangārei:2023-08-20
+kim2025:whangarei:2023-09:WED,kim2025:Whangārei:2023-09-20,Whangārei,2023-09-20,September,WED,ANTA,7.5 ± 1,7.5,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Whangārei:2023-09-20
+kim2025:whangarei:2023-09:SUN,kim2025:Whangārei:2023-09-24,Whangārei,2023-09-24,September,SUN,ANTA,4.5 ± 0.4,4.5,0.4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Whangārei:2023-09-24
+kim2025:whangarei:2023-10:WED,,Whangārei,,October,WED,ANTA,,,,missing_occasion,mg/day/1000_people_as_reported,S17,40,
+kim2025:whangarei:2023-10:SUN,,Whangārei,,October,SUN,ANTA,,,,missing_occasion,mg/day/1000_people_as_reported,S17,40,
+kim2025:christchurch:2023-05:WED,kim2025:Christchurch:2023-05-10,Christchurch,2023-05-10,May,WED,ANTA,4.2 ± 0.5,4.2,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-05-10
+kim2025:christchurch:2023-05:SUN,kim2025:Christchurch:2023-05-14,Christchurch,2023-05-14,May,SUN,ANTA,5.6 ± 1,5.6,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-05-14
+kim2025:christchurch:2023-06:WED,kim2025:Christchurch:2023-06-14,Christchurch,2023-06-14,June,WED,ANTA,4.1 ± 2,4.1,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-06-14
+kim2025:christchurch:2023-06:SUN,kim2025:Christchurch:2023-06-18,Christchurch,2023-06-18,June,SUN,ANTA,4.8 ± 1,4.8,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-06-18
+kim2025:christchurch:2023-07:WED,kim2025:Christchurch:2023-07-12,Christchurch,2023-07-12,July,WED,ANTA,4.8 ± 1,4.8,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-07-12
+kim2025:christchurch:2023-07:SUN,kim2025:Christchurch:2023-07-16,Christchurch,2023-07-16,July,SUN,ANTA,4.2 ± 1,4.2,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-07-16
+kim2025:christchurch:2023-08:WED,kim2025:Christchurch:2023-08-09,Christchurch,2023-08-09,August,WED,ANTA,5.4 ± 0.3,5.4,0.3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-08-09
+kim2025:christchurch:2023-08:SUN,kim2025:Christchurch:2023-08-13,Christchurch,2023-08-13,August,SUN,ANTA,4.4 ± 0.1,4.4,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-08-13
+kim2025:christchurch:2023-09:WED,kim2025:Christchurch:2023-09-13,Christchurch,2023-09-13,September,WED,ANTA,6.9 ± 2,6.9,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-09-13
+kim2025:christchurch:2023-09:SUN,kim2025:Christchurch:2023-09-17,Christchurch,2023-09-17,September,SUN,ANTA,7.0 ± 1,7.0,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-09-17
+kim2025:christchurch:2023-10:WED,kim2025:Christchurch:2023-10-11,Christchurch,2023-10-11,October,WED,ANTA,5.7 ± 1,5.7,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-10-11
+kim2025:christchurch:2023-10:SUN,kim2025:Christchurch:2023-10-15,Christchurch,2023-10-15,October,SUN,ANTA,4.0 ± 0.1,4.0,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Christchurch:2023-10-15
+kim2025:dunedin:2023-05:WED,kim2025:Dunedin:2023-05-10,Dunedin,2023-05-10,May,WED,ANTA,5.7 ± 1,5.7,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-05-10
+kim2025:dunedin:2023-05:SUN,kim2025:Dunedin:2023-05-14,Dunedin,2023-05-14,May,SUN,ANTA,5.3 ± 0.04,5.3,0.04,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-05-14
+kim2025:dunedin:2023-06:WED,kim2025:Dunedin:2023-06-14,Dunedin,2023-06-14,June,WED,ANTA,4.5 ± 0.4,4.5,0.4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-06-14
+kim2025:dunedin:2023-06:SUN,kim2025:Dunedin:2023-06-18,Dunedin,2023-06-18,June,SUN,ANTA,3.9 ± 0.5,3.9,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-06-18
+kim2025:dunedin:2023-07:WED,kim2025:Dunedin:2023-07-12,Dunedin,2023-07-12,July,WED,ANTA,5.4 ± 0.5,5.4,0.5,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-07-12
+kim2025:dunedin:2023-07:SUN,kim2025:Dunedin:2023-07-16,Dunedin,2023-07-16,July,SUN,ANTA,5.0 ± 0.04,5.0,0.04,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-07-16
+kim2025:dunedin:2023-08:WED,kim2025:Dunedin:2023-08-08,Dunedin,2023-08-08,August,WED,ANTA,4.9 ± 1,4.9,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-08-08
+kim2025:dunedin:2023-08:SUN,kim2025:Dunedin:2023-08-13,Dunedin,2023-08-13,August,SUN,ANTA,4.6 ± 0.1,4.6,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-08-13
+kim2025:dunedin:2023-09:WED,kim2025:Dunedin:2023-09-13,Dunedin,2023-09-13,September,WED,ANTA,5.5 ± 0.1,5.5,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-09-13
+kim2025:dunedin:2023-09:SUN,kim2025:Dunedin:2023-09-17,Dunedin,2023-09-17,September,SUN,ANTA,9.5 ± 1,9.5,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-09-17
+kim2025:dunedin:2023-10:WED,kim2025:Dunedin:2023-10-11,Dunedin,2023-10-11,October,WED,ANTA,6.1 ± 0.2,6.1,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-10-11
+kim2025:dunedin:2023-10:SUN,kim2025:Dunedin:2023-10-15,Dunedin,2023-10-15,October,SUN,ANTA,6.0 ± 0.3,6.0,0.3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Dunedin:2023-10-15
+kim2025:invercargill:2023-05:WED,kim2025:Invercargill:2023-05-02,Invercargill,2023-05-02,May,WED,ANTA,10.8 ± 1,10.8,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-05-02
+kim2025:invercargill:2023-05:SUN,kim2025:Invercargill:2023-05-07,Invercargill,2023-05-07,May,SUN,ANTA,10.1 ± 0.2,10.1,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-05-07
+kim2025:invercargill:2023-06:WED,kim2025:Invercargill:2023-06-07,Invercargill,2023-06-07,June,WED,ANTA,7.3 ± 4,7.3,4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-06-07
+kim2025:invercargill:2023-06:SUN,kim2025:Invercargill:2023-06-11,Invercargill,2023-06-11,June,SUN,ANTA,13.0 ± 2,13.0,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-06-11
+kim2025:invercargill:2023-07:WED,kim2025:Invercargill:2023-07-05,Invercargill,2023-07-05,July,WED,ANTA,10.9 ± 3,10.9,3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-07-05
+kim2025:invercargill:2023-07:SUN,kim2025:Invercargill:2023-07-09,Invercargill,2023-07-09,July,SUN,ANTA,7.4 ± 3,7.4,3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-07-09
+kim2025:invercargill:2023-08:WED,kim2025:Invercargill:2023-08-02,Invercargill,2023-08-02,August,WED,ANTA,13.9 ± 0.1,13.9,0.1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-08-02
+kim2025:invercargill:2023-08:SUN,kim2025:Invercargill:2023-08-06,Invercargill,2023-08-06,August,SUN,ANTA,11.0 ± 2,11.0,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-08-06
+kim2025:invercargill:2023-09:WED,kim2025:Invercargill:2023-09-06,Invercargill,2023-09-06,September,WED,ANTA,9.1 ± 1,9.1,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-09-06
+kim2025:invercargill:2023-09:SUN,kim2025:Invercargill:2023-09-10,Invercargill,2023-09-10,September,SUN,ANTA,9.1 ± 0.3,9.1,0.3,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-09-10
+kim2025:invercargill:2023-10:WED,kim2025:Invercargill:2023-10-04,Invercargill,2023-10-04,October,WED,ANTA,8.6 ± 1,8.6,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-10-04
+kim2025:invercargill:2023-10:SUN,kim2025:Invercargill:2023-10-08,Invercargill,2023-10-08,October,SUN,ANTA,12.0 ± 2,12.0,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Invercargill:2023-10-08
+kim2025:westport:2023-05:WED,kim2025:Westport:2023-05-02,Westport,2023-05-02,May,WED,ANTA,18.0 ± 2,18.0,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-05-02
+kim2025:westport:2023-05:SUN,kim2025:Westport:2023-05-07,Westport,2023-05-07,May,SUN,ANTA,14.0 ± 4,14.0,4,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-05-07
+kim2025:westport:2023-06:WED,kim2025:Westport:2023-06-07,Westport,2023-06-07,June,WED,ANTA,8.2 ± 2,8.2,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-06-07
+kim2025:westport:2023-06:SUN,kim2025:Westport:2023-06-11,Westport,2023-06-11,June,SUN,ANTA,8.8 ± 1,8.8,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-06-11
+kim2025:westport:2023-07:WED,kim2025:Westport:2023-07-05,Westport,2023-07-05,July,WED,ANTA,9.0 ± 2,9.0,2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-07-05
+kim2025:westport:2023-07:SUN,kim2025:Westport:2023-07-09,Westport,2023-07-09,July,SUN,ANTA,9.5 ± 1,9.5,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-07-09
+kim2025:westport:2023-08:WED,kim2025:Westport:2023-08-02,Westport,2023-08-02,August,WED,ANTA,9.9 ± 0.2,9.9,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-08-02
+kim2025:westport:2023-08:SUN,kim2025:Westport:2023-08-06,Westport,2023-08-06,August,SUN,ANTA,10.0 ± 1,10.0,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-08-06
+kim2025:westport:2023-09:WED,kim2025:Westport:2023-09-06,Westport,2023-09-06,September,WED,ANTA,13.1 ± 0.2,13.1,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-09-06
+kim2025:westport:2023-09:SUN,kim2025:Westport:2023-09-10,Westport,2023-09-10,September,SUN,ANTA,8.9 ± 1,8.9,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-09-10
+kim2025:westport:2023-10:WED,kim2025:Westport:2023-10-04,Westport,2023-10-04,October,WED,ANTA,12.0 ± 1,12.0,1,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-10-04
+kim2025:westport:2023-10:SUN,kim2025:Westport:2023-10-08,Westport,2023-10-08,October,SUN,ANTA,10.0 ± 0.2,10.0,0.2,quantified,mg/day/1000_people_as_reported,S17,40,kim2025:Westport:2023-10-08
+kim2025:auckland_central:2023-05:WED,kim2025:Auckland Central:2023-05-17,Auckland Central,2023-05-17,May,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-05-17
+kim2025:auckland_central:2023-05:SUN,kim2025:Auckland Central:2023-05-21,Auckland Central,2023-05-21,May,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-05-21
+kim2025:auckland_central:2023-06:WED,kim2025:Auckland Central:2023-06-21,Auckland Central,2023-06-21,June,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-06-21
+kim2025:auckland_central:2023-06:SUN,kim2025:Auckland Central:2023-06-25,Auckland Central,2023-06-25,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-06-25
+kim2025:auckland_central:2023-07:WED,kim2025:Auckland Central:2023-07-19,Auckland Central,2023-07-19,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-07-19
+kim2025:auckland_central:2023-07:SUN,kim2025:Auckland Central:2023-07-23,Auckland Central,2023-07-23,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-07-23
+kim2025:auckland_central:2023-08:WED,kim2025:Auckland Central:2023-08-16,Auckland Central,2023-08-16,August,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-08-16
+kim2025:auckland_central:2023-08:SUN,kim2025:Auckland Central:2023-08-20,Auckland Central,2023-08-20,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-08-20
+kim2025:auckland_central:2023-09:WED,kim2025:Auckland Central:2023-09-20,Auckland Central,2023-09-20,September,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-09-20
+kim2025:auckland_central:2023-09:SUN,kim2025:Auckland Central:2023-09-24,Auckland Central,2023-09-24,September,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-09-24
+kim2025:auckland_central:2023-10:WED,kim2025:Auckland Central:2023-10-18,Auckland Central,2023-10-18,October,WED,ANBA,3.3 ± 0.4,3.3,0.4,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-10-18
+kim2025:auckland_central:2023-10:SUN,kim2025:Auckland Central:2023-10-22,Auckland Central,2023-10-22,October,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland Central:2023-10-22
+kim2025:auckland_north:2023-05:WED,kim2025:Auckland North:2023-05-17,Auckland North,2023-05-17,May,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-05-17
+kim2025:auckland_north:2023-05:SUN,kim2025:Auckland North:2023-05-21,Auckland North,2023-05-21,May,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-05-21
+kim2025:auckland_north:2023-06:WED,kim2025:Auckland North:2023-06-21,Auckland North,2023-06-21,June,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-06-21
+kim2025:auckland_north:2023-06:SUN,kim2025:Auckland North:2023-06-25,Auckland North,2023-06-25,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-06-25
+kim2025:auckland_north:2023-07:WED,kim2025:Auckland North:2023-07-19,Auckland North,2023-07-19,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-07-19
+kim2025:auckland_north:2023-07:SUN,kim2025:Auckland North:2023-07-23,Auckland North,2023-07-23,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-07-23
+kim2025:auckland_north:2023-08:WED,kim2025:Auckland North:2023-08-16,Auckland North,2023-08-16,August,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-08-16
+kim2025:auckland_north:2023-08:SUN,kim2025:Auckland North:2023-08-20,Auckland North,2023-08-20,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-08-20
+kim2025:auckland_north:2023-09:WED,kim2025:Auckland North:2023-09-21,Auckland North,2023-09-21,September,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-09-21
+kim2025:auckland_north:2023-09:SUN,kim2025:Auckland North:2023-09-24,Auckland North,2023-09-24,September,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-09-24
+kim2025:auckland_north:2023-10:WED,kim2025:Auckland North:2023-10-18,Auckland North,2023-10-18,October,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-10-18
+kim2025:auckland_north:2023-10:SUN,kim2025:Auckland North:2023-10-22,Auckland North,2023-10-22,October,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland North:2023-10-22
+kim2025:auckland_south:2023-05:WED,kim2025:Auckland South:2023-05-17,Auckland South,2023-05-17,May,WED,ANBA,6.5 ± 1,6.5,1,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-05-17
+kim2025:auckland_south:2023-05:SUN,kim2025:Auckland South:2023-05-21,Auckland South,2023-05-21,May,SUN,ANBA,7.8 ± 2,7.8,2,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-05-21
+kim2025:auckland_south:2023-06:WED,kim2025:Auckland South:2023-06-21,Auckland South,2023-06-21,June,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-06-21
+kim2025:auckland_south:2023-06:SUN,kim2025:Auckland South:2023-06-25,Auckland South,2023-06-25,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-06-25
+kim2025:auckland_south:2023-07:WED,kim2025:Auckland South:2023-07-19,Auckland South,2023-07-19,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-07-19
+kim2025:auckland_south:2023-07:SUN,kim2025:Auckland South:2023-07-23,Auckland South,2023-07-23,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-07-23
+kim2025:auckland_south:2023-08:WED,kim2025:Auckland South:2023-08-16,Auckland South,2023-08-16,August,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-08-16
+kim2025:auckland_south:2023-08:SUN,kim2025:Auckland South:2023-08-20,Auckland South,2023-08-20,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-08-20
+kim2025:auckland_south:2023-09:WED,kim2025:Auckland South:2023-09-20,Auckland South,2023-09-20,September,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-09-20
+kim2025:auckland_south:2023-09:SUN,kim2025:Auckland South:2023-09-24,Auckland South,2023-09-24,September,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-09-24
+kim2025:auckland_south:2023-10:WED,kim2025:Auckland South:2023-10-18,Auckland South,2023-10-18,October,WED,ANBA,10.0 ± 0.5,10.0,0.5,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-10-18
+kim2025:auckland_south:2023-10:SUN,kim2025:Auckland South:2023-10-22,Auckland South,2023-10-22,October,SUN,ANBA,9.9 ± 0.4,9.9,0.4,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland South:2023-10-22
+kim2025:auckland_west:2023-05:WED,kim2025:Auckland West:2023-05-18,Auckland West,2023-05-18,May,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-05-18
+kim2025:auckland_west:2023-05:SUN,kim2025:Auckland West:2023-05-22,Auckland West,2023-05-22,May,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-05-22
+kim2025:auckland_west:2023-06:WED,kim2025:Auckland West:2023-06-21,Auckland West,2023-06-21,June,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-06-21
+kim2025:auckland_west:2023-06:SUN,kim2025:Auckland West:2023-06-25,Auckland West,2023-06-25,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-06-25
+kim2025:auckland_west:2023-07:WED,kim2025:Auckland West:2023-07-19,Auckland West,2023-07-19,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-07-19
+kim2025:auckland_west:2023-07:SUN,kim2025:Auckland West:2023-07-23,Auckland West,2023-07-23,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-07-23
+kim2025:auckland_west:2023-08:WED,kim2025:Auckland West:2023-08-16,Auckland West,2023-08-16,August,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-08-16
+kim2025:auckland_west:2023-08:SUN,kim2025:Auckland West:2023-08-20,Auckland West,2023-08-20,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-08-20
+kim2025:auckland_west:2023-09:WED,kim2025:Auckland West:2023-09-20,Auckland West,2023-09-20,September,WED,ANBA,3.6 ± 1,3.6,1,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-09-20
+kim2025:auckland_west:2023-09:SUN,kim2025:Auckland West:2023-09-24,Auckland West,2023-09-24,September,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-09-24
+kim2025:auckland_west:2023-10:WED,kim2025:Auckland West:2023-10-19,Auckland West,2023-10-19,October,WED,ANBA,3.7 ± 0.1,3.7,0.1,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-10-19
+kim2025:auckland_west:2023-10:SUN,kim2025:Auckland West:2023-10-22,Auckland West,2023-10-22,October,SUN,ANBA,3.1 ± 0.5,3.1,0.5,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Auckland West:2023-10-22
+kim2025:hamilton:2023-05:WED,kim2025:Hamilton:2023-05-17,Hamilton,2023-05-17,May,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-05-17
+kim2025:hamilton:2023-05:SUN,kim2025:Hamilton:2023-05-21,Hamilton,2023-05-21,May,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-05-21
+kim2025:hamilton:2023-06:WED,kim2025:Hamilton:2023-06-21,Hamilton,2023-06-21,June,WED,ANBA,5.6 ± 1,5.6,1,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-06-21
+kim2025:hamilton:2023-06:SUN,kim2025:Hamilton:2023-06-25,Hamilton,2023-06-25,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-06-25
+kim2025:hamilton:2023-07:WED,kim2025:Hamilton:2023-07-19,Hamilton,2023-07-19,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-07-19
+kim2025:hamilton:2023-07:SUN,kim2025:Hamilton:2023-07-23,Hamilton,2023-07-23,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-07-23
+kim2025:hamilton:2023-08:WED,kim2025:Hamilton:2023-08-16,Hamilton,2023-08-16,August,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-08-16
+kim2025:hamilton:2023-08:SUN,kim2025:Hamilton:2023-08-20,Hamilton,2023-08-20,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-08-20
+kim2025:hamilton:2023-09:WED,kim2025:Hamilton:2023-09-20,Hamilton,2023-09-20,September,WED,ANBA,5.3 ± 0.3,5.3,0.3,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-09-20
+kim2025:hamilton:2023-09:SUN,kim2025:Hamilton:2023-09-24,Hamilton,2023-09-24,September,SUN,ANBA,6.7 ± 0.2,6.7,0.2,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-09-24
+kim2025:hamilton:2023-10:WED,kim2025:Hamilton:2023-10-18,Hamilton,2023-10-18,October,WED,ANBA,4.5 ± 0.5,4.5,0.5,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-10-18
+kim2025:hamilton:2023-10:SUN,kim2025:Hamilton:2023-10-22,Hamilton,2023-10-22,October,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Hamilton:2023-10-22
+kim2025:gisborne:2023-05:WED,kim2025:Gisborne:2023-05-10,Gisborne,2023-05-10,May,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-05-10
+kim2025:gisborne:2023-05:SUN,kim2025:Gisborne:2023-05-14,Gisborne,2023-05-14,May,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-05-14
+kim2025:gisborne:2023-06:WED,kim2025:Gisborne:2023-06-14,Gisborne,2023-06-14,June,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-06-14
+kim2025:gisborne:2023-06:SUN,kim2025:Gisborne:2023-06-18,Gisborne,2023-06-18,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-06-18
+kim2025:gisborne:2023-07:WED,kim2025:Gisborne:2023-07-12,Gisborne,2023-07-12,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-07-12
+kim2025:gisborne:2023-07:SUN,kim2025:Gisborne:2023-07-16,Gisborne,2023-07-16,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-07-16
+kim2025:gisborne:2023-08:WED,kim2025:Gisborne:2023-08-09,Gisborne,2023-08-09,August,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-08-09
+kim2025:gisborne:2023-08:SUN,kim2025:Gisborne:2023-08-13,Gisborne,2023-08-13,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-08-13
+kim2025:gisborne:2023-09:WED,kim2025:Gisborne:2023-09-20,Gisborne,2023-09-20,September,WED,ANBA,6.1 ± 1,6.1,1,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-09-20
+kim2025:gisborne:2023-09:SUN,kim2025:Gisborne:2023-09-24,Gisborne,2023-09-24,September,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-09-24
+kim2025:gisborne:2023-10:WED,kim2025:Gisborne:2023-10-11,Gisborne,2023-10-11,October,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-10-11
+kim2025:gisborne:2023-10:SUN,kim2025:Gisborne:2023-10-15,Gisborne,2023-10-15,October,SUN,ANBA,6.7 ± 0.1,6.7,0.1,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Gisborne:2023-10-15
+kim2025:wellington:2023-05:WED,kim2025:Wellington:2023-05-10,Wellington,2023-05-10,May,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-05-10
+kim2025:wellington:2023-05:SUN,kim2025:Wellington:2023-05-14,Wellington,2023-05-14,May,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-05-14
+kim2025:wellington:2023-06:WED,kim2025:Wellington:2023-06-14,Wellington,2023-06-14,June,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-06-14
+kim2025:wellington:2023-06:SUN,kim2025:Wellington:2023-06-18,Wellington,2023-06-18,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-06-18
+kim2025:wellington:2023-07:WED,kim2025:Wellington:2023-07-12,Wellington,2023-07-12,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-07-12
+kim2025:wellington:2023-07:SUN,kim2025:Wellington:2023-07-16,Wellington,2023-07-16,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-07-16
+kim2025:wellington:2023-08:WED,kim2025:Wellington:2023-08-09,Wellington,2023-08-09,August,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-08-09
+kim2025:wellington:2023-08:SUN,kim2025:Wellington:2023-08-13,Wellington,2023-08-13,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-08-13
+kim2025:wellington:2023-09:WED,kim2025:Wellington:2023-09-13,Wellington,2023-09-13,September,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-09-13
+kim2025:wellington:2023-09:SUN,kim2025:Wellington:2023-09-17,Wellington,2023-09-17,September,SUN,ANBA,5.1 ± 0.1,5.1,0.1,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-09-17
+kim2025:wellington:2023-10:WED,kim2025:Wellington:2023-10-25,Wellington,2023-10-25,October,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-10-25
+kim2025:wellington:2023-10:SUN,kim2025:Wellington:2023-10-29,Wellington,2023-10-29,October,SUN,ANBA,5.1 ± 0.5,5.1,0.5,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Wellington:2023-10-29
+kim2025:whangarei:2023-05:WED,kim2025:Whangārei:2023-05-17,Whangārei,2023-05-17,May,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Whangārei:2023-05-17
+kim2025:whangarei:2023-05:SUN,kim2025:Whangārei:2023-05-21,Whangārei,2023-05-21,May,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Whangārei:2023-05-21
+kim2025:whangarei:2023-06:WED,kim2025:Whangārei:2023-06-21,Whangārei,2023-06-21,June,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Whangārei:2023-06-21
+kim2025:whangarei:2023-06:SUN,kim2025:Whangārei:2023-06-25,Whangārei,2023-06-25,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Whangārei:2023-06-25
+kim2025:whangarei:2023-07:WED,kim2025:Whangārei:2023-07-19,Whangārei,2023-07-19,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Whangārei:2023-07-19
+kim2025:whangarei:2023-07:SUN,kim2025:Whangārei:2023-07-23,Whangārei,2023-07-23,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Whangārei:2023-07-23
+kim2025:whangarei:2023-08:WED,kim2025:Whangārei:2023-08-16,Whangārei,2023-08-16,August,WED,ANBA,3.2 ± 0.3,3.2,0.3,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Whangārei:2023-08-16
+kim2025:whangarei:2023-08:SUN,kim2025:Whangārei:2023-08-20,Whangārei,2023-08-20,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Whangārei:2023-08-20
+kim2025:whangarei:2023-09:WED,kim2025:Whangārei:2023-09-20,Whangārei,2023-09-20,September,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Whangārei:2023-09-20
+kim2025:whangarei:2023-09:SUN,kim2025:Whangārei:2023-09-24,Whangārei,2023-09-24,September,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Whangārei:2023-09-24
+kim2025:whangarei:2023-10:WED,,Whangārei,,October,WED,ANBA,,,,missing_occasion,mg/day/1000_people_as_reported,S19,42,
+kim2025:whangarei:2023-10:SUN,,Whangārei,,October,SUN,ANBA,,,,missing_occasion,mg/day/1000_people_as_reported,S19,42,
+kim2025:christchurch:2023-05:WED,kim2025:Christchurch:2023-05-10,Christchurch,2023-05-10,May,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-05-10
+kim2025:christchurch:2023-05:SUN,kim2025:Christchurch:2023-05-14,Christchurch,2023-05-14,May,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-05-14
+kim2025:christchurch:2023-06:WED,kim2025:Christchurch:2023-06-14,Christchurch,2023-06-14,June,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-06-14
+kim2025:christchurch:2023-06:SUN,kim2025:Christchurch:2023-06-18,Christchurch,2023-06-18,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-06-18
+kim2025:christchurch:2023-07:WED,kim2025:Christchurch:2023-07-12,Christchurch,2023-07-12,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-07-12
+kim2025:christchurch:2023-07:SUN,kim2025:Christchurch:2023-07-16,Christchurch,2023-07-16,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-07-16
+kim2025:christchurch:2023-08:WED,kim2025:Christchurch:2023-08-09,Christchurch,2023-08-09,August,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-08-09
+kim2025:christchurch:2023-08:SUN,kim2025:Christchurch:2023-08-13,Christchurch,2023-08-13,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-08-13
+kim2025:christchurch:2023-09:WED,kim2025:Christchurch:2023-09-13,Christchurch,2023-09-13,September,WED,ANBA,7.2 ± 2,7.2,2,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-09-13
+kim2025:christchurch:2023-09:SUN,kim2025:Christchurch:2023-09-17,Christchurch,2023-09-17,September,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-09-17
+kim2025:christchurch:2023-10:WED,kim2025:Christchurch:2023-10-11,Christchurch,2023-10-11,October,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-10-11
+kim2025:christchurch:2023-10:SUN,kim2025:Christchurch:2023-10-15,Christchurch,2023-10-15,October,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Christchurch:2023-10-15
+kim2025:dunedin:2023-05:WED,kim2025:Dunedin:2023-05-10,Dunedin,2023-05-10,May,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-05-10
+kim2025:dunedin:2023-05:SUN,kim2025:Dunedin:2023-05-14,Dunedin,2023-05-14,May,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-05-14
+kim2025:dunedin:2023-06:WED,kim2025:Dunedin:2023-06-14,Dunedin,2023-06-14,June,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-06-14
+kim2025:dunedin:2023-06:SUN,kim2025:Dunedin:2023-06-18,Dunedin,2023-06-18,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-06-18
+kim2025:dunedin:2023-07:WED,kim2025:Dunedin:2023-07-12,Dunedin,2023-07-12,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-07-12
+kim2025:dunedin:2023-07:SUN,kim2025:Dunedin:2023-07-16,Dunedin,2023-07-16,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-07-16
+kim2025:dunedin:2023-08:WED,kim2025:Dunedin:2023-08-08,Dunedin,2023-08-08,August,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-08-08
+kim2025:dunedin:2023-08:SUN,kim2025:Dunedin:2023-08-13,Dunedin,2023-08-13,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-08-13
+kim2025:dunedin:2023-09:WED,kim2025:Dunedin:2023-09-13,Dunedin,2023-09-13,September,WED,ANBA,4 ± 0.1,4,0.1,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-09-13
+kim2025:dunedin:2023-09:SUN,kim2025:Dunedin:2023-09-17,Dunedin,2023-09-17,September,SUN,ANBA,8.4 ± 0.5,8.4,0.5,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-09-17
+kim2025:dunedin:2023-10:WED,kim2025:Dunedin:2023-10-11,Dunedin,2023-10-11,October,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-10-11
+kim2025:dunedin:2023-10:SUN,kim2025:Dunedin:2023-10-15,Dunedin,2023-10-15,October,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Dunedin:2023-10-15
+kim2025:invercargill:2023-05:WED,kim2025:Invercargill:2023-05-02,Invercargill,2023-05-02,May,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-05-02
+kim2025:invercargill:2023-05:SUN,kim2025:Invercargill:2023-05-07,Invercargill,2023-05-07,May,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-05-07
+kim2025:invercargill:2023-06:WED,kim2025:Invercargill:2023-06-07,Invercargill,2023-06-07,June,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-06-07
+kim2025:invercargill:2023-06:SUN,kim2025:Invercargill:2023-06-11,Invercargill,2023-06-11,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-06-11
+kim2025:invercargill:2023-07:WED,kim2025:Invercargill:2023-07-05,Invercargill,2023-07-05,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-07-05
+kim2025:invercargill:2023-07:SUN,kim2025:Invercargill:2023-07-09,Invercargill,2023-07-09,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-07-09
+kim2025:invercargill:2023-08:WED,kim2025:Invercargill:2023-08-02,Invercargill,2023-08-02,August,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-08-02
+kim2025:invercargill:2023-08:SUN,kim2025:Invercargill:2023-08-06,Invercargill,2023-08-06,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-08-06
+kim2025:invercargill:2023-09:WED,kim2025:Invercargill:2023-09-06,Invercargill,2023-09-06,September,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-09-06
+kim2025:invercargill:2023-09:SUN,kim2025:Invercargill:2023-09-10,Invercargill,2023-09-10,September,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-09-10
+kim2025:invercargill:2023-10:WED,kim2025:Invercargill:2023-10-04,Invercargill,2023-10-04,October,WED,ANBA,6.9 ± 0.04,6.9,0.04,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-10-04
+kim2025:invercargill:2023-10:SUN,kim2025:Invercargill:2023-10-08,Invercargill,2023-10-08,October,SUN,ANBA,7.6 ± 1,7.6,1,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Invercargill:2023-10-08
+kim2025:westport:2023-05:WED,kim2025:Westport:2023-05-02,Westport,2023-05-02,May,WED,ANBA,15.0 ± 1,15.0,1,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-05-02
+kim2025:westport:2023-05:SUN,kim2025:Westport:2023-05-07,Westport,2023-05-07,May,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-05-07
+kim2025:westport:2023-06:WED,kim2025:Westport:2023-06-07,Westport,2023-06-07,June,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-06-07
+kim2025:westport:2023-06:SUN,kim2025:Westport:2023-06-11,Westport,2023-06-11,June,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-06-11
+kim2025:westport:2023-07:WED,kim2025:Westport:2023-07-05,Westport,2023-07-05,July,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-07-05
+kim2025:westport:2023-07:SUN,kim2025:Westport:2023-07-09,Westport,2023-07-09,July,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-07-09
+kim2025:westport:2023-08:WED,kim2025:Westport:2023-08-02,Westport,2023-08-02,August,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-08-02
+kim2025:westport:2023-08:SUN,kim2025:Westport:2023-08-06,Westport,2023-08-06,August,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-08-06
+kim2025:westport:2023-09:WED,kim2025:Westport:2023-09-06,Westport,2023-09-06,September,WED,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-09-06
+kim2025:westport:2023-09:SUN,kim2025:Westport:2023-09-10,Westport,2023-09-10,September,SUN,ANBA,< LoQ,,,between_lod_and_loq,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-09-10
+kim2025:westport:2023-10:WED,kim2025:Westport:2023-10-04,Westport,2023-10-04,October,WED,ANBA,9.1 ± 0.4,9.1,0.4,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-10-04
+kim2025:westport:2023-10:SUN,kim2025:Westport:2023-10-08,Westport,2023-10-08,October,SUN,ANBA,6.6 ± 0.2,6.6,0.2,quantified,mg/day/1000_people_as_reported,S19,42,kim2025:Westport:2023-10-08

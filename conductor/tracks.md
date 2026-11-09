@@ -173,3 +173,7 @@ platform-specific release or research jobs.
 
 - [~] [Companion hardening track](tracks/nz_au_hardening_20261106/index.md).
   Baseline/incremental work accompanies empirical implementation; release acceptance follows it.
+
+## Dynamic decisions and evidence strengthening — 8 November 2026
+
+**Status: [~] implementation candidate.** [Companion track](tracks/dynamic_frontier_20261108/index.md) extends the NZ/AU empirical programme with available public comparison data, a time-varying cohort reference, an incremental Searchright systematic-review pathway, broader decision applications and comparative frontier benchmarks. Native scientific admission and empirically supported dynamic policy inference remain open.

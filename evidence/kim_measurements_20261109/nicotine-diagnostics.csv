@@ -1,0 +1,145 @@
+slot_id,occasion_id,status,reported_total_cell,reported_total_mean,reported_total_duplicate_sd,reconstructed_mean,reported_minus_reconstructed,mean_rounding_tolerance,mean_compatible_with_rounding,paired_replicate_sd_compatible,broader_sd_envelope_compatible,sd_compatibility,sd_envelope_lower,sd_envelope_upper,unit,source_table,pdf_page,derived_from
+kim2025:auckland_central:2023-05:WED,kim2025:Auckland Central:2023-05-17,quantified,1844 ± 24,1844,24,1844.1,-0.1,1.85,true,true,true,paired_endpoint,14.85,25.65,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_central:2023-05:SUN,kim2025:Auckland Central:2023-05-21,quantified,1779 ± 53,1779,53,1777.95,1.05,1.85,true,true,true,paired_endpoint,39.15,55.35,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_central:2023-06:WED,kim2025:Auckland Central:2023-06-21,quantified,2421 ± 96,2421,96,2420.55,0.45,1.85,true,true,true,paired_endpoint,43.2,97.2,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_central:2023-06:SUN,kim2025:Auckland Central:2023-06-25,quantified,1822 ± 48,1822,48,1821.15,0.85,1.85,true,true,true,paired_endpoint,1.35,49.95,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_central:2023-07:WED,kim2025:Auckland Central:2023-07-19,quantified,2476 ± 184,2476,184,2475.9,0.1,1.85,true,true,true,paired_endpoint,55.35,184.95,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_central:2023-07:SUN,kim2025:Auckland Central:2023-07-23,quantified,2157 ± 28,2157,28,2155.95,1.05,1.85,true,true,true,paired_endpoint,12.15,28.35,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_central:2023-08:WED,kim2025:Auckland Central:2023-08-16,quantified,2246 ± 32,2246,32,2245.05,0.95,1.85,true,true,true,paired_endpoint,13.5,32.4,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_central:2023-08:SUN,kim2025:Auckland Central:2023-08-20,quantified,1461 ± 31,1461,31,1460.7,0.3,1.85,true,true,true,paired_endpoint,13.5,32.4,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_central:2023-09:WED,kim2025:Auckland Central:2023-09-20,quantified,2012 ± 366,2012,366,2011.5,0.5,1.85,true,true,true,paired_endpoint,271.35,365.85,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_central:2023-09:SUN,kim2025:Auckland Central:2023-09-24,quantified,2491 ± 77,2491,77,2490.75,0.25,1.85,true,true,true,paired_endpoint,60.75,76.95,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_central:2023-10:WED,kim2025:Auckland Central:2023-10-18,quantified,2058 ± 31,2058,31,2057.4,0.6,1.85,true,true,true,paired_endpoint,29.7,64.8,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_central:2023-10:SUN,kim2025:Auckland Central:2023-10-22,quantified,2166 ± 171,2166,171,2165.4,0.6,1.85,true,true,true,paired_endpoint,167.4,172.8,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-05:WED,kim2025:Auckland North:2023-05-17,quantified,1900 ± 8,1900,8,1899.45,0.55,1.85,true,true,true,paired_endpoint,6.75,22.95,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-05:SUN,kim2025:Auckland North:2023-05-21,quantified,1296 ± 53,1296,53,1294.65,1.35,1.85,true,true,true,paired_endpoint,40.5,54,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-06:WED,kim2025:Auckland North:2023-06-21,quantified,3001 ± 151,3001,151,2999.7,1.3,1.85,true,true,true,paired_endpoint,149.85,157.95,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-06:SUN,kim2025:Auckland North:2023-06-25,quantified,1856 ± 8,1856,8,1854.9,1.1,1.85,true,true,true,paired_endpoint,1.35,9.45,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-07:WED,kim2025:Auckland North:2023-07-19,quantified,1705 ± 107,1705,107,1703.7,1.3,1.85,true,true,true,paired_endpoint,81,108,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-07:SUN,kim2025:Auckland North:2023-07-23,quantified,1915 ± 40,1915,40,1914.3,0.7,1.85,true,true,true,paired_endpoint,8.1,40.5,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-08:WED,kim2025:Auckland North:2023-08-16,quantified,2064 ± 23,2064,23,2064.15,-0.15,1.85,true,false,false,outside_broader_envelope,25.65,76.95,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-08:SUN,kim2025:Auckland North:2023-08-20,quantified,1840 ± 93,1840,93,1838.7,1.3,1.85,true,true,true,paired_endpoint,89.1,94.5,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-09:WED,kim2025:Auckland North:2023-09-21,quantified,1599 ± 73,1599,73,1597.05,1.95,1.85,false,false,false,outside_broader_envelope,31.05,49.95,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-09:SUN,kim2025:Auckland North:2023-09-24,quantified,1590 ± 16,1590,16,1588.95,1.05,1.85,true,true,true,paired_endpoint,4.05,17.55,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-10:WED,kim2025:Auckland North:2023-10-18,quantified,2104 ± 126,2104,126,2103.3,0.7,1.85,true,true,true,paired_endpoint,116.1,126.9,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_north:2023-10:SUN,kim2025:Auckland North:2023-10-22,quantified,1989 ± 102,1989,102,1988.55,0.45,1.85,true,true,true,paired_endpoint,98.55,103.95,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-05:WED,kim2025:Auckland South:2023-05-17,quantified,4360 ± 132,4360,132,4359.15,0.85,1.85,true,true,true,paired_endpoint,37.8,132.3,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-05:SUN,kim2025:Auckland South:2023-05-21,quantified,3698 ± 97,3698,97,3696.3,1.7,1.85,true,true,true,paired_endpoint,95.85,141.75,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-06:WED,kim2025:Auckland South:2023-06-21,quantified,4779 ± 396,4779,396,4777.65,1.35,1.85,true,false,true,broader_envelope_only,375.3,410.4,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-06:SUN,kim2025:Auckland South:2023-06-25,quantified,4388 ± 296,4388,296,4386.15,1.85,1.85,true,true,true,paired_endpoint,253.8,297,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-07:WED,kim2025:Auckland South:2023-07-19,quantified,5892 ± 541,5892,541,5890.05,1.95,1.85,false,true,true,paired_endpoint,540,550.8,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-07:SUN,kim2025:Auckland South:2023-07-23,quantified,5478 ± 233,5478,233,5476.95,1.05,1.85,true,true,true,paired_endpoint,167.4,234.9,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-08:WED,kim2025:Auckland South:2023-08-16,quantified,7011 ± 423,7011,423,7010.55,0.45,1.85,true,true,true,paired_endpoint,421.2,548.1,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-08:SUN,kim2025:Auckland South:2023-08-20,quantified,5633 ± 87,5633,87,5632.2,0.8,1.85,true,true,true,paired_endpoint,20.25,87.75,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-09:WED,kim2025:Auckland South:2023-09-20,quantified,7590 ± 753,7590,753,7588.35,1.65,1.85,true,true,true,paired_endpoint,689.85,754.65,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-09:SUN,kim2025:Auckland South:2023-09-24,quantified,5760 ± 8,5760,8,5759.1,0.9,1.85,true,true,true,paired_endpoint,6.75,117.45,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-10:WED,kim2025:Auckland South:2023-10-18,quantified,5344 ± 150,5344,150,5343.3,0.7,1.85,true,true,true,paired_endpoint,8.1,151.2,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_south:2023-10:SUN,kim2025:Auckland South:2023-10-22,quantified,7886 ± 325,7886,325,7885.35,0.65,1.85,true,false,false,outside_broader_envelope,54,105.3,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-05:WED,kim2025:Auckland West:2023-05-18,quantified,1318 ± 28,1318,28,1317.6,0.4,1.85,true,true,true,paired_endpoint,14.85,28.35,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-05:SUN,kim2025:Auckland West:2023-05-22,quantified,2580 ± 22,2580,22,2579.85,0.15,1.85,true,true,true,paired_endpoint,13.5,24.3,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-06:WED,kim2025:Auckland West:2023-06-21,quantified,2534 ± 114,2534,114,2532.6,1.4,1.85,true,true,true,paired_endpoint,103.95,114.75,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-06:SUN,kim2025:Auckland West:2023-06-25,quantified,1990 ± 46,1990,46,1988.55,1.45,1.85,true,true,true,paired_endpoint,44.55,55.35,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-07:WED,kim2025:Auckland West:2023-07-19,quantified,1891 ± 4,1891,4,1890,1,1.85,true,true,true,paired_endpoint,2.7,13.5,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-07:SUN,kim2025:Auckland West:2023-07-23,quantified,2301 ± 39,2301,39,2300.4,0.6,1.85,true,true,true,paired_endpoint,21.6,40.5,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-08:WED,kim2025:Auckland West:2023-08-16,quantified,2283 ± 37,2283,37,2282.85,0.15,1.85,true,true,true,paired_endpoint,35.1,48.6,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-08:SUN,kim2025:Auckland West:2023-08-20,quantified,2221 ± 23,2221,23,2219.4,1.6,1.85,true,true,true,paired_endpoint,8.1,24.3,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-09:WED,kim2025:Auckland West:2023-09-20,quantified,2101 ± 58,2101,58,2100.6,0.4,1.85,true,true,true,paired_endpoint,49.95,60.75,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-09:SUN,kim2025:Auckland West:2023-09-24,quantified,1998 ± 108,1998,108,1996.65,1.35,1.85,true,true,true,paired_endpoint,108,121.5,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-10:WED,kim2025:Auckland West:2023-10-19,quantified,2267 ± 119,2267,119,2266.65,0.35,1.85,true,true,true,paired_endpoint,35.1,121.5,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:auckland_west:2023-10:SUN,kim2025:Auckland West:2023-10-22,quantified,2305 ± 150,2305,150,2304.45,0.55,1.85,true,true,true,paired_endpoint,27,151.2,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-05:WED,kim2025:Hamilton:2023-05-17,quantified,2973 ± 130,2973,130,2971.35,1.65,1.85,true,true,true,paired_endpoint,87.75,130.95,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-05:SUN,kim2025:Hamilton:2023-05-21,quantified,2716 ± 153,2716,153,2714.85,1.15,1.85,true,true,true,paired_endpoint,103.95,155.25,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-06:WED,kim2025:Hamilton:2023-06-21,quantified,3837 ± 227,3837,227,3836.7,0.3,1.85,true,true,true,paired_endpoint,141.75,228.15,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-06:SUN,kim2025:Hamilton:2023-06-25,quantified,3133 ± 127,3133,127,3123.9,9.1,1.85,false,true,true,paired_endpoint,125.55,214.65,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-07:WED,kim2025:Hamilton:2023-07-19,quantified,2763 ± 93,2763,93,2762.1,0.9,1.85,true,true,true,paired_endpoint,45.9,94.5,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-07:SUN,kim2025:Hamilton:2023-07-23,quantified,3597 ± 208,3597,208,3596.4,0.6,1.85,true,true,true,paired_endpoint,62.1,207.9,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-08:WED,kim2025:Hamilton:2023-08-16,quantified,2675 ± 7,2675,7,2674.35,0.65,1.85,true,true,true,paired_endpoint,5.4,78.3,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-08:SUN,kim2025:Hamilton:2023-08-20,quantified,2419 ± 96,2419,96,2419.2,-0.2,1.85,true,true,true,paired_endpoint,93.15,128.25,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-09:WED,kim2025:Hamilton:2023-09-20,quantified,3202 ± 38,3202,38,3202.2,-0.2,1.85,true,true,true,paired_endpoint,36.45,190.35,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-09:SUN,kim2025:Hamilton:2023-09-24,quantified,3195 ± 5,3195,5,3194.1,0.9,1.85,true,true,true,paired_endpoint,4.05,52.65,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-10:WED,kim2025:Hamilton:2023-10-18,quantified,3500 ± 104,3500,104,3500.55,-0.55,1.85,true,true,true,paired_endpoint,32.4,105.3,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:hamilton:2023-10:SUN,kim2025:Hamilton:2023-10-22,quantified,2483 ± 106,2483,106,2481.3,1.7,1.85,true,true,true,paired_endpoint,103.95,120.15,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-05:WED,kim2025:Gisborne:2023-05-10,quantified,6793 ± 489,6793,489,6791.85,1.15,1.85,true,true,true,paired_endpoint,479.25,490.05,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-05:SUN,kim2025:Gisborne:2023-05-14,quantified,3828 ± 1469,3828,1469,3827.25,0.75,1.85,true,true,true,paired_endpoint,398.25,1470.15,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-06:WED,kim2025:Gisborne:2023-06-14,quantified,6346 ± 187,6346,187,6345,1,1.85,true,true,true,paired_endpoint,167.4,189,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-06:SUN,kim2025:Gisborne:2023-06-18,quantified,2446 ± 9,2446,9,2444.85,1.15,1.85,true,true,true,paired_endpoint,8.1,18.9,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-07:WED,kim2025:Gisborne:2023-07-12,quantified,3948 ± 323,3948,323,3947.4,0.6,1.85,true,true,true,paired_endpoint,243,324,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-07:SUN,kim2025:Gisborne:2023-07-16,quantified,11453 ± 136,11453,136,11450.7,2.3,1.85,false,true,true,paired_endpoint,14.85,136.35,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-08:WED,kim2025:Gisborne:2023-08-09,quantified,2309 ± 61,2309,61,2307.15,1.85,1.85,true,true,true,paired_endpoint,35.1,62.1,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-08:SUN,kim2025:Gisborne:2023-08-13,quantified,4581 ± 53,4581,53,4579.2,1.8,1.85,true,true,true,paired_endpoint,43.2,54,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-09:WED,kim2025:Gisborne:2023-09-20,quantified,4914 ± 3,4914,3,4914,0,1.85,true,true,true,paired_endpoint,2.7,97.2,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-09:SUN,kim2025:Gisborne:2023-09-24,quantified,2285 ± 3,2285,3,2284.2,0.8,1.85,true,true,true,paired_endpoint,1.35,9.45,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-10:WED,kim2025:Gisborne:2023-10-11,quantified,4918 ± 342,4918,342,4918.05,-0.05,1.85,true,true,true,paired_endpoint,321.3,342.9,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:gisborne:2023-10:SUN,kim2025:Gisborne:2023-10-15,quantified,6182 ± 252,6182,252,6180.3,1.7,1.85,true,true,true,paired_endpoint,159.3,253.8,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-05:WED,kim2025:Wellington:2023-05-10,quantified,1857 ± 23,1857,23,1856.25,0.75,1.85,true,true,true,paired_endpoint,20.1825,23.0175,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-05:SUN,kim2025:Wellington:2023-05-14,quantified,2356 ± 37,2356,37,2354.4,1.6,1.85,true,true,true,paired_endpoint,2.7,37.8,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-06:WED,kim2025:Wellington:2023-06-14,quantified,2224 ± 117,2224,117,2223.45,0.55,1.85,true,true,true,paired_endpoint,29.7,118.8,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-06:SUN,kim2025:Wellington:2023-06-18,quantified,2691 ± 14,2691,14,2690.55,0.45,1.85,true,true,true,paired_endpoint,1.35,14.85,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-07:WED,kim2025:Wellington:2023-07-12,quantified,1358 ± 10,1358,10,1356.75,1.25,1.85,true,true,true,paired_endpoint,2.7,10.8,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-07:SUN,kim2025:Wellington:2023-07-16,quantified,2272 ± 80,2272,80,2272.05,-0.05,1.85,true,true,true,paired_endpoint,78.3,102.6,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-08:WED,kim2025:Wellington:2023-08-09,quantified,2289 ± 17,2289,17,2288.25,0.75,1.85,true,true,true,paired_endpoint,4.05,17.55,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-08:SUN,kim2025:Wellington:2023-08-13,quantified,2470 ± 157,2470,157,2469.15,0.85,1.85,true,true,true,paired_endpoint,155.25,176.85,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-09:WED,kim2025:Wellington:2023-09-13,quantified,2227 ± 135,2227,135,2226.15,0.85,1.85,true,true,true,paired_endpoint,87.75,136.35,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-09:SUN,kim2025:Wellington:2023-09-17,quantified,2322 ± 21,2322,21,2320.65,1.35,1.85,true,true,true,paired_endpoint,8.1,21.6,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-10:WED,kim2025:Wellington:2023-10-25,quantified,2283 ± 161,2283,161,2281.5,1.5,1.85,true,true,true,paired_endpoint,113.4,162,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:wellington:2023-10:SUN,kim2025:Wellington:2023-10-29,quantified,2345 ± 15,2345,15,2344.95,0.05,1.85,true,true,true,paired_endpoint,8.1,16.2,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-05:WED,kim2025:Whangārei:2023-05-17,quantified,3549 ± 73,3549,73,3547.8,1.2,1.85,true,true,true,paired_endpoint,60.75,74.25,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-05:SUN,kim2025:Whangārei:2023-05-21,quantified,1907 ± 37,1907,37,1907.55,-0.55,1.85,true,true,true,paired_endpoint,28.35,39.15,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-06:WED,kim2025:Whangārei:2023-06-21,quantified,4400 ± 10,4400,10,4398.3,1.7,1.85,true,true,true,paired_endpoint,8.1,13.5,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-06:SUN,kim2025:Whangārei:2023-06-25,quantified,2697 ± 176,2697,176,2695.95,1.05,1.85,true,true,true,paired_endpoint,102.6,178.2,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-07:WED,kim2025:Whangārei:2023-07-19,quantified,3251 ± 270,3251,270,3250.8,0.2,1.85,true,true,true,paired_endpoint,224.1,270,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-07:SUN,kim2025:Whangārei:2023-07-23,quantified,3079 ± 260,3079,260,3078,1,1.85,true,true,true,paired_endpoint,126.9,261.9,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-08:WED,kim2025:Whangārei:2023-08-16,quantified,3049 ± 220,3049,220,3046.95,2.05,1.85,false,true,true,paired_endpoint,218.7,477.9,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-08:SUN,kim2025:Whangārei:2023-08-20,quantified,3417 ± 512,3417,512,3415.5,1.5,1.85,true,true,true,paired_endpoint,445.5,513,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-09:WED,kim2025:Whangārei:2023-09-20,quantified,3251 ± 46,3251,46,3250.8,0.2,1.85,true,true,true,paired_endpoint,44.55,66.15,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-09:SUN,kim2025:Whangārei:2023-09-24,quantified,2668 ± 41,2668,41,2666.25,1.75,1.85,true,true,true,paired_endpoint,41.12775,42.57225,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-10:WED,,missing_occasion,,,,,,,,,,,,,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:whangarei:2023-10:SUN,,missing_occasion,,,,,,,,,,,,,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-05:WED,kim2025:Christchurch:2023-05-10,quantified,1533 ± 736,1533,736,1532.25,0.75,1.85,true,true,true,paired_endpoint,280.8,737.1,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-05:SUN,kim2025:Christchurch:2023-05-14,quantified,2075 ± 6,2075,6,2073.6,1.4,1.85,true,true,true,paired_endpoint,4.05,20.25,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-06:WED,kim2025:Christchurch:2023-06-14,quantified,1987 ± 126,1987,126,1985.85,1.15,1.85,true,true,true,paired_endpoint,54,126.9,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-06:SUN,kim2025:Christchurch:2023-06-18,quantified,1954 ± 100,1954,100,1953.45,0.55,1.85,true,true,true,paired_endpoint,71.55,101.25,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-07:WED,kim2025:Christchurch:2023-07-12,quantified,1761 ± 40,1761,40,1760.4,0.6,1.85,true,true,true,paired_endpoint,8.1,40.5,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-07:SUN,kim2025:Christchurch:2023-07-16,quantified,1987 ± 104,1987,104,1985.85,1.15,1.85,true,true,true,paired_endpoint,10.8,105.3,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-08:WED,kim2025:Christchurch:2023-08-09,quantified,1727 ± 39,1727,39,1726.65,0.35,1.85,true,true,true,paired_endpoint,13.5,40.5,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-08:SUN,kim2025:Christchurch:2023-08-13,quantified,1235 ± 36,1235,36,1233.9,1.1,1.85,true,true,true,paired_endpoint,29.7,37.8,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-09:WED,kim2025:Christchurch:2023-09-13,quantified,1867 ± 29,1867,29,1865.7,1.3,1.85,true,false,true,broader_envelope_only,13.5,62.1,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-09:SUN,kim2025:Christchurch:2023-09-17,quantified,2107 ± 25,2107,25,2106,1,1.85,true,true,true,paired_endpoint,16.2,27,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-10:WED,kim2025:Christchurch:2023-10-11,quantified,2415 ± 182,2415,182,2413.8,1.2,1.85,true,true,true,paired_endpoint,82.35,182.25,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:christchurch:2023-10:SUN,kim2025:Christchurch:2023-10-15,quantified,1561 ± 33,1561,33,1560.6,0.4,1.85,true,true,true,paired_endpoint,17.55,33.75,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-05:WED,kim2025:Dunedin:2023-05-10,quantified,3122 ± 125,3122,125,3119.85,2.15,1.85,false,true,true,paired_endpoint,81,126.9,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-05:SUN,kim2025:Dunedin:2023-05-14,quantified,2625 ± 1174,2625,1174,2624.4,0.6,1.85,true,true,true,paired_endpoint,619.65,1175.85,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-06:WED,kim2025:Dunedin:2023-06-14,quantified,2880 ± 107,2880,107,2878.2,1.8,1.85,true,true,true,paired_endpoint,64.8,108,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-06:SUN,kim2025:Dunedin:2023-06-18,quantified,2526 ± 3,2526,3,2524.5,1.5,1.85,true,true,true,paired_endpoint,2.7,16.2,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-07:WED,kim2025:Dunedin:2023-07-12,quantified,3143 ± 81,3143,81,3142.8,0.2,1.85,true,true,true,paired_endpoint,75.6,81,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-07:SUN,kim2025:Dunedin:2023-07-16,quantified,3430 ± 97,3430,97,3430.35,-0.35,1.85,true,true,true,paired_endpoint,68.85,98.55,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-08:WED,kim2025:Dunedin:2023-08-08,quantified,3183 ± 162,3183,162,3181.95,1.05,1.85,true,true,true,paired_endpoint,160.65,176.85,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-08:SUN,kim2025:Dunedin:2023-08-13,quantified,2796 ± 75,2796,75,2795.85,0.15,1.85,true,true,true,paired_endpoint,68.85,76.95,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-09:WED,kim2025:Dunedin:2023-09-13,quantified,2435 ± 60,2435,60,2434.05,0.95,1.85,true,true,true,paired_endpoint,8.1,62.1,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-09:SUN,kim2025:Dunedin:2023-09-17,quantified,3567 ± 133,3567,133,3565.35,1.65,1.85,true,true,true,paired_endpoint,120.15,133.65,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-10:WED,kim2025:Dunedin:2023-10-11,quantified,2743 ± 8,2743,8,2743.2,-0.2,1.85,true,true,true,paired_endpoint,6.75,12.15,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:dunedin:2023-10:SUN,kim2025:Dunedin:2023-10-15,quantified,3097 ± 77,3097,77,3095.55,1.45,1.85,true,true,true,paired_endpoint,75.6,132.3,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-05:WED,kim2025:Invercargill:2023-05-02,quantified,5693 ± 27,5693,27,5692.95,0.05,1.85,true,true,true,paired_endpoint,25.65,71.55,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-05:SUN,kim2025:Invercargill:2023-05-07,quantified,5495 ± 27,5495,27,5494.5,0.5,1.85,true,true,true,paired_endpoint,8.1,27,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-06:WED,kim2025:Invercargill:2023-06-07,quantified,3635 ± 94,3635,94,3635.55,-0.55,1.85,true,true,true,paired_endpoint,33.75,95.85,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-06:SUN,kim2025:Invercargill:2023-06-11,quantified,6622 ± 142,6622,142,6621.75,0.25,1.85,true,true,true,paired_endpoint,140.4,145.8,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-07:WED,kim2025:Invercargill:2023-07-05,quantified,4854 ± 68,4854,68,4853.25,0.75,1.85,true,true,true,paired_endpoint,8.1,70.2,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-07:SUN,kim2025:Invercargill:2023-07-09,quantified,5195 ± 310,5195,310,5193.45,1.55,1.85,true,true,true,paired_endpoint,253.8,310.5,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-08:WED,kim2025:Invercargill:2023-08-02,quantified,4065 ± 61,4065,61,4063.5,1.5,1.85,true,true,true,paired_endpoint,10.8,62.1,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-08:SUN,kim2025:Invercargill:2023-08-06,quantified,5118 ± 10,5118,10,5117.85,0.15,1.85,true,true,true,paired_endpoint,9.45,90.45,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-09:WED,kim2025:Invercargill:2023-09-06,quantified,4560 ± 107,4560,107,4558.95,1.05,1.85,true,true,true,paired_endpoint,94.5,108,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-09:SUN,kim2025:Invercargill:2023-09-10,quantified,5407 ± 585,5407,585,5405.4,1.6,1.85,true,true,true,paired_endpoint,496.8,585.9,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-10:WED,kim2025:Invercargill:2023-10-04,quantified,3794 ± 87,3794,87,3793.5,0.5,1.85,true,true,true,paired_endpoint,59.4,89.1,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:invercargill:2023-10:SUN,kim2025:Invercargill:2023-10-08,quantified,5279 ± 16,5279,16,5278.5,0.5,1.85,true,true,true,paired_endpoint,14.85,149.85,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-05:WED,kim2025:Westport:2023-05-02,quantified,4983 ± 202,4983,202,4982.85,0.15,1.85,true,true,true,paired_endpoint,130.95,203.85,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-05:SUN,kim2025:Westport:2023-05-07,quantified,2452 ± 1138,2452,1138,2451.6,0.4,1.85,true,true,true,paired_endpoint,521.1,1139.4,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-06:WED,kim2025:Westport:2023-06-07,quantified,3564 ± 119,3564,119,3564,0,1.85,true,true,true,paired_endpoint,117.45,130.95,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-06:SUN,kim2025:Westport:2023-06-11,quantified,3896 ± 6,3896,6,3894.75,1.25,1.85,true,true,true,paired_endpoint,2.7,8.1,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-07:WED,kim2025:Westport:2023-07-05,quantified,3672 ± 26,3672,26,3670.65,1.35,1.85,true,true,true,paired_endpoint,10.8,27,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-07:SUN,kim2025:Westport:2023-07-09,quantified,4744 ± 10,4744,10,4742.55,1.45,1.85,true,true,true,paired_endpoint,0,12.15,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-08:WED,kim2025:Westport:2023-08-02,quantified,3400 ± 55,3400,55,3399.3,0.7,1.85,true,true,true,paired_endpoint,8.1,56.7,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-08:SUN,kim2025:Westport:2023-08-06,quantified,3845 ± 45,3845,45,3844.8,0.2,1.85,true,true,true,paired_endpoint,43.2,59.4,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-09:WED,kim2025:Westport:2023-09-06,quantified,5004 ± 9,5004,9,5003.1,0.9,1.85,true,true,true,paired_endpoint,8.1,105.3,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-09:SUN,kim2025:Westport:2023-09-10,quantified,3790 ± 199,3790,199,3789.45,0.55,1.85,true,true,true,paired_endpoint,93.15,201.15,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-10:WED,kim2025:Westport:2023-10-04,quantified,3821 ± 27,3821,27,3820.5,0.5,1.85,true,true,true,paired_endpoint,25.65,41.85,mg/day/1000_people_as_reported,S23,46,S13;S15
+kim2025:westport:2023-10:SUN,kim2025:Westport:2023-10-08,quantified,3834 ± 87,3834,87,3832.65,1.35,1.85,true,true,true,paired_endpoint,39.15,87.75,mg/day/1000_people_as_reported,S23,46,S13;S15

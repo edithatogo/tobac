@@ -1,0 +1,145 @@
+slot_id,plant_as_published,month_as_published,nominal_weekday,printed_date,collection_date,actual_weekday,weekday_matches_column,occasion_id,status,source_table,pdf_page
+kim2025:auckland_central:2023-05:WED,Auckland Central,May,WED,17/05/23,2023-05-17,WED,true,kim2025:Auckland Central:2023-05-17,dated_occasion,S3,8
+kim2025:auckland_central:2023-05:SUN,Auckland Central,May,SUN,21/05/23,2023-05-21,SUN,true,kim2025:Auckland Central:2023-05-21,dated_occasion,S3,8
+kim2025:auckland_central:2023-06:WED,Auckland Central,June,WED,21/06/23,2023-06-21,WED,true,kim2025:Auckland Central:2023-06-21,dated_occasion,S3,8
+kim2025:auckland_central:2023-06:SUN,Auckland Central,June,SUN,25/06/23,2023-06-25,SUN,true,kim2025:Auckland Central:2023-06-25,dated_occasion,S3,8
+kim2025:auckland_central:2023-07:WED,Auckland Central,July,WED,19/07/23,2023-07-19,WED,true,kim2025:Auckland Central:2023-07-19,dated_occasion,S3,8
+kim2025:auckland_central:2023-07:SUN,Auckland Central,July,SUN,23/07/23,2023-07-23,SUN,true,kim2025:Auckland Central:2023-07-23,dated_occasion,S3,8
+kim2025:auckland_central:2023-08:WED,Auckland Central,August,WED,16/08/23,2023-08-16,WED,true,kim2025:Auckland Central:2023-08-16,dated_occasion,S3,8
+kim2025:auckland_central:2023-08:SUN,Auckland Central,August,SUN,20/08/23,2023-08-20,SUN,true,kim2025:Auckland Central:2023-08-20,dated_occasion,S3,8
+kim2025:auckland_central:2023-09:WED,Auckland Central,September,WED,20/09/23,2023-09-20,WED,true,kim2025:Auckland Central:2023-09-20,dated_occasion,S3,8
+kim2025:auckland_central:2023-09:SUN,Auckland Central,September,SUN,24/09/23,2023-09-24,SUN,true,kim2025:Auckland Central:2023-09-24,dated_occasion,S3,8
+kim2025:auckland_central:2023-10:WED,Auckland Central,October,WED,18/10/23,2023-10-18,WED,true,kim2025:Auckland Central:2023-10-18,dated_occasion,S3,8
+kim2025:auckland_central:2023-10:SUN,Auckland Central,October,SUN,22/10/23,2023-10-22,SUN,true,kim2025:Auckland Central:2023-10-22,dated_occasion,S3,8
+kim2025:auckland_north:2023-05:WED,Auckland North,May,WED,17/05/23,2023-05-17,WED,true,kim2025:Auckland North:2023-05-17,dated_occasion,S3,8
+kim2025:auckland_north:2023-05:SUN,Auckland North,May,SUN,21/05/23,2023-05-21,SUN,true,kim2025:Auckland North:2023-05-21,dated_occasion,S3,8
+kim2025:auckland_north:2023-06:WED,Auckland North,June,WED,21/06/23,2023-06-21,WED,true,kim2025:Auckland North:2023-06-21,dated_occasion,S3,8
+kim2025:auckland_north:2023-06:SUN,Auckland North,June,SUN,25/06/23,2023-06-25,SUN,true,kim2025:Auckland North:2023-06-25,dated_occasion,S3,8
+kim2025:auckland_north:2023-07:WED,Auckland North,July,WED,19/07/23,2023-07-19,WED,true,kim2025:Auckland North:2023-07-19,dated_occasion,S3,8
+kim2025:auckland_north:2023-07:SUN,Auckland North,July,SUN,23/07/23,2023-07-23,SUN,true,kim2025:Auckland North:2023-07-23,dated_occasion,S3,8
+kim2025:auckland_north:2023-08:WED,Auckland North,August,WED,16/08/23,2023-08-16,WED,true,kim2025:Auckland North:2023-08-16,dated_occasion,S3,8
+kim2025:auckland_north:2023-08:SUN,Auckland North,August,SUN,20/08/23,2023-08-20,SUN,true,kim2025:Auckland North:2023-08-20,dated_occasion,S3,8
+kim2025:auckland_north:2023-09:WED,Auckland North,September,WED,21/09/23,2023-09-21,THU,false,kim2025:Auckland North:2023-09-21,dated_occasion,S3,8
+kim2025:auckland_north:2023-09:SUN,Auckland North,September,SUN,24/09/23,2023-09-24,SUN,true,kim2025:Auckland North:2023-09-24,dated_occasion,S3,8
+kim2025:auckland_north:2023-10:WED,Auckland North,October,WED,18/10/23,2023-10-18,WED,true,kim2025:Auckland North:2023-10-18,dated_occasion,S3,8
+kim2025:auckland_north:2023-10:SUN,Auckland North,October,SUN,22/10/23,2023-10-22,SUN,true,kim2025:Auckland North:2023-10-22,dated_occasion,S3,8
+kim2025:auckland_south:2023-05:WED,Auckland South,May,WED,17/05/23,2023-05-17,WED,true,kim2025:Auckland South:2023-05-17,dated_occasion,S3,8
+kim2025:auckland_south:2023-05:SUN,Auckland South,May,SUN,21/05/23,2023-05-21,SUN,true,kim2025:Auckland South:2023-05-21,dated_occasion,S3,8
+kim2025:auckland_south:2023-06:WED,Auckland South,June,WED,21/06/23,2023-06-21,WED,true,kim2025:Auckland South:2023-06-21,dated_occasion,S3,8
+kim2025:auckland_south:2023-06:SUN,Auckland South,June,SUN,25/06/23,2023-06-25,SUN,true,kim2025:Auckland South:2023-06-25,dated_occasion,S3,8
+kim2025:auckland_south:2023-07:WED,Auckland South,July,WED,19/07/23,2023-07-19,WED,true,kim2025:Auckland South:2023-07-19,dated_occasion,S3,8
+kim2025:auckland_south:2023-07:SUN,Auckland South,July,SUN,23/07/23,2023-07-23,SUN,true,kim2025:Auckland South:2023-07-23,dated_occasion,S3,8
+kim2025:auckland_south:2023-08:WED,Auckland South,August,WED,16/08/23,2023-08-16,WED,true,kim2025:Auckland South:2023-08-16,dated_occasion,S3,8
+kim2025:auckland_south:2023-08:SUN,Auckland South,August,SUN,20/08/23,2023-08-20,SUN,true,kim2025:Auckland South:2023-08-20,dated_occasion,S3,8
+kim2025:auckland_south:2023-09:WED,Auckland South,September,WED,20/09/23,2023-09-20,WED,true,kim2025:Auckland South:2023-09-20,dated_occasion,S3,8
+kim2025:auckland_south:2023-09:SUN,Auckland South,September,SUN,24/09/23,2023-09-24,SUN,true,kim2025:Auckland South:2023-09-24,dated_occasion,S3,8
+kim2025:auckland_south:2023-10:WED,Auckland South,October,WED,18/10/23,2023-10-18,WED,true,kim2025:Auckland South:2023-10-18,dated_occasion,S3,8
+kim2025:auckland_south:2023-10:SUN,Auckland South,October,SUN,22/10/23,2023-10-22,SUN,true,kim2025:Auckland South:2023-10-22,dated_occasion,S3,8
+kim2025:auckland_west:2023-05:WED,Auckland West,May,WED,18/05/23,2023-05-18,THU,false,kim2025:Auckland West:2023-05-18,dated_occasion,S3,8
+kim2025:auckland_west:2023-05:SUN,Auckland West,May,SUN,22/05/23,2023-05-22,MON,false,kim2025:Auckland West:2023-05-22,dated_occasion,S3,8
+kim2025:auckland_west:2023-06:WED,Auckland West,June,WED,21/06/23,2023-06-21,WED,true,kim2025:Auckland West:2023-06-21,dated_occasion,S3,8
+kim2025:auckland_west:2023-06:SUN,Auckland West,June,SUN,25/06/23,2023-06-25,SUN,true,kim2025:Auckland West:2023-06-25,dated_occasion,S3,8
+kim2025:auckland_west:2023-07:WED,Auckland West,July,WED,19/07/23,2023-07-19,WED,true,kim2025:Auckland West:2023-07-19,dated_occasion,S3,8
+kim2025:auckland_west:2023-07:SUN,Auckland West,July,SUN,23/07/23,2023-07-23,SUN,true,kim2025:Auckland West:2023-07-23,dated_occasion,S3,8
+kim2025:auckland_west:2023-08:WED,Auckland West,August,WED,16/08/23,2023-08-16,WED,true,kim2025:Auckland West:2023-08-16,dated_occasion,S3,8
+kim2025:auckland_west:2023-08:SUN,Auckland West,August,SUN,20/08/23,2023-08-20,SUN,true,kim2025:Auckland West:2023-08-20,dated_occasion,S3,8
+kim2025:auckland_west:2023-09:WED,Auckland West,September,WED,20/09/23,2023-09-20,WED,true,kim2025:Auckland West:2023-09-20,dated_occasion,S3,8
+kim2025:auckland_west:2023-09:SUN,Auckland West,September,SUN,24/09/23,2023-09-24,SUN,true,kim2025:Auckland West:2023-09-24,dated_occasion,S3,8
+kim2025:auckland_west:2023-10:WED,Auckland West,October,WED,19/10/23,2023-10-19,THU,false,kim2025:Auckland West:2023-10-19,dated_occasion,S3,8
+kim2025:auckland_west:2023-10:SUN,Auckland West,October,SUN,22/10/23,2023-10-22,SUN,true,kim2025:Auckland West:2023-10-22,dated_occasion,S3,8
+kim2025:hamilton:2023-05:WED,Hamilton,May,WED,17/05/23,2023-05-17,WED,true,kim2025:Hamilton:2023-05-17,dated_occasion,S3,8
+kim2025:hamilton:2023-05:SUN,Hamilton,May,SUN,21/05/23,2023-05-21,SUN,true,kim2025:Hamilton:2023-05-21,dated_occasion,S3,8
+kim2025:hamilton:2023-06:WED,Hamilton,June,WED,21/06/23,2023-06-21,WED,true,kim2025:Hamilton:2023-06-21,dated_occasion,S3,8
+kim2025:hamilton:2023-06:SUN,Hamilton,June,SUN,25/06/23,2023-06-25,SUN,true,kim2025:Hamilton:2023-06-25,dated_occasion,S3,8
+kim2025:hamilton:2023-07:WED,Hamilton,July,WED,19/07/23,2023-07-19,WED,true,kim2025:Hamilton:2023-07-19,dated_occasion,S3,8
+kim2025:hamilton:2023-07:SUN,Hamilton,July,SUN,23/07/23,2023-07-23,SUN,true,kim2025:Hamilton:2023-07-23,dated_occasion,S3,8
+kim2025:hamilton:2023-08:WED,Hamilton,August,WED,16/08/23,2023-08-16,WED,true,kim2025:Hamilton:2023-08-16,dated_occasion,S3,8
+kim2025:hamilton:2023-08:SUN,Hamilton,August,SUN,20/08/23,2023-08-20,SUN,true,kim2025:Hamilton:2023-08-20,dated_occasion,S3,8
+kim2025:hamilton:2023-09:WED,Hamilton,September,WED,20/09/23,2023-09-20,WED,true,kim2025:Hamilton:2023-09-20,dated_occasion,S3,8
+kim2025:hamilton:2023-09:SUN,Hamilton,September,SUN,24/09/23,2023-09-24,SUN,true,kim2025:Hamilton:2023-09-24,dated_occasion,S3,8
+kim2025:hamilton:2023-10:WED,Hamilton,October,WED,18/10/23,2023-10-18,WED,true,kim2025:Hamilton:2023-10-18,dated_occasion,S3,8
+kim2025:hamilton:2023-10:SUN,Hamilton,October,SUN,22/10/23,2023-10-22,SUN,true,kim2025:Hamilton:2023-10-22,dated_occasion,S3,8
+kim2025:gisborne:2023-05:WED,Gisborne,May,WED,10/05/23,2023-05-10,WED,true,kim2025:Gisborne:2023-05-10,dated_occasion,S3,8
+kim2025:gisborne:2023-05:SUN,Gisborne,May,SUN,14/05/23,2023-05-14,SUN,true,kim2025:Gisborne:2023-05-14,dated_occasion,S3,8
+kim2025:gisborne:2023-06:WED,Gisborne,June,WED,14/06/23,2023-06-14,WED,true,kim2025:Gisborne:2023-06-14,dated_occasion,S3,8
+kim2025:gisborne:2023-06:SUN,Gisborne,June,SUN,18/06/23,2023-06-18,SUN,true,kim2025:Gisborne:2023-06-18,dated_occasion,S3,8
+kim2025:gisborne:2023-07:WED,Gisborne,July,WED,12/07/23,2023-07-12,WED,true,kim2025:Gisborne:2023-07-12,dated_occasion,S3,8
+kim2025:gisborne:2023-07:SUN,Gisborne,July,SUN,16/07/23,2023-07-16,SUN,true,kim2025:Gisborne:2023-07-16,dated_occasion,S3,8
+kim2025:gisborne:2023-08:WED,Gisborne,August,WED,09/08/23,2023-08-09,WED,true,kim2025:Gisborne:2023-08-09,dated_occasion,S3,8
+kim2025:gisborne:2023-08:SUN,Gisborne,August,SUN,13/08/23,2023-08-13,SUN,true,kim2025:Gisborne:2023-08-13,dated_occasion,S3,8
+kim2025:gisborne:2023-09:WED,Gisborne,September,WED,20/09/23,2023-09-20,WED,true,kim2025:Gisborne:2023-09-20,dated_occasion,S3,8
+kim2025:gisborne:2023-09:SUN,Gisborne,September,SUN,24/09/23,2023-09-24,SUN,true,kim2025:Gisborne:2023-09-24,dated_occasion,S3,8
+kim2025:gisborne:2023-10:WED,Gisborne,October,WED,11/10/23,2023-10-11,WED,true,kim2025:Gisborne:2023-10-11,dated_occasion,S3,8
+kim2025:gisborne:2023-10:SUN,Gisborne,October,SUN,15/10/23,2023-10-15,SUN,true,kim2025:Gisborne:2023-10-15,dated_occasion,S3,8
+kim2025:wellington:2023-05:WED,Wellington,May,WED,10/05/23,2023-05-10,WED,true,kim2025:Wellington:2023-05-10,dated_occasion,S3,8
+kim2025:wellington:2023-05:SUN,Wellington,May,SUN,14/05/23,2023-05-14,SUN,true,kim2025:Wellington:2023-05-14,dated_occasion,S3,8
+kim2025:wellington:2023-06:WED,Wellington,June,WED,14/06/23,2023-06-14,WED,true,kim2025:Wellington:2023-06-14,dated_occasion,S3,8
+kim2025:wellington:2023-06:SUN,Wellington,June,SUN,18/06/23,2023-06-18,SUN,true,kim2025:Wellington:2023-06-18,dated_occasion,S3,8
+kim2025:wellington:2023-07:WED,Wellington,July,WED,12/07/23,2023-07-12,WED,true,kim2025:Wellington:2023-07-12,dated_occasion,S3,8
+kim2025:wellington:2023-07:SUN,Wellington,July,SUN,16/07/23,2023-07-16,SUN,true,kim2025:Wellington:2023-07-16,dated_occasion,S3,8
+kim2025:wellington:2023-08:WED,Wellington,August,WED,09/08/23,2023-08-09,WED,true,kim2025:Wellington:2023-08-09,dated_occasion,S3,8
+kim2025:wellington:2023-08:SUN,Wellington,August,SUN,13/08/23,2023-08-13,SUN,true,kim2025:Wellington:2023-08-13,dated_occasion,S3,8
+kim2025:wellington:2023-09:WED,Wellington,September,WED,13/09/23,2023-09-13,WED,true,kim2025:Wellington:2023-09-13,dated_occasion,S3,8
+kim2025:wellington:2023-09:SUN,Wellington,September,SUN,17/09/23,2023-09-17,SUN,true,kim2025:Wellington:2023-09-17,dated_occasion,S3,8
+kim2025:wellington:2023-10:WED,Wellington,October,WED,25/10/23,2023-10-25,WED,true,kim2025:Wellington:2023-10-25,dated_occasion,S3,8
+kim2025:wellington:2023-10:SUN,Wellington,October,SUN,29/10/23,2023-10-29,SUN,true,kim2025:Wellington:2023-10-29,dated_occasion,S3,8
+kim2025:whangarei:2023-05:WED,Whangārei,May,WED,17/05/23,2023-05-17,WED,true,kim2025:Whangārei:2023-05-17,dated_occasion,S3,8
+kim2025:whangarei:2023-05:SUN,Whangārei,May,SUN,21/05/23,2023-05-21,SUN,true,kim2025:Whangārei:2023-05-21,dated_occasion,S3,8
+kim2025:whangarei:2023-06:WED,Whangārei,June,WED,21/06/23,2023-06-21,WED,true,kim2025:Whangārei:2023-06-21,dated_occasion,S3,8
+kim2025:whangarei:2023-06:SUN,Whangārei,June,SUN,25/06/23,2023-06-25,SUN,true,kim2025:Whangārei:2023-06-25,dated_occasion,S3,8
+kim2025:whangarei:2023-07:WED,Whangārei,July,WED,19/07/23,2023-07-19,WED,true,kim2025:Whangārei:2023-07-19,dated_occasion,S3,8
+kim2025:whangarei:2023-07:SUN,Whangārei,July,SUN,23/07/23,2023-07-23,SUN,true,kim2025:Whangārei:2023-07-23,dated_occasion,S3,8
+kim2025:whangarei:2023-08:WED,Whangārei,August,WED,16/08/23,2023-08-16,WED,true,kim2025:Whangārei:2023-08-16,dated_occasion,S3,8
+kim2025:whangarei:2023-08:SUN,Whangārei,August,SUN,20/08/23,2023-08-20,SUN,true,kim2025:Whangārei:2023-08-20,dated_occasion,S3,8
+kim2025:whangarei:2023-09:WED,Whangārei,September,WED,20/09/23,2023-09-20,WED,true,kim2025:Whangārei:2023-09-20,dated_occasion,S3,8
+kim2025:whangarei:2023-09:SUN,Whangārei,September,SUN,24/09/23,2023-09-24,SUN,true,kim2025:Whangārei:2023-09-24,dated_occasion,S3,8
+kim2025:whangarei:2023-10:WED,Whangārei,October,WED,-,,,,,missing_occasion,S3,8
+kim2025:whangarei:2023-10:SUN,Whangārei,October,SUN,-,,,,,missing_occasion,S3,8
+kim2025:christchurch:2023-05:WED,Christchurch,May,WED,10/05/23,2023-05-10,WED,true,kim2025:Christchurch:2023-05-10,dated_occasion,S3,8
+kim2025:christchurch:2023-05:SUN,Christchurch,May,SUN,14/05/23,2023-05-14,SUN,true,kim2025:Christchurch:2023-05-14,dated_occasion,S3,8
+kim2025:christchurch:2023-06:WED,Christchurch,June,WED,14/06/23,2023-06-14,WED,true,kim2025:Christchurch:2023-06-14,dated_occasion,S3,8
+kim2025:christchurch:2023-06:SUN,Christchurch,June,SUN,18/06/23,2023-06-18,SUN,true,kim2025:Christchurch:2023-06-18,dated_occasion,S3,8
+kim2025:christchurch:2023-07:WED,Christchurch,July,WED,12/07/23,2023-07-12,WED,true,kim2025:Christchurch:2023-07-12,dated_occasion,S3,8
+kim2025:christchurch:2023-07:SUN,Christchurch,July,SUN,16/07/23,2023-07-16,SUN,true,kim2025:Christchurch:2023-07-16,dated_occasion,S3,8
+kim2025:christchurch:2023-08:WED,Christchurch,August,WED,09/08/23,2023-08-09,WED,true,kim2025:Christchurch:2023-08-09,dated_occasion,S3,8
+kim2025:christchurch:2023-08:SUN,Christchurch,August,SUN,13/08/23,2023-08-13,SUN,true,kim2025:Christchurch:2023-08-13,dated_occasion,S3,8
+kim2025:christchurch:2023-09:WED,Christchurch,September,WED,13/09/23,2023-09-13,WED,true,kim2025:Christchurch:2023-09-13,dated_occasion,S3,8
+kim2025:christchurch:2023-09:SUN,Christchurch,September,SUN,17/09/23,2023-09-17,SUN,true,kim2025:Christchurch:2023-09-17,dated_occasion,S3,8
+kim2025:christchurch:2023-10:WED,Christchurch,October,WED,11/10/23,2023-10-11,WED,true,kim2025:Christchurch:2023-10-11,dated_occasion,S3,8
+kim2025:christchurch:2023-10:SUN,Christchurch,October,SUN,15/10/23,2023-10-15,SUN,true,kim2025:Christchurch:2023-10-15,dated_occasion,S3,8
+kim2025:dunedin:2023-05:WED,Dunedin,May,WED,10/05/23,2023-05-10,WED,true,kim2025:Dunedin:2023-05-10,dated_occasion,S3,8
+kim2025:dunedin:2023-05:SUN,Dunedin,May,SUN,14/05/23,2023-05-14,SUN,true,kim2025:Dunedin:2023-05-14,dated_occasion,S3,8
+kim2025:dunedin:2023-06:WED,Dunedin,June,WED,14/06/23,2023-06-14,WED,true,kim2025:Dunedin:2023-06-14,dated_occasion,S3,8
+kim2025:dunedin:2023-06:SUN,Dunedin,June,SUN,18/06/23,2023-06-18,SUN,true,kim2025:Dunedin:2023-06-18,dated_occasion,S3,8
+kim2025:dunedin:2023-07:WED,Dunedin,July,WED,12/07/23,2023-07-12,WED,true,kim2025:Dunedin:2023-07-12,dated_occasion,S3,8
+kim2025:dunedin:2023-07:SUN,Dunedin,July,SUN,16/07/23,2023-07-16,SUN,true,kim2025:Dunedin:2023-07-16,dated_occasion,S3,8
+kim2025:dunedin:2023-08:WED,Dunedin,August,WED,08/08/23,2023-08-08,TUE,false,kim2025:Dunedin:2023-08-08,dated_occasion,S3,8
+kim2025:dunedin:2023-08:SUN,Dunedin,August,SUN,13/08/23,2023-08-13,SUN,true,kim2025:Dunedin:2023-08-13,dated_occasion,S3,8
+kim2025:dunedin:2023-09:WED,Dunedin,September,WED,13/09/23,2023-09-13,WED,true,kim2025:Dunedin:2023-09-13,dated_occasion,S3,8
+kim2025:dunedin:2023-09:SUN,Dunedin,September,SUN,17/09/23,2023-09-17,SUN,true,kim2025:Dunedin:2023-09-17,dated_occasion,S3,8
+kim2025:dunedin:2023-10:WED,Dunedin,October,WED,11/10/23,2023-10-11,WED,true,kim2025:Dunedin:2023-10-11,dated_occasion,S3,8
+kim2025:dunedin:2023-10:SUN,Dunedin,October,SUN,15/10/23,2023-10-15,SUN,true,kim2025:Dunedin:2023-10-15,dated_occasion,S3,8
+kim2025:invercargill:2023-05:WED,Invercargill,May,WED,02/05/23,2023-05-02,TUE,false,kim2025:Invercargill:2023-05-02,dated_occasion,S3,8
+kim2025:invercargill:2023-05:SUN,Invercargill,May,SUN,07/05/23,2023-05-07,SUN,true,kim2025:Invercargill:2023-05-07,dated_occasion,S3,8
+kim2025:invercargill:2023-06:WED,Invercargill,June,WED,07/06/23,2023-06-07,WED,true,kim2025:Invercargill:2023-06-07,dated_occasion,S3,8
+kim2025:invercargill:2023-06:SUN,Invercargill,June,SUN,11/06/23,2023-06-11,SUN,true,kim2025:Invercargill:2023-06-11,dated_occasion,S3,8
+kim2025:invercargill:2023-07:WED,Invercargill,July,WED,05/07/23,2023-07-05,WED,true,kim2025:Invercargill:2023-07-05,dated_occasion,S3,8
+kim2025:invercargill:2023-07:SUN,Invercargill,July,SUN,09/07/23,2023-07-09,SUN,true,kim2025:Invercargill:2023-07-09,dated_occasion,S3,8
+kim2025:invercargill:2023-08:WED,Invercargill,August,WED,02/08/23,2023-08-02,WED,true,kim2025:Invercargill:2023-08-02,dated_occasion,S3,8
+kim2025:invercargill:2023-08:SUN,Invercargill,August,SUN,06/08/23,2023-08-06,SUN,true,kim2025:Invercargill:2023-08-06,dated_occasion,S3,8
+kim2025:invercargill:2023-09:WED,Invercargill,September,WED,06/09/23,2023-09-06,WED,true,kim2025:Invercargill:2023-09-06,dated_occasion,S3,8
+kim2025:invercargill:2023-09:SUN,Invercargill,September,SUN,10/09/23,2023-09-10,SUN,true,kim2025:Invercargill:2023-09-10,dated_occasion,S3,8
+kim2025:invercargill:2023-10:WED,Invercargill,October,WED,04/10/23,2023-10-04,WED,true,kim2025:Invercargill:2023-10-04,dated_occasion,S3,8
+kim2025:invercargill:2023-10:SUN,Invercargill,October,SUN,08/10/23,2023-10-08,SUN,true,kim2025:Invercargill:2023-10-08,dated_occasion,S3,8
+kim2025:westport:2023-05:WED,Westport,May,WED,02/05/23,2023-05-02,TUE,false,kim2025:Westport:2023-05-02,dated_occasion,S3,8
+kim2025:westport:2023-05:SUN,Westport,May,SUN,07/05/23,2023-05-07,SUN,true,kim2025:Westport:2023-05-07,dated_occasion,S3,8
+kim2025:westport:2023-06:WED,Westport,June,WED,07/06/23,2023-06-07,WED,true,kim2025:Westport:2023-06-07,dated_occasion,S3,8
+kim2025:westport:2023-06:SUN,Westport,June,SUN,11/06/23,2023-06-11,SUN,true,kim2025:Westport:2023-06-11,dated_occasion,S3,8
+kim2025:westport:2023-07:WED,Westport,July,WED,05/07/23,2023-07-05,WED,true,kim2025:Westport:2023-07-05,dated_occasion,S3,8
+kim2025:westport:2023-07:SUN,Westport,July,SUN,09/07/23,2023-07-09,SUN,true,kim2025:Westport:2023-07-09,dated_occasion,S3,8
+kim2025:westport:2023-08:WED,Westport,August,WED,02/08/23,2023-08-02,WED,true,kim2025:Westport:2023-08-02,dated_occasion,S3,8
+kim2025:westport:2023-08:SUN,Westport,August,SUN,06/08/23,2023-08-06,SUN,true,kim2025:Westport:2023-08-06,dated_occasion,S3,8
+kim2025:westport:2023-09:WED,Westport,September,WED,06/09/23,2023-09-06,WED,true,kim2025:Westport:2023-09-06,dated_occasion,S3,8
+kim2025:westport:2023-09:SUN,Westport,September,SUN,10/09/23,2023-09-10,SUN,true,kim2025:Westport:2023-09-10,dated_occasion,S3,8
+kim2025:westport:2023-10:WED,Westport,October,WED,04/10/23,2023-10-04,WED,true,kim2025:Westport:2023-10-04,dated_occasion,S3,8
+kim2025:westport:2023-10:SUN,Westport,October,SUN,08/10/23,2023-10-08,SUN,true,kim2025:Westport:2023-10-08,dated_occasion,S3,8

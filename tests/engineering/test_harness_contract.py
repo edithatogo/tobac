@@ -237,7 +237,7 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             assert set(data["on"]) == {"workflow_dispatch"}
             assert data["on"]["workflow_dispatch"]["inputs"]["expected_sha"]["required"] == "true"
             for job in data["jobs"].values():
-                expected = "ubuntu-latest" if path.name == "release-candidate.yml" else "ubuntu-24.04"
+                expected = "ubuntu-latest" if path.name == "release-candidate.yml" else "ubuntu-26.04"
                 assert job["runs-on"] == expected
                 commands = [s.get("run", "") for s in job["steps"]]
                 assert any('test "$GITHUB_SHA" = "$EXPECTED_SHA"' in c for c in commands)
@@ -254,13 +254,21 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
 def test_linux_audit_requires_source_bound_lock_and_actual_audits() -> None:
     data = yaml.load((ROOT / ".github/workflows/linux-audit.yml").read_text(), Loader=yaml.BaseLoader)
     job = data["jobs"]["audit-lock"]
-    assert job["runs-on"] == "ubuntu-24.04"
+    assert job["runs-on"] == "ubuntu-26.04"
     assert job["env"]["TOBAC_REQUIRE_LOCK"] == "1"
     assert job["timeout-minutes"] == "40"
     commands = [step.get("run", "") for step in job["steps"]]
     assert any("verify --profile audit" in command for command in commands)
     assert any("platform.machine() == 'x86_64'" in command for command in commands)
     assert any("-s strict_all security" in command for command in commands)
+
+
+def test_actionlint_extension_is_one_exact_hosted_label() -> None:
+    """Keep the dated runner-table correction narrower than a lint suppression."""
+    data = yaml.load((ROOT / ".github/actionlint.yaml").read_text(), Loader=yaml.BaseLoader)
+    assert data == {"self-hosted-runner": {"labels": ["ubuntu-26.04"]}}
+    policy = json.loads((ROOT / "engineering/publication-policy.json").read_text())
+    assert ".github/actionlint.yaml" in policy["public_paths"]
 
 
 def assert_reference_job_guards(data, path) -> None:
@@ -270,7 +278,7 @@ def assert_reference_job_guards(data, path) -> None:
         if runner == "${{ matrix.os }}":
             assert {entry["os"] for entry in job["strategy"]["matrix"]["include"]} == {"macos-latest"}
         else:
-            allowed = {"linux-audit.yml": {"ubuntu-24.04"}}.get(path.name, {"macos-latest", "macos-15-intel"})
+            allowed = {"linux-audit.yml": {"ubuntu-26.04"}}.get(path.name, {"macos-latest", "macos-15-intel"})
             assert runner in allowed, (path, runner)
         commands = [step.get("run", "") for step in job["steps"]]
         assert any(
@@ -366,6 +374,9 @@ def test_release_preserves_actual_preflight_status_and_json_evidence(tmp_path, s
 
 def assert_scorecard_job_guards(data) -> None:
     """Keep the non-Python assessment bounded and restricted to pinned actions."""
+    assert "branch_protection_rule" in data["on"]
+    assert "schedule" in data["on"]
+    assert "pull_request_target" not in data["on"]
     job = data["jobs"]["analysis"]
     assert job["runs-on"] == "ubuntu-latest"
     assert job["timeout-minutes"] == "20"
@@ -380,4 +391,40 @@ def assert_scorecard_job_guards(data) -> None:
     analysis = job["steps"][1]
     assert analysis["uses"] == "ossf/scorecard-action@fa7117db83c52d787ae5a89f350999701505d78e"
     assert analysis["with"]["results_format"] == "sarif"
-    assert "github.event_name == 'push'" in analysis["with"]["publish_results"]
+    assert analysis["with"]["results_file"] == "results.sarif"
+    publish = " ".join(analysis["with"]["publish_results"].split())
+    assert publish == (
+        "${{ github.event.repository.visibility == 'public' "
+        "&& github.ref == format('refs/heads/{0}', github.event.repository.default_branch) "
+        "&& (github.event_name == 'push' || github.event_name == 'schedule' "
+        "|| github.event_name == 'branch_protection_rule' "
+        "|| github.event_name == 'workflow_dispatch') }}"
+    )
+    artifacts = [step for step in job["steps"] if "upload-artifact@" in step.get("uses", "")]
+    assert len(artifacts) == 1
+    assert artifacts[0]["uses"] == "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9"
+    assert artifacts[0]["with"]["path"] == "results.sarif"
+    assert artifacts[0]["with"]["if-no-files-found"] == "error"
+    assert artifacts[0]["with"]["retention-days"] == "30"
+
+
+@pytest.mark.parametrize(
+    ("workflow", "job_name"), [("ci.yml", "numerical"), ("longitudinal.yml", "longitudinal")]
+)
+def test_scientific_workloads_verify_hash_lock_before_installation(workflow, job_name) -> None:
+    """Reject version-only installs and an isolated, floating build backend."""
+    data = yaml.load((ROOT / ".github/workflows" / workflow).read_text(), Loader=yaml.BaseLoader)
+    commands = [
+        line.strip() for step in data["jobs"][job_name]["steps"] for line in step.get("run", "").splitlines()
+    ]
+    verification = next(i for i, line in enumerate(commands) if "scripts/lock_receipt.py verify" in line)
+    assert "--profile runtime --path engineering/requirements.lock" in commands[verification]
+    installs = [(i, shlex.split(line)) for i, line in enumerate(commands) if "-m pip install" in line]
+    assert len(installs) == 2
+    dependencies, project = installs
+    assert verification < dependencies[0] < project[0]
+    assert dependencies[1][-4:] == ["install", "--require-hashes", "-r", "engineering/requirements.lock"]
+    assert project[1][-4:] == ["install", "--no-deps", "--no-build-isolation", "."]
+    for _, command in installs:
+        assert command[0] == ".venv-ci/bin/python"
+        assert "scripts/run_bounded.py" in command

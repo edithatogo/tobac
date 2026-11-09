@@ -1,0 +1,16 @@
+source_id,survey_period,geography,age_scope,stratum_type,stratum,indicator,value,ci95_lower,ci95_upper,unit,caution_rse_over_30_percent,source_section
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,all_adults,all,daily_smoking,6.8,6.2,7.4,percent,not_reported,Overall smoking prevalence trends
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,ethnic_group,Maori,daily_smoking,15.0,13.2,17.0,percent,not_reported,Smoking prevalence and trends by ethnicity
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,ethnic_group,Pacific,daily_smoking,10.3,7.4,13.8,percent,not_reported,Smoking prevalence and trends by ethnicity
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,ethnic_group,European_Other,daily_smoking,5.7,5.0,6.4,percent,not_reported,Smoking prevalence and trends by ethnicity
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,ethnic_group,Asian,daily_smoking,4.5,3.3,6.1,percent,not_reported,Smoking prevalence and trends by ethnicity
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,deprivation,NZDep_quintile_5,daily_smoking,12.9,11.2,14.7,percent,not_reported,Smoking prevalence and trends by neighbourhood deprivation
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,deprivation,NZDep_quintile_4,daily_smoking,8.1,6.8,9.5,percent,not_reported,Smoking prevalence and trends by neighbourhood deprivation
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,deprivation,NZDep_quintile_3,daily_smoking,5.9,4.3,7.8,percent,not_reported,Smoking prevalence and trends by neighbourhood deprivation
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,deprivation,NZDep_quintile_2,daily_smoking,4.9,3.8,6.2,percent,not_reported,Smoking prevalence and trends by neighbourhood deprivation
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,deprivation,NZDep_quintile_1,daily_smoking,2.4,1.5,3.7,percent,not_reported,Smoking prevalence and trends by neighbourhood deprivation
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,age,18_24,daily_smoking,4.4,2.6,6.9,percent,not_reported,Smoking prevalence and trends by age group
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,age,65_74,daily_smoking,6.0,4.7,7.7,percent,not_reported,Smoking prevalence and trends by age group
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,age,75_plus,daily_smoking,3.3,2.1,4.9,percent,not_reported,Smoking prevalence and trends by age group
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,gender,women,daily_smoking,5.3,4.7,5.8,percent,not_reported,Smoking prevalence and trends by gender
+nzhs_2024_25_phcc_smoking_nip_20251126,2024/25,NZ_national,15_plus,gender,men,daily_smoking,8.3,7.2,9.4,percent,not_reported,Smoking prevalence and trends by gender

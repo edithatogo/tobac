@@ -1,5 +1,12 @@
 # NZ/AU empirical policy milestone
 
+- [Repository closure and measurement comparison task](closure-task-card-20261109.md)
+- [Executed Kim measurement comparison and attributed data](../../../evidence/kim_measurements_20261109/README.md)
+- [Current first-comparison review and implementation task](first-comparison-task-card-20261109.md)
+- [Completed bounded first-comparison evidence review](first-comparison-review-20261109.md)
+- [Source-use dispositions](first-comparison-dispositions-20261109.csv)
+- [Executed source and admission audit](first-comparison-audit-20261109.json)
+
 - [Reproducibility, refresh and integration task card](phase6-task-card.md)
 - [Reproducibility execution evidence and remaining gates](phase6-progress.md)
 - [Requirements](spec.md)
@@ -33,3 +40,6 @@
 - [Sensitivity/clustering qualification task card](phase5-task-card.md)
 - [Synthetic qualification and empirical requirements](phase5-progress.md)
 - [Methods and package metadata receipts](phase5-source-receipts.json)
+
+
+- [Dynamic decisions, public comparison data and staged Searchright review](../dynamic_frontier_20261108/index.md) — companion candidate and roadmap; extends R01 without changing this track's admission gates.

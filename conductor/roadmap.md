@@ -179,3 +179,7 @@ Central policy: repository-standards PR #120. Innovate implementation/validation
 PR #570. Paignia extraction: reimbursement-game T17/PR #101. Kairos boundary:
 PR #381. Voiage provider/VOP promotion: PR #1287. These proposed changes do not
 supersede tobac's accepted scientific and provenance programme.
+
+## Dynamic decisions, public evidence and systematic review — 8 November 2026
+
+The [companion implementation plan](tracks/dynamic_frontier_20261108/plan.md) makes the next steps concrete: engineering/status fixes; a 282-record public comparison-data candidate; a small dynamic cohort reference; systematic review through Searchright; a joint empirical observation model; and adaptive policy/research decisions. The [design](tracks/dynamic_frontier_20261108/design.md) maps broader tax, retail, product, cessation, enforcement, health/fiscal, equity and surveillance decisions to their evidence needs. The [Searchright integration plan](tracks/dynamic_frontier_20261108/searchright.md) extends empirical requirement R01 through a qualified pilot, screening/extraction/synthesis, immutable evidence handoff and an on-demand living update. These proposals preserve TP01–TP05 provider ownership and all existing source, scientific and publication gates.

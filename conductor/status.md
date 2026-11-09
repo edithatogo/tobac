@@ -1,4 +1,90 @@
-# Reconciled repository status — 3 November 2026
+# Reconciled repository status
+
+## Native renewal and PR #147 local qualification — 9 November 2026
+
+On the local macOS native-admission estate, PR #147 candidate `be937950a03152006df6a6f18fb2de7ed477cd83`
+completed full eight-runner native lineage execution (`m1`, `m2_retail`, `m2`, `m2_publication`,
+`m2_robustness`, `m3`, `longitudinal`, `release_calibration`), independent 140-output
+and original-source readback with all 82 scientific CSVs byte-identical to accepted
+originals, and fresh Ed25519 capsule signing at `ab342bb353b229827de6bafee66c51e23cfa4224`.
+New checkpoint `integration/archive/scientific-lineage-checkpoint_dynamic_evidence_20261109.json`
+(`72698ce972712e672271ab054b7547d13aaec8f559408af8461f9254c36d8fa6`), inventory
+`cb080543bcdd52241a9dc854830066c7cfd0afda68a8ace56c01eb369187bcbc`, capsule
+`ee943f35a0a9c4579c9fd4a7185ea76e917c7e403dd2347f21bbd31a16878dd7` and signature
+`32470d0bfce2a9a9c37a49e6062d94466f95d89ec444cdc009052dff0ca10d2e` resolve the stale
+workflow and changed-inventory preflight blockers across all 21 previously failing jobs.
+
+Under `scripts/run_bounded.py` (4096 MiB / 2400 s ceiling) on repo-local Python 3.15.2:
+- Focused affected, lineage and workstream integration suites pass **272 tests** (`134 + 138`, zero failures).
+- Complete native-qualified Nox `tests` session passes **1,480 passed, 8 skipped, 0 failed** in 96.74 s with 91% total `src` coverage (975.6 MiB peak RSS; log `cf54040a2558ead60bf1b9252d9156c5e23e5ecdc526f35bba6f77a21e82e25a`).
+- Complete Nox `reproduce` and `publication` sessions pass (770.7 MiB peak RSS; log `318b460ec169a4ba011d9bd71b0e7e72ff582e6310a896697c16ba2898ad5750`), including all eight runner replays, 29-table isolated publication replay with `0.0` maximum difference, 21 boundary tests and staged/full-history security checks.
+- Native Nox `strict_all` passes in 16 s (9 Ruff policy tests, 192 formatted files, zero `basedpyright` errors/warnings/notes; 948.6 MiB peak RSS; log `edaf986835a436496a65f8e1d751791d834559a28a8e957a2c0d721ffa019633`).
+
+Software and native lineage gates for PR #147 are closed locally; issue #3's seven applied
+empirical comparison criteria remain open per scientific boundaries.
+
+## Active repository closure — 9 November 2026
+
+PR #143 is merged at `2f76950920598978b96e178f9393886d5889104d` and all eleven
+receiving-main workflow runs passed. PR #149 is also merged, at current main
+`0c3c7cf876b4f236ab60917da4e32dffb6fc9527`, after all twelve PR workflow families
+passed; its receiving tree matches the qualified repair exactly. The [closure task](tracks/nz_au_empirical_20261106/closure-task-card-20261109.md)
+records PR #149's lock-receipt repair, PR #150's runner compatibility repair,
+Scorecard/security corrections and remaining qualification/cleanup dependencies.
+Draft PR #147 remains the active dynamic, evidence and security candidate.
+The complete #150 runner repair is published as a parent of consolidated #147
+`dc65be1b31a08d92cee6648822a1d92bfd6d4079`; #150 is closed as superseded so all
+final workflow/source changes can receive one native renewal. Its hosted strict,
+security, CodeQL, Actionlint and harness checks pass; native-gated jobs still fail
+on the stale workflow pin. The combined local diagnostic suite reports 1,448
+passed, 21 skipped and 19 failures at the unqualified OpenSSH verifier. Ordinary
+Nox tests/reproduction stop before workloads for missing native configuration.
+Current main is integrated into the candidate; 165 affected integration tests
+pass after its five lock/input changes. Both isolated repair worktrees and four
+redundant local branches are pruned after content preservation.
+The received #147 tree exactly matches the reviewed candidate. Its twelve hosted
+workflows are terminal: four succeed and eight fail at native acceptance; all
+21 failed jobs report the stale `advisory-types.yml` pin. Scorecard's 30-day SARIF
+artifact and public-only publication controls have been exercised successfully.
+Issue #3 records the completed bounded measurement deliverable; its seven applied
+empirical criteria remain open. Private alert queues and obsolete remote ref
+deletion require account capabilities unavailable in the current connection.
+
+The new [Kim measurement pack](../evidence/kim_measurements_20261109/README.md)
+reproduces 142 dated occasions and 576 analyte slots from the pinned supplement.
+It retains 117 censored ANBA measurements and two absent occasions, diagnoses
+six nicotine-mean discrepancies beyond rounding and three SD discrepancies beyond
+the broader correlation envelope, and keeps all three calibration scenarios
+separate. No likelihood, independent predictive score or empirical VOI is admitted.
+The full comparison in issue #3 and fresh native qualification of #147 remain open.
+
+## Earlier first-comparison checkpoint — 9 November 2026
+
+Main `d0e832b` contains the merged #146/#148 checkpoint. Draft PR #147 is the
+active dynamic/data candidate. The [first-comparison task](tracks/nz_au_empirical_20261106/first-comparison-task-card-20261109.md)
+records a completed 21-record source/use eligibility review and an executable
+negative admission decision: all 28 maintained handoff rows and all three
+comparison roles remain blocked. The bounded review does not complete broader
+Searchright screening or establish an empirical likelihood.
+
+The official NZHS CSV now verifies all 89 public-pack estimates, 69 interval
+pairs and 54 explicit caution flags. Conditional dynamic projection now reuses
+the existing health kernel for competing mortality, person-time consumption and
+survivor transitions at interval boundaries. Affected tests and strict checks
+pass; the changed scientific inventory still requires native acceptance. The
+task card records current complete-suite, reproduction and publication outcomes.
+
+Implementation and verification are published in draft PR #147 at `c8ecd8c`.
+The received tree `a3c46d88d681fae83aec8513f83e7904e599162f` exactly matches
+the reviewed local tree. This status update records that publication separately
+from still-required native renewal and hosted qualification.
+
+Issue #3 retains the applied empirical milestone, #7 the dependency dashboard.
+Issue #68 is completed for its installed Voiage scope and PR #135 is superseded.
+No current NZ causal policy result, admitted wastewater likelihood or national
+surveillance funding recommendation is claimed.
+
+## Historical 3 November checkpoint
 
 DXP1–DXP4 are complete through actual hosted qualification. The advisory
 implementation is qualified and published to main at `672894f`. The retained native-lineage track has
@@ -596,3 +682,46 @@ Phase 1–6 empirical acceptance, the changed packet's hosted/guarded publicatio
 receiving checks, and H2's empirical/release/recovery prerequisites remain open.
 The accepted main 8b48e22 closure is retained. No new empirical data, current national
 posterior, field efficacy or funding recommendation is established by this checkpoint.
+
+## Dynamic model and evidence candidate — 8 November 2026
+
+[Draft PR #147](https://github.com/edithatogo/tobac/pull/147) introduces a small
+closed-cohort dynamic reference, 282 public comparison records across ten CSVs,
+engineering/status fixes and a staged Searchright systematic-review roadmap.
+[Companion track](tracks/dynamic_frontier_20261108/index.md) records design,
+broader decisions, frontier hypotheses, evidence gaps and exact verification.
+The accepted main scientific closure is not replaced by this draft.
+
+Implementation commit `6d6ee4ce84bf1a4366280d481711df40f72f262d` and its full tree
+`d4ecf645852127171c5352bd57880e973bde42ce` were fetched and matched to the inspected
+local candidate. Outgoing publication validation passed. Python 3.15.2 reference
+checks passed 88 focused/integration tests; Nox strict_all and publication passed,
+including source-bound hash-locked environments, nine policy tests and 21 boundary
+tests. New interfaces are opt-in and no data are admitted to the live conditioner.
+
+Hosted scientific jobs at that commit explicitly reject the changed inventory
+before execution; native verification and a renewed signed capsule remain open.
+Linux audit, advisory typing and Scorecard passed for that commit. The PR remains
+draft, with original NZ source capture, survey covariance/state crosswalks,
+catchment flow/population/calibration and causal policy parameters unresolved.
+
+## PR #147 test-failure follow-up
+
+The dynamic candidate integrates main `d0e832b` / PR #148 and corrects absent-output
+export handling in nine workflows, preserving the internal release's unconditional
+evidence contract. Original scientific CI failures are native inventory rejection
+before workload execution; qualified native renewal remains required for the added
+model/data and changed orchestration. The companion
+[verification record](tracks/dynamic_frontier_20261108/plan.md#ci-repair-follow-up)
+separates passing static/publication checks, diagnostic tests and unavailable
+native acceptance. No scientific gate, source receipt or test is weakened.
+
+Repair `4f105c9d542a1e85205706f0d6d9590c1bc0f48a` was published with an
+expected-head update, fetched and matched to the inspected full tree. The focused
+rerun passed 148 tests. The committed full diagnostic collection reported
+1379 passed / 20 skipped / 19 failed; all retained failures are hosted-lineage
+OpenSSH authentication on the unqualified local verifier host. Actual Linux and
+Windows package jobs confirm that the absent-output export failures are gone;
+those steps skip after the primary signed-pin rejection. Native acceptance still
+requires the owner-held originals, producer/attempt estate and signing setup.
+PR #147 remains draft; no full qualified or empirical acceptance is claimed.

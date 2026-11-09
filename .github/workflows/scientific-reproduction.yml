@@ -70,13 +70,13 @@ jobs:
           "${replay[@]}" scripts/verify.py outputs/engineering/reproduction-no-grid
           "${replay[@]}" scripts/check_scientific_reproduction.py --replays outputs/engineering/replays --no-grid outputs/engineering/reproduction-no-grid --out outputs/engineering/scientific-reproduction.json
       - name: Install checksum-pinned native export scanners
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: |
           sh scripts/install_security_tools.sh
           .security-tools/gitleaks version
           .security-tools/actionlint -version
       - name: Inspect numerical and verification exports
-        if: always()
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: '"$PYTHON_LOCAL" scripts/publication_boundary.py export --source outputs --destination artifact-exports/reproduction'
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: success()

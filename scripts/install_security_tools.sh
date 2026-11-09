@@ -54,10 +54,10 @@ extract_binary() {
         tar -xzf "$temporary/$1.tar.gz" -C "$temporary" "$1"
     fi
 }
-curl --fail --location --max-time 120 "https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_${gitleaks_asset}.${security_archive_suffix}" -o "$temporary/gitleaks.$security_archive_suffix"
+curl --fail --location --connect-timeout 20 --max-time 120 --retry 3 --retry-delay 2 --retry-max-time 180 "https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_${gitleaks_asset}.${security_archive_suffix}" -o "$temporary/gitleaks.$security_archive_suffix"
 verify_archive "$gitleaks_sha" "$temporary/gitleaks.$security_archive_suffix"
 extract_binary gitleaks
-curl --fail --location --max-time 120 "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_${actionlint_asset}.${security_archive_suffix}" -o "$temporary/actionlint.$security_archive_suffix"
+curl --fail --location --connect-timeout 20 --max-time 120 --retry 3 --retry-delay 2 --retry-max-time 180 "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_${actionlint_asset}.${security_archive_suffix}" -o "$temporary/actionlint.$security_archive_suffix"
 verify_archive "$actionlint_sha" "$temporary/actionlint.$security_archive_suffix"
 extract_binary actionlint
 install -m 755 "$temporary/gitleaks$security_binary_suffix" "$destination/gitleaks$security_binary_suffix"

@@ -1,0 +1,3 @@
+source_id,survey_period,geography,age_scope,indicator,value,unit,uncertainty,source_section
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,daily_smoking,294000,estimated_people,not_provided_in_summary_text,Total population
+nzhs_2024_25_smoking_vaping_moh_20251119,2024/25,NZ_national,15_plus,daily_vaping,509000,estimated_people,not_provided_in_summary_text,Total population
