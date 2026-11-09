@@ -2,6 +2,18 @@
 
 ## Active continuation — 9 November 2026
 
+The [closure task](closure-task-card-20261109.md) continues diagnostics,
+dependency PR qualification, Scorecard alignment with repository-standards and
+branch/worktree reconciliation. PR #143 is merged at `2f769509`; its receiving
+main has eleven successful workflow runs. PR #149's repaired source-bound locks
+are merged at `0c3c7cf8` after all twelve PR workflows passed. Current main and
+the published #150 runner compatibility repair are integrated into #147 for one
+final native renewal. The [Kim measurement pack](../../../evidence/kim_measurements_20261109/README.md)
+now executes the previously external source-native comparison, retaining all
+142 dated occasions, censoring, numerical discrepancies and three separate
+calibration sensitivities. It supplies a reproducible bounded measurement result,
+while the prespecified independent empirical score remains unavailable.
+
 The owner requests completion of the first-comparison evidence review/admission
 and continued implementation. [Current task card](first-comparison-task-card-20261109.md)
 records the bounded source review, executable admission decisions, official-NZHS

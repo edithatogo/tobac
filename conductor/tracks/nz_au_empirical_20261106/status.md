@@ -2,6 +2,23 @@
 
 ## Current continuation
 
+The [closure task](closure-task-card-20261109.md) now records merged PR #143 at
+`2f769509` with eleven successful receiving-main workflows. PR #149's lock repair
+is merged at `0c3c7cf8` after twelve successful PR workflows, and that main is
+integrated into #147. PR #150's repair is integrated for a single native renewal. The
+[Kim measurement pack](../../../evidence/kim_measurements_20261109/README.md)
+makes the actual supplement extraction and source-native checks reproducible.
+It preserves every censored/absent slot and the original numerical discrepancies.
+Source-native reproduction does not supply the missing matched independent outcome,
+causal policy bridge or native source acceptance. Those gates remain open.
+The published #150 repair is now incorporated locally into #147. Its actual
+hosted audit/security/harness/Actionlint checks pass, while 21 failed hosted jobs
+retain the same stale native workflow pin. Combined local diagnostics report
+1,448 passed / 21 skipped / 19 OpenSSH qualification failures. Strict, security,
+publication and original-PDF byte-for-byte measurement reproduction pass.
+
+### Earlier first-comparison checkpoint
+
 Main `d0e832b` includes merged #146/#148 and the accepted integrated checkpoint.
 PR #147 is the active candidate, including dynamic/data work and export-error
 repairs. Its changed scientific inventory and workflow bytes still require fresh

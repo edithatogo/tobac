@@ -12,7 +12,7 @@ concurrency:
 jobs:
   audit-lock:
     name: Linux x86_64 hash-locked audit
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 40
     env:
       TOBAC_REQUIRE_LOCK: '1'

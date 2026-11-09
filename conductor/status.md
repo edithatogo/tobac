@@ -1,6 +1,33 @@
 # Reconciled repository status
 
-## Active first-comparison continuation — 9 November 2026
+## Active repository closure — 9 November 2026
+
+PR #143 is merged at `2f76950920598978b96e178f9393886d5889104d` and all eleven
+receiving-main workflow runs passed. PR #149 is also merged, at current main
+`0c3c7cf876b4f236ab60917da4e32dffb6fc9527`, after all twelve PR workflow families
+passed; its receiving tree matches the qualified repair exactly. The [closure task](tracks/nz_au_empirical_20261106/closure-task-card-20261109.md)
+records PR #149's lock-receipt repair, PR #150's runner compatibility repair,
+Scorecard/security corrections and remaining qualification/cleanup dependencies.
+Draft PR #147 remains the active dynamic, evidence and security candidate.
+The published #150 runner repair is integrated locally into #147 so all final
+workflow/source changes can receive one native renewal. Its hosted strict,
+security, CodeQL, Actionlint and harness checks pass; native-gated jobs still fail
+on the stale workflow pin. The combined local diagnostic suite reports 1,448
+passed, 21 skipped and 19 failures at the unqualified OpenSSH verifier. Ordinary
+Nox tests/reproduction stop before workloads for missing native configuration.
+Current main is integrated into the candidate; 165 affected integration tests
+pass after its five lock/input changes. Both isolated repair worktrees and four
+redundant local branches are pruned after content preservation.
+
+The new [Kim measurement pack](../evidence/kim_measurements_20261109/README.md)
+reproduces 142 dated occasions and 576 analyte slots from the pinned supplement.
+It retains 117 censored ANBA measurements and two absent occasions, diagnoses
+six nicotine-mean discrepancies beyond rounding and three SD discrepancies beyond
+the broader correlation envelope, and keeps all three calibration scenarios
+separate. No likelihood, independent predictive score or empirical VOI is admitted.
+The full comparison in issue #3 and fresh native qualification of #147 remain open.
+
+## Earlier first-comparison checkpoint — 9 November 2026
 
 Main `d0e832b` contains the merged #146/#148 checkpoint. Draft PR #147 is the
 active dynamic/data candidate. The [first-comparison task](tracks/nz_au_empirical_20261106/first-comparison-task-card-20261109.md)

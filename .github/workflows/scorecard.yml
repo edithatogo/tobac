@@ -1,6 +1,7 @@
 name: OpenSSF Scorecard
 
 on:
+  branch_protection_rule:
   push:
     branches: [main]
   pull_request:
@@ -35,7 +36,19 @@ jobs:
         with:
           results_file: results.sarif
           results_format: sarif
-          publish_results: ${{ github.event_name == 'push' || github.event_name == 'schedule' }}
+          publish_results: >-
+            ${{ github.event.repository.visibility == 'public'
+              && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+              && (github.event_name == 'push' || github.event_name == 'schedule'
+                || github.event_name == 'branch_protection_rule'
+                || github.event_name == 'workflow_dispatch') }}
+      - name: Retain the Scorecard SARIF report
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: scorecard-sarif-${{ github.run_id }}
+          path: results.sarif
+          retention-days: 30
+          if-no-files-found: error
       - name: Upload Scorecard SARIF
         uses: github/codeql-action/upload-sarif@9b3254085494b55a0f7c4c2b3d2d52cc712ce370
         with:

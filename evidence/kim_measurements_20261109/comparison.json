@@ -1,0 +1,142 @@
+{
+  "schema_version": "tobac.kim-measurement-comparison.v1",
+  "status": "source_native_measurement_sensitivity_and_target_non_identification",
+  "original": {
+    "doi": "10.1016/j.scitotenv.2025.181223",
+    "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0048969725028657-mmc1.pdf",
+    "sha256": "c2ce1d0c3fcc95e9c49acb5bf403cc2598b999a97b8a9e558557a3aa1614046c",
+    "bytes": 1306212
+  },
+  "parser": {
+    "name": "pdftotext",
+    "version": "pdftotext version 25.03.0",
+    "executable_sha256": "7fe3559cac3ba61dd93650a1ba90499b9fc488184ef8d0f2f1305ddf52c0378b",
+    "arguments": [
+      "-layout",
+      "-enc",
+      "UTF-8",
+      "PINNED_EXTERNAL_PDF",
+      "-"
+    ],
+    "layout_sha256": "4675a51a4938a717434aa855ce90157a76722c6f2f31be0692793c3df60f7b7a",
+    "layout_bytes": 110110,
+    "source_bytes": 1306212,
+    "qualification": "Exact output parity, not a portable general-PDF-parser claim"
+  },
+  "source_rights": {
+    "original_included": false,
+    "original_redistribution_permission_established": false,
+    "published_material": "Attributed numerical facts and authored derived checks; no article prose or graphics"
+  },
+  "source_support": {
+    "occasion_slots": 144,
+    "distinct_plant_labels": 12,
+    "dated_occasions": 142,
+    "distinct_calendar_dates": 43,
+    "first_date": "2023-05-02",
+    "last_date": "2023-10-29",
+    "nominal_weekday_disagreements": 7,
+    "analyte_cells": 576,
+    "analyte_cell_status": {
+      "quantified": 451,
+      "missing_occasion": 8,
+      "between_lod_and_loq": 117
+    },
+    "anba_status": {
+      "between_lod_and_loq": 117,
+      "quantified": 25,
+      "missing_occasion": 2
+    },
+    "whole_occasion_grouping": "Four analytes and derived S23 nicotine share each collection occasion"
+  },
+  "nicotine_diagnostics": {
+    "factor": "1.35",
+    "assumption": "Exact 1.35 times COT plus COT-OH; nearest printed rounding",
+    "means_compatible_with_rounding": 136,
+    "means_outside_rounding": 6,
+    "sd_compatibility": {
+      "paired_endpoint": 137,
+      "outside_broader_envelope": 3,
+      "broader_envelope_only": 2
+    },
+    "sd_scope": "Duplicate-assay spread, not population uncertainty or a covariance estimate"
+  },
+  "calibration_scenarios": [
+    {
+      "id": "zheng2023_reported",
+      "ug_per_cigarette": "0.91",
+      "source": "https://doi.org/10.1021/acs.est.3c01510",
+      "basis": "assumed_nicotine_dose_and_excretion_times_pooled_urine_ratio",
+      "review_location": "P2.30; separate 1.07 sewer correction not applied"
+    },
+    {
+      "id": "bade2020_reported",
+      "ug_per_cigarette": "1.13",
+      "source": "https://doi.org/10.1002/dta.2874",
+      "basis": "ten_smokers_self_reported_cigarettes_and_assumed_1.5L_daily_urine",
+      "review_location": "P2.33; printed table/narrative discrepancies retained"
+    },
+    {
+      "id": "weng2026_conditional_dose",
+      "ug_per_cigarette": "0.64944",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13389531/",
+      "basis": "0.0902_times_assumed_0.0072mg_absorbed_anabasine_times_1000",
+      "review_location": "First-comparison review; 19 selected above-LoQ cigarette users"
+    }
+  ],
+  "calibration_limits": [
+    "Factors are separate transfer assumptions, not independent estimates or a pooled prior.",
+    "No sewer-loss, product-attribution or flow/population uncertainty is silently estimated.",
+    "mg/day/1000 people divided by ug/cigarette cancels the two factors of 1000.",
+    "Rounding-only intervals are not confidence intervals and exclude factor/transport uncertainty.",
+    "The Weng 4.95% reported spread is untyped and is not used as SD, SE or a distribution.",
+    "Censored/absent cells have no conversion; no selected-subset campaign average is computed."
+  ],
+  "first_comparison": {
+    "review_audit_status": "blocked",
+    "qualified_complete_wbe_calendar_years": [],
+    "required_earlier_complete_years": 3,
+    "required_comparable_catchments": 4,
+    "comparable_catchments_qualified": 0,
+    "baseline_scope": "National survey-year prevalence/intensity and calendar-year releases; no matched catchment consumption bridge",
+    "wastewater_scope": "Reported plant-labelled May-October 2023 normalised loads; unresolved contributing population, flow and censoring",
+    "independent_target_validation": "unavailable",
+    "paired_predictive_score": null,
+    "policy_response_fitted": false,
+    "empirical_voi": null,
+    "reason": "Source-native descriptive checks do not qualify the frozen population/product/period outcome or independent validation"
+  },
+  "review_basis_sha256": {
+    "conductor/tracks/nz_au_empirical_20261106/first-comparison-review-20261109.md": "81616883c9838d77cc07f5712a73ce4faea4f6f0e809159ded1ebcdce3c90b0f",
+    "conductor/tracks/nz_au_empirical_20261106/first-comparison-audit-20261109.json": "acda47581de916d21f668307a7c5013247ff67e4b04b600fcdeec670eefe0827",
+    "conductor/tracks/nz_au_empirical_20261106/decision-definition.md": "45a8ba0023569735bce19e903dc0a08fdc18084488b6f701f448ef6b3d33f36a",
+    "conductor/tracks/nz_au_empirical_20261106/phase2-reconciliation-20261107.md": "4c0cbfe1703c8e0ea2c10999a0602411fdf9b1354af2cc2cc58cfd66804264bf"
+  },
+  "implementation_sha256": {
+    "scripts/compare_kim_measurements.py": "1c0d50ceb02b983bead47ef170c8c003f54a69939bdf72a0dc96e491519e9de0",
+    "scripts/source_handoff.py": "f60e5125327ca3106019d3892cafea15e37c21292c1fe1384a8928e09310dca1",
+    "src/tobac/partial_identification.py": "34f528557b34f050036e52a4a5e66b189de75c14e24087b6d9bc85e60aee834c"
+  },
+  "empirical_admission": false,
+  "native_lineage_qualification": false,
+  "automatically_conditions_live_model": false,
+  "independent_observations_added": 0,
+  "outputs": {
+    "occasions.csv": {
+      "rows": 144,
+      "sha256": "043d29a5d693e52dd310637936cb7e767652cff6ba78572a5d9766d43c9eee8e"
+    },
+    "measurements.csv": {
+      "rows": 576,
+      "sha256": "540a7bf2638d65960f97850a214313df548c2be30e613909132430f51cb4ff2d"
+    },
+    "nicotine-diagnostics.csv": {
+      "rows": 144,
+      "sha256": "f795442abb33d5805bd36e8a52a3467d78201a64317be493f0657c70a09765ce"
+    },
+    "anabasine-scenarios.csv": {
+      "rows": 432,
+      "sha256": "ecfc0270a1798d970a354014eaaaeaec1304e76d45b8278bf1cd6fe62e634c71"
+    }
+  }
+}

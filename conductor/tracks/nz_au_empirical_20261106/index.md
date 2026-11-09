@@ -1,5 +1,7 @@
 # NZ/AU empirical policy milestone
 
+- [Repository closure and measurement comparison task](closure-task-card-20261109.md)
+- [Executed Kim measurement comparison and attributed data](../../../evidence/kim_measurements_20261109/README.md)
 - [Current first-comparison review and implementation task](first-comparison-task-card-20261109.md)
 - [Completed bounded first-comparison evidence review](first-comparison-review-20261109.md)
 - [Source-use dispositions](first-comparison-dispositions-20261109.csv)

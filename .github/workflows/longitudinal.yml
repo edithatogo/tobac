@@ -40,8 +40,10 @@ jobs:
         run: python scripts/qualify_integrations.py --mode inventory --out outputs/evidence-longitudinal.json
       - name: Verify accepted native lineage before the workload
         run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python scripts/qualify_integrations.py --mode lineage --runner release_calibration --runner longitudinal --out outputs/lineage-longitudinal.json
-      - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m pip install -r requirements.lock
-      - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m pip install --no-deps .
+      - name: Verify the source-bound runtime lock
+        run: .venv-ci/bin/python scripts/lock_receipt.py verify --profile runtime --path engineering/requirements.lock
+      - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m pip install --require-hashes -r engineering/requirements.lock
+      - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m pip install --no-deps --no-build-isolation .
       - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m pytest -q
       - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python scripts/run_release_calibration.py --out outputs/longitudinal_releases
       - run: python scripts/verify_release_calibration.py outputs/longitudinal_releases

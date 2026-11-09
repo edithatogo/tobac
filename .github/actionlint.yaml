@@ -1,0 +1,8 @@
+# GitHub-hosted Ubuntu 26.04 became generally available on 17 September 2026:
+# https://github.com/actions/runner-images/issues/14747
+# Actionlint 1.7.12 predates this label. Its additional-label configuration uses
+# the key below; this does not select a self-hosted runner or waive other checks.
+# Remove this exact-label extension when a qualified Actionlint release includes it.
+self-hosted-runner:
+  labels:
+    - ubuntu-26.04

@@ -455,6 +455,7 @@
     ".agents/skills/research-change/SKILL.md",
     ".gitattributes",
     ".githooks/pre-push",
+    ".github/actionlint.yaml",
     ".github/pull_request_template.md",
     ".github/workflows/advisory-types.yml",
     ".github/workflows/ci.yml",
@@ -1347,7 +1348,16 @@
     "tests/engineering/test_public_nzhs.py",
     "evidence/public_data_20261108/verification/nzhs-reconciliation.csv",
     "evidence/public_data_20261108/verification/nzhs-reconciliation.json",
-    "evidence/public_data_20261108/verification/official-source-retrieval-20261109.json"
+    "evidence/public_data_20261108/verification/official-source-retrieval-20261109.json",
+    "conductor/tracks/nz_au_empirical_20261106/closure-task-card-20261109.md",
+    "scripts/compare_kim_measurements.py",
+    "tests/engineering/test_kim_measurements.py",
+    "evidence/kim_measurements_20261109/README.md",
+    "evidence/kim_measurements_20261109/occasions.csv",
+    "evidence/kim_measurements_20261109/measurements.csv",
+    "evidence/kim_measurements_20261109/nicotine-diagnostics.csv",
+    "evidence/kim_measurements_20261109/anabasine-scenarios.csv",
+    "evidence/kim_measurements_20261109/comparison.json"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",
