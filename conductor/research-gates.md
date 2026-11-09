@@ -185,3 +185,61 @@ final approval and applicable institutional/cultural determinations remain open.
 Local manuscript/source/formula and qualification evidence is retained; native
 exact-head/main acceptance is recorded in the associated PR. No requests, contacts,
 registrations, deposits or journal/ethics submissions.
+
+
+## Parameter-evidence promotion and decision sufficiency — 9 November 2026
+
+The active draft [PR #147](https://github.com/edithatogo/tobac/pull/147) contains
+**two complementary candidate catalogues**: a 61-entry embedded catalogue from
+14 source/reuse identities and a separate 65-entry, 12-source public pack.
+Their entries overlap (including NZ excise, demand, cessation and Australian
+mortality) and some units are represented differently (e.g. risk differences in
+percentage points versus fractions). Neither catalogue is a new likelihood,
+prior, active model configuration or independently verified observational sample.
+Their numerical counts cannot be added. Before admitting an entry, reconcile its
+source-study identity, observed cohort, estimand, units, sign, uncertainty type
+and dependence group with previously accepted evidence. Keep the source review's
+6 November 2026 cutoff, original-object/readback and public-only boundaries.
+
+**Promotion checklist for each parameter or design convention:**
+
+1. Identify the exact source edition and extraction locator. Preserve the
+   difference between an original-byte capture and a secondary citation.
+2. Resolve aliases and repeated estimates to one underlying source/study/sample
+   identity. A trial arm and its published contrast, national derived estimates
+   and constituent wastewater observations, or a cohort's overlapping disease
+   outcomes are not independent likelihoods without a justified joint model.
+3. Write a target-specific applicability statement: country, population, cohort,
+   product, calendar period, units, intervention/comparator, time horizon and
+   mechanism. Convert rates/counts/percentage points explicitly, not silently.
+4. Classify each quantity as **observed and target-admissible**, **observed but
+   transport-dependent**, **external-model assumption**, **expert elicitation**,
+   **statutory setting**, **normative decision setting**, or **unidentified**.
+   Keep confidence intervals, credible intervals and IQRs distinct. Missing
+   uncertainty does not justify a degenerate distribution.
+5. Where multiple estimates inform one target, test consistency and dependence;
+   do not average contradictory source editions or overwrite existing accepted
+   values. Record conflicts and the assumptions that could resolve them.
+6. Supply a diagnostic identifying whether the parameter can change the selected
+   feasible action over the declared uncertainty/support set. If it cannot,
+   prioritise other calibration work. When a decision is not identified, report
+   an explicit bound and witness; numerical precision alone is not admission.
+7. Only then update the existing `Scope`/`EvidencePacket`/`SupplyBasis`
+   pathway and native signed inventory, with numerical tests and held-out
+   validation for the claimed use. A dated statutory or normative convention is
+   a scenario choice, not automatically an observational likelihood.
+
+**First applied priorities:** matched consumption and supply by country/product/
+period; wastewater flow, contributing population, assay censoring and biological
+calibration; policy-response/implementation effects with a credible causal
+contrast; and an independent target outcome satisfying prespecified coverage.
+Historical elasticity, disease utility, mortality relative risk, and published
+cessation-trial results can support conditional stress tests while these remain
+missing, but cannot themselves close [issue #3](https://github.com/edithatogo/tobac/issues/3).
+
+For methods research, compare exact finite action-dominance and regret bounds
+against naive plug-in decisions **before** implementing a broader adaptive policy
+and study simulator. Compare calibration versus additional sampling under matched
+resource budgets and common information clocks. A result showing that available
+information cannot identify the decision is a valid scoped research outcome; it
+is not completion of the separate empirical held-out validation gate.
