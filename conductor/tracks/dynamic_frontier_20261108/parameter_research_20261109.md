@@ -87,3 +87,15 @@ Tobac owns tobacco-specific measurement, causal assumptions, states and interpre
 A convincing result would show, for an explicitly defined class of decision problems, that the new method either reduces prespecified decision loss relative to the best comparable baseline or reliably detects a dangerous unsupported conclusion that the baseline misses. It must also disclose the settings where it adds no benefit. Source-rich documentation, passing CI, a complex architecture and a novelty claim are not substitutes for that result.
 
 No new contact, study registration, restricted access or collection is authorised. The work remains public-source based. Repository implementation, native qualification, empirical support and external scientific review retain distinct claims.
+
+## Candidate-catalogue identity audit — 9 November 2026
+
+The [20-row crosswalk](../../../evidence/parameter_candidates_20261109/alias_crosswalk.csv)
+reconciles duplicated source-level numbers between the 61-entry embedded catalogue
+and the 65-entry registry. Every mapped value was checked at the candidate head;
+two trial risk differences require percentage-point-to-fraction conversion.
+Preserve the original source aliases and the scope narrowing for the NZ tobacco
+excise classification; these are not 20 new observations or evidence admissions.
+Pending: review unmatched entries, reconcile any remaining study identity aliases
+through Searchright, and require the original existing handoff/native acceptance
+before model fitting. No live parameters changed.

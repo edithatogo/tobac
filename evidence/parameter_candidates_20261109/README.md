@@ -54,3 +54,24 @@ Source content was reviewed via public web pages or the PubMed connector. Numeri
 Some candidate sources overlap earlier repo reviews. Alias resolution must reuse those identities. The existing NZHS and Kim packs are referenced rather than recopied as independent evidence. The broader Searchright screening programme is not completed by this targeted sourcing pass.
 
 The bundle's standard-library checks test field consistency, uncertainty labels, supports, counts, dependency identities and JSON/CSV parity. They neither validate causal transport nor substitute for repository-wide, native or hosted qualification. No new data request, contact, restricted access, paid commitment, submission or collection was made.
+
+## Reconciliation with the earlier embedded parameter catalogue
+
+The companion [alias crosswalk](alias_crosswalk.csv) records **20 matched numeric
+representations** between this 65-entry registry and the 61-entry catalogue in
+`conductor/tracks/dynamic_frontier_20261108/design.md`. All 20 values agree
+under their explicitly stated unit conversion. The two Walker trial risk
+differences appear here as **percentage points** and in the embedded catalogue
+as **fractions**, so the crosswalk multiplier is `0.01`. The PHARMAC discount
+convention has different source aliases, and `other smoking tobacco` is a
+broader statutory classification than the embedded RYO label. Their substantive
+scope still needs a use-specific check.
+
+These are **candidate aliases, not 20 new independent observations or automatically
+admitted parameters**. Unmatched entries require their own source reconciliation,
+including the different source sets of the two catalogues. The crosswalk does not
+merge the catalogues, silently convert their uncertainty types or change a live
+model, prior, evidence packet, assumption, policy or validation gate. The numerical
+match was executed against PR #147's recorded 61-item JSON and 65-item registry
+at commit `017a784f49`; it is not an original-source-byte or native-lineage
+qualification.
