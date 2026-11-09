@@ -1358,7 +1358,14 @@
     "evidence/kim_measurements_20261109/measurements.csv",
     "evidence/kim_measurements_20261109/nicotine-diagnostics.csv",
     "evidence/kim_measurements_20261109/anabasine-scenarios.csv",
-    "evidence/kim_measurements_20261109/comparison.json"
+    "evidence/kim_measurements_20261109/comparison.json",
+    "conductor/tracks/dynamic_frontier_20261108/parameter_research_20261109.md",
+    "evidence/parameter_candidates_20261109/README.md",
+    "evidence/parameter_candidates_20261109/gaps.csv",
+    "evidence/parameter_candidates_20261109/parameters.csv",
+    "evidence/parameter_candidates_20261109/registry.json",
+    "evidence/parameter_candidates_20261109/sources.csv",
+    "evidence/parameter_candidates_20261109/alias_crosswalk.csv"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",

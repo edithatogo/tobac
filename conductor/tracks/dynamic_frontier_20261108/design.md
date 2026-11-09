@@ -428,3 +428,19 @@ The first small research output should be BF1 on the existing exact model,
 followed by the two-product BF2 benchmark. This is a more discriminating test of
 additional capability than expanding every disease, policy and strategic actor
 before a first complete comparison.
+
+## Parameter-source and frontier continuation — 9 November 2026
+
+The [parameter-source edition](../../../evidence/parameter_candidates_20261109/README.md)
+contains 65 source-scoped numeric candidates from 12 public sources, together with
+explicit missing quantities and a [falsifiable research plan](parameter_research_20261109.md).
+It distinguishes published estimates, expert elicitation, external-model assumptions,
+legal settings and normative choices. Shared source groups, uncertainty types and
+transport limits are retained. The packet changes no live configuration, likelihood,
+prior, source-admission disposition, frozen validation rule or signed acceptance.
+
+This entry records incorporation of the candidate packet into the proposed PR source,
+not a completed fit or native qualification. Original-publication byte readbacks,
+full-text appraisal where unavailable, bibliography-alias reconciliation and
+model-specific admission remain separate. The existing first-comparison and #147
+qualification requirements are not closed by this packet's offline validation.
