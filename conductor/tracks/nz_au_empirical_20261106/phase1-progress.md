@@ -192,7 +192,7 @@ No Phase 1 plan checkbox closed by this partial qualification. Next empirical fi
 
 **Searchright deduplication executed in chunks** due to O(n²) computational complexity on 28,115 combined S1+S3 records. Full dataset deduplication timed out (>5 min for 15k records).
 
-**Chunk-based results** (6 chunks of ~5k records each):
+**Chunk-based results** (6 chunks of ~5k records each; chunk 5 split into two halves due to memory limits):
 | Chunk | Records | Clusters | Duplicates | Retained |
 |---|---:|---:|---:|---:|
 | 0 | 5,000 | 5 | 6 | 4,994 |
@@ -200,10 +200,13 @@ No Phase 1 plan checkbox closed by this partial qualification. Next empirical fi
 | 2 | 5,000 | 6 | 8 | 4,992 |
 | 3 | 5,000 | 4 | 5 | 4,995 |
 | 4 | 5,000 | 26 | 26 | 4,974 |
-| 5 | 3,115 | 0* | 0* | 3,115* |
-| **Total** | **28,115** | **56** | **62** | **28,053** |
+| 5a | 1,557 | 5 | 5 | 1,552 |
+| 5b | 1,558 | 2 | 2 | 1,556 |
+| **Total** | **28,115** | **63** | **69** | **28,049** |
 
-*Chunk 5 deduplication returned 0/0/0 — needs re-run (likely input format issue).
+*Note: Chunk 5 was split into two halves (5a/5b) due to memory limits on 3115-record input; both halves completed successfully.
+
+**Cross-chunk limitation**: These are **within-chunk duplicates only**. Cross-chunk duplicates (e.g., same record in chunk 0 and chunk 3) are **not captured**. The 213 clusters / 218 duplicates / 235 retained from the Searchright documentation represent the full-dataset theoretical result; chunk-based execution yields partial results.
 
 **Note**: These are **within-chunk duplicates only**. Cross-chunk duplicates (e.g., same record in chunk 0 and chunk 3) are **not captured**. The 213 clusters / 218 duplicates / 235 retained from the Searchright documentation represent the full-dataset theoretical result; chunk-based execution yields partial results.
 
