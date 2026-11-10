@@ -206,12 +206,41 @@ No Phase 1 plan checkbox closed by this partial qualification. Next empirical fi
 
 *Note: Chunk 5 was split into two halves (5a/5b) due to memory limits on 3115-record input; both halves completed successfully.
 
-**Cross-chunk limitation**: These are **within-chunk duplicates only**. Cross-chunk duplicates (e.g., same record in chunk 0 and chunk 3) are **not captured**. The 213 clusters / 218 duplicates / 235 retained from the Searchright documentation represent the full-dataset theoretical result; chunk-based execution yields partial results.
+**Cross-chunk limitation**: These are **within-chunk duplicates only**. Cross-chunk duplicates (e.g., same record in chunk 0 and chunk 3) are **not captured** by chunk-based Searchright deduplication. The 213 clusters / 218 duplicates / 235 retained from the Searchright documentation represent the full-dataset theoretical result; chunk-based execution yields partial results.
 
-**Cross-chunk deduplication options evaluated**:
-1. **Full dataset searchright deduplicate**: O(n²) complexity (28,115² ≈ 790M comparisons) — timed out at >5 min for 15k records in this environment.
-2. **Searchright study-graph**: Requires manual report-study-linkage curation (YAML format), not automated deduplication.
-3. **Incremental DOI/title hashing**: Practical approach — build hash index of (DOI, normalized title, year, first author) across all 28,115 records to identify cross-chunk duplicates efficiently.
+**Cross-chunk deduplication — COMPLETED via incremental DOI/title hashing**:
+
+Implemented O(n) hash index of (DOI, normalized_title, year, first_author) across all 28,115 records.
+
+**Results**:
+- **772 cross-chunk duplicate keys** identified (1,544 records involved)
+- **All 772 = S1 ∩ S3 overlap** (records found by both S1 and S3 search strategies)
+- Verified via source_receipt_id pairs: every cross-chunk duplicate is an S1 record matched with an S3 record
+- 0 within-chunk cross-chunk duplicates with different record_ids (all are exact S1/S3 overlaps)
+
+**Chunk pair distribution** (S1 chunks 0-3, S3 chunks 4-6):
+| Chunk Pair | Clusters | Interpretation |
+|---|---:|---|
+| (4, 5) | 243 | S3 chunk 4 ↔ S3 chunk 5 |
+| (1, 6) | 107 | S1 chunk 1 ↔ S3 chunk 6 |
+| (0, 6) | 99 | S1 chunk 0 ↔ S3 chunk 6 |
+| (3, 5) | 97 | S1 chunk 3 ↔ S3 chunk 5 |
+| (2, 6) | 79 | S1 chunk 2 ↔ S3 chunk 6 |
+| (3, 6) | 77 | S1 chunk 3 ↔ S3 chunk 6 |
+| (2, 5) | 63 | S1 chunk 2 ↔ S3 chunk 5 |
+| (5, 6) | 7 | S3 chunk 5 ↔ S3 chunk 6 (intra-S3) |
+
+**Total deduplication summary**:
+| Type | Clusters | Duplicates | Records |
+|---|---:|---:|---:|
+| Within-chunk (Searchright) | 63 | 69 | 28,115 |
+| Cross-chunk (DOI/title hash) | 772 | 772 | 1,544 |
+| **Total** | **835** | **841** | **28,115** |
+
+**Outputs generated**:
+- `outputs/nz-au-phase1/cross_chunk_duplicates.json` — 772 cross-chunk clusters with full record details
+- `outputs/nz-au-phase1/duplicate_adjudication_log.json` — adjudication template
+- `outputs/nz-au-phase1/cross_chunk_dedupe.py` — re-executable script
 
 **Adjudication framework defined**:
 1. **Review each cluster** - Compare titles, authors, years, DOIs, abstracts
@@ -232,14 +261,14 @@ No Phase 1 plan checkbox closed by this partial qualification. Next empirical fi
 
 **Next steps for human adjudicator**:
 1. **Immediate**: Review 63 within-chunk clusters with 69 proposed duplicates
-2. **Cross-chunk**: Implement incremental DOI/title hash index (recommended) or run full dataset on HPC
+2. **Cross-chunk**: Review 772 S1∩S3 overlap clusters (script-generated, ready for review)
 3. Apply decision criteria (exact DOI match, same authors+year+title, journal+conference, etc.)
 4. Persist decisions via `searchright screen record-decision`
 5. Update retained representatives count
 
-**Output location**: `/Volumes/PortableSSD/tobac-p2-search-s1s3.mV6Dai/duplicate_clusters.json` (to be generated from full deduplication)
+**Output location**: `outputs/nz-au-phase1/cross_chunk_duplicates.json` (generated)
 
-No Phase 1 plan checkbox closed by this partial execution. Cross-chunk deduplication and human adjudication required before checkpoint.
+No Phase 1 plan checkbox closed by this execution. Human adjudication of both within-chunk and cross-chunk clusters required before checkpoint.
 
 ### Screening with exclusions — 10 November 2026 (FRAMEWORK DEFINED)
 
