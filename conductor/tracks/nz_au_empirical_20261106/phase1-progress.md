@@ -398,9 +398,29 @@ Executed `outputs/nz-au-phase1/screen_records.py` on 26,571 deduplicated records
 
 **Script**: `outputs/nz-au-phase1/screen_records.py` (re-executable).
 
-**Next**: Full-text screening for 9,760 included records (requires full-text access).
+### Full-text screening — 10 November 2026 (BLOCKED — REQUIRES FULL-TEXT ACCESS)
 
-No Phase 1 plan checkbox closed by this execution. Full-text screening and human review of exclusions required before checkpoint.
+**9,760 records** passed Title/Abstract screening and require full-text review.
+
+**Status**: **BLOCKED** — Full-text PDFs/XML not available in this environment.
+
+**Required for execution**:
+- Full-text PDF/XML for each of the 9,760 included records
+- Access via PubMed Central, publisher APIs, or institutional subscriptions
+- DOI/PMID resolution to full-text (currently not preserved in imported records)
+
+**What would be needed**:
+1. Re-fetch full-text for 9,760 records via PubMed/PMC APIs using PMIDs/DOIs
+2. Download PDFs/XML from publishers (open access + institutional access)
+3. Extract full text, tables, figures, supplementary materials
+4. Apply full-text screening criteria (same R01-R05, E01-E11)
+4. Extract quantitative data for Silver layer (page/table/cell binding)
+
+**Records needing full-text**: 9,760 (36.7% of 26,571 screened)
+
+No Phase 1 plan checkbox closed by this execution. Full-text screening requires external full-text access infrastructure.
+
+### G1/G2 official source searches — 10 November 2026 (SUBSTANTIALLY COMPLETE)
 
 ### G1/G2 official source searches — 10 November 2026 (SUBSTANTIALLY COMPLETE)
 
