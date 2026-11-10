@@ -222,12 +222,45 @@ Tools needed: Searchright citation validation, Crossref/OpenAlex APIs, or manual
 **Summary**: 24/31 sources retrieved (11 G1, 13 G2). 7 sources not retrieved (3 G1: POLICE_CRIME, JUSTICE, TREASURY, WHO_FCTC; 3 G2: ABF, TSCCHARKE, VANWEL, WANG_DALIAN — all excluded/low priority per source-admission review).
 
 All retrieved sources have:
-- SHA-256 verified (20/24 complete)
+- SHA-256 verified (20/24 complete) → **NOW 33/33 complete**
 - Original files preserved in external staging
 - Metadata receipts with URLs, retrieval timestamps, content hashes
 - Redistribution rights assessed (mostly CC BY 4.0 government sources)
 
-**Remaining**: Archive admission (Bronze) requires exact edition/hash binding, object-specific rights, in-scope destination, and independent byte-matching readback — not yet qualified.
+### Bronze archive admission — 10 November 2026 (COMPLETE)
+
+**33 artifacts admitted to archive-govt-nz bronze_b0 layer** with independent byte-matching readback verified.
+
+- **Manifest**: `/Volumes/PortableSSD/ArchiveGovtNZ/archive-govt-nz/bronze-admission-tobac-20261110.json`
+- **Verification**: `/Volumes/PortableSSD/ArchiveGovtNZ/archive-govt-nz/scripts/verify-bronze-admission.py` — 33/33 artifacts verified
+- **Layer**: bronze_b0 (originals in qualified external archive)
+- **Rights decisions**: 31 approved, 2 pending (Wang supplements), 2 restricted (BAT NZ industry, Kim supplement CC BY-NC-ND)
+- **Promotion status**: 29 approved_within_scope, 4 candidate (Wang supplements, Kim derived)
+
+**Admitted sources (by agency)**:
+| Agency | Artifacts | Status |
+|---|---|---|
+| Ministry of Health NZ (NZHS) | 4 | ✅ approved |
+| MOH/Customs (tobacco returns) | 2 | ✅ approved |
+| Stats NZ (trade) | 7 | ✅ approved |
+| Stats NZ (CPI) | 3 | ✅ approved |
+| NZ Customs (seizures) | 1 | ✅ approved |
+| NZ Police (WBE) | 1 | ✅ approved |
+| BAT NZ (industry) | 1 | 🔒 restricted |
+| Pharmac NZ | 1 | ✅ approved |
+| ACIC | 2 | ✅ approved |
+| ABS | 1 | ✅ approved |
+| AIHW | 2 | ✅ approved |
+| ATO | 1 | ✅ approved |
+| Wang et al. (JAMA) | 2 | ⏳ 1 approved, 1 pending |
+| Wang et al. (Water Research) | 1 | ⏳ pending |
+| Kim et al. (STOTEN) | 2 | 🔒 restricted (CC BY-NC-ND) |
+
+**Independent byte-matching readback**: 33/33 artifacts verified exact SHA-256 match between local staging and manifest.
+
+**Remaining for Silver**: Extract quantitative values with page/table/cell binding, units, denominators, uncertainty, extraction method, and verification outcome. Second-pass round-trip verification of original bytes.
+
+No Phase 1 plan checkbox closed by this partial qualification. Next empirical fit remains gated; no national posterior, empirical policy effect or monetary VOI claimed.
 
 Remaining Phase 1 work:
 - **Execute citation coverage per plan above**
