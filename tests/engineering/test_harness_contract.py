@@ -223,10 +223,11 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             assert any("nox -s tests" in command for command in commands)
             assert all("upload-artifact@" not in step.get("uses", "") for step in job["steps"])
             continue
-        if path.name in {"advisory-types.yml", "scorecard.yml"}:
+        if path.name in {"advisory-types.yml", "scorecard.yml", "privacy-secrets.yml"}:
             guard = {
                 "advisory-types.yml": assert_advisory_job_guards,
                 "scorecard.yml": assert_scorecard_job_guards,
+                "privacy-secrets.yml": assert_shared_privacy_job_guards,
             }
             guard[path.name](data)
             continue
@@ -269,6 +270,35 @@ def test_actionlint_extension_is_one_exact_hosted_label() -> None:
     assert data == {"self-hosted-runner": {"labels": ["ubuntu-26.04"]}}
     policy = json.loads((ROOT / "engineering/publication-policy.json").read_text())
     assert ".github/actionlint.yaml" in policy["public_paths"]
+
+
+def assert_shared_privacy_job_guards(data) -> None:
+    """Qualify one isolated scanner without changing scientific runtime guards.
+
+    The reviewed shared action runs on Linux and provisions its own Python 3.12
+    environment because Presidio currently excludes Python 3.15. Only this exact
+    immutable action is excepted from the native scientific workload contract.
+    """
+    assert set(data) == {"name", "on", "permissions", "concurrency", "jobs"}
+    assert data["permissions"] == {"contents": "read"}
+    assert set(data["on"]) == {"pull_request", "push", "merge_group", "schedule", "workflow_dispatch"}
+    assert data["on"]["workflow_dispatch"]["inputs"]["profile"]["options"] == ["repository", "sensitive"]
+    assert set(data["jobs"]) == {"privacy-and-secrets"}
+    job = data["jobs"]["privacy-and-secrets"]
+    assert set(job) == {"name", "runs-on", "timeout-minutes", "steps"}
+    assert job["name"] == "privacy-and-secrets"
+    assert job["runs-on"] == "ubuntu-24.04"
+    assert job["timeout-minutes"] == "30"
+    assert len(job["steps"]) == 2
+    checkout, scanner = job["steps"]
+    assert all(set(step) == {"name", "uses", "with"} for step in job["steps"])
+    assert checkout["uses"] == "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+    assert checkout["with"] == {"fetch-depth": "0", "persist-credentials": "false", "submodules": "false"}
+    assert scanner["uses"] == (
+        "edithatogo/repository-standards/.github/actions/privacy-secrets@"
+        "985503bc8eae58e7d6ef36a6e5427d0077e0193c"
+    )
+    assert scanner["with"] == {"profile": "${{ inputs.profile || 'repository' }}"}
 
 
 def assert_reference_job_guards(data, path) -> None:
