@@ -225,6 +225,78 @@ Per systematic-search.md and Searchright deduplication:
 
 No Phase 1 plan checkbox closed by this framework definition. Human adjudication required before checkpoint.
 
+### Screening with exclusions — 10 November 2026 (FRAMEWORK DEFINED)
+
+Per systematic-search.md and Searchright screening contract:
+
+**Screening policy defined** at `conductor/tracks/nz_au_empirical_20261106/screening-policy-v1.json`:
+- **Schema version**: org.searchright.screening-policy.v1
+- **Review ID**: tobac-nz-au-evidence-20261106
+- **Title/Abstract reviewers**: 1 (single-owner)
+- **Full-text reviewers**: 1 (single-owner)
+- **Agent authority**: AdvisoryOnly (no auto-exclusion)
+- **Adjudication rule**: Single-owner screening; no invented second reviewer. Conflicts resolved by track owner. Unavailable full text = unresolved retrieval, not exclusion.
+
+**Eligibility criteria** (12 inclusion + 11 exclusion codes):
+| Type | Code | Label | Description |
+|---|---|---|---|
+| Inclusion | R01 | Tobacco/nicotine policy model | Policy model with empirical parameters |
+| Inclusion | R02 | WBE measurement/calibration | Nicotine/tobacco wastewater measurement evidence |
+| Inclusion | R03 | Incremental decision value | VOI of wastewater measurement over existing surveillance |
+| Inclusion | R04 | NZ/AU public datasets | Health surveys, trade, prices, customs, wastewater, health outcomes, cessation, costs |
+| Inclusion | R05 | Health/cost/equity/diffusion methods | HR-QoL/QALY, costs, equity, diffusion, competition methods |
+| Exclusion | E01 | Wrong exposure | No tobacco/nicotine/smoking/vaping content |
+| Exclusion | E02 | Wrong decision/method | No policy model, simulation, cost-effectiveness, VOI, calibration |
+| Exclusion | E03 | No transferable component | No NZ/AU transferable measurement/calibration/cost/policy |
+| Exclusion | E04 | Duplicate report | Same study in multiple publications (retained, not independent) |
+| Exclusion | E05 | Superseded edition | Superseded edition retained as context |
+| Exclusion | E06 | Inaccessible original | Full text inaccessible after reasonable attempts (pending) |
+| Exclusion | E07 | Pure non-nicotine drug WBE | Non-nicotine drug WBE without transferable component |
+| Exclusion | E08 | Individual clinical diagnosis | No population-level policy/measurement relevance |
+| Exclusion | E09 | Unrelated environmental toxicity | No tobacco/nicotine relevance |
+| Exclusion | E10 | Review as independent measurement | Review/WHO compilation not independent measurement |
+| Exclusion | E11 | Industry funding without data access | Industry-funded without verification access |
+
+**Screening process** (two-pass):
+1. **Title/Abstract screening** - All 28,115 records (S1+S3) screened against R01-R05, E01-E11
+2. **Full-text screening** - Records passing Title/Abstract screened with full-text access
+3. **Single-owner screening** - No invented second reviewer; conflicts resolved by track owner
+4. **Unavailable full text** - Unresolved retrieval, not exclusion
+
+**Decision format** (Searchright ScreeningDecision v1):
+- `decision_id`: Unique identifier
+- `review_id`: tobac-nz-au-evidence-20261106
+- `subject_id`: Record ID (e.g., pubmed-xml-xxxxxxxx)
+- `round`: TitleAbstract or FullText
+- `reviewer_id`: Single owner identifier
+- `reviewer_kind`: Human
+- `decision`: Include | Exclude | Unclear
+- `exclusion_reason`: When excluding, maps to E01-E11 with criterion_id and evidence
+- `confidence`: Optional (for agent recommendations)
+- `decided_at`: ISO 8601 timestamp
+- `rationale`: Evidence-bearing explanation
+- `eligibility_version`: screening-policy-v1
+- `agent_provenance`: Optional (for agent recommendations)
+
+**Tools available**:
+- `searchright screen record-decision <policy> <decision>` - Persist human decisions
+- `searchright screen rank` - Prioritise records without making exclusions
+- `searchright screen study-graph` - Validate record-report-study linkage
+- `searchright screen validate-ranking-calibration` - No-auto-exclusion contract
+
+**Output store**: `.searchright/review-store` (default)
+
+**Next steps for human screener**:
+1. Load screening policy: `screening-policy-v1.json`
+2. Screen Title/Abstract for all 28,115 records (recommend batching by source/family)
+3. Persist each decision via `searchright screen record-decision`
+4. Full-text screening for included records
+5. Generate PRISMA-style flow from decisions
+
+**Output location**: `.searchright/review-store` (default)
+
+No Phase 1 plan checkbox closed by this framework definition. Human screening required before checkpoint.
+
 ### G1/G2 official source searches — 10 November 2026 (SUBSTANTIALLY COMPLETE)
 
 **24 of 31 sources retrieved and staged** on `/Volumes/PortableSSD/` with SHA-256 verification. Full inventory in `phase1-source-receipts.json`.

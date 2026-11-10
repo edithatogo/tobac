@@ -1,0 +1,118 @@
+{
+  "schema_version": "org.searchright.screening-policy.v1",
+  "policy_id": "tobac-nz-au-empirical-screening-v1",
+  "review_id": "tobac-nz-au-evidence-20261106",
+  "title_abstract_reviewers": 1,
+  "full_text_reviewers": 1,
+  "agent_authority": "AdvisoryOnly",
+  "minimum_agent_sensitivity": null,
+  "independent_blinding": false,
+  "adjudication_rule": "Single-owner screening; no invented second reviewer. Conflicts resolved by track owner. Unavailable full text = unresolved retrieval, not exclusion.",
+  "eligibility_criteria": [
+    {
+      "criterion_id": "R01",
+      "label": "Tobacco/nicotine policy model with empirical parameters",
+      "description": "Study presents or uses a tobacco/nicotine policy model with empirical parameters (not purely theoretical)",
+      "type": "inclusion"
+    },
+    {
+      "criterion_id": "R02",
+      "label": "Measurement/calibration evidence for nicotine/tobacco WBE",
+      "description": "Study provides measurement or calibration evidence for nicotine/tobacco wastewater-based epidemiology",
+      "type": "inclusion"
+    },
+    {
+      "criterion_id": "R03",
+      "label": "Incremental decision value of measurement",
+      "description": "Study quantifies incremental decision value of wastewater measurement over existing surveillance",
+      "type": "inclusion"
+    },
+    {
+      "criterion_id": "R04",
+      "label": "NZ/AU public datasets and policy implementation",
+      "description": "Study uses NZ or AU public datasets (health surveys, tobacco/vaping returns, trade, prices, customs, wastewater, health outcomes, cessation, costs)",
+      "type": "inclusion"
+    },
+    {
+      "criterion_id": "R05",
+      "label": "Health, HR-QoL, cost, equity, diffusion, competition methods",
+      "description": "Study provides methods for health outcomes, HR-QoL/QALY, costs, equity, diffusion, or competition that can fill a specified model component",
+      "type": "inclusion"
+    },
+    {
+      "criterion_id": "E01",
+      "label": "Wrong exposure",
+      "description": "Study does not address tobacco, nicotine, smoking, vaping, or related nicotine products",
+      "type": "exclusion"
+    },
+    {
+      "criterion_id": "E02",
+      "label": "Wrong decision/method",
+      "description": "Study does not present a policy model, simulation, decision analysis, cost-effectiveness, VOI, or measurement calibration method",
+      "type": "exclusion"
+    },
+    {
+      "criterion_id": "E03",
+      "label": "No transferable component",
+      "description": "Study has no transferable measurement, calibration, cost, or policy component for NZ/AU context",
+      "type": "exclusion"
+    },
+    {
+      "criterion_id": "E04",
+      "label": "Duplicate report",
+      "description": "Same study reported in multiple publications (journal + conference, preprint + published, erratum + original)",
+      "type": "exclusion"
+    },
+    {
+      "criterion_id": "E05",
+      "label": "Superseded edition",
+      "description": "Superseded edition of a study (retained as context, not as independent evidence)",
+      "type": "exclusion"
+    },
+    {
+      "criterion_id": "E06",
+      "label": "Inaccessible original",
+      "description": "Original full text inaccessible after reasonable retrieval attempts (pending, not exclusion)",
+      "type": "pending"
+    },
+    {
+      "criterion_id": "E07",
+      "label": "Pure non-nicotine drug WBE",
+      "description": "Pure non-nicotine drug wastewater-based epidemiology without transferable measurement component",
+      "type": "exclusion"
+    },
+    {
+      "criterion_id": "E08",
+      "label": "Individual clinical diagnosis",
+      "description": "Individual clinical diagnosis study without population-level policy/measurement relevance",
+      "type": "exclusion"
+    },
+    {
+      "criterion_id": "E09",
+      "label": "Unrelated environmental toxicity",
+      "description": "Unrelated environmental toxicity study without tobacco/nicotine relevance",
+      "type": "exclusion"
+    },
+    {
+      "criterion_id": "E10",
+      "label": "Review/WHO compilation as independent measurement",
+      "description": "Review or WHO compilation cited as independent measurement of upstream surveys (aids discovery only, not independent)",
+      "type": "exclusion"
+    },
+    {
+      "criterion_id": "E11",
+      "label": "Industry funding without data access",
+      "description": "Industry-funded study without data access for verification",
+      "type": "exclusion"
+    }
+  ],
+  "notes": [
+    "Single-owner screening explicit; no invented second reviewer.",
+    "Unavailable full text = unresolved retrieval, not evidence of ineligibility.",
+    "Exclusion codes: E01-E11 map to systematic-search.md exclusion codes.",
+    "Two-pass: Title/Abstract then Full-Text screening.",
+    "Record operator, time, criterion, and reason for each decision.",
+    "Preserve parents, additions/removals, changed queries and screening amendments.",
+    "Re-screen affected records on source revision/retraction or policy baseline change."
+  ]
+}
