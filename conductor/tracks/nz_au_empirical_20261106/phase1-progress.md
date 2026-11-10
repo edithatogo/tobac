@@ -160,3 +160,27 @@ fit remains gated; no national posterior, empirical policy effect or monetary VO
 Final boundary/context selection also passes 43 tests in 9.84 seconds (60.6 MiB sampled
 peak). Staged publication-boundary inspection passes at 53.1 MiB. No staged deletions
 or whitespace errors were found. These checks do not establish hosted or empirical acceptance.
+
+## P1.3 matrix completion — 10 November 2026
+
+Built consolidated source/model/parameter/formula matrix from phase1-appraisal.csv (34 rows),
+first-comparison-dispositions-20261109.csv (21 records), sources.csv (16 sources), and
+decision-definition.md. Output:
+
+- `outputs/nz-au-phase1/source_model_parameter_formula_matrix.csv` — 41-row matrix with
+explicit dispositions (adopted=3, adapted=3, alternative=20, context-only=4, unavailable=5,
+excluded=6) linking each object to model components, estimands, and validation splits.
+- `outputs/nz-au-phase1/matrix_summary.md` — Gap analysis identifying 5 key blocking
+categories: (1) baseline consumption observations (0 admitted), (2) wastewater measurement
+likelihood (0 admitted), (3) independent outcome for scoring (0 admitted), (4) policy
+response calibration (0 admitted), (5) external archive & rights (0 qualified).
+
+Matrix confirms all three empirical roles blocked per first-comparison audit:
+| Required evidence role | Admitted compatible rows |
+|---|---:|
+| Country/product/time-matched consumption and lawful-supply baseline | 0 |
+| Eligible wastewater measurement likelihood | 0 |
+| Independent outcome for baseline-versus-WBE scoring | 0 |
+
+No Phase 1 plan checkbox closed by this matrix completion. Empirical fitting remains
+gated on source admission, matched-unit reconciliation, and holdout eligibility.
