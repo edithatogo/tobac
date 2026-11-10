@@ -25,8 +25,8 @@
     "engineering/test-requirements.txt": "e50a4c45a8fbf0eb9b3192d03e745aa5f2d77b99fd280b8751f42820d95f71e4",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/audit.in": "95134db9c7e3e0f7fbee4c506cfa8d4b89a0651dab3f0d94a86c5e9fcf7bb507",
-    "engineering/tools-requirements.txt": "337bbfa5b122b5e345da9f94fde9a6c799830d432f8efcc6873ec3176ebbf2ab"
+    "engineering/tools-requirements.txt": "9ed8a9139c1c0ec81a7cdcea092908f022891fffe52c974839be5787c0125e35"
   },
-  "lock_sha256": "e3f2c9a7185d2cb12d9d1fcf123e685040daf9fdb10d63fe38d99f061868d9d8",
+  "lock_sha256": "6d83337abd07a3bcb487d264e137c9b7b6a777a46d83aa6d4ab2da0d9d0e7d91",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
