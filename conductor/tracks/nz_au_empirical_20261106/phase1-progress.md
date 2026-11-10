@@ -161,9 +161,25 @@ Known limitation: S1 index discrepancy — PubMed hitCount reports 25,237 but 25
 
 S4 (101 records) and S5 (475 records) PubMed retrieval previously completed with book-kind corrections.
 
+### Citation coverage — 10 November 2026 (PLANNED)
+
+Per systematic-search.md, citation chasing required for:
+- **S3 supplement citation chasing**: cost utility/QALY/EQ-5D/quality of life/equity records (3,048 S3 records retrieved, 2,868 high-relevance for cost/QALY/equity keywords; 5 with supplement-like titles)
+- **S5 NZ-prioritised records**: 316 S1 records with NZ mention; 8 earlier S5 assessments prioritised by NZ mention (7 enter full-text retrieval queue, 2 await full-text assessment)
+- **General backward/forward citation coverage**: All admitted records need cited references extracted and citing articles identified
+
+Approach:
+1. Extract cited references from full-text XML/PDF for admitted records (backward citation)
+2. Use PubMed/EPMC citation APIs or Crossref for forward citation lookup
+3. Prioritize records with: NZ mention, policy model parameters, WBE calibration data, cost-effectiveness inputs
+4. Record citation links in search_log.csv semantics with source/date/hash provenance
+5. Screen new records through existing eligibility criteria
+
+Tools needed: Searchright citation validation, Crossref/OpenAlex APIs, or manual EPMC citation export.
+
 Remaining Phase 1 work:
 - G1/G2 official source searches (NZ: MOH, Stats NZ, Customs, Police, Justice, Treasury; AU: ACIC, ABS, AIHW, ATO, ABF, Health/TGA)
-- Citation coverage (supplements, cited references, related articles)
+- **Execute citation coverage per plan above**
 - Adjudicate duplicate candidates (213 candidate clusters, 218 duplicates, 235 retained representatives — software counts only)
 - Screen with explicit exclusions
 - Freeze operative NZ/AU baselines and observation/holdout identities
