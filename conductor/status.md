@@ -1,5 +1,37 @@
 # Reconciled repository status
 
+## Dependency and evidence reconciliation — 10 November 2026
+
+Three dependency/security candidates and one engineer reconciliation candidate merged to main at
+`8bada71` with every required check green:
+
+| PR | Result | Scope |
+|---|---|---|
+| #154 | merged `ea1379a` | click 8.5.0→8.5.1; regenerated `voiage`, `ecosystem`, `advisory` and `audit` locks. No natively pinned file changed. |
+| #156 | merged `8b482b3` | adds the pinned shared Presidio/Gitleaks `privacy-secrets.yml` workflow. Delivered as a single commit so no intermediate workflow blob required `historical_public_paths`; those raw 40-hex Git object identifiers were tripping `generic-api-key` in both the boundary scan and the shared privacy gate. |
+| #157 | merged `8703c18` | NZ/AU empirical Phase 1 documentation: PubMed S1–S5 retrieval, G1/G2 official-source retrieval, Bronze admission, citation coverage, duplicate adjudication and Title/Abstract screening. The audited 6 November acquisition receipt is unchanged; the G1/G2 inventory is a separate record. |
+| #136 | merged `8bada71` | virtualenv 21.15.5→21.15.6; regenerated `audit.lock` (also markdown-it-py 4.3.0, mdit-py-plugins 0.7.0 at resolution time). |
+
+**Native acceptance pin constraint (confirmed).** The signed capsule
+`integration/archive/hosted-native-attestation.json` pins all fifteen workflows plus
+`requirements.lock`, `noxfile.py`, several scripts and the Snakefile. Editing any pinned
+file fails every native-gated job with `Stale native acceptance pin` until an owner-held
+native renewal re-signs the capsule. Workflow edits were therefore reverted rather than
+carried; native renewal remains the only route to change a pinned workflow.
+
+**Lock platform note.** `voiage.lock` and `audit.lock` are compiled with
+`--python-platform x86_64-unknown-linux-gnu`; `ecosystem.lock` and `advisory.lock` use
+`--universal`. Regeneration is platform-independent, so no Linux-side regeneration
+workflow is required. `lock_receipt.py verify` compares recorded input hashes and lock bytes
+only.
+
+**Boundaries.** No empirical observation admits: all three first-comparison evidence roles
+still report zero rows, and the finite-state reference remains separate. Merging the lock,
+security and documentation candidates establishes software and documentation state, not
+empirical calibration, a national posterior, a causal policy effect or outside scientific
+endorsement. PR #158 (`privacy-secrets.yml` runner label `ubuntu-24.04`→`ubuntu-26.04`)
+remains open pending its own checks; it touches no natively pinned file.
+
 ## Native renewal and PR #147 local qualification — 9 November 2026
 
 On the local macOS native-admission estate, PR #147 candidate `be937950a03152006df6a6f18fb2de7ed477cd83`
