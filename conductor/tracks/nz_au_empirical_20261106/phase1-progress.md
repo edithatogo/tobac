@@ -436,7 +436,7 @@ No Phase 1 plan checkbox closed by this execution. Full-text screening requires 
 
 ### G1/G2 official source searches — 10 November 2026 (SUBSTANTIALLY COMPLETE)
 
-**24 of 31 sources retrieved and staged** on `/Volumes/PortableSSD/` with SHA-256 verification. Full inventory in `phase1-source-receipts.json`.
+**24 of 31 sources retrieved and staged** on `/Volumes/PortableSSD/` with SHA-256 verification. Full inventory in `g1-g2-source-inventory-20261109.json` (separate from the audited 6 November acquisition receipt, which remains unchanged).
 
 #### G1 — NZ Official Sources (11/14 retrieved)
 | Source | Agency | Status | Key Files |
