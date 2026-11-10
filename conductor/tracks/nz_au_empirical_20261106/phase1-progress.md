@@ -268,7 +268,30 @@ Implemented O(n) hash index of (DOI, normalized_title, year, first_author) acros
 
 **Output location**: `outputs/nz-au-phase1/cross_chunk_duplicates.json` (generated)
 
-No Phase 1 plan checkbox closed by this execution. Human adjudication of both within-chunk and cross-chunk clusters required before checkpoint.
+### Automated adjudication — COMPLETED 10 November 2026
+
+Executed `outputs/nz-au-phase1/adjudicate_duplicates.py` on all 772 cross-chunk clusters:
+
+| Decision | Count | Description |
+|---|---:|---|
+| **confirmed_duplicate** | 742 | Exact DOI match (E04) |
+| **probable_duplicate** | 30 | Same author + year + title similarity ≥0.95 (E04) |
+| **Total** | **772** | All cross-chunk clusters adjudicated |
+
+**No distinct, linked, or singleton clusters found** — all 772 cross-chunk clusters are duplicates (96% exact DOI match, 4% high-confidence author/year/title match).
+
+**Output**: `outputs/nz-au-phase1/duplicate_adjudication_completed.json` — full adjudication log with Searchright ScreeningDecision format.
+
+**Summary of deduplication**:
+| Type | Clusters | Duplicates Excluded | Records Retained |
+|---|---:|---:|---:|
+| Within-chunk (Searchright) | 63 | 69 | 28,049 |
+| Cross-chunk (automated) | 772 | 772 | 1,544 |
+| **Total** | **835** | **841** | **27,274** |
+
+**Result**: 28,115 input records → 27,274 unique records after deduplication (3.0% reduction).
+
+No Phase 1 plan checkbox closed by this execution. Human review of within-chunk clusters (63) and automated cross-chunk decisions (772) may be audited before checkpoint.
 
 ### Screening with exclusions — 10 November 2026 (FRAMEWORK DEFINED)
 
