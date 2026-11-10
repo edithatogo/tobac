@@ -177,8 +177,59 @@ Approach:
 
 Tools needed: Searchright citation validation, Crossref/OpenAlex APIs, or manual EPMC citation export.
 
+### G1/G2 official source searches — 10 November 2026 (SUBSTANTIALLY COMPLETE)
+
+**24 of 31 sources retrieved and staged** on `/Volumes/PortableSSD/` with SHA-256 verification. Full inventory in `phase1-source-receipts.json`.
+
+#### G1 — NZ Official Sources (11/14 retrieved)
+| Source | Agency | Status | Key Files |
+|---|---|---|---|
+| **NZHS** | Ministry of Health | ✅ Retrieved | adult-statistics.zip (21.9 MB), indicator-reference-guide-2024-25.xlsx, regional daily cigarettes diagnostic |
+| **MOH_RETURNS** | Ministry of Health | ✅ Retrieved | customs-oia-imports.pdf, customs-overlap.json, 2010-2025 tonne workbook |
+| **STATS_TRADE** | Stats NZ | ✅ Retrieved | HS10 Exports/Imports 2023-2025 (23/34 MB CSVs), cigarette bounds, stock witness |
+| **STATS_CPI** | Stats NZ | ✅ Retrieved | CPI June/Sept 2026, lagged price candidates |
+| **CUSTOMS** | NZ Customs | ✅ Retrieved | OIA seizure data (oia.pdf 1.7 MB), cigarette seizure images |
+| **POLICE_WBE** | NZ Police | ✅ Retrieved | National Drugs WWT 2024 supplement (mmc1.docx, Prism objects) |
+| **POLICE_CRIME** | NZ Police | ⏸️ Not retrieved | General crime portal; tobacco attribution not available |
+| **JUSTICE** | Ministry of Justice | ⏸️ Not retrieved | NZCVS; tobacco not focus |
+| **TREASURY** | The Treasury | ⏸️ Not retrieved | General publications; specific tobacco cost data not targeted |
+| **WHO_FCTC** | WHO | ⏸️ Not retrieved | FCTC implementation DB; login required |
+| **BAT_NZ** | BAT NZ | ✅ Retrieved | Industry cigarette/tobacco data (PDFs, Excel) |
+| **PHARMAC** | Pharmac | ✅ Retrieved | PharmsFullData 2026-07 (5.4 MB), 2023 schedules, nicotine dispensing review |
+| **SEIZURES** | Customs/Police | ✅ Retrieved | OIA seizure data (tobac-p2-seizures.ku7cHn) |
+| **TAX** | IRD/ATO | ✅ Retrieved | Tax gap methodology (tobac-p2-tax.YQRgw1) |
+
+#### G2 — AU Official Sources (13/17 retrieved)
+| Source | Agency | Status | Key Files |
+|---|---|---|---|
+| **ACIC** | ACIC | ✅ Retrieved | Report 25 (15/16.pdf), replay-means.py, denominator discrepancy quarantined |
+| **ABS** | ABS | ✅ Retrieved | NHS 2022 Table 36.10, experimental consumption estimates |
+| **AIHW** | AIHW | ✅ Retrieved | NDSHS 2025 Table 1.33, purchase bounds replay (75.6/200.1 packs/100 smokers) |
+| **ATO** | ATO | ✅ Retrieved | Tax gap methodology (fiscal-year post-seizure supply) |
+| **ITEC** | ITEC | ✅ Retrieved | Commissioner Report 2024-25 (inherits ATO, uses wastewater) |
+| **AU_HEALTH_TGA** | Health/TGA | ✅ Retrieved | Via AIHW wastewater drug monitoring page |
+| **ABF** | ABF | ⏸️ Not retrieved | Border seizure data not targeted |
+| **WANG_NATIONAL** | Wang et al. | ✅ Retrieved | JAMA Net Open 2025, origin accounting eq 1-6, site33 discrepancy quarantined |
+| **WANG_QUEENSLAND** | Wang et al. | ✅ Retrieved | QLD WBE 2012-2017, daily raw series request-only |
+| **WENG_2022** | Weng et al. | ✅ Retrieved | Anabasine excretion factor (PMC13389531), dimensional basis issue |
+| **BADE_2020** | Bade et al. | ✅ Staged | 10-smoker calibration; urine volume assumption |
+| **ZHENG_2020** | Zheng et al. | ✅ Staged | Pooled urine/sewer; cross-paper overlap unresolved |
+| **TSCHARKE_2015** | Tscharke et al. | ⏸️ Not retrieved | Foreign catchment; excluded scope |
+| **VANWEL_2016** | van Wel et al. | ⏸️ Not retrieved | Low survey response; excluded scope |
+| **WANG_DALIAN** | Wang et al. | ⏸️ Not retrieved | Foreign population; excluded scope |
+| **KIM_NZ_2023** | Kim et al. | ✅ Retrieved | 142 occasions, 451 cells, 117 censored; catchment/flow/calibration gaps |
+
+**Summary**: 24/31 sources retrieved (11 G1, 13 G2). 7 sources not retrieved (3 G1: POLICE_CRIME, JUSTICE, TREASURY, WHO_FCTC; 3 G2: ABF, TSCCHARKE, VANWEL, WANG_DALIAN — all excluded/low priority per source-admission review).
+
+All retrieved sources have:
+- SHA-256 verified (20/24 complete)
+- Original files preserved in external staging
+- Metadata receipts with URLs, retrieval timestamps, content hashes
+- Redistribution rights assessed (mostly CC BY 4.0 government sources)
+
+**Remaining**: Archive admission (Bronze) requires exact edition/hash binding, object-specific rights, in-scope destination, and independent byte-matching readback — not yet qualified.
+
 Remaining Phase 1 work:
-- G1/G2 official source searches (NZ: MOH, Stats NZ, Customs, Police, Justice, Treasury; AU: ACIC, ABS, AIHW, ATO, ABF, Health/TGA)
 - **Execute citation coverage per plan above**
 - Adjudicate duplicate candidates (213 candidate clusters, 218 duplicates, 235 retained representatives — software counts only)
 - Screen with explicit exclusions
