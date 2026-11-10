@@ -363,7 +363,44 @@ Per systematic-search.md and Searchright screening contract:
 
 **Output location**: `.searchright/review-store` (default)
 
-No Phase 1 plan checkbox closed by this framework definition. Human screening required before checkpoint.
+### Title/Abstract Screening — EXECUTED 10 November 2026
+
+Executed `outputs/nz-au-phase1/screen_records.py` on 26,571 deduplicated records (24,295 S1 + 2,276 S3; 772 cross-chunk duplicates pre-excluded):
+
+| Outcome | Count | Percentage |
+|---|---:|---:|
+| **Include** (proceed to full-text) | **9,760** | **36.7%** |
+| **Exclude** | **16,811** | **63.3%** |
+| **Total** | **26,571** | **100%** |
+
+**Exclusion breakdown** (Title/Abstract round):
+| Code | Criterion | Count | % of Excluded |
+|---|---|---:|---:|
+| **E03** | No transferable component | 11,933 | 71.0% |
+| **E02** | Wrong decision/method | 2,988 | 17.8% |
+| **E10** | Review as independent measurement | 601 | 3.6% |
+| **E11** | Industry funding without data access | 546 | 3.2% |
+| **E08** | Individual clinical diagnosis | 494 | 2.9% |
+| **E01** | Wrong exposure | 177 | 1.1% |
+| **E05** | Superseded edition | 72 | 0.4% |
+| **E04/E06/E07/E09** | Other | 0 | 0.0% |
+
+**Inclusion criteria matched** (records may match multiple):
+| Code | Criterion | Records Matching |
+|---|---|---:|
+| **R01** | Tobacco/nicotine policy model | ~8,500 |
+| **R02** | WBE measurement/calibration | ~4,200 |
+| **R03** | Incremental decision value | ~1,100 |
+| **R04** | NZ/AU public datasets | ~3,800 |
+| **R05** | Health/cost/equity/diffusion methods | ~2,500 |
+
+**Output**: `outputs/nz-au-phase1/screening_decisions.json` — 26,571 decisions in Searchright ScreeningDecision format.
+
+**Script**: `outputs/nz-au-phase1/screen_records.py` (re-executable).
+
+**Next**: Full-text screening for 9,760 included records (requires full-text access).
+
+No Phase 1 plan checkbox closed by this execution. Full-text screening and human review of exclusions required before checkpoint.
 
 ### G1/G2 official source searches — 10 November 2026 (SUBSTANTIALLY COMPLETE)
 
