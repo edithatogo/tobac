@@ -208,7 +208,10 @@ No Phase 1 plan checkbox closed by this partial qualification. Next empirical fi
 
 **Cross-chunk limitation**: These are **within-chunk duplicates only**. Cross-chunk duplicates (e.g., same record in chunk 0 and chunk 3) are **not captured**. The 213 clusters / 218 duplicates / 235 retained from the Searchright documentation represent the full-dataset theoretical result; chunk-based execution yields partial results.
 
-**Note**: These are **within-chunk duplicates only**. Cross-chunk duplicates (e.g., same record in chunk 0 and chunk 3) are **not captured**. The 213 clusters / 218 duplicates / 235 retained from the Searchright documentation represent the full-dataset theoretical result; chunk-based execution yields partial results.
+**Cross-chunk deduplication options evaluated**:
+1. **Full dataset searchright deduplicate**: O(n²) complexity (28,115² ≈ 790M comparisons) — timed out at >5 min for 15k records in this environment.
+2. **Searchright study-graph**: Requires manual report-study-linkage curation (YAML format), not automated deduplication.
+3. **Incremental DOI/title hashing**: Practical approach — build hash index of (DOI, normalized title, year, first author) across all 28,115 records to identify cross-chunk duplicates efficiently.
 
 **Adjudication framework defined**:
 1. **Review each cluster** - Compare titles, authors, years, DOIs, abstracts
@@ -222,18 +225,17 @@ No Phase 1 plan checkbox closed by this partial qualification. Next empirical fi
 4. **Update retained representatives** based on adjudication
 
 **Tools available**:
-- `searchright deduplicate` (re-run on full dataset — requires optimization or HPC)
+- `searchright deduplicate` (re-run on full dataset — requires HPC or optimization)
 - `searchright screen record-decision` (persist human decisions)
-- `searchright screen study-graph` (validate record-report-study linkage)
+- `searchright screen study-graph` (validate record-report-study linkage — manual curation)
 - Export clusters for manual review: `outputs/nz-au-phase1/duplicate_clusters.json`
 
 **Next steps for human adjudicator**:
-1. Re-run chunk 5 deduplication: `searchright deduplicate chunk-5.json`
-2. Review 56 within-chunk clusters with 62 proposed duplicates
-3. **For cross-chunk deduplication**: Use `searchright screen study-graph` to validate record-report-study linkages across the full dataset, or implement incremental deduplication via title/DOI hashing
-4. Apply decision criteria (exact DOI match, same authors+year+title, journal+conference, etc.)
-5. Persist decisions via `searchright screen record-decision`
-6. Update retained representatives count
+1. **Immediate**: Review 63 within-chunk clusters with 69 proposed duplicates
+2. **Cross-chunk**: Implement incremental DOI/title hash index (recommended) or run full dataset on HPC
+3. Apply decision criteria (exact DOI match, same authors+year+title, journal+conference, etc.)
+4. Persist decisions via `searchright screen record-decision`
+5. Update retained representatives count
 
 **Output location**: `/Volumes/PortableSSD/tobac-p2-search-s1s3.mV6Dai/duplicate_clusters.json` (to be generated from full deduplication)
 
