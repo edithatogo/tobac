@@ -10,7 +10,7 @@
     "engineering/advisory.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/nz-au-phase6/final-profiles-v2/advisory/advisory.lock",
+    "engineering/advisory.lock",
     "--universal",
     "--python-version",
     "3.15.2"
@@ -24,8 +24,8 @@
     "engineering/test-requirements.txt": "e50a4c45a8fbf0eb9b3192d03e745aa5f2d77b99fd280b8751f42820d95f71e4",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/advisory.in": "83be6bbb5a6ae644281f5a15652880a5288d4c261a2575d238b194bab37bf237",
-    "engineering/voiage.in": "188657badee242daa6ed58db53f5b3236936c17d6b4a460d556f33f647c739db"
+    "engineering/voiage.in": "f7a509da638b6af425fcc50a13e2fc7b8bf641fb6bfce0012d6dc2aaa55c763e"
   },
-  "lock_sha256": "624f19930c03b46be24eec7d85a6a216979e04b9cdf30dcc05fc50a02e54717e",
+  "lock_sha256": "d52abdaba87f44e194ea463783026433b2bf4b9967c8985241b09d0858feb2b3",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
