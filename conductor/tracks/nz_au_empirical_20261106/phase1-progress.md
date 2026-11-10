@@ -161,21 +161,32 @@ Known limitation: S1 index discrepancy — PubMed hitCount reports 25,237 but 25
 
 S4 (101 records) and S5 (475 records) PubMed retrieval previously completed with book-kind corrections.
 
-### Citation coverage — 10 November 2026 (PLANNED)
+### Citation coverage — 10 November 2026 (EXECUTED)
 
-Per systematic-search.md, citation chasing required for:
-- **S3 supplement citation chasing**: cost utility/QALY/EQ-5D/quality of life/equity records (3,048 S3 records retrieved, 2,868 high-relevance for cost/QALY/equity keywords; 5 with supplement-like titles)
-- **S5 NZ-prioritised records**: 316 S1 records with NZ mention; 8 earlier S5 assessments prioritised by NZ mention (7 enter full-text retrieval queue, 2 await full-text assessment)
-- **General backward/forward citation coverage**: All admitted records need cited references extracted and citing articles identified
+Per systematic-search.md, citation chasing executed for priority records via Crossref API.
 
-Approach:
-1. Extract cited references from full-text XML/PDF for admitted records (backward citation)
-2. Use PubMed/EPMC citation APIs or Crossref for forward citation lookup
-3. Prioritize records with: NZ mention, policy model parameters, WBE calibration data, cost-effectiveness inputs
-4. Record citation links in search_log.csv semantics with source/date/hash provenance
-5. Screen new records through existing eligibility criteria
+**Executed**: Crossref API queries for 21 priority DOIs covering:
+- Bronze-admitted WBE calibration sources (Kim, Wang, Weng, Bade, Zheng)
+- Australian cost-effectiveness studies (Australian National Tobacco Campaign, cessation aids, EQUIPTMOD)
+- NZ/AU comparative cost-effectiveness (100s interventions AU+NZ)
+- Generational endgame / smoke-free generation economic assessments
+- Varenicline/cytisine/cessation cost-effectiveness AU
+- Vaporized nicotine vs NRT cost-effectiveness AU
 
-Tools needed: Searchright citation validation, Crossref/OpenAlex APIs, or manual EPMC citation export.
+**Results**: 20/21 successful Crossref lookups (1 DOI not found: tc.2006.025213)
+- **Total forward citations**: 416 across 16 records
+- **Top cited**: NIHR HTA 25590 (156 citations) - cessation medicines + e-cigarettes cost-effectiveness
+- **Key calibration sources cited**: Bade 2020 (19), Zheng pooled urine (16), Zheng sewer (30), Weng 2022 (1)
+- **Australian campaign/economic**: TC 2008 (43), TC 2006 (20), EQUIPTMOD (18)
+- **Kim NZ wastewater supplement**: 0 citations (2025 publication)
+- **Wang national/Queensland**: 3 and 11 citations respectively
+
+**Output**: `outputs/nz-au-phase1/citation_coverage_20261110.json` (full Crossref metadata + citing works)
+**Script**: `outputs/nz-au-phase1/citation_coverage.py` (re-executable)
+
+**Remaining**: Backward citation extraction (references cited by admitted records) requires full-text XML/PDF access. Forward citation monitoring can be re-run via script. Citation links recorded in search_log.csv semantics with source/date/hash provenance.
+
+No Phase 1 plan checkbox closed by this partial qualification. Next empirical fit remains gated; no national posterior, empirical policy effect or monetary VOI claimed.
 
 ### G1/G2 official source searches — 10 November 2026 (SUBSTANTIALLY COMPLETE)
 
