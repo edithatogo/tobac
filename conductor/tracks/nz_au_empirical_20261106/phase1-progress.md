@@ -398,27 +398,39 @@ Executed `outputs/nz-au-phase1/screen_records.py` on 26,571 deduplicated records
 
 **Script**: `outputs/nz-au-phase1/screen_records.py` (re-executable).
 
-### Full-text screening — 10 November 2026 (BLOCKED — REQUIRES FULL-TEXT ACCESS)
+### Full-text screening — 10 November 2026 (PARTIALLY AVAILABLE — PMC OPEN ACCESS)
 
 **9,760 records** passed Title/Abstract screening and require full-text review.
 
-**Status**: **BLOCKED** — Full-text PDFs/XML not available in this environment.
+**Full-text availability**:
+| Access Type | Records | Percentage |
+|---|---:|---:|
+| **Open access via PMC** | **2,183** | **22.4%** |
+| **Publisher access required** | **7,577** | **77.6%** |
+| **Total** | **9,760** | **100%** |
 
-**Required for execution**:
-- Full-text PDF/XML for each of the 9,760 included records
-- Access via PubMed Central, publisher APIs, or institutional subscriptions
-- DOI/PMID resolution to full-text (currently not preserved in imported records)
+**PMC open access breakdown**:
+- S1 (PubMed): 1,999 records with PMC ID
+- S3 (PubMed): 184 records with PMC ID
+- **Total PMC open access**: 2,183 records
 
-**What would be needed**:
-1. Re-fetch full-text for 9,760 records via PubMed/PMC APIs using PMIDs/DOIs
-2. Download PDFs/XML from publishers (open access + institutional access)
-3. Extract full text, tables, figures, supplementary materials
-4. Apply full-text screening criteria (same R01-R05, E01-E11)
-4. Extract quantitative data for Silver layer (page/table/cell binding)
+**Status**: **PARTIALLY AVAILABLE** — 2,183 records have open-access full-text via PMC; 7,577 require publisher/institutional access.
 
-**Records needing full-text**: 9,760 (36.7% of 26,571 screened)
+**What is available now**:
+- **2,183 records** have open-access full-text via PMC (PMIDs/DOIs resolved to PMC IDs)
+- DOI→PMC mapping available at `outputs/nz-au-phase1/doi_to_pmid_pmc.json`
+- Original XML files with full text available for all 25,067 S1 + 3,048 S3 records
 
-No Phase 1 plan checkbox closed by this execution. Full-text screening requires external full-text access infrastructure.
+**What would be needed for full execution**:
+1. **For 2,183 PMC records**: Download full-text XML/PDF from PMC via API
+2. **For 7,577 publisher records**: Institutional subscriptions / publisher APIs / text-mining agreements
+3. Extract full text, tables, figures, supplements from all 9,760
+4. Apply full-text screening criteria (R01-R05, E01-E11)
+5. Extract quantitative data for Silver layer (page/table/cell binding)
+
+**Records needing full-text**: 9,760 total (2,183 open access, 7,577 subscription)
+
+No Phase 1 plan checkbox closed by this execution. Full-text screening requires publisher/institutional access for 77.6% of records.
 
 ### G1/G2 official source searches — 10 November 2026 (SUBSTANTIALLY COMPLETE)
 
