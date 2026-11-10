@@ -10,7 +10,7 @@
     "engineering/audit.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/nz-au-phase6/final-profiles-v2/audit/audit.lock",
+    "engineering/audit.lock",
     "--python-version",
     "3.15.2",
     "--python-platform",
@@ -27,6 +27,6 @@
     "engineering/audit.in": "95134db9c7e3e0f7fbee4c506cfa8d4b89a0651dab3f0d94a86c5e9fcf7bb507",
     "engineering/tools-requirements.txt": "337bbfa5b122b5e345da9f94fde9a6c799830d432f8efcc6873ec3176ebbf2ab"
   },
-  "lock_sha256": "4bcb17d64002b597082bb68ac15a71f2b81c114ae167b0c2992e648a44c5d276",
+  "lock_sha256": "e3f2c9a7185d2cb12d9d1fcf123e685040daf9fdb10d63fe38d99f061868d9d8",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
