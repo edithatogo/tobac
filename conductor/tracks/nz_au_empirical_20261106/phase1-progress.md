@@ -149,13 +149,27 @@ qualification outputs: outputs/nz-au-phase1-20261107. The bounded context now in
 these phase's protocol, task, progress, appraisals and source-specific strategies; it
 retains the existing 100,000-byte ceiling and public/private classifications.
 
-Remaining: finish PubMed S1/S3/S4/S5 and G1/G2/citation coverage; retain or resolve S1's
-index discrepancy; adjudicate duplicate candidates and screen with explicit exclusions;
-freeze current operative NZ/AU baselines and actual observation/holdout identities;
-finish original extraction, dimensions, covariance and formula matrices; qualify exact
-external archive rights/destination/readback/recovery through its existing owner.
-No Phase 1 plan checkbox is closed by this partial qualification. The next empirical
-fit remains gated; no national posterior, empirical policy effect or monetary VOI is claimed.
+### PubMed S1/S3 retrieval — 10 November 2026 (COMPLETE)
+
+All PubMed S1 and S3 records retrieved and imported via direct E-utilities API:
+- S1: 25,067 records (41 book/chapter) across 126 EFetch batches
+- S3: 3,048 records (35 book/chapter) across 16 EFetch batches
+- Both S1 seeds and S3-v3 seed recovered
+- Original XML and exact ID sets reconciled across all batches
+
+Known limitation: S1 index discrepancy — PubMed hitCount reports 25,237 but 25,236 unique records returned (one-record counting artifact). Bounded diagnostic confirmed both modes return same 999 native IDs and same next cursor; no unknown ID fabricated. All received pages available for bounded screening with incomplete flag retained.
+
+S4 (101 records) and S5 (475 records) PubMed retrieval previously completed with book-kind corrections.
+
+Remaining Phase 1 work:
+- G1/G2 official source searches (NZ: MOH, Stats NZ, Customs, Police, Justice, Treasury; AU: ACIC, ABS, AIHW, ATO, ABF, Health/TGA)
+- Citation coverage (supplements, cited references, related articles)
+- Adjudicate duplicate candidates (213 candidate clusters, 218 duplicates, 235 retained representatives — software counts only)
+- Screen with explicit exclusions
+- Freeze operative NZ/AU baselines and observation/holdout identities
+- Qualify exact external archive rights/destination/readback/recovery
+
+No Phase 1 plan checkbox closed by this partial qualification. Next empirical fit remains gated; no national posterior, empirical policy effect or monetary VOI claimed.
 
 Final boundary/context selection also passes 43 tests in 9.84 seconds (60.6 MiB sampled
 peak). Staged publication-boundary inspection passes at 53.1 MiB. No staged deletions
