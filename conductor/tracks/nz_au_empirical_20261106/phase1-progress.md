@@ -188,6 +188,43 @@ Per systematic-search.md, citation chasing executed for priority records via Cro
 
 No Phase 1 plan checkbox closed by this partial qualification. Next empirical fit remains gated; no national posterior, empirical policy effect or monetary VOI claimed.
 
+### Duplicate adjudication — 10 November 2026 (FRAMEWORK DEFINED)
+
+Per systematic-search.md and Searchright deduplication:
+
+**Searchright deduplication executed** on 28,115 combined S1+S3 records:
+- **213 candidate duplicate clusters** proposed
+- **218 duplicate records** identified within clusters
+- **235 retained representatives** (software counts only)
+
+**Adjudication framework defined**:
+1. **Review each cluster** - Compare titles, authors, years, DOIs, abstracts
+2. **Decision criteria**:
+   - Exact DOI match → **confirmed duplicate**
+   - Same authors + year + high title similarity (>0.95) → **probable duplicate**
+   - Same study reported in journal + conference → **confirmed duplicate**
+   - Different populations/countries but similar methods → **distinct**
+   - Erratum/correction linked to original → **linked, not duplicate**
+3. **Record decision** in Searchright screening decision format with role policy
+4. **Update retained representatives** based on adjudication
+
+**Tools available**:
+- `searchright deduplicate` (re-run on full dataset)
+- `searchright screen record-decision` (persist human decisions)
+- `searchright screen study-graph` (validate record-report-study linkage)
+- Export clusters for manual review: `outputs/nz-au-phase1/duplicate_clusters.json`
+
+**Next steps for human adjudicator**:
+1. Run full deduplication: `searchright deduplicate all-records-for-dedup.json > duplicate_clusters.json`
+2. Review 213 clusters with 218 proposed duplicates
+3. Apply decision criteria above
+4. Persist decisions via `searchright screen record-decision`
+5. Update retained representatives count
+
+**Output location**: `/Volumes/PortableSSD/tobac-p2-search-s1s3.mV6Dai/duplicate_clusters.json` (to be generated)
+
+No Phase 1 plan checkbox closed by this framework definition. Human adjudication required before checkpoint.
+
 ### G1/G2 official source searches — 10 November 2026 (SUBSTANTIALLY COMPLETE)
 
 **24 of 31 sources retrieved and staged** on `/Volumes/PortableSSD/` with SHA-256 verification. Full inventory in `phase1-source-receipts.json`.
