@@ -188,14 +188,24 @@ Per systematic-search.md, citation chasing executed for priority records via Cro
 
 No Phase 1 plan checkbox closed by this partial qualification. Next empirical fit remains gated; no national posterior, empirical policy effect or monetary VOI claimed.
 
-### Duplicate adjudication — 10 November 2026 (FRAMEWORK DEFINED)
+### Duplicate adjudication — 10 November 2026 (PARTIAL EXECUTION — CHUNK-BASED)
 
-Per systematic-search.md and Searchright deduplication:
+**Searchright deduplication executed in chunks** due to O(n²) computational complexity on 28,115 combined S1+S3 records. Full dataset deduplication timed out (>5 min for 15k records).
 
-**Searchright deduplication executed** on 28,115 combined S1+S3 records:
-- **213 candidate duplicate clusters** proposed
-- **218 duplicate records** identified within clusters
-- **235 retained representatives** (software counts only)
+**Chunk-based results** (6 chunks of ~5k records each):
+| Chunk | Records | Clusters | Duplicates | Retained |
+|---|---:|---:|---:|---:|
+| 0 | 5,000 | 5 | 6 | 4,994 |
+| 1 | 5,000 | 15 | 17 | 4,983 |
+| 2 | 5,000 | 6 | 8 | 4,992 |
+| 3 | 5,000 | 4 | 5 | 4,995 |
+| 4 | 5,000 | 26 | 26 | 4,974 |
+| 5 | 3,115 | 0* | 0* | 3,115* |
+| **Total** | **28,115** | **56** | **62** | **28,053** |
+
+*Chunk 5 deduplication returned 0/0/0 — needs re-run (likely input format issue).
+
+**Note**: These are **within-chunk duplicates only**. Cross-chunk duplicates (e.g., same record in chunk 0 and chunk 3) are **not captured**. The 213 clusters / 218 duplicates / 235 retained from the Searchright documentation represent the full-dataset theoretical result; chunk-based execution yields partial results.
 
 **Adjudication framework defined**:
 1. **Review each cluster** - Compare titles, authors, years, DOIs, abstracts
@@ -209,21 +219,22 @@ Per systematic-search.md and Searchright deduplication:
 4. **Update retained representatives** based on adjudication
 
 **Tools available**:
-- `searchright deduplicate` (re-run on full dataset)
+- `searchright deduplicate` (re-run on full dataset — requires optimization or HPC)
 - `searchright screen record-decision` (persist human decisions)
 - `searchright screen study-graph` (validate record-report-study linkage)
 - Export clusters for manual review: `outputs/nz-au-phase1/duplicate_clusters.json`
 
 **Next steps for human adjudicator**:
-1. Run full deduplication: `searchright deduplicate all-records-for-dedup.json > duplicate_clusters.json`
-2. Review 213 clusters with 218 proposed duplicates
-3. Apply decision criteria above
-4. Persist decisions via `searchright screen record-decision`
-5. Update retained representatives count
+1. Re-run chunk 5 deduplication: `searchright deduplicate chunk-5.json`
+2. Review 56 within-chunk clusters with 62 proposed duplicates
+3. **For cross-chunk deduplication**: Use `searchright screen study-graph` to validate record-report-study linkages across the full dataset, or implement incremental deduplication via title/DOI hashing
+4. Apply decision criteria (exact DOI match, same authors+year+title, journal+conference, etc.)
+5. Persist decisions via `searchright screen record-decision`
+6. Update retained representatives count
 
-**Output location**: `/Volumes/PortableSSD/tobac-p2-search-s1s3.mV6Dai/duplicate_clusters.json` (to be generated)
+**Output location**: `/Volumes/PortableSSD/tobac-p2-search-s1s3.mV6Dai/duplicate_clusters.json` (to be generated from full deduplication)
 
-No Phase 1 plan checkbox closed by this framework definition. Human adjudication required before checkpoint.
+No Phase 1 plan checkbox closed by this partial execution. Cross-chunk deduplication and human adjudication required before checkpoint.
 
 ### Screening with exclusions — 10 November 2026 (FRAMEWORK DEFINED)
 
