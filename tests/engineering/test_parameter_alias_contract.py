@@ -38,7 +38,8 @@ def catalogues() -> tuple[dict, dict]:
     candidate = {item["parameter_id"]: item for item in registry["parameters"]}
     older = {
         item["id"]: item
-        for item in (dict(zip(embedded["columns"], values, strict=True)) for values in embedded["records"])
+        for values in embedded["records"]
+        for item in [dict(zip(embedded["columns"], values, strict=True))]
     }
     assert len(candidate) == 65
     assert len(older) == 61
@@ -55,19 +56,23 @@ def verify(rows: list[dict[str, str]], candidate: dict, older: dict) -> None:
         original = older[row["embedded_id"]]
         assert row["admission"] == "candidate_only"
         assert (row["candidate_source"], row["embedded_source"]) == (
-            actual["source_id"], original["source_id"]
+            actual["source_id"],
+            original["source_id"],
         )
         assert actual["source_id"] == original["source_id"] or (
             actual["source_id"], original["source_id"]
         ) == ("PHARMAC_DISCOUNT", "PHARMAC_PFPA_DISCOUNT")
         assert (row["candidate_unit"], row["embedded_unit"]) == (
-            actual["unit"], original["unit"]
+            actual["unit"],
+            original["unit"],
         )
         factor = float(row["candidate_to_embedded_multiplier"])
-        assert math.isfinite(factor) and factor in (1.0, 0.01)
+        assert math.isfinite(factor)
+        assert factor in (1.0, 0.01)
         if factor == 0.01:
             assert (actual["unit"], original["unit"]) == (
-                "percentage_points", "risk_difference"
+                "percentage_points",
+                "risk_difference",
             )
         for key in ("value", "lower", "upper"):
             new, old = actual[key], original[key]
