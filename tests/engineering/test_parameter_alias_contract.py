@@ -60,7 +60,8 @@ def verify(rows: list[dict[str, str]], candidate: dict, older: dict) -> None:
             original["source_id"],
         )
         assert actual["source_id"] == original["source_id"] or (
-            actual["source_id"], original["source_id"]
+            actual["source_id"],
+            original["source_id"],
         ) == ("PHARMAC_DISCOUNT", "PHARMAC_PFPA_DISCOUNT")
         assert (row["candidate_unit"], row["embedded_unit"]) == (
             actual["unit"],
