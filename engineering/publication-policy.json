@@ -1181,6 +1181,7 @@
     "tests/engineering/test_evidence_interchange.py",
     "tests/engineering/test_execution_contracts.py",
     "tests/engineering/test_harness_contract.py",
+    "tests/engineering/test_parameter_alias_contract.py",
     "tests/engineering/test_hosted_lineage.py",
     "tests/engineering/test_lineage_gate.py",
     "tests/engineering/test_lineage_recovery.py",
