@@ -206,14 +206,19 @@ def assert_offline_security_caller_contract(data) -> None:
     assert job["with"] == {"enforce_ai": "false"}
 
 
+def assert_hosted_push_branches(data, path) -> None:
+    """Retain existing branch scope; the audited offline caller has no branch filter."""
+    if "push" in data["on"] and path.name != "offline-ai-security.yml":
+        assert data["on"]["push"]["branches"] == ["main"], path
+
+
 def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
     for path in (ROOT / ".github/workflows").glob("*.yml"):
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
+        assert_hosted_push_branches(data, path)
         if path.name == "offline-ai-security.yml":
             assert_offline_security_caller_contract(data)
             continue
-        if "push" in data["on"]:
-            assert data["on"]["push"]["branches"] == ["main"], path
         if path.name == "lineage-verifier.yml":
             job = data["jobs"]["runtime"]
             variants = {(entry["os"], entry["installer"]) for entry in job["strategy"]["matrix"]["include"]}
