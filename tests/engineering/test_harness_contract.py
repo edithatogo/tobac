@@ -287,7 +287,7 @@ def assert_shared_privacy_job_guards(data) -> None:
     job = data["jobs"]["privacy-and-secrets"]
     assert set(job) == {"name", "runs-on", "timeout-minutes", "steps"}
     assert job["name"] == "privacy-and-secrets"
-    assert job["runs-on"] == "ubuntu-24.04"
+    assert job["runs-on"] == "ubuntu-26.04"
     assert job["timeout-minutes"] == "30"
     assert len(job["steps"]) == 2
     checkout, scanner = job["steps"]
