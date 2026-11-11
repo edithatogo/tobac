@@ -190,9 +190,28 @@ def assert_advisory_job_guards(data) -> None:
     assert all("-s reproduce" not in c and "-s tests" not in c for c in commands)
 
 
+def assert_offline_security_caller_contract(data) -> None:
+    """Keep the opt-in unqualified reusable security caller narrow and explicit."""
+    assert set(data) == {"name", "on", "permissions", "jobs"}
+    assert set(data["on"]) == {"push", "pull_request", "workflow_dispatch"}
+    assert data["permissions"] == {"contents": "read"}
+    assert set(data["jobs"]) == {"offline-ai-security"}
+    job = data["jobs"]["offline-ai-security"]
+    assert set(job) == {"uses", "permissions", "with"}
+    assert job["uses"] == (
+        "edithatogo/repository-standards/.github/workflows/reusable-ai-sec-pipeline.yml@"
+        "36362fa872e4ce747266a6e795fcefa3dd343f67"
+    )
+    assert job["permissions"] == {"contents": "read"}
+    assert job["with"] == {"enforce_ai": "false"}
+
+
 def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
     for path in (ROOT / ".github/workflows").glob("*.yml"):
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
+        if path.name == "offline-ai-security.yml":
+            assert_offline_security_caller_contract(data)
+            continue
         if "push" in data["on"]:
             assert data["on"]["push"]["branches"] == ["main"], path
         if path.name == "lineage-verifier.yml":
