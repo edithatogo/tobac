@@ -61,9 +61,7 @@ def group_rss_mib(group: int, ps: str) -> float:
     )
     # ps exits 1 with no output when the scoped group has no members.
     if result.returncode not in {0, 1}:
-        raise subprocess.CalledProcessError(
-            result.returncode, result.args, result.stdout, result.stderr
-        )
+        raise subprocess.CalledProcessError(result.returncode, result.args, result.stdout, result.stderr)
     return (
         sum(
             int(rss)
@@ -97,7 +95,7 @@ def signal_group(group: int, signum: int) -> None:
         if result.returncode not in {0, 1}:
             raise subprocess.CalledProcessError(
                 result.returncode, result.args, result.stdout, result.stderr
-            )
+            ) from None
         if any(
             int(pgid) == group and not state.startswith("Z")
             for pgid, state in (line.split() for line in result.stdout.splitlines())
