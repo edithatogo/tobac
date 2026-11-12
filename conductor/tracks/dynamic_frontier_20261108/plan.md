@@ -53,7 +53,7 @@ No old receipt or signature is rewritten to represent this candidate as verified
   two-tier Merkle DAG (Runner Closure Merkle Root vs. Candidate Evidence Registry
   Merkle Root, co-designed with `archive-govt-nz`) so staging unreferenced candidate
   evidence does not invalidate unchanged runner closures.
-- [ ] Scope `scripts/run_bounded.py` macOS process-group RSS sampling (`ps -g <pgid>`)
+- [x] Scope `scripts/run_bounded.py` macOS process-group RSS sampling (`ps -g <pgid>`)
   in alignment with `repository-standards` so unrelated uninterruptible system processes
   cannot stall bounded test or `pre-push` execution.
 

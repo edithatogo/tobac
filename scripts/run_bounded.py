@@ -41,13 +41,18 @@ def child_environment() -> dict[str, str]:
 def group_rss_mib(group: int, ps: str) -> float:
     """Sum resident memory for the owned process group using a bounded native probe."""
     result = subprocess.run(  # noqa: S603 -- Resolved ps executable and fixed argv; no shell.
-        [ps, "-axo", "pgid=,rss="],
+        [ps, "-g", str(group), "-o", "pgid=,rss="],
         capture_output=True,
         text=True,
         encoding="utf-8",
         timeout=5,
-        check=True,
+        check=False,
     )
+    # ps exits 1 with no output when the scoped group has no members.
+    if result.returncode not in {0, 1}:
+        raise subprocess.CalledProcessError(
+            result.returncode, result.args, result.stdout, result.stderr
+        )
     return (
         sum(
             int(rss)
@@ -71,13 +76,17 @@ def signal_group(group: int, signum: int) -> None:
         if ps is None:
             raise
         result = subprocess.run(  # noqa: S603 -- Resolved ps and fixed argv.
-            [ps, "-axo", "pgid=,stat="],
+            [ps, "-g", str(group), "-o", "pgid=,stat="],
             capture_output=True,
             text=True,
             encoding="utf-8",
             timeout=5,
-            check=True,
+            check=False,
         )
+        if result.returncode not in {0, 1}:
+            raise subprocess.CalledProcessError(
+                result.returncode, result.args, result.stdout, result.stderr
+            )
         if any(
             int(pgid) == group and not state.startswith("Z")
             for pgid, state in (line.split() for line in result.stdout.splitlines())
