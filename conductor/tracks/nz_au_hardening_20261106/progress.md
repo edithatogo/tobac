@@ -126,3 +126,19 @@ its test. The current bundle passes; future expansion must not be silently trunc
 ## Integrated foundation closeout
 
 The 7 November integration closes local Phase 0 package/suite/native/security gates; see integration/archive/empirical-phase0-checkpoint_20261107.json. Frozen capture README/index editions are preserved byte-for-byte and current links are maintained separately in docs/engineering/SOURCE_MAP_NAVIGATION.md. Earlier zero-missing-link counts describe their recorded source snapshot, not immutable historical captures. H2 remains subject to empirical acceptance, current-packet hosted/receiving proof and release/recovery. No metadata, PR/issue, branch or visibility mutation occurred.
+
+## PR 163 integration qualification — 12 November 2026
+
+The externally published Ruff correction at `ffbdbc31c30bea8056f838f2c30dfbeebe8be885`
+is retained while integrating current main `9cfa70c3f98e8b3eb655462832d440d671d1d17d`.
+The merge adds main's existing offline security workflow and its publication/harness
+contracts. It does not replace the process-group monitoring implementation.
+
+On Linux with exact Python 3.15.2 and the hash-checked audit lock, Nox `strict_all`
+passes: nine Ruff policy tests, all maintained-source lint, 193 formatted Python
+files and whole-source typing with zero errors or warnings. The resource-guard and
+workstream integration selection passes 67 tests; the merged harness contract
+passes 26 tests. These checks qualify the changed integration scope. Native macOS
+execution, full-suite coverage, numerical replay and hosted required checks retain
+their separate evidence; this receipt does not mark pending CI successful. The
+receiving ref is checked after the guarded publication.

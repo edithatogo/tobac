@@ -466,6 +466,7 @@
     ".github/workflows/lineage-verifier.yml",
     ".github/workflows/linux-audit.yml",
     ".github/workflows/longitudinal.yml",
+    ".github/workflows/offline-ai-security.yml",
     ".github/workflows/package-portability.yml",
     ".github/workflows/privacy-secrets.yml",
     ".github/workflows/publication-security.yml",
