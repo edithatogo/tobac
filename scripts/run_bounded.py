@@ -38,10 +38,21 @@ def child_environment() -> dict[str, str]:
     return environment
 
 
+def ps_group_argv(ps: str, fields: str, group: int) -> list[str]:
+    """Scope the probe to one process group where ``ps -g`` means a group id.
+
+    BSD/macOS ``ps -g`` selects process groups; procps on Linux uses it for sessions
+    and group names, so other platforms keep the full listing filtered by caller.
+    """
+    if sys.platform == "darwin":
+        return [ps, "-g", str(group), "-o", fields]
+    return [ps, "-axo", fields]
+
+
 def group_rss_mib(group: int, ps: str) -> float:
     """Sum resident memory for the owned process group using a bounded native probe."""
     result = subprocess.run(  # noqa: S603 -- Resolved ps executable and fixed argv; no shell.
-        [ps, "-g", str(group), "-o", "pgid=,rss="],
+        ps_group_argv(ps, "pgid=,rss=", group),
         capture_output=True,
         text=True,
         encoding="utf-8",
@@ -76,7 +87,7 @@ def signal_group(group: int, signum: int) -> None:
         if ps is None:
             raise
         result = subprocess.run(  # noqa: S603 -- Resolved ps and fixed argv.
-            [ps, "-g", str(group), "-o", "pgid=,stat="],
+            ps_group_argv(ps, "pgid=,stat=", group),
             capture_output=True,
             text=True,
             encoding="utf-8",
