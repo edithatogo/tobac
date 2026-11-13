@@ -1,5 +1,19 @@
 # Roadmap
 
+## Deferred access-dependent empirical expansion — 11 November 2026
+
+These requirements are **out of active scope**, not waived or presumed complete. The 10 November phase-1 retrieval and screening programme identified 9,760 reports for full-text review, of which 2,183 have a PMC-accessible route and 7,577 require publisher/institutional access. The active public-only task can use the accessible subset with a prespecified targeted appraisal; it does not depend on resolving all 7,577. Do not attempt licence circumvention, institutional subscription use without authority, new requests, paid access or field collection as part of the current sprint.
+
+Future applied work, **only with explicit owner permission and appropriate data-rights/governance arrangements**:
+
+- Secure legal access and rights for non-open full texts/supplements that materially affect specific estimands; retain source edition, selection, rights, bias and quantitative extraction evidence.
+- Acquire appropriately governed raw catchment flow, contributing populations, paired biomarker assays, processing/censoring, and independent product consumption/validation records where missing from public sources.
+- Where justified, pursue consented/authorised individual-level or linked cohort transitions, service implementation and causal intervention-response evidence; no observation should be imputed from aggregate survey marginals.
+- Assess eligible institutional, Māori/Indigenous, ethical, privacy and publication approvals before restricted-data work, collection or operational decision claims.
+- Reopen the prespecified ≥3 complete prior-year/complete holdout-year and ≥4 comparable-catchment validation conditions only when actual compatible observations exist. They remain unchanged, not softened because they cannot presently be met.
+
+The current independent public-only deliverable is an auditable *non-identification/decision-sufficiency methods* result, linked from [issue #3](https://github.com/edithatogo/tobac/issues/3) and the [empirical track](tracks/nz_au_empirical_20261106/index.md). Synthetic tests and conditional sensitivity analysis may validate methods but cannot validate observed NZ policy effects, target-specific WBE predictive performance or monetary study value.
+
 This file records work intentionally deferred from active Conductor tracks. Items here are
 planning commitments, not current development tasks, implementation authorization, or evidence
 that a platform has passed qualification. There is no target date until the maintainer reprioritizes

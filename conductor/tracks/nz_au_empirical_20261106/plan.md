@@ -1,5 +1,19 @@
 # Implementation plan
 
+## Active public-only boundary and next executable slices — 11 November 2026
+
+This section is the **current work definition**; older continuation and exploratory access tasks below are preserved as historical progress/evidence rather than overriding this scope. The [11 November issue #3 reconciliation](https://github.com/edithatogo/tobac/issues/3) distinguishes a present, completable public-evidence feasibility/identifiability methods result from a later, potentially access-dependent matched NZ/AU comparison. Subscriptions, unpublished records, raw non-public assay/catchment data, custodian applications, new collection and external contact are [deferred](../../roadmap.md#deferred-access-dependent-empirical-expansion--11-november-2026), not permitted active work.
+
+- [x] Source-native retrieval, DOI/report deduplication and title/abstract screening recorded for 26,571 deduplicated records: 9,760 forwarded and 16,811 excluded; neither number represents completed full-text eligibility.
+- [x] Record 2,183 PMC-accessible full-text routes and 7,577 access-dependent records as **access dispositions** only. The public-only active review should select and justify a bounded decision-relevant subset; deferred access-dependent sources are not an all-or-nothing milestone.
+- [x] Independently hash-read back 33 external Bronze artifacts, preserving rights/eligibility distinctions; no automatic Silver/Gold observation promotion or all-source licence approval.
+- [x] Preserve the executed first-comparison audit's three blocked data roles and 28 non-compatible source-handoff rows. No empirical likelihood, policy effect or paired held-out score was produced.
+- [ ] Screen/appraise the bounded, public-accessible full-text subset with report-study linkage, result locators, uncertainty/transport assessment and shared-data IDs; explicitly report the selection rule and unreviewed residual corpus.
+- [ ] Reconcile source-to-parameter-to-code identity and implement exact bounded decision-sufficiency checks on public facts/declared scenarios, with negative controls for duplicate, stale, inaccessible and incompatible evidence.
+- [ ] Produce a reproducible public-only non-identification/conditional methods output; keep its title/claims, source-use status, code hashes and validation limitations explicit. Any later applied fit remains gated by the unchanged observation and causal/holdout contracts.
+
+**CI and repository boundaries:** the exact Ubuntu 26.04 privacy runner contract was qualified in merged PR #158. PR #161 carries candidate parameter alias tests; do not mark the tests qualified or merged until their own checks complete. Draft PR #160 is a separate offline-security workflow and does not pass its intended field/agent adversarial acceptance merely because conventional hosted CI tests are green. Nox remains engineering orchestration, and the existing Snakemake analytical controller can later carry an opt-in eligible-input DAG without inventing observations.
+
 ## Active continuation — 9 November 2026
 
 The [closure task](closure-task-card-20261109.md) continues diagnostics,
