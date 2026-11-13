@@ -146,3 +146,21 @@ successfully. The resource guard reports 340.9 MiB sampled peak RSS and exit 0.
 All seven lock-receipt profiles verify their input and output bytes. Native macOS
 execution and the complete hosted checks remain separate gates; no empirical or
 scientific release acceptance is inferred from these software checks.
+
+
+## PR 163 integration qualification — 12 November 2026
+
+The externally published Ruff correction at `ffbdbc31c30bea8056f838f2c30dfbeebe8be885`
+is retained while integrating current main `9cfa70c3f98e8b3eb655462832d440d671d1d17d`.
+The merge adds main's existing offline security workflow and its publication/harness
+contracts. It does not replace the process-group monitoring implementation.
+
+On Linux with exact Python 3.15.2 and the hash-checked audit lock, Nox `strict_all`
+passes: nine Ruff policy tests, all maintained-source lint, 193 formatted Python
+files and whole-source typing with zero errors or warnings. The resource-guard and
+workstream integration selection passes 67 tests; the merged harness contract
+passes 26 tests. These checks qualify the changed integration scope. Native macOS
+execution, full-suite coverage, numerical replay and hosted required checks retain
+their separate evidence; this receipt does not mark pending CI successful. The
+receiving ref is checked after the guarded publication.
+
