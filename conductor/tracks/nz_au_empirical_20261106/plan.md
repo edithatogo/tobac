@@ -141,6 +141,51 @@ The API route has local byte verification and awaits hosted qualification.
 - [ ] Evaluate held-out predictions and incremental wastewater information over existing evidence; report unpriced cost ceilings when actual costs are absent.
 - [ ] Checkpoint: publish a reproducible bounded result or explicit non-identification finding before expanding policy mechanisms; no national funding claim without supporting evidence.
 
+## Customs interception data — contextual use only (non-identified)
+
+The NZ Customs Service 'Non-drug Interceptions' dashboard (Tableau Public, verified 21 October 2026) publishes seizure/interception counts by product category, location and quarter.
+
+**Status:** Archived to `engineering/conductor/tracks/nz_au_empirical_20261106/outputs/engineering/customs/tobacco_interceptions.xlsx.json` with full source provenance, SHA-256 byte verification, rights decisions (CC BY 4.0 Crown copyright), and the extraction toolchain (`fetch.py`, `extract.py`, `build_xlsx.py`).
+
+**Usable as:**
+- Contextual comparator: interception volumes as enforcement-activity signal alongside policy timing.
+- Sensitivity parameter bounds for lawful-supply/duty-paid division (combined with Stats NZ HS10 monthly trade and Customs OIA excise data).
+- Auxiliary scenario input for policy contrast modelling.
+
+**Not usable as:**
+- Independent consumption outcome: interception counts are enforcement activity, not consumption.
+- Likelihood-admissible measurement: SUM values combine incompatible units (Grams + Items + mLs + Incidents) into single totals; per-category measure splits are not extractable.
+- Causal policy effect: no exogenous variation in enforcement; no counterfactual.
+- Denominator for WBE likelihood: no catchment-level population denominator or catchment-flow linkage.
+
+**Source artefacts archived to `engineering/archive-govt-nz-global` on Hugging Face:**
+- Customs OIA 25-187 (tobacco imports volume & excise)
+- Customs OIA 25-083 (seizure data)
+- Customs excise duties table 2025 & 2022 amendment order
+- ACIC NWDMP Reports 16–25 (wastewater monitoring programme)
+- Treasury OIA 20240151 & 20250377 (tax outturn / monthly heated tobacco imports)
+- Stats NZ HS10 monthly trade (lawful-supply bridge)
+- Health NZ tobacco returns workbook (tonnage data)
+
+## Additional data access required
+
+The following public datasets and custodian-held records remain unobtained under the public-only, no-request boundary. Each is required to close a specific identification gap in `conductor/research-gates.md`:
+
+| Data gap | Source custodian | Access route | Required for |
+|---|---|---|---|
+| Monthly domestic duty-point tobacco removals | NZ Customs / IRD | OIA request (public endpoint not yet found) | Lawful-supply bridge
+| Tobacco stock (manufacturer/importer/retailer) | Firms / Customs | Custodian request (commercial confidence) | Stock-flow bridge for lawful-supply balance
+| Lawful non-duty flows (duty-free, traveller allowances) | NZ Customs | OIA request | Lawful-supply bridge
+| NZHS catchment-month consumption / microdata | Stats NZ / Ministry of Health | IDI or data-lab application | Target-applicable consumption observation
+| Wastewater catchment flow & contributing population | Territorial authorities / Water NZ / ESR | Custodian request | WBE likelihood denominator
+| WBE assay censoring limits & paired-assay covariance | ESR / research teams | Custodian request | Eligible measurement likelihood
+| Full-year wastewater holdout + 3 prior years | ESR / regional councils | Custodian request | Temporal holdout validation
+| Net cessation / switching / criminal harm estimates | Health NZ / Pharmac / research | IDI or elicitation | Policy contrast calibration
+| Incremental WBE surveillance costs | Councils / ESR / programme operators | Custodian request | Cost-effectiveness denominator
+| Māori governance / permissible use determinations | Māori governance networks / Crown | Authority determination | Governance cost constraint
+
+**Do not request access externally under the public-only boundary.** These items remain open as identification limits; the existing non-identification result stands until either public data emerges or authority-approved access is granted through the owner.
+
 ## Phase 3 — Policy, health and equity expansion (R05–R08, R12, R18)
 
 P3.1 readiness preparation is in phase3-design.md and phase3-module-matrix.csv.

@@ -614,6 +614,140 @@
       "source_references": [],
       "role": "consumer_extraction_or_assumption_not_original_source",
       "scientific_qualification": "unchanged"
+    },
+    {
+      "path": "data/raw/ministry_health/nzhs_2024_25_prevalences.csv",
+      "sha256": "c23b4002fb1f4780ee57b5f6b5245578f3e1ab49cb98c875ea7f817735955315",
+      "rows": 47708,
+      "columns": [
+        "population",
+        "short.description",
+        "year",
+        "group",
+        "total",
+        "flag_for_publishing",
+        "total.low.CI",
+        "total.high.CI",
+        "male",
+        "male_flag_for_publishing",
+        "male.low.CI",
+        "male.high.CI",
+        "female",
+        "female_flag_for_publishing",
+        "female.low.CI",
+        "female.high.CI",
+        "estimated.number",
+        "estimated.number.low.CI",
+        "estimated.number.high.CI"
+      ],
+      "source_references": [],
+      "role": "consumer_extraction_or_assumption_not_original_source",
+      "scientific_qualification": "unchanged"
+    },
+    {
+      "path": "data/raw/nz_customs/incidents_by_location.csv",
+      "sha256": "45c6df4e2d9e57ebd2bfd8a325987e8aa1d1af033542047e128ae9f013b00024",
+      "rows": 4,
+      "columns": [
+        "Location",
+        "Incidents"
+      ],
+      "source_references": [],
+      "role": "consumer_extraction_or_assumption_not_original_source",
+      "scientific_qualification": "unchanged"
+    },
+    {
+      "path": "data/raw/nz_customs/incidents_by_quarter.csv",
+      "sha256": "7722ce2049198c37e31dc2184128f35db0d6bf5e4ecfce30781c3d3bcb875fb7",
+      "rows": 50,
+      "columns": [
+        "Quarter",
+        "Incidents"
+      ],
+      "source_references": [],
+      "role": "consumer_extraction_or_assumption_not_original_source",
+      "scientific_qualification": "unchanged"
+    },
+    {
+      "path": "data/raw/nz_customs/interceptions_by_port.csv",
+      "sha256": "5d22434c78b9ba61105de51db635a8ed6b7a978de96eff7899896a6d2b5cf466",
+      "rows": 27,
+      "columns": [
+        "Port",
+        "Grams",
+        "Millilitres",
+        "Items",
+        "Incidents",
+        "Latitude",
+        "Longitude"
+      ],
+      "source_references": [],
+      "role": "consumer_extraction_or_assumption_not_original_source",
+      "scientific_qualification": "unchanged"
+    },
+    {
+      "path": "data/raw/nz_customs/item_type_long.csv",
+      "sha256": "5786dd511b80a16b86b5f1b2c222e1f6b07c521ded41a0dbbfa6f91d779a382c",
+      "rows": 84,
+      "columns": [
+        "Sub-category",
+        "Measure",
+        "Value"
+      ],
+      "source_references": [],
+      "role": "consumer_extraction_or_assumption_not_original_source",
+      "scientific_qualification": "unchanged"
+    },
+    {
+      "path": "data/raw/nz_customs/item_type_summary.csv",
+      "sha256": "986abf6bd3afeb3db78b087d15830de63b47efac60779b92d80d9493cbd23718",
+      "rows": 21,
+      "columns": [
+        "Sub-category",
+        "Incidents",
+        "Items",
+        "Grams",
+        "mls"
+      ],
+      "source_references": [],
+      "role": "consumer_extraction_or_assumption_not_original_source",
+      "scientific_qualification": "unchanged"
+    },
+    {
+      "path": "data/source_register.csv",
+      "sha256": "bbd76ab0f9119ac420fabf03154d4ea8537f424da065b02a1791bdbd9f183555",
+      "rows": 28,
+      "columns": [
+        "source_id",
+        "requirement_id",
+        "source_title",
+        "publisher",
+        "custodian",
+        "landing_page_url",
+        "direct_download_url",
+        "access_type",
+        "licence",
+        "publication_date",
+        "observation_start",
+        "observation_end",
+        "temporal_resolution",
+        "geographical_resolution",
+        "product_resolution",
+        "variable_names",
+        "measurement_type",
+        "file_format",
+        "local_raw_path",
+        "local_processed_path",
+        "sha256",
+        "acquisition_status",
+        "verification_status",
+        "identification_relevance",
+        "limitations",
+        "next_action"
+      ],
+      "source_references": [],
+      "role": "consumer_extraction_or_assumption_not_original_source",
+      "scientific_qualification": "unchanged"
     }
   ],
   "qualification": "File fixity and exact source-ID mapping; values, units, covariance, assumptions and row-level scientific status remain authoritative in consumer files.",
