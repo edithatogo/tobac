@@ -18,9 +18,8 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT / "scripts"), str(ROOT / "src")]
 
-from tobac.partial_identification import (
+from tobac.partial_identification import (  # noqa: E402 -- Select this checkout for direct CLI execution.
     Interval,
-    RatioBounds,
     accounting_bounds,
     restriction_bounds,
 )
@@ -37,23 +36,19 @@ def check_restriction_sufficiency(total: Interval | None, lawful: Interval | Non
         "quitting_upper": result.quitting.upper if result.quitting else None,
         "switching_lower": result.switching.lower if result.switching else None,
         "switching_upper": result.switching.upper if result.switching else None,
-        "quitting_span": (
-            result.quitting.upper - result.quitting.lower if result.quitting else None
-        ),
-        "switching_span": (
-            result.switching.upper - result.switching.lower if result.switching else None
-        ),
-        "decision_identifiable": bool(
+        "quitting_span": (result.quitting.upper - result.quitting.lower if result.quitting else None),
+        "switching_span": (result.switching.upper - result.switching.lower if result.switching else None),
+        "parameter_point_identified": bool(
             result.feasible
             and result.quitting is not None
             and result.switching is not None
-            and result.quitting.upper - result.quitting.lower < 1.0
-            and result.switching.upper - result.switching.lower < 1.0
+            and result.quitting.upper == result.quitting.lower
+            and result.switching.upper == result.switching.lower
         ),
     }
 
 
-def check_accounting_sufficiency(
+def check_accounting_sufficiency(  # noqa: PLR0913, PLR0917 -- Explicit dimensioned accounting components.
     releases: Interval,
     reporting_bias: Interval,
     unrecorded: Interval,
@@ -75,7 +70,7 @@ def check_accounting_sufficiency(
         "lawful_lower": result.lower,
         "lawful_upper": result.upper,
         "lawful_span": span,
-        "decision_identifiable": bool(span < 1.0),
+        "parameter_point_identified": bool(span == 0),
     }
 
 
@@ -93,14 +88,10 @@ def run_benchmark() -> dict[str, Any]:
     results["lawful_only"] = check_restriction_sufficiency(None, Interval(0.8, 0.8))
 
     # Scenario 4: Exact matched ratios (ideal but unavailable)
-    results["exact_ratios"] = check_restriction_sufficiency(
-        Interval(0.9, 0.9), Interval(0.72, 0.72)
-    )
+    results["exact_ratios"] = check_restriction_sufficiency(Interval(0.9, 0.9), Interval(0.72, 0.72))
 
     # Scenario 5: Incompatible model (empty, not clipped)
-    results["incompatible"] = check_restriction_sufficiency(
-        Interval(0.5, 0.6), Interval(0.8, 0.9)
-    )
+    results["incompatible"] = check_restriction_sufficiency(Interval(0.5, 0.6), Interval(0.8, 0.9))
 
     # Scenario 6: Accounting with known gaps (stock/lawful flow bridges missing)
     results["accounting_gapped"] = check_accounting_sufficiency(
@@ -122,20 +113,19 @@ def run_benchmark() -> dict[str, Any]:
         wastage=Interval(0, 0),
     )
 
-    # Summary: how many scenarios yield decision-identifiable results?
-    identifiable_count = sum(
-        1 for v in results.values() if v.get("decision_identifiable", False)
-    )
+    # Summary: parameter point identification is separate from action identification.
+    identifiable_count = sum(1 for v in results.values() if v.get("parameter_point_identified", False))
     total_scenarios = len(results)
 
     results["summary"] = {
         "total_scenarios": total_scenarios,
-        "decision_identifiable_scenarios": identifiable_count,
-        "not_identifiable_scenarios": total_scenarios - identifiable_count,
-        "identification_rate": identifiable_count / total_scenarios if total_scenarios else 0.0,
-        "overall_status": "comparison_not_identifiable"
-        if identifiable_count == 0
-        else "partially_identifiable",
+        "parameter_point_identified_scenarios": identifiable_count,
+        "not_point_identified_scenarios": total_scenarios - identifiable_count,
+        "parameter_point_identification_fraction": identifiable_count / total_scenarios
+        if total_scenarios
+        else 0.0,
+        "decision_identification_assessed": False,
+        "reason": "No action set or payoff function supplied; use decision_sufficiency.py",
     }
 
     return results
@@ -144,13 +134,14 @@ def run_benchmark() -> dict[str, Any]:
 def write_benchmark(path: Path, results: dict[str, Any]) -> None:
     """Write the benchmark results as JSON."""
     output = {
-        "schema": "tobac.decision_identification_benchmark.v1",
+        "schema": "tobac.decision_identification_benchmark.v2",
         "generated_by": "scripts/decision_identification_benchmark.py",
         "method": "restriction_bounds + accounting_bounds from tobac.partial_identification",
         "no_likelihood_posterior_fitted": True,
         "results": results,
     }
-    path.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
+    with path.open("x", encoding="utf-8") as stream:
+        stream.write(json.dumps(output, indent=2) + "\n")
 
 
 def main() -> None:

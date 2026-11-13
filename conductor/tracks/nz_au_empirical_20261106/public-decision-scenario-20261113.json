@@ -1,0 +1,8 @@
+{
+  "scope": "Synthetic finite oracle demonstration; not NZ policy payoffs or admitted evidence",
+  "value_unit": "hypothetical common utility units",
+  "states": ["low_response", "high_response"],
+  "actions": ["act", "wait"],
+  "payoffs": [["-2", "0"], ["3", "0"]],
+  "empirical_admission": false
+}
