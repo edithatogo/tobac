@@ -1,12 +1,13 @@
 # Engineering execution, dependency locks and qualification
 
-Current source requires Python 3.15.2. The latest accepted main checkpoint is
-`d0e832b`, with its native acceptance recorded in
-[integration/archive/scientific-lineage-checkpoint_empirical_p3_strict_20261108.json](../../integration/archive/scientific-lineage-checkpoint_empirical_p3_strict_20261108.json).
-That receipt does not cover the dynamic/data candidate in PR #147. Its added
-scientific inventory requires fresh native qualification and a renewed signed
-capsule before the gated scientific workloads can run. Historical receipts below
-retain their original source/runtime scope.
+Current source requires Python 3.15.2. The current native acceptance is recorded
+in [the BF1/BF2 checkpoint](../../integration/archive/scientific-lineage-checkpoint_bf1_bf2_20261113.json)
+and [methods-source acceptance](../../integration/archive/bf1-bf2-source-acceptance_20261113.json).
+Eight fresh native executions were independently reopened, verifying 335 input
+references and 140 outputs. All 82 scientific CSVs matched the preceding
+checkpoint. The signed capsule binds the scientific input contract and reviewed
+methods-source hashes. Local Nox tests passed 1,562 cases with 18 capability skips.
+Earlier receipts below retain their dated source and runtime scope.
 
 ## Current development platform
 

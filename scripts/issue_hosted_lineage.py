@@ -21,7 +21,8 @@ from hosted_lineage import (
     digest,
     inventory_identity,
 )
-from lineage_preflight import verify
+from lineage_preflight import METHODS_ACCEPTANCE, METHODS_ACCEPTANCE_SHA, verify
+from runner_provenance import verified_bytes
 from source_handoff import read
 
 
@@ -64,6 +65,12 @@ def issue(key: Path, out: Path) -> None:
         "workflow/Snakefile",
     ]
     pins.extend(p.relative_to(ROOT).as_posix() for p in (ROOT / ".github/workflows").glob("*.yml"))
+    methods = json.loads(verified_bytes(ROOT / METHODS_ACCEPTANCE, METHODS_ACCEPTANCE_SHA))
+    pinned = {name: digest(ROOT / name) for name in sorted(pins)}
+    pinned[METHODS_ACCEPTANCE] = METHODS_ACCEPTANCE_SHA
+    for path, expected in methods["source_sha256"].items():
+        verified_bytes(ROOT / path, expected)
+        pinned[path] = expected
     document = {
         "schema": "tobac.signed-native-lineage/v1",
         "issuer": IDENTITY,
@@ -78,7 +85,7 @@ def issue(key: Path, out: Path) -> None:
         ),
         "verifier_sha256": digest(ROOT / "scripts/hosted_lineage.py"),
         "inventory_sha256": inventory_identity(ROOT),
-        "pins": {name: digest(ROOT / name) for name in sorted(pins)},
+        "pins": dict(sorted(pinned.items())),
         "native_readback": native,
         "runners": {
             name: {field: run[field] for field in fields}

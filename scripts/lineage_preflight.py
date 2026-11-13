@@ -17,10 +17,12 @@ import scientific_lineage as scientific  # noqa: E402 -- Select checkout sources
 from source_handoff import checked, read  # noqa: E402 -- Select checkout sources inside the isolated verifier.
 lazy from extract_moh_lineage import NativeStore  # noqa: E402 -- Producer protocol from this checkout.
 
-CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_dynamic_evidence_20261109.json"
-CHECKPOINT_SHA = "72698ce972712e672271ab054b7547d13aaec8f559408af8461f9254c36d8fa6"
+CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_bf1_bf2_20261113.json"
+CHECKPOINT_SHA = "afc7636e8f2512695c3ab33b224819155539288527e8a11937152821b5cb36b0"
 INTERFACE_SHA = "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373"
-INVENTORY_SHA = "38304702a35a556b0c422cebc6dfeb0dbd3ff8d95792b70818e9099170e5d9a1"
+INVENTORY_SHA = "38102d5614683c0a65e260538b6823f58b4ed6365c8fe651e737c69e40d37dd7"
+METHODS_ACCEPTANCE = "integration/archive/bf1-bf2-source-acceptance_20261113.json"
+METHODS_ACCEPTANCE_SHA = "ce6627c100f583f0510e22da6fd6d60e2e18d7d0e73c1c302fb9c0e2be9e4cd6"
 
 
 def inventory_identity(root: Path) -> str:
@@ -57,6 +59,14 @@ def checked_pins(root: Path) -> dict[str, Any]:
     if inventory_identity(root) != INVENTORY_SHA:
         msg = "Dataset or operation inventory changed; review its lineage before qualification"
         raise ValueError(msg)
+    methods = json.loads(
+        scientific.runners.verified_bytes(checked(root, METHODS_ACCEPTANCE), METHODS_ACCEPTANCE_SHA)
+    )
+    if methods["inventory_sha256"] != INVENTORY_SHA:
+        msg = "Methods acceptance inventory differs from the reviewed generation"
+        raise ValueError(msg)
+    for path, expected in methods["source_sha256"].items():
+        scientific.runners.verified_bytes(checked(root, path), expected)
     return checkpoint
 
 

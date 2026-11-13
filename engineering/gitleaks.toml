@@ -17,3 +17,12 @@ regexes = ['''^\s*"release-secrets[.]log": "e050580e7b14bd40887e5dc3fc9537af3d7a
 description = "Public reCAPTCHA site keys in downloaded AIHW source HTML"
 condition = "OR"
 paths = ['''^data/raw/''']
+
+# The signed capsule records the verified SHA-256 of the public workflow.
+# Adjudicate this exact digest at its exact JSON path and complete line.
+[[allowlists]]
+description = "Verified public workflow digest in the signed native capsule"
+condition = "AND"
+paths = ['''^integration/archive/hosted-native-attestation[.]json$''']
+regexTarget = "line"
+regexes = ['''^\s*"[.]github/workflows/privacy-secrets[.]yml": "d14ec409a883579f5b62818ac4e06612252a011f247072f48e9ecc23d1a22fe0",?\s*$''']

@@ -400,3 +400,31 @@ pass. The inventory difference is the single new `src/tobac/credal.py` member.
 Native acceptance renewal remains with its existing owner. The local source and
 synthetic-method checkpoint is ready for that handoff, with author/scientific
 manuscript decisions and empirical admission retaining their earlier status.
+
+## Native acceptance renewal and merge — 13 November 2026
+
+The owner authorises chat `01a1d426-0c2d-7ed2-b91a-fa5f2e2c5372` to renew
+acceptance, resolve the remaining 20 failures and merge the BF1/BF2 packet.
+The writing checkout is `/Users/doughnut/Documents/tobac-methods-integration-20261113`
+on `codex/bf1-bf2-implementation-20261113`, initially at `c9ef6e8` with remote
+main at `a347e05`. This conversation owns the new capsule, methods-source
+acceptance record, gate pin renewal, focused tests, shared handoff and protected
+merge. The eight completed native attempts and retained signing key are read
+through their existing owner-held locations. The renewal writes its environment,
+receipts and signing outputs in this checkout. Next, verify all accepted native
+bytes and current input closures, bind the methods additions and execute the
+required test and publication checks before merging.
+
+The renewal generated eight fresh native attempts in this checkout and verified
+335 current input references, 140 native outputs and 82 exact scientific CSVs.
+The execution contract registers `src/tobac/credal.py`, and the signed capsule
+binds reviewed methods-source bytes in addition to inventory membership. The
+normal Nox test session passes 1,562 tests with 18 capability skips and 90.43%
+coverage. The previous checkpoint's 20 failures and its pending-native disposition
+are superseded by this renewal. The current conversation is completing protected
+publication with ordinary hooks and a guarded receiving-head check.
+
+Strict typing, formatting, package build and clean-package execution pass. The
+scanner's generic-key finding was the SHA-256 of the public privacy workflow in
+the signed capsule. Exact file hashing verified its identity. The scanner policy
+adjudicates only that complete JSON line at that capsule path and known digest.

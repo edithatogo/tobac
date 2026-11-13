@@ -11,6 +11,7 @@ lazy from pathlib import Path
 import pytest
 
 from scripts import hosted_lineage as hosted
+from scripts import lineage_preflight as native
 
 
 def copied_root(tmp_path: Path) -> Path:
@@ -55,6 +56,8 @@ def test_actual_signed_native_acceptance_and_all_inputs() -> None:
         "signature",
         "payload",
         "source",
+        "methods_source",
+        "methods_benchmark",
         "inventory",
         "runtime",
         "authority",
@@ -78,13 +81,15 @@ def test_rejection_precedes_hosted_workload(
         capsule = hosted.authenticate(root)
         name = next(iter(capsule["runners"]["m1"]["executed_input_objects"]))
         (root / name).write_bytes(b"changed scientific input")
-    elif case in {"stage", "stage_context", "dag"}:
+    elif case in {"stage", "stage_context", "dag", "methods_source", "methods_benchmark"}:
         path = {
             "stage": "scripts/run_m1_stage.py",
             "stage_context": "scripts/verify_context_stage.py",
             "dag": "workflow/Snakefile",
+            "methods_source": "src/tobac/credal.py",
+            "methods_benchmark": "scripts/bf2_benchmark.py",
         }[case]
-        (root / path).write_bytes(b"changed admitted stage source")
+        (root / path).write_bytes(b"changed admitted source")
     elif case == "inventory":
         (root / "data/unreviewed.csv").write_bytes(b"new source")
     elif case == "runtime":
@@ -110,6 +115,8 @@ def test_rejection_precedes_hosted_workload(
         "signature": "signature rejected",
         "payload": "signature rejected",
         "source": "stale scientific input",
+        "methods_source": "Stale native acceptance pin",
+        "methods_benchmark": "Stale native acceptance pin",
         "inventory": "Scientific inventory",
         "runtime": "runtime differs",
         "authority": "signing authority",
@@ -182,3 +189,20 @@ def test_configured_verifier_executes_actual_signed_input_check() -> None:
     assert receipt["success"] is True
     assert len(receipt["runners"]) == 8
     assert sum(r["verified_outputs"] for r in receipt["runners"].values()) == 140
+
+
+def test_methods_acceptance_binds_reviewed_source() -> None:
+    """Check exact source identities for the newly admitted finite methods."""
+    record = json.loads((hosted.ROOT / native.METHODS_ACCEPTANCE).read_bytes())
+    assert record["inventory_sha256"] == native.INVENTORY_SHA
+    for path, expected in record["source_sha256"].items():
+        assert hosted.digest(hosted.ROOT / path) == expected
+
+
+def test_native_gate_rejects_changed_methods_source(tmp_path: Path) -> None:
+    """Reject a content change even when scientific inventory membership agrees."""
+    root = copied_root(tmp_path)
+    native.checked_pins(root)
+    (root / "src/tobac/credal.py").write_bytes(b"substituted finite model")
+    with pytest.raises(ValueError, match="differ from the pinned source"):
+        native.checked_pins(root)

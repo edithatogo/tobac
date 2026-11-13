@@ -1404,7 +1404,9 @@
     "conductor/tracks/dynamic_frontier_20261108/bf2-execution-amendment-20261113.md",
     "conductor/tracks/dynamic_frontier_20261108/bf1-bf2-progress-20261113.md",
     "conductor/tracks/dynamic_frontier_20261108/bf2-benchmark-spec-20261113.md",
-    "conductor/tracks/nz_au_empirical_20261106/methods-paper-review-20261113.md"
+    "conductor/tracks/nz_au_empirical_20261106/methods-paper-review-20261113.md",
+    "integration/archive/bf1-bf2-source-acceptance_20261113.json",
+    "integration/archive/scientific-lineage-checkpoint_bf1_bf2_20261113.json"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",

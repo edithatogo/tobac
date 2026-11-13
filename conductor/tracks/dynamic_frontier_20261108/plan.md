@@ -318,9 +318,22 @@ Conductor documentation; its publication does not itself renew native acceptance
   sensitivity families, retaining the failed improvement criterion.
 - [x] Execute focused and workstream-integration checks and maintained strict
   lint, format and whole-source typing checks on Python 3.15.2.
-- [ ] Renew native scientific acceptance for the changed source inventory through
-  its existing owner. The complete test/qualification workflow retains this gate.
+- [x] Renew native acceptance for the changed source inventory through eight
+  fresh executions, independent byte readback and a signed current-source capsule.
 
 The [checkpoint](bf1-bf2-progress-20261113.md) records exact scope and results.
 Provider promotion, broader continuous/nonlinear certificates, intervention-
 dependent measurement and Kairos integration retain their existing open status.
+
+
+## Native renewal and publication — 13 November 2026
+
+Owner-authorised renewal of source candidate `c9ef6e8` completed eight fresh
+native attempts and independent readback of 335 input references and 140 outputs.
+The 82 scientific CSVs matched the preceding checkpoint. The methods acceptance
+record binds the finite source and its numerical evidence. Native and hosted
+rejection controls pass, including source edits with identical inventory membership.
+The complete Nox test session passed 1,562 tests with 18 capability skips and
+90.43% source coverage. Signed acceptance is in
+`integration/archive/scientific-lineage-checkpoint_bf1_bf2_20261113.json`.
+Protected publication and receiving-main readback are the final integration steps.

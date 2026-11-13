@@ -97,3 +97,21 @@ and call `assess_decision(belief, restrictions)` or
 The independent analytic tests and exact fraction checks are in
 `tests/m2/test_credal_certificates.py`. The local numerical demonstration script
 is retained under `outputs/bf1-bf2-20261113/reproduce-bf1.py`.
+
+
+## Native acceptance renewal — 13 November 2026
+
+The owner authorised native renewal and merge after the finite implementation
+checkpoint. The scientific execution contract now registers the added module.
+Eight fresh native executions and independent readback verified 335 input
+references, 140 outputs and 82 exact numerical CSV comparisons. Source queries
+and a corrupt-output control passed. The new signed capsule binds the
+[checkpoint](../../../integration/archive/scientific-lineage-checkpoint_bf1_bf2_20261113.json)
+and [methods-source acceptance](../../../integration/archive/bf1-bf2-source-acceptance_20261113.json).
+
+The failure-only reruns passed the original lineage failures and the additional
+native controls. The complete Nox test session passed 1,562 tests, with 18
+capability skips and 90.43% source coverage. This supersedes the pending-native
+status in the earlier checkpoint above. The new methods-source rejection tests
+cover both native and hosted verification. The integration receipt under
+`outputs/native-renewal-20261113` records exact candidate and receiving refs.
