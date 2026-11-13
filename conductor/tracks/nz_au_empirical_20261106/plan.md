@@ -202,3 +202,29 @@ receiving publication and empirical source recovery remain distinct gates below.
 - [ ] Implement and exercise medallion promotion/receipt validators in E2/E3; do not treat the design tables as executable gates.
 - [ ] Complete applicable standards.md checklist evidence with each scientific/software checkpoint.
 - [ ] Execute companion hardening H0/H1 alongside phases and H2 before release.
+
+## Bounded public-evidence implementation — 13 November 2026
+
+This additive slice implements the 11 November public-only continuation. It does
+not close the broader empirical Phase 1–6 tasks above or change their gates.
+
+- [x] Prespecify four mechanism-relevant reports, inspect accessible main full texts,
+  record result-specific locators, dependence, rights and transport limitations,
+  and retain wrong-identity/failed retrieval dispositions. See
+  [protocol](public-evidence-protocol-20261113.md) and
+  [appraisal](public-evidence-appraisal-20261113.md).
+- [x] Reconcile the existing 20 declared aliases with explicit conversions and
+  uncertainty labels; account for 45/41 unmatched entries. Hash-read back 14
+  independently located source values against existing candidates, retaining
+  candidate-only status and explicit absent runtime adapters.
+- [x] Implement exact finite-action advantage/regret bounds with attaining-state
+  witnesses, ties, empty-support and unknown-input controls. Correct the older
+  interval benchmark to report parameter point identification rather than infer
+  a decision from an arbitrary interval width. See
+  [implementation and validation](public-evidence-implementation-20261113.md).
+
+The next scientific step is a target-specific source/transport disposition for the
+unmatched candidates and the already defined conditional decision scenario. No
+current NZ policy payoffs, likelihood, independent holdout or policy effect is
+invented. Wider source admission, native renewal, human scientific acceptance and
+publication remain separate; this slice is locally implemented source work.

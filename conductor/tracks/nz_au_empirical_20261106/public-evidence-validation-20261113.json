@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-13",
+  "base_commit": "4655364810552500071f69d538e3f74af3e3ae49",
+  "worktree": "/Users/doughnut/Documents/tobac-public-evidence-20261113",
+  "python_executable": "/Users/doughnut/Documents/tobac-public-evidence-20261113/.venv/bin/python",
+  "python_version": "3.15.2",
+  "source_sha256": {
+    "scripts/decision_sufficiency.py": "639816dda15e8fb9fa48920eb0c385a0ca05f624f9d4bd4dc52605dc519292f4",
+    "scripts/reconcile_public_parameters.py": "e1574b947faf82a156d30d80920b226ebd78e8c834ce7d50f5eeb23637008a18",
+    "scripts/decision_identification_benchmark.py": "3170018923f4af4a35ae00037f292c5183654e46f5c2dd434defa4de5ef3314f",
+    "tests/engineering/test_decision_sufficiency.py": "b717e31c458a6123fb708e0b176eb0e4fd6f8f505150d6ac82b0be4eddcba6f9",
+    "tests/engineering/test_public_parameter_reconciliation.py": "4a12adc1e1589a61317ee032f74763c719740477d8512733308ac74eabb2f3e0",
+    "conductor/tracks/nz_au_empirical_20261106/public-decision-scenario-20261113.json": "2ee83007742e3d65acb5ba8791f2799e8f7b45a6c44d6da43cdbd6cade1d6adf",
+    "conductor/tracks/nz_au_empirical_20261106/public-parameter-bindings-20261113.json": "f10e0eabcd3da263446de1f9f0ea43f8489573db991fa091b932c1704f5bf79b",
+    "conductor/tracks/nz_au_empirical_20261106/public-parameter-reconciliation-20261113.json": "36900bfef7acf1d08afc163119d7c0e18d0d535d9abefaee822b53e4c1e2f1a4",
+    "conductor/tracks/nz_au_empirical_20261106/public-result-extracts-20261113.json": "20be5f5bcb4605aecbfaa5d013d644d94df1cdb45cfe4756e395a8e6c2627f5d",
+    "conductor/tracks/nz_au_empirical_20261106/public-source-receipts-20261113.json": "528165e8a60078eb79328ec30efc528b889b90e19f548dfa5347c0d978521ea5",
+    "conductor/tracks/nz_au_empirical_20261106/public-evidence-appraisal-20261113.md": "bc77cdbb4d1d4323b70b777d00cd599cac64c308ce8cc5c0cd57ce6f0661fa7e",
+    "conductor/tracks/nz_au_empirical_20261106/public-evidence-implementation-20261113.md": "bf4f0f621b46e83050f7969b9aa0c299dab55d6c7980e01cfde28cabb68295ca",
+    "conductor/tracks/nz_au_empirical_20261106/public-evidence-protocol-20261113.md": "3ac47dadb1ff97d6636f196065e4273a3aa6e5eb77be96589bd4ba42e685993f"
+  },
+  "checks": {
+    "affected_tests": {
+      "passed": 106,
+      "failed": 0,
+      "scope": "new tests, parameter aliases, M2 partial identification, workstream integration"
+    },
+    "full_diagnostic_suite": {
+      "passed": 1445,
+      "failed": 29,
+      "skipped": 23,
+      "setup_errors": 26,
+      "seconds": 253.82,
+      "peak_sampled_rss_mib": 663.0,
+      "status": "failed",
+      "limitations": [
+        "six ignored source inputs absent in isolated worktree",
+        "scientific inventory differs from native acceptance",
+        "ran before final container/DOI/count controls; final affected tests rerun after those changes"
+      ]
+    },
+    "typing": {
+      "tool": "basedpyright 1.40.2",
+      "project": "engineering/basedpyright-all.json",
+      "scope": "three affected scripts",
+      "errors": 0,
+      "warnings": 0
+    },
+    "lint_format": {
+      "tool": "ruff 0.17.4",
+      "scope": "five affected Python files",
+      "status": "passed"
+    },
+    "nox_tests_and_reproduce": {
+      "status": "blocked_at_native_preflight",
+      "error": "Missing TOBAC_LINEAGE_PYTHON",
+      "bindings_copied": false
+    },
+    "reference_verification": {
+      "verified_core_definitions": 9,
+      "run_verified": false
+    },
+    "source_reconciliation": {
+      "numeric_aliases": 20,
+      "unmatched_candidate": 45,
+      "unmatched_embedded": 41,
+      "source_quantities_checked": 14,
+      "admitted_observations": 0
+    },
+    "finite_oracle": {
+      "status": "executed_synthetic_example",
+      "common_optimal_actions": [],
+      "worst_case_regret": {
+        "act": "2",
+        "wait": "3"
+      },
+      "empirical_payoffs_supplied": false
+    }
+  },
+  "local_log_sha256": {
+    "outputs/public-evidence/affected-terminal.log": "35dc4e748a9da9c99aefea23cabb6acaaa95c31b9669e3af82c9c34ab86a61c1",
+    "outputs/public-evidence/full-suite.log": "43e074cac6795932796c6f1bf9444672c4ffbe9e9760e36fd50a515a7fc571bf",
+    "outputs/public-evidence/typing-terminal.log": "6624aa43e8a244557c85a16f5d832db8544f52a5b55ee4dd232ac77cd18064d7",
+    "outputs/public-evidence/lint-terminal.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "outputs/public-evidence/format-terminal.log": "f114d83b30c5c657ee43a847a45bafccaea255d82673feb87c26d252c61e29c1",
+    "outputs/public-evidence/nox-gates.log": "976e68d426cf4dd9b442a3faf5054a745f342d20d31a992de087a62ccfb0754e",
+    "outputs/public-evidence/reference-verification.log": "d40a9e4e6fe07001d9dae94750e65695458ab6a806492f33cefa2acc797e6baf",
+    "outputs/public-evidence/decision-result-terminal.json": "0bc0bc15727c8a261115546dd0ed8ac3273130b776a9a4b09ec262bcd41db7e4",
+    "outputs/public-evidence/source-reconciliation-terminal.json": "36900bfef7acf1d08afc163119d7c0e18d0d535d9abefaee822b53e4c1e2f1a4",
+    "outputs/public-evidence/interval-benchmark-terminal.json": "215570bcee5111410c128e862f492f18732dae0100bd40d31c5509233a3d4bcd"
+  },
+  "publication_status": "local source packet only; no remote publication or shared-main integration; exact new-path publication policy review retained for integrator",
+  "scientific_acceptance": "assistant self-review only; no named human acceptance or policy recommendation",
+  "empirical_admission": false
+}

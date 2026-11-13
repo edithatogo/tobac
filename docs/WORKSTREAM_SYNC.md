@@ -250,3 +250,27 @@ native executions and 140-output / 82-CSV byte-identical readback under
 `outputs/dynamic-evidence-renewal-20261109/`. Full Nox `tests` (1,480 passed, 8 skipped),
 `strict_all`, `reproduce` and `publication` pass under `scripts/run_bounded.py`.
 M3 interfaces (`src/tobac/research`, `tests/m3`) and scientific boundaries are preserved.
+
+## Public-evidence sufficiency lane — 13 November 2026
+
+Current conversation (host chat ID not exposed) owns standard Git worktree
+`/Users/doughnut/Documents/tobac-public-evidence-20261113`, branch
+`codex/public-evidence-sufficiency-20261113`, based on `4655364`.
+Scope: additive public-evidence appraisal/protocol/reconciliation records under
+`conductor/tracks/nz_au_empirical_20261106`, exact finite-decision helper in
+`scripts/decision_sufficiency.py`, reconciliation helper and affected engineering
+tests, plus the scoped correction to `scripts/decision_identification_benchmark.py`. The root checkout's untracked files remain with their existing owner.
+Native originals, signing, environments, runtime promotion, M3 and shared-main
+integration remain with their retained owners. Next: bounded four-source appraisal,
+existing-catalogue identity checks and exact finite decision tests. No native
+mutations, external messages, submission or observation admission.
+
+Terminal local packet: four main-report appraisals; 14 source-checked candidate
+quantities; 20 numeric aliases with 45/41 unmatched entries; exact finite action
+bounds/witnesses and corrected v2 interval-only benchmark. Final affected tests
+106 pass; scoped Ruff and strict typing pass. Full diagnostic suite retains
+29 failures/26 setup errors from missing ignored sources/native inventory; Nox
+native gates stop at absent TOBAC_LINEAGE_PYTHON. No native bindings or originals
+were copied. Evidence: public-evidence-validation-20261113.json and linked report.
+The source lane is ready for integrator review; existing ownership of native
+renewal, main and publication-policy admission remains unchanged. No remote write.
