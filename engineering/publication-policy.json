@@ -3,6 +3,10 @@
     "vendor/conductor": "6e8f9a860bcdd6a2c423473c12e745200688c633"
   },
   "historical_public_paths": {
+    "8e00f70e9c9a836ba4c23cba002418813dacebab": {
+      "conductor/tracks/dynamic_frontier_20261108/bf2-benchmark-spec-20261113.md": "078ed210356bd6121127b5b6db95b7b56c375456",
+      "conductor/tracks/nz_au_empirical_20261106/methods-paper-review-20261113.md": "5f717965e19ba24c9414b3b7a9a341d0f5e05c33"
+    },
     "2134f04bc611d2fb006d3e2a8d7dc821f790e15a": {
       "integration/archive/transform-closure-candidate_20261102.json": "26542ba0161dcc045602d5762a1d2b715563009a",
       "integration/archive/merged-wheel-readback_20261102.json": "d42e963647134e30e14c466fbee51050df96ef57"
@@ -1395,7 +1399,18 @@
     "tests/engineering/test_conditional_decisions.py",
     "tests/engineering/test_decision_sufficiency.py",
     "tests/engineering/test_parameter_dispositions.py",
-    "tests/engineering/test_public_parameter_reconciliation.py"
+    "tests/engineering/test_public_parameter_reconciliation.py",
+    "src/tobac/credal.py",
+    "scripts/bf2_benchmark.py",
+    "tests/m2/test_credal_certificates.py",
+    "tests/test_bf2_benchmark.py",
+    "conductor/tracks/dynamic_frontier_20261108/bf1-credal-amendment-20261113.md",
+    "conductor/tracks/dynamic_frontier_20261108/bf2-execution-amendment-20261113.md",
+    "conductor/tracks/dynamic_frontier_20261108/bf1-bf2-progress-20261113.md",
+    "conductor/tracks/dynamic_frontier_20261108/bf2-benchmark-spec-20261113.md",
+    "conductor/tracks/nz_au_empirical_20261106/methods-paper-review-20261113.md",
+    "integration/archive/bf1-bf2-source-acceptance_20261113.json",
+    "integration/archive/scientific-lineage-checkpoint_bf1_bf2_20261113.json"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",

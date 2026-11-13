@@ -311,3 +311,120 @@ local manuscripts and package archives remain excluded. No native pins, runtime
 profiles, accepted data, workflows, original objects or signing material change.
 The unchanged signed scientific estate authenticates on this focused branch.
 Next: required CI, expected-head PR merge and receiving-main verification.
+
+## Methods PR #166 merged — 13 November 2026
+
+PR https://github.com/edithatogo/tobac/pull/166 merged at
+`a347e058d0734ef94588f655bea8ee316a36ee0c`. Candidate `b696ca4` and receiving
+main have identical tree `ef0fe93b6bdf41a255311c5768535693fa7d9a12`.
+All five required PR checks passed: quality, public boundary/secrets, CodeQL,
+macOS tests and macOS qualification. Linux/Windows tests, reproduction, package
+portability, hash-locked audit, hosted verifier, advisory typing and the other
+conventional workflows also passed. The non-enforcing offline AI-security jobs
+remain queued for their self-hosted runner; no model or runner was deployed.
+Receiving-main workflow completion is separate from the verified receiving tree.
+
+Local full tests passed 1,525 with 22 capability skips. The additional local
+reproduction failed for disk space; its log remains in outputs/integration-20261113.
+Actual Linux/Windows scientific reproduction passed, and required hosted macOS
+qualification passed. No failed local replay is relabelled successful. Native
+scientific data, signatures, runtime/workflow pins and private bindings are unchanged.
+The methods candidate's scientific inventory equals the accepted signed inventory.
+
+Local main was fast-forwarded to the receiving commit. The completed integration
+branch was deleted locally after its ancestry was verified by ordinary Git.
+The empirical branch/worktree remains untouched at 4655364, with its five
+unpublished empirical commits. The original methods source branch is retained
+at cbe4308 to preserve the immutable local manuscript package and receipts.
+This final Conductor-only closeout is committed locally on
+`codex/methods-merge-closeout-20261113` for the next owned documentation checkpoint;
+no additional PR or main mutation is implied by this bookkeeping commit.
+
+Next: owner scientific/author review of the existing methods draft, declarations
+and overlap with earlier manuscript editions. A later BF2 calibration-versus-
+sampling study needs a bounded question-driven amendment. Empirical-branch source
+admission/native renewal remains separate. No submission or external contact.
+
+## Methods review and BF2 specification — 13 November 2026
+
+Chat `01a1d426-0c2d-7ed2-b91a-fa5f2e2c5372` owns the standard worktree
+`/Users/doughnut/Documents/tobac-methods-integration-20261113`, branch
+`codex/bf2-methods-review-20261113`. Scope: the local manuscript review and
+versioned paper contract, the BF2 question-driven benchmark specification, and
+this coordination record. The existing methods paper package in the other retained
+worktree is a read-only frozen input. Earlier manuscripts in the private research
+archive remain at their existing location; no private original is copied into Git.
+M3 source/tests and the empirical worktree remain under their existing ownership.
+There is no native-object scope, shared-main mutation, external contact, submission,
+or publication in this checkpoint. Next: complete the bounded review and the
+synthetic specification, then hand over their exact paths and limitations.
+
+Terminal handoff: local manuscript review, review contract, corrected title-page
+copy, frozen static witness, failure/success logs and focused test receipt are in
+`outputs/bf2-methods-review-20261113/` in this worktree. The tracked review is
+`conductor/tracks/nz_au_empirical_20261106/methods-paper-review-20261113.md`;
+the BF2 specification is
+`conductor/tracks/dynamic_frontier_20261108/bf2-benchmark-spec-20261113.md`.
+The static witness and 57 focused tests passed. Dynamic BF2 execution and the
+remaining BF1 certificate work are unstarted by this checkpoint. Keep the paper
+editions separate and retain author/scientific decisions and empirical admission
+as open. These changes are local only; no shared-main promotion is implied.
+
+## BF1 and BF2 implementation — 13 November 2026
+
+Chat `01a1d426-0c2d-7ed2-b91a-fa5f2e2c5372` owns the standard worktree
+`/Users/doughnut/Documents/tobac-methods-integration-20261113`, branch
+`codex/bf1-bf2-implementation-20261113`, initially at `8e00f70` and based on
+verified remote main `a347e05`. Scope: question-driven BF1 finite credal
+primal-dual and identifying-restriction implementation, then the frozen BF2
+synthetic benchmark, their targeted tests and Conductor handoff. M3-owned source
+and tests are read-only; existing evidence/decision interfaces and the separate
+empirical owner remain intact. Temporary data and logs may use the owned scratch
+`/Volumes/PortableSSD/tobac-bf1-bf2-20261113`. No native object, shared-main
+mutation, manuscript submission, external contact or data admission is owned.
+Next: freeze the BF1 scope and tests before implementation; qualify the BF2
+comparison only against its existing dated specification.
+
+Terminal source checkpoint includes `src/tobac/credal.py`,
+`scripts/bf2_benchmark.py`, their focused tests and the frontier progress record.
+The finite BF1 example certifies a genuinely minimal two-restriction combination.
+The complete synthetic BF2 experiment reaches its stopping rule with a failed
+improvement criterion and a no-study adaptive plan. All six primary regimes and
+four sensitivity families executed. Exact results and receipts are retained at
+`/Volumes/PortableSSD/tobac-bf1-bf2-20261113`.
+
+Focused and workstream tests passed 81. The complete direct suite passed 1,534,
+skipped 22 capability cases and failed 20 hosted-lineage tests at scientific
+inventory membership. Full-source coverage is 90.43%. Maintained Nox strict checks
+pass. The inventory difference is the single new `src/tobac/credal.py` member.
+Native acceptance renewal remains with its existing owner. The local source and
+synthetic-method checkpoint is ready for that handoff, with author/scientific
+manuscript decisions and empirical admission retaining their earlier status.
+
+## Native acceptance renewal and merge — 13 November 2026
+
+The owner authorises chat `01a1d426-0c2d-7ed2-b91a-fa5f2e2c5372` to renew
+acceptance, resolve the remaining 20 failures and merge the BF1/BF2 packet.
+The writing checkout is `/Users/doughnut/Documents/tobac-methods-integration-20261113`
+on `codex/bf1-bf2-implementation-20261113`, initially at `c9ef6e8` with remote
+main at `a347e05`. This conversation owns the new capsule, methods-source
+acceptance record, gate pin renewal, focused tests, shared handoff and protected
+merge. The eight completed native attempts and retained signing key are read
+through their existing owner-held locations. The renewal writes its environment,
+receipts and signing outputs in this checkout. Next, verify all accepted native
+bytes and current input closures, bind the methods additions and execute the
+required test and publication checks before merging.
+
+The renewal generated eight fresh native attempts in this checkout and verified
+335 current input references, 140 native outputs and 82 exact scientific CSVs.
+The execution contract registers `src/tobac/credal.py`, and the signed capsule
+binds reviewed methods-source bytes in addition to inventory membership. The
+normal Nox test session passes 1,562 tests with 18 capability skips and 90.43%
+coverage. The previous checkpoint's 20 failures and its pending-native disposition
+are superseded by this renewal. The current conversation is completing protected
+publication with ordinary hooks and a guarded receiving-head check.
+
+Strict typing, formatting, package build and clean-package execution pass. The
+scanner's generic-key finding was the SHA-256 of the public privacy workflow in
+the signed capsule. Exact file hashing verified its identity. The scanner policy
+adjudicates only that complete JSON line at that capsule path and known digest.

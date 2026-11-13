@@ -1,0 +1,67 @@
+{
+  "acceptance_scope": "Software source identity and native-byte verification. Human scientific review remains pending.",
+  "inventory_sha256": "38102d5614683c0a65e260538b6823f58b4ed6365c8fe651e737c69e40d37dd7",
+  "native_checkpoint": {
+    "path": "integration/archive/scientific-lineage-checkpoint_bf1_bf2_20261113.json",
+    "sha256": "afc7636e8f2512695c3ab33b224819155539288527e8a11937152821b5cb36b0"
+  },
+  "native_execution_readback": {
+    "checkpoint_sha256": "afc7636e8f2512695c3ab33b224819155539288527e8a11937152821b5cb36b0",
+    "exact_csvs": 82,
+    "forward_and_reverse_queries_verified": true,
+    "receipt_sha256": "58072bbdbce6085dd2b52a2d6ac97a147a59eee3dfe6ebce05ec62b33a9ac0e5",
+    "runners_verified": 8,
+    "tampered_output_rejected": true,
+    "verified_input_references": 335,
+    "verified_outputs": 140
+  },
+  "new_scientific_members": [
+    "src/tobac/credal.py"
+  ],
+  "previous_capsule_sha256": "97c8e4630a6050233262ab242e4d55b8d587cb7de797c4ac3d793be6725efec4",
+  "previous_inventory_sha256": "38304702a35a556b0c422cebc6dfeb0dbd3ff8d95792b70818e9099170e5d9a1",
+  "previous_native_readback": {
+    "environment": {
+      "distributions": "b2f13c7046ab178ae89db4fc1d18ade54b54ad8b6b2bd6f460c107e9310c3b3e",
+      "lock": "e1bca03724f84f85dbabb8c8d4ebf8442363071317307a7ec5d601315375e726",
+      "python": "4e15a990f1c2d4536bf6692e3dea24a57318690ecfbad78d9086602fdbb96693"
+    },
+    "input_references_verified": 329,
+    "outputs_verified": 140,
+    "receipt_sha256": "5befae79b685e66b5bc5a53e622feb86306a9bd4c88825f1617cb6f31f064e1e",
+    "runners_verified": 8
+  },
+  "reviewed_on": "2026-11-13",
+  "reviewer": "OpenAI Codex under owner-authorised integration",
+  "schema": "tobac.methods-source-acceptance.v1",
+  "scientific_qualification": false,
+  "scope": "Finite BF1 certificates and the three-period synthetic BF2 benchmark",
+  "software_evidence": {
+    "bf1_result_sha256": "e6341290eab48efe0c1b97b743c82520fa0930a1f069b4c401fc6f55d81775ac",
+    "bf2_improvement_criterion_met": false,
+    "bf2_result_sha256": "3e969d052862a0d377135a783d7838428634a478a3fbf0decf61b2b6e50b78b3",
+    "focused_tests_passed": 81,
+    "source_coverage_percent": 90.43332635545322
+  },
+  "source_binding_amendment": {
+    "changed_source_paths": [
+      "tests/m2/test_credal_certificates.py"
+    ],
+    "focused_tests_passed": 72,
+    "original_implementation_revision": "c9ef6e8f24ac031c2f2704c08a4dbe40d3560e49",
+    "reason": "Resolve CodeQL py/import-and-import-from through one import style and dotted-path solver controls",
+    "ruff_check": "passed",
+    "ruff_format_check": "passed"
+  },
+  "source_input_contract_sha256": "96231b94a5383fbbd8747bfb6adb4f57f2795e6a1dfbb1d8b838a6711c5c1408",
+  "source_revision": "7ad872b0f4211306d00f150351501de62e40159e",
+  "source_sha256": {
+    "conductor/tracks/dynamic_frontier_20261108/bf1-credal-amendment-20261113.md": "28d74869f54d9807b90f0958f0113cc32f488ff80bf45ff11d5fc14cb4e5fac7",
+    "conductor/tracks/dynamic_frontier_20261108/bf2-benchmark-spec-20261113.md": "8790651bbd7508f75e6a547e67be371852c37ba9a2ff0d6173c25cc193d48105",
+    "conductor/tracks/dynamic_frontier_20261108/bf2-execution-amendment-20261113.md": "7838664ad161c1715c9675d97a12951cc1d753422b78dd6a5adfc487114e6773",
+    "scripts/bf2_benchmark.py": "855d442903a7db3d675951a5d5208324807ab132f156ca31d704760fd1dbcc90",
+    "src/tobac/credal.py": "bcf6b651bce5d1f2127f23c2e321e3b3cc469080005f301d2bb71afc5b946380",
+    "tests/m2/test_credal_certificates.py": "32632332ba95544bd4f43a0b2017c16ed5faa62d542cfea1766cf83bc5d9eea2",
+    "tests/test_bf2_benchmark.py": "59d172ef7023f613c9b0ba1d28cc53dc2661586fb85906fa2264b85f69287b17"
+  }
+}
