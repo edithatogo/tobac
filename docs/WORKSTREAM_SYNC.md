@@ -311,3 +311,36 @@ local manuscripts and package archives remain excluded. No native pins, runtime
 profiles, accepted data, workflows, original objects or signing material change.
 The unchanged signed scientific estate authenticates on this focused branch.
 Next: required CI, expected-head PR merge and receiving-main verification.
+
+## Methods PR #166 merged — 13 November 2026
+
+PR https://github.com/edithatogo/tobac/pull/166 merged at
+`a347e058d0734ef94588f655bea8ee316a36ee0c`. Candidate `b696ca4` and receiving
+main have identical tree `ef0fe93b6bdf41a255311c5768535693fa7d9a12`.
+All five required PR checks passed: quality, public boundary/secrets, CodeQL,
+macOS tests and macOS qualification. Linux/Windows tests, reproduction, package
+portability, hash-locked audit, hosted verifier, advisory typing and the other
+conventional workflows also passed. The non-enforcing offline AI-security jobs
+remain queued for their self-hosted runner; no model or runner was deployed.
+Receiving-main workflow completion is separate from the verified receiving tree.
+
+Local full tests passed 1,525 with 22 capability skips. The additional local
+reproduction failed for disk space; its log remains in outputs/integration-20261113.
+Actual Linux/Windows scientific reproduction passed, and required hosted macOS
+qualification passed. No failed local replay is relabelled successful. Native
+scientific data, signatures, runtime/workflow pins and private bindings are unchanged.
+The methods candidate's scientific inventory equals the accepted signed inventory.
+
+Local main was fast-forwarded to the receiving commit. The completed integration
+branch was deleted locally after its ancestry was verified by ordinary Git.
+The empirical branch/worktree remains untouched at 4655364, with its five
+unpublished empirical commits. The original methods source branch is retained
+at cbe4308 to preserve the immutable local manuscript package and receipts.
+This final Conductor-only closeout is committed locally on
+`codex/methods-merge-closeout-20261113` for the next owned documentation checkpoint;
+no additional PR or main mutation is implied by this bookkeeping commit.
+
+Next: owner scientific/author review of the existing methods draft, declarations
+and overlap with earlier manuscript editions. A later BF2 calibration-versus-
+sampling study needs a bounded question-driven amendment. Empirical-branch source
+admission/native renewal remains separate. No submission or external contact.
