@@ -173,7 +173,7 @@ The following public datasets and custodian-held records remain unobtained under
 
 | Data gap | Source custodian | Access route | Required for |
 |---|---|---|---|
-| Monthly domestic duty-point tobacco removals | NZ Customs / IRD | OIA request (public endpoint not yet found) | Lawful-supply bridge
+| Monthly domestic duty-point tobacco removals | NZ Customs / IRD | Partially addressed: Customs OIA 25-187 import volumes = total lawful supply entering NZ (no domestic tobacco manufacture in NZ). Remaining: timing bridge between entry-lodgement month and duty-point clearance month, duty-free/traveller allowances, border warehouse stock changes | Lawful-supply bridge
 | Tobacco stock (manufacturer/importer/retailer) | Firms / Customs | Custodian request (commercial confidence) | Stock-flow bridge for lawful-supply balance
 | Lawful non-duty flows (duty-free, traveller allowances) | NZ Customs | OIA request | Lawful-supply bridge
 | NZHS catchment-month consumption / microdata | Stats NZ / Ministry of Health | IDI or data-lab application | Target-applicable consumption observation
