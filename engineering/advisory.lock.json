@@ -1,16 +1,16 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "advisory",
-  "resolver": "uv 0.13.7 (Homebrew 2026-11-03 aarch64-apple-darwin)",
+  "resolver": "uv 0.13.7 (x86_64-unknown-linux-gnu)",
   "command": [
-    "/Users/doughnut/.local/bin/uv",
+    "/workspace/scratch/1697c042543b/priority-work/tooling/uv-0.13.7/uv",
     "--no-config",
     "pip",
     "compile",
     "engineering/advisory.in",
     "--generate-hashes",
     "--output-file",
-    "engineering/advisory.lock",
+    "outputs/pr164-lock-candidates/advisory.lock",
     "--universal",
     "--python-version",
     "3.15.2"
@@ -24,8 +24,8 @@
     "engineering/test-requirements.txt": "e50a4c45a8fbf0eb9b3192d03e745aa5f2d77b99fd280b8751f42820d95f71e4",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/advisory.in": "83be6bbb5a6ae644281f5a15652880a5288d4c261a2575d238b194bab37bf237",
-    "engineering/voiage.in": "f7a509da638b6af425fcc50a13e2fc7b8bf641fb6bfce0012d6dc2aaa55c763e"
+    "engineering/voiage.in": "05ef2873463107e6f76585f0f07accc2b2234668420431966d9324ad707dc13f"
   },
-  "lock_sha256": "d52abdaba87f44e194ea463783026433b2bf4b9967c8985241b09d0858feb2b3",
+  "lock_sha256": "d6b23ad5e8db6d97ea759fc12a49eacfdd24dcae66895cbee062d1912776c941",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

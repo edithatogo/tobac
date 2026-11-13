@@ -7,7 +7,7 @@ polars==2.1.0
 pyarrow==26.0.1
 patito==0.8.6
 msgspec==0.22.0
-ty==0.0.100
+ty==0.0.99
 pyrefly==1.4.1
 prek==0.5.10
 pytest-gremlins==1.13.2

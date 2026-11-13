@@ -181,19 +181,3 @@ Track: `conductor/tracks/nz_au_hardening_20261106/`.
 ## Dynamic decisions and evidence strengthening — 8 November 2026
 
 **Status: [~] implementation candidate.** [Companion track](tracks/dynamic_frontier_20261108/index.md) extends the NZ/AU empirical programme with available public comparison data, a time-varying cohort reference, an incremental Searchright systematic-review pathway, broader decision applications and comparative frontier benchmarks. Native scientific admission and empirically supported dynamic policy inference remain open.
-
-## Ty ecosystem-lock refresh — 12 November 2026
-
-PR 137's Ty 0.0.100 input at `9cef482e296cf172db6130394b5e1beee574e123`
-now has a genuinely regenerated ecosystem hash lock and source-bound receipt from
-uv 0.13.7 on Python 3.15.2. Besides Ty 0.0.99 to 0.0.100, resolution advances
-annotated-doc 0.0.5 to 0.0.6 and markdown-it-py 4.2.0 to 4.3.0; scientific package
-versions and the separate advisory profile remain at their existing pins.
-
-The exact ecosystem lock installs successfully on Linux. The lock/workstream
-selection passes 106 tests, and ecosystem/advisory-failure contracts pass 16 tests.
-The actual Ty 0.0.100 executable passes the existing positive, bad-assignment,
-missing-import, invalid-syntax and Python 3.15 lazy-import fixtures; controlled
-checker failure retains exit 7. All seven lock receipts verify. The macOS wheel
-qualification, full hosted checks and scientific acceptance retain their own scope.
-PR 137 does not promote the separate advisory profile or change empirical inputs.

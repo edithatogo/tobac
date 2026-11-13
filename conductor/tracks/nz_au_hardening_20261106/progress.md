@@ -127,6 +127,27 @@ its test. The current bundle passes; future expansion must not be silently trunc
 
 The 7 November integration closes local Phase 0 package/suite/native/security gates; see integration/archive/empirical-phase0-checkpoint_20261107.json. Frozen capture README/index editions are preserved byte-for-byte and current links are maintained separately in docs/engineering/SOURCE_MAP_NAVIGATION.md. Earlier zero-missing-link counts describe their recorded source snapshot, not immutable historical captures. H2 remains subject to empirical acceptance, current-packet hosted/receiving proof and release/recovery. No metadata, PR/issue, branch or visibility mutation occurred.
 
+
+## PR 164 dependency qualification — 12 November 2026
+
+The Typer 0.29.0 candidate at `3e2bda0957d9277cbd16182bcbe43e614dd125b1`
+changed `voiage.in` without regenerating its source-bound profiles. Genuine uv
+0.13.7 resolution now refreshes the Voiage, ecosystem and advisory locks and their
+receipts. Package changes are Typer 0.28.0 to 0.29.0, annotated-doc 0.0.5 to 0.0.6,
+and markdown-it-py 4.2.0 to 4.3.0; scientific package pins retain their existing
+versions. The published macOS-wheel recipe now states Typer 0.29.0 and the already
+locked PyArrow 26.0.1, and its hash lock was regenerated for Python 3.15.2/macOS arm64.
+The original dated macOS qualification receipt remains historical evidence.
+
+On exact Linux Python 3.15.2, hash-checked Nox `voiage` and `advisory_types` sessions
+pass. The Voiage selection passes 125 tests, the actual library passes 51 equal-weight
+cases and the weighted/interchange checks, and the advisory diagnostics execute
+successfully. The resource guard reports 340.9 MiB sampled peak RSS and exit 0.
+All seven lock-receipt profiles verify their input and output bytes. Native macOS
+execution and the complete hosted checks remain separate gates; no empirical or
+scientific release acceptance is inferred from these software checks.
+
+
 ## PR 163 integration qualification — 12 November 2026
 
 The externally published Ruff correction at `ffbdbc31c30bea8056f838f2c30dfbeebe8be885`
@@ -142,3 +163,4 @@ passes 26 tests. These checks qualify the changed integration scope. Native macO
 execution, full-suite coverage, numerical replay and hosted required checks retain
 their separate evidence; this receipt does not mark pending CI successful. The
 receiving ref is checked after the guarded publication.
+

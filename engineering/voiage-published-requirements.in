@@ -2,5 +2,6 @@
 numpy==2.5.4
 scipy==1.18.1
 polars==2.1.0
-pyarrow==26.0.0
+pyarrow==26.0.1
+typer==0.29.0
 voiage @ https://files.pythonhosted.org/packages/e2/5a/0d142de6d2a4528e06afaf39a273b14d4852fa80d324be7cff024aedf874/voiage-3.1.0-cp315-abi3-macosx_11_0_arm64.whl
