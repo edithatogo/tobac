@@ -115,3 +115,10 @@ capability skips and 90.43% source coverage. This supersedes the pending-native
 status in the earlier checkpoint above. The new methods-source rejection tests
 cover both native and hosted verification. The integration receipt under
 `outputs/native-renewal-20261113` records exact candidate and receiving refs.
+
+The renewal is committed at `a018ae13a248a178c1a759ed85eabdf08efa1f4b`.
+The first normal pre-push check identified two protocol files in historical
+commit `8e00f70e9c9a836ba4c23cba002418813dacebab` whose publication entries were
+added in a later commit. Their exact blobs equal the reviewed current files.
+The existing historical-public-path mechanism now records those two immutable
+bindings. Publication uses the normal hook and protected PR checks.
