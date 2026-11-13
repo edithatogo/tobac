@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "base_commit": "683bd1b62daa6bdc8aee15f1554c47727e7c0607",
+  "edition": "M2_MDM-2026-11-13-methods-v1",
+  "archive": "outputs/methods-paper-20261113-v1-r2.zip",
+  "archive_sha256": "87514baa90388b6e4e14e2926924295c9721331f3d934e52b6e58bc2f3148089",
+  "archive_bytes": 261644,
+  "package_inventory_sha256": "96940dee6be02a599c755ef005f1775329b16c88cfb331ccaf68d7a5715e1ee0",
+  "checks": {
+    "affected_tests_passed": 124,
+    "strict_typing_errors": 0,
+    "strict_typing_warnings": 0,
+    "lint_format": "pass",
+    "JSON_replay": "standalone, exact byte equality for both analyses",
+    "figure": "visually inspected final; caption overlap corrected",
+    "full_suite_and_native": "not rerun; previous limitations retained; repair paused by user",
+    "manuscript_content": "six exact registered claims, seven scenarios, no unresolved insertion markers",
+    "abstract_words": 234,
+    "main_text_words": 1594
+  },
+  "source_sha256": {
+    "scripts/conditional_decisions.py": "bbb6be8aa9c7b8e15e35e2d1d20901b01f9a6edd2360009d1aa3cf74266f9ea9",
+    "scripts/reconcile_public_parameters.py": "d43fa9129d8aecc02048bf7c53dd188368bdc9eb2a968bd6610a60b2cb3ea0e4",
+    "tests/engineering/test_conditional_decisions.py": "d6469b38cd360badb87eb879759172ed966f94fdf81ade72f44d68404d7a89a7",
+    "tests/engineering/test_parameter_dispositions.py": "179f9198da2e29745fcb2c0cca8fbc66fd1593aab455220fc662c950c3db43fa",
+    "conductor/tracks/nz_au_empirical_20261106/methods-paper-amendment-20261113.md": "d3eace96346dc41eb86a9382d384983b678b3b988a59f164eab40b95631a5af6",
+    "conductor/tracks/nz_au_empirical_20261106/methods-paper-claims-20261113.csv": "1ddc2b5e6a34ffe596027e28f3c3eae676294921bd5499103b2f8ea30fbfbedb",
+    "conductor/tracks/nz_au_empirical_20261106/methods-paper-contract-20261113.json": "17d1ff1fd90f7d2fecd3c3ce7793728c763579e51a9fadb1327b9b3e72a950a8",
+    "conductor/tracks/nz_au_empirical_20261106/methods-paper-progress-20261113.md": "88b0592660e62dafeb5a97fe40e2d35e1e6a65ffff6895594d9b36d512d109df",
+    "conductor/tracks/nz_au_empirical_20261106/methods-paper-results-20261113.json": "b1170bd1240faf736a963e1c96babff5aa8c24388d5141c40a5de6bee62f926c",
+    "conductor/tracks/nz_au_empirical_20261106/conditional-scenarios-20261113.json": "091bcc819a8882d2367240123d2731fe4243e958e2f1aab78c2573eeac0e99dc",
+    "conductor/tracks/nz_au_empirical_20261106/parameter-dispositions-20261113.csv": "f6ea217abb1faff781ef243e3675219cca708a1ba5beb3dc5695c11df4aec42c"
+  },
+  "logs_sha256": {
+    "affected-terminal.log": "6df4ce77f2ecec4ea7c3004b3070cac36afd61ae3550ce43652bd6d3e8867291",
+    "typing-terminal.log": "0fbc5e53515da7683797619e4c53029b7d453af0e7395ca95b0ea1cd66e8a834",
+    "lint.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "format.log": "177f260a5645724013185e4b140c7045cc39e56c0c97b120f5cb23599f85f0de",
+    "standalone-replay.log": "6cedc693adb323336a3eb35257a8ca2c50bf443784032997691741cd5d451d58"
+  },
+  "scientific_acceptance": "pending named human review; assistant software/reporting checks only",
+  "publication": "local, no merge/deposit/submission"
+}
