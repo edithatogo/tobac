@@ -274,3 +274,25 @@ native gates stop at absent TOBAC_LINEAGE_PYTHON. No native bindings or original
 were copied. Evidence: public-evidence-validation-20261113.json and linked report.
 The source lane is ready for integrator review; existing ownership of native
 renewal, main and publication-policy admission remains unchanged. No remote write.
+
+## Methods-paper continuation — 13 November 2026
+
+The current conversation continues in the same clean worktree at `683bd1b`.
+Scope: complete dispositions for the remaining 45/41 catalogue entries; conditional
+finite/rectangular decision scenarios using the existing exact oracle; paper
+contract, claim register and a dated local Markdown manuscript/supplement/workbook
+package. No existing manuscript source is present in this checkout or the root
+research folder, so this is a separate edition, not an overwrite of earlier drafts.
+Native test restoration is paused at user direction. Six exact hash-bound ignored
+CSV assets were restored locally; the cached source rerun records 35 passes and one
+stale-count assertion. Native signatures/bindings remain unchanged. No root edits,
+shared-main promotion, admission, submission or external messages are owned here.
+
+Methods-paper terminal scope: exhaustive 86-entry disposition ledger; seven exact
+conditional scenarios; local manuscript/supplement/workbook/one-panel figure and
+versioned contract/six-claim register. 124 affected tests, scoped lint/format and
+strict typing pass. Minimal standalone standard-library replay reproduces both
+analysis JSONs exactly. Local artifact hashes retain the draft edition; no earlier
+manuscript was overwritten. Scientific/author acceptance, overlap reconciliation,
+native qualification and publication remain open. No further model expansion,
+root/native mutation, external deposit, message or submission occurred.

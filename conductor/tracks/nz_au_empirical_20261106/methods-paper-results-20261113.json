@@ -1,0 +1,855 @@
+{
+  "input_sha256": "091bcc819a8882d2367240123d2731fe4243e958e2f1aab78c2573eeac0e99dc",
+  "results": {
+    "public_inputs_only": {
+      "status": "not_assessable_missing_restrictions",
+      "empirical_admission": false
+    },
+    "wide_response_burden": {
+      "status": "conditional_accounting_only",
+      "decision": {
+        "status": "not_identified",
+        "common_optimal_actions": [],
+        "state_optima": {
+          "corner_0": [
+            "act",
+            "wait"
+          ],
+          "corner_1": [
+            "wait"
+          ],
+          "corner_2": [
+            "act",
+            "wait"
+          ],
+          "corner_3": [
+            "wait"
+          ],
+          "corner_4": [
+            "act"
+          ],
+          "corner_5": [
+            "act"
+          ],
+          "corner_6": [
+            "act"
+          ],
+          "corner_7": [
+            "act"
+          ]
+        },
+        "pairwise": [
+          {
+            "action": "act",
+            "comparator": "wait",
+            "lower": "-1/10",
+            "upper": "39/250",
+            "lower_state": "corner_1",
+            "upper_state": "corner_4"
+          },
+          {
+            "action": "wait",
+            "comparator": "act",
+            "lower": "-39/250",
+            "upper": "1/10",
+            "lower_state": "corner_4",
+            "upper_state": "corner_1"
+          }
+        ],
+        "worst_case_regret": {
+          "act": "1/10",
+          "wait": "39/250"
+        },
+        "regret_witnesses": {
+          "act": "corner_1",
+          "wait": "corner_4"
+        },
+        "minimax_regret_actions": [
+          "act"
+        ],
+        "support": [
+          "corner_0",
+          "corner_1",
+          "corner_2",
+          "corner_3",
+          "corner_4",
+          "corner_5",
+          "corner_6",
+          "corner_7"
+        ],
+        "empirical_admission": false
+      },
+      "advantage_lower": "-1/10",
+      "advantage_upper": "39/250",
+      "minimum_response_for_weak_dominance": "25/39",
+      "threshold_within_response_domain": true,
+      "zero_gain_case": null,
+      "corner_values": [
+        {
+          "state": "corner_0",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_1",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "1/10",
+          "advantage": "-1/10"
+        },
+        {
+          "state": "corner_2",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_3",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "1/10",
+          "advantage": "-1/10"
+        },
+        {
+          "state": "corner_4",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "39/250"
+        },
+        {
+          "state": "corner_5",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "1/10",
+          "advantage": "7/125"
+        },
+        {
+          "state": "corner_6",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "39/250"
+        },
+        {
+          "state": "corner_7",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "1/10",
+          "advantage": "7/125"
+        }
+      ],
+      "empirical_admission": false
+    },
+    "minimum_response": {
+      "status": "conditional_accounting_only",
+      "decision": {
+        "status": "unique_common_optimum",
+        "common_optimal_actions": [
+          "act"
+        ],
+        "state_optima": {
+          "corner_0": [
+            "act"
+          ],
+          "corner_1": [
+            "act"
+          ],
+          "corner_2": [
+            "act"
+          ],
+          "corner_3": [
+            "act"
+          ],
+          "corner_4": [
+            "act"
+          ],
+          "corner_5": [
+            "act"
+          ],
+          "corner_6": [
+            "act"
+          ],
+          "corner_7": [
+            "act"
+          ]
+        },
+        "pairwise": [
+          {
+            "action": "act",
+            "comparator": "wait",
+            "lower": "17/1000",
+            "upper": "39/250",
+            "lower_state": "corner_1",
+            "upper_state": "corner_4"
+          },
+          {
+            "action": "wait",
+            "comparator": "act",
+            "lower": "-39/250",
+            "upper": "-17/1000",
+            "lower_state": "corner_4",
+            "upper_state": "corner_1"
+          }
+        ],
+        "worst_case_regret": {
+          "act": "0",
+          "wait": "39/250"
+        },
+        "regret_witnesses": {
+          "act": "corner_0",
+          "wait": "corner_4"
+        },
+        "minimax_regret_actions": [
+          "act"
+        ],
+        "support": [
+          "corner_0",
+          "corner_1",
+          "corner_2",
+          "corner_3",
+          "corner_4",
+          "corner_5",
+          "corner_6",
+          "corner_7"
+        ],
+        "empirical_admission": false
+      },
+      "advantage_lower": "17/1000",
+      "advantage_upper": "39/250",
+      "minimum_response_for_weak_dominance": "25/39",
+      "threshold_within_response_domain": true,
+      "zero_gain_case": null,
+      "corner_values": [
+        {
+          "state": "corner_0",
+          "response": "3/4",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "117/1000"
+        },
+        {
+          "state": "corner_1",
+          "response": "3/4",
+          "gain": "39/250",
+          "burden": "1/10",
+          "advantage": "17/1000"
+        },
+        {
+          "state": "corner_2",
+          "response": "3/4",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "117/1000"
+        },
+        {
+          "state": "corner_3",
+          "response": "3/4",
+          "gain": "39/250",
+          "burden": "1/10",
+          "advantage": "17/1000"
+        },
+        {
+          "state": "corner_4",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "39/250"
+        },
+        {
+          "state": "corner_5",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "1/10",
+          "advantage": "7/125"
+        },
+        {
+          "state": "corner_6",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "39/250"
+        },
+        {
+          "state": "corner_7",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "1/10",
+          "advantage": "7/125"
+        }
+      ],
+      "empirical_admission": false
+    },
+    "high_burden": {
+      "status": "conditional_accounting_only",
+      "decision": {
+        "status": "unique_common_optimum",
+        "common_optimal_actions": [
+          "wait"
+        ],
+        "state_optima": {
+          "corner_0": [
+            "wait"
+          ],
+          "corner_1": [
+            "wait"
+          ],
+          "corner_2": [
+            "wait"
+          ],
+          "corner_3": [
+            "wait"
+          ],
+          "corner_4": [
+            "wait"
+          ],
+          "corner_5": [
+            "wait"
+          ],
+          "corner_6": [
+            "wait"
+          ],
+          "corner_7": [
+            "wait"
+          ]
+        },
+        "pairwise": [
+          {
+            "action": "act",
+            "comparator": "wait",
+            "lower": "-3/10",
+            "upper": "-11/250",
+            "lower_state": "corner_1",
+            "upper_state": "corner_4"
+          },
+          {
+            "action": "wait",
+            "comparator": "act",
+            "lower": "11/250",
+            "upper": "3/10",
+            "lower_state": "corner_4",
+            "upper_state": "corner_1"
+          }
+        ],
+        "worst_case_regret": {
+          "act": "3/10",
+          "wait": "0"
+        },
+        "regret_witnesses": {
+          "act": "corner_1",
+          "wait": "corner_0"
+        },
+        "minimax_regret_actions": [
+          "wait"
+        ],
+        "support": [
+          "corner_0",
+          "corner_1",
+          "corner_2",
+          "corner_3",
+          "corner_4",
+          "corner_5",
+          "corner_6",
+          "corner_7"
+        ],
+        "empirical_admission": false
+      },
+      "advantage_lower": "-3/10",
+      "advantage_upper": "-11/250",
+      "minimum_response_for_weak_dominance": "25/13",
+      "threshold_within_response_domain": false,
+      "zero_gain_case": null,
+      "corner_values": [
+        {
+          "state": "corner_0",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "1/5",
+          "advantage": "-1/5"
+        },
+        {
+          "state": "corner_1",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "3/10",
+          "advantage": "-3/10"
+        },
+        {
+          "state": "corner_2",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "1/5",
+          "advantage": "-1/5"
+        },
+        {
+          "state": "corner_3",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "3/10",
+          "advantage": "-3/10"
+        },
+        {
+          "state": "corner_4",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "1/5",
+          "advantage": "-11/250"
+        },
+        {
+          "state": "corner_5",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "3/10",
+          "advantage": "-18/125"
+        },
+        {
+          "state": "corner_6",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "1/5",
+          "advantage": "-11/250"
+        },
+        {
+          "state": "corner_7",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "3/10",
+          "advantage": "-18/125"
+        }
+      ],
+      "empirical_admission": false
+    },
+    "no_burden": {
+      "status": "conditional_accounting_only",
+      "decision": {
+        "status": "unique_common_optimum",
+        "common_optimal_actions": [
+          "act"
+        ],
+        "state_optima": {
+          "corner_0": [
+            "act",
+            "wait"
+          ],
+          "corner_1": [
+            "act",
+            "wait"
+          ],
+          "corner_2": [
+            "act",
+            "wait"
+          ],
+          "corner_3": [
+            "act",
+            "wait"
+          ],
+          "corner_4": [
+            "act"
+          ],
+          "corner_5": [
+            "act"
+          ],
+          "corner_6": [
+            "act"
+          ],
+          "corner_7": [
+            "act"
+          ]
+        },
+        "pairwise": [
+          {
+            "action": "act",
+            "comparator": "wait",
+            "lower": "0",
+            "upper": "39/250",
+            "lower_state": "corner_0",
+            "upper_state": "corner_4"
+          },
+          {
+            "action": "wait",
+            "comparator": "act",
+            "lower": "-39/250",
+            "upper": "0",
+            "lower_state": "corner_4",
+            "upper_state": "corner_0"
+          }
+        ],
+        "worst_case_regret": {
+          "act": "0",
+          "wait": "39/250"
+        },
+        "regret_witnesses": {
+          "act": "corner_0",
+          "wait": "corner_4"
+        },
+        "minimax_regret_actions": [
+          "act"
+        ],
+        "support": [
+          "corner_0",
+          "corner_1",
+          "corner_2",
+          "corner_3",
+          "corner_4",
+          "corner_5",
+          "corner_6",
+          "corner_7"
+        ],
+        "empirical_admission": false
+      },
+      "advantage_lower": "0",
+      "advantage_upper": "39/250",
+      "minimum_response_for_weak_dominance": "0",
+      "threshold_within_response_domain": true,
+      "zero_gain_case": null,
+      "corner_values": [
+        {
+          "state": "corner_0",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_1",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_2",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_3",
+          "response": "0",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_4",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "39/250"
+        },
+        {
+          "state": "corner_5",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "39/250"
+        },
+        {
+          "state": "corner_6",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "39/250"
+        },
+        {
+          "state": "corner_7",
+          "response": "1",
+          "gain": "39/250",
+          "burden": "0",
+          "advantage": "39/250"
+        }
+      ],
+      "empirical_admission": false
+    },
+    "exact_threshold": {
+      "status": "conditional_accounting_only",
+      "decision": {
+        "status": "common_optimum_with_ties",
+        "common_optimal_actions": [
+          "act",
+          "wait"
+        ],
+        "state_optima": {
+          "corner_0": [
+            "act",
+            "wait"
+          ],
+          "corner_1": [
+            "act",
+            "wait"
+          ],
+          "corner_2": [
+            "act",
+            "wait"
+          ],
+          "corner_3": [
+            "act",
+            "wait"
+          ],
+          "corner_4": [
+            "act",
+            "wait"
+          ],
+          "corner_5": [
+            "act",
+            "wait"
+          ],
+          "corner_6": [
+            "act",
+            "wait"
+          ],
+          "corner_7": [
+            "act",
+            "wait"
+          ]
+        },
+        "pairwise": [
+          {
+            "action": "act",
+            "comparator": "wait",
+            "lower": "0",
+            "upper": "0",
+            "lower_state": "corner_0",
+            "upper_state": "corner_0"
+          },
+          {
+            "action": "wait",
+            "comparator": "act",
+            "lower": "0",
+            "upper": "0",
+            "lower_state": "corner_0",
+            "upper_state": "corner_0"
+          }
+        ],
+        "worst_case_regret": {
+          "act": "0",
+          "wait": "0"
+        },
+        "regret_witnesses": {
+          "act": "corner_0",
+          "wait": "corner_0"
+        },
+        "minimax_regret_actions": [
+          "act",
+          "wait"
+        ],
+        "support": [
+          "corner_0",
+          "corner_1",
+          "corner_2",
+          "corner_3",
+          "corner_4",
+          "corner_5",
+          "corner_6",
+          "corner_7"
+        ],
+        "empirical_admission": false
+      },
+      "advantage_lower": "0",
+      "advantage_upper": "0",
+      "minimum_response_for_weak_dominance": "1/2",
+      "threshold_within_response_domain": true,
+      "zero_gain_case": null,
+      "corner_values": [
+        {
+          "state": "corner_0",
+          "response": "1/2",
+          "gain": "39/250",
+          "burden": "39/500",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_1",
+          "response": "1/2",
+          "gain": "39/250",
+          "burden": "39/500",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_2",
+          "response": "1/2",
+          "gain": "39/250",
+          "burden": "39/500",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_3",
+          "response": "1/2",
+          "gain": "39/250",
+          "burden": "39/500",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_4",
+          "response": "1/2",
+          "gain": "39/250",
+          "burden": "39/500",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_5",
+          "response": "1/2",
+          "gain": "39/250",
+          "burden": "39/500",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_6",
+          "response": "1/2",
+          "gain": "39/250",
+          "burden": "39/500",
+          "advantage": "0"
+        },
+        {
+          "state": "corner_7",
+          "response": "1/2",
+          "gain": "39/250",
+          "burden": "39/500",
+          "advantage": "0"
+        }
+      ],
+      "empirical_admission": false
+    },
+    "marginal_interval_rectangle": {
+      "status": "conditional_accounting_only",
+      "decision": {
+        "status": "not_identified",
+        "common_optimal_actions": [],
+        "state_optima": {
+          "corner_0": [
+            "act"
+          ],
+          "corner_1": [
+            "wait"
+          ],
+          "corner_2": [
+            "act"
+          ],
+          "corner_3": [
+            "act"
+          ],
+          "corner_4": [
+            "act"
+          ],
+          "corner_5": [
+            "act"
+          ],
+          "corner_6": [
+            "act"
+          ],
+          "corner_7": [
+            "act"
+          ]
+        },
+        "pairwise": [
+          {
+            "action": "act",
+            "comparator": "wait",
+            "lower": "-1/4000",
+            "upper": "179/1000",
+            "lower_state": "corner_1",
+            "upper_state": "corner_6"
+          },
+          {
+            "action": "wait",
+            "comparator": "act",
+            "lower": "-179/1000",
+            "upper": "1/4000",
+            "lower_state": "corner_6",
+            "upper_state": "corner_1"
+          }
+        ],
+        "worst_case_regret": {
+          "act": "1/4000",
+          "wait": "179/1000"
+        },
+        "regret_witnesses": {
+          "act": "corner_1",
+          "wait": "corner_6"
+        },
+        "minimax_regret_actions": [
+          "act"
+        ],
+        "support": [
+          "corner_0",
+          "corner_1",
+          "corner_2",
+          "corner_3",
+          "corner_4",
+          "corner_5",
+          "corner_6",
+          "corner_7"
+        ],
+        "empirical_admission": false
+      },
+      "advantage_lower": "-1/4000",
+      "advantage_upper": "179/1000",
+      "minimum_response_for_weak_dominance": "100/133",
+      "threshold_within_response_domain": true,
+      "zero_gain_case": null,
+      "corner_values": [
+        {
+          "state": "corner_0",
+          "response": "3/4",
+          "gain": "133/1000",
+          "burden": "0",
+          "advantage": "399/4000"
+        },
+        {
+          "state": "corner_1",
+          "response": "3/4",
+          "gain": "133/1000",
+          "burden": "1/10",
+          "advantage": "-1/4000"
+        },
+        {
+          "state": "corner_2",
+          "response": "3/4",
+          "gain": "179/1000",
+          "burden": "0",
+          "advantage": "537/4000"
+        },
+        {
+          "state": "corner_3",
+          "response": "3/4",
+          "gain": "179/1000",
+          "burden": "1/10",
+          "advantage": "137/4000"
+        },
+        {
+          "state": "corner_4",
+          "response": "1",
+          "gain": "133/1000",
+          "burden": "0",
+          "advantage": "133/1000"
+        },
+        {
+          "state": "corner_5",
+          "response": "1",
+          "gain": "133/1000",
+          "burden": "1/10",
+          "advantage": "33/1000"
+        },
+        {
+          "state": "corner_6",
+          "response": "1",
+          "gain": "179/1000",
+          "burden": "0",
+          "advantage": "179/1000"
+        },
+        {
+          "state": "corner_7",
+          "response": "1",
+          "gain": "179/1000",
+          "burden": "1/10",
+          "advantage": "79/1000"
+        }
+      ],
+      "empirical_admission": false
+    }
+  }
+}

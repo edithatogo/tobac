@@ -158,6 +158,74 @@ def run(root: Path, expected: dict[str, str]) -> dict[str, Any]:
     return {"source_sha256": expected, "result": reconcile(registry, json.loads(found.group(1)), aliases)}
 
 
+def check_dispositions(root: Path, rows: list[dict[str, str]], result: dict[str, Any]) -> dict[str, Any]:
+    """Account for every non-alias without equating separate studies or quantities."""
+    registry = json.loads((root / "evidence/parameter_candidates_20261109/registry.json").read_text())
+    found = MARKER.search((root / "conductor/tracks/dynamic_frontier_20261108/design.md").read_text())
+    if found is None:
+        msg = "Disposition source edition missing"
+        raise ValueError(msg)
+    embedded = json.loads(found.group(1))
+    records = {
+        "candidate": {p["parameter_id"]: p for p in registry["parameters"]},
+        "embedded": {p[0]: dict(zip(embedded["columns"], p, strict=True)) for p in embedded["records"]},
+    }
+    expected = {
+        (catalogue, key)
+        for catalogue, field in (
+            ("candidate", "unmatched_candidate_ids"),
+            ("embedded", "unmatched_embedded_ids"),
+        )
+        for key in result[field]
+    }
+    identities = [(row["catalogue"], row["parameter_id"]) for row in rows]
+    if len(identities) != len(set(identities)) or set(identities) != expected:
+        msg = "Disposition coverage is incomplete or duplicated"
+        raise ValueError(msg)
+    catalogue_sources = {
+        "candidate": {p["source_id"]: p for p in registry["sources"]},
+        "embedded": embedded["sources"],
+    }
+    sources = catalogue_sources["candidate"] | catalogue_sources["embedded"]
+    counts: dict[str, int] = {}
+    for row in rows:
+        p = records[row["catalogue"]][row["parameter_id"]]
+        _check_disposition_row(row, p, sources)
+        source = catalogue_sources[row["catalogue"]][p["source_id"]]
+        group = source.get("dependency_group", source.get("dependence_group"))
+        if row["source_url"] != source["url"] or row["original_dependency_group"] != group:
+            msg = "Disposition source provenance differs from the frozen catalogue"
+            raise ValueError(msg)
+        counts[row["disposition"]] = counts.get(row["disposition"], 0) + 1
+    return {
+        "candidate_entries": sum(row["catalogue"] == "candidate" for row in rows),
+        "embedded_entries": sum(row["catalogue"] == "embedded" for row in rows),
+        "dispositions": counts,
+        "independent_observations_added": 0,
+        "scientific_admission": False,
+    }
+
+
+def _check_disposition_row(row: dict[str, str], p: dict[str, Any], sources: dict[str, Any]) -> None:
+    expected = {field: "" if p.get(field) is None else str(p[field]) for field in ("value", "lower", "upper")}
+    expected.update(
+        source_id=p["source_id"],
+        unit=p["unit"],
+        admission="candidate_only",
+        independent_observations_added="0",
+        uncertainty=p["interval_type"] if "interval_type" in p else p["uncertainty"],
+    )
+    if any(row[key] != value for key, value in expected.items()) or not row["rationale"].strip():
+        msg = "Disposition changes a source quantity or admission status"
+        raise ValueError(msg)
+    if any(source not in sources for source in row["related_source_ids"].split(";") if source != "none"):
+        msg = "Disposition refers to an unknown source"
+        raise ValueError(msg)
+    if not row["disposition"] or not row["canonical_dependency_group"]:
+        msg = "Disposition and dependence group required"
+        raise ValueError(msg)
+
+
 class _DoiMetadata(HTMLParser):
     """Read article metadata, never a DOI merely cited in a bibliography."""
 
@@ -235,12 +303,19 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--bindings", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--dispositions", type=Path)
     parser.add_argument("--extracts", type=Path)
     parser.add_argument("--originals", type=Path)
     args = parser.parse_args()
     if (args.extracts is None) != (args.originals is None):
         parser.error("Supply both --extracts and --originals")
     result = run(Path(__file__).resolve().parents[1], json.loads(args.bindings.read_text(encoding="utf-8")))
+    if args.dispositions is not None:
+        result["dispositions_sha256"] = hashlib.sha256(args.dispositions.read_bytes()).hexdigest()
+        with args.dispositions.open(newline="", encoding="utf-8") as stream:
+            result["disposition_check"] = check_dispositions(
+                Path(__file__).resolve().parents[1], list(csv.DictReader(stream)), result["result"]
+            )
     if args.extracts is not None:
         result["source_check"] = check_extracts(
             Path(__file__).resolve().parents[1],

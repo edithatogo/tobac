@@ -48,3 +48,7 @@
 - [Four-report selection protocol](public-evidence-protocol-20261113.md)
 - [Result-specific appraisal](public-evidence-appraisal-20261113.md)
 - [Source-result extraction ledger](public-result-extracts-20261113.json)
+
+- [Methods-paper continuation and local package](methods-paper-progress-20261113.md)
+- [Versioned methods-paper contract](methods-paper-contract-20261113.json)
+- [Claim-to-evidence register](methods-paper-claims-20261113.csv)

@@ -228,3 +228,16 @@ unmatched candidates and the already defined conditional decision scenario. No
 current NZ policy payoffs, likelihood, independent holdout or policy effect is
 invented. Wider source admission, native renewal, human scientific acceptance and
 publication remain separate; this slice is locally implemented source work.
+
+## Methods-paper continuation — 13 November 2026
+
+- [x] Complete source/estimand dispositions for all remaining 45/41 entries,
+  retaining the original 20 aliases and unresolved source/transport issues.
+- [x] Execute seven prespecified conditional accounting cases with exact bounds,
+  witnesses, threshold ties and a contrary utility-support sensitivity.
+- [x] Prepare a dated local Markdown manuscript, supplement, CSV workbook, figure,
+  paper contract and claim register; verify a minimal standalone analysis replay.
+
+See [the checkpoint](methods-paper-progress-20261113.md). This is a bounded local
+methods draft. Human scientific acceptance, author declarations, prior-manuscript
+overlap, native qualification and submission authority remain separate and pending.
