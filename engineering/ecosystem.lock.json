@@ -1,16 +1,16 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "ecosystem",
-  "resolver": "uv 0.13.7 (x86_64-unknown-linux-gnu)",
+  "resolver": "uv 0.13.8 (Homebrew 2026-11-12 aarch64-apple-darwin)",
   "command": [
-    "/workspace/scratch/1697c042543b/priority-work/tooling/uv-0.13.7/uv",
+    "/Users/doughnut/.local/bin/uv",
     "--no-config",
     "pip",
     "compile",
     "engineering/ecosystem.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/pr164-lock-candidates/ecosystem.lock",
+    "engineering/ecosystem.lock",
     "--universal",
     "--python-version",
     "3.15.2"
@@ -25,8 +25,8 @@
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/voiage.in": "05ef2873463107e6f76585f0f07accc2b2234668420431966d9324ad707dc13f",
     "engineering/voiage-build-requirements.txt": "f2211a5d5985a3193eccbd993f7bad6241a593b2b1014f63ea197729078f15bf",
-    "engineering/ecosystem.in": "21334eb13ad73dadd08004085eed99d5faa116a759298a2df67c05c03d7b37c4"
+    "engineering/ecosystem.in": "aac224e1388f553be6017217bde09f884cbe0c8e209fc0dfe47f4d9e4e23489d"
   },
-  "lock_sha256": "93696dc1044d027ccc60bb702d578cc029db17a4addca652f4b1dd420cf4c8be",
+  "lock_sha256": "25f381870148c2e85340b3fa9b874a9fbe8908f1e832067653d7727b8bbbdeb5",
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
