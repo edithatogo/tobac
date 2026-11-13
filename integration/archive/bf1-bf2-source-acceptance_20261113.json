@@ -43,15 +43,25 @@
     "focused_tests_passed": 81,
     "source_coverage_percent": 90.43332635545322
   },
+  "source_binding_amendment": {
+    "changed_source_paths": [
+      "tests/m2/test_credal_certificates.py"
+    ],
+    "focused_tests_passed": 72,
+    "original_implementation_revision": "c9ef6e8f24ac031c2f2704c08a4dbe40d3560e49",
+    "reason": "Resolve CodeQL py/import-and-import-from through one import style and dotted-path solver controls",
+    "ruff_check": "passed",
+    "ruff_format_check": "passed"
+  },
   "source_input_contract_sha256": "96231b94a5383fbbd8747bfb6adb4f57f2795e6a1dfbb1d8b838a6711c5c1408",
-  "source_revision": "c9ef6e8f24ac031c2f2704c08a4dbe40d3560e49",
+  "source_revision": "7ad872b0f4211306d00f150351501de62e40159e",
   "source_sha256": {
     "conductor/tracks/dynamic_frontier_20261108/bf1-credal-amendment-20261113.md": "28d74869f54d9807b90f0958f0113cc32f488ff80bf45ff11d5fc14cb4e5fac7",
     "conductor/tracks/dynamic_frontier_20261108/bf2-benchmark-spec-20261113.md": "8790651bbd7508f75e6a547e67be371852c37ba9a2ff0d6173c25cc193d48105",
     "conductor/tracks/dynamic_frontier_20261108/bf2-execution-amendment-20261113.md": "7838664ad161c1715c9675d97a12951cc1d753422b78dd6a5adfc487114e6773",
     "scripts/bf2_benchmark.py": "855d442903a7db3d675951a5d5208324807ab132f156ca31d704760fd1dbcc90",
     "src/tobac/credal.py": "bcf6b651bce5d1f2127f23c2e321e3b3cc469080005f301d2bb71afc5b946380",
-    "tests/m2/test_credal_certificates.py": "9ad3294c09d824a5680ae7a94be9a136dfc5cfabcbdae79fa98c08a59b93b515",
+    "tests/m2/test_credal_certificates.py": "32632332ba95544bd4f43a0b2017c16ed5faa62d542cfea1766cf83bc5d9eea2",
     "tests/test_bf2_benchmark.py": "59d172ef7023f613c9b0ba1d28cc53dc2661586fb85906fa2264b85f69287b17"
   }
 }

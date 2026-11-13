@@ -122,3 +122,18 @@ commit `8e00f70e9c9a836ba4c23cba002418813dacebab` whose publication entries were
 added in a later commit. Their exact blobs equal the reviewed current files.
 The existing historical-public-path mechanism now records those two immutable
 bindings. Publication uses the normal hook and protected PR checks.
+
+PR #167's first CodeQL execution reported `py/import-and-import-from` in the
+certificate tests. Commit `7ad872b0f4211306d00f150351501de62e40159e` uses one
+import style and pytest's dotted-path solver controls. The focused selection
+passed 72 tests. The source acceptance now binds that test revision, and the
+supported issuer independently verified all eight native runners before signing
+the refreshed capsule. The final complete Nox test session again passed 1,562
+tests with 18 capability skips and the existing coverage gate.
+
+The separate shared `privacy-and-secrets` baseline reported the signed capsule's
+public workflow SHA-256 as `generic-api-key`. The value equals the checked-in
+`.github/workflows/privacy-secrets.yml` digest. Its exact finding and local
+disposition are retained under the integration receipt directory. The required
+repository publication/secret scan passed. The shared scanner supplies no
+repository-level false-positive mechanism, and its failed result is recorded.
