@@ -369,3 +369,34 @@ The static witness and 57 focused tests passed. Dynamic BF2 execution and the
 remaining BF1 certificate work are unstarted by this checkpoint. Keep the paper
 editions separate and retain author/scientific decisions and empirical admission
 as open. These changes are local only; no shared-main promotion is implied.
+
+## BF1 and BF2 implementation — 13 November 2026
+
+Chat `01a1d426-0c2d-7ed2-b91a-fa5f2e2c5372` owns the standard worktree
+`/Users/doughnut/Documents/tobac-methods-integration-20261113`, branch
+`codex/bf1-bf2-implementation-20261113`, initially at `8e00f70` and based on
+verified remote main `a347e05`. Scope: question-driven BF1 finite credal
+primal-dual and identifying-restriction implementation, then the frozen BF2
+synthetic benchmark, their targeted tests and Conductor handoff. M3-owned source
+and tests are read-only; existing evidence/decision interfaces and the separate
+empirical owner remain intact. Temporary data and logs may use the owned scratch
+`/Volumes/PortableSSD/tobac-bf1-bf2-20261113`. No native object, shared-main
+mutation, manuscript submission, external contact or data admission is owned.
+Next: freeze the BF1 scope and tests before implementation; qualify the BF2
+comparison only against its existing dated specification.
+
+Terminal source checkpoint includes `src/tobac/credal.py`,
+`scripts/bf2_benchmark.py`, their focused tests and the frontier progress record.
+The finite BF1 example certifies a genuinely minimal two-restriction combination.
+The complete synthetic BF2 experiment reaches its stopping rule with a failed
+improvement criterion and a no-study adaptive plan. All six primary regimes and
+four sensitivity families executed. Exact results and receipts are retained at
+`/Volumes/PortableSSD/tobac-bf1-bf2-20261113`.
+
+Focused and workstream tests passed 81. The complete direct suite passed 1,534,
+skipped 22 capability cases and failed 20 hosted-lineage tests at scientific
+inventory membership. Full-source coverage is 90.43%. Maintained Nox strict checks
+pass. The inventory difference is the single new `src/tobac/credal.py` member.
+Native acceptance renewal remains with its existing owner. The local source and
+synthetic-method checkpoint is ready for that handoff, with author/scientific
+manuscript decisions and empirical admission retaining their earlier status.

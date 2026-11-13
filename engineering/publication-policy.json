@@ -1395,7 +1395,16 @@
     "tests/engineering/test_conditional_decisions.py",
     "tests/engineering/test_decision_sufficiency.py",
     "tests/engineering/test_parameter_dispositions.py",
-    "tests/engineering/test_public_parameter_reconciliation.py"
+    "tests/engineering/test_public_parameter_reconciliation.py",
+    "src/tobac/credal.py",
+    "scripts/bf2_benchmark.py",
+    "tests/m2/test_credal_certificates.py",
+    "tests/test_bf2_benchmark.py",
+    "conductor/tracks/dynamic_frontier_20261108/bf1-credal-amendment-20261113.md",
+    "conductor/tracks/dynamic_frontier_20261108/bf2-execution-amendment-20261113.md",
+    "conductor/tracks/dynamic_frontier_20261108/bf1-bf2-progress-20261113.md",
+    "conductor/tracks/dynamic_frontier_20261108/bf2-benchmark-spec-20261113.md",
+    "conductor/tracks/nz_au_empirical_20261106/methods-paper-review-20261113.md"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",
