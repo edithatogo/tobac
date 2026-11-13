@@ -296,3 +296,18 @@ analysis JSONs exactly. Local artifact hashes retain the draft edition; no earli
 manuscript was overwritten. Scientific/author acceptance, overlap reconciliation,
 native qualification and publication remain open. No further model expansion,
 root/native mutation, external deposit, message or submission occurred.
+
+## Focused methods integration — 13 November 2026
+
+The current conversation is the integrator for the methods packet in standard
+worktree `/Users/doughnut/Documents/tobac-methods-integration-20261113`, branch
+`codex/public-methods-integration-20261113`, based on remote main `efc9907`.
+Only source commits `683bd1b` and `cbe4308` are selected. The corrected interval
+benchmark is included as a new file because its original version exists only on
+the empirical branch. The five unpublished empirical commits, their CSV inputs,
+consumer inventory and earlier policy edits remain with that branch's owner.
+Publication inventory adds exact reviewed code/test/Conductor metadata paths;
+local manuscripts and package archives remain excluded. No native pins, runtime
+profiles, accepted data, workflows, original objects or signing material change.
+The unchanged signed scientific estate authenticates on this focused branch.
+Next: required CI, expected-head PR merge and receiving-main verification.
