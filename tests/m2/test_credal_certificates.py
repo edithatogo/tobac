@@ -6,7 +6,6 @@ import numpy as np
 import pytest
 from scipy.optimize import OptimizeResult
 
-import tobac.credal as module
 from scripts.decision_sufficiency import assess
 from tobac._core import DecisionProblem
 from tobac.credal import LinearRestriction, assess_contrast, assess_decision, minimal_identifying_restrictions
@@ -194,7 +193,9 @@ def test_multi_action_weakly_optimal_ties_are_preserved():
 
 
 def test_solver_failure_retains_unknown_status_and_no_minimality_claim(monkeypatch):
-    monkeypatch.setattr(module, "linprog", lambda *_args, **_kwargs: OptimizeResult(success=False, status=4))
+    monkeypatch.setattr(
+        "tobac.credal.linprog", lambda *_args, **_kwargs: OptimizeResult(success=False, status=4)
+    )
     b = belief()
     result = assess_contrast(b, "act", "wait")
     assert result["status"] == "unresolved"
@@ -238,7 +239,9 @@ def test_aggregate_decision_rejects_empty_support_and_reports_failed_solver_as_u
     b = belief()
     incompatible = (restriction("upper", b, (1, 0), 0.25), restriction("lower", b, (-1, 0), -0.75))
     assert assess_decision(b, incompatible)["status"] == "incompatible"
-    monkeypatch.setattr(module, "linprog", lambda *_args, **_kwargs: OptimizeResult(success=False, status=4))
+    monkeypatch.setattr(
+        "tobac.credal.linprog", lambda *_args, **_kwargs: OptimizeResult(success=False, status=4)
+    )
     unknown = assess_decision(b)
     assert unknown["status"] == "unresolved"
     assert unknown["common_optimal_actions"] == []
