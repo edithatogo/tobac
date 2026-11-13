@@ -10,3 +10,10 @@ condition = "AND"
 paths = ['''^integration/archive/runner-material-checkpoint_20261102[.]json$''']
 regexTarget = "line"
 regexes = ['''^\s*"release-secrets[.]log": "e050580e7b14bd40887e5dc3fc9537af3d7a9146bf55541cd43d194f50a501a8",?\s*$''']
+
+# Downloaded public source data under data/raw/ contains reCAPTCHA site keys
+# embedded in HTML (public by design, not secrets). Excluded from secret scanning.
+[[allowlists]]
+description = "Public reCAPTCHA site keys in downloaded AIHW source HTML"
+condition = "OR"
+paths = ['''^data/raw/''']
