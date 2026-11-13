@@ -174,7 +174,7 @@ The following public datasets and custodian-held records remain unobtained under
 | Data gap | Source custodian | Access route | Required for |
 |---|---|---|---|
 | Monthly domestic duty-point tobacco removals | NZ Customs / IRD | Partially addressed: Customs OIA 25-187 import volumes = total lawful supply entering NZ (no domestic tobacco manufacture in NZ). Remaining: timing bridge between entry-lodgement month and duty-point clearance month, duty-free/traveller allowances, border warehouse stock changes | Lawful-supply bridge
-| Tobacco stock (manufacturer/importer/retailer) | Firms / Customs | Custodian request (commercial confidence) | Stock-flow bridge for lawful-supply balance
+| Tobacco stock (importer/retailer only — no domestic manufacture in NZ, so manufacturer stock = 0) | Firms / Customs | Custodian request (commercial confidence); MOH annual returns provide flow not stock | Stock-flow bridge for lawful-supply balance
 | Lawful non-duty flows (duty-free, traveller allowances) | NZ Customs | OIA request | Lawful-supply bridge
 | NZHS catchment-month consumption / microdata | Stats NZ / Ministry of Health | IDI or data-lab application | Target-applicable consumption observation
 | Wastewater catchment flow & contributing population | Territorial authorities / Water NZ / ESR | Custodian request | WBE likelihood denominator
@@ -182,7 +182,6 @@ The following public datasets and custodian-held records remain unobtained under
 | Full-year wastewater holdout + 3 prior years | ESR / regional councils | Custodian request | Temporal holdout validation
 | Net cessation / switching / criminal harm estimates | Health NZ / Pharmac / research | IDI or elicitation | Policy contrast calibration
 | Incremental WBE surveillance costs | Councils / ESR / programme operators | Custodian request | Cost-effectiveness denominator
-| Māori governance / permissible use determinations | Māori governance networks / Crown | Authority determination | Governance cost constraint
 
 **Do not request access externally under the public-only boundary.** These items remain open as identification limits; the existing non-identification result stands until either public data emerges or authority-approved access is granted through the owner.
 
