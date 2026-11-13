@@ -344,3 +344,28 @@ Next: owner scientific/author review of the existing methods draft, declarations
 and overlap with earlier manuscript editions. A later BF2 calibration-versus-
 sampling study needs a bounded question-driven amendment. Empirical-branch source
 admission/native renewal remains separate. No submission or external contact.
+
+## Methods review and BF2 specification — 13 November 2026
+
+Chat `01a1d426-0c2d-7ed2-b91a-fa5f2e2c5372` owns the standard worktree
+`/Users/doughnut/Documents/tobac-methods-integration-20261113`, branch
+`codex/bf2-methods-review-20261113`. Scope: the local manuscript review and
+versioned paper contract, the BF2 question-driven benchmark specification, and
+this coordination record. The existing methods paper package in the other retained
+worktree is a read-only frozen input. Earlier manuscripts in the private research
+archive remain at their existing location; no private original is copied into Git.
+M3 source/tests and the empirical worktree remain under their existing ownership.
+There is no native-object scope, shared-main mutation, external contact, submission,
+or publication in this checkpoint. Next: complete the bounded review and the
+synthetic specification, then hand over their exact paths and limitations.
+
+Terminal handoff: local manuscript review, review contract, corrected title-page
+copy, frozen static witness, failure/success logs and focused test receipt are in
+`outputs/bf2-methods-review-20261113/` in this worktree. The tracked review is
+`conductor/tracks/nz_au_empirical_20261106/methods-paper-review-20261113.md`;
+the BF2 specification is
+`conductor/tracks/dynamic_frontier_20261108/bf2-benchmark-spec-20261113.md`.
+The static witness and 57 focused tests passed. Dynamic BF2 execution and the
+remaining BF1 certificate work are unstarted by this checkpoint. Keep the paper
+editions separate and retain author/scientific decisions and empirical admission
+as open. These changes are local only; no shared-main promotion is implied.
