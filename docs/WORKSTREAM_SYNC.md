@@ -250,3 +250,64 @@ native executions and 140-output / 82-CSV byte-identical readback under
 `outputs/dynamic-evidence-renewal-20261109/`. Full Nox `tests` (1,480 passed, 8 skipped),
 `strict_all`, `reproduce` and `publication` pass under `scripts/run_bounded.py`.
 M3 interfaces (`src/tobac/research`, `tests/m3`) and scientific boundaries are preserved.
+
+## Public-evidence sufficiency lane — 13 November 2026
+
+Current conversation (host chat ID not exposed) owns standard Git worktree
+`/Users/doughnut/Documents/tobac-public-evidence-20261113`, branch
+`codex/public-evidence-sufficiency-20261113`, based on `4655364`.
+Scope: additive public-evidence appraisal/protocol/reconciliation records under
+`conductor/tracks/nz_au_empirical_20261106`, exact finite-decision helper in
+`scripts/decision_sufficiency.py`, reconciliation helper and affected engineering
+tests, plus the scoped correction to `scripts/decision_identification_benchmark.py`. The root checkout's untracked files remain with their existing owner.
+Native originals, signing, environments, runtime promotion, M3 and shared-main
+integration remain with their retained owners. Next: bounded four-source appraisal,
+existing-catalogue identity checks and exact finite decision tests. No native
+mutations, external messages, submission or observation admission.
+
+Terminal local packet: four main-report appraisals; 14 source-checked candidate
+quantities; 20 numeric aliases with 45/41 unmatched entries; exact finite action
+bounds/witnesses and corrected v2 interval-only benchmark. Final affected tests
+106 pass; scoped Ruff and strict typing pass. Full diagnostic suite retains
+29 failures/26 setup errors from missing ignored sources/native inventory; Nox
+native gates stop at absent TOBAC_LINEAGE_PYTHON. No native bindings or originals
+were copied. Evidence: public-evidence-validation-20261113.json and linked report.
+The source lane is ready for integrator review; existing ownership of native
+renewal, main and publication-policy admission remains unchanged. No remote write.
+
+## Methods-paper continuation — 13 November 2026
+
+The current conversation continues in the same clean worktree at `683bd1b`.
+Scope: complete dispositions for the remaining 45/41 catalogue entries; conditional
+finite/rectangular decision scenarios using the existing exact oracle; paper
+contract, claim register and a dated local Markdown manuscript/supplement/workbook
+package. No existing manuscript source is present in this checkout or the root
+research folder, so this is a separate edition, not an overwrite of earlier drafts.
+Native test restoration is paused at user direction. Six exact hash-bound ignored
+CSV assets were restored locally; the cached source rerun records 35 passes and one
+stale-count assertion. Native signatures/bindings remain unchanged. No root edits,
+shared-main promotion, admission, submission or external messages are owned here.
+
+Methods-paper terminal scope: exhaustive 86-entry disposition ledger; seven exact
+conditional scenarios; local manuscript/supplement/workbook/one-panel figure and
+versioned contract/six-claim register. 124 affected tests, scoped lint/format and
+strict typing pass. Minimal standalone standard-library replay reproduces both
+analysis JSONs exactly. Local artifact hashes retain the draft edition; no earlier
+manuscript was overwritten. Scientific/author acceptance, overlap reconciliation,
+native qualification and publication remain open. No further model expansion,
+root/native mutation, external deposit, message or submission occurred.
+
+## Focused methods integration — 13 November 2026
+
+The current conversation is the integrator for the methods packet in standard
+worktree `/Users/doughnut/Documents/tobac-methods-integration-20261113`, branch
+`codex/public-methods-integration-20261113`, based on remote main `efc9907`.
+Only source commits `683bd1b` and `cbe4308` are selected. The corrected interval
+benchmark is included as a new file because its original version exists only on
+the empirical branch. The five unpublished empirical commits, their CSV inputs,
+consumer inventory and earlier policy edits remain with that branch's owner.
+Publication inventory adds exact reviewed code/test/Conductor metadata paths;
+local manuscripts and package archives remain excluded. No native pins, runtime
+profiles, accepted data, workflows, original objects or signing material change.
+The unchanged signed scientific estate authenticates on this focused branch.
+Next: required CI, expected-head PR merge and receiving-main verification.

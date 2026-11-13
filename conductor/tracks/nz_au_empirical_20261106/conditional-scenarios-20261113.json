@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "amendment": "methods-paper-amendment-20261113.md",
+  "interpretation": "hypothetical one-year health accounting, not estimated policy effects",
+  "empirical_admission": false,
+  "scenarios": [
+    {
+      "id": "public_inputs_only",
+      "response": null,
+      "gain": [
+        "39/250",
+        "39/250"
+      ],
+      "burden": null,
+      "gain_basis": "published_mean_difference"
+    },
+    {
+      "id": "wide_response_burden",
+      "response": [
+        "0",
+        "1"
+      ],
+      "gain": [
+        "39/250",
+        "39/250"
+      ],
+      "burden": [
+        "0",
+        "1/10"
+      ],
+      "gain_basis": "published_mean_difference"
+    },
+    {
+      "id": "minimum_response",
+      "response": [
+        "3/4",
+        "1"
+      ],
+      "gain": [
+        "39/250",
+        "39/250"
+      ],
+      "burden": [
+        "0",
+        "1/10"
+      ],
+      "gain_basis": "published_mean_difference"
+    },
+    {
+      "id": "high_burden",
+      "response": [
+        "0",
+        "1"
+      ],
+      "gain": [
+        "39/250",
+        "39/250"
+      ],
+      "burden": [
+        "1/5",
+        "3/10"
+      ],
+      "gain_basis": "published_mean_difference"
+    },
+    {
+      "id": "no_burden",
+      "response": [
+        "0",
+        "1"
+      ],
+      "gain": [
+        "39/250",
+        "39/250"
+      ],
+      "burden": [
+        "0",
+        "0"
+      ],
+      "gain_basis": "published_mean_difference"
+    },
+    {
+      "id": "exact_threshold",
+      "response": [
+        "1/2",
+        "1/2"
+      ],
+      "gain": [
+        "39/250",
+        "39/250"
+      ],
+      "burden": [
+        "39/500",
+        "39/500"
+      ],
+      "gain_basis": "published_mean_difference"
+    },
+    {
+      "id": "marginal_interval_rectangle",
+      "response": [
+        "3/4",
+        "1"
+      ],
+      "gain": [
+        "133/1000",
+        "179/1000"
+      ],
+      "burden": [
+        "0",
+        "1/10"
+      ],
+      "gain_basis": "marginal_interval_rectangle"
+    }
+  ],
+  "source_sha256": {
+    "conductor/tracks/nz_au_empirical_20261106/public-result-extracts-20261113.json": "20be5f5bcb4605aecbfaa5d013d644d94df1cdb45cfe4756e395a8e6c2627f5d"
+  },
+  "utility_source": "conductor/tracks/nz_au_empirical_20261106/public-result-extracts-20261113.json"
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "external_directory": "/Users/doughnut/Documents/tobac-evidence-intake-20261113-public",
+  "canonical_archive_admission": false,
+  "empirical_admission": false,
+  "artifacts": [
+    {
+      "file": "banks.xml",
+      "doi": "10.13063/2327-9214.1004",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4371396/fullTextXML",
+      "status": "rejected_wrong_identity",
+      "sha256": "1a42097d4c9ed516daaaaecf3d81a5d018c8f9aac290902d095d00b1f1afc9be",
+      "bytes": 70457,
+      "retrieved_date": "2026-11-13"
+    },
+    {
+      "file": "banks.html",
+      "doi": "10.1186/s12916-015-0281-z",
+      "url": "https://link.springer.com/article/10.1186/s12916-015-0281-z",
+      "status": "doi_title_verified",
+      "sha256": "662f2e2347635f30af5a7c24867c04793b710a11da763bcd6a2eb3a91e50a17b",
+      "bytes": 396998,
+      "retrieved_date": "2026-11-13"
+    },
+    {
+      "file": "utility.xml",
+      "doi": "10.1007/s11136-026-04173-4",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12901249/fullTextXML",
+      "status": "doi_verified",
+      "sha256": "cdd691f39d4133e5038083f978569f959e905f9d7ed6afc1ca9f2658e5ecb6d8",
+      "bytes": 181009,
+      "retrieved_date": "2026-11-13"
+    },
+    {
+      "file": "utility.html",
+      "doi": "10.1007/s11136-026-04173-4",
+      "url": "https://link.springer.com/article/10.1007/s11136-026-04173-4",
+      "status": "doi_title_verified",
+      "sha256": "2080dcca69e86225c207712eb192e3b21ee1aadd3c88563b69f56678cf5550c3",
+      "bytes": 456311,
+      "retrieved_date": "2026-11-13"
+    },
+    {
+      "file": "wang.xml",
+      "doi": "10.1001/jamanetworkopen.2025.57319",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12887742/fullTextXML",
+      "status": "doi_verified",
+      "sha256": "6cc389a161ce27d498d20beb959441cbd6161bffed48230f1db751ea4b3d7c23",
+      "bytes": 89956,
+      "retrieved_date": "2026-11-13"
+    },
+    {
+      "file": "hatsukami-pmc.xml",
+      "doi": "10.1001/jama.2018.11473",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6372240/?report=xml",
+      "status": "doi_title_verified_html_despite_xml_query",
+      "sha256": "5f86afec3e864be284df79806767c0a47294a07e256e7276d33fd8ff8db5dd79",
+      "bytes": 231936,
+      "retrieved_date": "2026-11-13"
+    }
+  ],
+  "failed_routes": [
+    {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6372240/fullTextXML",
+      "status": "HTTP_500",
+      "replacement": "public PMC author manuscript HTML, no authentication"
+    }
+  ]
+}

@@ -43,3 +43,12 @@
 
 
 - [Dynamic decisions, public comparison data and staged Searchright review](../dynamic_frontier_20261108/index.md) — companion candidate and roadmap; extends R01 without changing this track's admission gates.
+
+- [13 November bounded public-evidence implementation](public-evidence-implementation-20261113.md)
+- [Four-report selection protocol](public-evidence-protocol-20261113.md)
+- [Result-specific appraisal](public-evidence-appraisal-20261113.md)
+- [Source-result extraction ledger](public-result-extracts-20261113.json)
+
+- [Methods-paper continuation and local package](methods-paper-progress-20261113.md)
+- [Versioned methods-paper contract](methods-paper-contract-20261113.json)
+- [Claim-to-evidence register](methods-paper-claims-20261113.csv)

@@ -1,0 +1,138 @@
+{
+  "paper_id": "M2_MDM",
+  "edition": "2026-11-13-methods-v1",
+  "status": "local Markdown review draft; not submission-ready",
+  "question": "Which restrictions make an illustrative one-year health-accounting decision invariant after reconciling two existing tobacco parameter catalogues?",
+  "estimands": [
+    "finite/rectangular extrema of incremental accounting advantage e*d-c",
+    "common optimal actions on declared support",
+    "worst-case regret and attaining witnesses; no expected net benefit"
+  ],
+  "population": "one hypothetical target person over one year; no identified national target effect",
+  "source_links": [
+    "methods-paper-amendment-20261113.md",
+    "parameter-dispositions-20261113.csv",
+    "conditional-scenarios-20261113.json",
+    "public-result-extracts-20261113.json",
+    "first-comparison-audit-20261109.json"
+  ],
+  "chronology": {
+    "prior_values_seen": true,
+    "amendment_before_seven_scenario_execution": true,
+    "initial_draft": "prepared under the dated amendment; contract consolidated before final revision",
+    "earlier_MDM_manuscript_source": "not present in owning or root checkout; previous prose not reconstructed",
+    "later_testing": "native-test repair paused by user"
+  },
+  "feedback_dispositions": [
+    {
+      "source": "conductor/decisions/m2_two_articles_20261028.md",
+      "disposition": "retain MDM P&P methods direction and separate NZMJ commentary; overlap with earlier drafts unresolved"
+    },
+    {
+      "source": "current owner direction, 13 November 2026",
+      "disposition": "complete reconciliation, conditional decision analysis and methods manuscript package"
+    },
+    {
+      "source": "co-author feedback",
+      "disposition": "not supplied; unknown rather than presumed absent"
+    }
+  ],
+  "journal": {
+    "name": "MDM Policy & Practice",
+    "article_type": "Original research, provisional fit pending author/editor assessment",
+    "checked": "2026-11-13",
+    "body_limit": "under 5000 words",
+    "abstract_limit": "structured, under 275 words",
+    "abstract_words": 234,
+    "main_text_words": 1594,
+    "highlights": 3,
+    "initial_format": "format-free while retaining required elements; revised variants follow journal style",
+    "journal_line_numbering_exception": "journal main file omits line numbering because submission system adds it; user review-document defaults remain separate",
+    "files": "separate title page, statements/disclosures, anonymized information and anonymized main document",
+    "references": "numbered NLM-style; supplement has its own list",
+    "panel_count": "one original figure with one panel; two supplementary CSV tables; numeric overall table/figure limit unconfirmed",
+    "graphical_abstract": {
+      "status": "optional for accepted/about-to-be-accepted manuscripts; not generated",
+      "source": "https://smdm.org/graphical-abstracts/"
+    },
+    "portal_unknowns": [
+      "live upload slots/file limits",
+      "mandatory portal fields",
+      "any editor-specific instructions",
+      "final figure/table counting interpretation"
+    ],
+    "official_sources": [
+      "https://www.journals.smdm.org/manuscript-types/",
+      "https://smdm.org/manuscript-requirements/",
+      "https://www.journals.smdm.org/journal-policies/",
+      "https://smdm.org/graphical-abstracts/"
+    ],
+    "AI_disclosure": "assistant contribution declared; human verification pending"
+  },
+  "subgroups": {
+    "display_priority": "none; only prespecified overall summaries",
+    "rationale": "illustrative accounting objective; no demographic effect-modification claim",
+    "prior_subgroup_results_seen": "earlier catalogue includes subgroup summaries; not selected by significance",
+    "full_results": "original catalogue subgroups retained in canonical inputs; no empirical subgroup estimate produced",
+    "privacy": "aggregate public summaries; analytic support and privacy assessed separately"
+  },
+  "inventories": {
+    "analysis_production": [
+      "reconciliation-terminal.json",
+      "conditional-results-terminal.json",
+      "scripts/",
+      "canonical source inputs and source hashes"
+    ],
+    "main_paper": [
+      "manuscript.md",
+      "figure1-decision-frontier.png",
+      "title-page.md",
+      "statements-and-declarations.md",
+      "anonymized-information.md"
+    ],
+    "supplement": [
+      "supplement.md"
+    ],
+    "workbook": [
+      "scenario-results.csv",
+      "corner-witnesses.csv",
+      "parameter-dispositions.csv",
+      "declared-aliases.csv"
+    ],
+    "docx_variants": [],
+    "tracked_variant": "not generated",
+    "journal_Word_variant": "not generated; DOCX gate and native review apply before later delivery"
+  },
+  "acceptance": {
+    "scientific": "pending named/dated human review of exact edition; no independent reviewer requirement invented",
+    "methods": "assistant software self-review only; human methodological acceptance pending",
+    "domain": "pending author-selected reviewer",
+    "reporting": "assistant structure/content checks; human reporting acceptance pending",
+    "author_approval": "pending",
+    "submission_authority": "not granted",
+    "unresolved_objections": [
+      "unverified source applicability and edition conflicts",
+      "descriptive utilities assigned a counterfactual accounting role",
+      "hypothetical effect/burden supports",
+      "unknown joint covariance",
+      "overlap with unavailable prior manuscript",
+      "native qualification remains open"
+    ],
+    "permissible_limitation": "conditional accounting illustration without empirical efficacy or national policy claims",
+    "claim_blockers": [
+      "false source identity or coefficient binding",
+      "wrong bound/witness",
+      "an empirical effect interpretation",
+      "omitted contrary scenario"
+    ],
+    "stopping_rule": "stop after complete ledger, seven frozen scenarios, focused checks and local manuscript/supplement/workbook; new mechanisms require question-driven amendment"
+  },
+  "author_facts": {
+    "names": null,
+    "affiliations": null,
+    "funding": null,
+    "conflicts": null,
+    "formal_ethics_applicability": null
+  },
+  "publication_boundary": "local source-withheld manuscript edition; code/metadata commits are not manuscript publication or submission"
+}
