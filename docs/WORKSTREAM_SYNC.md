@@ -508,3 +508,26 @@ external environment exposed the repo-local interpreter guard; both failure logs
 are retained under `outputs/reconciliation-20261114` with the passing run.
 Next, publish the canary packet, verify its hosted checks and the deep-audit
 workflow, then merge with the tested head while the empirical packet is reviewed.
+
+Canary PR #169 merged at `8724dc819c51433dadbccad8965565f54a3f75e3`.
+Its receiving tree matches tested head `9b8c4d1e36823c45a3b70c19b9abfac06a921e95`.
+All five protected checks, the shared privacy check and deep engineering audit
+passed on the PR head. The receiving-main privacy check also passed. The normal
+suite passed 1,572 tests with 18 capability skips, and the canary passed 1,567
+with 23 skips. Eight native closures were reopened for the signed capsule.
+
+The empirical candidate preserves 28 reported source records and the 41-row
+matrix as provisional material, and corrects the eligibility crosswalk. The
+focused checks and cross-workstream tests passed 58 cases. The full Nox session
+passed 1,574 tests with 22 capability skips and 90.43% coverage; strict typing
+passed. Exact source discrepancies and admission status are in the empirical
+track plan. The root checkout remains on `4655364` with five unpublished commits
+and its untracked generator, tests and browser records. The public-evidence
+worktree remains at `cbe4308` with its local manuscript package. Their unique
+material remains owned locally while source identity and rights are reviewed.
+
+The owner requests a handoff to ordinary ChatGPT after this integration. Preserve
+the native attempts, local manuscript outputs, logs and private source files with
+their existing owners. The canary and empirical PR bodies and the local evidence
+under `outputs/reconciliation-20261114` record tested heads, receiving refs,
+CI results, remaining branch dispositions and the final handoff receipt.
