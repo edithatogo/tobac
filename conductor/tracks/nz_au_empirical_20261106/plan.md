@@ -270,3 +270,104 @@ empirical admission false for every row. Unknown object types remain unmapped.
 The older register generator and raw-source inventory retain their local source
 files for a later evidence review. The public methods package from source commits
 `683bd1b` and `cbe4308` was previously integrated through PR #166.
+
+
+## Public source-identity and unpublished-history disposition — 14 November 2026
+
+**Checkpoint and authority.** Read-only live GitHub reconciliation confirms main
+\`9b0f107ed36df97670f4e67317d3a42923ba56ff\`, merged #169/#170, no
+open PRs, and main as the only remote branch at this checkpoint. The handoff
+records 11 successful applicable push workflows and five successful deep-audit
+jobs; the distinct offline-AI workflow run 43569549676 remains queued for a
+self-hosted runner. This review does not activate/provision that runner or
+reclassify a queued job as passed. This is **one ordinary-ChatGPT integration
+owner**, with no parallel local source writer.
+
+**Object boundary.** The 28 rows in
+[candidate-source-register_20261114.csv](candidate-source-register_20261114.csv)
+are a *reported-claims catalogue*, all \`source_review_status=pending\` and
+\`empirical_admission=false\`. The 41 rows in
+[source-model-parameter-formula-matrix_20261114.csv](source-model-parameter-formula-matrix_20261114.csv)
+are source/model applicability metadata, not 41 observed data products.
+Neither can override the existing archive receipt, source handoff,
+\`Scope\`/\`EvidencePacket\`/\`SupplyBasis\` authority, the frozen evidence
+cutoff or scientific/author acceptance. Preserve the source and matrix
+hashes and their original reported fields; correct editions through a
+separate reviewed *superseding* edition, never by rewriting the historical
+CSV or its upstream private object.
+
+### Focused public-publisher identity and rights checks
+
+| Provisional entry | Checked public locator and finding | Disposition before any promotion |
+| --- | --- | --- |
+| \`nzhs-2024-25\` | [Ministry of Health 2024/25 annual release](https://www.health.govt.nz/publications/annual-update-of-key-results-202425-new-zealand-health-survey) identifies an Annual Data Explorer with downloadable CSV and July 2024–July 2025 survey fieldwork; the existing retained Phase 2 export matches the historical \`6d3e0a01…\` register SHA, but the old empirical branch's named local CSV does **not**. The [2026 regional release](https://www.health.govt.nz/publications/regional-data-release-new-zealand-health-survey) pools three survey years and revisions; it is not the same raw annual edition. | **Exact asset/version conflict.** Do not promote the differently hashed local file under the historical identity. Owner must read the exact local bytes, source endpoint/edition, schema, date and hashes and either recover the original or register a separately versioned derivative. Annual survey marginals do not identify catchment-month consumption or their joint covariance. |
+| \`aihw-ndshs-2025\` | The catalogue's \`reported_landing_page_url\` is [AIHW Wastewater drug monitoring](https://www.aihw.gov.au/reports/alcohol/alcohol-tobacco-other-drugs-australia/contents/harm-reduction/wastewater-drug-monitoring), a secondary NWDMP discussion, **not** a NDSHS tobacco purchase table. AIHW separately publishes the [2025 NDSHS data edition](https://www.aihw.gov.au/reports/illicit-use-of-drugs/national-drug-strategy-household-survey/data) and [2022–23 NDSHS tables](https://www.aihw.gov.au/reports/illicit-use-of-drugs/national-drug-strategy-household-survey-2022-2023/data). AIHW copyright generally uses CC BY 4.0 with third-party and separately licensed material excluded. | **Wrong landing identity and unverified direct-table identity.** Resolve the workbook's actual edition, table number, extracted content, dates, SHA and specific licence. Do not assign the wastewater HTML's hash or dependent ACIC/WBE facts to household-survey observations. Leave candidate-only. |
+| \`weng-2022\` | [PMC13389531](https://pmc.ncbi.nlm.nih.gov/articles/PMC13389531/) and [PubMed 41725392](https://pubmed.ncbi.nlm.nih.gov/41725392/) identify Weng et al.'s anabasine excretion study (DOI \`10.1093/ntr/ntag042\`) as **2026**, first electronically published 23 February 2026, later print/issue July–August 2026, not 2022. The 9.02% estimate is based on 19 cigarette smokers and underlying participant data are available by request; public article visibility is not consent to obtain individual records or to republish all supplements. | **Bibliographic year/source mismatch.** Preserve the reported row, propose corrected 2026 study alias after source-rights and exact article/original-byte review; retain small-sample and dose/transport uncertainty. No fitted NZ wastewater calibration or raw participant access. |
+| \`kim-nz-2023-supplement\` | Existing [Kim comparison](../../../evidence/kim_measurements_20261109/README.md) records the original supplement's exact SHA and 142 dated 2023 occasions. The reported reuse terms are restrictive/require separate checking, and prior analysis published attributed derived numerical diagnostics rather than the third-party PDF. | **Restricted redistribution and unqualified likelihood.** Do not copy the original PDF into Git or substitute a presumed CC BY licence. Keep censored analytes, catchment flow/population and biological calibration gaps explicit. |
+| Other register rows | Several source labels describe a report number or collection year rather than its observation year; \`reported_sha256\`, \`reported_licence\`, \`sha256_verified\` and \`available_publicly\` are **historic source-owner claims**. A catalogue \`reported_local_raw_path\` is not a Git file and does not establish that the bytes exist in this checkout. | **No blanket rights or identity promotion.** Group by real publisher asset, underlying study, licence edition, geographic/time support, product/denominator and source dependence. Require independently reopened original/receipt and source-to-estimand appraisal per entry. |
+
+The official [AIHW copyright policy](https://www.aihw.gov.au/copyright)
+does not license third-party material under the site's general CC BY terms.
+[PMC's copyright guidance](https://pmc.ncbi.nlm.nih.gov/about/copyright/)
+likewise warns that freely readable material does not automatically have
+redistribution rights. This review relied on public publisher pages and the
+already published source records; it performed **no new original-byte
+download, checksum readback or legal determination**. No source is admitted.
+
+### Retained local source-commit disposition: review without mutation
+
+The handoff identifies an original empirical checkout at \`4655364\` with
+**five unpublished commits**, an untracked register generator and retained
+raw/browser materials; the second public-evidence checkout at \`cbe4308\`
+retains manuscript-related material. **Neither checkout is mounted or under
+this chat's writing control.** The owner's app-protected managed checkout is
+the primary preserved recovery route. Do not reset, clean, rebase, force,
+cherry-pick, prune, publish private files, revoke protection or change the
+native signing estate.
+
+The five original commit SHAs and per-commit file lists are **not available
+from the public remote**. Do not invent individual classifications. The
+source owner should eventually produce a *read-only* immutable inventory
+(commit SHA, parent, tree, changed paths, content class, source/object
+hash and comparison with the already merged #166/#170 trees) without
+exporting protected or unpublished bytes. Classify each real changed path,
+not each whole commit, into:
+
+1. **Already merged / patch-equivalent public source:** cite the exact
+   receiving commit and independently checked file/tree equality; retain
+   historical commit and provenance, but do not replay it.
+2. **New public, licence-qualified implementation or metadata:** separately
+   review dependencies, tests, publication inventory, source authority,
+   provenance and owner scope, then create a bounded candidate PR.
+3. **Provisional third-party or version-conflicted source:** quarantine
+   as unadmitted until original hashes/edition, source locator, rights and
+   target estimand are independently reconciled; do not automatically
+   copy into Git or replace a previous catalogue row.
+4. **Private/raw, manuscript, credentials, ignored or protected material:**
+   preserve in owner-held storage only. The separate access-dependent
+   scientific programme remains [deferred](../../roadmap.md); never use
+   this material to construct a public likelihood or a supposed acceptance
+   receipt without new explicit authorization.
+
+**Promotion/pruning gate:** for every source commit, record its reviewed
+changed-path inventory, source identity, preservation receipt, whether
+a fully equivalent accepted Git commit exists, tests and signed/native
+scope if applicable, and original checkout recovery capability. Only
+after *all* retained unique public work is accounted for and the owner
+approves a particular safe cleanup may that specific branch/worktree
+be considered for pruning. App-protected checkouts and untracked private
+material remain untouched. Completion of this decision plan is not a
+claim that any unpublished commit was inspected or safely prunable.
+
+### Next bounded active unit
+
+Reconcile the four flagged publisher identities and a representative
+public-only subset with the existing Searchright/archival authorities;
+record explicit **eligible, context/sensitivity-only, excluded or
+unresolved** source-use decisions. Add synthetic negative tests for
+wrong year, mistaken publisher page, duplicated underlying data and
+conflicting source bytes. Then evaluate decision sufficiency using
+the already merged finite oracle without inventing an identified NZ
+policy contrast. Non-public retrieval and additional access remain on
+the roadmap, while empirical validation and human manuscript approval
+remain distinct independent gates.
