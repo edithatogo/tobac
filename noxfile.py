@@ -507,9 +507,24 @@ def canary(session: nox.Session) -> None:
     session.env.update(OPENBLAS_NUM_THREADS="1", MPLBACKEND="Agg", PYTHONPATH="src")
     session.run("python", "-c", "import sys; assert sys.version_info[:3] == (3, 15, 2)")
     session.install(
-        "--pre", "numpy", "scipy", "polars", "matplotlib", "pytest", "hypothesis", "jsonschema", "PyYAML"
+        "--pre",
+        "numpy",
+        "scipy",
+        "polars",
+        "pyarrow",
+        "patito",
+        "msgspec",
+        "matplotlib",
+        "pytest",
+        "hypothesis",
+        "jsonschema",
+        "PyYAML",
     )
-    session.run("python", "-c", 'import hypothesis, jsonschema; print("canary dependencies loaded")')
+    session.run(
+        "python",
+        "-c",
+        'import hypothesis, jsonschema, msgspec, patito, pyarrow; print("canary dependencies loaded")',
+    )
     session.run("python", "-m", "pytest", "-q", "--strict-markers")
 
 

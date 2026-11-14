@@ -478,3 +478,33 @@ verify the receiving tree, signed closures and main-branch privacy execution.
 The repair PR and local terminal receipt bind those publication results. The
 existing methods-source acceptance and scientific qualification retain their
 recorded scope.
+
+## Local and hosted reconciliation — 14 November 2026
+
+The owner directs chat `01a1d426-0c2d-7ed2-b91a-fa5f2e2c5372` to integrate
+the remaining local work and merge qualified PRs sequentially. This chat owns
+main integration, shared handoff, retained native signing and the canary repair
+in `/Users/doughnut/Documents/tobac-methods-integration-20261113` on
+`codex/repair-canary-20261114`, based on `f5d9968`. The empirical source branch
+at `/Users/doughnut/Documents/tobac` and the public-evidence worktree retain
+their source files and private artifacts during reconciliation. The five
+empirical commits and untracked register work require source and interface
+review before publication. Two local source bytes differ from recorded register
+hashes, so the review must resolve the corresponding identities and dispositions.
+The empirical integration lane uses the managed worktree
+`/Users/doughnut/.codex/worktrees/tobac-empirical-reconciliation-20261114/tobac`
+from main `f5d9968`. This chat owns the candidate source-register, its focused
+tests, eligibility crosswalk, consumer-inventory reconciliation and the lane's
+branch. Its next operation is to compare the five committed source changes with
+current main and retained evidence before assembling the publication packet.
+The scheduled ecosystem canary failed at test collection because its isolated
+environment lacks `pyarrow`. Its prerelease session now installs the complete
+interchange dependency set. The repo-local canary passes 1,567 tests with 23
+capability skips. The normal native-route suite passes 1,572 tests with 18 skips
+and 90.43% coverage, and strict lint, formatting and typing pass. The renewed
+signed capsule verifies all eight retained native closures. The first canary
+rerun exposed `msgspec` as a further missing dependency. A subsequent run in an
+external environment exposed the repo-local interpreter guard; both failure logs
+are retained under `outputs/reconciliation-20261114` with the passing run.
+Next, publish the canary packet, verify its hosted checks and the deep-audit
+workflow, then merge with the tested head while the empirical packet is reviewed.
