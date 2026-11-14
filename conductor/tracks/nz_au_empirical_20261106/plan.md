@@ -241,3 +241,32 @@ publication remain separate; this slice is locally implemented source work.
 See [the checkpoint](methods-paper-progress-20261113.md). This is a bounded local
 methods draft. Human scientific acceptance, author declarations, prior-manuscript
 overlap, native qualification and submission authority remain separate and pending.
+
+## Local source catalogue reconciliation — 14 November 2026
+
+The owner requested integration of useful local work. The empirical source branch
+at `4655364810552500071f69d538e3f74af3e3ae49` contains a 28-row register, a
+41-row source/model/parameter/formula matrix and an eligibility crosswalk. The
+original branch and its private source files retain their existing owner. Its
+source-register CSV has SHA-256
+`26c567d65da967e8fa8bd2d29818bfd39903dc032b49da1f44dc9517c38df076`.
+The retained matrix has SHA-256
+`9e550b3b5c4c1114b0eaf2fbc0d47d4ad6b7c56ff4453abb007f5a0ca8260fd3`.
+
+The new candidate catalogue preserves each reported field as a reported claim.
+Its 28 rows require source-identity and rights review, and their empirical
+admission remains open. The historical NZHS source hash matches a retained
+Phase 2 intake object, while the CSV at the branch's recorded local path has a
+different hash. The AIHW NDSHS row points to a wastewater HTML page and its
+recorded hash differs from that page's bytes. Several other candidate identities
+also require source-level review. Six additional raw CSVs listed in the older
+consumer inventory remain in the owner's local intake, with byte matches recorded
+in the integration handoff. The existing archive register and observation
+contract remain the authorities for admitted identities and inputs.
+
+The crosswalk now uses the retained matrix in a clean checkout, records the
+selected matrix hash, resolves the historical-bridge code location and leaves
+empirical admission false for every row. Unknown object types remain unmapped.
+The older register generator and raw-source inventory retain their local source
+files for a later evidence review. The public methods package from source commits
+`683bd1b` and `cbe4308` was previously integrated through PR #166.

@@ -1410,7 +1410,13 @@
     "conductor/tracks/dynamic_frontier_20261108/bf2-benchmark-spec-20261113.md",
     "conductor/tracks/nz_au_empirical_20261106/methods-paper-review-20261113.md",
     "integration/archive/bf1-bf2-source-acceptance_20261113.json",
-    "integration/archive/scientific-lineage-checkpoint_bf1_bf2_20261113.json"
+    "integration/archive/scientific-lineage-checkpoint_bf1_bf2_20261113.json",
+    "conductor/tracks/nz_au_empirical_20261106/candidate-source-register_20261114.csv",
+    "conductor/tracks/nz_au_empirical_20261106/source-model-parameter-formula-matrix_20261114.csv",
+    "scripts/build_candidate_source_register.py",
+    "scripts/crosswalk_eligibility.py",
+    "tests/engineering/test_candidate_source_register.py",
+    "tests/engineering/test_crosswalk_eligibility.py"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",
