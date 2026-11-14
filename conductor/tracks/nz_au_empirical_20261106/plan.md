@@ -371,3 +371,42 @@ the already merged finite oracle without inventing an identified NZ
 policy contrast. Non-public retrieval and additional access remain on
 the roadmap, while empirical validation and human manuscript approval
 remain distinct independent gates.
+
+
+## Verified public edition decisions — 15 November 2026
+
+This is a **publisher-identity adjudication, not a new observation admission**.
+It supplements the [14 November disposition](#public-source-identity-and-unpublished-history-disposition--14-november-2026).
+All 28 entries in the immutable
+[candidate register](candidate-source-register_20261114.csv) retain their
+reported fields, `source_review_status=pending`, and
+`empirical_admission=false`. Resolution of bibliographic identity is distinct
+from resolving the owner-local source bytes, statistical use or redistribution rights.
+
+| Reported entry | Publicly verified identity | Remaining blocking test / provisional decision |
+| --- | --- | --- |
+| `aihw-ndshs-2025` | AIHW's [2025 NDSHS tobacco/nicotine report](https://www.aihw.gov.au/reports/illicit-use-of-drugs/national-drug-strategy-household-survey/contents/about) is the 20 August 2026 release, cat. no. **PHE 371**, and the [data page](https://www.aihw.gov.au/reports/illicit-use-of-drugs/national-drug-strategy-household-survey/data) identifies edition **28 July 2026 v3.0**. It concerns a household survey conducted June–December 2025 among people aged 14+, not wastewater monitoring. The old `reported_landing_page_url` instead points to AIHW's wastewater-monitoring context. | **Wrong endpoint confirmed; exact table still unverified.** Do not assert that the reported spreadsheet link is Table 1.33 or that its local HTML hash matches the 2025 survey. Reopen the actual publisher workbook, record table/sheet/year/units/rights/hash and resolve whether the claimed purchase-bands estimand is available. Treat published aggregate survey results as shared-survey observations, not a separate wastewater likelihood. |
+| `weng-2022` | [Publisher record](https://academic.oup.com/ntr/article/28/8/1357/8494659) identifies the anabasine excretion article, DOI **10.1093/ntr/ntag042**, first published **23 February 2026**, corrected/typeset 14 April, in *Nicotine & Tobacco Research* 28(8), August 2026. [PubMed](https://pubmed.ncbi.nlm.nih.gov/41725392/) confirms PMID **41725392**. | **Wrong bibliographic year confirmed.** The title/DOI/edition belongs to a 2026 study. Propose a new source alias for review (e.g. `weng-2026-ntag042`), but do not rewrite the 2022 row, equate its claimed 2022 observations with 2026 publication, adopt an excretion distribution or request participant-level data. Preserve original source hash/rights checks and external validity limits. |
+| `nzhs-2024-25` | The [MOH 2024/25 annual release](https://www.health.govt.nz/publications/annual-update-of-key-results-202425-new-zealand-health-survey) confirms the CSV-exportable Annual Data Explorer and **July 2024–July 2025** fieldwork. The [official correction notice](https://www.health.govt.nz/monitoring-statistics/surveys/new-zealand-health-survey/publications/202324-survey-publications/corrections-made-to-202324-data) confirms that the 2024/25 publication revised particular **2023/24** responses/estimates; the affected subjects are specified there, not every tobacco indicator. | **Known local byte conflict remains unresolved.** Different editions/exports can differ while representing related survey data; the correction notice does not explain any particular local hash mismatch. Verify the exact old and current local CSV bytes and download endpoint with the owner, preserve both objects and source alias/edition, and refuse any replacement based solely on the reported SHA, filename or similar prevalence values. Shared survey dependence and catchment-month mismatch remain. |
+
+**Rights and data use:** AIHW's [copyright statement](https://www.aihw.gov.au/copyright)
+generally permits CC BY 4.0 reuse of its own eligible material but excludes
+third-party or separately licensed material; a site-wide statement does not
+qualify every spreadsheet object. The reported Kim 2025 supplement rights require
+specific original-edition review. No third-party PDF, raw CSV, unpublished
+worktree, manuscript or restricted file is redistributed by this adjudication.
+No contact, subscription access, private-source retrieval or new field collection
+was performed.
+
+**Disposition gates (all must be satisfied before changing catalogue identity
+or admitting data):** (1) one publisher edition and original-object digest,
+(2) exact scope/units/product/population/time/table locator,
+(3) per-object licence and allowable use,
+(4) dependent source and underlying survey/measurement identity,
+(5) target-specific likelihood/transport justification,
+(6) author/owner and existing archive acceptance. Here only the limited
+*publisher bibliographic/endpoint* portion of (1) is satisfied for these
+three named rows. The original five unpublished empirical commit histories
+and the protected checkouts remain owner-local and untouched. Their individual
+patch contents still require a read-only owner-generated inventory before
+specific integration or pruning decisions.
