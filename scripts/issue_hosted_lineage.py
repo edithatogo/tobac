@@ -17,6 +17,7 @@ from hosted_lineage import (
     NAMESPACE,
     PROFILES,
     ROOT,
+    SCHEMA,
     command,
     digest,
     inventory_identity,
@@ -72,7 +73,7 @@ def issue(key: Path, out: Path) -> None:
         verified_bytes(ROOT / path, expected)
         pinned[path] = expected
     document = {
-        "schema": "tobac.signed-native-lineage/v1",
+        "schema": SCHEMA,
         "issuer": IDENTITY,
         "issued_at": datetime.now(UTC).isoformat(),
         "scope": (
@@ -85,7 +86,7 @@ def issue(key: Path, out: Path) -> None:
         ),
         "verifier_sha256": digest(ROOT / "scripts/hosted_lineage.py"),
         "inventory_sha256": inventory_identity(ROOT),
-        "pins": dict(sorted(pinned.items())),
+        "pins": {name: "sha256:" + value for name, value in sorted(pinned.items())},
         "native_readback": native,
         "runners": {
             name: {field: run[field] for field in fields}

@@ -19,6 +19,8 @@ hardening when a future analytical package changes semantics or execution inputs
 
 ## H2 — Release and repository tidy-up (after empirical milestone acceptance)
 
+- [x] Implement and locally qualify the shared privacy repair through exact historical review and algorithm-qualified native capsule pins. The current reader verifies the earlier signed v1 generation, all eight native closures pass, and the full Nox suite passes 1,572 tests with 18 capability skips. Guarded publication requires the hosted consumer check and receiving-main check, with terminal evidence recorded in the repair PR and `outputs/shared-privacy-fix-20261114`. Current owner, source merge and paths are recorded in `docs/WORKSTREAM_SYNC.md`.
+
 - [ ] Verify clean package/install, maintained entry points, full integration/reproduction and security gates.
 - [x] Prepare README, citation, licence/notices, capability and Conductor reconciliation. H1.1 local consistency checks pass; release acceptance remains separate.
 - [x] Prepare owner-scoped GitHub metadata fixes and stale-item disposition inventory; no blind deletion/closure. Current metadata require no changes; four PR/branch and three issue dispositions are recorded in progress.md without mutations.
