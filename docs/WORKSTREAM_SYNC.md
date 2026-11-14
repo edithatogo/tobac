@@ -428,3 +428,53 @@ Strict typing, formatting, package build and clean-package execution pass. The
 scanner's generic-key finding was the SHA-256 of the public privacy workflow in
 the signed capsule. Exact file hashing verified its identity. The scanner policy
 adjudicates only that complete JSON line at that capsule path and known digest.
+
+## Shared privacy false-positive repair — 14 November 2026
+
+PR #167 merged at `340b9bc08e5fee50d2ae194198720084f611d443`. The receiving
+tree matched the qualified candidate, and all eight native and signed closures
+passed readback. The terminal receipt is under `outputs/native-renewal-20261113`.
+
+The owner authorises chat `01a1d426-0c2d-7ed2-b91a-fa5f2e2c5372` to resolve
+the shared privacy finding and merge its repair. This chat owns the existing
+integration checkout on `codex/shared-privacy-false-positive-20261114`, the
+hosted receipt reader/issuer and affected tests, the qualified shared-action pin,
+fresh signed capsule, this handoff and guarded receiving-main integration.
+The shared fingerprint registry is edited in the isolated Git clone
+`/Users/doughnut/Documents/repository-standards-privacy-20261114` on
+`codex/tobac-privacy-fingerprint-20261114`. The managed-worktree API stalled;
+Git and attachment readback showed the isolated clone as the available checkout.
+
+The repair uses the shared scanner's existing centrally reviewed registry for
+the immutable historical finding. New capsule pins use explicit `sha256:`
+identifiers, with the legacy reader retained. Next, verify the exact historical
+finding, positive controls, both receipt formats, full affected gates and hosted
+consumer execution before merging. Existing native attempts and the signing key
+are read through their retained owner-held paths. Evidence is under
+`outputs/shared-privacy-fix-20261114`.
+
+Shared PR #132 merged at `aeb8abbb203f0de52371dce579054106179a47ac`.
+Its receiving tree equals qualified head `47734243b8825ce6f71e96c8811c9d20bb19556e`.
+The final source candidate passed 139 policy tests with 24 local Presidio
+capability skips, real Gitleaks controls and eleven hosted checks, including the
+installed Presidio backend and behavioral canary. The registry adds six exact
+historical findings. Full-history consumer scanning reports six reviewed and
+zero blocking findings. The active source policy runtime is Python 3.15.2;
+the hosted scanner uses its maintained isolated compatibility environment.
+
+The consumer pins that merged source revision and issues schema v2 with
+`sha256:` identifiers for every acceptance pin. Actual native issuance and signed
+readback both pass all eight closures. The prior v1 signature and its eight
+closures also verify against the matching committed snapshot using the current
+reader. The final capsule SHA-256 is
+`ad103691c838bf5dca00d5adf974ea8c9404e0000b31bd1c4f8bde1990f15cf0`.
+The full Nox test session passes 1,572 tests, 18 capability skips and 90.43%
+coverage. Strict Ruff, formatting, policy and BasedPyright checks pass. The first
+full run exposed the harness's prior exact action pin; the updated exact-pin
+assertion passes its failure-only rerun and the subsequent complete suite.
+Next, publish the scoped consumer commit with ordinary hooks, require hosted
+privacy success and the protected checks, merge with an exact-head guard, then
+verify the receiving tree, signed closures and main-branch privacy execution.
+The repair PR and local terminal receipt bind those publication results. The
+existing methods-source acceptance and scientific qualification retain their
+recorded scope.

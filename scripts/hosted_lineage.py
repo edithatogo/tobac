@@ -25,6 +25,8 @@ PROFILES_SHA = "0bc9d49a72f7c3f991c8f61672fad8dc60d6a51ff31b97cf3e9065727b03ae82
 SIGNERS_SHA = "0661923a19e1d4ed38a3e0938b94a25b03cdedd3145d63959825871ce05eeec9"
 NAMESPACE = "tobac-native-lineage"
 IDENTITY = "tobac-native"
+SCHEMA = "tobac.signed-native-lineage/v2"
+LEGACY_SCHEMA = "tobac.signed-native-lineage/v1"
 
 
 def digest(path: Path) -> str:
@@ -122,6 +124,15 @@ def qualified_profiles(root: Path) -> list[dict[str, Any]]:
     return profiles
 
 
+def pin_digest(value: object, schema: str) -> str:
+    """Decode the hash representation for a supported signed receipt schema."""
+    algorithm_prefix = "" if schema == LEGACY_SCHEMA else "sha256:"
+    if not isinstance(value, str) or not value.startswith(algorithm_prefix):
+        msg = "Native acceptance pin requires an algorithm-qualified SHA-256 identifier"
+        raise ValueError(msg)
+    return value.removeprefix(algorithm_prefix)
+
+
 def authenticate(root: Path) -> dict[str, Any]:
     """Authenticate evidence, its verifier implementation and every accepted pin."""
     profiles = qualified_profiles(root)
@@ -136,17 +147,18 @@ def authenticate(root: Path) -> dict[str, Any]:
     payload = checked(root, CAPSULE).read_bytes()
     verify_signature(payload, checked(root, CAPSULE + ".sig").read_bytes(), authority)
     capsule: dict[str, Any] = json.loads(payload)
-    if capsule["schema"] != "tobac.signed-native-lineage/v1":
+    if capsule["schema"] not in (LEGACY_SCHEMA, SCHEMA):
         msg = "Unknown native evidence schema"
         raise ValueError(msg)
     if capsule["verifier_sha256"] != digest(checked(root, "scripts/hosted_lineage.py")):
         msg = "Hosted verifier differs from the qualified implementation"
         raise ValueError(msg)
-    for name, expected in capsule["pins"].items():
+    for name, pin in capsule["pins"].items():
+        expected = pin_digest(pin, capsule["schema"])
         if digest(checked(root, name)) != expected:
             msg = f"Stale native acceptance pin: {name}"
             raise ValueError(msg)
-    if capsule["pins"].get(CHECKPOINT) != CHECKPOINT_SHA:
+    if capsule["pins"].get(CHECKPOINT) not in {CHECKPOINT_SHA, "sha256:" + CHECKPOINT_SHA}:
         msg = "Evidence does not attest the accepted native checkpoint"
         raise ValueError(msg)
     if inventory_identity(root) != capsule["inventory_sha256"]:

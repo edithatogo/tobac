@@ -6,7 +6,15 @@ and [methods-source acceptance](../../integration/archive/bf1-bf2-source-accepta
 Eight fresh native executions were independently reopened, verifying 335 input
 references and 140 outputs. All 82 scientific CSVs matched the preceding
 checkpoint. The signed capsule binds the scientific input contract and reviewed
-methods-source hashes. Local Nox tests passed 1,562 cases with 18 capability skips.
+methods-source hashes. The 14 November privacy repair renews the signed capsule
+with explicit `sha256:` pin identifiers and verifies the earlier signed v1
+generation through the current reader. Local Nox tests passed 1,572 cases with
+18 capability skips and 90.43% coverage. All eight native closures passed fresh
+issuance and signed readback. The shared scanner is pinned to merged revision
+`aeb8abbb203f0de52371dce579054106179a47ac`, which reviews six immutable
+historical public-data findings using exact commit, path, rule, line and matched
+value digest. Hosted consumer and receiving-main results belong to the repair
+PR and its terminal receipt under `outputs/shared-privacy-fix-20261114`.
 Earlier receipts below retain their dated source and runtime scope.
 
 ## Current development platform

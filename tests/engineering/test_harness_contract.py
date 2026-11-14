@@ -320,7 +320,7 @@ def assert_shared_privacy_job_guards(data) -> None:
     assert checkout["with"] == {"fetch-depth": "0", "persist-credentials": "false", "submodules": "false"}
     assert scanner["uses"] == (
         "edithatogo/repository-standards/.github/actions/privacy-secrets@"
-        "985503bc8eae58e7d6ef36a6e5427d0077e0193c"
+        "aeb8abbb203f0de52371dce579054106179a47ac"
     )
     assert scanner["with"] == {"profile": "${{ inputs.profile || 'repository' }}"}
 

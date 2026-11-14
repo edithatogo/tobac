@@ -49,6 +49,64 @@ def test_actual_signed_native_acceptance_and_all_inputs() -> None:
     assert capsule["native_readback"]["success"] is True
 
 
+def test_new_capsule_pins_are_algorithm_qualified() -> None:
+    """Identify generated content hashes explicitly in the signed format."""
+    capsule = hosted.authenticate(hosted.ROOT)
+    assert capsule["schema"] == "tobac.signed-native-lineage/v2"
+    assert all(value.startswith("sha256:") for value in capsule["pins"].values())
+
+
+@pytest.mark.parametrize("schema", ["tobac.signed-native-lineage/v3", None, {}])
+def test_unknown_or_malformed_schema_is_rejected(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, schema: object
+) -> None:
+    """Unsupported versions and malformed fields fail at the schema boundary."""
+    root = copied_root(tmp_path)
+    capsule = json.loads((root / hosted.CAPSULE).read_bytes())
+    capsule["schema"] = schema
+    (root / hosted.CAPSULE).write_text(json.dumps(capsule))
+    monkeypatch.setattr(hosted, "verify_signature", lambda *_args: None)
+    with pytest.raises(ValueError, match="Unknown native evidence schema"):
+        hosted.authenticate(root)
+
+
+@pytest.mark.parametrize("schema", ["tobac.signed-native-lineage/v1", "tobac.signed-native-lineage/v2"])
+def test_supported_pin_formats_enforce_the_same_bytes(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, schema: str
+) -> None:
+    """Exercise both representations after the separate signature boundary."""
+    root = copied_root(tmp_path)
+    capsule = json.loads((root / hosted.CAPSULE).read_bytes())
+    raw = {name: value.removeprefix("sha256:") for name, value in capsule["pins"].items()}
+    capsule["schema"] = schema
+    capsule["pins"] = {
+        name: "sha256:" + value if schema.endswith("/v2") else value for name, value in raw.items()
+    }
+    (root / hosted.CAPSULE).write_text(json.dumps(capsule))
+    monkeypatch.setattr(hosted, "verify_signature", lambda *_args: None)
+    assert hosted.authenticate(root)["schema"] == schema
+    (root / "noxfile.py").write_bytes(b"changed workload definition")
+    with pytest.raises(ValueError, match="Stale native acceptance pin"):
+        hosted.authenticate(root)
+
+
+@pytest.mark.parametrize("prefix", ["", "sha512:", "SHA256:", None])
+def test_v2_rejects_unqualified_or_substituted_pin_algorithms(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, prefix: str | None
+) -> None:
+    """A versioned receipt requires its declared SHA-256 representation."""
+    root = copied_root(tmp_path)
+    capsule = json.loads((root / hosted.CAPSULE).read_bytes())
+    capsule["schema"] = "tobac.signed-native-lineage/v2"
+    capsule["pins"] = {
+        "noxfile.py": prefix + hosted.digest(root / "noxfile.py") if prefix is not None else None
+    }
+    (root / hosted.CAPSULE).write_text(json.dumps(capsule))
+    monkeypatch.setattr(hosted, "verify_signature", lambda *_args: None)
+    with pytest.raises(ValueError, match="algorithm-qualified"):
+        hosted.authenticate(root)
+
+
 @pytest.mark.parametrize(
     "case",
     [
