@@ -531,3 +531,48 @@ the native attempts, local manuscript outputs, logs and private source files wit
 their existing owners. The canary and empirical PR bodies and the local evidence
 under `outputs/reconciliation-20261114` record tested heads, receiving refs,
 CI results, remaining branch dispositions and the final handoff receipt.
+
+## Retained-artifact integration — 16 November 2026
+
+Chat `01a1e414-c900-76e0-a8fb-e99c3a27d6fb` owns the managed integration
+checkout `/Users/doughnut/.codex/worktrees/tobac-retained-integration/tobac`,
+branch `codex/retained-evidence-integration-20261116`, based on remote main
+`891f79e07292b7754f78d7193130623bd5f9e243`. Its source scope is the Phase 2
+plan and this handoff, for reconciliation of the retained archive-context patch
+and integration inventory. It owns no native objects, authentication, raw-source
+admission or external messages. The source checkouts, ignored manuscripts,
+native recovery material and private intake remain with their existing owners.
+Next: verify the retained patch and source receipts, record its qualified
+disposition, and check the receiving ref before any integration or cleanup.
+
+All 51 supplied PortableSSD locations exist, but none is a registered worktree
+or a Git checkout at its top level. They contain source captures, research and
+verification artifacts, native recovery material and preserved environments;
+their independent retention requirements are not resolved by a Git merge.
+The retained Phase 3 patch matches integration commit `cebc786` by stable
+patch ID; the AIHW and Phase 2 source-review patches likewise match `3a1b734`
+and `050b73c`. The later archive-context patch is reconciled in the Phase 2
+plan, retaining its evidence and admission limits.
+
+Read-only preflight found five changed paths on the original empirical branch;
+four differ from the current base and one is absent. Its 28-row source
+register's reported fields match the candidate catalogue exactly, but that
+does not settle source identity, rights, untracked files or signed-input
+changes. The original methods branch has 26 identical changed-path objects,
+four differing objects and one absent object against the same base; its
+history includes the empirical commits and its ignored manuscript and raw
+files remain in place. Neither branch is represented as fully integrated or
+safe to prune.
+
+The regional-survey replay matched the retained diagnostic bytes and the
+eight selected local input hashes matched their receipts. A full locked Nox
+test session on repo-local Python 3.15.2 passed 1,574 tests with 22 capability
+skips and 90% reported source coverage; the signed, attested lineage check
+passed eight runners. The first Nox attempt stopped before testing because the
+then-selected Python executable differed from the signed profile. A separate
+official Python release asset was hash-checked and the original qualified
+executable recovered without changing the verifier or its allowlist. These
+checks do not establish independent archive download, empirical admission,
+scientific acceptance or remote publication. Next: commit the bounded
+documentation packet and fast-forward the local main ref only after checking
+the receiving heads; retain the listed directories and source branches.

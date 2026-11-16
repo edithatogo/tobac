@@ -135,6 +135,40 @@ through the GitHub release-assets API and matched the installer SHA-256 pins.
 The hosted jobs use browser download URLs that continue to return HTTP 504.
 The API route has local byte verification and awaits hosted qualification.
 
+### Retained archive-context handoff — 16 November 2026
+
+The retained 8 November plan patch (SHA-256
+`7ada77ddffa06ca2418849bc0dfebf95043ffdf171851e2bcb7805ac874a835a`)
+was not itself merged. Its publication readback is now historical: PR #146
+merged at `db954d5` and PR #148 at `d0e832b`; both commits are ancestors of
+the current integration base. Those software events did not admit observations.
+
+The retained handoff reports that three contextual extracts were present at
+an immutable private archive revision and that local file hashes matched the
+revision's reported Git or LFS objects. That historical object comparison is
+distinct from independently downloading the archived bytes: the retained
+receipt says the latter remained open. This review did not repeat it, settle
+object-specific rights or create canonical source-admission receipts.
+
+The retained NZHS archive, survey member, guide, diagnostic, Kim occasion and
+incidence files, and two Australian extracts matched their recorded local
+SHA-256 values. A fresh Python 3.15.2 replay of the retained regional-survey
+diagnostic reproduced the saved bytes: 720 matched survey keys, 695 finite
+point products and 25 missing products. These are descriptive products of
+rounded survey values, without verified joint covariance. Two overlapping
+three-year windows each cover all 142 printed Kim dates; seven date/weekday
+discrepancies remain, the windows reuse survey years and wastewater occasions,
+and no plant-to-service-population geography was matched. These diagnostics
+are not independent consumption observations or an eligible holdout.
+
+A separate retained screening note flags unresolved denominators in historic
+in-person cessation-service rates and a reproducible but different Quitline
+ratio. This reconciliation did not independently reopen that primary document;
+keep the rates quarantined for the present contrast. No new empirical data,
+policy effect, source admission or scientific acceptance follows from the
+handoff. The private originals and recovery receipts remain in their existing
+locations.
+
 - [ ] Integrate qualified NZ survey, lawful releases, prices, trade and denominators using Polars; add actual Australian wastewater programme design and measurement evidence.
 - [ ] Reconcile dates, products, catchments, lawful unrecorded flows, stock, shared sources and calibration. Assess identifiability before fitting; retain partial-identification bounds where needed.
 - [ ] Fit the supported baseline and one existing retail/cessation contrast; preserve original finite-state reference results separately.
