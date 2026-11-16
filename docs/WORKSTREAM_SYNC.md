@@ -576,3 +576,19 @@ checks do not establish independent archive download, empirical admission,
 scientific acceptance or remote publication. Next: commit the bounded
 documentation packet and fast-forward the local main ref only after checking
 the receiving heads; retain the listed directories and source branches.
+
+### Local receiving readback
+
+Local `main` fast-forwarded from the verified remote head `891f79e` to the
+reviewed documentation packet `09a1bf8`; the receiving tree matched that
+commit. The already-integrated branch at `5cbf3e0` and the temporary packet
+branch were deleted only after ordinary ancestry checks. The temporary source
+worktree was archived by the Codex app after its owned test receipts were
+preserved. The app declined to archive the separate receiving worktree
+`/Users/doughnut/.codex/worktrees/tobac-main-receive-20261116/tobac` because
+it is the task's primary checkout, so that worktree remains registered.
+
+The two original source checkouts and all 51 named PortableSSD locations remain
+in place. Their outstanding source, rights, signed-input and recovery
+dispositions are unchanged. The integration is local; it has not been pushed
+to the public remote and establishes no new empirical or scientific acceptance.
