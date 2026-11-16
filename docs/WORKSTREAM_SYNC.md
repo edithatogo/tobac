@@ -710,3 +710,12 @@ inventory found 159,579 files under the primary checkout's `outputs/` and
 manuscript material in the other checkout. Keep those checkouts and their
 native bindings in place; test and merge committed history without resetting,
 cleaning or moving their private contents.
+
+The empirical history was integrated with the path-specific scientific
+dispositions recorded in the Phase 2 plan. For the two later methods commits,
+26 of 28 changed paths already matched the receiving Git objects; the additions
+to the remaining plan and handoff files were each already present exactly once.
+The merge therefore retains those receiving files and their later history. The
+source checkouts and their private files remain unchanged. Next: qualify the
+resulting integration, then advance the receiving branch and dispose of only
+eligible branch references.
