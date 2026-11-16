@@ -719,3 +719,40 @@ The merge therefore retains those receiving files and their later history. The
 source checkouts and their private files remain unchanged. Next: qualify the
 resulting integration, then advance the receiving branch and dispose of only
 eligible branch references.
+
+## Historical merge and cleanup handoff — 16 November 2026
+
+Local `main` was guarded-fast-forwarded to merge commit
+`805fc22c95f2c6bb0d79d93f8820679dd6acced9`. Both original branch tips are its
+ancestors: the empirical history was merged at `68b8b9d`, followed by the
+methods history at `805fc22`. The original two branch refs and the temporary
+integration ref were deleted with Git's merged-branch check. Their original
+checkouts remain at their original commits in detached state; no private files
+or native bindings were moved. Before and after detachment, untracked status,
+selected source/manuscript bytes and the metadata of the primary owner's
+outputs matched. That comparison did not rehash the primary outputs or compare
+their access times, creation times, ACLs or extended attributes.
+
+The full locked Nox suite at `805fc22` passed 1,591 tests, skipped 22 and
+reported 90.43% source coverage. The full outgoing-history boundary check
+passed at that merge commit. Nox publication passed its 38 boundary tests,
+full-history and staged secret scans, and workflow checks using a local build of
+actionlint 1.7.12 with the exact upstream pipe-deadlock fix
+[`fd33e9f`](https://github.com/rhysd/actionlint/commit/fd33e9f582a01a02885c93ae3775e1190cf63653).
+The upstream regression passed, 156 workflow ShellCheck invocations were
+observed, and a long-script negative control produced the expected finding.
+The original checksum-installed release binary was restored afterward. Its
+unmodified ShellCheck integration hung on this host's 512-byte pipe; an
+unmodified local publication or pre-push run may therefore hang until that
+tool/runtime issue is resolved. The failed run and qualified local workaround
+are retained with the integration evidence, not represented as a pristine
+release-binary pass.
+
+Seven of the 51 originally requested PortableSSD locations have been removed
+after their contents were found empty, duplicated or preserved and verified.
+The seventh was the 2024 BAT loose-tobacco capture; its exact private retained
+location and metadata checks are recorded in Phase 3 progress. Forty-four
+requested locations remain, including named source captures, WARC provenance,
+receipts and native recovery material. The remote `main` was not changed; no
+new empirical admission, scientific acceptance, manuscript submission or
+external contact is implied by this local merge.
