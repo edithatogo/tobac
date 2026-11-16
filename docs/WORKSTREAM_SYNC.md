@@ -592,3 +592,76 @@ The two original source checkouts and all 51 named PortableSSD locations remain
 in place. Their outstanding source, rights, signed-input and recovery
 dispositions are unchanged. The integration is local; it has not been pushed
 to the public remote and establishes no new empirical or scientific acceptance.
+
+## Continued retained-source reconciliation — 16 November 2026
+
+Chat `01a1e414-c900-76e0-a8fb-e99c3a27d6fb` is the integrator in the
+managed receiving checkout
+`/Users/doughnut/.codex/worktrees/tobac-main-receive-20261116/tobac`, on
+`main` at `0018d9150382b02a07cbe0fd6ff56897968b8f34` before this entry.
+Its scope is the two retained branches, the Phase 2 source and inventory
+dispositions, this handoff, and the explicitly named PortableSSD locations.
+It has no native-object, authentication, observation-admission or external
+messaging scope. Preserve existing source owners and earlier handoffs. Next:
+classify the remaining changes and source evidence against the current base,
+and prune only locations with verified recoverability or no contents.
+
+The retained NZHS CSVs differ only by the original UTF-8 byte-order mark;
+the two exact hashes and source limitations are recorded in the Phase 2 plan.
+The AIHW direct workbook link was reopened, matched its retained SHA-256 and
+Table 1.33, and its ten extracted rows matched their 20 source cells. The
+legacy consumer manifest's 18 shared records match the current manifest; all
+seven additional owner-local files match their recorded hashes, row counts and
+columns. These checks do not establish rights, admission or native authority.
+
+The outgoing-history checker rejected the two retained branch tips because
+their recorded commit trees contain paths outside their publication inventories.
+The exact per-commit path review is kept privately. The legacy register is not
+a current public path, and both branch histories include its commits. Preserve
+the branches and original checkouts; do not change the publication guard merely
+to mark them merged. The untracked legacy generator and tests stay owner-local.
+
+Three empty scratch directories were removed. A fourth held one receipt that
+was byte-identical to a retained receipt; its original metadata and a second
+private copy were preserved before removal. The completed Phase 3 replay tree
+matched all 863 entries at `cebc786` and was separately archived. A test
+restore verified 1,007 files and directories for bytes, types, modes,
+ownership, modification times, extended attributes and ACLs; access and creation
+times were not compared. The archive, metadata manifest, restore/check scripts
+and SHA-256 readback are in the private
+`/Volumes/PortableSSD/tobac-retained-evidence-20261116/phase3-replay` folder.
+Only after that recovery check was the original replay scratch directory
+removed. Native recovery material and nonduplicate source captures remain.
+
+Two further completed Phase 2 scratch packets had no tracked references to
+their directory names. Their historical publication plan/patch files and the
+cessation-denominator screening note were archived privately under
+`/Volumes/PortableSSD/tobac-retained-evidence-20261116/phase2-packets`.
+Both ZIPs passed CRC checks and restored 13 objects in total with matching
+bytes, types, modes, ownership, modification times, extended attributes and
+ACLs after applying retained metadata manifests. Access and creation times were
+not compared. The original packet directories were then removed. The
+screening note remains a historical note, not a new primary-source review.
+
+Two completed Phase 3 outgoing/preflight scratch packets were likewise
+retained under
+`/Volumes/PortableSSD/tobac-retained-evidence-20261116/phase3-checks`.
+Their ZIP CRC checks and independent restores passed for bytes, types, modes,
+ownership, recorded modification times, extended attributes and ACLs; access
+and creation times were not compared. Only then were the two original scratch
+directories removed. Their old check outcomes are historical and do not
+replace the current outgoing-history failure recorded above.
+
+A private complete Git bundle of both retained branch histories is kept at
+`/Volumes/PortableSSD/tobac-retained-evidence-20261116/legacy-branch-history`.
+Its two ref tips matched the source branches; a separate bare clone reproduced
+both and passed full Git object verification. This protects committed history
+but does not include or move untracked files, ignored raw data, manuscripts,
+native bindings or environments. The branches and their source checkouts remain
+until their publication and recovery dispositions are complete.
+
+The focused locked-environment selection passed 100 tests, including context,
+harness and cross-workstream integration. The prior full Nox run remains the
+full-suite evidence for unchanged code; this continuation adds documentation,
+source readbacks and private preservation only. No hosted, new native or
+scientific acceptance is claimed.

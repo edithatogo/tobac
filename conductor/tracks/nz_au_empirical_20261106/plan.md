@@ -444,3 +444,28 @@ three named rows. The original five unpublished empirical commit histories
 and the protected checkouts remain owner-local and untouched. Their individual
 patch contents still require a read-only owner-generated inventory before
 specific integration or pruning decisions.
+
+
+## Retained source and branch reconciliation — 16 November 2026
+
+This later readback supersedes only the unresolved byte relationship and
+spreadsheet-link questions in the 15 November table; it does not rewrite the
+reported catalogue, admit an observation or settle source rights.
+
+| Item | Bounded readback and disposition |
+| --- | --- |
+| `nzhs-2024-25` | The retained Phase 2 CSV is 6,088,525 bytes with SHA-256 `6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915`. The empirical owner's 6,088,522-byte CSV has SHA-256 `c23b4002fb1f4780ee57b5f6b5245578f3e1ab49cb98c875ea7f817735955315`. The first has a three-byte UTF-8 byte-order mark; its remaining bytes match the second exactly. Preserve both byte identities and their different hashes. This comparison does not establish when or by whom the mark was removed, or independently verify a current publisher download. Shared-survey dependence and the catchment/period gap remain. |
+| `aihw-ndshs-2025` | The reported direct-download URL is the [AIHW tobacco workbook](https://www.aihw.gov.au/getmedia/5fc9ac6e-2f49-415e-a4fa-001a72fcad52/aihw-phe-371-Tobacco.xlsx); the reported landing page instead concerns wastewater. A fresh publisher download and retained workbook both have SHA-256 `c1cb4154174cce1e90fd0a6e3189de488e0198929bdd75fee8422cebc7a5ae51`. Worksheet `sheet36.xml` identifies Table 1.33 and the 2022–23 and 2025 columns for people who currently smoke. Ten retained purchase-band rows match their 20 source cells, including flags and margins; the bounded replay reproduces the previously recorded floors and thresholds. The owner's separate wastewater HTML has SHA-256 `fc14c6eaece71c03c49819ba6623cac63ca940999c3bb013a8651fb1b6e10f21`, not the catalogue's reported HTML hash or the workbook hash. The workbook concerns packets without the stated graphic health warnings, not total consumption; survey dependence, geography and open-band limitations remain. [AIHW's terms](https://www.aihw.gov.au/copyright) exclude specified material including logos and separately licensed items, so exact-object rights and independent canonical archive readback remain open. |
+| Legacy consumer inventory | The historical branch and current signed inventory have 18 identical shared input records. The branch adds seven owner-local CSV records: the reported register, the NZHS CSV and five Customs extracts. Each currently matches its recorded SHA-256, row count and columns. Byte and schema agreement do not establish original-source identity, rights, a qualified observation or native admission. Do not add these records to the current signed consumer inventory merely because they match. |
+| `weng-2022` and Kim supplement | The 15 November bibliographic correction and restricted-supplement disposition remain. Neither a 2026 Weng article identity nor an accessible Kim supplement supplies a qualified NZ wastewater calibration or authorises redistribution. |
+
+The original five empirical commits remain distinct history. Their first two
+unreviewed publication-tree paths are the older crosswalk and benchmark; later
+commits also contain `data/source_register.csv`. The retained methods commits
+add their own historical paths on top of that ancestry. The existing outgoing
+history check rejects these trees under their recorded publication policies.
+Current main already retains the reported 28-row catalogue, corrected crosswalk
+and later methods packet, but the legacy input inventory, older governance and
+supply assertions, ignored raw files and manuscript outputs require their
+separate dispositions. Do not relax the history guard or merge the legacy
+ancestry into a publishable ref solely to make a branch deletable.
