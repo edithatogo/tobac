@@ -496,3 +496,27 @@ crosswalk, benchmark, current signed consumer inventory and later methods packet
 remain the receiving versions. The owner-local raw data, authoring documents,
 untracked generator and recovery outputs remain outside this review's public
 content and stay with their existing checkouts.
+
+
+## Historical empirical merge disposition — 16 November 2026
+
+The older branch's catalogue fields are retained in the candidate register and
+its original CSV remains in the reviewed historical commits. Its seven extra
+consumer-manifest records match the owner-local files but lack independent
+source and rights qualification, so they do not replace the current signed
+consumer inventory. The historical plan described interception data as
+enforcement context and warned that reported totals combine unlike units;
+neither those totals nor seizure counts are admitted as consumption outcomes.
+The existing public-only scope and matched-data gaps continue to apply.
+
+The old additions asserted that imports equalled total lawful supply, that
+manufacturer stock was zero and that particular source rights and archive
+provenance had been resolved. Those assertions are not established by this
+review. The later historical removal of a Māori governance item also does not
+resolve the governance and permissible-use requirements already recorded in
+[research gates](../../research-gates.md). The current crosswalk retains
+`empirical_admission=false`; the current benchmark distinguishes parameter
+point identification from action identification instead of interpreting an
+arbitrary interval width as decision identification. These dispositions keep
+the useful historical context without replacing the receiving scientific
+contracts or inventing new empirical acceptance.
