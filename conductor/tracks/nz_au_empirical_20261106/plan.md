@@ -469,3 +469,30 @@ and later methods packet, but the legacy input inventory, older governance and
 supply assertions, ignored raw files and manuscript outputs require their
 separate dispositions. Do not relax the history guard or merge the legacy
 ancestry into a publishable ref solely to make a branch deletable.
+
+
+## Historical object review — 16 November 2026
+
+The later review considered the seven original commits ending at `cbe4308`,
+including all five empirical commits. Forty distinct changed or historically
+unreviewed path/blob pairs were inspected against the retained private-document
+fingerprints and bounded archive rules; the configured gitleaks scan of those
+seven commits reported no findings. Thirty-nine pairs use paths in the current
+public inventory. The remaining pair is the project-authored historical
+`data/source_register.csv`, Git blob
+`e38f8f4b19972ae26c062cc2cfa7a5b4f03f6f1d`, SHA-256
+`26c567d65da967e8fa8bd2d29818bfd39903dc032b49da1f44dc9517c38df076`.
+It contains source-catalogue metadata, not the source files themselves; its
+28 rows and 26 fields are retained as reported fields in the current candidate
+register. Historical statements about licences, provenance, verification,
+manufacturing and evidence availability remain reports, not validated facts.
+
+The exact reviewed historical commit/path/blob classifications are recorded
+in the publication policy. The retired CSV is allowed only in those historical
+trees, not the current index. This decision makes its old bytes eligible to
+appear in later published history; it does not admit data, validate source
+rights or restore the obsolete register as a current input. The corrected
+crosswalk, benchmark, current signed consumer inventory and later methods packet
+remain the receiving versions. The owner-local raw data, authoring documents,
+untracked generator and recovery outputs remain outside this review's public
+content and stay with their existing checkouts.

@@ -678,3 +678,35 @@ harness and cross-workstream integration. The prior full Nox run remains the
 full-suite evidence for unchanged code; this continuation adds documentation,
 source readbacks and private preservation only. No hosted, new native or
 scientific acceptance is claimed.
+
+## Historical branch review — 16 November 2026
+
+Chat `01a1e414-c900-76e0-a8fb-e99c3a27d6fb` continues as the sole integrator
+in `/Users/doughnut/.codex/worktrees/tobac-main-receive-20261116/tobac`,
+starting from local `main` at `8092530c87d6389b1574be7715ec75f5bb05b5c3`.
+Its scope is the two retained branch histories, publication-boundary review,
+owner-local material in their existing checkouts, and eligible cleanup of the
+requested locations. Next: review exact historical objects and private-file
+dispositions, preserve their original owners and bindings, and integrate only
+after the applicable publication and scientific checks pass. No tenant,
+authentication, external-message, empirical-admission or publication action
+is included in this assignment.
+
+Read-only review covered seven historical commits and 40 distinct changed or
+previously unreviewed path/blob pairs. The configured secret scan found no
+leaks, and all seven trees passed with the newly reviewed exact-object policy
+entries. The sole retired path is a 28-row project-authored source catalogue;
+its 26 reported fields already appear in the current candidate register. The
+retired-history rule accepts only exact reviewed commit/path/blob triples for
+regular `data/` CSVs, while retaining private-path, byte, archive and current
+index checks. It does not make the legacy catalogue a current input or validate
+its claims. Focused publication, candidate-register and cross-workstream tests
+passed 93 cases. The signed attested-input lineage route was independently
+rechecked with the qualified repo-local Python 3.15.2 executable.
+
+The two source checkouts were inactive at inspection but contain ignored
+owner-local raw material, authoring documents and recovery outputs. A metadata
+inventory found 159,579 files under the primary checkout's `outputs/` and
+manuscript material in the other checkout. Keep those checkouts and their
+native bindings in place; test and merge committed history without resetting,
+cleaning or moving their private contents.
