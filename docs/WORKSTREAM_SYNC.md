@@ -630,8 +630,11 @@ ownership, modification times, extended attributes and ACLs; access and creation
 times were not compared. The archive, metadata manifest, restore/check scripts
 and SHA-256 readback are in the private
 `/Volumes/PortableSSD/tobac-retained-evidence-20261116/phase3-replay` folder.
-Only after that recovery check was the original replay scratch directory
-removed. Native recovery material and nonduplicate source captures remain.
+The original replay scratch directory was initially removed after the recovery
+check, then restored when a later cross-check found its exact path in the
+retained Phase 3 integration receipt. The restored directory again matched its
+metadata manifest. Native recovery material and nonduplicate source captures
+remain.
 
 Two further completed Phase 2 scratch packets had no tracked references to
 their directory names. Their historical publication plan/patch files and the
@@ -648,9 +651,19 @@ retained under
 `/Volumes/PortableSSD/tobac-retained-evidence-20261116/phase3-checks`.
 Their ZIP CRC checks and independent restores passed for bytes, types, modes,
 ownership, recorded modification times, extended attributes and ACLs; access
-and creation times were not compared. Only then were the two original scratch
-directories removed. Their old check outcomes are historical and do not
-replace the current outgoing-history failure recorded above.
+and creation times were not compared. The original scratch directories were
+initially removed, then restored when the retained integration receipt was
+found to name their exact paths. All six paths in that receipt now pass their
+SHA-256 checks, including the restored replay path. Their old check outcomes
+are historical and do not replace the current outgoing-history failure
+recorded above.
+
+Six of the 51 requested locations remain removed: three empty directories,
+one duplicate receipt directory and two Phase 2 packets whose contents were
+preserved in the private archive. A subsequent exact-name scan of the other
+45 requested locations found no references to those six names in scanned
+files of up to 2 MiB; ignored environments and Git internals were excluded.
+The other 45 locations remain in place, including the three restored paths.
 
 A private complete Git bundle of both retained branch histories is kept at
 `/Volumes/PortableSSD/tobac-retained-evidence-20261116/legacy-branch-history`.
