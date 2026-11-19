@@ -26,9 +26,9 @@ The run seed and Hypothesis minimal examples remain in the job log.
 ## Executed evidence and remaining gates
 
 `TOBAC_PROPERTY_EXAMPLES=1000 .venv/bin/python -m nox -f nox_properties.py -s properties -- --hypothesis-seed=20261121`
-passed all four properties in 6.74 seconds (Nox session 12 seconds), with the
-verified existing runtime lock on Python 3.15.2. The new test and Nox changes pass
-Ruff check and formatting.
+selects the four properties using the verified existing runtime lock on Python
+3.15.2. Its final execution result is recorded below. The new test and Nox entry
+point pass pinned Ruff check and formatting.
 
 The required full `nox -s tests` was attempted. Its evidence inventory passed,
 then native lineage preflight failed because `TOBAC_LINEAGE_PYTHON` was absent.
