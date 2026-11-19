@@ -6,7 +6,11 @@ on:
       - 'src/tobac/partial_identification.py'
       - 'tests/engineering/test_accounting_properties.py'
       - 'engineering/*requirements*'
+      - 'engineering/*.lock*'
+      - 'pyproject.toml'
+      - 'requirements.lock'
       - 'noxfile.py'
+      - 'nox_properties.py'
       - '.github/workflows/accounting-properties.yml'
   schedule:
     - cron: '53 18 * * 3'
@@ -20,6 +24,7 @@ concurrency:
 
 jobs:
   properties:
+    name: Synthetic accounting properties
     runs-on: macos-latest
     timeout-minutes: 15
     env:
@@ -38,7 +43,7 @@ jobs:
       - name: Exercise bounded synthetic accounting
         env:
           PROPERTY_SEED: ${{ github.run_id }}
-        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 600 -- uvx --python 3.15.2 --from nox==2026.10.20 nox -s properties -- --hypothesis-seed="$PROPERTY_SEED"
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 600 -- uv run --no-project --python 3.15.2 --with nox==2026.10.20 python -m nox -f nox_properties.py -s properties -- --hypothesis-seed="$PROPERTY_SEED"
       - name: Install checksum-pinned export scanner
         if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh

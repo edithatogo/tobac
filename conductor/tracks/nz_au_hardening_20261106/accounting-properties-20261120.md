@@ -13,8 +13,10 @@ stock uncertainty, and rejection of a calibration support that touches zero.
 The oracle names every component explicitly; generated dictionary insertion order
 exposed and corrected an initial test-oracle defect before publication.
 
-The new `properties` Nox session uses the existing source-bound runtime lock and
-exact Python 3.15.2. It is a scalar synthetic test session, not native-producer
+The new `properties` Nox session in `nox_properties.py` imports the existing
+environment helper and uses its source-bound runtime lock and exact Python 3.15.2.
+The signed main `noxfile.py` remains byte-for-byte unchanged. This is a scalar
+synthetic test session, not native-producer
 lineage qualification. The scoped workflow runs 100 examples per property on PRs
 and 1,000 weekly/manual, through the existing macOS process-group monitor at
 4 GiB RSS and a ten-minute wall limit. Public artifacts pass the existing export
@@ -23,7 +25,7 @@ The run seed and Hypothesis minimal examples remain in the job log.
 
 ## Executed evidence and remaining gates
 
-`TOBAC_PROPERTY_EXAMPLES=1000 .venv/bin/nox -s properties -- --hypothesis-seed=20261121`
+`TOBAC_PROPERTY_EXAMPLES=1000 .venv/bin/python -m nox -f nox_properties.py -s properties -- --hypothesis-seed=20261121`
 passed all four properties in 6.74 seconds (Nox session 12 seconds), with the
 verified existing runtime lock on Python 3.15.2. The new test and Nox changes pass
 Ruff check and formatting.
@@ -35,3 +37,16 @@ therefore not executed through their qualified route. No substitute lineage,
 private binding, skipped preflight or gate waiver was introduced. Existing native
 owner and empirical acceptance work remains open. The PR records the candidate
 commit, receiving-ref verification and actual hosted results.
+
+The first hosted candidate `0c972b99c3cb498c2165e48002de00b42b2b1976` passed its
+new property job but exposed two introduced integration defects: the initial
+session addition changed signed `noxfile.py` bytes, and the pedantic workflow audit
+required a job display name. The next candidate restores the original Nox file,
+uses the separate Nox entry point above and names the job. No native acceptance
+pin, signature or verifier is changed; final hosted status remains in the PR.
+
+The final separate-entry-point command above passed all four properties in
+5.20 seconds (Nox session 27 seconds, including its clean locked installation).
+All 43 file hashes in the committed native acceptance capsule match their original
+pins. Pinned zizmor 1.32.0, offline/pedantic, reports no workflow findings. These
+checks do not substitute for hosted native signature/interpreter qualification.

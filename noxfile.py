@@ -224,22 +224,6 @@ def tests(session: nox.Session) -> None:
 
 
 @nox.session(python="3.15.2")
-def properties(session: nox.Session) -> None:
-    """Bounded synthetic scalar accounting; does not qualify native producer lineage."""
-    environment(session, require_lock=True)
-    session.run(
-        "python",
-        "-m",
-        "pytest",
-        "tests/engineering/test_accounting_properties.py",
-        "-q",
-        "--hypothesis-show-statistics",
-        "--junitxml=outputs/engineering/accounting-properties.xml",
-        *session.posargs,
-    )
-
-
-@nox.session(python="3.15.2")
 def quality(session: nox.Session) -> None:
     """Run baseline lint and component typing checks."""
     audit_tools(session)
