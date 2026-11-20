@@ -1162,6 +1162,7 @@
     "src/tobac/retail_case.py",
     "src/tobac/robustness.py",
     "src/tobac/run.py",
+    "src/tobac/strategic_inspection.py",
     "src/tobac/supply.py",
     "src/tobac/value_sensitivity.py",
     "src/tobac_supply/__init__.py",
