@@ -1,5 +1,48 @@
 # Reconciled repository status
 
+## Protected main reconciliation — 21 November 2026
+
+[PR #182](https://github.com/edithatogo/tobac/pull/182) brought the 15 retained
+local main commits into GitHub main at
+`3efcc1835ca8d7464688758fbb71122d6f159b8a`. The receiving tree matched the
+tested pull-request head. The locked suite passed 1,600 tests with 14 skips
+and 90.43% coverage before a strict typing correction to the publication
+policy reader. The corrected head passed the focused tests and all five
+required checks. The receiving push passed all 12 standard workflows.
+[Main engineering qualification](https://github.com/edithatogo/tobac/actions/runs/44892173133)
+
+The publication policy admits the reviewed candidate catalogue at its exact
+recorded historical blobs. The applied comparison still requires qualified
+matched observations and independent validation in
+[issue #3](https://github.com/edithatogo/tobac/issues/3).
+
+[PR #183](https://github.com/edithatogo/tobac/pull/183) merged the synthetic
+Innovate cohort parity fixture at `49f131d82c802e131850075e3f23f8c9addc1a25`.
+The tested tree reached main and all 12 standard workflows on that push passed.
+The synthetic tests establish cohort and event accounting parity for the frozen
+fixture.
+
+[PR #177](https://github.com/edithatogo/tobac/pull/177) merged the generated
+accounting properties at `b85f56be9f801fc31346313cb451494a5337e449`. Four
+properties ran with 1,000 examples each in local qualification. The exact
+receiving tree passed all five required checks and its property-test workflow.
+
+## Repository hygiene on main — 21 November 2026
+
+PR #181 merged at `b0dc50983243dce3df81c8450094b68417eb5d98`. Its receiving
+tree matches tested head `3bb038dcac727b99f02acf0cd99e13a9e20d2718`.
+The change adds the project code owner and code of conduct, supplies both final
+newlines, and renews the signed workflow pins. The eight accepted native
+attempts and their scientific inputs were verified against the existing
+checkpoint. All five required checks passed, including bounded tests and the
+macOS engineering and numerical qualification.
+[PR #181](https://github.com/edithatogo/tobac/pull/181)
+
+On the receiving `main` push, alint passed with zero findings. RepoHealth
+reported **70/100 (B−)**, up from 67/100 (C+).
+[Main run](https://github.com/edithatogo/tobac/actions/runs/44888225498) ·
+[RepoHealth summary](https://github.com/edithatogo/tobac/actions/runs/44888225498#summary-136798100191)
+
 ## Repository health CI on main — 21 November 2026
 
 PR #179 merged into `main` at `530a997653c3ee5373dbbfa6f2b6ce8eedee5481`.

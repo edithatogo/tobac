@@ -17,8 +17,8 @@ import scientific_lineage as scientific  # noqa: E402 -- Select checkout sources
 from source_handoff import checked, read  # noqa: E402 -- Select checkout sources inside the isolated verifier.
 lazy from extract_moh_lineage import NativeStore  # noqa: E402 -- Producer protocol from this checkout.
 
-CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_bf1_bf2_20261113.json"
-CHECKPOINT_SHA = "afc7636e8f2512695c3ab33b224819155539288527e8a11937152821b5cb36b0"
+CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_coverage_20261121.json"
+CHECKPOINT_SHA = "ad66712ae2afa2f7db467f493ed741e2f6f945730a3be15c3ca0880b3dfa3271"
 INTERFACE_SHA = "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373"
 INVENTORY_SHA = "38102d5614683c0a65e260538b6823f58b4ed6365c8fe651e737c69e40d37dd7"
 METHODS_ACCEPTANCE = "integration/archive/bf1-bf2-source-acceptance_20261113.json"
@@ -51,7 +51,7 @@ def checked_pins(root: Path) -> dict[str, Any]:
     )
     scientific.runners.verified_bytes(
         checked(root, archive + "runner-material.json"),
-        "3137a95416c95a0c0baba00a30cbedc7527dd71a1dd91c6ec4739a86dae0a109",
+        "ca062859a771e94e6a4f031cc1432721fc7f0019d8f9a5abf1d5720b4ec8bc12",
     )
     if set(checkpoint["runner_results"]) != set(scientific.RUNS):
         msg = "Runner registry differs from the accepted set"

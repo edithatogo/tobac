@@ -1510,7 +1510,8 @@
     "conductor/tracks/dynamic_frontier_20261108/innovate-source-fixture-lane-20261117.md",
     "tests/fixtures/innovate_semi_markov/cohorts.arrow",
     "tests/fixtures/innovate_semi_markov/fixture.json",
-    "tests/supply_bridge/test_innovate_source_interop.py"
+    "tests/supply_bridge/test_innovate_source_interop.py",
+    "integration/archive/scientific-lineage-checkpoint_coverage_20261121.json"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",
