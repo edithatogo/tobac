@@ -1506,7 +1506,11 @@
     ".github/workflows/accounting-properties.yml",
     "conductor/tracks/nz_au_hardening_20261106/accounting-properties-20261120.md",
     "nox_properties.py",
-    "tests/engineering/test_accounting_properties.py"
+    "tests/engineering/test_accounting_properties.py",
+    "conductor/tracks/dynamic_frontier_20261108/innovate-source-fixture-lane-20261117.md",
+    "tests/fixtures/innovate_semi_markov/cohorts.arrow",
+    "tests/fixtures/innovate_semi_markov/fixture.json",
+    "tests/supply_bridge/test_innovate_source_interop.py"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",

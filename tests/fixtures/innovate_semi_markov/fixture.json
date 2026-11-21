@@ -1,0 +1,81 @@
+{
+  "cases": [
+    [
+      7,
+      "baseline",
+      "cohort-a",
+      "subgroup-a",
+      100.0
+    ],
+    [
+      11,
+      "scenario-b",
+      "cohort-b",
+      "subgroup-b",
+      50.0
+    ]
+  ],
+  "flow_meaning": "total outgoing from this state in the next interval; terminal is zero",
+  "former_max_duration_bin": 2,
+  "intervals": 4,
+  "purpose": "synthetic test fixture; not a versioned production contract",
+  "states": [
+    "never",
+    "origin",
+    "alternate",
+    "combined",
+    "former",
+    "absorbing"
+  ],
+  "time_unit": "years",
+  "transition": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.7408182206817184,
+      0.08639392643942718,
+      0.0,
+      0.17278785287885437,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ]
+}
