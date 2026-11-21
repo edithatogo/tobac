@@ -1,5 +1,21 @@
 # Reconciled repository status
 
+## Protected main reconciliation — 21 November 2026
+
+[PR #182](https://github.com/edithatogo/tobac/pull/182) brought the 15 retained
+local main commits into GitHub main at
+`3efcc1835ca8d7464688758fbb71122d6f159b8a`. The receiving tree matched the
+tested pull-request head. The locked suite passed 1,600 tests with 14 skips
+and 90.43% coverage before a strict typing correction to the publication
+policy reader. The corrected head passed the focused tests and all five
+required checks. The receiving push passed all 12 standard workflows.
+[Main engineering qualification](https://github.com/edithatogo/tobac/actions/runs/44892173133)
+
+The publication policy admits the reviewed candidate catalogue at its exact
+recorded historical blobs. The applied comparison still requires qualified
+matched observations and independent validation in
+[issue #3](https://github.com/edithatogo/tobac/issues/3).
+
 ## Repository hygiene on main — 21 November 2026
 
 PR #181 merged at `b0dc50983243dce3df81c8450094b68417eb5d98`. Its receiving
