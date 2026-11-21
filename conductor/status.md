@@ -1,5 +1,20 @@
 # Reconciled repository status
 
+## Repository health CI on main — 21 November 2026
+
+PR #179 merged into `main` at `530a997653c3ee5373dbbfa6f2b6ce8eedee5481`.
+The receiving tree matched tested head `2ab81dd4850927eca87bca326f8b29db56ab3d97`.
+All five required checks passed before merge. alint and RepoHealth both passed
+on the pull request and on the receiving `main` push.
+[PR #179](https://github.com/edithatogo/tobac/pull/179) ·
+[Pull request run](https://github.com/edithatogo/tobac/actions/runs/44863252319) ·
+[Main run](https://github.com/edithatogo/tobac/actions/runs/44864184238)
+
+The workflow runs on pull requests, pushes to `main`, and manual dispatches.
+alint loads `.alint.yml` and fails on repository-rule errors. RepoHealth scores
+the full Git history and reports an advisory result in the Actions job summary.
+[Workflow and local usage](../docs/engineering/READINESS.md#repository-health-checks)
+
 ## Current public-only research scope and GitHub disposition — 11 November 2026
 
 **Scope decision:** active work is evidence and methods deliverable using already public material and permitted archive copies. Do **not** make restricted subscriber full texts, private linked data, unpublished raw wastewater/catchment data, custodian access requests, field collection or new licensing permissions prerequisites to the current public-only manuscript/engineering milestone. These remain scientifically relevant to a stronger applied NZ policy comparison and are deferred explicitly in [roadmap.md](roadmap.md) pending owner approval. No access application or contact is authorised.
