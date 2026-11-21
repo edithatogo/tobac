@@ -1,18 +1,20 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "voiage",
-  "resolver": "uv 0.13.7 (x86_64-unknown-linux-gnu)",
+  "resolver": "uv 0.13.9 (Homebrew 2026-11-17 aarch64-apple-darwin)",
   "command": [
-    "/workspace/scratch/1697c042543b/priority-work/tooling/uv-0.13.7/uv",
+    "/opt/homebrew/bin/uv",
     "--no-config",
     "pip",
     "compile",
     "engineering/voiage.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/pr164-lock-candidates/voiage.lock",
+    "outputs/coverage-reconciliation-20261121/locks-voiage/voiage.lock",
     "--python-version",
     "3.15.2",
+    "--upgrade-package",
+    "coverage",
     "--python-platform",
     "x86_64-unknown-linux-gnu"
   ],
@@ -22,11 +24,16 @@
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
     "engineering/reference-requirements.txt": "e1845ab04d819c7282b2a480d59cb6fb24e440351180b25668257257ebbbda43",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
-    "engineering/test-requirements.txt": "e50a4c45a8fbf0eb9b3192d03e745aa5f2d77b99fd280b8751f42820d95f71e4",
+    "engineering/test-requirements.txt": "b605c8e6530f85df1f52afa34d7cc1e532501493ae6f0d06deddab9a8d80f329",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/voiage.in": "05ef2873463107e6f76585f0f07accc2b2234668420431966d9324ad707dc13f",
     "engineering/voiage-build-requirements.txt": "f2211a5d5985a3193eccbd993f7bad6241a593b2b1014f63ea197729078f15bf"
   },
-  "lock_sha256": "1e818a80677ff804795e66f8011b7acf7b492c5a4c5f1425defeaf394c83cf8e",
+  "lock_sha256": "8cc28d4e1b359acee78bc35399ac4a56c505a035358e7ef58cd1248d15fdc746",
+  "seed": {
+    "commit": "84239878084f6bd2b1d4a7b7b2e57e2611bdd7e9",
+    "path": "engineering/voiage.lock",
+    "sha256": "1e818a80677ff804795e66f8011b7acf7b492c5a4c5f1425defeaf394c83cf8e"
+  },
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

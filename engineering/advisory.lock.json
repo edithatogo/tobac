@@ -1,19 +1,21 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "advisory",
-  "resolver": "uv 0.13.7 (x86_64-unknown-linux-gnu)",
+  "resolver": "uv 0.13.9 (Homebrew 2026-11-17 aarch64-apple-darwin)",
   "command": [
-    "/workspace/scratch/1697c042543b/priority-work/tooling/uv-0.13.7/uv",
+    "/opt/homebrew/bin/uv",
     "--no-config",
     "pip",
     "compile",
     "engineering/advisory.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/pr164-lock-candidates/advisory.lock",
-    "--universal",
+    "outputs/coverage-reconciliation-20261121/locks-advisory/advisory.lock",
     "--python-version",
-    "3.15.2"
+    "3.15.2",
+    "--upgrade-package",
+    "coverage",
+    "--universal"
   ],
   "resolver_exit_code": 0,
   "inputs": {
@@ -21,11 +23,16 @@
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
     "engineering/reference-requirements.txt": "e1845ab04d819c7282b2a480d59cb6fb24e440351180b25668257257ebbbda43",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
-    "engineering/test-requirements.txt": "e50a4c45a8fbf0eb9b3192d03e745aa5f2d77b99fd280b8751f42820d95f71e4",
+    "engineering/test-requirements.txt": "b605c8e6530f85df1f52afa34d7cc1e532501493ae6f0d06deddab9a8d80f329",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/advisory.in": "83be6bbb5a6ae644281f5a15652880a5288d4c261a2575d238b194bab37bf237",
     "engineering/voiage.in": "05ef2873463107e6f76585f0f07accc2b2234668420431966d9324ad707dc13f"
   },
-  "lock_sha256": "d6b23ad5e8db6d97ea759fc12a49eacfdd24dcae66895cbee062d1912776c941",
+  "lock_sha256": "a67ebfe350573bb0eb0542c30cd89a51c41ffdcd49f345927e7edc0c127899b0",
+  "seed": {
+    "commit": "84239878084f6bd2b1d4a7b7b2e57e2611bdd7e9",
+    "path": "engineering/advisory.lock",
+    "sha256": "d6b23ad5e8db6d97ea759fc12a49eacfdd24dcae66895cbee062d1912776c941"
+  },
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

@@ -1,18 +1,20 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "audit",
-  "resolver": "uv 0.13.7 (Homebrew 2026-11-03 aarch64-apple-darwin)",
+  "resolver": "uv 0.13.9 (Homebrew 2026-11-17 aarch64-apple-darwin)",
   "command": [
-    "/Users/doughnut/.local/bin/uv",
+    "/opt/homebrew/bin/uv",
     "--no-config",
     "pip",
     "compile",
     "engineering/audit.in",
     "--generate-hashes",
     "--output-file",
-    "engineering/audit.lock",
+    "outputs/coverage-reconciliation-20261121/locks-audit/audit.lock",
     "--python-version",
     "3.15.2",
+    "--upgrade-package",
+    "coverage",
     "--python-platform",
     "x86_64-unknown-linux-gnu"
   ],
@@ -22,11 +24,16 @@
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
     "engineering/reference-requirements.txt": "e1845ab04d819c7282b2a480d59cb6fb24e440351180b25668257257ebbbda43",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
-    "engineering/test-requirements.txt": "e50a4c45a8fbf0eb9b3192d03e745aa5f2d77b99fd280b8751f42820d95f71e4",
+    "engineering/test-requirements.txt": "b605c8e6530f85df1f52afa34d7cc1e532501493ae6f0d06deddab9a8d80f329",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/audit.in": "95134db9c7e3e0f7fbee4c506cfa8d4b89a0651dab3f0d94a86c5e9fcf7bb507",
     "engineering/tools-requirements.txt": "9ed8a9139c1c0ec81a7cdcea092908f022891fffe52c974839be5787c0125e35"
   },
-  "lock_sha256": "6d83337abd07a3bcb487d264e137c9b7b6a777a46d83aa6d4ab2da0d9d0e7d91",
+  "lock_sha256": "af75a3b0e8f7d680e45e207e0bfd28551163dbf0c4585eadab8f145ccfd6853b",
+  "seed": {
+    "commit": "84239878084f6bd2b1d4a7b7b2e57e2611bdd7e9",
+    "path": "engineering/audit.lock",
+    "sha256": "6d83337abd07a3bcb487d264e137c9b7b6a777a46d83aa6d4ab2da0d9d0e7d91"
+  },
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
