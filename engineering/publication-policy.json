@@ -457,6 +457,7 @@
   "schema_version": 1,
   "public_paths": [
     ".agents/skills/research-change/SKILL.md",
+    ".alint.yml",
     ".gitattributes",
     ".githooks/pre-push",
     ".github/actionlint.yaml",
@@ -475,6 +476,7 @@
     ".github/workflows/privacy-secrets.yml",
     ".github/workflows/publication-security.yml",
     ".github/workflows/release-candidate.yml",
+    ".github/workflows/repository-health.yml",
     ".github/workflows/research-m3.yml",
     ".github/workflows/scientific-reproduction.yml",
     ".github/workflows/scorecard.yml",
