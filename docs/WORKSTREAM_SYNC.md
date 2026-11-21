@@ -531,3 +531,228 @@ the native attempts, local manuscript outputs, logs and private source files wit
 their existing owners. The canary and empirical PR bodies and the local evidence
 under `outputs/reconciliation-20261114` record tested heads, receiving refs,
 CI results, remaining branch dispositions and the final handoff receipt.
+
+## Retained-artifact integration — 16 November 2026
+
+Chat `01a1e414-c900-76e0-a8fb-e99c3a27d6fb` owns the managed integration
+checkout `/Users/doughnut/.codex/worktrees/tobac-retained-integration/tobac`,
+branch `codex/retained-evidence-integration-20261116`, based on remote main
+`891f79e07292b7754f78d7193130623bd5f9e243`. Its source scope is the Phase 2
+plan and this handoff, for reconciliation of the retained archive-context patch
+and integration inventory. It owns no native objects, authentication, raw-source
+admission or external messages. The source checkouts, ignored manuscripts,
+native recovery material and private intake remain with their existing owners.
+Next: verify the retained patch and source receipts, record its qualified
+disposition, and check the receiving ref before any integration or cleanup.
+
+All 51 supplied PortableSSD locations exist, but none is a registered worktree
+or a Git checkout at its top level. They contain source captures, research and
+verification artifacts, native recovery material and preserved environments;
+their independent retention requirements are not resolved by a Git merge.
+The retained Phase 3 patch matches integration commit `cebc786` by stable
+patch ID; the AIHW and Phase 2 source-review patches likewise match `3a1b734`
+and `050b73c`. The later archive-context patch is reconciled in the Phase 2
+plan, retaining its evidence and admission limits.
+
+Read-only preflight found five changed paths on the original empirical branch;
+four differ from the current base and one is absent. Its 28-row source
+register's reported fields match the candidate catalogue exactly, but that
+does not settle source identity, rights, untracked files or signed-input
+changes. The original methods branch has 26 identical changed-path objects,
+four differing objects and one absent object against the same base; its
+history includes the empirical commits and its ignored manuscript and raw
+files remain in place. Neither branch is represented as fully integrated or
+safe to prune.
+
+The regional-survey replay matched the retained diagnostic bytes and the
+eight selected local input hashes matched their receipts. A full locked Nox
+test session on repo-local Python 3.15.2 passed 1,574 tests with 22 capability
+skips and 90% reported source coverage; the signed, attested lineage check
+passed eight runners. The first Nox attempt stopped before testing because the
+then-selected Python executable differed from the signed profile. A separate
+official Python release asset was hash-checked and the original qualified
+executable recovered without changing the verifier or its allowlist. These
+checks do not establish independent archive download, empirical admission,
+scientific acceptance or remote publication. Next: commit the bounded
+documentation packet and fast-forward the local main ref only after checking
+the receiving heads; retain the listed directories and source branches.
+
+### Local receiving readback
+
+Local `main` fast-forwarded from the verified remote head `891f79e` to the
+reviewed documentation packet `09a1bf8`; the receiving tree matched that
+commit. The already-integrated branch at `5cbf3e0` and the temporary packet
+branch were deleted only after ordinary ancestry checks. The temporary source
+worktree was archived by the Codex app after its owned test receipts were
+preserved. The app declined to archive the separate receiving worktree
+`/Users/doughnut/.codex/worktrees/tobac-main-receive-20261116/tobac` because
+it is the task's primary checkout, so that worktree remains registered.
+
+The two original source checkouts and all 51 named PortableSSD locations remain
+in place. Their outstanding source, rights, signed-input and recovery
+dispositions are unchanged. The integration is local; it has not been pushed
+to the public remote and establishes no new empirical or scientific acceptance.
+
+## Continued retained-source reconciliation — 16 November 2026
+
+Chat `01a1e414-c900-76e0-a8fb-e99c3a27d6fb` is the integrator in the
+managed receiving checkout
+`/Users/doughnut/.codex/worktrees/tobac-main-receive-20261116/tobac`, on
+`main` at `0018d9150382b02a07cbe0fd6ff56897968b8f34` before this entry.
+Its scope is the two retained branches, the Phase 2 source and inventory
+dispositions, this handoff, and the explicitly named PortableSSD locations.
+It has no native-object, authentication, observation-admission or external
+messaging scope. Preserve existing source owners and earlier handoffs. Next:
+classify the remaining changes and source evidence against the current base,
+and prune only locations with verified recoverability or no contents.
+
+The retained NZHS CSVs differ only by the original UTF-8 byte-order mark;
+the two exact hashes and source limitations are recorded in the Phase 2 plan.
+The AIHW direct workbook link was reopened, matched its retained SHA-256 and
+Table 1.33, and its ten extracted rows matched their 20 source cells. The
+legacy consumer manifest's 18 shared records match the current manifest; all
+seven additional owner-local files match their recorded hashes, row counts and
+columns. These checks do not establish rights, admission or native authority.
+
+The outgoing-history checker rejected the two retained branch tips because
+their recorded commit trees contain paths outside their publication inventories.
+The exact per-commit path review is kept privately. The legacy register is not
+a current public path, and both branch histories include its commits. Preserve
+the branches and original checkouts; do not change the publication guard merely
+to mark them merged. The untracked legacy generator and tests stay owner-local.
+
+Three empty scratch directories were removed. A fourth held one receipt that
+was byte-identical to a retained receipt; its original metadata and a second
+private copy were preserved before removal. The completed Phase 3 replay tree
+matched all 863 entries at `cebc786` and was separately archived. A test
+restore verified 1,007 files and directories for bytes, types, modes,
+ownership, modification times, extended attributes and ACLs; access and creation
+times were not compared. The archive, metadata manifest, restore/check scripts
+and SHA-256 readback are in the private
+`/Volumes/PortableSSD/tobac-retained-evidence-20261116/phase3-replay` folder.
+The original replay scratch directory was initially removed after the recovery
+check, then restored when a later cross-check found its exact path in the
+retained Phase 3 integration receipt. The restored directory again matched its
+metadata manifest. Native recovery material and nonduplicate source captures
+remain.
+
+Two further completed Phase 2 scratch packets had no tracked references to
+their directory names. Their historical publication plan/patch files and the
+cessation-denominator screening note were archived privately under
+`/Volumes/PortableSSD/tobac-retained-evidence-20261116/phase2-packets`.
+Both ZIPs passed CRC checks and restored 13 objects in total with matching
+bytes, types, modes, ownership, modification times, extended attributes and
+ACLs after applying retained metadata manifests. Access and creation times were
+not compared. The original packet directories were then removed. The
+screening note remains a historical note, not a new primary-source review.
+
+Two completed Phase 3 outgoing/preflight scratch packets were likewise
+retained under
+`/Volumes/PortableSSD/tobac-retained-evidence-20261116/phase3-checks`.
+Their ZIP CRC checks and independent restores passed for bytes, types, modes,
+ownership, recorded modification times, extended attributes and ACLs; access
+and creation times were not compared. The original scratch directories were
+initially removed, then restored when the retained integration receipt was
+found to name their exact paths. All six paths in that receipt now pass their
+SHA-256 checks, including the restored replay path. Their old check outcomes
+are historical and do not replace the current outgoing-history failure
+recorded above.
+
+Six of the 51 requested locations remain removed: three empty directories,
+one duplicate receipt directory and two Phase 2 packets whose contents were
+preserved in the private archive. A subsequent exact-name scan of the other
+45 requested locations found no references to those six names in scanned
+files of up to 2 MiB; ignored environments and Git internals were excluded.
+The other 45 locations remain in place, including the three restored paths.
+
+A private complete Git bundle of both retained branch histories is kept at
+`/Volumes/PortableSSD/tobac-retained-evidence-20261116/legacy-branch-history`.
+Its two ref tips matched the source branches; a separate bare clone reproduced
+both and passed full Git object verification. This protects committed history
+but does not include or move untracked files, ignored raw data, manuscripts,
+native bindings or environments. The branches and their source checkouts remain
+until their publication and recovery dispositions are complete.
+
+The focused locked-environment selection passed 100 tests, including context,
+harness and cross-workstream integration. The prior full Nox run remains the
+full-suite evidence for unchanged code; this continuation adds documentation,
+source readbacks and private preservation only. No hosted, new native or
+scientific acceptance is claimed.
+
+## Historical branch review — 16 November 2026
+
+Chat `01a1e414-c900-76e0-a8fb-e99c3a27d6fb` continues as the sole integrator
+in `/Users/doughnut/.codex/worktrees/tobac-main-receive-20261116/tobac`,
+starting from local `main` at `8092530c87d6389b1574be7715ec75f5bb05b5c3`.
+Its scope is the two retained branch histories, publication-boundary review,
+owner-local material in their existing checkouts, and eligible cleanup of the
+requested locations. Next: review exact historical objects and private-file
+dispositions, preserve their original owners and bindings, and integrate only
+after the applicable publication and scientific checks pass. No tenant,
+authentication, external-message, empirical-admission or publication action
+is included in this assignment.
+
+Read-only review covered seven historical commits and 40 distinct changed or
+previously unreviewed path/blob pairs. The configured secret scan found no
+leaks, and all seven trees passed with the newly reviewed exact-object policy
+entries. The sole retired path is a 28-row project-authored source catalogue;
+its 26 reported fields already appear in the current candidate register. The
+retired-history rule accepts only exact reviewed commit/path/blob triples for
+regular `data/` CSVs, while retaining private-path, byte, archive and current
+index checks. It does not make the legacy catalogue a current input or validate
+its claims. Focused publication, candidate-register and cross-workstream tests
+passed 93 cases. The signed attested-input lineage route was independently
+rechecked with the qualified repo-local Python 3.15.2 executable.
+
+The two source checkouts were inactive at inspection but contain ignored
+owner-local raw material, authoring documents and recovery outputs. A metadata
+inventory found 159,579 files under the primary checkout's `outputs/` and
+manuscript material in the other checkout. Keep those checkouts and their
+native bindings in place; test and merge committed history without resetting,
+cleaning or moving their private contents.
+
+The empirical history was integrated with the path-specific scientific
+dispositions recorded in the Phase 2 plan. For the two later methods commits,
+26 of 28 changed paths already matched the receiving Git objects; the additions
+to the remaining plan and handoff files were each already present exactly once.
+The merge therefore retains those receiving files and their later history. The
+source checkouts and their private files remain unchanged. Next: qualify the
+resulting integration, then advance the receiving branch and dispose of only
+eligible branch references.
+
+## Historical merge and cleanup handoff — 16 November 2026
+
+Local `main` was guarded-fast-forwarded to merge commit
+`805fc22c95f2c6bb0d79d93f8820679dd6acced9`. Both original branch tips are its
+ancestors: the empirical history was merged at `68b8b9d`, followed by the
+methods history at `805fc22`. The original two branch refs and the temporary
+integration ref were deleted with Git's merged-branch check. Their original
+checkouts remain at their original commits in detached state; no private files
+or native bindings were moved. Before and after detachment, untracked status,
+selected source/manuscript bytes and the metadata of the primary owner's
+outputs matched. That comparison did not rehash the primary outputs or compare
+their access times, creation times, ACLs or extended attributes.
+
+The full locked Nox suite at `805fc22` passed 1,591 tests, skipped 22 and
+reported 90.43% source coverage. The full outgoing-history boundary check
+passed at that merge commit. Nox publication passed its 38 boundary tests,
+full-history and staged secret scans, and workflow checks using a local build of
+actionlint 1.7.12 with the exact upstream pipe-deadlock fix
+[`fd33e9f`](https://github.com/rhysd/actionlint/commit/fd33e9f582a01a02885c93ae3775e1190cf63653).
+The upstream regression passed, 156 workflow ShellCheck invocations were
+observed, and a long-script negative control produced the expected finding.
+The original checksum-installed release binary was restored afterward. Its
+unmodified ShellCheck integration hung on this host's 512-byte pipe; an
+unmodified local publication or pre-push run may therefore hang until that
+tool/runtime issue is resolved. The failed run and qualified local workaround
+are retained with the integration evidence, not represented as a pristine
+release-binary pass.
+
+Seven of the 51 originally requested PortableSSD locations have been removed
+after their contents were found empty, duplicated or preserved and verified.
+The seventh was the 2024 BAT loose-tobacco capture; its exact private retained
+location and metadata checks are recorded in Phase 3 progress. Forty-four
+requested locations remain, including named source captures, WARC provenance,
+receipts and native recovery material. The remote `main` was not changed; no
+new empirical admission, scientific acceptance, manuscript submission or
+external contact is implied by this local merge.

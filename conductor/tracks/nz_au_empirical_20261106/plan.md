@@ -135,6 +135,40 @@ through the GitHub release-assets API and matched the installer SHA-256 pins.
 The hosted jobs use browser download URLs that continue to return HTTP 504.
 The API route has local byte verification and awaits hosted qualification.
 
+### Retained archive-context handoff — 16 November 2026
+
+The retained 8 November plan patch (SHA-256
+`7ada77ddffa06ca2418849bc0dfebf95043ffdf171851e2bcb7805ac874a835a`)
+was not itself merged. Its publication readback is now historical: PR #146
+merged at `db954d5` and PR #148 at `d0e832b`; both commits are ancestors of
+the current integration base. Those software events did not admit observations.
+
+The retained handoff reports that three contextual extracts were present at
+an immutable private archive revision and that local file hashes matched the
+revision's reported Git or LFS objects. That historical object comparison is
+distinct from independently downloading the archived bytes: the retained
+receipt says the latter remained open. This review did not repeat it, settle
+object-specific rights or create canonical source-admission receipts.
+
+The retained NZHS archive, survey member, guide, diagnostic, Kim occasion and
+incidence files, and two Australian extracts matched their recorded local
+SHA-256 values. A fresh Python 3.15.2 replay of the retained regional-survey
+diagnostic reproduced the saved bytes: 720 matched survey keys, 695 finite
+point products and 25 missing products. These are descriptive products of
+rounded survey values, without verified joint covariance. Two overlapping
+three-year windows each cover all 142 printed Kim dates; seven date/weekday
+discrepancies remain, the windows reuse survey years and wastewater occasions,
+and no plant-to-service-population geography was matched. These diagnostics
+are not independent consumption observations or an eligible holdout.
+
+A separate retained screening note flags unresolved denominators in historic
+in-person cessation-service rates and a reproducible but different Quitline
+ratio. This reconciliation did not independently reopen that primary document;
+keep the rates quarantined for the present contrast. No new empirical data,
+policy effect, source admission or scientific acceptance follows from the
+handoff. The private originals and recovery receipts remain in their existing
+locations.
+
 - [ ] Integrate qualified NZ survey, lawful releases, prices, trade and denominators using Polars; add actual Australian wastewater programme design and measurement evidence.
 - [ ] Reconcile dates, products, catchments, lawful unrecorded flows, stock, shared sources and calibration. Assess identifiability before fitting; retain partial-identification bounds where needed.
 - [ ] Fit the supported baseline and one existing retail/cessation contrast; preserve original finite-state reference results separately.
@@ -410,3 +444,79 @@ three named rows. The original five unpublished empirical commit histories
 and the protected checkouts remain owner-local and untouched. Their individual
 patch contents still require a read-only owner-generated inventory before
 specific integration or pruning decisions.
+
+
+## Retained source and branch reconciliation — 16 November 2026
+
+This later readback supersedes only the unresolved byte relationship and
+spreadsheet-link questions in the 15 November table; it does not rewrite the
+reported catalogue, admit an observation or settle source rights.
+
+| Item | Bounded readback and disposition |
+| --- | --- |
+| `nzhs-2024-25` | The retained Phase 2 CSV is 6,088,525 bytes with SHA-256 `6d3e0a019d7e32030147f128c21098f074683cd3cfef41b0dcfff85b74b6b915`. The empirical owner's 6,088,522-byte CSV has SHA-256 `c23b4002fb1f4780ee57b5f6b5245578f3e1ab49cb98c875ea7f817735955315`. The first has a three-byte UTF-8 byte-order mark; its remaining bytes match the second exactly. Preserve both byte identities and their different hashes. This comparison does not establish when or by whom the mark was removed, or independently verify a current publisher download. Shared-survey dependence and the catchment/period gap remain. |
+| `aihw-ndshs-2025` | The reported direct-download URL is the [AIHW tobacco workbook](https://www.aihw.gov.au/getmedia/5fc9ac6e-2f49-415e-a4fa-001a72fcad52/aihw-phe-371-Tobacco.xlsx); the reported landing page instead concerns wastewater. A fresh publisher download and retained workbook both have SHA-256 `c1cb4154174cce1e90fd0a6e3189de488e0198929bdd75fee8422cebc7a5ae51`. Worksheet `sheet36.xml` identifies Table 1.33 and the 2022–23 and 2025 columns for people who currently smoke. Ten retained purchase-band rows match their 20 source cells, including flags and margins; the bounded replay reproduces the previously recorded floors and thresholds. The owner's separate wastewater HTML has SHA-256 `fc14c6eaece71c03c49819ba6623cac63ca940999c3bb013a8651fb1b6e10f21`, not the catalogue's reported HTML hash or the workbook hash. The workbook concerns packets without the stated graphic health warnings, not total consumption; survey dependence, geography and open-band limitations remain. [AIHW's terms](https://www.aihw.gov.au/copyright) exclude specified material including logos and separately licensed items, so exact-object rights and independent canonical archive readback remain open. |
+| Legacy consumer inventory | The historical branch and current signed inventory have 18 identical shared input records. The branch adds seven owner-local CSV records: the reported register, the NZHS CSV and five Customs extracts. Each currently matches its recorded SHA-256, row count and columns. Byte and schema agreement do not establish original-source identity, rights, a qualified observation or native admission. Do not add these records to the current signed consumer inventory merely because they match. |
+| `weng-2022` and Kim supplement | The 15 November bibliographic correction and restricted-supplement disposition remain. Neither a 2026 Weng article identity nor an accessible Kim supplement supplies a qualified NZ wastewater calibration or authorises redistribution. |
+
+The original five empirical commits remain distinct history. Their first two
+unreviewed publication-tree paths are the older crosswalk and benchmark; later
+commits also contain `data/source_register.csv`. The retained methods commits
+add their own historical paths on top of that ancestry. The existing outgoing
+history check rejects these trees under their recorded publication policies.
+Current main already retains the reported 28-row catalogue, corrected crosswalk
+and later methods packet, but the legacy input inventory, older governance and
+supply assertions, ignored raw files and manuscript outputs require their
+separate dispositions. Do not relax the history guard or merge the legacy
+ancestry into a publishable ref solely to make a branch deletable.
+
+
+## Historical object review — 16 November 2026
+
+The later review considered the seven original commits ending at `cbe4308`,
+including all five empirical commits. Forty distinct changed or historically
+unreviewed path/blob pairs were inspected against the retained private-document
+fingerprints and bounded archive rules; the configured gitleaks scan of those
+seven commits reported no findings. Thirty-nine pairs use paths in the current
+public inventory. The remaining pair is the project-authored historical
+`data/source_register.csv`, Git blob
+`e38f8f4b19972ae26c062cc2cfa7a5b4f03f6f1d`, SHA-256
+`26c567d65da967e8fa8bd2d29818bfd39903dc032b49da1f44dc9517c38df076`.
+It contains source-catalogue metadata, not the source files themselves; its
+28 rows and 26 fields are retained as reported fields in the current candidate
+register. Historical statements about licences, provenance, verification,
+manufacturing and evidence availability remain reports, not validated facts.
+
+The exact reviewed historical commit/path/blob classifications are recorded
+in the publication policy. The retired CSV is allowed only in those historical
+trees, not the current index. This decision makes its old bytes eligible to
+appear in later published history; it does not admit data, validate source
+rights or restore the obsolete register as a current input. The corrected
+crosswalk, benchmark, current signed consumer inventory and later methods packet
+remain the receiving versions. The owner-local raw data, authoring documents,
+untracked generator and recovery outputs remain outside this review's public
+content and stay with their existing checkouts.
+
+
+## Historical empirical merge disposition — 16 November 2026
+
+The older branch's catalogue fields are retained in the candidate register and
+its original CSV remains in the reviewed historical commits. Its seven extra
+consumer-manifest records match the owner-local files but lack independent
+source and rights qualification, so they do not replace the current signed
+consumer inventory. The historical plan described interception data as
+enforcement context and warned that reported totals combine unlike units;
+neither those totals nor seizure counts are admitted as consumption outcomes.
+The existing public-only scope and matched-data gaps continue to apply.
+
+The old additions asserted that imports equalled total lawful supply, that
+manufacturer stock was zero and that particular source rights and archive
+provenance had been resolved. Those assertions are not established by this
+review. The later historical removal of a Māori governance item also does not
+resolve the governance and permissible-use requirements already recorded in
+[research gates](../../research-gates.md). The current crosswalk retains
+`empirical_admission=false`; the current benchmark distinguishes parameter
+point identification from action identification instead of interpreting an
+arbitrary interval width as decision identification. These dispositions keep
+the useful historical context without replacing the receiving scientific
+contracts or inventing new empirical acceptance.
