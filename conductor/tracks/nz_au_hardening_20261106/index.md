@@ -1,5 +1,7 @@
 # NZ/AU repository and analytical hardening
 
+Bounded assurance addition: [synthetic accounting properties and execution receipt](accounting-properties-20261120.md).
+
 Status: H0 inventoried; H1.1 local corrections/verification are recorded in progress.md;
 H2 release/native/empirical gates remain open. Owner: current empirical lane for scoped candidate work;
 shared integration/runtime/native GitHub settings retain their existing owners.

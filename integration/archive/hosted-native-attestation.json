@@ -1,6 +1,6 @@
 {
   "inventory_sha256": "38102d5614683c0a65e260538b6823f58b4ed6365c8fe651e737c69e40d37dd7",
-  "issued_at": "2026-11-21T08:52:57.011846+00:00",
+  "issued_at": "2026-11-21T09:38:40.984610+00:00",
   "issuer": "tobac-native",
   "native_readback": {
     "checkpoint_sha256": "afc7636e8f2512695c3ab33b224819155539288527e8a11937152821b5cb36b0",
@@ -63,6 +63,7 @@
     "success": true
   },
   "pins": {
+    ".github/workflows/accounting-properties.yml": "sha256:25dcab26564c9848f98b7c91f987e9f70168cec021dc6df93498acc2eface9b1",
     ".github/workflows/advisory-types.yml": "sha256:6edf4b975eb294963098fa8b20ddf1a9a17bc148f893368f8b7b9b99e6408720",
     ".github/workflows/ci.yml": "sha256:c7780d628ed8737c92b68e1f7c35c2cdf7911d44d64370156ad9cecef0f55f9e",
     ".github/workflows/cross-platform.yml": "sha256:9bd1bddc5c5cc5968f7b3f9a8f90cb2dc1b7c62a3d94404c23e0e53f4af2da1c",
