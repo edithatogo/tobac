@@ -10,11 +10,11 @@
     "engineering/ecosystem.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/reconciliation-20261121/ty-lock-seeded/ecosystem.lock",
+    "outputs/reconciliation-20261121/typer-ecosystem/ecosystem.lock",
     "--python-version",
     "3.15.2",
     "--upgrade-package",
-    "ty",
+    "typer",
     "--universal"
   ],
   "resolver_exit_code": 0,
@@ -25,15 +25,15 @@
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
     "engineering/test-requirements.txt": "e50a4c45a8fbf0eb9b3192d03e745aa5f2d77b99fd280b8751f42820d95f71e4",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
-    "engineering/voiage.in": "05ef2873463107e6f76585f0f07accc2b2234668420431966d9324ad707dc13f",
+    "engineering/voiage.in": "dbf07ea4bbbe8b257c633343686ad48fceb1040a4bf2b29a096f7ae018d2bd6a",
     "engineering/voiage-build-requirements.txt": "f2211a5d5985a3193eccbd993f7bad6241a593b2b1014f63ea197729078f15bf",
     "engineering/ecosystem.in": "16e3dbb69edf209e4f79a203924ced19decba192aae8121321f5bf71f804608e"
   },
-  "lock_sha256": "3eff6e0d4ecc98b6cf627ef9bde8e4aa2d791606b1cb021ea958aa8d48744eed",
+  "lock_sha256": "46244413e4213702b76b58efd98d18a2729a8706590cc8c7b74bc848f3823e6c",
   "seed": {
-    "commit": "30be858899b631256de6d661fc2a8fe2c18787c6",
+    "commit": "26911ea0da51e63a342c9941b5c18c7bd5785a07",
     "path": "engineering/ecosystem.lock",
-    "sha256": "25f381870148c2e85340b3fa9b874a9fbe8908f1e832067653d7727b8bbbdeb5"
+    "sha256": "3eff6e0d4ecc98b6cf627ef9bde8e4aa2d791606b1cb021ea958aa8d48744eed"
   },
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
