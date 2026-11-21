@@ -46,7 +46,8 @@ class RatioBounds:
     switching: Interval | None
 
 
-def _ratio(observed: Interval | None, bias: Interval) -> Interval | None:
+def adjust_reported_ratio(observed: Interval | None, bias: Interval) -> Interval | None:
+    """Return the compatible true ratio support for a reporting-bias interval."""
     if bias.lower <= 0:
         msg = "A strictly positive reporting bias is required"
         raise ValueError(msg)
@@ -73,7 +74,8 @@ def restriction_bounds(
     Ratios concern restriction alone, before mitigation/replacement; other
     causal structures require separate bounds.
     """
-    total_ratio, lawful_ratio = _ratio(total, total_bias), _ratio(lawful, lawful_bias)
+    total_ratio = adjust_reported_ratio(total, total_bias)
+    lawful_ratio = adjust_reported_ratio(lawful, lawful_bias)
     if total_ratio is None or lawful_ratio is None or lawful_ratio.lower > total_ratio.upper:
         return RatioBounds(feasible=False, quitting=None, switching=None)
     minimum_total = max(total_ratio.lower, lawful_ratio.lower)

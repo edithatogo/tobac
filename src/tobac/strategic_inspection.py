@@ -10,7 +10,7 @@ from dataclasses import asdict, dataclass
 from fractions import Fraction
 from typing import TYPE_CHECKING, cast
 
-from tobac.partial_identification import Interval, RatioBounds, _ratio, restriction_bounds
+from tobac.partial_identification import Interval, RatioBounds, adjust_reported_ratio, restriction_bounds
 
 if TYPE_CHECKING:
     from pathlib import Path
@@ -58,7 +58,8 @@ def inspection_restriction_bounds(
         raise ValueError(msg)
     if switching_support == Interval(0, 1):
         return restriction_bounds(total, lawful, total_bias=total_bias, lawful_bias=lawful_bias)
-    total_ratio, lawful_ratio = _ratio(total, total_bias), _ratio(lawful, lawful_bias)
+    total_ratio = adjust_reported_ratio(total, total_bias)
+    lawful_ratio = adjust_reported_ratio(lawful, lawful_bias)
     if total_ratio is None or lawful_ratio is None:
         return RatioBounds(feasible=False, quitting=None, switching=None)
     # For remaining consumption t and lawful share s, lawful use is t*s.

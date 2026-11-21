@@ -29,19 +29,6 @@ Reuse M1's chemical, calibration, supply and hypothetical causal-study likelihoo
 
 A total-consumption contrast can inform q but cannot identify d in this structure. Matched lawful-consumption information can help separate d. Baseline wastewater does not become a causal effect estimate. No dynamic network optimisation or claim of retrospective identification is made.
 
-## Conditional inspection scenarios
-
-The opt-in M2a adapter runs a locked Rust executable for either a border-seizure or retail-inspection scenario. Build and test it with Rust 1.99.1.
-
-```bash
-cargo build --locked --manifest-path native/inspection/Cargo.toml
-cargo test --locked --manifest-path native/inspection/Cargo.toml
-```
-
-Pass the executable, versioned JSON request and matched observations to `tobac.strategic_inspection.run_inspection_scenario`. The fiscal packet must match the scenario and the declared currency, price year and resource basis. Dapane supplies the enforcement resource cost and Paignia projects the admitted detection interval. The receipt retains exact strategic bounds, fiscal provenance and the full paired-draw identity.
-
-The conditional M2a projection requires a source-identified calibration of the game output to lawful-to-illicit switching among continuing consumers within the same product, population, geography and observation period. The supplied regression fixture is synthetic. Its fiscal bytes are copied from Dapane at `d02095d`. The tests assign each channel its own scenario ID. Empirical calibration and the Voiage credal EVSI run remain open. [Dapane fixture](https://github.com/edithatogo/dapane/blob/d02095d9bf7e89c6fc00805c4bc484a3ead3e33b/adapters/decision_draws/fixtures/fiscal-nz-synthetic.json)
-
 ## Scientific outcomes and numerical method
 Use the existing exact finite-state decision and information functions. Report EVPI, grouped EVPPI, study EVSI, targeted information gain, decision changes and parameter learning separately. Normative units are not currency. Quantile quadrature at 2/4/8 source-effect nodes tests one numerical axis only: the other binary supports, source transport, policy mapping and likelihood structures remain uncertain. Exact outcome enumeration does not establish a continuous posterior or empirical validity.
 
