@@ -24,6 +24,7 @@ WORKFLOWS = (
     "package-portability.yml",
     "scientific-reproduction.yml",
     "advisory-types.yml",
+    "repository-health.yml",
 )
 
 
@@ -206,6 +207,25 @@ def assert_offline_security_caller_contract(data) -> None:
     assert job["with"] == {"enforce_ai": "false"}
 
 
+def assert_repository_health_job_guards(data) -> None:
+    assert set(data["on"]) == {"push", "pull_request", "workflow_dispatch"}
+    assert set(data["jobs"]) == {"alint", "repohealth"}
+    for job in data["jobs"].values():
+        assert job["runs-on"] == "ubuntu-26.04"
+        assert job.get("permissions", data["permissions"]) == {"contents": "read"}
+    lint_checkout, lint = data["jobs"]["alint"]["steps"]
+    health_checkout, report = data["jobs"]["repohealth"]["steps"]
+    assert lint_checkout["uses"].startswith("actions/checkout@")
+    assert lint["uses"].startswith("asamarts/alint@")
+    assert lint["with"]["config"] == ".alint.yml"
+    assert health_checkout["uses"].startswith("actions/checkout@")
+    assert health_checkout["with"]["fetch-depth"] == "0"
+    command = report["run"]
+    assert command.index("sha256sum --check") < command.index("tar -xzf")
+    assert "--score-only" in command
+    assert "GITHUB_STEP_SUMMARY" in command
+
+
 def assert_hosted_push_branches(data, path) -> None:
     """Retain existing branch scope; the audited offline caller has no branch filter."""
     if "push" in data["on"] and path.name != "offline-ai-security.yml":
@@ -213,6 +233,12 @@ def assert_hosted_push_branches(data, path) -> None:
 
 
 def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
+    workflow_guards = {
+        "advisory-types.yml": assert_advisory_job_guards,
+        "scorecard.yml": assert_scorecard_job_guards,
+        "privacy-secrets.yml": assert_shared_privacy_job_guards,
+        "repository-health.yml": assert_repository_health_job_guards,
+    }
     for path in (ROOT / ".github/workflows").glob("*.yml"):
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
         assert_hosted_push_branches(data, path)
@@ -247,13 +273,8 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             assert any("nox -s tests" in command for command in commands)
             assert all("upload-artifact@" not in step.get("uses", "") for step in job["steps"])
             continue
-        if path.name in {"advisory-types.yml", "scorecard.yml", "privacy-secrets.yml"}:
-            guard = {
-                "advisory-types.yml": assert_advisory_job_guards,
-                "scorecard.yml": assert_scorecard_job_guards,
-                "privacy-secrets.yml": assert_shared_privacy_job_guards,
-            }
-            guard[path.name](data)
+        if path.name in workflow_guards:
+            workflow_guards[path.name](data)
             continue
         if path.name in {"package-portability.yml", "scientific-reproduction.yml"}:
             assert_portable_package_job(data, reproduce=path.name == "scientific-reproduction.yml")

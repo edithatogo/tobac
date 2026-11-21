@@ -1,6 +1,6 @@
 {
   "inventory_sha256": "38102d5614683c0a65e260538b6823f58b4ed6365c8fe651e737c69e40d37dd7",
-  "issued_at": "2026-11-14T06:23:21.983848+00:00",
+  "issued_at": "2026-11-21T08:52:57.011846+00:00",
   "issuer": "tobac-native",
   "native_readback": {
     "checkpoint_sha256": "afc7636e8f2512695c3ab33b224819155539288527e8a11937152821b5cb36b0",
@@ -68,7 +68,7 @@
     ".github/workflows/cross-platform.yml": "sha256:9bd1bddc5c5cc5968f7b3f9a8f90cb2dc1b7c62a3d94404c23e0e53f4af2da1c",
     ".github/workflows/dependency-lock.yml": "sha256:751905aa3b74d99372d5db1fd8faa669b0542ce85a7318def7988f0233f0f233",
     ".github/workflows/engineering-deep.yml": "sha256:54e2b88cda77a5cdc56f10021c757d49053a7fd4fa5e594caa4df5e2e0fd3d80",
-    ".github/workflows/engineering.yml": "sha256:da4c9d172f9c4a19b6b61886f5735f57dd6daaa33add8d0a7895d20c28a42c25",
+    ".github/workflows/engineering.yml": "sha256:89a73a6a29f5bf6215dd256ce159fa716a42fe5e05f5fb85f400ed2269d4a927",
     ".github/workflows/lineage-verifier.yml": "sha256:1a4970a8ce605704f8d6945be0b706790533259139f349bd97609976e9a1cea5",
     ".github/workflows/linux-audit.yml": "sha256:b28efe555ef09a107b4ce572addd1c316a952b6bbc8d1e6f03a15b0753977a92",
     ".github/workflows/longitudinal.yml": "sha256:d494d40ad35b39796e59c3a70304d3c1c44d914b8be2b6bdc19f8824f73852cb",
@@ -77,6 +77,7 @@
     ".github/workflows/privacy-secrets.yml": "sha256:64580fb49556192981a58f1e1a991f45bebe1db818aa731dc766a5b20bc2b3ff",
     ".github/workflows/publication-security.yml": "sha256:33a7673eda07f7619c7672b11f35ea00d57691a0cd667276ce4ed92081da0a54",
     ".github/workflows/release-candidate.yml": "sha256:58f8b5bf5661a5f8c336a802070825ceb7094a92274257a712a7475e498a0a7f",
+    ".github/workflows/repository-health.yml": "sha256:cbebe696db40974ef0cb285a4f12ad2d281f64a1354824e3031f0bc55c7be45c",
     ".github/workflows/research-m3.yml": "sha256:4eec2463e33a9135d48163ab3f9e52167607e1b027c526ece2b046a142948f3a",
     ".github/workflows/scientific-reproduction.yml": "sha256:8527dc1e47365206c522c59cba24fab5d0362122bfa0b54a9f0576c69f27d86c",
     ".github/workflows/scorecard.yml": "sha256:76e4e7a123c09d6928a49b0f443b1aed0686f5dc7d5dc7c436f40dfac612ab2b",
