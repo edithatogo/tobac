@@ -7,6 +7,7 @@ import pytest
 from scipy.optimize import linprog
 
 from tobac.partial_identification import Interval, accounting_bounds, restriction_bounds
+from tobac.strategic_inspection import inspection_restriction_bounds
 
 UNIT = Interval(1.0, 1.0)
 
@@ -62,6 +63,80 @@ def test_reporting_bias_widens_identification() -> None:
     )
     assert b.quitting.lower <= a.quitting.lower <= a.quitting.upper <= b.quitting.upper
     assert b.switching.lower <= a.switching.lower <= a.switching.upper <= b.switching.upper
+
+
+def test_unrestricted_switching_support_preserves_the_reference_projection() -> None:
+    total = Interval(0.9, 0.9)
+    lawful = Interval(0.72, 0.72)
+    assert inspection_restriction_bounds(
+        total,
+        lawful,
+        total_bias=UNIT,
+        lawful_bias=UNIT,
+        switching_support=Interval(0, 1),
+    ) == restriction_bounds(total, lawful, total_bias=UNIT, lawful_bias=UNIT)
+
+
+def test_switching_support_tightens_quitting_as_well_as_switching() -> None:
+    # Lawful use is 3/8 of baseline. The scenario keeps 1/2 to 3/4 of
+    # continuing users lawful, so total use must be between 1/2 and 3/4.
+    result = inspection_restriction_bounds(
+        Interval(0.25, 1),
+        Interval(0.375, 0.375),
+        total_bias=UNIT,
+        lawful_bias=UNIT,
+        switching_support=Interval(0.25, 0.5),
+    )
+    assert result.feasible
+    assert result.quitting == Interval(0.25, 0.5)
+    assert result.switching == Interval(0.25, 0.5)
+
+
+def test_switching_support_cannot_override_incompatible_observations() -> None:
+    result = inspection_restriction_bounds(
+        Interval(0.5, 0.75),
+        Interval(0.375, 0.5),
+        total_bias=UNIT,
+        lawful_bias=UNIT,
+        switching_support=Interval(0.75, 1),
+    )
+    assert not result.feasible
+    assert result.quitting is result.switching is None
+
+
+def test_switching_support_is_conditional_on_continuing_consumption() -> None:
+    result = inspection_restriction_bounds(
+        Interval(0, 0.75),
+        Interval(0, 0),
+        total_bias=UNIT,
+        lawful_bias=UNIT,
+        switching_support=Interval(0.25, 0.5),
+    )
+    assert result.feasible
+    assert result.quitting == UNIT
+    assert result.switching == Interval(0, 1)
+
+
+def test_every_continuing_user_can_switch_only_when_zero_lawful_use_is_possible() -> None:
+    result = inspection_restriction_bounds(
+        Interval(0.5, 0.75), Interval(0, 0), total_bias=UNIT, lawful_bias=UNIT, switching_support=UNIT
+    )
+    assert result.feasible
+    assert result.quitting == Interval(0.25, 0.5)
+    assert result.switching == UNIT
+
+    impossible = inspection_restriction_bounds(
+        None, Interval(0.125, 0.25), total_bias=UNIT, lawful_bias=UNIT, switching_support=UNIT
+    )
+    assert not impossible.feasible
+
+
+@pytest.mark.parametrize("support", [Interval(-0.25, 0.5), Interval(0.5, 1.25)])
+def test_switching_support_must_contain_only_proportions(support: Interval) -> None:
+    with pytest.raises(ValueError, match="Switching support must lie within"):
+        inspection_restriction_bounds(
+            None, None, total_bias=UNIT, lawful_bias=UNIT, switching_support=support
+        )
 
 
 @pytest.mark.parametrize(("lower", "upper"), [(2, 1), (math.nan, 1), (0, math.inf)])

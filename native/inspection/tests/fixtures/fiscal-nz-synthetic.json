@@ -1,0 +1,184 @@
+{
+  "schema_version": "dapane-fiscal/0.1",
+  "run_id": "synthetic-nz-differential",
+  "key": {
+    "scenario_id": "synthetic-NZ",
+    "strategy_id": "alternative",
+    "draw_id": "draw-a",
+    "replication_id": "rep-a",
+    "perspective": "health_system",
+    "subgroup_id": "Māori / NZDep-1"
+  },
+  "comparator_strategy_id": "reference",
+  "draw_set_digest": "sha256:6691422606f6c67e9fc27a3683f3a1fa87fea04ab2691a31b6cba061ca2affe0",
+  "jurisdiction": "NZ",
+  "currency": "NZD",
+  "price_year": 2026,
+  "perspective": "health_system",
+  "aggregation_rule": "health_system_direct_only",
+  "discount": {
+    "method": "effective_rate_per_step",
+    "origin_id": "synthetic-year-zero",
+    "step_years": {
+      "numerator": "1",
+      "denominator": "1"
+    },
+    "resource_rate": {
+      "numerator": "1",
+      "denominator": "4"
+    },
+    "health_rate": {
+      "numerator": "0",
+      "denominator": "1"
+    },
+    "transfer_rate": {
+      "numerator": "1",
+      "denominator": "4"
+    },
+    "source": {
+      "id": "invented-discount-assumptions",
+      "version": "1",
+      "content_digest": "sha256:7b1cdc56a8db75b7735467f6e6d98792e53a05c8a236baa0a49b20d61e4839c5",
+      "evidence": "synthetic"
+    }
+  },
+  "lines": [
+    {
+      "id": "medical",
+      "kind": "health_system_direct_cost",
+      "time_step": 1,
+      "perspective": "health_system",
+      "undiscounted_amount": {
+        "amount": {
+          "numerator": "100",
+          "denominator": "1"
+        },
+        "currency": "NZD",
+        "price_year": 2026,
+        "unit": "currency"
+      },
+      "source": {
+        "id": "invented-incremental-flows",
+        "version": "1",
+        "content_digest": "sha256:1fcd66d6abdfa16d7ee5a5ee42711cbccd7322f0db3431ab8ff4cd0b4fa14670",
+        "evidence": "synthetic"
+      },
+      "transfer": null,
+      "basis": "public_expenditure"
+    },
+    {
+      "id": "enforcement",
+      "kind": "enforcement_resource_cost",
+      "time_step": 1,
+      "perspective": "public_finance",
+      "undiscounted_amount": {
+        "amount": {
+          "numerator": "20",
+          "denominator": "1"
+        },
+        "currency": "NZD",
+        "price_year": 2026,
+        "unit": "currency"
+      },
+      "source": {
+        "id": "invented-incremental-flows",
+        "version": "1",
+        "content_digest": "sha256:1fcd66d6abdfa16d7ee5a5ee42711cbccd7322f0db3431ab8ff4cd0b4fa14670",
+        "evidence": "synthetic"
+      },
+      "transfer": null,
+      "basis": "public_expenditure"
+    },
+    {
+      "id": "excise",
+      "kind": "discounted_tax_transfer",
+      "time_step": 1,
+      "perspective": "public_finance",
+      "undiscounted_amount": {
+        "amount": {
+          "numerator": "40",
+          "denominator": "1"
+        },
+        "currency": "NZD",
+        "price_year": 2026,
+        "unit": "currency"
+      },
+      "source": {
+        "id": "invented-incremental-flows",
+        "version": "1",
+        "content_digest": "sha256:1fcd66d6abdfa16d7ee5a5ee42711cbccd7322f0db3431ab8ff4cd0b4fa14670",
+        "evidence": "synthetic"
+      },
+      "transfer": {
+        "tax": "excise",
+        "boundary": "domestic_economy",
+        "payer": "domestic_households",
+        "recipient": "domestic_government"
+      },
+      "basis": "fiscal_transfer"
+    },
+    {
+      "id": "gst",
+      "kind": "discounted_tax_transfer",
+      "time_step": 1,
+      "perspective": "public_finance",
+      "undiscounted_amount": {
+        "amount": {
+          "numerator": "10",
+          "denominator": "1"
+        },
+        "currency": "NZD",
+        "price_year": 2026,
+        "unit": "currency"
+      },
+      "source": {
+        "id": "invented-incremental-flows",
+        "version": "1",
+        "content_digest": "sha256:1fcd66d6abdfa16d7ee5a5ee42711cbccd7322f0db3431ab8ff4cd0b4fa14670",
+        "evidence": "synthetic"
+      },
+      "transfer": {
+        "tax": "gst",
+        "boundary": "domestic_economy",
+        "payer": "domestic_households",
+        "recipient": "domestic_government"
+      },
+      "basis": "fiscal_transfer"
+    }
+  ],
+  "health": {
+    "model": {
+      "id": "synthetic-incremental-health",
+      "version": "1",
+      "content_digest": "sha256:de3d904bbfcbcfb7249effc6807ad7fea0d828a99e68f06e6e45c938f354b028",
+      "evidence": "synthetic"
+    },
+    "unit": "QALY",
+    "flows": [
+      {
+        "id": "qaly-1",
+        "time_step": 1,
+        "value": {
+          "numerator": "1",
+          "denominator": "1"
+        }
+      }
+    ],
+    "threshold": {
+      "amount": {
+        "numerator": "100",
+        "denominator": "1"
+      },
+      "currency": "NZD",
+      "price_year": 2026,
+      "unit": "currency_per_qaly"
+    },
+    "threshold_source": {
+      "id": "synthetic-wtp",
+      "version": "1",
+      "content_digest": "sha256:c468dc194b2d715675cc1b1c5b4d541e3abe6fddab4d73c54c5f537d971aaaae",
+      "evidence": "synthetic"
+    }
+  },
+  "resource_basis": "public_expenditure"
+}
