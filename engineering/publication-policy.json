@@ -452,6 +452,71 @@
       "integration/archive/merged-wheel-readback_20261102.json": "d42e963647134e30e14c466fbee51050df96ef57",
       "integration/archive/scientific-runner-inputs.json": "64a24e0ed0e15adffa792ff3216225ebf8fc04dd",
       "integration/archive/transformation-interface.json": "087192f8f4fe507af780485f883edf4ddc005408"
+    },
+    "655c254eb775c004daf7f808b42ea83f8296a6fd": {
+      "scripts/crosswalk_eligibility.py": "659bec90f47cf609f43e09bcfe3b91748cd6d95e",
+      "scripts/decision_identification_benchmark.py": "dbd696b7e4538e588dedb0d5ad2708b225ebc511"
+    },
+    "b4138b7c888f0aba8aaa3572e11afb91d35f50eb": {
+      "scripts/crosswalk_eligibility.py": "659bec90f47cf609f43e09bcfe3b91748cd6d95e",
+      "scripts/decision_identification_benchmark.py": "dbd696b7e4538e588dedb0d5ad2708b225ebc511"
+    },
+    "58f2ad8c17fb7a93519d16732a2519d1cce5cead": {
+      "scripts/crosswalk_eligibility.py": "659bec90f47cf609f43e09bcfe3b91748cd6d95e",
+      "scripts/decision_identification_benchmark.py": "dbd696b7e4538e588dedb0d5ad2708b225ebc511"
+    },
+    "8f33f9934d383fc9d45c3583eb1c5003383d8056": {
+      "scripts/crosswalk_eligibility.py": "659bec90f47cf609f43e09bcfe3b91748cd6d95e",
+      "scripts/decision_identification_benchmark.py": "dbd696b7e4538e588dedb0d5ad2708b225ebc511"
+    },
+    "4655364810552500071f69d538e3f74af3e3ae49": {
+      "scripts/crosswalk_eligibility.py": "659bec90f47cf609f43e09bcfe3b91748cd6d95e",
+      "scripts/decision_identification_benchmark.py": "dbd696b7e4538e588dedb0d5ad2708b225ebc511"
+    },
+    "683bd1b62daa6bdc8aee15f1554c47727e7c0607": {
+      "conductor/tracks/nz_au_empirical_20261106/public-decision-scenario-20261113.json": "4a63c9d2c52025354a33ac43e3a82db0fab96425",
+      "conductor/tracks/nz_au_empirical_20261106/public-evidence-appraisal-20261113.md": "3b476814df95306a1ac8955c663857daa508b257",
+      "conductor/tracks/nz_au_empirical_20261106/public-evidence-implementation-20261113.md": "cfdffb3107e4e27c75521aca10c8cf8d91c1f629",
+      "conductor/tracks/nz_au_empirical_20261106/public-evidence-protocol-20261113.md": "dcef679728b36e34fa2d82a5612563de45d05222",
+      "conductor/tracks/nz_au_empirical_20261106/public-evidence-validation-20261113.json": "0852c1556554049d14ff5432bf23d8016715a85e",
+      "conductor/tracks/nz_au_empirical_20261106/public-parameter-bindings-20261113.json": "7f654abc38401f55db8646e52f87b6e432973b6a",
+      "conductor/tracks/nz_au_empirical_20261106/public-parameter-reconciliation-20261113.json": "0ed93af4cb9c2987aac8131fd463cf5c45698d94",
+      "conductor/tracks/nz_au_empirical_20261106/public-result-extracts-20261113.json": "a54134c12790d9baf941f17397551857f8bf1025",
+      "conductor/tracks/nz_au_empirical_20261106/public-source-receipts-20261113.json": "8a4c36138a61a1bd0f9c7e9aa48ab4470b7feebb",
+      "scripts/crosswalk_eligibility.py": "659bec90f47cf609f43e09bcfe3b91748cd6d95e",
+      "scripts/decision_identification_benchmark.py": "3d87339250efa53cd3def01f57e807ccd2fd5051",
+      "scripts/decision_sufficiency.py": "782879ddddaa93b0978ac87180f60ea21cd0ad70",
+      "scripts/reconcile_public_parameters.py": "5228a9874c1c3c5ad41845c2c58d6c684b51bf9f",
+      "tests/engineering/test_decision_sufficiency.py": "bb042fa5c66c339152cb083c3233c7fc24592fa8",
+      "tests/engineering/test_public_parameter_reconciliation.py": "4a49420ebfa716cbedc8243fe67055a40bfdc861"
+    },
+    "cbe43082d12ba472b8265148fe2fc9b6f404cb8f": {
+      "conductor/tracks/nz_au_empirical_20261106/conditional-scenarios-20261113.json": "1d5c377acc84120a7b396d8bd03fbc338f164b09",
+      "conductor/tracks/nz_au_empirical_20261106/methods-paper-amendment-20261113.md": "d88d916fd19cac600e0cc7f4c3036e254c20beea",
+      "conductor/tracks/nz_au_empirical_20261106/methods-paper-claims-20261113.csv": "75ab82785a803a253dff406ce8eaa716324eb5fd",
+      "conductor/tracks/nz_au_empirical_20261106/methods-paper-contract-20261113.json": "e071fc529da99fc54c1b64676be9e7e165a59bfa",
+      "conductor/tracks/nz_au_empirical_20261106/methods-paper-progress-20261113.md": "b9930fb0174de294641fe5c9ea819309e61747b0",
+      "conductor/tracks/nz_au_empirical_20261106/methods-paper-results-20261113.json": "c1854287227bb7bd876605c2f72fa6635356548c",
+      "conductor/tracks/nz_au_empirical_20261106/methods-paper-validation-20261113.json": "4dfa58038d77b63fa0ce274dc1eaceb3451ea95b",
+      "conductor/tracks/nz_au_empirical_20261106/parameter-dispositions-20261113.csv": "ab40ac98193caa0914d92c26a4a9746ecb3198de",
+      "conductor/tracks/nz_au_empirical_20261106/public-decision-scenario-20261113.json": "4a63c9d2c52025354a33ac43e3a82db0fab96425",
+      "conductor/tracks/nz_au_empirical_20261106/public-evidence-appraisal-20261113.md": "3b476814df95306a1ac8955c663857daa508b257",
+      "conductor/tracks/nz_au_empirical_20261106/public-evidence-implementation-20261113.md": "cfdffb3107e4e27c75521aca10c8cf8d91c1f629",
+      "conductor/tracks/nz_au_empirical_20261106/public-evidence-protocol-20261113.md": "dcef679728b36e34fa2d82a5612563de45d05222",
+      "conductor/tracks/nz_au_empirical_20261106/public-evidence-validation-20261113.json": "0852c1556554049d14ff5432bf23d8016715a85e",
+      "conductor/tracks/nz_au_empirical_20261106/public-parameter-bindings-20261113.json": "7f654abc38401f55db8646e52f87b6e432973b6a",
+      "conductor/tracks/nz_au_empirical_20261106/public-parameter-reconciliation-20261113.json": "0ed93af4cb9c2987aac8131fd463cf5c45698d94",
+      "conductor/tracks/nz_au_empirical_20261106/public-result-extracts-20261113.json": "a54134c12790d9baf941f17397551857f8bf1025",
+      "conductor/tracks/nz_au_empirical_20261106/public-source-receipts-20261113.json": "8a4c36138a61a1bd0f9c7e9aa48ab4470b7feebb",
+      "scripts/conditional_decisions.py": "54ab9ebd30e90ea4a5738c7d995fda564395ff42",
+      "scripts/crosswalk_eligibility.py": "659bec90f47cf609f43e09bcfe3b91748cd6d95e",
+      "scripts/decision_identification_benchmark.py": "3d87339250efa53cd3def01f57e807ccd2fd5051",
+      "scripts/decision_sufficiency.py": "782879ddddaa93b0978ac87180f60ea21cd0ad70",
+      "scripts/reconcile_public_parameters.py": "8e6e395c6ebbbe6f9c4c10febe3de5f37b240c3c",
+      "tests/engineering/test_conditional_decisions.py": "8abe238b17e681fa8acda2c7275a82388b6fba82",
+      "tests/engineering/test_decision_sufficiency.py": "bb042fa5c66c339152cb083c3233c7fc24592fa8",
+      "tests/engineering/test_parameter_dispositions.py": "1d35ec2fda1da35bda6adeb851541991f90731e8",
+      "tests/engineering/test_public_parameter_reconciliation.py": "4a49420ebfa716cbedc8243fe67055a40bfdc861"
     }
   },
   "schema_version": 1,
@@ -1458,5 +1523,22 @@
     "evidence/prior_work/v2.9.0/requests/empirical_20261024/R05_ASSAY_PERFORMANCE_ADDENDUM_v2.6.0.md": "92ebf7c34c4e59cff318e124c185475b4822f215654f058a573779ebf2f68e9c",
     "docs/research/M2_PUBLICATION_PROTOCOL.md": "9d0066d338287a74865bda94b8c4293bd307c4a6f65de05117fc75d23c40058c"
   },
-  "legacy_baseline": "4c04a800a445bf1cef61bbabdd71c7bad230e308"
+  "legacy_baseline": "4c04a800a445bf1cef61bbabdd71c7bad230e308",
+  "historical_retired_paths": {
+    "58f2ad8c17fb7a93519d16732a2519d1cce5cead": {
+      "data/source_register.csv": "e38f8f4b19972ae26c062cc2cfa7a5b4f03f6f1d"
+    },
+    "8f33f9934d383fc9d45c3583eb1c5003383d8056": {
+      "data/source_register.csv": "e38f8f4b19972ae26c062cc2cfa7a5b4f03f6f1d"
+    },
+    "4655364810552500071f69d538e3f74af3e3ae49": {
+      "data/source_register.csv": "e38f8f4b19972ae26c062cc2cfa7a5b4f03f6f1d"
+    },
+    "683bd1b62daa6bdc8aee15f1554c47727e7c0607": {
+      "data/source_register.csv": "e38f8f4b19972ae26c062cc2cfa7a5b4f03f6f1d"
+    },
+    "cbe43082d12ba472b8265148fe2fc9b6f404cb8f": {
+      "data/source_register.csv": "e38f8f4b19972ae26c062cc2cfa7a5b4f03f6f1d"
+    }
+  }
 }

@@ -1717,6 +1717,15 @@ The comparison establishes that the disputed PDF is a different
 return, but does not establish whether it is a 2025 return or
 a revision to 2024. Retain the disputed year quarantine.
 
+On 16 November the completed local capture and its text extraction were
+preserved at
+`/Volumes/PortableSSD/tobac-retained-evidence-20261116/phase3-source-captures/tobac-p3-ryo.32Unc8`.
+The copy matched the original bytes, modes, ownership, modification times,
+extended attributes and ACLs before the former scratch directory was removed;
+access and creation times were not compared. The private archive's metadata
+manifest and checksum file record the relocation. This does not alter the
+source-rights or disputed-year dispositions.
+
 The [consumption-gap study's methods](https://pmc.ncbi.nlm.nih.gov/articles/PMC12410603/)
 confirm that 0.7 g is used to convert loose tobacco into RYO
 equivalents, after adding domestic and duty-free loose tobacco.
