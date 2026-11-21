@@ -75,26 +75,26 @@ def load_policy(root: Path = ROOT, revision: str | None = None) -> Policy:
         raise ValueError(msg)
     for name in [*paths, *private]:
         safe_name(name)
-    retired = raw.get("historical_retired_paths", {})
+    retired: object = raw.get("historical_retired_paths", {})
     if not isinstance(retired, dict):
         msg = "Invalid retired historical classification"
         raise TypeError(msg)
-    historical = raw.get("historical_public_paths", {})
-    for commit, entries in retired.items():
+    historical = cast("dict[str, dict[str, str]]", raw.get("historical_public_paths", {}))
+    for commit, entries in cast("dict[object, object]", retired).items():
         if not isinstance(commit, str) or not re.fullmatch(r"[0-9a-f]{40}", commit):
             msg = "Invalid retired historical commit"
             raise ValueError(msg)
         if not isinstance(entries, dict) or not entries:
             msg = "Invalid retired historical entries"
             raise ValueError(msg)
-        for name, oid in entries.items():
+        for name, oid in cast("dict[object, object]", entries).items():
             if not isinstance(name, str) or not isinstance(oid, str):
                 msg = "Invalid retired historical path or blob"
                 raise TypeError(msg)
             safe_name(name)
             path = PurePosixPath(name)
             if (
-                path.parts[0] != "data"
+                path.parts[:1] != ("data",)
                 or path.suffix != ".csv"
                 or name in paths
                 or any(name == private_name or name.endswith("/" + private_name) for private_name in private)
@@ -109,7 +109,7 @@ def load_policy(root: Path = ROOT, revision: str | None = None) -> Policy:
         str(raw["legacy_baseline"]),
         raw.get("gitlinks", {}),
         historical,
-        retired,
+        cast("dict[str, dict[str, str]]", retired),
     )
 
 
