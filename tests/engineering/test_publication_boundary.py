@@ -244,3 +244,100 @@ def test_historical_classification_cannot_authorize_other_content(repository, al
     (repository / boundary.POLICY).write_text(json.dumps(policy))
     with pytest.raises(ValueError, match=r"Unreviewed path|Known local document|lost a local document"):
         boundary.validate_tree(repository, revision)
+
+
+def retired_history_fixture(
+    repository, *, name="data/source_register.csv", content=b"id\nlegacy\n", link=False
+):
+    path = repository / name
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if link:
+        path.symlink_to("../public.json")
+    else:
+        path.write_bytes(content)
+    run_git(repository, "add", ".")
+    run_git(repository, "commit", "-qm", "retired historical metadata")
+    revision = run_git(repository, "rev-parse", "HEAD").decode().strip()
+    oid = run_git(repository, "rev-parse", f"HEAD:{name}").decode().strip()
+    policy_path = repository / boundary.POLICY
+    policy = json.loads(policy_path.read_text())
+    policy["historical_retired_paths"] = {revision: {name: oid}}
+    policy_path.write_text(json.dumps(policy))
+    return revision, oid, name, policy
+
+
+def test_reviewed_retired_history_is_bound_to_exact_commit_path_and_blob(repository) -> None:
+    revision, _, _, _ = retired_history_fixture(repository)
+    assert boundary.validate_tree(repository, revision) == 3
+
+
+@pytest.mark.parametrize(
+    "alteration",
+    ["revision", "blob", "path", "current_path", "private_path", "unsafe_path", "malformed_oid"],
+)
+def test_retired_classification_rejects_broader_or_invalid_entries(repository, alteration) -> None:
+    revision, oid, name, policy = retired_history_fixture(repository)
+    if alteration == "revision":
+        policy["historical_retired_paths"]["0" * 40] = policy["historical_retired_paths"].pop(revision)
+    elif alteration == "blob":
+        policy["historical_retired_paths"][revision][name] = "0" * 40
+    elif alteration == "path":
+        policy["historical_retired_paths"][revision] = {"data/other.csv": oid}
+    elif alteration == "current_path":
+        policy["public_paths"].append(name)
+    elif alteration == "private_path":
+        policy["local_documents"][name] = hashlib.sha256(b"different private bytes").hexdigest()
+    elif alteration == "unsafe_path":
+        policy["historical_retired_paths"][revision]["../escape.csv"] = oid
+    else:
+        policy["historical_retired_paths"][revision][name] = "not-a-git-oid"
+    (repository / boundary.POLICY).write_text(json.dumps(policy))
+    with pytest.raises(ValueError, match=r"Unreviewed path|Invalid or conflicting|Unsafe publication path"):
+        boundary.validate_tree(repository, revision)
+
+
+@pytest.mark.parametrize("content", [b"private draft", archive_bytes(b"private draft")])
+def test_retired_history_still_rejects_known_private_bytes(repository, content) -> None:
+    revision, _, _, _ = retired_history_fixture(repository, content=content)
+    with pytest.raises(ValueError, match="Known local document"):
+        boundary.validate_tree(repository, revision)
+
+
+@pytest.mark.parametrize("invalid", ["mapping", "blob"])
+def test_retired_history_rejects_invalid_policy_types(repository, invalid) -> None:
+    revision, _, name, policy = retired_history_fixture(repository)
+    if invalid == "mapping":
+        policy["historical_retired_paths"] = []
+    else:
+        policy["historical_retired_paths"][revision][name] = 42
+    (repository / boundary.POLICY).write_text(json.dumps(policy))
+    with pytest.raises(TypeError, match="Invalid retired historical"):
+        boundary.validate_tree(repository, revision)
+
+
+def test_retired_history_cannot_classify_private_document_path(repository) -> None:
+    revision, _, _, _ = retired_history_fixture(
+        repository, name="docs/manuscript.md", content=b"edited draft"
+    )
+    with pytest.raises(ValueError, match="Invalid or conflicting retired"):
+        boundary.validate_tree(repository, revision)
+
+
+@pytest.mark.parametrize("name", ["docs/nonprivate.csv", "data/nonmetadata.md"])
+def test_retired_history_is_limited_to_data_csv_paths(repository, name) -> None:
+    revision, _, _, _ = retired_history_fixture(repository, name=name)
+    with pytest.raises(ValueError, match="Invalid or conflicting retired"):
+        boundary.validate_tree(repository, revision)
+
+
+def test_retired_history_cannot_authorize_a_symlink(repository) -> None:
+    revision, _, _, _ = retired_history_fixture(repository, link=True)
+    with pytest.raises(ValueError, match="Unreviewed path"):
+        boundary.validate_tree(repository, revision)
+
+
+def test_retired_classification_does_not_authorize_current_index(repository) -> None:
+    _, _, _, _ = retired_history_fixture(repository)
+    run_git(repository, "add", boundary.POLICY)
+    with pytest.raises(ValueError, match="Unreviewed path"):
+        boundary.validate_tree(repository)

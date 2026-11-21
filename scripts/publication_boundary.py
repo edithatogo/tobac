@@ -7,6 +7,7 @@ import gzip
 import hashlib
 import io
 import json
+import re
 import shutil
 import stat
 import subprocess
@@ -34,6 +35,7 @@ class Policy:
     baseline: str
     gitlinks: dict[str, str]
     historical_paths: dict[str, dict[str, str]]
+    historical_retired_paths: dict[str, dict[str, str]]
 
 
 def git(root: Path, *args: str) -> bytes:
@@ -73,12 +75,41 @@ def load_policy(root: Path = ROOT, revision: str | None = None) -> Policy:
         raise ValueError(msg)
     for name in [*paths, *private]:
         safe_name(name)
+    retired: object = raw.get("historical_retired_paths", {})
+    if not isinstance(retired, dict):
+        msg = "Invalid retired historical classification"
+        raise TypeError(msg)
+    historical = cast("dict[str, dict[str, str]]", raw.get("historical_public_paths", {}))
+    for commit, entries in cast("dict[object, object]", retired).items():
+        if not isinstance(commit, str) or not re.fullmatch(r"[0-9a-f]{40}", commit):
+            msg = "Invalid retired historical commit"
+            raise ValueError(msg)
+        if not isinstance(entries, dict) or not entries:
+            msg = "Invalid retired historical entries"
+            raise ValueError(msg)
+        for name, oid in cast("dict[object, object]", entries).items():
+            if not isinstance(name, str) or not isinstance(oid, str):
+                msg = "Invalid retired historical path or blob"
+                raise TypeError(msg)
+            safe_name(name)
+            path = PurePosixPath(name)
+            if (
+                path.parts[:1] != ("data",)
+                or path.suffix != ".csv"
+                or name in paths
+                or any(name == private_name or name.endswith("/" + private_name) for private_name in private)
+                or name in historical.get(commit, {})
+                or not re.fullmatch(r"[0-9a-f]{40}", oid)
+            ):
+                msg = "Invalid or conflicting retired historical classification"
+                raise ValueError(msg)
     return Policy(
         frozenset(paths),
         private,
         str(raw["legacy_baseline"]),
         raw.get("gitlinks", {}),
-        raw.get("historical_public_paths", {}),
+        historical,
+        cast("dict[str, dict[str, str]]", retired),
     )
 
 
@@ -178,6 +209,24 @@ def historical_path_allowed(
     return mode in {"100644", "100755"} and name in protected.public_paths and supplemental.get(name) == oid
 
 
+def historical_retired_path_allowed(
+    name: str,
+    oid: str,
+    mode: str,
+    retired: dict[str, str],
+    policies: tuple[Policy, Policy],
+) -> bool:
+    """Allow only exact reviewed retired data CSVs, while retaining both private policies."""
+    policy, protected = policies
+    return (
+        mode in {"100644", "100755"}
+        and name not in protected.public_paths
+        and not local_document_name(name, policy)
+        and not local_document_name(name, protected)
+        and retired.get(name) == oid
+    )
+
+
 def validate_tree(
     root: Path,
     revision: str | None = None,
@@ -193,13 +242,14 @@ def validate_tree(
         msg = "Staged publication policy differs from working policy"
         raise ValueError(msg)
     protected = load_policy(root)
-    supplemental = (
-        protected.historical_paths.get(
-            git(root, "rev-parse", "--verify", f"{revision}^{{commit}}").decode().strip(), {}
-        )
+    revision_oid = (
+        git(root, "rev-parse", "--verify", f"{revision}^{{commit}}").decode().strip()
         if revision is not None
-        else {}
+        else ""
     )
+    historical = protected.historical_paths.get(revision_oid, {})
+    retired = protected.historical_retired_paths.get(revision_oid, {})
+    supplemental = historical | retired
     if not protected.private_hashes.items() <= policy.private_hashes.items():
         msg = "Outgoing policy lost a local document binding"
         raise ValueError(msg)
@@ -221,7 +271,8 @@ def validate_tree(
         if (
             (
                 name not in policy.public_paths
-                and not historical_path_allowed(name, oid, mode, supplemental, protected)
+                and not historical_path_allowed(name, oid, mode, historical, protected)
+                and not historical_retired_path_allowed(name, oid, mode, retired, (policy, protected))
             )
             or name in names
             or (mode not in {"100644", "100755"} and not allowed_link)
