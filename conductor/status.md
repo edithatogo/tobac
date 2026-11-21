@@ -1,5 +1,21 @@
 # Reconciled repository status
 
+## Repository hygiene on main — 21 November 2026
+
+PR #181 merged at `b0dc50983243dce3df81c8450094b68417eb5d98`. Its receiving
+tree matches tested head `3bb038dcac727b99f02acf0cd99e13a9e20d2718`.
+The change adds the project code owner and code of conduct, supplies both final
+newlines, and renews the signed workflow pins. The eight accepted native
+attempts and their scientific inputs were verified against the existing
+checkpoint. All five required checks passed, including bounded tests and the
+macOS engineering and numerical qualification.
+[PR #181](https://github.com/edithatogo/tobac/pull/181)
+
+On the receiving `main` push, alint passed with zero findings. RepoHealth
+reported **70/100 (B−)**, up from 67/100 (C+).
+[Main run](https://github.com/edithatogo/tobac/actions/runs/44888225498) ·
+[RepoHealth summary](https://github.com/edithatogo/tobac/actions/runs/44888225498#summary-136798100191)
+
 ## Repository health CI on main — 21 November 2026
 
 PR #179 merged into `main` at `530a997653c3ee5373dbbfa6f2b6ce8eedee5481`.
