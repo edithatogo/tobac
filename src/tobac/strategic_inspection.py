@@ -10,7 +10,7 @@ from dataclasses import asdict, dataclass
 from fractions import Fraction
 from typing import TYPE_CHECKING, cast
 
-from tobac.partial_identification import Interval, RatioBounds, adjust_reported_ratio, restriction_bounds
+from tobac.partial_identification import Interval, RatioBounds, restriction_bounds
 
 if TYPE_CHECKING:
     from pathlib import Path
@@ -56,12 +56,12 @@ def inspection_restriction_bounds(
     if switching_support.lower < 0 or switching_support.upper > 1:
         msg = "Switching support must lie within [0, 1]"
         raise ValueError(msg)
-    if switching_support == Interval(0, 1):
-        return restriction_bounds(total, lawful, total_bias=total_bias, lawful_bias=lawful_bias)
-    total_ratio = adjust_reported_ratio(total, total_bias)
-    lawful_ratio = adjust_reported_ratio(lawful, lawful_bias)
-    if total_ratio is None or lawful_ratio is None:
-        return RatioBounds(feasible=False, quitting=None, switching=None)
+    unrestricted = restriction_bounds(total, lawful, total_bias=total_bias, lawful_bias=lawful_bias)
+    if not unrestricted.feasible or switching_support == Interval(0, 1):
+        return unrestricted
+
+    total_ratio = Interval(0, 1) if total is None else total.divide_positive(total_bias)
+    lawful_ratio = Interval(0, 1) if lawful is None else lawful.divide_positive(lawful_bias)
     # For remaining consumption t and lawful share s, lawful use is t*s.
     # A given t admits a feasible s when t*max(s) >= min(lawful) and
     # t*min(s) <= max(lawful). Keep these comparisons exact at point boundaries.
@@ -71,7 +71,8 @@ def inspection_restriction_bounds(
     if maximum_share == 0 and minimum_lawful > 0:
         return RatioBounds(feasible=False, quitting=None, switching=None)
 
-    minimum_total, maximum_total = Fraction(total_ratio.lower), Fraction(total_ratio.upper)
+    minimum_total = Fraction(total_ratio.lower)
+    maximum_total = min(Fraction(1), Fraction(total_ratio.upper))
     if maximum_share > 0:
         minimum_total = max(minimum_total, minimum_lawful / maximum_share)
     if minimum_share > 0:
