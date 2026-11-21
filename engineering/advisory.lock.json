@@ -10,7 +10,7 @@
     "engineering/advisory.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/coverage-reconciliation-20261121/locks-advisory/advisory.lock",
+    "outputs/coverage-reconciliation-20261121/combined-advisory/qualified/advisory.lock",
     "--python-version",
     "3.15.2",
     "--upgrade-package",
@@ -26,13 +26,13 @@
     "engineering/test-requirements.txt": "b605c8e6530f85df1f52afa34d7cc1e532501493ae6f0d06deddab9a8d80f329",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/advisory.in": "83be6bbb5a6ae644281f5a15652880a5288d4c261a2575d238b194bab37bf237",
-    "engineering/voiage.in": "05ef2873463107e6f76585f0f07accc2b2234668420431966d9324ad707dc13f"
+    "engineering/voiage.in": "dbf07ea4bbbe8b257c633343686ad48fceb1040a4bf2b29a096f7ae018d2bd6a"
   },
-  "lock_sha256": "a67ebfe350573bb0eb0542c30cd89a51c41ffdcd49f345927e7edc0c127899b0",
+  "lock_sha256": "1c8f426c3bacdd821051992ca3bea9a712e2b9d7b36361f0eb0643fc16e45d6f",
   "seed": {
-    "commit": "84239878084f6bd2b1d4a7b7b2e57e2611bdd7e9",
+    "commit": "08965aefd3510f2e1bace7cad24c00015ef476b9",
     "path": "engineering/advisory.lock",
-    "sha256": "d6b23ad5e8db6d97ea759fc12a49eacfdd24dcae66895cbee062d1912776c941"
+    "sha256": "3eb10c637325cc57cc12da991b26195cbaa452b7e5b6785fb510e4d5b233450f"
   },
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }
