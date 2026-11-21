@@ -517,6 +517,23 @@
       "tests/engineering/test_decision_sufficiency.py": "bb042fa5c66c339152cb083c3233c7fc24592fa8",
       "tests/engineering/test_parameter_dispositions.py": "1d35ec2fda1da35bda6adeb851541991f90731e8",
       "tests/engineering/test_public_parameter_reconciliation.py": "4a49420ebfa716cbedc8243fe67055a40bfdc861"
+    },
+    "a4dd271e3d6b1f6eba6da2550837c39d174f1d1f": {
+      ".github/workflows/accounting-properties.yml": "2a75ddfd7ca3feff4a561a4798381a93bdb3e53d",
+      "conductor/tracks/nz_au_hardening_20261106/accounting-properties-20261120.md": "bfd2d7fef8a6408ae0db4f744a15bab4ad57c598",
+      "nox_properties.py": "5853b739e424337ebb945918702259d8647b59f1",
+      "tests/engineering/test_accounting_properties.py": "49f2348c1f88427f05ba492219083ed85e6e0a0e"
+    },
+    "41bcceead8f553f556491f5b6b83f8e1ed178cf9": {
+      ".github/workflows/accounting-properties.yml": "2a75ddfd7ca3feff4a561a4798381a93bdb3e53d",
+      "conductor/tracks/nz_au_hardening_20261106/accounting-properties-20261120.md": "922b3abe86a80b46e535a344f1fb9a661416a3c4",
+      "nox_properties.py": "5853b739e424337ebb945918702259d8647b59f1",
+      "tests/engineering/test_accounting_properties.py": "49f2348c1f88427f05ba492219083ed85e6e0a0e"
+    },
+    "0c972b99c3cb498c2165e48002de00b42b2b1976": {
+      ".github/workflows/accounting-properties.yml": "fc2ff2c7e55c1baf9ff4c90bc511870c97d5884a",
+      "conductor/tracks/nz_au_hardening_20261106/accounting-properties-20261120.md": "cac8528d0d057f5bf4c8f8cafba5f2625b545ba4",
+      "tests/engineering/test_accounting_properties.py": "49f2348c1f88427f05ba492219083ed85e6e0a0e"
     }
   },
   "schema_version": 1,
@@ -1486,6 +1503,14 @@
     "scripts/crosswalk_eligibility.py",
     "tests/engineering/test_candidate_source_register.py",
     "tests/engineering/test_crosswalk_eligibility.py",
+    ".github/workflows/accounting-properties.yml",
+    "conductor/tracks/nz_au_hardening_20261106/accounting-properties-20261120.md",
+    "nox_properties.py",
+    "tests/engineering/test_accounting_properties.py",
+    "conductor/tracks/dynamic_frontier_20261108/innovate-source-fixture-lane-20261117.md",
+    "tests/fixtures/innovate_semi_markov/cohorts.arrow",
+    "tests/fixtures/innovate_semi_markov/fixture.json",
+    "tests/supply_bridge/test_innovate_source_interop.py",
     "integration/archive/scientific-lineage-checkpoint_coverage_20261121.json"
   ],
   "local_documents": {

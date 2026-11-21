@@ -1,0 +1,61 @@
+name: Synthetic accounting properties
+
+on:
+  pull_request:
+    paths:
+      - 'src/tobac/partial_identification.py'
+      - 'tests/engineering/test_accounting_properties.py'
+      - 'engineering/*requirements*'
+      - 'engineering/*.lock*'
+      - 'pyproject.toml'
+      - 'requirements.lock'
+      - 'noxfile.py'
+      - 'nox_properties.py'
+      - '.github/workflows/accounting-properties.yml'
+  schedule:
+    - cron: '53 18 * * 3'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+concurrency:
+  group: accounting-properties-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  properties:
+    name: Synthetic accounting properties
+    runs-on: macos-latest
+    timeout-minutes: 15
+    env:
+      TOBAC_PROPERTY_EXAMPLES: ${{ github.event_name == 'pull_request' && '100' || '1000' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
+        with:
+          version: '0.13.7'
+          python-version: '3.15.2'
+          enable-cache: false
+      - name: Select repository-local interpreter
+        run: |
+          uv venv --python 3.15.2 .venv-ci
+          .venv-ci/bin/python -c 'import sys; assert sys.version_info[:3] == (3, 15, 2)'
+      - name: Exercise bounded synthetic accounting
+        env:
+          PROPERTY_SEED: ${{ github.run_id }}
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 600 -- uv run --no-project --python 3.15.2 --with nox==2026.10.20 python -m nox -f nox_properties.py -s properties -- --hypothesis-seed="$PROPERTY_SEED"
+      - name: Install checksum-pinned export scanner
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
+        run: sh scripts/install_security_tools.sh
+      - name: Stage inspected public evidence
+        if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 180 -- .venv-ci/bin/python scripts/publication_boundary.py export --source outputs --destination artifact-exports/accounting-properties
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: success()
+        with:
+          name: synthetic-accounting-properties
+          path: artifact-exports/accounting-properties/
+          if-no-files-found: error
+          retention-days: 14
