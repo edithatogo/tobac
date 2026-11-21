@@ -12,6 +12,17 @@ extension or relabeling its contents. Known document hashes detect exact renamed
 copies, including in bounded nested archives; they do not detect every edited copy
 or paraphrase. GitHub push protection addresses credentials, not manuscripts.
 
+Separately reviewed, retired data CSVs can be classified for historical commits
+without restoring them to the current public tree. Each
+`historical_retired_paths` entry binds one full commit ID, `data/` CSV path and
+blob ID. The checker rejects private document names, current-public conflicts,
+nonregular files and malformed identifiers; it still inspects bytes and nested
+archives against the applicable private-document fingerprints. The classification
+does not authorise the path in the current index. Review the content and rights of
+each exact object and run the secret scanner before adding such an entry. A later
+push of the history would make those reviewed historical bytes accessible even
+though the retired file is absent at the tip.
+
 ## Local setup
 
 Use a repository-local Python 3.15.2 interpreter and verify its actual version.
