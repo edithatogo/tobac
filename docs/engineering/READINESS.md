@@ -36,6 +36,24 @@ passing lint/format/typing/workflow/security checks and 96 focused tests. Linux
 release/numerical/mutation/profile qualification is separate. Earlier statements
 that Linux audit installation was unexecuted are historical and superseded for DXP1.
 
+## Repository health checks
+
+The [Repository health workflow](../../.github/workflows/repository-health.yml)
+runs on pull requests, pushes to `main` and manual runs. alint checks the
+[repository rules](../../.alint.yml) and fails on errors. RepoHealth uses full Git
+history and reports its score in the Actions job summary. The score is advisory
+and can change as commits and lockfiles age.
+
+For local checks, install the versions pinned in the workflow from the
+[alint releases](https://github.com/asamarts/alint/releases/tag/v0.22.1) and
+[RepoHealth releases](https://github.com/spbuilds/repohealth/releases/tag/v0.5.3).
+Run both from a clean, full-history checkout.
+
+```sh
+alint check . --config .alint.yml
+repohealth .
+```
+
 ## Linux and Windows package portability — DXP2
 
 The dedicated [portability workflow](../../.github/workflows/package-portability.yml)

@@ -1,0 +1,50 @@
+name: Repository health
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-health-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  alint:
+    name: alint
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: asamarts/alint@5054852d00d47affc9ea71440240147d9999f4d3 # v0.22.1
+        with:
+          config: .alint.yml
+
+  repohealth:
+    name: RepoHealth
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Report the repository health score
+        shell: bash
+        run: |
+          tool_dir="$(mktemp -d "$RUNNER_TEMP/repohealth.XXXXXXXX")"
+          archive="$tool_dir/repohealth.tar.gz"
+          curl --fail --silent --show-error --location --retry 3 --connect-timeout 20 --max-time 120 \
+            https://github.com/spbuilds/repohealth/releases/download/v0.5.3/repohealth_0.5.3_linux_amd64.tar.gz \
+            --output "$archive"
+          printf '%s  %s\n' '68a2fee769ae8f3652d503d07508a91ec1cf73c8463b6846d030762f6d2459d2' "$archive" \
+            | sha256sum --check
+          tar -xzf "$archive" -C "$tool_dir" repohealth
+          score="$("$tool_dir/repohealth" . --score-only)"
+          printf '### RepoHealth\n\n%s\n' "$score" >> "$GITHUB_STEP_SUMMARY"
