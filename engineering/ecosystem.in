@@ -2,7 +2,7 @@
 
 # Optional bounded qualification, separate from the scientific reference lock.
 jax==0.12.0.1
-jaxlib==0.12.0.1
+jaxlib==0.12.1
 polars==2.1.0
 pyarrow==26.0.1
 patito==0.8.6
