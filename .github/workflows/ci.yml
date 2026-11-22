@@ -2,7 +2,6 @@ name: Regulatory uncertainty milestone
 on:
   push:
     branches: [main]
-  pull_request:
   workflow_dispatch:
 # Paths on the runner to separately provisioned, approved native artifacts.
 env:
@@ -44,7 +43,10 @@ jobs:
       - name: Verify the source-bound runtime lock
         run: .venv-ci/bin/python scripts/lock_receipt.py verify --profile runtime --path engineering/requirements.lock
       - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m pip install --require-hashes -r engineering/requirements.lock
-      - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m pip install --no-deps --no-build-isolation .
+      - name: Build the checked-out wheel offline
+        run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python scripts/build_checkout_wheel.py "$RUNNER_TEMP/tobac-checkout"
+      - name: Install the wheel with hash verification
+        run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m pip install --no-deps --no-index --require-hashes -r "$RUNNER_TEMP/tobac-checkout/requirements.txt"
       - run: .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m pytest -q
       - run: python scripts/verify.py
       - run: OPENBLAS_NUM_THREADS=1 .venv-ci/bin/python scripts/run_bounded.py --timeout 2400 -- .venv-ci/bin/python -m tobac.run --out outputs/ci_full
