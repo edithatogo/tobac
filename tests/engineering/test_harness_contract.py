@@ -273,6 +273,20 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
             assert any("nox -s tests" in command for command in commands)
             assert all("upload-artifact@" not in step.get("uses", "") for step in job["steps"])
             continue
+        if path.name == "fair-software.yml":
+            # Metadata-only advisory job; no scientific Python or model execution.
+            assert set(data["on"]) == {"push", "workflow_dispatch"}
+            assert data["permissions"] == {"contents": "read"}
+            assert set(data["jobs"]) == {"fair-software"}
+            job = data["jobs"]["fair-software"]
+            assert job["runs-on"] == "ubuntu-latest"
+            assert job["timeout-minutes"] == "10"
+            assert len(job["steps"]) == 1
+            step = job["steps"][0]
+            assert step["continue-on-error"] == "true"
+            assert step["uses"] == "fair-software/howfairis-github-action@4c11146488125aa6e1531184eed51d781bcd5871"
+            assert step["with"]["MY_REPO_URL"] == "https://github.com/${{ github.repository }}"
+            continue
         if path.name in workflow_guards:
             workflow_guards[path.name](data)
             continue
