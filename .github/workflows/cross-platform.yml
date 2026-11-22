@@ -1,6 +1,7 @@
 name: Cross-platform Python qualification
 on:
-  workflow_call:
+  push:
+    branches: [main]
   workflow_dispatch:
 # Paths on the runner to separately provisioned, approved native artifacts.
 env:

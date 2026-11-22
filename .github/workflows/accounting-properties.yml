@@ -1,7 +1,18 @@
 name: Synthetic accounting properties
 
 on:
-  workflow_call:
+  push:
+    branches: [main]
+    paths:
+      - 'src/tobac/partial_identification.py'
+      - 'tests/engineering/test_accounting_properties.py'
+      - 'engineering/*requirements*'
+      - 'engineering/*.lock*'
+      - 'pyproject.toml'
+      - 'requirements.lock'
+      - 'noxfile.py'
+      - 'nox_properties.py'
+      - '.github/workflows/accounting-properties.yml'
   schedule:
     - cron: '53 18 * * 3'
   workflow_dispatch:

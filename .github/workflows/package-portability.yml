@@ -1,6 +1,7 @@
 name: Package portability qualification
 on:
-  workflow_call:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:

@@ -1,6 +1,7 @@
 name: Scientific reproduction qualification
 on:
-  workflow_call:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:

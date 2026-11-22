@@ -38,11 +38,8 @@ def test_new_workflows_are_pinned_read_only_and_bounded(name) -> None:
     assert data["permissions"] == {"contents": "read"}
     assert data["concurrency"]["group"]
     for job in data["jobs"].values():
-        assert "continue-on-error" not in job
-        if "uses" in job:
-            assert re.fullmatch(r"\./\.github/workflows/[a-z0-9-]+\.yml", job["uses"])
-            continue
         assert 0 < int(job["timeout-minutes"]) <= 60
+        assert "continue-on-error" not in job
         for step in job["steps"]:
             assert "continue-on-error" not in step
             if "uses" in step:
@@ -180,7 +177,7 @@ def test_lock_candidates_use_selected_repo_local_python() -> None:
 
 
 def assert_advisory_job_guards(data) -> None:
-    assert set(data["on"]) == {"workflow_call", "workflow_dispatch"}
+    assert set(data["on"]) == {"push", "workflow_dispatch"}
     job = data["jobs"]["advisory"]
     assert job["strategy"]["matrix"]["os"] == ["macos-latest", "ubuntu-latest", "ubuntu-24.04-arm"]
     commands = [step.get("run", "") for step in job["steps"]]
@@ -212,7 +209,7 @@ def assert_offline_security_caller_contract(data) -> None:
 
 
 def assert_repository_health_job_guards(data) -> None:
-    assert set(data["on"]) == {"workflow_call", "workflow_dispatch"}
+    assert set(data["on"]) == {"push", "workflow_dispatch"}
     assert set(data["jobs"]) == {"alint", "repohealth"}
     for job in data["jobs"].values():
         assert job["runs-on"] == "ubuntu-26.04"
@@ -236,8 +233,8 @@ def assert_hosted_push_branches(data, path) -> None:
         assert data["on"]["push"]["branches"] == ["main"], path
 
 
-def test_required_jobs_precede_automatic_follow_up_workflows() -> None:
-    """Run the five protected jobs on PRs and gate follow-ups on main."""
+def test_required_jobs_precede_engineering_follow_ups() -> None:
+    """Run the five protected jobs on PRs and gate follow-ups within engineering."""
     workflows = ROOT / ".github/workflows"
     data = yaml.load((workflows / "engineering.yml").read_text(), Loader=yaml.BaseLoader)
     jobs = data["jobs"]
@@ -249,19 +246,6 @@ def test_required_jobs_precede_automatic_follow_up_workflows() -> None:
         "macos-qualification": "macOS Python 3.15.2 qualification",
     }
     assert jobs["tests"]["strategy"]["matrix"]["include"] == [{"os": "macos-latest", "python": "3.15.2"}]
-    follow_up = {
-        "accounting-properties.yml",
-        "advisory-types.yml",
-        "ci.yml",
-        "cross-platform.yml",
-        "lineage-verifier.yml",
-        "linux-audit.yml",
-        "longitudinal.yml",
-        "package-portability.yml",
-        "repository-health.yml",
-        "research-m3.yml",
-        "scientific-reproduction.yml",
-    }
     for name, job in jobs.items():
         if name in required:
             assert job["name"] == required[name]
@@ -270,16 +254,7 @@ def test_required_jobs_precede_automatic_follow_up_workflows() -> None:
             assert "steps" in job
             continue
         assert set(job["needs"]) == required.keys()
-        if "uses" in job:
-            assert job["if"] == "github.event_name == 'push'"
-            target = Path(job["uses"]).name
-            assert job["uses"] == f"./.github/workflows/{target}"
-            follow_up.remove(target)
-            called = yaml.load((workflows / target).read_text(), Loader=yaml.BaseLoader)
-            assert {"workflow_call", "workflow_dispatch"} <= called["on"].keys()
-            assert {"push", "pull_request"}.isdisjoint(called["on"])
-            assert called["permissions"] == {"contents": "read"}
-        elif name in {"qualification", "voiage_polars_candidate"}:
+        if name in {"qualification", "voiage_polars_candidate"}:
             assert job["if"] == "github.event_name != 'pull_request'"
         else:
             assert name in {"artifact_provenance", "dependency_submission"}
@@ -287,13 +262,14 @@ def test_required_jobs_precede_automatic_follow_up_workflows() -> None:
                 "github.event_name == 'workflow_dispatch' || "
                 "(github.event_name == 'push' && github.ref == 'refs/heads/main')"
             )
-    assert not follow_up
     assert required.keys() <= jobs.keys()
 
 
 def test_automatic_pull_request_workflows_are_limited_to_engineering() -> None:
     workflows = ROOT / ".github/workflows"
-    for path in workflows.glob("*.yml"):
+    for path in sorted(workflows.iterdir()):
+        if path.suffix not in {".yml", ".yaml"}:
+            continue
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
         assert "pull_request_target" not in data["on"]
         assert ("pull_request" in data["on"]) == (path.name == "engineering.yml")
@@ -429,8 +405,6 @@ def assert_shared_privacy_job_guards(data) -> None:
 
 def assert_reference_job_guards(data, path) -> None:
     for name, job in data["jobs"].items():
-        if "uses" in job:
-            continue
         assert "lock" not in job.get("strategy", {}).get("matrix", {}).get("session", [])
         runner = job["runs-on"]
         if runner == "${{ matrix.os }}":
