@@ -30,6 +30,8 @@ new collection and external submission outside its scope.
   [Engineering workflow](../.github/workflows/engineering.yml) for their
   definitions and [PR #193](https://github.com/edithatogo/tobac/pull/193) for
   the last quality-session consolidation.
+- The [Community Standards audit](../.github/workflows/community-standards.yml)
+  runs on `main`, for merge groups, and on demand.
 - Engineering owns the hosted Voiage qualification. Its single macOS job runs
   both the locked application suite and the exact published-wheel check. The
   [Voiage guidance](../docs/engineering/VOIAGE_PYTHON315.md) records the two scopes.
@@ -44,9 +46,8 @@ new collection and external submission outside its scope.
 ## Verification and remaining work
 
 - Baseline `5809c50` passed [alint and RepoHealth](https://github.com/edithatogo/tobac/actions/runs/44985096496).
-  The revised workflows require the owner-held signature renewal and hosted
-  verification before publication. Both Voiage sessions keep their existing
-  numerical and installed-library checks.
+  Verify the signed workflow digests and the five required hosted checks for
+  each publication. The Voiage job covers numerical and installed-library checks.
 - The [Scorecard run](https://github.com/edithatogo/tobac/actions/runs/44981202222)
   records the dependency-pinning fixes. The remaining findings concern
   [fuzzing recognition](https://github.com/edithatogo/tobac/security/code-scanning/33),

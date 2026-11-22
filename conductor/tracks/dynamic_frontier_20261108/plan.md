@@ -337,3 +337,31 @@ The complete Nox test session passed 1,562 tests with 18 capability skips and
 90.43% source coverage. Signed acceptance is in
 `integration/archive/scientific-lineage-checkpoint_bf1_bf2_20261113.json`.
 Protected publication and receiving-main readback are the final integration steps.
+
+## BF6-P: Downstream game intake policy — 22 November 2026
+
+- [x] Register the UOGTO/Paignia intake contracts and canonical dispositions in
+  agent and contributor instructions, with separate semantic and implementation
+  evidence; verify this bounded documentation change locally.
+
+Base: `2fc51840222799c2d1b4c197cc3c2d29bbe0b653`.
+Allowed files: `AGENTS.md`, `CONTRIBUTING.md` and this plan.
+The [intake rule](../../../CONTRIBUTING.md#game-capability-intake) links both
+upstream contracts and uses the same key for existing support, demonstrated
+gaps or explicit pending assessments. Domain data, assumptions, payoff
+construction and calibration retain their existing ownership.
+
+This policy step preserves BF6's comparison with simpler response models and
+its consequentiality requirement. It does not implement BF6, fit strategic
+responses, admit empirical evidence, renew native acceptance or complete any
+scientific or publication gate.
+
+Local verification: the standard-library documentation check validated both
+new local links/anchors, canonical upstream pointers and per-provider
+dispositions, changed-file scope and EOF newlines. Scoped `git diff HEAD --check`
+and staged `git diff --cached --check` passed. No runtime tests were run for this documentation-only change.
+Reapplied on the current main after incoming FAIR-assessment changes were
+confirmed disjoint from these three files; focused documentation checks passed
+again on this base.
+No runtime or dependency changes are part of this step. Remote publication,
+upstream-document availability and hosted checks remain pending integration.
