@@ -1,6 +1,6 @@
 {
   "inventory_sha256": "38102d5614683c0a65e260538b6823f58b4ed6365c8fe651e737c69e40d37dd7",
-  "issued_at": "2026-11-22T03:22:37.036013+00:00",
+  "issued_at": "2026-11-22T04:13:57.109514+00:00",
   "issuer": "tobac-native",
   "native_readback": {
     "checkpoint_sha256": "ad66712ae2afa2f7db467f493ed741e2f6f945730a3be15c3ca0880b3dfa3271",
@@ -69,7 +69,7 @@
     ".github/workflows/cross-platform.yml": "sha256:4401605b85cf3c634b24446a8a0deffd8dc826c9ccccb5fc3d95110ede7eecf9",
     ".github/workflows/dependency-lock.yml": "sha256:751905aa3b74d99372d5db1fd8faa669b0542ce85a7318def7988f0233f0f233",
     ".github/workflows/engineering-deep.yml": "sha256:54e2b88cda77a5cdc56f10021c757d49053a7fd4fa5e594caa4df5e2e0fd3d80",
-    ".github/workflows/engineering.yml": "sha256:3993b53f975b2171861a8b6475c7d223fea15e4fdda02617af8fc5be4a7ae243",
+    ".github/workflows/engineering.yml": "sha256:a6977283dfd7f4582b21fd7c9c3fe2d7024cfa80622316101b0611a4a684b811",
     ".github/workflows/lineage-verifier.yml": "sha256:6ee088479fa23d7f0d66e524247a78f93e551536cbce0e58c9253c71e8ddb2a5",
     ".github/workflows/linux-audit.yml": "sha256:8a5822c427e6bfe4257dae5d8e65e1c054bfa0e39cee1c7117fdb18e693cf892",
     ".github/workflows/longitudinal.yml": "sha256:ac1937dde19c48d2e310730aa3eb7ac7abd703e3f6dbcdbe0ac47bc58c9f17b6",

@@ -10,6 +10,9 @@ five required checks. Standalone automatic qualifications run on protected
 main pushes. [PR #190](https://github.com/edithatogo/tobac/pull/190) ·
 [Required Actions run](https://github.com/edithatogo/tobac/actions/runs/44980667034)
 
+The protected quality job runs the baseline Nox quality session once. macOS
+qualification starts with `strict_all`.
+
 The hosted test suite passed 1,602 tests with 22 skips and reported 90% branch
 coverage. The macOS qualification passed numerical reproduction, packaging,
 mutation, recovery and security checks. The renewed signed workflow pins
