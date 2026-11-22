@@ -520,3 +520,35 @@ point identification from action identification instead of interpreting an
 arbitrary interval width as decision identification. These dispositions keep
 the useful historical context without replacing the receiving scientific
 contracts or inventing new empirical acceptance.
+
+## Community Standards publication integration — 22 November 2026
+
+The new read-only community-file workflow in PR #197 calls the shared action at
+`5b6741ac12f3720834ff8605eeb603fc15f7e683`. Its initial hosted community audit
+passed, while the existing publication and workflow-policy checks correctly
+rejected an unregistered public path and an unclassified metadata workflow.
+
+Review admits only `.github/workflows/community-standards.yml` to the current
+public inventory. The preceding branch commit
+`3e8cf306fd2d9e3b516818c7a885ff403449a289` retains an exact historical binding to
+that workflow's blob `371ebca2b44787aa1e5a7547bb27b671200efe19`, so its earlier
+missing classification does not require rewriting history. Every prior public
+classification, local-document fingerprint, gitlink and legacy baseline is
+unchanged; the same byte and nested-archive inspection remains active.
+
+The workflow contract now admits this single additional automatic PR metadata
+workflow. Its guard requires the immutable shared action, one bounded hosted
+job, read-only permissions, unfiltered PR and merge-group events, and no
+consumer shell execution or failure suppression. Concurrency cancels superseded
+runs. Nine negative cases reject privilege, concurrency, filtering, conditional
+execution, runner, timeout and action drift after verifying the valid control.
+All existing scientific-runtime, platform and resource guards remain active.
+
+Local CPython 3.15.2 validation passed 130 selected tests across publication
+boundary, engineering harness and workstream integration. Ruff 0.17.4 passed.
+The staged tree and initial PR tree each passed the publication inspector with
+977 entries; the preceding main tree passed with 976. These are bounded local
+results. The final candidate still requires its actual hosted native and
+security checks, and the new status requires a separate repository setting
+before it becomes mandatory for merging. No empirical observation, model,
+scientific claim, private authoring file or licence term changed.

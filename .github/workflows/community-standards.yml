@@ -10,6 +10,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: community-standards-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   community-standards:
     name: community-standards

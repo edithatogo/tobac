@@ -534,6 +534,9 @@
       ".github/workflows/accounting-properties.yml": "fc2ff2c7e55c1baf9ff4c90bc511870c97d5884a",
       "conductor/tracks/nz_au_hardening_20261106/accounting-properties-20261120.md": "cac8528d0d057f5bf4c8f8cafba5f2625b545ba4",
       "tests/engineering/test_accounting_properties.py": "49f2348c1f88427f05ba492219083ed85e6e0a0e"
+    },
+    "3e8cf306fd2d9e3b516818c7a885ff403449a289": {
+      ".github/workflows/community-standards.yml": "371ebca2b44787aa1e5a7547bb27b671200efe19"
     }
   },
   "schema_version": 1,
@@ -1513,7 +1516,8 @@
     "tests/fixtures/innovate_semi_markov/cohorts.arrow",
     "tests/fixtures/innovate_semi_markov/fixture.json",
     "tests/supply_bridge/test_innovate_source_interop.py",
-    "integration/archive/scientific-lineage-checkpoint_coverage_20261121.json"
+    "integration/archive/scientific-lineage-checkpoint_coverage_20261121.json",
+    ".github/workflows/community-standards.yml"
   ],
   "local_documents": {
     "requests/m2_20261027/README.md": "c66d82b0c486f1c968a00e46566733be2b1674c0e7f101dc29d127be6e62bc68",
