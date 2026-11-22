@@ -9,9 +9,11 @@ this policy was inspected. This change does not introduce a second updater.
 `renovate.json` explicitly enables Renovate and its dashboard. Default manager
 patterns remain intact; additional pip-requirements patterns cover the four reference
 `engineering/{requirements,audit,voiage,ecosystem}.in` profiles plus the optional
-analytics, advisory and clustering profiles and declared tool requirement sources. Compatibility-
-sensitive evidence-transport dependencies share a qualification group. Generated
-hash locks are resolver artifacts, not manifests to edit by string replacement.
+analytics, advisory and clustering profiles and declared tool requirement sources.
+Compatibility-sensitive evidence transport dependencies share a qualification
+group. Renovate groups `jax` and `jaxlib` so the ecosystem lock and native
+compatibility can be reviewed together. Generate the hash locks with the
+resolver after reviewing the manifest changes.
 
 After dependency-input changes, generate and inspect all affected locks with
 `scripts/lock_receipt.py`, retaining the paired receipts. The manual

@@ -27,6 +27,27 @@ Gaussian backend substitution. The logarithmic determinant/whitening arithmetic 
 not the scientific meaning of the covariance. End-to-end full scientific replay remains required
 on the complete checkout; local interface tests are not a new funding analysis.
 
+## First provider use case
+
+Select Voiage 3.1.0 for opt-in expected value of perfect information (EVPI)
+checks in the M2 retail partial-replacement scenario. The
+[frozen M2 summary row](https://github.com/edithatogo/tobac/blob/5809c50e425e82b8caff09acb057867b8725ce6e/results/milestone2/summary.csv#L9)
+uses a crime weight of 1.0 and records an EVPI of `0.06181538352544022` in
+normalised decision units. The existing M2 builder supplies the four actions
+and 20,480 equally weighted states. The NumPy calculation supplies the
+reference, and the existing optional backend calls the installed provider.
+
+On 22 November 2026, the hash-verified
+[published Voiage wheel](../../integration/voiage_published_20261106.json)
+ran on macOS ARM64 with Python 3.15.2. The installed files matched 198 wheel
+members. Voiage returned `0.06181538352543689`, with an absolute difference
+of `3.33e-15` from the frozen value. The
+[installed-library test](../../tests/engineering/test_voiage_installed.py)
+replays the same case and checks both backends against the frozen row using
+`1e-10` absolute and relative tolerances. The
+[research gates](../../conductor/research-gates.md) govern empirical use of
+the M2 scenario.
+
 ## Why the reference scientific pins are retained
 Latest software belongs in a separate compatibility lane before it becomes the reproducible
 scientific baseline. The Python 3.15.1 reference stack uses NumPy 2.5.4, SciPy 1.18.1,

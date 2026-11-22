@@ -1517,6 +1517,7 @@
     "tests/fixtures/innovate_semi_markov/fixture.json",
     "tests/supply_bridge/test_innovate_source_interop.py",
     "integration/archive/scientific-lineage-checkpoint_coverage_20261121.json",
+    "integration/archive/scientific-lineage-checkpoint_replay_20261122.json",
     ".github/workflows/community-standards.yml"
   ],
   "local_documents": {

@@ -2,6 +2,7 @@ name: Scientific reproduction qualification
 on:
   push:
     branches: [main]
+    paths-ignore: [conductor/status.md]
   workflow_dispatch:
 
 permissions:

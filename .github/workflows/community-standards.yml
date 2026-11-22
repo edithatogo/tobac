@@ -1,7 +1,6 @@
 name: Community standards
 
 on:
-  pull_request:
   push:
     branches: [main]
   merge_group:
@@ -11,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: community-standards-${{ github.event.pull_request.number || github.ref }}
+  group: community-standards-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

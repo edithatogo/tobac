@@ -131,7 +131,7 @@ def test_release_requires_reviewed_lock_and_is_not_public_publication() -> None:
 def test_renovate_covers_profile_inputs_and_keeps_review_gates() -> None:
     data = json.loads((ROOT / "renovate.json").read_text())
     assert data["enabled"] is True
-    assert data["dependencyDashboard"] is True
+    assert data["dependencyDashboard"]["enabled"] is True
     patterns = data["pip_requirements"]["managerFilePatterns"]
     profiles = ["requirements", "audit", "voiage", "ecosystem"]
     for profile in profiles:
@@ -144,6 +144,10 @@ def test_renovate_covers_profile_inputs_and_keeps_review_gates() -> None:
     assert all(rule.get("automerge") is not True for rule in data["packageRules"])
     assert any(
         {"polars", "pyarrow", "patito", "msgspec"} <= set(rule.get("matchPackageNames", []))
+        for rule in data["packageRules"]
+    )
+    assert any(
+        set(rule.get("matchPackageNames", [])) == {"jax", "jaxlib"} and rule.get("groupName")
         for rule in data["packageRules"]
     )
 
@@ -266,15 +270,30 @@ def test_required_jobs_precede_engineering_follow_ups() -> None:
     assert required.keys() <= jobs.keys()
 
 
-def test_automatic_pull_request_workflows_are_limited_to_engineering_and_community() -> None:
+def test_automatic_pull_request_workflows_are_limited_to_engineering() -> None:
     workflows = ROOT / ".github/workflows"
     for path in sorted(workflows.iterdir()):
         if path.suffix not in {".yml", ".yaml"}:
             continue
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
         assert "pull_request_target" not in data["on"]
-        assert ("pull_request" in data["on"]) == (path.name in {"engineering.yml", "community-standards.yml"})
+        assert ("pull_request" in data["on"]) == (path.name == "engineering.yml")
         assert_hosted_push_branches(data, path)
+
+
+def test_main_voiage_suite_has_one_workflow_owner() -> None:
+    workflows = ROOT / ".github/workflows"
+    engineering = yaml.load((workflows / "engineering.yml").read_text(), Loader=yaml.BaseLoader)
+    qualification = engineering["jobs"]["voiage_polars_candidate"]
+    assert any(
+        step.get("run", "").endswith("-s voiage_polars_candidate voiage_published")
+        for step in qualification["steps"]
+    )
+    for name in ("ci.yml", "research-m3.yml"):
+        data = yaml.load((workflows / name).read_text(), Loader=yaml.BaseLoader)
+        assert all(
+            "-s voiage" not in step.get("run", "") for job in data["jobs"].values() for step in job["steps"]
+        ), name
 
 
 def test_required_publication_job_scans_pull_requests_with_shared_privacy_action() -> None:
@@ -308,12 +327,11 @@ def assert_fair_metadata_job_guards(data) -> None:
 def assert_community_metadata_job_guards(data) -> None:
     """Bound the shared file audit separately from native scientific qualification."""
     assert set(data) == {"name", "on", "permissions", "concurrency", "jobs"}
-    assert set(data["on"]) == {"pull_request", "push", "merge_group", "workflow_dispatch"}
-    assert not data["on"]["pull_request"]
+    assert set(data["on"]) == {"push", "merge_group", "workflow_dispatch"}
     assert not data["on"]["merge_group"]
     assert data["permissions"] == {"contents": "read"}
     assert data["concurrency"] == {
-        "group": "community-standards-${{ github.event.pull_request.number || github.ref }}",
+        "group": "community-standards-${{ github.ref }}",
         "cancel-in-progress": "true",
     }
     assert set(data["jobs"]) == {"community-standards"}
@@ -493,6 +511,8 @@ def assert_reference_job_guards(data, path) -> None:
 
 
 def assert_portable_package_job(data, *, reproduce=False) -> None:
+    assert data["on"]["push"].get("paths-ignore") == ["conductor/status.md"]
+    assert "workflow_dispatch" in data["on"]
     job = data["jobs"]["reproduce" if reproduce else "portable"]
     assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
     assert job["timeout-minutes"] == "40"
