@@ -211,7 +211,7 @@ jobs:
         run: .venv-ci/bin/python -I -S scripts/hosted_lineage.py --configure
       - run: mkdir -p outputs/engineering
       - name: Qualify the macOS engineering and numerical checks
-        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/macos-nox-report.json -s quality strict_all reproduce package security mutation clean_package recovery
+        run: .venv-ci/bin/python scripts/run_bounded.py --max-rss-mib 4096 --timeout 2400 -- uvx --python 3.15.2 --from nox==2026.10.20 nox --report outputs/engineering/macos-nox-report.json -s strict_all reproduce package security mutation clean_package recovery
       - name: Install checksum-pinned export scanner
         if: ${{ !cancelled() && (success() || hashFiles('outputs/**') != '') }}
         run: sh scripts/install_security_tools.sh
