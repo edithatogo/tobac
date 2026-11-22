@@ -292,9 +292,7 @@ def test_main_voiage_suite_has_one_workflow_owner() -> None:
     for name in ("ci.yml", "research-m3.yml"):
         data = yaml.load((workflows / name).read_text(), Loader=yaml.BaseLoader)
         assert all(
-            "-s voiage" not in step.get("run", "")
-            for job in data["jobs"].values()
-            for step in job["steps"]
+            "-s voiage" not in step.get("run", "") for job in data["jobs"].values() for step in job["steps"]
         ), name
 
 
