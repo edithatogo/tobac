@@ -137,14 +137,14 @@ capabilities belong in Voiage after verification.
 Use the existing engineering workflow. Keep each change focused on one behaviour
 and include the files needed to verify it together.
 
-#### [ ] TP01 — select one demonstrated application need
+#### [x] TP01 — select one demonstrated application need
 
-Start with a concrete `tobac` use case. Check whether the existing provider
-covers it and record the decision in the
-[library reuse review](../docs/engineering/LIBRARY_REUSE_REVIEW.md).
-Identify which behaviour stays in `tobac` and which provider owns the reusable
-method before planning a migration. Use the focused numerical fixture in TP02
-to test the behaviour.
+The first use case is the optional Voiage calculation of finite EVPI for the
+M2 retail partial-replacement scenario. The
+[library reuse review](../docs/engineering/LIBRARY_REUSE_REVIEW.md#first-provider-use-case)
+records the decision and the installed-wheel replay against the frozen M2 row.
+For later use cases, record the application need, provider and reference
+comparison in the same review.
 
 #### [ ] TP02 — independent scientific fixture before moving code
 

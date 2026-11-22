@@ -16,7 +16,9 @@ new collection and external submission outside its scope.
 - The [research gates](research-gates.md) carry identification, calibration,
   provenance, governance and permissible-use decisions. The
   [roadmap](roadmap.md) records access-dependent work and the steps to qualify
-  an upstream provider for a specific application need.
+  an upstream provider for a specific application need. The
+  [library reuse review](../docs/engineering/LIBRARY_REUSE_REVIEW.md#first-provider-use-case)
+  records the first Voiage use case.
 - Follow the [manuscript checkpoint](workflow.md#manuscript-checkpoint) and
   paper-specific records for author facts, declarations and approval. The
   [dynamic methods track](tracks/dynamic_frontier_20261108/index.md) records
