@@ -17,8 +17,8 @@ import scientific_lineage as scientific  # noqa: E402 -- Select checkout sources
 from source_handoff import checked, read  # noqa: E402 -- Select checkout sources inside the isolated verifier.
 lazy from extract_moh_lineage import NativeStore  # noqa: E402 -- Producer protocol from this checkout.
 
-CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_coverage_20261121.json"
-CHECKPOINT_SHA = "ad66712ae2afa2f7db467f493ed741e2f6f945730a3be15c3ca0880b3dfa3271"
+CHECKPOINT = "integration/archive/scientific-lineage-checkpoint_replay_20261122.json"
+CHECKPOINT_SHA = "27d21a24db54c4c33491a839a970a7640ede3e25cc07732a7b4c5a1798b187a1"
 INTERFACE_SHA = "26814436e834c537b86f007669ef03dc8c16d3187eca25eab0b58d222528f373"
 INVENTORY_SHA = "38102d5614683c0a65e260538b6823f58b4ed6365c8fe651e737c69e40d37dd7"
 METHODS_ACCEPTANCE = "integration/archive/bf1-bf2-source-acceptance_20261113.json"
