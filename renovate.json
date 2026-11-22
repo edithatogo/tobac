@@ -63,10 +63,17 @@
       ],
       "groupName": "synthetic analytical qualification",
       "automerge": false
+    },
+    {
+      "matchPackageNames": ["jax", "jaxlib"],
+      "groupName": "JAX ecosystem qualification",
+      "automerge": false
     }
   ],
   "enabled": true,
-  "dependencyDashboard": true,
+  "dependencyDashboard": {
+    "enabled": true
+  },
   "pip_requirements": {
     "managerFilePatterns": [
       "/^engineering/(requirements|audit|voiage|ecosystem|analytics|clustering)\\.in$/",
