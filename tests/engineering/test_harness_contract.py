@@ -17,6 +17,7 @@ from jsonschema import Draft202012Validator
 ROOT = Path(__file__).resolve().parents[2]
 WORKFLOWS = (
     "engineering.yml",
+    "community-standards.yml",
     "engineering-deep.yml",
     "release-candidate.yml",
     "dependency-lock.yml",
@@ -265,14 +266,14 @@ def test_required_jobs_precede_engineering_follow_ups() -> None:
     assert required.keys() <= jobs.keys()
 
 
-def test_automatic_pull_request_workflows_are_limited_to_engineering() -> None:
+def test_automatic_pull_request_workflows_are_limited_to_engineering_and_community() -> None:
     workflows = ROOT / ".github/workflows"
     for path in sorted(workflows.iterdir()):
         if path.suffix not in {".yml", ".yaml"}:
             continue
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
         assert "pull_request_target" not in data["on"]
-        assert ("pull_request" in data["on"]) == (path.name == "engineering.yml")
+        assert ("pull_request" in data["on"]) == (path.name in {"engineering.yml", "community-standards.yml"})
         assert_hosted_push_branches(data, path)
 
 
@@ -304,6 +305,57 @@ def assert_fair_metadata_job_guards(data) -> None:
     assert step["with"]["MY_REPO_URL"] == "https://github.com/${{ github.repository }}"
 
 
+def assert_community_metadata_job_guards(data) -> None:
+    """Bound the shared file audit separately from native scientific qualification."""
+    assert set(data) == {"name", "on", "permissions", "concurrency", "jobs"}
+    assert set(data["on"]) == {"pull_request", "push", "merge_group", "workflow_dispatch"}
+    assert not data["on"]["pull_request"]
+    assert not data["on"]["merge_group"]
+    assert data["permissions"] == {"contents": "read"}
+    assert data["concurrency"] == {
+        "group": "community-standards-${{ github.event.pull_request.number || github.ref }}",
+        "cancel-in-progress": "true",
+    }
+    assert set(data["jobs"]) == {"community-standards"}
+    job = data["jobs"]["community-standards"]
+    assert set(job) == {"name", "runs-on", "timeout-minutes", "steps"}
+    assert job["name"] == "community-standards"
+    assert job["runs-on"] == "ubuntu-latest"
+    assert job["timeout-minutes"] == "10"
+    assert len(job["steps"]) == 1
+    step = job["steps"][0]
+    assert set(step) == {"name", "uses"}
+    assert step["uses"] == (
+        "edithatogo/repository-standards/.github/actions/community-standards@"
+        "5b6741ac12f3720834ff8605eeb603fc15f7e683"
+    )
+
+
+@pytest.mark.parametrize(
+    ("keys", "value"),
+    [
+        (("permissions", "contents"), "write"),
+        (("concurrency", "cancel-in-progress"), "false"),
+        (("on", "pull_request"), {"paths": ["README.md"]}),
+        (("jobs", "community-standards", "if"), "false"),
+        (("jobs", "community-standards", "continue-on-error"), "true"),
+        (("jobs", "community-standards", "runs-on"), "self-hosted"),
+        (("jobs", "community-standards", "timeout-minutes"), "60"),
+        (("jobs", "community-standards", "steps", 0, "uses"), "owner/action@main"),
+        (("jobs", "community-standards", "steps", 0, "run"), "python consumer.py"),
+    ],
+)
+def test_community_metadata_guard_rejects_privilege_or_execution_drift(keys, value) -> None:
+    data = yaml.load((ROOT / ".github/workflows/community-standards.yml").read_text(), Loader=yaml.BaseLoader)
+    assert_community_metadata_job_guards(data)
+    target = data
+    for key in keys[:-1]:
+        target = target[key]
+    target[keys[-1]] = value
+    with pytest.raises(AssertionError):
+        assert_community_metadata_job_guards(data)
+
+
 def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
     workflow_guards = {
         "advisory-types.yml": assert_advisory_job_guards,
@@ -311,6 +363,7 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
         "privacy-secrets.yml": assert_shared_privacy_job_guards,
         "repository-health.yml": assert_repository_health_job_guards,
         "fair-software.yml": assert_fair_metadata_job_guards,
+        "community-standards.yml": assert_community_metadata_job_guards,
     }
     for path in (ROOT / ".github/workflows").glob("*.yml"):
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
