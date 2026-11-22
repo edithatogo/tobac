@@ -10,12 +10,14 @@
     "engineering/ecosystem.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/coverage-reconciliation-20261121/combined-ecosystem/qualified/ecosystem.lock",
+    "outputs/jax-ecosystem-0-12-1/targeted-lock/ecosystem.lock",
+    "--universal",
     "--python-version",
     "3.15.2",
     "--upgrade-package",
-    "coverage",
-    "--universal"
+    "jax",
+    "--upgrade-package",
+    "jaxlib"
   ],
   "resolver_exit_code": 0,
   "inputs": {
@@ -27,13 +29,13 @@
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
     "engineering/voiage.in": "dbf07ea4bbbe8b257c633343686ad48fceb1040a4bf2b29a096f7ae018d2bd6a",
     "engineering/voiage-build-requirements.txt": "f2211a5d5985a3193eccbd993f7bad6241a593b2b1014f63ea197729078f15bf",
-    "engineering/ecosystem.in": "16e3dbb69edf209e4f79a203924ced19decba192aae8121321f5bf71f804608e"
+    "engineering/ecosystem.in": "d06195f6f68d93ce6f2e539780856ab6806ba1d769cc7b2d6d977a51193e8f06"
   },
-  "lock_sha256": "b0ab5f78eb3c29fe421bb9d9c8a02cbdcab5ecf901998e6668b7e8dd18f691fc",
+  "lock_sha256": "72d5ad80ae21f0a0f2ffbea791ed053ba61f081aeb339d0a4602dbd05f577147",
+  "qualification": "candidate; review before committing; not approval or signed provenance",
   "seed": {
-    "commit": "08965aefd3510f2e1bace7cad24c00015ef476b9",
+    "commit": "5809c50e425e82b8caff09acb057867b8725ce6e",
     "path": "engineering/ecosystem.lock",
-    "sha256": "46244413e4213702b76b58efd98d18a2729a8706590cc8c7b74bc848f3823e6c"
-  },
-  "qualification": "candidate; review before committing; not approval or signed provenance"
+    "sha256": "b0ab5f78eb3c29fe421bb9d9c8a02cbdcab5ecf901998e6668b7e8dd18f691fc"
+  }
 }

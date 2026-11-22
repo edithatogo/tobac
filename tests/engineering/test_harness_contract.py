@@ -130,7 +130,7 @@ def test_release_requires_reviewed_lock_and_is_not_public_publication() -> None:
 def test_renovate_covers_profile_inputs_and_keeps_review_gates() -> None:
     data = json.loads((ROOT / "renovate.json").read_text())
     assert data["enabled"] is True
-    assert data["dependencyDashboard"] is True
+    assert data["dependencyDashboard"]["enabled"] is True
     patterns = data["pip_requirements"]["managerFilePatterns"]
     profiles = ["requirements", "audit", "voiage", "ecosystem"]
     for profile in profiles:
@@ -143,6 +143,10 @@ def test_renovate_covers_profile_inputs_and_keeps_review_gates() -> None:
     assert all(rule.get("automerge") is not True for rule in data["packageRules"])
     assert any(
         {"polars", "pyarrow", "patito", "msgspec"} <= set(rule.get("matchPackageNames", []))
+        for rule in data["packageRules"]
+    )
+    assert any(
+        set(rule.get("matchPackageNames", [])) == {"jax", "jaxlib"} and rule.get("groupName")
         for rule in data["packageRules"]
     )
 
