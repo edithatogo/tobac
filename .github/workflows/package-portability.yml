@@ -2,6 +2,7 @@ name: Package portability qualification
 on:
   push:
     branches: [main]
+    paths-ignore: [conductor/status.md]
   workflow_dispatch:
 
 permissions:

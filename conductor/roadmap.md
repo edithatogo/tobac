@@ -132,23 +132,19 @@ optional game adapter still requires an actual application need and TP02–TP04
 evidence. VOP remains a separate proof of concept whose reusable decision
 capabilities belong in Voiage after verification.
 
-### Bounded execution leaves
+### Implementation steps
 
-Use existing engineering/test conventions. Each leaf changes one behaviour,
-touches at most five files and records a failing assertion before implementation.
-Resolve actual model/adapter paths before editing. Proposed test/ledger files
-below are future work, not existing acceptance receipts.
+Use the existing engineering workflow. Keep each change focused on one behaviour
+and include the files needed to verify it together.
 
-#### [ ] TP01 — classify reuse candidates
+#### [ ] TP01 — select one demonstrated application need
 
-Create `integration/provider-promotion-ledger.json` and
-`tests/test_provider_promotion_ledger.py`. Inventory demonstrated methods; label
-application-specific, existing-provider, reusable-candidate or unsupported. Test
-that every generic candidate names one provider and no empirical gate is passed
-by metadata. Run `python -m pytest tests/test_provider_promotion_ledger.py` with
-nonzero tests. Do not infer method correctness from coverage or a publication
-table. Review and register any new path under the existing publication policy
-in the same bounded change; preserve all private bindings and history checks.
+Start with a concrete `tobac` use case. Check whether the existing provider
+covers it and record the decision in the
+[library reuse review](../docs/engineering/LIBRARY_REUSE_REVIEW.md).
+Identify which behaviour stays in `tobac` and which provider owns the reusable
+method before planning a migration. Use the focused numerical fixture in TP02
+to test the behaviour.
 
 #### [ ] TP02 — independent scientific fixture before moving code
 
@@ -162,7 +158,7 @@ Promote/fix the method in the provider repository first.
 #### [ ] TP03 — exact installed-provider migration
 
 After upstream acceptance, change the adapter, focused test, dependency
-manifest/lock and receipt; split if this exceeds five files. Require source and
+manifest, lock and receipt together. Require source and
 package hashes, actual native dispatch, units/perspective/population/time/draw IDs
 and known-reference output. A missing native provider fails explicitly on the
 new path rather than invoking an undisclosed local replacement. Preserve the

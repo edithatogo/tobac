@@ -12,6 +12,10 @@
 6. Re-read current main, reconcile any changes, then use guarded publication and verify remote
    readback. Never force-update or weaken CI to get green.
 
+Use [the index](index.md) for navigation and [status](status.md) for current decisions and
+open work. Keep dated acceptance evidence in its track record or receipt. Link the verified
+commit and checks when updating the current status.
+
 The pinned vendor/conductor submodule is upstream tooling, not these project plans. Its host
 checkout/activation must be verified separately. No automatic background worker is installed.
 
