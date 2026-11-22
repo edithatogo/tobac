@@ -1,7 +1,8 @@
 name: Advisory differential typing
 on:
-  pull_request:
+  workflow_call:
   workflow_dispatch:
+
 permissions:
   contents: read
 concurrency:

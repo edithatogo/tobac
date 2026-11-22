@@ -1,8 +1,6 @@
 # tobac
 
 [![Engineering qualification](https://github.com/edithatogo/tobac/actions/workflows/engineering.yml/badge.svg)](https://github.com/edithatogo/tobac/actions/workflows/engineering.yml)
-[![Scientific reproduction](https://github.com/edithatogo/tobac/actions/workflows/scientific-reproduction.yml/badge.svg)](https://github.com/edithatogo/tobac/actions/workflows/scientific-reproduction.yml)
-[![Publication and source security](https://github.com/edithatogo/tobac/actions/workflows/publication-security.yml/badge.svg)](https://github.com/edithatogo/tobac/actions/workflows/publication-security.yml)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/edithatogo/tobac/badge)](https://scorecard.dev/viewer/?uri=github.com/edithatogo/tobac)
 
 [How to cite](CITATION.cff) · [Apache-2.0 licence](LICENSE) · [Security reporting](SECURITY.md) · [Actions](https://github.com/edithatogo/tobac/actions)
@@ -26,7 +24,7 @@ The [merged PR #147](https://github.com/edithatogo/tobac/pull/147) passed its si
 
 ## Coverage reporting and research orchestration
 
-The [engineering workflow](.github/workflows/engineering.yml) generates branch-coverage reports and enforces a **90% coverage floor** for its declared `src` scope. A passing workflow badge refers to those qualified checks, not to scientific validation, and this metric is not comprehensive test adequacy. **There is no configured Codecov upload or verified Codecov project report in the current workflow**, so we intentionally do **not** display a Codecov coverage badge. Add one only after a secured, pinned upload from the default-branch test report succeeds and its public displayed percentage and scope can be verified. Preserve existing SourceRight, mutation, independent numerical and host-specific qualification checks; Codecov must not replace them.
+The [engineering workflow](.github/workflows/engineering.yml) runs the five protected checks before its follow-up qualification jobs. It generates branch-coverage reports and enforces a **90% coverage floor** for its declared `src` scope. A passing workflow badge refers to those qualified checks, not to scientific validation, and this metric is not comprehensive test adequacy. **There is no configured Codecov upload or verified Codecov project report in the current workflow**, so we intentionally do **not** display a Codecov coverage badge. Add one only after a secured, pinned upload from the default-branch test report succeeds and its public displayed percentage and scope can be verified. Preserve existing SourceRight, mutation, independent numerical and host-specific qualification checks; Codecov must not replace them.
 
 [Snakemake is already used](workflow/README.md) for verified context preparation, native-gated M1 reproduction and synthetic clustering; **Nox remains the engineering runner**. The next suitable extension is a fail-closed, source-bound issue #3 eligibility/reporting DAG before any empirical fit, reusing [the existing first-comparison audit](conductor/tracks/nz_au_empirical_20261106/first-comparison-audit-20261109.json) and admission contracts. A blocked eligibility report is a legitimate output; it must not be treated as a successful fitted model. See the [first-slice status](conductor/tracks/nz_au_empirical_20261106/status.md).
 

@@ -38,8 +38,11 @@ def test_new_workflows_are_pinned_read_only_and_bounded(name) -> None:
     assert data["permissions"] == {"contents": "read"}
     assert data["concurrency"]["group"]
     for job in data["jobs"].values():
-        assert 0 < int(job["timeout-minutes"]) <= 60
         assert "continue-on-error" not in job
+        if "uses" in job:
+            assert re.fullmatch(r"\./\.github/workflows/[a-z0-9-]+\.yml", job["uses"])
+            continue
+        assert 0 < int(job["timeout-minutes"]) <= 60
         for step in job["steps"]:
             assert "continue-on-error" not in step
             if "uses" in step:
@@ -177,7 +180,7 @@ def test_lock_candidates_use_selected_repo_local_python() -> None:
 
 
 def assert_advisory_job_guards(data) -> None:
-    assert set(data["on"]) == {"pull_request", "workflow_dispatch"}
+    assert set(data["on"]) == {"workflow_call", "workflow_dispatch"}
     job = data["jobs"]["advisory"]
     assert job["strategy"]["matrix"]["os"] == ["macos-latest", "ubuntu-latest", "ubuntu-24.04-arm"]
     commands = [step.get("run", "") for step in job["steps"]]
@@ -208,7 +211,7 @@ def assert_offline_security_caller_contract(data) -> None:
 
 
 def assert_repository_health_job_guards(data) -> None:
-    assert set(data["on"]) == {"push", "pull_request", "workflow_dispatch"}
+    assert set(data["on"]) == {"workflow_call", "workflow_dispatch"}
     assert set(data["jobs"]) == {"alint", "repohealth"}
     for job in data["jobs"].values():
         assert job["runs-on"] == "ubuntu-26.04"
@@ -230,6 +233,59 @@ def assert_hosted_push_branches(data, path) -> None:
     """Retain existing branch scope; the audited offline caller has no branch filter."""
     if "push" in data["on"] and path.name != "offline-ai-security.yml":
         assert data["on"]["push"]["branches"] == ["main"], path
+
+
+def test_required_jobs_precede_automatic_follow_up_workflows() -> None:
+    """Keep the five protected contexts and avoid competing qualification jobs."""
+    workflows = ROOT / ".github/workflows"
+    data = yaml.load((workflows / "engineering.yml").read_text(), Loader=yaml.BaseLoader)
+    jobs = data["jobs"]
+    required = {
+        "boundary": "Public boundary and secret scanning",
+        "codeql": "CodeQL Python and Actions",
+        "tests": "Tests ${{ matrix.os }} Python ${{ matrix.python }}",
+        "quality": "quality",
+        "macos-qualification": "macOS Python 3.15.2 qualification",
+    }
+    assert jobs["tests"]["strategy"]["matrix"]["include"] == [{"os": "macos-latest", "python": "3.15.2"}]
+    follow_up = {
+        "accounting-properties.yml",
+        "advisory-types.yml",
+        "ci.yml",
+        "cross-platform.yml",
+        "lineage-verifier.yml",
+        "linux-audit.yml",
+        "longitudinal.yml",
+        "package-portability.yml",
+        "repository-health.yml",
+        "research-m3.yml",
+        "scientific-reproduction.yml",
+    }
+    for name, job in jobs.items():
+        if name in required:
+            assert job["name"] == required[name]
+            assert "needs" not in job
+            assert "if" not in job
+            assert "steps" in job
+            continue
+        assert set(job["needs"]) == required.keys()
+        if "uses" in job:
+            target = Path(job["uses"]).name
+            assert job["uses"] == f"./.github/workflows/{target}"
+            follow_up.remove(target)
+            called = yaml.load((workflows / target).read_text(), Loader=yaml.BaseLoader)
+            assert {"workflow_call", "workflow_dispatch"} <= called["on"].keys()
+            assert {"push", "pull_request"}.isdisjoint(called["on"])
+            assert called["permissions"] == {"contents": "read"}
+    assert not follow_up
+    assert required.keys() <= jobs.keys()
+
+    properties = yaml.load((workflows / "accounting-properties.yml").read_text(), Loader=yaml.BaseLoader)
+    scope = properties["jobs"]["scope"]
+    assert scope["outputs"] == {"selected": "${{ steps.changes.outputs.selected }}"}
+    assert scope["steps"][0]["with"]["persist-credentials"] == "false"
+    assert properties["jobs"]["properties"]["needs"] == "scope"
+    assert properties["jobs"]["properties"]["if"] == "needs.scope.outputs.selected == 'true'"
 
 
 def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
@@ -347,7 +403,9 @@ def assert_shared_privacy_job_guards(data) -> None:
 
 
 def assert_reference_job_guards(data, path) -> None:
-    for job in data["jobs"].values():
+    for name, job in data["jobs"].items():
+        if "uses" in job or (path.name == "accounting-properties.yml" and name == "scope"):
+            continue
         assert "lock" not in job.get("strategy", {}).get("matrix", {}).get("session", [])
         runner = job["runs-on"]
         if runner == "${{ matrix.os }}":
@@ -497,9 +555,21 @@ def test_scientific_workloads_verify_hash_lock_before_installation(workflow, job
     installs = [(i, shlex.split(line)) for i, line in enumerate(commands) if "-m pip install" in line]
     assert len(installs) == 2
     dependencies, project = installs
-    assert verification < dependencies[0] < project[0]
+    build = next(i for i, line in enumerate(commands) if "scripts/build_checkout_wheel.py" in line)
+    assert verification < dependencies[0] < build < project[0]
     assert dependencies[1][-4:] == ["install", "--require-hashes", "-r", "engineering/requirements.lock"]
-    assert project[1][-4:] == ["install", "--no-deps", "--no-build-isolation", "."]
+    assert shlex.split(commands[build])[-2:] == [
+        "scripts/build_checkout_wheel.py",
+        "$RUNNER_TEMP/tobac-checkout",
+    ]
+    assert project[1][-6:] == [
+        "install",
+        "--no-deps",
+        "--no-index",
+        "--require-hashes",
+        "-r",
+        "$RUNNER_TEMP/tobac-checkout/requirements.txt",
+    ]
     for _, command in installs:
         assert command[0] == ".venv-ci/bin/python"
         assert "scripts/run_bounded.py" in command

@@ -174,8 +174,11 @@ def test_workflows_preserve_security_and_failure_evidence() -> None:
         assert workflow["permissions"] == {"contents": "read"}
         assert "pull_request_target" not in workflow["on"]
         for job in workflow["jobs"].values():
-            assert int(job["timeout-minutes"]) <= 60
             assert "continue-on-error" not in job
+            if "uses" in job:
+                assert re.fullmatch(r"\./\.github/workflows/[a-z0-9-]+\.yml", job["uses"])
+                continue
+            assert int(job["timeout-minutes"]) <= 60
             for step in job["steps"]:
                 assert "continue-on-error" not in step
                 if "uses" in step:
