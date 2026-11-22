@@ -17,13 +17,19 @@ concurrency:
 jobs:
   boundary:
     name: Public boundary and secret scanning
-    runs-on: macos-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
           fetch-depth: 0
+          submodules: false
+      - name: Scan pull requests with Presidio and Gitleaks
+        if: github.event_name == 'pull_request'
+        uses: edithatogo/repository-standards/.github/actions/privacy-secrets@aeb8abbb203f0de52371dce579054106179a47ac
+        with:
+          profile: repository
       - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
         with:
           version: '0.13.7'
@@ -148,6 +154,7 @@ jobs:
 
   qualification:
     needs: [boundary, codeql, tests, quality, macos-qualification]
+    if: github.event_name != 'pull_request'
     name: qualification
     runs-on: macos-latest
     timeout-minutes: 15
@@ -327,6 +334,7 @@ jobs:
 
   voiage_polars_candidate:
     needs: [boundary, codeql, tests, quality, macos-qualification]
+    if: github.event_name != 'pull_request'
     name: macOS unpatched Voiage Polars candidate
     runs-on: macos-latest
     timeout-minutes: 30
@@ -363,55 +371,55 @@ jobs:
 
   regulatory:
     needs: [boundary, codeql, tests, quality, macos-qualification]
-    if: github.event_name != 'workflow_dispatch'
+    if: github.event_name == 'push'
     uses: ./.github/workflows/ci.yml
 
   longitudinal:
     needs: [boundary, codeql, tests, quality, macos-qualification]
-    if: github.event_name != 'workflow_dispatch'
+    if: github.event_name == 'push'
     uses: ./.github/workflows/longitudinal.yml
 
   m3:
     needs: [boundary, codeql, tests, quality, macos-qualification]
-    if: github.event_name != 'workflow_dispatch'
+    if: github.event_name == 'push'
     uses: ./.github/workflows/research-m3.yml
 
   cross_platform:
     needs: [boundary, codeql, tests, quality, macos-qualification]
-    if: github.event_name != 'workflow_dispatch'
+    if: github.event_name == 'push'
     uses: ./.github/workflows/cross-platform.yml
 
   linux_audit:
     needs: [boundary, codeql, tests, quality, macos-qualification]
-    if: github.event_name != 'workflow_dispatch'
+    if: github.event_name == 'push'
     uses: ./.github/workflows/linux-audit.yml
 
   portability:
     needs: [boundary, codeql, tests, quality, macos-qualification]
-    if: github.event_name != 'workflow_dispatch'
+    if: github.event_name == 'push'
     uses: ./.github/workflows/package-portability.yml
 
   scientific_reproduction:
     needs: [boundary, codeql, tests, quality, macos-qualification]
-    if: github.event_name != 'workflow_dispatch'
+    if: github.event_name == 'push'
     uses: ./.github/workflows/scientific-reproduction.yml
 
   repository_health:
     needs: [boundary, codeql, tests, quality, macos-qualification]
-    if: github.event_name != 'workflow_dispatch'
+    if: github.event_name == 'push'
     uses: ./.github/workflows/repository-health.yml
 
   advisory_types:
     needs: [boundary, codeql, tests, quality, macos-qualification]
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'push'
     uses: ./.github/workflows/advisory-types.yml
 
   lineage_verifier:
     needs: [boundary, codeql, tests, quality, macos-qualification]
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'push'
     uses: ./.github/workflows/lineage-verifier.yml
 
   accounting_properties:
     needs: [boundary, codeql, tests, quality, macos-qualification]
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'push'
     uses: ./.github/workflows/accounting-properties.yml

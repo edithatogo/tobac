@@ -13,43 +13,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  scope:
-    name: Select accounting inputs
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    outputs:
-      selected: ${{ steps.changes.outputs.selected }}
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        if: github.event_name == 'pull_request'
-        with:
-          persist-credentials: false
-          fetch-depth: 2
-      - id: changes
-        name: Check for changes to accounting inputs
-        shell: bash
-        run: |
-          if [[ "$GITHUB_EVENT_NAME" != "pull_request" ]]; then
-            printf 'selected=true\n' >> "$GITHUB_OUTPUT"
-          elif git diff --quiet HEAD^1 HEAD -- \
-            src/tobac/partial_identification.py tests/engineering/test_accounting_properties.py \
-            ':(glob)engineering/*requirements*' ':(glob)engineering/*.lock*' \
-            pyproject.toml requirements.lock noxfile.py nox_properties.py \
-            .github/workflows/accounting-properties.yml; then
-            printf 'selected=false\n' >> "$GITHUB_OUTPUT"
-          else
-            status=$?
-            [[ "$status" == 1 ]] || exit "$status"
-            printf 'selected=true\n' >> "$GITHUB_OUTPUT"
-          fi
   properties:
-    needs: scope
-    if: needs.scope.outputs.selected == 'true'
     name: Synthetic accounting properties
     runs-on: macos-latest
     timeout-minutes: 15
     env:
-      TOBAC_PROPERTY_EXAMPLES: ${{ github.event_name == 'pull_request' && '100' || '1000' }}
+      TOBAC_PROPERTY_EXAMPLES: '1000'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:

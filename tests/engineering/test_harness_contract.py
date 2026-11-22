@@ -197,7 +197,8 @@ def assert_advisory_job_guards(data) -> None:
 def assert_offline_security_caller_contract(data) -> None:
     """Keep the opt-in unqualified reusable security caller narrow and explicit."""
     assert set(data) == {"name", "on", "permissions", "jobs"}
-    assert set(data["on"]) == {"push", "pull_request", "workflow_dispatch"}
+    assert set(data["on"]) == {"push", "workflow_dispatch"}
+    assert data["on"]["push"]["branches"] == ["main"]
     assert data["permissions"] == {"contents": "read"}
     assert set(data["jobs"]) == {"offline-ai-security"}
     job = data["jobs"]["offline-ai-security"]
@@ -230,13 +231,13 @@ def assert_repository_health_job_guards(data) -> None:
 
 
 def assert_hosted_push_branches(data, path) -> None:
-    """Retain existing branch scope; the audited offline caller has no branch filter."""
-    if "push" in data["on"] and path.name != "offline-ai-security.yml":
+    """Run automatic push checks on the default branch."""
+    if "push" in data["on"]:
         assert data["on"]["push"]["branches"] == ["main"], path
 
 
 def test_required_jobs_precede_automatic_follow_up_workflows() -> None:
-    """Keep the five protected contexts and avoid competing qualification jobs."""
+    """Run the five protected jobs on PRs and gate follow-ups on main."""
     workflows = ROOT / ".github/workflows"
     data = yaml.load((workflows / "engineering.yml").read_text(), Loader=yaml.BaseLoader)
     jobs = data["jobs"]
@@ -270,6 +271,7 @@ def test_required_jobs_precede_automatic_follow_up_workflows() -> None:
             continue
         assert set(job["needs"]) == required.keys()
         if "uses" in job:
+            assert job["if"] == "github.event_name == 'push'"
             target = Path(job["uses"]).name
             assert job["uses"] == f"./.github/workflows/{target}"
             follow_up.remove(target)
@@ -277,15 +279,38 @@ def test_required_jobs_precede_automatic_follow_up_workflows() -> None:
             assert {"workflow_call", "workflow_dispatch"} <= called["on"].keys()
             assert {"push", "pull_request"}.isdisjoint(called["on"])
             assert called["permissions"] == {"contents": "read"}
+        elif name in {"qualification", "voiage_polars_candidate"}:
+            assert job["if"] == "github.event_name != 'pull_request'"
+        else:
+            assert name in {"artifact_provenance", "dependency_submission"}
+            assert job["if"] == (
+                "github.event_name == 'workflow_dispatch' || "
+                "(github.event_name == 'push' && github.ref == 'refs/heads/main')"
+            )
     assert not follow_up
     assert required.keys() <= jobs.keys()
 
-    properties = yaml.load((workflows / "accounting-properties.yml").read_text(), Loader=yaml.BaseLoader)
-    scope = properties["jobs"]["scope"]
-    assert scope["outputs"] == {"selected": "${{ steps.changes.outputs.selected }}"}
-    assert scope["steps"][0]["with"]["persist-credentials"] == "false"
-    assert properties["jobs"]["properties"]["needs"] == "scope"
-    assert properties["jobs"]["properties"]["if"] == "needs.scope.outputs.selected == 'true'"
+
+def test_automatic_pull_request_workflows_are_limited_to_engineering() -> None:
+    workflows = ROOT / ".github/workflows"
+    for path in workflows.glob("*.yml"):
+        data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
+        assert "pull_request_target" not in data["on"]
+        assert ("pull_request" in data["on"]) == (path.name == "engineering.yml")
+        assert_hosted_push_branches(data, path)
+
+
+def test_required_publication_job_scans_pull_requests_with_shared_privacy_action() -> None:
+    workflows = ROOT / ".github/workflows"
+    engineering = yaml.load((workflows / "engineering.yml").read_text(), Loader=yaml.BaseLoader)
+    privacy = yaml.load((workflows / "privacy-secrets.yml").read_text(), Loader=yaml.BaseLoader)
+    boundary = engineering["jobs"]["boundary"]
+    assert boundary["runs-on"] == "ubuntu-26.04"
+    checkout, scan = boundary["steps"][:2]
+    assert checkout["with"] == {"fetch-depth": "0", "persist-credentials": "false", "submodules": "false"}
+    assert scan["uses"] == privacy["jobs"]["privacy-and-secrets"]["steps"][1]["uses"]
+    assert scan["if"] == "github.event_name == 'pull_request'"
+    assert scan["with"] == {"profile": "repository"}
 
 
 def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
@@ -382,7 +407,7 @@ def assert_shared_privacy_job_guards(data) -> None:
     """
     assert set(data) == {"name", "on", "permissions", "concurrency", "jobs"}
     assert data["permissions"] == {"contents": "read"}
-    assert set(data["on"]) == {"pull_request", "push", "merge_group", "schedule", "workflow_dispatch"}
+    assert set(data["on"]) == {"push", "merge_group", "schedule", "workflow_dispatch"}
     assert data["on"]["workflow_dispatch"]["inputs"]["profile"]["options"] == ["repository", "sensitive"]
     assert set(data["jobs"]) == {"privacy-and-secrets"}
     job = data["jobs"]["privacy-and-secrets"]
@@ -404,14 +429,15 @@ def assert_shared_privacy_job_guards(data) -> None:
 
 def assert_reference_job_guards(data, path) -> None:
     for name, job in data["jobs"].items():
-        if "uses" in job or (path.name == "accounting-properties.yml" and name == "scope"):
+        if "uses" in job:
             continue
         assert "lock" not in job.get("strategy", {}).get("matrix", {}).get("session", [])
         runner = job["runs-on"]
         if runner == "${{ matrix.os }}":
             assert {entry["os"] for entry in job["strategy"]["matrix"]["include"]} == {"macos-latest"}
         else:
-            allowed = {"linux-audit.yml": {"ubuntu-26.04"}}.get(path.name, {"macos-latest", "macos-15-intel"})
+            linux = path.name == "linux-audit.yml" or (path.name == "engineering.yml" and name == "boundary")
+            allowed = {"ubuntu-26.04"} if linux else {"macos-latest", "macos-15-intel"}
             assert runner in allowed, (path, runner)
         commands = [step.get("run", "") for step in job["steps"]]
         assert any(
