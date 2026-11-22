@@ -1,5 +1,43 @@
 # Reconciled repository status
 
+## Required pull-request checks and verified wheel installation — 22 November 2026
+
+PR #190 reached protected `main` at `4a637838d8de7285b9c401633718f96b2fe37e8c`.
+Its receiving tree matched the tested head. All five required jobs passed and
+only those five executed on the pull request. The publication check ran
+Presidio and Gitleaks on Ubuntu 26.04. Engineering follow-up jobs wait for all
+five required checks. Standalone automatic qualifications run on protected
+main pushes. [PR #190](https://github.com/edithatogo/tobac/pull/190) ·
+[Required Actions run](https://github.com/edithatogo/tobac/actions/runs/44980667034)
+
+The hosted test suite passed 1,602 tests with 22 skips and reported 90% branch
+coverage. The macOS qualification passed numerical reproduction, packaging,
+mutation, recovery and security checks. The renewed signed workflow pins
+verified eight previously accepted native attempts.
+
+The regulatory and longitudinal workflows now build the checked-out wheel
+offline and install it against its SHA-256 digest after verifying the runtime
+lock. A local clean install accepted the true digest, rejected an altered
+digest and verified imports from both package namespaces.
+
+The receiving Scorecard run marked dependency-pinning alerts #35 and #37
+fixed. GitHub also records the SAST alert #32 as a false positive after all
+30 sampled commits were traced to successful CodeQL checks.
+[Receiving Scorecard run](https://github.com/edithatogo/tobac/actions/runs/44981202222) ·
+[Alert #32](https://github.com/edithatogo/tobac/security/code-scanning/32)
+
+Four Scorecard findings remain open.
+
+- Fuzzing requires a Scorecard-recognised tool for Python 3.15.2. Four
+  Hypothesis properties passed with 1,000 examples each.
+  [Alert #33](https://github.com/edithatogo/tobac/security/code-scanning/33)
+- The repository reaches the 90-day maintenance threshold on 22 January 2027.
+  [Alert #38](https://github.com/edithatogo/tobac/security/code-scanning/38)
+- The review metric needs more reviews by a different authorised identity.
+  [Alert #39](https://github.com/edithatogo/tobac/security/code-scanning/39)
+- Badge registration and questionnaire confirmation need a signed-in maintainer.
+  [Alert #40](https://github.com/edithatogo/tobac/security/code-scanning/40)
+
 ## Protected main reconciliation — 21 November 2026
 
 [PR #182](https://github.com/edithatogo/tobac/pull/182) brought the 15 retained
