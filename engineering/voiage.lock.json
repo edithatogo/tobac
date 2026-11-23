@@ -1,18 +1,20 @@
 {
   "schema": "tobac.lock-receipt.v1",
   "profile": "voiage",
-  "resolver": "uv 0.13.7 (x86_64-unknown-linux-gnu)",
+  "resolver": "uv 0.13.9 (Homebrew 2026-11-17 aarch64-apple-darwin)",
   "command": [
-    "/workspace/scratch/1697c042543b/priority-work/tooling/uv-0.13.7/uv",
+    "/opt/homebrew/bin/uv",
     "--no-config",
     "pip",
     "compile",
     "engineering/voiage.in",
     "--generate-hashes",
     "--output-file",
-    "outputs/pr164-lock-candidates/voiage.lock",
+    "outputs/coverage-reconciliation-20261121/combined-voiage/qualified/voiage.lock",
     "--python-version",
     "3.15.2",
+    "--upgrade-package",
+    "coverage",
     "--python-platform",
     "x86_64-unknown-linux-gnu"
   ],
@@ -22,11 +24,16 @@
     "requirements.lock": "69f6661b3361fbfb5da70922bb771d6b32ac95f62a6682e4e35cfda4ad954b24",
     "engineering/reference-requirements.txt": "e1845ab04d819c7282b2a480d59cb6fb24e440351180b25668257257ebbbda43",
     "engineering/requirements.in": "90f70a4242bedda2747b9a0b54f4ccc0d7ce082c8546fbbf7b3cc8142ce92c60",
-    "engineering/test-requirements.txt": "e50a4c45a8fbf0eb9b3192d03e745aa5f2d77b99fd280b8751f42820d95f71e4",
+    "engineering/test-requirements.txt": "b605c8e6530f85df1f52afa34d7cc1e532501493ae6f0d06deddab9a8d80f329",
     "engineering/build-requirements.txt": "e61818825c1840d709815d11445f60662bffc81703039c949a0fa98145a3bc68",
-    "engineering/voiage.in": "05ef2873463107e6f76585f0f07accc2b2234668420431966d9324ad707dc13f",
+    "engineering/voiage.in": "dbf07ea4bbbe8b257c633343686ad48fceb1040a4bf2b29a096f7ae018d2bd6a",
     "engineering/voiage-build-requirements.txt": "f2211a5d5985a3193eccbd993f7bad6241a593b2b1014f63ea197729078f15bf"
   },
-  "lock_sha256": "1e818a80677ff804795e66f8011b7acf7b492c5a4c5f1425defeaf394c83cf8e",
+  "lock_sha256": "f72dd2984a4f3f83175108c1965596ecc7b43e23ad8b3785f4e39881bd269f97",
+  "seed": {
+    "commit": "08965aefd3510f2e1bace7cad24c00015ef476b9",
+    "path": "engineering/voiage.lock",
+    "sha256": "b02ca9bd0c86fe55f9c7ca4cdcf477d8debe1f046fafdc321547259c0b1fb4cd"
+  },
   "qualification": "candidate; review before committing; not approval or signed provenance"
 }

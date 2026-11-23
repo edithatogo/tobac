@@ -10,6 +10,10 @@ released-producer qualification. The separate exact-wheel published qualificatio
 still verifies installed bytes, numerical parity and buffer ownership. Existing
 M3, independent numerical and Arrow interchange oracles remain required.
 
+The Engineering qualification workflow runs the locked application suite and the
+exact published-wheel check together in one macOS job. Use its Voiage artifact
+for the hosted parity receipts.
+
 All five source-bound dependency profiles are regenerated for exact Python
 3.15.1. Local installation and software evidence do not renew the signed
 scientific inventory or establish hosted acceptance. Older receipts, source
@@ -48,8 +52,8 @@ uvx --python 3.15.1 --from nox==2026.10.20 nox -s voiage
 
 An optional directory argument places fresh source/native-build outputs on another
 volume. Every invocation gets a new directory; compact receipts remain beneath
-`outputs/engineering/voiage-receipts-*/`. Both hosted Voiage jobs run this same
-session on macOS and retain those receipts. Failures remain failures.
+`outputs/engineering/voiage-receipts-*/`. At this historical checkpoint, both
+hosted Voiage jobs ran this same session on macOS and retained those receipts.
 
 Executed qualification covers 63 actual installed-library/component/integration
 tests, 51 equal-weight EVPI cases, weighted/zero-mass/finite-partition cases, 30

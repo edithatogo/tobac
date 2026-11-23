@@ -1,6 +1,5 @@
 name: Cross-platform Python qualification
 on:
-  pull_request:
   push:
     branches: [main]
   workflow_dispatch:

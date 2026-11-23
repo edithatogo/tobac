@@ -39,7 +39,7 @@ that Linux audit installation was unexecuted are historical and superseded for D
 ## Repository health checks
 
 The [Repository health workflow](../../.github/workflows/repository-health.yml)
-runs on pull requests, pushes to `main` and manual runs. alint checks the
+runs after changes reach protected `main` and can also run manually. alint checks the
 [repository rules](../../.alint.yml) and fails on errors. RepoHealth uses full Git
 history and reports its score in the Actions job summary. The score is advisory
 and can change as commits and lockfiles age.

@@ -13,7 +13,7 @@
     "scripts/run_codeql.py",
     "scripts/run_bounded.py",
     "scripts/context_bundle.py",
-    ".github/workflows/publication-security.yml",
+    ".github/workflows/engineering.yml",
     ".githooks/pre-push",
     "ruff.toml"
   ],

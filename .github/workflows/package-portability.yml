@@ -1,9 +1,10 @@
 name: Package portability qualification
 on:
-  pull_request:
   push:
     branches: [main]
+    paths-ignore: [conductor/status.md]
   workflow_dispatch:
+
 permissions:
   contents: read
 concurrency:

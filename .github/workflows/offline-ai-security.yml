@@ -1,7 +1,7 @@
 name: Offline AI security
 on:
   push:
-  pull_request:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read

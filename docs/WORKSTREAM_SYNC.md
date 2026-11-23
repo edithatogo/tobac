@@ -756,3 +756,15 @@ requested locations remain, including named source captures, WARC provenance,
 receipts and native recovery material. The remote `main` was not changed; no
 new empirical admission, scientific acceptance, manuscript submission or
 external contact is implied by this local merge.
+
+## Conductor and CI simplification — 22 November 2026
+
+Chat `01a1fc12-e221-7312-8526-862af3c5d989` owns the source packet on
+`codex/conductor-repo-simplification` in
+`/Users/doughnut/.codex/worktrees/tobac-alint-notices/tobac`, based on `5809c50`.
+Scope is the Voiage and cross-platform workflow edits, their contract tests,
+the Renovate rule and the affected Conductor and engineering guidance.
+Chat `01a1d426-0c2d-7ed2-b91a-fa5f2e2c5372` retains native signing and main
+integration in `/Users/doughnut/Documents/tobac-native-renewal-20261121`.
+The next operation is to qualify the scoped commit and renew its workflow pins
+through that owner.

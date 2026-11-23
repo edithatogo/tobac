@@ -17,6 +17,7 @@ from jsonschema import Draft202012Validator
 ROOT = Path(__file__).resolve().parents[2]
 WORKFLOWS = (
     "engineering.yml",
+    "community-standards.yml",
     "engineering-deep.yml",
     "release-candidate.yml",
     "dependency-lock.yml",
@@ -130,7 +131,7 @@ def test_release_requires_reviewed_lock_and_is_not_public_publication() -> None:
 def test_renovate_covers_profile_inputs_and_keeps_review_gates() -> None:
     data = json.loads((ROOT / "renovate.json").read_text())
     assert data["enabled"] is True
-    assert data["dependencyDashboard"] is True
+    assert data["dependencyDashboard"]["enabled"] is True
     patterns = data["pip_requirements"]["managerFilePatterns"]
     profiles = ["requirements", "audit", "voiage", "ecosystem"]
     for profile in profiles:
@@ -143,6 +144,10 @@ def test_renovate_covers_profile_inputs_and_keeps_review_gates() -> None:
     assert all(rule.get("automerge") is not True for rule in data["packageRules"])
     assert any(
         {"polars", "pyarrow", "patito", "msgspec"} <= set(rule.get("matchPackageNames", []))
+        for rule in data["packageRules"]
+    )
+    assert any(
+        set(rule.get("matchPackageNames", [])) == {"jax", "jaxlib"} and rule.get("groupName")
         for rule in data["packageRules"]
     )
 
@@ -177,7 +182,7 @@ def test_lock_candidates_use_selected_repo_local_python() -> None:
 
 
 def assert_advisory_job_guards(data) -> None:
-    assert set(data["on"]) == {"pull_request", "workflow_dispatch"}
+    assert set(data["on"]) == {"push", "workflow_dispatch"}
     job = data["jobs"]["advisory"]
     assert job["strategy"]["matrix"]["os"] == ["macos-latest", "ubuntu-latest", "ubuntu-24.04-arm"]
     commands = [step.get("run", "") for step in job["steps"]]
@@ -194,7 +199,8 @@ def assert_advisory_job_guards(data) -> None:
 def assert_offline_security_caller_contract(data) -> None:
     """Keep the opt-in unqualified reusable security caller narrow and explicit."""
     assert set(data) == {"name", "on", "permissions", "jobs"}
-    assert set(data["on"]) == {"push", "pull_request", "workflow_dispatch"}
+    assert set(data["on"]) == {"push", "workflow_dispatch"}
+    assert data["on"]["push"]["branches"] == ["main"]
     assert data["permissions"] == {"contents": "read"}
     assert set(data["jobs"]) == {"offline-ai-security"}
     job = data["jobs"]["offline-ai-security"]
@@ -208,7 +214,7 @@ def assert_offline_security_caller_contract(data) -> None:
 
 
 def assert_repository_health_job_guards(data) -> None:
-    assert set(data["on"]) == {"push", "pull_request", "workflow_dispatch"}
+    assert set(data["on"]) == {"push", "workflow_dispatch"}
     assert set(data["jobs"]) == {"alint", "repohealth"}
     for job in data["jobs"].values():
         assert job["runs-on"] == "ubuntu-26.04"
@@ -227,9 +233,145 @@ def assert_repository_health_job_guards(data) -> None:
 
 
 def assert_hosted_push_branches(data, path) -> None:
-    """Retain existing branch scope; the audited offline caller has no branch filter."""
-    if "push" in data["on"] and path.name != "offline-ai-security.yml":
+    """Run automatic push checks on the default branch."""
+    if "push" in data["on"]:
         assert data["on"]["push"]["branches"] == ["main"], path
+
+
+def test_required_jobs_precede_engineering_follow_ups() -> None:
+    """Run the five protected jobs on PRs and gate follow-ups within engineering."""
+    workflows = ROOT / ".github/workflows"
+    data = yaml.load((workflows / "engineering.yml").read_text(), Loader=yaml.BaseLoader)
+    jobs = data["jobs"]
+    required = {
+        "boundary": "Public boundary and secret scanning",
+        "codeql": "CodeQL Python and Actions",
+        "tests": "Tests ${{ matrix.os }} Python ${{ matrix.python }}",
+        "quality": "quality",
+        "macos-qualification": "macOS Python 3.15.2 qualification",
+    }
+    assert jobs["tests"]["strategy"]["matrix"]["include"] == [{"os": "macos-latest", "python": "3.15.2"}]
+    for name, job in jobs.items():
+        if name in required:
+            assert job["name"] == required[name]
+            assert "needs" not in job
+            assert "if" not in job
+            assert "steps" in job
+            continue
+        assert set(job["needs"]) == required.keys()
+        if name in {"qualification", "voiage_polars_candidate"}:
+            assert job["if"] == "github.event_name != 'pull_request'"
+        else:
+            assert name in {"artifact_provenance", "dependency_submission"}
+            assert job["if"] == (
+                "github.event_name == 'workflow_dispatch' || "
+                "(github.event_name == 'push' && github.ref == 'refs/heads/main')"
+            )
+    assert required.keys() <= jobs.keys()
+
+
+def test_automatic_pull_request_workflows_are_limited_to_engineering() -> None:
+    workflows = ROOT / ".github/workflows"
+    for path in sorted(workflows.iterdir()):
+        if path.suffix not in {".yml", ".yaml"}:
+            continue
+        data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
+        assert "pull_request_target" not in data["on"]
+        assert ("pull_request" in data["on"]) == (path.name == "engineering.yml")
+        assert_hosted_push_branches(data, path)
+
+
+def test_main_voiage_suite_has_one_workflow_owner() -> None:
+    workflows = ROOT / ".github/workflows"
+    engineering = yaml.load((workflows / "engineering.yml").read_text(), Loader=yaml.BaseLoader)
+    qualification = engineering["jobs"]["voiage_polars_candidate"]
+    assert any(
+        step.get("run", "").endswith("-s voiage_polars_candidate voiage_published")
+        for step in qualification["steps"]
+    )
+    for name in ("ci.yml", "research-m3.yml"):
+        data = yaml.load((workflows / name).read_text(), Loader=yaml.BaseLoader)
+        assert all(
+            "-s voiage" not in step.get("run", "") for job in data["jobs"].values() for step in job["steps"]
+        ), name
+
+
+def test_required_publication_job_scans_pull_requests_with_shared_privacy_action() -> None:
+    workflows = ROOT / ".github/workflows"
+    engineering = yaml.load((workflows / "engineering.yml").read_text(), Loader=yaml.BaseLoader)
+    privacy = yaml.load((workflows / "privacy-secrets.yml").read_text(), Loader=yaml.BaseLoader)
+    boundary = engineering["jobs"]["boundary"]
+    assert boundary["runs-on"] == "ubuntu-26.04"
+    checkout, scan = boundary["steps"][:2]
+    assert checkout["with"] == {"fetch-depth": "0", "persist-credentials": "false", "submodules": "false"}
+    assert scan["uses"] == privacy["jobs"]["privacy-and-secrets"]["steps"][1]["uses"]
+    assert scan["if"] == "github.event_name == 'pull_request'"
+    assert scan["with"] == {"profile": "repository"}
+
+
+def assert_fair_metadata_job_guards(data) -> None:
+    """Read-only FAIR metadata action, isolated from scientific runtime contracts."""
+    assert set(data["on"]) == {"push", "workflow_dispatch"}
+    assert data["permissions"] == {"contents": "read"}
+    assert set(data["jobs"]) == {"fair-software"}
+    job = data["jobs"]["fair-software"]
+    assert job["runs-on"] == "ubuntu-latest"
+    assert job["timeout-minutes"] == "10"
+    assert len(job["steps"]) == 1
+    step = job["steps"][0]
+    assert step["continue-on-error"] == "true"
+    assert step["uses"] == "fair-software/howfairis-github-action@4c11146488125aa6e1531184eed51d781bcd5871"
+    assert step["with"]["MY_REPO_URL"] == "https://github.com/${{ github.repository }}"
+
+
+def assert_community_metadata_job_guards(data) -> None:
+    """Bound the shared file audit separately from native scientific qualification."""
+    assert set(data) == {"name", "on", "permissions", "concurrency", "jobs"}
+    assert set(data["on"]) == {"push", "merge_group", "workflow_dispatch"}
+    assert not data["on"]["merge_group"]
+    assert data["permissions"] == {"contents": "read"}
+    assert data["concurrency"] == {
+        "group": "community-standards-${{ github.ref }}",
+        "cancel-in-progress": "true",
+    }
+    assert set(data["jobs"]) == {"community-standards"}
+    job = data["jobs"]["community-standards"]
+    assert set(job) == {"name", "runs-on", "timeout-minutes", "steps"}
+    assert job["name"] == "community-standards"
+    assert job["runs-on"] == "ubuntu-latest"
+    assert job["timeout-minutes"] == "10"
+    assert len(job["steps"]) == 1
+    step = job["steps"][0]
+    assert set(step) == {"name", "uses"}
+    assert step["uses"] == (
+        "edithatogo/repository-standards/.github/actions/community-standards@"
+        "5b6741ac12f3720834ff8605eeb603fc15f7e683"
+    )
+
+
+@pytest.mark.parametrize(
+    ("keys", "value"),
+    [
+        (("permissions", "contents"), "write"),
+        (("concurrency", "cancel-in-progress"), "false"),
+        (("on", "pull_request"), {"paths": ["README.md"]}),
+        (("jobs", "community-standards", "if"), "false"),
+        (("jobs", "community-standards", "continue-on-error"), "true"),
+        (("jobs", "community-standards", "runs-on"), "self-hosted"),
+        (("jobs", "community-standards", "timeout-minutes"), "60"),
+        (("jobs", "community-standards", "steps", 0, "uses"), "owner/action@main"),
+        (("jobs", "community-standards", "steps", 0, "run"), "python consumer.py"),
+    ],
+)
+def test_community_metadata_guard_rejects_privilege_or_execution_drift(keys, value) -> None:
+    data = yaml.load((ROOT / ".github/workflows/community-standards.yml").read_text(), Loader=yaml.BaseLoader)
+    assert_community_metadata_job_guards(data)
+    target = data
+    for key in keys[:-1]:
+        target = target[key]
+    target[keys[-1]] = value
+    with pytest.raises(AssertionError):
+        assert_community_metadata_job_guards(data)
 
 
 def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
@@ -238,6 +380,8 @@ def test_active_ci_uses_checked_local_python_and_platform_guards() -> None:
         "scorecard.yml": assert_scorecard_job_guards,
         "privacy-secrets.yml": assert_shared_privacy_job_guards,
         "repository-health.yml": assert_repository_health_job_guards,
+        "fair-software.yml": assert_fair_metadata_job_guards,
+        "community-standards.yml": assert_community_metadata_job_guards,
     }
     for path in (ROOT / ".github/workflows").glob("*.yml"):
         data = yaml.load(path.read_text(), Loader=yaml.BaseLoader)
@@ -326,7 +470,7 @@ def assert_shared_privacy_job_guards(data) -> None:
     """
     assert set(data) == {"name", "on", "permissions", "concurrency", "jobs"}
     assert data["permissions"] == {"contents": "read"}
-    assert set(data["on"]) == {"pull_request", "push", "merge_group", "schedule", "workflow_dispatch"}
+    assert set(data["on"]) == {"push", "merge_group", "schedule", "workflow_dispatch"}
     assert data["on"]["workflow_dispatch"]["inputs"]["profile"]["options"] == ["repository", "sensitive"]
     assert set(data["jobs"]) == {"privacy-and-secrets"}
     job = data["jobs"]["privacy-and-secrets"]
@@ -347,13 +491,14 @@ def assert_shared_privacy_job_guards(data) -> None:
 
 
 def assert_reference_job_guards(data, path) -> None:
-    for job in data["jobs"].values():
+    for name, job in data["jobs"].items():
         assert "lock" not in job.get("strategy", {}).get("matrix", {}).get("session", [])
         runner = job["runs-on"]
         if runner == "${{ matrix.os }}":
             assert {entry["os"] for entry in job["strategy"]["matrix"]["include"]} == {"macos-latest"}
         else:
-            allowed = {"linux-audit.yml": {"ubuntu-26.04"}}.get(path.name, {"macos-latest", "macos-15-intel"})
+            linux = path.name == "linux-audit.yml" or (path.name == "engineering.yml" and name == "boundary")
+            allowed = {"ubuntu-26.04"} if linux else {"macos-latest", "macos-15-intel"}
             assert runner in allowed, (path, runner)
         commands = [step.get("run", "") for step in job["steps"]]
         assert any(
@@ -366,6 +511,8 @@ def assert_reference_job_guards(data, path) -> None:
 
 
 def assert_portable_package_job(data, *, reproduce=False) -> None:
+    assert data["on"]["push"].get("paths-ignore") == ["conductor/status.md"]
+    assert "workflow_dispatch" in data["on"]
     job = data["jobs"]["reproduce" if reproduce else "portable"]
     assert job["strategy"]["matrix"]["os"] == ["ubuntu-latest", "windows-latest"]
     assert job["timeout-minutes"] == "40"
@@ -497,9 +644,21 @@ def test_scientific_workloads_verify_hash_lock_before_installation(workflow, job
     installs = [(i, shlex.split(line)) for i, line in enumerate(commands) if "-m pip install" in line]
     assert len(installs) == 2
     dependencies, project = installs
-    assert verification < dependencies[0] < project[0]
+    build = next(i for i, line in enumerate(commands) if "scripts/build_checkout_wheel.py" in line)
+    assert verification < dependencies[0] < build < project[0]
     assert dependencies[1][-4:] == ["install", "--require-hashes", "-r", "engineering/requirements.lock"]
-    assert project[1][-4:] == ["install", "--no-deps", "--no-build-isolation", "."]
+    assert shlex.split(commands[build])[-2:] == [
+        "scripts/build_checkout_wheel.py",
+        "$RUNNER_TEMP/tobac-checkout",
+    ]
+    assert project[1][-6:] == [
+        "install",
+        "--no-deps",
+        "--no-index",
+        "--require-hashes",
+        "-r",
+        "$RUNNER_TEMP/tobac-checkout/requirements.txt",
+    ]
     for _, command in installs:
         assert command[0] == ".venv-ci/bin/python"
         assert "scripts/run_bounded.py" in command

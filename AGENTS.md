@@ -22,6 +22,22 @@ current visibility unchanged unless the owner explicitly requests a visibility c
    conclusion successful. Tests and self-review establish software evidence, not outside
    scientific endorsement.
 
+## Game capability intake
+
+New or materially changed strategic-response games follow the
+[contributor intake rule](CONTRIBUTING.md#game-capability-intake) and the
+[UOGTO semantic contract](https://github.com/edithatogo/UOGTO/blob/main/docs/contracts/downstream-game-intake.md)
+and [Paignia implementation contract](https://github.com/edithatogo/paignia/blob/main/docs/integrations/downstream-game-intake.md).
+Record UOGTO's `reuse_existing`, `extension_required`, `unsupported` or
+`mapping_review_pending` disposition separately from Paignia's `reuse_existing`,
+`extension_required`, `unsupported`, `domain_only` or `assessment_pending`.
+Use the same intake key in both upstream records and the owning local plan.
+Regulatory rules, supplier/retailer assumptions, evidence, payoff construction
+and calibration remain here. Preserve BF6's consequentiality and empirical
+comparison gates; this policy does not introduce a strategic model by default.
+Adoption requires exact accepted revisions and actual consumer evidence, without
+changing the existing native qualification or publication boundaries.
+
 ## Engineering and context
 
 For research papers, follow the [manuscript checkpoint](conductor/workflow.md#manuscript-checkpoint).

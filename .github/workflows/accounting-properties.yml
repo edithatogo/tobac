@@ -1,7 +1,8 @@
 name: Synthetic accounting properties
 
 on:
-  pull_request:
+  push:
+    branches: [main]
     paths:
       - 'src/tobac/partial_identification.py'
       - 'tests/engineering/test_accounting_properties.py'
@@ -28,7 +29,7 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 15
     env:
-      TOBAC_PROPERTY_EXAMPLES: ${{ github.event_name == 'pull_request' && '100' || '1000' }}
+      TOBAC_PROPERTY_EXAMPLES: '1000'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
