@@ -77,16 +77,34 @@ def inspection_restriction_bounds(
     if switching_support.lower < 0 or switching_support.upper > 1:
         msg = "Switching support must lie within [0, 1]"
         raise ValueError(msg)
-    if switching_support == Interval(0, 1):
+    return _conditioned_restriction_bounds(
+        total,
+        lawful,
+        total_bias=total_bias,
+        lawful_bias=lawful_bias,
+        switching_support=(Fraction(switching_support.lower), Fraction(switching_support.upper)),
+    )
+
+
+def _conditioned_restriction_bounds(
+    total: Interval | None,
+    lawful: Interval | None,
+    *,
+    total_bias: Interval,
+    lawful_bias: Interval,
+    switching_support: tuple[Fraction, Fraction],
+) -> RatioBounds:
+    if switching_support == (0, 1):
         return restriction_bounds(total, lawful, total_bias=total_bias, lawful_bias=lawful_bias)
 
     minimum_total, maximum_total = _calibrated_ratio(total, total_bias)
     minimum_lawful, maximum_lawful = _calibrated_ratio(lawful, lawful_bias)
     # For remaining consumption t and lawful share s, lawful use is t*s.
     # A given t admits a feasible s when t*max(s) >= min(lawful) and
-    # t*min(s) <= max(lawful). Keep the calibrated ratios exact through this intersection.
-    minimum_share = 1 - Fraction(switching_support.upper)
-    maximum_share = 1 - Fraction(switching_support.lower)
+    # t*min(s) <= max(lawful). Round only the final projected intervals.
+    minimum_switching, maximum_switching = switching_support
+    minimum_share = 1 - maximum_switching
+    maximum_share = 1 - minimum_switching
     if maximum_share == 0 and minimum_lawful > 0:
         return RatioBounds(feasible=False, quitting=None, switching=None)
 
@@ -167,11 +185,11 @@ def run_inspection_scenario(
     if not 0 <= lower <= upper <= 1:
         msg = "Native evasion bounds must be ordered proportions"
         raise ValueError(msg)
-    bounds = inspection_restriction_bounds(
+    bounds = _conditioned_restriction_bounds(
         observations.total,
         observations.lawful,
         total_bias=observations.total_bias,
         lawful_bias=observations.lawful_bias,
-        switching_support=_enclosing_interval(lower, upper),
+        switching_support=(lower, upper),
     )
     return InspectionScenario(bounds=bounds, receipt=receipt)

@@ -1,14 +1,29 @@
 """Independent checks for identified sets, not fitted policy effects."""
 
+from __future__ import annotations
+
+import hashlib
+import json
 import math
+import subprocess
+from dataclasses import asdict
 from fractions import Fraction
+from typing import TYPE_CHECKING
 
 import numpy as np
 import pytest
 from scipy.optimize import linprog
 
+from tobac.evidence import Scope
 from tobac.partial_identification import Interval, accounting_bounds, restriction_bounds
-from tobac.strategic_inspection import inspection_restriction_bounds
+from tobac.strategic_inspection import (
+    InspectionObservations,
+    inspection_restriction_bounds,
+    run_inspection_scenario,
+)
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 UNIT = Interval(1.0, 1.0)
 
@@ -109,6 +124,38 @@ def test_calibrated_ratio_keeps_a_feasible_exact_switching_boundary() -> None:
     assert result.quitting is not None
     assert Fraction(result.quitting.lower) <= Fraction(2, 3) <= Fraction(result.quitting.upper)
     assert math.nextafter(result.quitting.lower, math.inf) == result.quitting.upper
+
+
+def test_native_switching_support_excludes_a_ratio_beyond_its_exact_endpoint(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    scope = Scope("Synthetic geography", "Adults", "2024-01-01", "2024-12-31", "ratio")
+    request = b"{}"
+    native_endpoint = {"numerator": "1", "denominator": "3"}
+    receipt = {
+        "schema_version": "tobac-inspection-result/0.1",
+        "method": "paignia_detection_nash_projection",
+        "input_sha256": f"sha256:{hashlib.sha256(request).hexdigest()}",
+        "scope": {
+            "observations": asdict(scope),
+            "product": "cigarettes",
+            "switching_measure": "evasion_among_continuing_consumers",
+        },
+        "projection": {"evasion": {"lower": native_endpoint, "upper": native_endpoint}},
+    }
+    binary = tmp_path / "tobac-inspection"
+    binary.touch()
+    monkeypatch.setattr(
+        "tobac.strategic_inspection.subprocess.run",
+        lambda args, **_: subprocess.CompletedProcess(args, 0, stdout=json.dumps(receipt).encode()),
+    )
+    # This binary float implies switching slightly greater than the exact 1/3 support.
+    lawful = float(Fraction(2, 3))
+    observations = InspectionObservations(scope, "cigarettes", UNIT, Interval(lawful, lawful), UNIT, UNIT)
+    result = run_inspection_scenario(binary, request, observations)
+
+    assert not result.bounds.feasible
+    assert result.bounds.quitting is result.bounds.switching is None
 
 
 def test_switching_support_cannot_override_incompatible_observations() -> None:
