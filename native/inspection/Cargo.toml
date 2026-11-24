@@ -1,0 +1,18 @@
+[package]
+name = "tobac-inspection"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.99.1"
+description = "Native Paignia inspection projection using Dapane-valued enforcement costs"
+license = "Apache-2.0"
+publish = false
+
+[dependencies]
+dapane-decision-fiscal = { git = "https://github.com/edithatogo/dapane.git", rev = "d02095d9bf7e89c6fc00805c4bc484a3ead3e33b" }
+paignia-solve = { git = "https://github.com/edithatogo/paignia.git", rev = "a09c3f8359363b228154c9e07af20a36bf0dcd4e" }
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = { version = "=1.0.154", features = ["raw_value"] }
+sha2 = "=0.11.1"
+
+[lints.rust]
+unsafe_code = "forbid"
