@@ -128,6 +128,8 @@ def cohort_state_counts(
 
     Pass a table from read_cohort_transitions and every initial member keyed
     by (entity index, generation), including members with no transitions.
+    Stratum assignments are fixed. For a checkpoint-start stream, use a
+    cutoff at or after the initial checkpoint.
     """
     if type(at_tick) is not int or not 0 <= at_tick < (1 << 128):
         msg = "Cohort cutoff must be an unsigned 128-bit tick"
