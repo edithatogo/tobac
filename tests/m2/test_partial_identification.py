@@ -6,7 +6,8 @@ import hashlib
 import json
 import math
 import subprocess
-from dataclasses import asdict
+from copy import deepcopy
+from dataclasses import asdict, replace
 from fractions import Fraction
 from typing import TYPE_CHECKING
 
@@ -17,13 +18,42 @@ from scipy.optimize import linprog
 from tobac.evidence import Scope
 from tobac.partial_identification import Interval, accounting_bounds, restriction_bounds
 from tobac.strategic_inspection import (
+    InspectionDecisionDraw,
     InspectionObservations,
+    InspectionScenario,
     inspection_restriction_bounds,
+    prepare_inspection_paired_draws,
     run_inspection_scenario,
 )
 
 if TYPE_CHECKING:
     from pathlib import Path
+
+
+def _inspection_observations(scope: Scope, total: Interval, lawful: Interval) -> InspectionObservations:
+    return InspectionObservations(
+        scope,
+        "cigarettes",
+        total,
+        lawful,
+        UNIT,
+        UNIT,
+        channel="border_seizure",
+        scenario_id="synthetic-border",
+        calibration_sha256="sha256:" + "a" * 64,
+    )
+
+
+def _native_scope(observations: InspectionObservations) -> dict[str, object]:
+    return {
+        "observations": asdict(observations.scope),
+        "product": observations.product,
+        "switching_measure": "evasion_among_continuing_consumers",
+        "channel": observations.channel,
+        "scenario_id": observations.scenario_id,
+        "calibration_sha256": observations.calibration_sha256,
+    }
+
 
 UNIT = Interval(1.0, 1.0)
 
@@ -132,15 +162,14 @@ def test_native_switching_support_excludes_a_ratio_beyond_its_exact_endpoint(
     scope = Scope("Synthetic geography", "Adults", "2024-01-01", "2024-12-31", "ratio")
     request = b"{}"
     native_endpoint = {"numerator": "1", "denominator": "3"}
+    # This binary float implies switching slightly greater than the exact 1/3 support.
+    lawful = float(Fraction(2, 3))
+    observations = _inspection_observations(scope, UNIT, Interval(lawful, lawful))
     receipt = {
         "schema_version": "tobac-inspection-result/0.1",
         "method": "paignia_detection_nash_projection",
         "input_sha256": f"sha256:{hashlib.sha256(request).hexdigest()}",
-        "scope": {
-            "observations": asdict(scope),
-            "product": "cigarettes",
-            "switching_measure": "evasion_among_continuing_consumers",
-        },
+        "scope": _native_scope(observations),
         "projection": {"evasion": {"lower": native_endpoint, "upper": native_endpoint}},
     }
     binary = tmp_path / "tobac-inspection"
@@ -149,13 +178,117 @@ def test_native_switching_support_excludes_a_ratio_beyond_its_exact_endpoint(
         "tobac.strategic_inspection.subprocess.run",
         lambda args, **_: subprocess.CompletedProcess(args, 0, stdout=json.dumps(receipt).encode()),
     )
-    # This binary float implies switching slightly greater than the exact 1/3 support.
-    lawful = float(Fraction(2, 3))
-    observations = InspectionObservations(scope, "cigarettes", UNIT, Interval(lawful, lawful), UNIT, UNIT)
     result = run_inspection_scenario(binary, request, observations)
 
     assert not result.bounds.feasible
     assert result.bounds.quitting is result.bounds.switching is None
+
+
+@pytest.mark.parametrize(
+    ("field_name", "other_value"),
+    [
+        ("channel", "retail_inspection"),
+        ("scenario_id", "other-scenario"),
+        ("calibration_sha256", "sha256:" + "b" * 64),
+    ],
+)
+def test_native_receipt_must_match_the_declared_inspection_context(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    field_name: str,
+    other_value: str,
+) -> None:
+    scope = Scope("Synthetic geography", "Adults", "2024-01-01", "2024-12-31", "ratio")
+    observations = _inspection_observations(scope, UNIT, Interval(0.75, 0.75))
+    request = b"{}"
+    receipt = {
+        "schema_version": "tobac-inspection-result/0.1",
+        "method": "paignia_detection_nash_projection",
+        "input_sha256": f"sha256:{hashlib.sha256(request).hexdigest()}",
+        "scope": {**_native_scope(observations), field_name: other_value},
+    }
+    binary = tmp_path / "tobac-inspection"
+    binary.touch()
+    monkeypatch.setattr(
+        "tobac.strategic_inspection.subprocess.run",
+        lambda args, **_: subprocess.CompletedProcess(args, 0, stdout=json.dumps(receipt).encode()),
+    )
+    with pytest.raises(ValueError, match="differs from the declared M2a context"):
+        run_inspection_scenario(binary, request, observations)
+
+
+def _decision_draw(draw_id: str, continuing: Fraction, lawful: Fraction) -> InspectionDecisionDraw:
+    scope = Scope("Synthetic geography", "Adults", "2024-01-01", "2024-12-31", "ratio")
+    observations = _inspection_observations(scope, Interval(0.25, 1), Interval(0.375, 0.375))
+    support = (Fraction(1, 4), Fraction(1, 2))
+    bounds = inspection_restriction_bounds(
+        observations.total,
+        observations.lawful,
+        total_bias=UNIT,
+        lawful_bias=UNIT,
+        switching_support=Interval(0.25, 0.5),
+    )
+    receipt: dict[str, object] = {
+        "fiscal": {
+            "key": {
+                "scenario_id": observations.scenario_id,
+                "strategy_id": "inspect",
+                "perspective": "public",
+                "subgroup_id": "synthetic subgroup",
+                "draw_id": draw_id,
+                "replication_id": "rep-" + draw_id,
+            },
+            "comparator_strategy_id": "baseline",
+            "draw_set_digest": "sha256:" + "c" * 64,
+            "currency": "NZD",
+            "price_year": 2026,
+            "resource_basis": "public_expenditure",
+        },
+    }
+    return InspectionDecisionDraw(
+        InspectionScenario(bounds, receipt, observations, support), continuing, lawful, 0.5
+    )
+
+
+def _synthetic_net_benefits(draw: InspectionDecisionDraw) -> tuple[float, float]:
+    switching = draw.switching
+    assert switching is not None
+    return float(8 * switching - 3), 0.0
+
+
+def test_paired_handoff_values_jointly_admissible_draws() -> None:
+    a = _decision_draw("a", Fraction(1, 2), Fraction(3, 8))
+    b = _decision_draw("b", Fraction(3, 4), Fraction(3, 8))
+    paired = prepare_inspection_paired_draws([a, b], _synthetic_net_benefits, value_unit="synthetic utility")
+    assert paired.strategy_ids == ("inspect", "baseline")
+    assert [key["replication_id"] for key in paired.fiscal_keys] == ["rep-a", "rep-b"]
+    assert [row["draw_id"] for row in paired.rows] == ["a", "a", "b", "b"]
+    assert [row["net_benefit"] for row in paired.rows] == [-1, 0, 1, 0]
+
+
+def test_paired_handoff_rejects_an_infeasible_marginal_combination() -> None:
+    # Quitting and switching would each be 1/2. Their combination requires
+    # lawful use of 1/4, outside the exact observed 3/8 constraint.
+    draw = _decision_draw("a", Fraction(1, 2), Fraction(1, 4))
+    with pytest.raises(ValueError, match="Joint draw is outside"):
+        prepare_inspection_paired_draws([draw], _synthetic_net_benefits, value_unit="synthetic utility")
+
+
+def test_paired_handoff_rejects_mixed_draw_sets_and_duplicate_ids() -> None:
+    a = _decision_draw("a", Fraction(1, 2), Fraction(3, 8))
+    b = _decision_draw("b", Fraction(3, 4), Fraction(3, 8))
+    modified = deepcopy(b.scenario.receipt)
+    fiscal = modified["fiscal"]
+    assert isinstance(fiscal, dict)
+    fiscal["draw_set_digest"] = "sha256:" + "d" * 64
+    with pytest.raises(ValueError, match="share one matched fiscal"):
+        prepare_inspection_paired_draws(
+            [a, replace(b, scenario=replace(b.scenario, receipt=modified))],
+            _synthetic_net_benefits,
+            value_unit="synthetic utility",
+        )
+    with pytest.raises(ValueError, match="Duplicate inspection draw ID"):
+        prepare_inspection_paired_draws([a, a], _synthetic_net_benefits, value_unit="synthetic utility")
 
 
 def test_switching_support_cannot_override_incompatible_observations() -> None:

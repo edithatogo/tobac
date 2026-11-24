@@ -1082,6 +1082,7 @@
     "native/inspection/src/main.rs",
     "native/inspection/tests/fixtures/fiscal-nz-synthetic.json",
     "native/inspection/tests/inspection.rs",
+    "native/inspection/tests/voiage_handoff.py",
     "noxfile.py",
     "pyproject.toml",
     "renovate.json",

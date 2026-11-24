@@ -6,13 +6,14 @@ import hashlib
 import json
 import math
 import subprocess
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from fractions import Fraction
-from typing import TYPE_CHECKING, cast
+from typing import TYPE_CHECKING, Literal, cast
 
 from tobac.partial_identification import Interval, RatioBounds, restriction_bounds
 
 if TYPE_CHECKING:
+    from collections.abc import Callable, Sequence
     from pathlib import Path
 
     from tobac.evidence import Scope
@@ -28,6 +29,9 @@ class InspectionObservations:
     lawful: Interval | None
     total_bias: Interval
     lawful_bias: Interval
+    channel: Literal["border_seizure", "retail_inspection"] = field(kw_only=True)
+    scenario_id: str = field(kw_only=True)
+    calibration_sha256: str = field(kw_only=True)
 
 
 @dataclass(frozen=True)
@@ -36,6 +40,39 @@ class InspectionScenario:
 
     bounds: RatioBounds
     receipt: dict[str, object]
+    observations: InspectionObservations
+    evasion_support: tuple[Fraction, Fraction]
+
+
+@dataclass(frozen=True)
+class InspectionDecisionDraw:
+    """One specified joint outcome and prior weight for a reviewed scenario."""
+
+    scenario: InspectionScenario
+    continuing: Fraction
+    lawful: Fraction
+    weight: float
+
+    @property
+    def switching(self) -> Fraction | None:
+        """Return the switching share when there is continuing consumption."""
+        if self.continuing:
+            return 1 - self.lawful / self.continuing
+        return None
+
+
+@dataclass(frozen=True)
+class InspectionPairedDraws:
+    """Voiage long-table inputs with their original fiscal pairing evidence."""
+
+    dataset_id: str
+    strategy_ids: tuple[str, str]
+    perspective: str
+    subgroup_id: str
+    draw_set_digest: str
+    value_unit: str
+    fiscal_keys: tuple[dict[str, object], ...]
+    rows: list[dict[str, str | float]]
 
 
 def _calibrated_ratio(observed: Interval | None, bias: Interval) -> tuple[Fraction, Fraction]:
@@ -144,13 +181,21 @@ def _receipt_ratio(value: object) -> Fraction:
     return Fraction(int(numerator), int(denominator))
 
 
+def _receipt_text(fields: dict[str, object], name: str) -> str:
+    value = fields.get(name)
+    if not isinstance(value, str) or not value.strip():
+        msg = f"Native inspection receipt requires {name}"
+        raise ValueError(msg)
+    return value
+
+
 def run_inspection_scenario(
     executable: Path, request: bytes, observations: InspectionObservations
 ) -> InspectionScenario:
     """Run the approved locked Rust executable and condition the matched M2a ratios.
 
-    The request carries an explicit switching measure and calibration digest.
-    The returned receipt retains exact native endpoints, valuations and draw keys.
+    Select the expected channel, scenario and calibration independently of the
+    request. The returned receipt retains exact endpoints and fiscal draw keys.
     """
     result = subprocess.run(  # noqa: S603 -- The caller selects a trusted installed binary, with no shell.
         [str(executable.resolve(strict=True))],
@@ -179,6 +224,13 @@ def run_inspection_scenario(
     ):
         msg = "Native switching calibration and M2a observation scopes differ"
         raise ValueError(msg)
+    if (
+        scope.get("channel") != observations.channel
+        or scope.get("scenario_id") != observations.scenario_id
+        or scope.get("calibration_sha256") != observations.calibration_sha256
+    ):
+        msg = "Native channel, scenario or calibration differs from the declared M2a context"
+        raise ValueError(msg)
 
     evasion = _receipt_object(_receipt_object(receipt.get("projection")).get("evasion"))
     lower, upper = _receipt_ratio(evasion.get("lower")), _receipt_ratio(evasion.get("upper"))
@@ -192,4 +244,115 @@ def run_inspection_scenario(
         lawful_bias=observations.lawful_bias,
         switching_support=(lower, upper),
     )
-    return InspectionScenario(bounds=bounds, receipt=receipt)
+    return InspectionScenario(bounds, receipt, observations, (lower, upper))
+
+
+def _check_inspection_draw(draw: InspectionDecisionDraw) -> None:
+    scenario = draw.scenario
+    observations = scenario.observations
+    total_lo, total_hi = _calibrated_ratio(observations.total, observations.total_bias)
+    lawful_lo, lawful_hi = _calibrated_ratio(observations.lawful, observations.lawful_bias)
+    evasion_lo, evasion_hi = scenario.evasion_support
+    switching = draw.switching
+    if (
+        not scenario.bounds.feasible
+        or not 0 <= draw.lawful <= draw.continuing <= 1
+        or not total_lo <= draw.continuing <= total_hi
+        or not lawful_lo <= draw.lawful <= lawful_hi
+        or (switching is not None and not evasion_lo <= switching <= evasion_hi)
+    ):
+        msg = "Joint draw is outside the matched observations and native switching support"
+        raise ValueError(msg)
+
+
+def prepare_inspection_paired_draws(
+    draws: Sequence[InspectionDecisionDraw],
+    net_benefits: Callable[[InspectionDecisionDraw], tuple[float, float]],
+    *,
+    value_unit: str,
+) -> InspectionPairedDraws:
+    """Prepare one explicit joint model for Voiage's censored EVSI input.
+
+    The caller supplies prior weights and a valuation returning the strategy
+    and comparator net benefits in the stated unit. Every draw must satisfy
+    the original observation and native switching constraints jointly. Keep
+    candidate models separate when evaluating a set of priors or outcomes.
+    """
+    if not value_unit.strip():
+        msg = "A declared net-benefit unit is required"
+        raise ValueError(msg)
+    if any(not math.isfinite(draw.weight) or draw.weight < 0 for draw in draws):
+        msg = "Draw weights must be finite and nonnegative"
+        raise ValueError(msg)
+
+    context = None
+    seen: set[str] = set()
+    matched: list[tuple[InspectionDecisionDraw, str, dict[str, object]]] = []
+    for draw in draws:
+        _check_inspection_draw(draw)
+        scenario = draw.scenario
+        obs = scenario.observations
+        fiscal = _receipt_object(scenario.receipt.get("fiscal"))
+        key = _receipt_object(fiscal.get("key"))
+        scenario_id = _receipt_text(key, "scenario_id")
+        strategy = _receipt_text(key, "strategy_id")
+        comparator = _receipt_text(fiscal, "comparator_strategy_id")
+        perspective = _receipt_text(key, "perspective")
+        subgroup = _receipt_text(key, "subgroup_id")
+        digest = _receipt_text(fiscal, "draw_set_digest")
+        draw_id = _receipt_text(key, "draw_id")
+        _receipt_text(key, "replication_id")
+        draw_context = (
+            (scenario_id, (strategy, comparator), perspective, subgroup, digest),
+            obs.scope,
+            obs.product,
+            obs.channel,
+            obs.calibration_sha256,
+            fiscal.get("currency"),
+            fiscal.get("price_year"),
+            fiscal.get("resource_basis"),
+        )
+        if (
+            scenario_id != obs.scenario_id
+            or strategy == comparator
+            or (context is not None and context != draw_context)
+        ):
+            msg = "Inspection draws must share one matched fiscal and calibration scope"
+            raise ValueError(msg)
+        if draw_id in seen:
+            msg = f"Duplicate inspection draw ID {draw_id}"
+            raise ValueError(msg)
+        context = draw_context
+        seen.add(draw_id)
+        matched.append((draw, draw_id, dict(key)))
+
+    if context is None or not any(draw.weight > 0 for draw in draws):
+        msg = "Matched draws with positive prior mass are required"
+        raise ValueError(msg)
+    scenario_id, strategy_ids, perspective, subgroup, digest = context[0]
+    rows: list[dict[str, str | float]] = []
+    for draw, draw_id, _ in matched:
+        for identifier, value in zip(strategy_ids, net_benefits(draw), strict=True):
+            if not math.isfinite(value):
+                msg = "Inspection net benefits must be finite"
+                raise ValueError(msg)
+            rows.append(
+                {
+                    "draw_id": draw_id,
+                    "strategy_id": identifier,
+                    "perspective": perspective,
+                    "subgroup_id": subgroup,
+                    "net_benefit": value,
+                    "weight": draw.weight,
+                }
+            )
+    return InspectionPairedDraws(
+        scenario_id,
+        strategy_ids,
+        perspective,
+        subgroup,
+        digest,
+        value_unit,
+        tuple(key for _, _, key in matched),
+        rows,
+    )
