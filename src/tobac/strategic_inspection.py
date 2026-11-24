@@ -38,6 +38,27 @@ class InspectionScenario:
     receipt: dict[str, object]
 
 
+def _calibrated_ratio(observed: Interval | None, bias: Interval) -> tuple[Fraction, Fraction]:
+    if bias.lower <= 0:
+        msg = "A strictly positive reporting bias is required"
+        raise ValueError(msg)
+    if observed is None:
+        return Fraction(0), Fraction(1)
+    if observed.lower < 0:
+        msg = "Nonnegative quantities and strictly positive calibration required"
+        raise ValueError(msg)
+    return Fraction(observed.lower) / Fraction(bias.upper), Fraction(observed.upper) / Fraction(bias.lower)
+
+
+def _enclosing_interval(lower: Fraction, upper: Fraction) -> Interval:
+    lower_float, upper_float = float(lower), float(upper)
+    if Fraction(lower_float) > lower:
+        lower_float = math.nextafter(lower_float, -math.inf)
+    if Fraction(upper_float) < upper:
+        upper_float = math.nextafter(upper_float, math.inf)
+    return Interval(lower_float, upper_float)
+
+
 def inspection_restriction_bounds(
     total: Interval | None,
     lawful: Interval | None,
@@ -56,23 +77,20 @@ def inspection_restriction_bounds(
     if switching_support.lower < 0 or switching_support.upper > 1:
         msg = "Switching support must lie within [0, 1]"
         raise ValueError(msg)
-    unrestricted = restriction_bounds(total, lawful, total_bias=total_bias, lawful_bias=lawful_bias)
-    if not unrestricted.feasible or switching_support == Interval(0, 1):
-        return unrestricted
+    if switching_support == Interval(0, 1):
+        return restriction_bounds(total, lawful, total_bias=total_bias, lawful_bias=lawful_bias)
 
-    total_ratio = Interval(0, 1) if total is None else total.divide_positive(total_bias)
-    lawful_ratio = Interval(0, 1) if lawful is None else lawful.divide_positive(lawful_bias)
+    minimum_total, maximum_total = _calibrated_ratio(total, total_bias)
+    minimum_lawful, maximum_lawful = _calibrated_ratio(lawful, lawful_bias)
     # For remaining consumption t and lawful share s, lawful use is t*s.
     # A given t admits a feasible s when t*max(s) >= min(lawful) and
-    # t*min(s) <= max(lawful). Keep these comparisons exact at point boundaries.
-    minimum_lawful, maximum_lawful = Fraction(lawful_ratio.lower), Fraction(lawful_ratio.upper)
+    # t*min(s) <= max(lawful). Keep the calibrated ratios exact through this intersection.
     minimum_share = 1 - Fraction(switching_support.upper)
     maximum_share = 1 - Fraction(switching_support.lower)
     if maximum_share == 0 and minimum_lawful > 0:
         return RatioBounds(feasible=False, quitting=None, switching=None)
 
-    minimum_total = Fraction(total_ratio.lower)
-    maximum_total = min(Fraction(1), Fraction(total_ratio.upper))
+    maximum_total = min(Fraction(1), maximum_total)
     if maximum_share > 0:
         minimum_total = max(minimum_total, minimum_lawful / maximum_share)
     if minimum_share > 0:
@@ -80,13 +98,13 @@ def inspection_restriction_bounds(
     if minimum_total > maximum_total:
         return RatioBounds(feasible=False, quitting=None, switching=None)
 
-    quitting = Interval(float(1 - maximum_total), float(1 - minimum_total))
+    quitting = _enclosing_interval(1 - maximum_total, 1 - minimum_total)
     if minimum_total == 0:
         switching = Interval(0, 1)
     else:
-        switching = Interval(
-            float(1 - min(maximum_share, maximum_lawful / minimum_total)),
-            float(1 - max(minimum_share, minimum_lawful / maximum_total)),
+        switching = _enclosing_interval(
+            1 - min(maximum_share, maximum_lawful / minimum_total),
+            1 - max(minimum_share, minimum_lawful / maximum_total),
         )
     return RatioBounds(feasible=True, quitting=quitting, switching=switching)
 
@@ -149,16 +167,11 @@ def run_inspection_scenario(
     if not 0 <= lower <= upper <= 1:
         msg = "Native evasion bounds must be ordered proportions"
         raise ValueError(msg)
-    lower_float, upper_float = float(lower), float(upper)
-    if Fraction(lower_float) > lower:
-        lower_float = math.nextafter(lower_float, -math.inf)
-    if Fraction(upper_float) < upper:
-        upper_float = math.nextafter(upper_float, math.inf)
     bounds = inspection_restriction_bounds(
         observations.total,
         observations.lawful,
         total_bias=observations.total_bias,
         lawful_bias=observations.lawful_bias,
-        switching_support=Interval(lower_float, upper_float),
+        switching_support=_enclosing_interval(lower, upper),
     )
     return InspectionScenario(bounds=bounds, receipt=receipt)

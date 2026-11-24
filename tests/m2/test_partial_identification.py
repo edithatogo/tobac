@@ -1,6 +1,7 @@
 """Independent checks for identified sets, not fitted policy effects."""
 
 import math
+from fractions import Fraction
 
 import numpy as np
 import pytest
@@ -90,6 +91,24 @@ def test_switching_support_tightens_quitting_as_well_as_switching() -> None:
     assert result.feasible
     assert result.quitting == Interval(0.25, 0.5)
     assert result.switching == Interval(0.25, 0.5)
+
+
+def test_calibrated_ratio_keeps_a_feasible_exact_switching_boundary() -> None:
+    quarter = Interval(0.25, 0.25)
+    # The total ratio is exactly 1/3 and the lawful ratio is 1/4.
+    # At switching 1/4, the lawful share of continuing use is 3/4.
+    result = inspection_restriction_bounds(
+        quarter,
+        quarter,
+        total_bias=Interval(0.75, 0.75),
+        lawful_bias=UNIT,
+        switching_support=quarter,
+    )
+    assert result.feasible
+    assert result.switching == quarter
+    assert result.quitting is not None
+    assert Fraction(result.quitting.lower) <= Fraction(2, 3) <= Fraction(result.quitting.upper)
+    assert math.nextafter(result.quitting.lower, math.inf) == result.quitting.upper
 
 
 def test_switching_support_cannot_override_incompatible_observations() -> None:
