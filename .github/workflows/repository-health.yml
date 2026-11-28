@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: asamarts/alint@5054852d00d47affc9ea71440240147d9999f4d3 # v0.22.1
+      - uses: asamarts/alint@465e70c48ec13774c8cb3bb58856b58b71e3a93d # v0.23.0
         with:
           config: .alint.yml
 
